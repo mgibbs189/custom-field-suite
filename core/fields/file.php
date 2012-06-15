@@ -45,6 +45,28 @@ class cfs_File extends cfs_Field
     <?php
     }
 
+    function options_html($key, $field)
+    {
+    ?>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label><?php _e('Return Value', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => 'select',
+                        'input_name' => "cfs[fields][$key][options][return_value]",
+                        'options' => array('choices' => "url : File URL\nid : Attachment ID"),
+                        'input_class' => '',
+                        'value' => $this->get_option($field, 'return_value', 'url'),
+                    ));
+                ?>
+            </td>
+        </tr>
+    <?php
+    }
+
     function popup_head()
     {
         // Don't interfere with the default Media popup
@@ -128,9 +150,10 @@ class cfs_File extends cfs_Field
 
     function format_value_for_api($value, $field)
     {
-        if (is_numeric($value[0]))
+        if (ctype_digit($value[0]))
         {
-            return wp_get_attachment_url($value[0]);
+            $return_value = $this->get_option($field, 'return_value', 'url');
+            return ('url' == $return_value[0]) ? wp_get_attachment_url($value[0]) : (int) $value[0];
         }
         return $value[0];
     }
