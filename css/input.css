@@ -1,0 +1,193 @@
+#poststuff .cfs_input .inside {
+    margin: 0;
+    padding: 0;
+}
+
+.cfs_input .field {
+    padding: 10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.cfs_input .field input[type="text"],
+.cfs_input .field textarea,
+.cfs_input .field select {
+    width: 99.8%;
+}
+
+.cfs_input .field label {
+    font-weight: bold;
+    padding: 0 0 6px 0;
+    cursor: default;
+    display: block;
+}
+
+.cfs_input .field p.instructions {
+    margin: 0 0 6px 0;
+    font-size: 11px;
+    color: #999;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Select
+---------------------------------------------------------------------------------------------*/
+
+.cfs_select select.multiple {
+    height: 100px !important;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Date
+---------------------------------------------------------------------------------------------*/
+
+.cfs_input .cfs_date input.date {
+    width: 220px;
+    background: #fff url(../images/icon-calendar.png) 98% 50% no-repeat;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Wysiwyg
+---------------------------------------------------------------------------------------------*/
+
+.cfs_wysiwyg table.mceLayout {
+    background: #fff;
+}
+
+.cfs_wysiwyg textarea {
+    height: 320px;
+}
+
+.cfs_wysiwyg .wp_themeSkin .mceStatusbar a.mceResize {
+    top: -2px !important;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Relationship, User
+---------------------------------------------------------------------------------------------*/
+
+.cfs_relationship .post_list,
+.cfs_user .post_list {
+    float: left;
+    width: 50%;
+    background: #fff;
+    height: 125px;
+    overflow-y: scroll;
+}
+
+.cfs_relationship .post_list div,
+.cfs_user .post_list div {
+    padding: 4px 6px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.cfs_relationship .post_list div:last-child,
+.cfs_user .post_list div:last-child {
+    border-bottom: none;
+}
+
+.cfs_relationship .post_list div:hover,
+.cfs_user .post_list div:hover {
+    background: #eee;
+}
+
+.cfs_relationship .available_posts div.used,
+.cfs_user .available_posts div.used{
+    display: none;
+}
+
+.cfs_relationship .selected_posts div,
+.cfs_user .selected_posts div {
+    cursor: move;
+}
+
+.cfs_relationship .selected_posts div span.remove,
+.cfs_user .selected_posts div span.remove {
+    float: right;
+    width: 16px;
+    height: 16px;
+    background: url(../images/button_remove.png) no-repeat;
+    cursor: pointer;
+}
+
+.cfs_relationship .selected_posts div span.remove:hover,
+.cfs_user .selected_posts div span.remove:hover{
+    background-position: 0 100%;
+}
+
+.cfs_relationship .filter_posts,
+.cfs_user .filter_posts {
+    margin-bottom: 5px;
+}
+
+.cfs_input .field .cfs_relationship .cfs_filter_input,
+.cfs_input .field .cfs_user .cfs_filter_input{
+    width: 220px;
+}
+
+.cfs_relationship .cfs_filter_help,
+.cfs_user .cfs_filter_help {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    background: url(../images/icon-help.png) no-repeat;
+    vertical-align: top;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Loop
+---------------------------------------------------------------------------------------------*/
+
+.cfs_delete_field {
+    float: right;
+    width: 16px;
+    height: 16px;
+    background: url(../images/button_remove.png) no-repeat;
+    cursor: pointer;
+}
+
+.cfs_delete_field:hover {
+    background-position: 0 100%;
+}
+
+.cfs_input .cfs_loop label {
+    padding: 6px 0 0 0;
+}
+
+.cfs_input .cfs_loop .field {
+    border: none;
+    padding: 6px 0;
+}
+
+.cfs_loop table {
+    margin-bottom: 6px;
+}
+
+.cfs_loop td {
+    padding: 8px;
+    border: 0;
+}
+
+.cfs_loop td.remove {
+    width: 16px;
+}
+
+.cfs_loop td.remove span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/button_remove.png) no-repeat;
+    cursor: pointer;
+}
+
+.cfs_loop td.remove span:hover {
+    background-position: 0 100%;
+}
+
+.cfs_loop .loop_wrapper {
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 5px;
+}

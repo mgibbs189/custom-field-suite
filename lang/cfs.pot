@@ -1,0 +1,255 @@
+# Copyright (C) 2012 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"POT-Creation-Date: 2012-03-07 20:42:40+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: cfs.php:312 core/actions/admin_footer.php:12
+msgid "Custom Field Suite"
+msgstr ""
+
+#: cfs.php:313 core/admin/page_import.php:82
+msgid "Custom Field Import"
+msgstr ""
+
+#: cfs.php:313
+msgid "CFS Import"
+msgstr ""
+
+#: core/actions/admin_footer.php:15
+msgid "Changelog"
+msgstr ""
+
+#: core/actions/admin_footer.php:16
+msgid "See updates for"
+msgstr ""
+
+#: core/actions/admin_footer.php:19
+msgid "Getting started?"
+msgstr ""
+
+#: core/actions/admin_footer.php:21
+msgid "View the plugin website"
+msgstr ""
+
+#: core/actions/admin_footer.php:25
+msgid "Please show your support!"
+msgstr ""
+
+#: core/actions/admin_footer.php:27
+msgid "Rate the plugin"
+msgstr ""
+
+#: core/actions/admin_head.php:36
+msgid "Fields"
+msgstr ""
+
+#: core/actions/admin_head.php:37
+msgid "Placement Rules"
+msgstr ""
+
+#: core/actions/admin_head.php:38
+msgid "Extras"
+msgstr ""
+
+#: core/actions/init.php:13
+msgid "Field Groups"
+msgstr ""
+
+#: core/actions/init.php:14
+msgid "Field Group"
+msgstr ""
+
+#: core/actions/init.php:15
+msgid "Add New"
+msgstr ""
+
+#: core/actions/init.php:16
+msgid "Add New Field Group"
+msgstr ""
+
+#: core/actions/init.php:17
+msgid "Edit Field Group"
+msgstr ""
+
+#: core/actions/init.php:18
+msgid "New Field Group"
+msgstr ""
+
+#: core/actions/init.php:19
+msgid "View Field Group"
+msgstr ""
+
+#: core/actions/init.php:20
+msgid "Search Field Groups"
+msgstr ""
+
+#: core/actions/init.php:21
+msgid "No Field Groups found"
+msgstr ""
+
+#: core/actions/init.php:22
+msgid "No Field Groups found in Trash"
+msgstr ""
+
+#: core/actions/init.php:49 core/admin/field_html.php:30
+msgid "Label"
+msgstr ""
+
+#: core/admin/field_html.php:31
+msgid "The field name that editors will see"
+msgstr ""
+
+#: core/admin/field_html.php:41
+msgid "Name"
+msgstr ""
+
+#: core/admin/field_html.php:42
+msgid "Only lowercase letters and underscores"
+msgstr ""
+
+#: core/admin/field_html.php:51
+msgid "Field Type"
+msgstr ""
+
+#: core/admin/field_html.php:68
+msgid "Field Instructions"
+msgstr ""
+
+#: core/admin/field_html.php:69
+msgid "Instructions for authors when entering field data"
+msgstr ""
+
+#: core/admin/field_html.php:78 core/admin/field_html.php:83
+msgid "Save Field"
+msgstr ""
+
+#: core/admin/field_html.php:84
+msgid "or continue editing"
+msgstr ""
+
+#: core/admin/meta_box_fields.php:37
+msgid "Add New Field"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:58 core/fields/relationship.php:91
+msgid "Post Types"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:84
+msgid "User Roles"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:110
+msgid "Posts"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:136
+msgid "Taxonomy Terms"
+msgstr ""
+
+#: core/admin/page_import.php:86
+msgid "Import Successful"
+msgstr ""
+
+#: core/admin/page_import.php:90
+msgid ""
+"This tool will scan your existing custom fields, mapping values into Custom "
+"Field Suite."
+msgstr ""
+
+#: core/admin/page_import.php:91
+msgid "Select the field groups to populate:"
+msgstr ""
+
+#: core/admin/page_import.php:116
+msgid "Import Field Data"
+msgstr ""
+
+#: core/fields/date/date.php:9
+msgid "Date"
+msgstr ""
+
+#: core/fields/field.php:21 core/fields/text.php:9
+msgid "Text"
+msgstr ""
+
+#: core/fields/file.php:9
+msgid "File Upload"
+msgstr ""
+
+#: core/fields/file.php:42
+msgid "Add File"
+msgstr ""
+
+#: core/fields/file.php:43
+msgid "Remove"
+msgstr ""
+
+#: core/fields/file.php:71
+msgid "Attach File"
+msgstr ""
+
+#: core/fields/loop.php:9
+msgid "Loop"
+msgstr ""
+
+#: core/fields/loop.php:109
+msgid "Loop Fields"
+msgstr ""
+
+#: core/fields/relationship.php:9
+msgid "Relationship"
+msgstr ""
+
+#: core/fields/relationship.php:92
+msgid "Limit posts to the following types"
+msgstr ""
+
+#: core/fields/select.php:9
+msgid "Select"
+msgstr ""
+
+#: core/fields/select.php:95
+msgid "Choices"
+msgstr ""
+
+#: core/fields/select.php:96
+msgid "Enter one choice per line"
+msgstr ""
+
+#: core/fields/select.php:111
+msgid "Select multiple values?"
+msgstr ""
+
+#: core/fields/text.php:18 core/fields/textarea.php:25
+msgid "Default Value"
+msgstr ""
+
+#: core/fields/textarea.php:9
+msgid "Textarea"
+msgstr ""
+
+#: core/fields/true_false.php:9
+msgid "True / False"
+msgstr ""
+
+#: core/fields/true_false.php:27
+msgid "Message"
+msgstr ""
+
+#: core/fields/true_false.php:28
+msgid "The text beside the checkbox"
+msgstr ""
+
+#: core/fields/wysiwyg.php:9
+msgid "Wysiwyg Editor"
+msgstr ""

@@ -1,0 +1,236 @@
+/*---------------------------------------------------------------------------------------------
+    #cfs_fields (container)
+---------------------------------------------------------------------------------------------*/
+
+#cfs_fields .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#cfs_fields .table_footer {
+    padding: 5px;
+    text-align: right;
+}
+
+#cfs_fields .field.even td {
+    background-color: #fcfcfc;
+}
+
+#cfs_fields .fields {
+    margin: 0;
+    background: #91bbd9;
+}
+
+#cfs_fields .fields li {
+    margin: 0;
+}
+
+#cfs_fields .fields li li {
+    margin: 0 0 0 15px;
+}
+
+#cfs_fields .fields li.loop ul {
+    min-height: 10px;
+}
+
+#cfs_fields .field.form_open .field_meta td {
+    background-color: #777;
+    color: #fff;
+}
+
+#cfs_fields .field.form_open .field_meta td a {
+    color: #fff;
+}
+
+/*---------------------------------------------------------------------------------------------
+    field_meta
+---------------------------------------------------------------------------------------------*/
+
+.field_meta table {
+    border: 0;
+    border-radius: 0;
+}
+
+.field_meta td {
+    border: 0;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 8px 0;
+}
+
+.field_meta td.field_order {
+    width: 48px;
+    cursor: move;
+    background: url(../images/icon-drag.png) 10px 8px no-repeat;
+}
+
+.field_meta td.field_name {
+    width: 180px;
+}
+
+.field_meta td.field_type {
+    width: 100px;
+}
+
+/*---------------------------------------------------------------------------------------------
+    field_form
+---------------------------------------------------------------------------------------------*/
+
+.field_form {
+    padding: 0 0 10px 0;
+    background-color: #777;
+    display: none;
+}
+
+.field_form table {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.field_form td {
+    padding: 10px;
+}
+
+.field_form td.label {
+    width: 24%;
+    vertical-align: top;
+}
+
+.field_form td.label label {
+    color: #333;
+}
+
+.field_form td.label p.description {
+    color: #666;
+    font-style: normal;
+    margin: 6px 0 0 0 !important;
+}
+
+.field_form span.required {
+    margin-right: 5px;
+    color: red;
+}
+
+.field_form span.cfs_tooltip {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/icon-question.png) no-repeat;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+.field_form tr.field_basics table {
+    padding: 10px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.field_form tr.field_basics td {
+    padding: 0 20px 0 0;
+    border: none;
+}
+
+.field_form tr.field_basics td:last-child {
+    padding: 0;
+}
+
+.field_form tr.field_label td {
+    border-top: 0;
+}
+
+.field_form tr.field_actions td {
+    border-bottom: 0;
+}
+
+.field_form select,
+.field_form textarea,
+.field_form input[type="text"] {
+    width: 99.95%;
+    height: auto;
+    padding: 5px;
+    outline: none;
+}
+
+.field_form select.multiple {
+    height: 100px;
+}
+
+.ui-sortable-placeholder {
+    height: 5px;
+    background-color: orange;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Buttons, links
+---------------------------------------------------------------------------------------------*/
+
+span.cfs_delete_field {
+    text-decoration: underline;
+    cursor: pointer;
+    color: red;
+}
+
+span.cfs_delete_field:hover {
+    text-decoration: none;
+    background: red;
+    color: #fff;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Options
+---------------------------------------------------------------------------------------------*/
+
+#cfs_rules .inside,
+#cfs_extras .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#cfs_rules table td,
+#cfs_extras table td {
+    padding: 10px;
+}
+
+#cfs_rules table td.label,
+#cfs_extras table td.label {
+    width: 24%;
+    vertical-align: top;
+}
+
+#cfs_rules table td.label label,
+#cfs_extras table td.label label {
+    font-weight: bold;
+    color: #333;
+}
+
+#cfs_rules table td.label p.description,
+#cfs_extras table td.label p.description {
+    color: #666;
+    font-style: normal;
+    margin: 6px 0 0 0 !important;
+}
+
+#cfs_rules table select,
+#cfs_extras table select,
+#cfs_rules table textarea,
+#cfs_extras table textarea,
+#cfs_rules table input[type="text"],
+#cfs_extras table input[type="text"] {
+    width: 99.95%;
+    height: auto;
+    padding: 5px;
+    outline: none;
+}
+
+#wpcontent #cfs_extras table select.multiple {
+    height: 60px;
+}
+
+/*---------------------------------------------------------------------------------------------
+    Hide some submit buttons
+---------------------------------------------------------------------------------------------*/
+
+#submitdiv #minor-publishing-actions,
+#submitdiv #misc-publishing-actions {
+    display: none;
+}
