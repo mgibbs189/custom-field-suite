@@ -171,11 +171,32 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($field_name, $post_id)
+    function get_reverse_related($field_name, $post_id, $options = array())
     {
         global $wpdb;
 
-        $sql = $wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key = %s AND meta_value = %s", $field_name, $post_id);
+        $options = (object) $options;
+
+        if (isset($options->post_type) && !empty($options->post_type))
+        {
+            $post_type = implode("','", (array) $options->post_type);
+
+            $sql = $wpdb->prepare("
+                SELECT m.post_id
+                FROM $wpdb->postmeta m
+                INNER JOIN $wpdb->posts p ON p.ID = m.post_id
+                WHERE p.post_type IN ('$post_type') AND m.meta_key = %s AND m.meta_value = %s",
+                $field_name, $post_id);
+        }
+        else
+        {
+            $sql = $wpdb->prepare("
+                SELECT post_id
+                FROM $wpdb->postmeta
+                WHERE meta_key = %s AND meta_value = %s",
+                $field_name, $post_id);
+        }
+
         $results = $wpdb->get_results($sql);
         $output = array();
 

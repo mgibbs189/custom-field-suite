@@ -258,9 +258,9 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($field_name, $post_id)
+    function get_reverse_related($field_name, $post_id, $options = array())
     {
-        return $this->api->get_reverse_related($field_name, $post_id);
+        return $this->api->get_reverse_related($field_name, $post_id, $options);
     }
 
 
