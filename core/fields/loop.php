@@ -53,6 +53,7 @@ class cfs_Loop extends cfs_Field
                     'input_name' => "cfs[input][clone][$field->id][value][]",
                     'input_class' => $field->type,
                     'options' => $field->options,
+                    'value' => $this->get_option($field, 'default_value'),
                 ));
             ?>
             <?php endif; ?>
