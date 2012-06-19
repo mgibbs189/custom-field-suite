@@ -21,7 +21,7 @@ Visually create and manage custom fields. Custom Field Suite is a fork of the [A
 * Select (api returns array of values)
 * Relationship (api returns array of post IDs)
 * User (api returns array of user IDs)
-* File Upload (api returns file url)
+* File Upload (api returns file url or attachment ID)
 * Loop (a container for other fields, api returns array of arrays)
 
 = More Features =
@@ -45,6 +45,12 @@ Visually create and manage custom fields. Custom Field Suite is a fork of the [A
 1. A custom field group, with loop nesting.
 
 == Changelog ==
+
+= 1.5.4 =
+* Bugfix: loop field default values not showing
+* File upload: new "Return Value" option: File URL or Attachment ID
+* API: get_reverse_related() has new 3rd parameter: $options
+* API: get_reverse_related() supports post_type filtering
 
 = 1.5.3 =
 * Fixed UI issue with hierarchical Loop fields
