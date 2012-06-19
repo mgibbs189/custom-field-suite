@@ -17,7 +17,7 @@ class cfs_File extends cfs_Field
     {
         $file_url = $field->value;
 
-        if (is_numeric($field->value))
+        if (ctype_digit($field->value))
         {
             if (wp_attachment_is_image($field->value))
             {
@@ -153,7 +153,7 @@ class cfs_File extends cfs_Field
         if (ctype_digit($value[0]))
         {
             $return_value = $this->get_option($field, 'return_value', 'url');
-            return ('url' == $return_value[0]) ? wp_get_attachment_url($value[0]) : (int) $value[0];
+            return ('id' == $return_value[0]) ? (int) $value[0] : wp_get_attachment_url($value[0]);
         }
         return $value[0];
     }

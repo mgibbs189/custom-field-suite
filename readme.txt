@@ -46,6 +46,9 @@ Visually create and manage custom fields. Custom Field Suite is a fork of the [A
 
 == Changelog ==
 
+= 1.5.5 =
+* Bugfix: existing file upload fields should return URL instead of ID
+
 = 1.5.4 =
 * Bugfix: loop field default values not showing
 * File upload: new "Return Value" option: File URL or Attachment ID
