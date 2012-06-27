@@ -284,15 +284,16 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_input_fields($group_id = false, $parent_id = false)
+    function get_input_fields($group_id = false, $parent_id = false, $field_id = false)
     {
         global $post, $wpdb;
 
         $values = $this->get_fields($post->ID, array('for_input' => true));
 
         $where = 'WHERE 1';
-        $where .= (false !== $parent_id) ? " AND parent_id = $parent_id" : '';
         $where .= (false !== $group_id) ? " AND post_id = $group_id" : '';
+        $where .= (false !== $parent_id) ? " AND parent_id = $parent_id" : '';
+        $where .= (false !== $field_id) ? " AND id = $field_id" : '';
 
         $fields = array();
 

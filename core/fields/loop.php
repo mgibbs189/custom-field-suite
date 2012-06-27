@@ -72,7 +72,7 @@ class cfs_Loop extends cfs_Field
             <div class="field cfs_<?php echo $field->type; ?>">
             <?php if ('loop' == $field->type) : ?>
                 <div class="table_footer">
-                    <input type="button" class="button-primary cfs_add_field" value="Add Row" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
+                    <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', 'Add Row')); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
                 </div>
             <?php else : ?>
             <?php
@@ -99,7 +99,7 @@ class cfs_Loop extends cfs_Field
     <?php
         if ('loop' == $field->type)
         {
-            $this->recursive_clone($group_id, $field->id, $fields);
+            $this->recursive_clone($group_id, $field->id);
         }
     }
 
@@ -116,8 +116,8 @@ class cfs_Loop extends cfs_Field
         $offset = 0;
 
         if ($values) :
-        foreach ($values as $i => $value) :
-            $offset = ($i + 1);
+            foreach ($values as $i => $value) :
+                $offset = ($i + 1);
     ?>
         <div class="loop_wrapper">
             <a class="cfs_delete_field"></a>
@@ -148,8 +148,10 @@ class cfs_Loop extends cfs_Field
 
         <?php endforeach; endif; ?>
 
+        <?php $loop_field = $this->parent->api->get_input_fields(false, false, $field_id); ?>
+
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="Add Row" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', 'Add Row')); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
         </div>
     <?php
     }
