@@ -10,7 +10,9 @@ Visually create and manage custom fields.
 
 == Description ==
 
-Visually create and manage custom fields. Custom Field Suite is a fork of the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) plugin.
+Visually create and manage custom fields. Custom Field Suite is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/).
+
+[Custom Field Suite is now on Github!](https://github.com/logikal16/custom-field-suite)
 
 = Field Types =
 * Text (api returns text)
@@ -46,9 +48,13 @@ Visually create and manage custom fields. Custom Field Suite is a fork of the [A
 
 == Changelog ==
 
+= 1.5.7 =
+* Enhancement: removed eval() in the API
+* Bugfix: dashes in field name causes API error
+
 = 1.5.6 =
 * Bugfix: API ordering error when using multiple field groups on a single post
-* Loop fields now support a custom "Add Row" label
+* Loop field support for custom "Add Row" label
 
 = 1.5.5 =
 * Bugfix: existing file upload fields should return URL instead of ID

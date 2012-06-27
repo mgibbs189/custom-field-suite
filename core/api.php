@@ -99,12 +99,13 @@ class cfs_Api
             $results = $wpdb->get_results($sql);
             $num_rows = $wpdb->num_rows;
 
-            $prev_structure = '';
+            $prev_hierarchy = '';
             $prev_field_id = '';
             $prev_item = '';
 
             foreach ($results as $order_num => $result)
             {
+                $field = $fields[$result->field_id];
                 $current_item = "{$result->hierarchy}.{$result->weight}.{$result->field_id}";
 
                 if (!empty($result->hierarchy))
@@ -128,37 +129,62 @@ class cfs_Api
                         $hierarchy = $result->hierarchy;
                     }
 
-                    $structure = str_replace(':', '][', $hierarchy);
-                    eval("\$field_data[$structure][] = \$result->meta_value;");
+                    $this->assemble_value_array($field_data, $hierarchy, $field, $result->meta_value);
                 }
                 else
                 {
                     // If "for_input" is false, get the field name
-                    $structure = (false === $options->for_input) ? $fields[$result->field_id]->name : $result->field_id;
-                    $field_data[$structure][] = $result->meta_value;
+                    $hierarchy = (false === $options->for_input) ? $field->name : $field->id;
+                    $field_data[$hierarchy][] = $result->meta_value;
                 }
 
                 // Assemble the values
                 if ($current_item != $prev_item && '' != $prev_item) // call apply_value_filters on previous field
                 {
-                    $field = $fields[$prev_field_id];
-                    eval("\$field_data[$prev_structure] = \$this->apply_value_filters(\$field, \$field_data[$prev_structure], \$options);");
+                    $this->assemble_value_array($field_data, $prev_hierarchy, $fields[$prev_field_id], false, $options);
                 }
 
                 if ($num_rows == ($order_num + 1)) // last row
                 {
-                    $field = $fields[$result->field_id];
-                    eval("\$field_data[$structure] = \$this->apply_value_filters(\$field, \$field_data[$structure], \$options);");
+                    $this->assemble_value_array($field_data, $hierarchy, $field, false, $options);
                 }
 
-                $prev_structure = $structure;
-                $prev_field_id = $result->field_id;
+                $prev_hierarchy = $hierarchy;
+                $prev_field_id = $field->id;
                 $prev_item = $current_item;
             }
         }
 
         $this->data[$post_id] = $field_data;
         return $field_data;
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    assemble_value_array
+    *
+    *    @author Matt Gibbs
+    *    @since 1.5.7
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function assemble_value_array(&$field_data, $hierarchy, $field, $value = false, $options = false)
+    {
+        $data = &$field_data;
+        foreach (explode(':', $hierarchy) as $i)
+        {
+            $data = &$data[$i];
+        }
+
+        if (false !== $value)
+        {
+            $data[] = $value;
+        }
+        else
+        {
+            $data = $this->apply_value_filters($field, $data, $options);
+        }
     }
 
 
