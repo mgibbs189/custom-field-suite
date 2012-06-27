@@ -46,6 +46,9 @@ Visually create and manage custom fields. Custom Field Suite is a fork of the [A
 
 == Changelog ==
 
+= 1.5.6 =
+* Bugfix: API ordering error when using multiple field groups on a single post
+
 = 1.5.5 =
 * Bugfix: existing file upload fields should return URL instead of ID
 

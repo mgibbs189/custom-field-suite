@@ -94,7 +94,7 @@ class cfs_Api
             INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
             INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
             WHERE v.post_id IN ($post_id)
-            ORDER BY f.weight, v.weight, v.sub_weight";
+            ORDER BY f.weight, v.field_id, v.weight, v.sub_weight";
 
             $results = $wpdb->get_results($sql);
             $num_rows = $wpdb->num_rows;

@@ -23,6 +23,34 @@ class cfs_Loop extends cfs_Field
     }
 
     /*---------------------------------------------------------------------------------------------
+        options_html
+    ---------------------------------------------------------------------------------------------*/
+
+    function options_html($key, $field)
+    {
+    ?>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label>
+                    <?php _e('Button Label', 'cfs'); ?>
+                    <span class="cfs_tooltip" title="<?php _e('Default: Add Row', 'cfs'); ?>"></span>
+                </label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => 'text',
+                        'input_name' => "cfs[fields][$key][options][button_label]",
+                        'input_class' => '',
+                        'value' => $this->get_option($field, 'button_label', 'Add Row'),
+                    ));
+                ?>
+            </td>
+        </tr>
+    <?php
+    }
+
+    /*---------------------------------------------------------------------------------------------
         recursive_clone
     ---------------------------------------------------------------------------------------------*/
 

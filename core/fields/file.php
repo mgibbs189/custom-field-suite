@@ -90,7 +90,7 @@ class cfs_File extends cfs_Field
                     $this.find('tr.url').hide();
                     $this.find('tr.align').hide();
                     $this.find('tr.image-size').hide();
-                    $this.find('tr.submit input.button').val('<?php _e('Attach File', 'cfs'); ?>');
+                    $this.find('tr.submit input.button').val('<?php _e('Use This File', 'cfs'); ?>');
                 }).trigger('DOMNodeInserted');
             });
         })(jQuery);
