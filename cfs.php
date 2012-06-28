@@ -20,6 +20,7 @@ class Cfs
     public $siteurl;
     public $version;
     public $fields;
+    public $used_types;
     public $api;
 
     /*--------------------------------------------------------------------------------------
@@ -36,6 +37,7 @@ class Cfs
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
         $this->siteurl = get_bloginfo('url');
+        $this->used_types = array();
 
         // load the api
         include($this->dir . '/core/api.php');

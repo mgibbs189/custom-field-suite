@@ -2,8 +2,6 @@
 
 <?php
 
-$used_types = array();
-
 // Passed from add_meta_box
 $group_id = $metabox['args']['group_id'];
 
@@ -12,10 +10,10 @@ $input_fields = $this->api->get_input_fields($group_id);
 // Add any necessary head scripts
 foreach ($input_fields as $key => $field)
 {
-    if (!isset($used_types[$field->type]))
+    if (!isset($this->used_types[$field->type]))
     {
         $this->fields[$field->type]->input_head($field);
-        $used_types[$field->type] = true;
+        $this->used_types[$field->type] = true;
     }
 
     // Ignore sub-fields

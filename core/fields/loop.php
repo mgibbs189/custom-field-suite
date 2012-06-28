@@ -168,7 +168,6 @@ class cfs_Loop extends cfs_Field
 
         (function($) {
             $(function() {
-                $('.cfs_add_field').unbind('click');
                 $('.cfs_add_field').live('click', function() {
                     var num_rows = $(this).attr('data-num-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
