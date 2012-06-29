@@ -197,38 +197,51 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($field_name, $post_id, $options = array())
+    function get_reverse_related($post_id, $options = array(), $deprecated = array())
     {
         global $wpdb;
 
-        $options = (object) $options;
-
-        if (isset($options->post_type) && !empty($options->post_type))
+        // Handle function signature change
+        if (!ctype_digit($post_id))
         {
-            $post_type = implode("','", (array) $options->post_type);
+            // old signature: $field_name, $post_id, $options
+            $post_id = $options;
+            $options = $deprecated;
+            $options['field_name'] = $post_id;
+        }
 
-            $sql = $wpdb->prepare("
-                SELECT m.post_id
-                FROM $wpdb->postmeta m
-                INNER JOIN $wpdb->posts p ON p.ID = m.post_id
-                WHERE p.post_type IN ('$post_type') AND m.meta_key = %s AND m.meta_value = %s",
-                $field_name, $post_id);
-        }
-        else
+        $where = "m.meta_value = '$post_id'";
+
+        if (isset($options['field_name']))
         {
-            $sql = $wpdb->prepare("
-                SELECT post_id
-                FROM $wpdb->postmeta
-                WHERE meta_key = %s AND meta_value = %s",
-                $field_name, $post_id);
+            $field_name = implode("','", (array) $options['field_name']);
+            $where .= " AND m.meta_key IN ('$field_name')";
         }
+        if (isset($options['post_type']))
+        {
+            $post_type = implode("','", (array) $options['post_type']);
+            $where .= " AND p.post_type IN ('$post_type')";
+        }
+        if (isset($options['post_status']))
+        {
+            $post_status = implode("','", (array) $options['post_status']);
+            $where .= " AND p.post_status IN ('$post_status')";
+        }
+
+        $sql = "
+        SELECT DISTINCT p.ID
+        FROM {$wpdb->prefix}cfs_fields f
+        INNER JOIN {$wpdb->prefix}cfs_values v ON v.field_id = f.id
+        INNER JOIN $wpdb->posts p ON p.ID = v.post_id
+        INNER JOIN $wpdb->postmeta m ON m.meta_id = v.meta_id
+        WHERE f.type IN ('relationship') AND $where";
 
         $results = $wpdb->get_results($sql);
         $output = array();
 
         foreach ($results as $result)
         {
-            $output[] = $result->post_id;
+            $output[] = $result->ID;
         }
         return $output;
     }

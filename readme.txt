@@ -50,7 +50,9 @@ Visually create and manage custom fields. Custom Field Suite is a fork of [Advan
 
 = 1.5.7 =
 * Enhancement: removed eval() in the API
+* Enhancement: updated function signature for $cfs->get_reverse_related
 * Bugfix: dashes in field name causes API error
+* Bugfix: "Add Row" in loop field added 1 row per field group
 
 = 1.5.6 =
 * Bugfix: API ordering error when using multiple field groups on a single post
