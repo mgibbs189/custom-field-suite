@@ -164,6 +164,13 @@ class cfs_Api
     *
     *    assemble_value_array
     *
+    *    Replace a value within a multidimensional array without using eval()
+    *
+    *    @param array $field_data The value array
+    *    @param string $hierarchy The array element to target
+    *    @param object $field The field object passed into apply_value_filters
+    *    @param mixed $value The replacement value; bypass apply_value_filters
+    *    @param mixed $options The options passed into apply_value_filters
     *    @author Matt Gibbs
     *    @since 1.5.7
     *
@@ -201,7 +208,7 @@ class cfs_Api
     {
         global $wpdb;
 
-        // DEPRECATED: Handle function signature change
+        // Handle function signature change
         if (!ctype_digit($post_id))
         {
             // old signature: $field_name, $post_id, $options
@@ -299,13 +306,10 @@ class cfs_Api
 
     function apply_value_filters($field, $value, $options)
     {
-        // Format value for input
         if (false !== $options->for_input)
         {
             $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
         }
-
-        // Format value for api
         else
         {
             $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
