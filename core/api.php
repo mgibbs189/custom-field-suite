@@ -201,13 +201,14 @@ class cfs_Api
     {
         global $wpdb;
 
-        // Handle function signature change
+        // DEPRECATED: Handle function signature change
         if (!ctype_digit($post_id))
         {
             // old signature: $field_name, $post_id, $options
-            $post_id = $options;
+            $old_post_id = $options;
             $options = $deprecated;
             $options['field_name'] = $post_id;
+            $post_id = $old_post_id;
         }
 
         $where = "m.meta_value = '$post_id'";
