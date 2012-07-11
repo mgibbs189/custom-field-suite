@@ -79,22 +79,21 @@ $results = $wpdb->get_results($sql);
 
 <div class="wrap">
     <div id="icon-tools" class="icon32"><br /></div>
-    <h2><?php _e('Custom Field Import', 'cfs'); ?></h2>
+    <h2><?php _e('Custom Field Sync', 'cfs'); ?></h2>
 
     <?php if (isset($_POST['groups'])) : ?>
     <div id="message" class="updated">
-        <p><?php _e('Import Successful', 'cfs'); ?></p>
+        <p><?php _e('Sync Successful', 'cfs'); ?></p>
     </div>
     <?php endif; ?>
 
-    <p><?php _e('This tool will scan your existing custom fields, mapping values into Custom Field Suite.', 'cfs'); ?></p>
-    <p><?php _e('Select the field groups to populate:', 'cfs'); ?></p>
+    <p><?php _e('This tool will scan your existing custom fields, mapping any applicable values into Custom Field Suite.', 'cfs'); ?></p>
     <form method="post" action="">
         <table class="widefat">
             <thead>
                 <tr>
                     <th class="check-column"></th>
-                    <th></th>
+                    <th>Field Groups</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,12 +107,12 @@ $results = $wpdb->get_results($sql);
             <tfoot>
                 <tr>
                     <th class="check-column"></th>
-                    <th></th>
+                    <th>Field Groups</th>
                 </tr>
             </tfoot>
         </table>
         <div class="tablenav bottom">
-            <input type="submit" class="button-secondary" value="<?php _e('Import Field Data', 'cfs'); ?>" />
+            <input type="submit" class="button-secondary" value="<?php _e('Synchronize', 'cfs'); ?>" />
         </div>
     </form>
 </div>

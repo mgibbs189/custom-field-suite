@@ -328,7 +328,7 @@ class Cfs
     function admin_menu()
     {
         add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
-        add_submenu_page('edit.php?post_type=cfs', 'Import', 'Import', 'manage_options', 'cfs-import', array($this, 'page_import'));
+        add_submenu_page('edit.php?post_type=cfs', 'Synchronize', 'Synchronize', 'manage_options', 'cfs-sync', array($this, 'page_sync'));
     }
 
 
@@ -431,16 +431,16 @@ class Cfs
 
     /*--------------------------------------------------------------------------------------
     *
-    *    page_import
+    *    page_sync
     *
     *    @author Matt Gibbs
     *    @since 1.3.4
     *
     *-------------------------------------------------------------------------------------*/
 
-    function page_import()
+    function page_sync()
     {
-        include($this->dir . '/core/admin/page_import.php');
+        include($this->dir . '/core/admin/page_sync.php');
     }
 
 
