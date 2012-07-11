@@ -1,8 +1,59 @@
-<link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/screen_extra.css" />
+<style type="text/css">
+.tablenav {
+    display: none;
+}
+
+p.search-box {
+    display: none;
+}
+
+.row-actions .inline {
+    display: none;
+}
+
+#screen-options-link-wrap {
+    display: none;
+}
+
+#posts-filter {
+    margin-right: 300px;
+}
+
+.posts-sidebar {
+    position: absolute;
+    right: 0px;
+    width: 275px;
+    margin: 28px 20px 0 0;
+}
+
+#poststuff .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#poststuff .inside h4,
+#poststuff .inside p {
+    margin: 3px 0;
+    padding: 0;
+}
+
+.posts-sidebar .inside .field {
+    border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #fff;
+    padding: 6px 10px;
+}
+
+.posts-sidebar .inside .field:last-child {
+    border-bottom:  none;
+}
+</style>
+
 <script type="text/javascript">
-jQuery(function() {
-    jQuery(".wp-list-table").before(jQuery("#posts-sidebar-box").html());
-});
+(function($) {
+    $(function() {
+        $('.wp-list-table').before($('#posts-sidebar-box').html());
+    });
+})(jQuery);
 </script>
 
 <div id="posts-sidebar-box" class="hidden">
@@ -12,7 +63,7 @@ jQuery(function() {
             <h3 class="hndle"><span><?php _e('Custom Field Suite', 'cfs'); ?> <?php echo $this->version; ?></span></h3>
             <div class="inside">
                 <div class="field">
-                    <p><a class="thickbox" href="<?php echo admin_url('plugin-install.php'); ?>?tab=plugin-information&plugin=custom-field-suite&section=changelog&TB_iframe=1&width=640&height=480"><?php _e('Changelog', 'cfs'); ?></a></p>
+                    <p><a href="http://wordpress.org/extend/plugins/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a></p>
                     <p><a href="http://uproot.us/custom-field-suite/docs/" target="_blank"><?php _e('Read the user guide', 'cfs'); ?></a></p>
                     <p><a href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank"><?php _e('View plugin page', 'cfs'); ?></a></p>
                 </div>

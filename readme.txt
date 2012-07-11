@@ -3,7 +3,7 @@ Contributors: logikal16
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JMVGK3L35X6BU
 Tags: custom, fields, custom fields, cck, post types, gravity forms, views, field permissions
 Requires at least: 3.2
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: trunk
 
 Visually create and manage custom fields.
@@ -51,7 +51,7 @@ Visually create and manage custom fields. Custom Field Suite is a fork of [Advan
 = 1.5.7 =
 * Enhancement: removed eval() in the API
 * Enhancement: updated function signature for $cfs->get_reverse_related
-* Bugfix: dashes in field name causes API error
+* Bugfix: dashes in field name caused API error
 * Bugfix: "Add Row" in loop field added 1 row per field group
 
 = 1.5.6 =

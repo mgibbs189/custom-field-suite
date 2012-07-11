@@ -48,7 +48,6 @@ class Cfs
         add_action('admin_head', array($this, 'admin_head'));
         add_action('admin_footer', array($this, 'admin_footer'));
         add_action('admin_menu', array($this, 'admin_menu'));
-        add_action('admin_print_scripts', array($this, 'admin_print_scripts'));
         add_action('save_post', array($this, 'save_post'));
         add_action('delete_post', array($this, 'delete_post'));
 
@@ -260,9 +259,9 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($field_name, $post_id, $options = array())
+    function get_reverse_related($post_id, $options = array(), $deprecated = array())
     {
-        return $this->api->get_reverse_related($field_name, $post_id, $options);
+        return $this->api->get_reverse_related($post_id, $options = array(), $deprecated = array());
     }
 
 
@@ -330,26 +329,6 @@ class Cfs
     {
         add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
         add_submenu_page('edit.php?post_type=cfs', 'Import', 'Import', 'manage_options', 'cfs-import', array($this, 'page_import'));
-    }
-
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    admin_print_scripts
-    *
-    *    @author Matt Gibbs
-    *    @since 1.4.5
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function admin_print_scripts()
-    {
-        if (isset($GLOBALS['post_type']) && 'cfs' == $GLOBALS['post_type'] && 'edit.php' == $GLOBALS['pagenow'])
-        {
-            wp_enqueue_script('thickbox');
-            wp_enqueue_style('thickbox');
-        }
     }
 
 
