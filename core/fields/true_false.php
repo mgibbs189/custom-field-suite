@@ -12,10 +12,11 @@ class cfs_True_false extends cfs_Field
 
     function html($field)
     {
-        $selected = ('1' == (string) $field->value) ? ' checked' : '';
+        $field->value = (0 < (int) $field->value) ? 1 : 0;
     ?>
-        <input type="checkbox" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="1"<?php echo $selected; ?> />
+        <span class="checkbox<?php echo $field->value ? ' active' : ''; ?>"></span>
         <span><?php echo $field->options['message']; ?></span>
+        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
     <?php
     }
 
@@ -41,8 +42,38 @@ class cfs_True_false extends cfs_Field
     <?php
     }
 
+    function input_head()
+    {
+    ?>
+        <script type="text/javascript">
+        (function($) {
+            $(function() {
+                $('.cfs_add_field').click(function() {
+                    $('.cfs_true_false:not(.ready)').init_true_false();
+                });
+                $('.cfs_true_false').init_true_false();
+            });
+
+            $.fn.init_true_false = function() {
+                this.each(function() {
+                    var $this = $(this);
+                    $this.addClass('ready');
+
+                    // handle click
+                    $this.find('span.checkbox').click(function() {
+                        var val = $(this).hasClass('active') ? 0 : 1;
+                        $(this).siblings('.true_false').val(val);
+                        $(this).toggleClass('active');
+                    });
+                });
+            }
+        })(jQuery);
+        </script>
+    <?php
+    }
+
     function format_value_for_api($value, $field)
     {
-        return ('1' == (string) $value[0]) ? 1 : 0;
+        return (0 < (int) $value[0]) ? 1 : 0;
     }
 }

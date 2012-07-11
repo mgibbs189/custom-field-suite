@@ -261,7 +261,7 @@ class Cfs
 
     function get_reverse_related($post_id, $options = array(), $deprecated = array())
     {
-        return $this->api->get_reverse_related($post_id, $options = array(), $deprecated = array());
+        return $this->api->get_reverse_related($post_id, $options, $deprecated);
     }
 
 

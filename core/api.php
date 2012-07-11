@@ -87,13 +87,16 @@ class cfs_Api
                 $fields[$result->id] = $result;
             }
 
+            // Make sure we're using active field groups
+            $field_ids = implode(',', array_keys($fields));
+
             // Get all the field data
             $sql = "
             SELECT m.meta_value, v.field_id, f.parent_id, v.hierarchy, v.weight, v.sub_weight
             FROM {$wpdb->prefix}cfs_values v
             INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
             INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
-            WHERE v.post_id IN ($post_id)
+            WHERE f.id IN ($field_ids) AND v.post_id IN ($post_id)
             ORDER BY f.weight, v.field_id, v.weight, v.sub_weight";
 
             $results = $wpdb->get_results($sql);

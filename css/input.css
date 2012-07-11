@@ -37,12 +37,30 @@
 }
 
 /*---------------------------------------------------------------------------------------------
+    True / false
+---------------------------------------------------------------------------------------------*/
+
+.cfs_true_false .checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(../images/checkbox-off.png) no-repeat;
+    vertical-align: bottom;
+    margin-right: 3px;
+}
+
+.cfs_true_false .checkbox.active {
+    background: url(../images/checkbox-on.png) no-repeat;
+}
+
+/*---------------------------------------------------------------------------------------------
     Date
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_input .cfs_date input.date {
     width: 220px;
-    background: #fff url(../images/icon-calendar.png) 98% 50% no-repeat;
+    background: url(../images/icon-calendar.png) 98% 50% no-repeat;
 }
 
 /*---------------------------------------------------------------------------------------------
