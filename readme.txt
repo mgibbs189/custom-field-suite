@@ -50,7 +50,8 @@ Visually create and manage custom fields. Custom Field Suite is a fork of [Advan
 
 = 1.5.8 =
 * Enhancement: true_false field stores value, even if false
-* Bugfix: API bugfix, filter on active field groups when using get()
+* Bugfix: API bugfix, enforce active field groups for get()
+* Renamed Import page to Synchronize
 
 
 = 1.5.7 =
