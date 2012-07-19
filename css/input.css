@@ -157,15 +157,28 @@
     Loop
 ---------------------------------------------------------------------------------------------*/
 
-.cfs_delete_field {
+.loop_wrapper > a {
     float: right;
     width: 16px;
     height: 16px;
-    background: url(../images/button_remove.png) no-repeat;
     cursor: pointer;
+    margin:0 0 0 5px;
+}
+.cfs_delete_field {
+    background: url(../images/button_remove.png) no-repeat;
+}
+.cfs_openclose_field {
+    background: url(../images/button_open-close.png) no-repeat;
 }
 
-.cfs_delete_field:hover {
+.cfs_openclose_field.active {
+    background-position: -16px 0;
+}
+.cfs_openclose_field.active:hover {
+    background-position: -16px 100%;
+}
+
+.cfs_delete_field:hover, .cfs_openclose_field:hover {
     background-position: 0 100%;
 }
 
@@ -208,4 +221,12 @@
     border-radius: 3px;
     margin-bottom: 10px;
     padding: 5px;
+    height:42px;
+    overflow: hidden;
+}
+.cfs_placeholder {
+    display: block;
+}
+.cfs_placeholder.open {
+    display: none;
 }

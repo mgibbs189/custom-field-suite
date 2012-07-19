@@ -61,7 +61,13 @@ class cfs_Loop extends cfs_Field
         ob_start();
     ?>
         <div class="loop_wrapper">
+            <a class="cfs_openclose_field"></a>
             <a class="cfs_delete_field"></a>
+
+            <div class="cfs_placeholder">
+                <label>Loop Element</label>
+                <p class="instructions">to change the order, drag and drop the loop elements</p>
+            </div>
         <?php foreach ($results as $field) : ?>
             <label><?php echo $field->label; ?></label>
 
@@ -120,7 +126,13 @@ class cfs_Loop extends cfs_Field
                 $offset = ($i + 1);
     ?>
         <div class="loop_wrapper">
+            <a class="cfs_openclose_field"></a>
             <a class="cfs_delete_field"></a>
+
+            <div class="cfs_placeholder">
+                <label>Loop Element</label>
+                <p class="instructions">to change the order, drag and drop the loop elements</p>
+            </div>
         <?php foreach ($results as $field) : ?>
             <label><?php echo $field->label; ?></label>
 
@@ -180,6 +192,13 @@ class cfs_Loop extends cfs_Field
 
                 $('.cfs_delete_field').live('click', function() {
                     $(this).closest('.loop_wrapper').remove();
+                });
+                $('.cfs_openclose_field').live('click', function() {
+                    var height = parseInt($(this).parent().css('height'),10) === 42 ? 'auto' : '42px';
+
+                    $(this).parent().css('height', height);
+                    $(this).toggleClass('active');
+                    $(this).siblings('div.cfs_placeholder').toggleClass('open');
                 });
             });
         })(jQuery);
