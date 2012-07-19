@@ -19,6 +19,7 @@ foreach ($input_fields as $key => $field)
     // Ignore sub-fields
     if (1 > (int) $field->parent_id)
     {
+        $is_loop = $field->type == 'loop';
 ?>
 <div class="field">
     <label><?php echo $field->label; ?></label>
@@ -29,6 +30,10 @@ foreach ($input_fields as $key => $field)
 
     <div class="cfs_<?php echo $field->type; ?>">
     <?php
+        if($is_loop) {
+            echo '<ul>';
+        }
+
         $this->create_field((object) array(
             'id' => $field->id,
             'group_id' => $group_id,
@@ -39,8 +44,11 @@ foreach ($input_fields as $key => $field)
             'options' => $field->options,
             'value' => $field->value,
         ));
+
     ?>
+
     </div>
+    
 </div>
 <?php
     }

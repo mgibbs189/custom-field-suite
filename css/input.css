@@ -224,8 +224,9 @@
     height:42px;
     overflow: hidden;
 }
-.cfs_placeholder {
+.cfs_placeholder, .cfs_placeholder label {
     display: block;
+    cursor: pointer!important;
 }
 .cfs_placeholder.open {
     display: none;

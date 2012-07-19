@@ -98,9 +98,9 @@ class cfs_Loop extends cfs_Field
         $buffer = ob_get_clean();
     ?>
 
-        <script type="text/javascript">
+        <li><script type="text/javascript">
         CFS.loop_buffer[<?php echo $field_id; ?>] = <?php echo json_encode($buffer); ?>;
-        </script>
+        </script></li>
 
     <?php
         if ('loop' == $field->type)
@@ -125,7 +125,7 @@ class cfs_Loop extends cfs_Field
             foreach ($values as $i => $value) :
                 $offset = ($i + 1);
     ?>
-        <div class="loop_wrapper">
+        <li class="loop_wrapper">
             <a class="cfs_openclose_field"></a>
             <a class="cfs_delete_field"></a>
 
@@ -156,15 +156,16 @@ class cfs_Loop extends cfs_Field
             <?php endif; ?>
             </div>
         <?php endforeach; ?>
-        </div>
+        </li>
 
         <?php endforeach; endif; ?>
 
         <?php $loop_field = $this->parent->api->get_input_fields(false, false, $field_id); ?>
 
-        <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', 'Add Row')); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
-        </div>
+    </ul>
+    <div class="table_footer">
+        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', 'Add Row')); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+    </div>
     <?php
     }
 
@@ -175,6 +176,7 @@ class cfs_Loop extends cfs_Field
     function input_head($field = null)
     {
     ?>
+        <script type="text/javascript" src="<?php echo $this->parent->url; ?>/js/dragsort/jquery.dragsort-0.5.1.min.js"></script>
         <script type="text/javascript">
         var CFS = CFS || { loop_buffer: [] };
 
@@ -200,6 +202,8 @@ class cfs_Loop extends cfs_Field
                     $(this).toggleClass('active');
                     $(this).siblings('div.cfs_placeholder').toggleClass('open');
                 });
+
+                $(".cfs_loop > ul").dragsort({ dragSelector: ".loop_wrapper", dragSelectorExclude: '.table_footer', placeHolderTemplate: '<li class="loop_wrapper"></li>' }); 
             });
         })(jQuery);
         </script>
