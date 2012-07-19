@@ -130,7 +130,7 @@ class cfs_Loop extends cfs_Field
             <a class="cfs_delete_field"></a>
 
             <div class="cfs_placeholder">
-                <label>Loop Element</label>
+                <label>Loop Element <?php echo $offset; ?></label>
                 <p class="instructions">to change the order, drag and drop the loop elements</p>
             </div>
         <?php foreach ($results as $field) : ?>
