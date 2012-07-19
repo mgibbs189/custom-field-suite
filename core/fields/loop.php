@@ -60,9 +60,9 @@ class cfs_Loop extends cfs_Field
 
         ob_start();
     ?>
-        <div class="loop_wrapper">
-            <a class="cfs_openclose_field"></a>
+        <li class="loop_wrapper">
             <a class="cfs_delete_field"></a>
+            <a class="cfs_openclose_field"></a>
 
             <div class="cfs_placeholder">
                 <label>Loop Element</label>
@@ -93,14 +93,16 @@ class cfs_Loop extends cfs_Field
             <?php endif; ?>
             </div>
         <?php endforeach; ?>
-        </div>
+        </li>
     <?php
         $buffer = ob_get_clean();
     ?>
 
-        <li><script type="text/javascript">
-        CFS.loop_buffer[<?php echo $field_id; ?>] = <?php echo json_encode($buffer); ?>;
-        </script></li>
+        <li>
+            <script type="text/javascript">
+                CFS.loop_buffer[<?php echo $field_id; ?>] = <?php echo json_encode($buffer); ?>;
+            </script>
+        </li>
 
     <?php
         if ('loop' == $field->type)
@@ -126,8 +128,8 @@ class cfs_Loop extends cfs_Field
                 $offset = ($i + 1);
     ?>
         <li class="loop_wrapper">
-            <a class="cfs_openclose_field"></a>
             <a class="cfs_delete_field"></a>
+            <a class="cfs_openclose_field"></a>
 
             <div class="cfs_placeholder">
                 <label>Loop Element <?php echo $offset; ?></label>
