@@ -120,7 +120,7 @@ class cfs_Loop extends cfs_Field
         eval("\$values = \$this->values{$parent_tag};");
 
         $offset = 0;
-
+        
         if ($values) :
             foreach ($values as $i => $value) :
                 $offset = ($i + 1);
@@ -182,6 +182,9 @@ class cfs_Loop extends cfs_Field
 
         (function($) {
             $(function() {
+                var cfs_loop_list = $(".cfs_loop > ul"),
+                    cfs_loop_element_count = cfs_loop_list.children().length - 1;
+
                 $('.cfs_add_field').live('click', function() {
                     var num_rows = $(this).attr('data-num-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
@@ -203,7 +206,22 @@ class cfs_Loop extends cfs_Field
                     $(this).siblings('div.cfs_placeholder').toggleClass('open');
                 });
 
-                $(".cfs_loop > ul").dragsort({ dragSelector: ".loop_wrapper", dragSelectorExclude: '.table_footer', placeHolderTemplate: '<li class="loop_wrapper"></li>' }); 
+                cfs_loop_list.dragsort({ dragSelector: ".loop_wrapper", dragSelectorExclude: '.table_footer', placeHolderTemplate: '<li class="loop_wrapper"></li>', dragEnd: function() {
+                    // on drag end order input names
+                    var elems = $(this).parent().find('*[name]'),
+                        fields_pro_elem = elems.length / cfs_loop_element_count;
+                    $.each(elems, function(i,elem) {
+                        var order      = Math.ceil((i+1) / fields_pro_elem),
+                            elem_name  = $(this).attr('name'),
+                            name_split = elem_name.split('['),
+                            new_name   = ''; 
+
+                        name_split[3] = order - 1 + ']';
+                        new_name = name_split.join('[');
+
+                        $(this).attr('name',new_name);
+                    });
+                } }); 
             });
         })(jQuery);
         </script>
