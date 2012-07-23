@@ -208,7 +208,7 @@ class cfs_Loop extends cfs_Field
                     $(this).siblings('div.cfs_placeholder').toggleClass('open');
                 });
 
-                cfs_loop_list.dragsort({ dragSelector: ".loop_wrapper", dragSelectorExclude: '.table_footer', placeHolderTemplate: '<li class="loop_wrapper"></li>', dragEnd: function() {
+                cfs_loop_list.dragsort({ dragSelector: ".loop_wrapper", dragSelectorExclude: '.table_footer, input, select', placeHolderTemplate: '<li class="loop_wrapper"></li>', dragEnd: function() {
                     // on drag end order input names
                     var elems = $(this).parent().find('*[name]'),
                         fields_pro_elem = elems.length / cfs_loop_element_count;
