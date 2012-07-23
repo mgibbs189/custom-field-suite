@@ -48,6 +48,9 @@ Visually create and manage custom fields. Custom Field Suite is a fork of [Advan
 
 == Changelog ==
 
+= 1.5.9 =
+* Bugfix: get_reverse_related - ctype_digit returns FALSE for integer values between -128 and 255 (props Lucia)
+
 = 1.5.8 =
 * Enhancement: true_false field stores value, even if false
 * Bugfix: API bugfix, enforce active field groups for get()

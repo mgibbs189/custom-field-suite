@@ -212,7 +212,8 @@ class cfs_Api
         global $wpdb;
 
         // Handle function signature change
-        if (!ctype_digit($post_id))
+        // ctype_digit returns FALSE for integer values between -128 and 255
+        if (!is_numeric($post_id))
         {
             // old signature: $field_name, $post_id, $options
             $old_post_id = $options;
