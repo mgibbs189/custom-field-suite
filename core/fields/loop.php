@@ -61,32 +61,39 @@ class cfs_Loop extends cfs_Field
         ob_start();
     ?>
         <div class="loop_wrapper">
-            <a class="cfs_delete_field"></a>
-        <?php foreach ($results as $field) : ?>
-            <label><?php echo $field->label; ?></label>
-
-            <?php if (!empty($field->instructions)) : ?>
-            <p class="instructions"><?php echo $field->instructions; ?></p>
-            <?php endif; ?>
-
-            <div class="field cfs_<?php echo $field->type; ?>">
-            <?php if ('loop' == $field->type) : ?>
-                <div class="table_footer">
-                    <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', 'Add Row')); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
-                </div>
-            <?php else : ?>
-            <?php
-                $this->parent->create_field((object) array(
-                    'type' => $field->type,
-                    'input_name' => "cfs[input][clone][$field->id][value][]",
-                    'input_class' => $field->type,
-                    'options' => $field->options,
-                    'value' => $this->get_option($field, 'default_value'),
-                ));
-            ?>
-            <?php endif; ?>
+            <div class="cfs_loop_head">
+                <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
+                <span class="label">Loop Row</span> -
+                <span class="notes">drag and drop to re-order</span>
             </div>
-        <?php endforeach; ?>
+            <div class="cfs_loop_body">
+            <?php foreach ($results as $field) : ?>
+                <label><?php echo $field->label; ?></label>
+
+                <?php if (!empty($field->instructions)) : ?>
+                <p class="instructions"><?php echo $field->instructions; ?></p>
+                <?php endif; ?>
+
+                <div class="field cfs_<?php echo $field->type; ?>">
+                <?php if ('loop' == $field->type) : ?>
+                    <div class="table_footer">
+                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', 'Add Row')); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
+                    </div>
+                <?php else : ?>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => $field->type,
+                        'input_name' => "cfs[input][clone][$field->id][value][]",
+                        'input_class' => $field->type,
+                        'options' => $field->options,
+                        'value' => $this->get_option($field, 'default_value'),
+                    ));
+                ?>
+                <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+            </div>
         </div>
     <?php
         $buffer = ob_get_clean();
@@ -120,30 +127,37 @@ class cfs_Loop extends cfs_Field
                 $offset = ($i + 1);
     ?>
         <div class="loop_wrapper">
-            <a class="cfs_delete_field"></a>
-        <?php foreach ($results as $field) : ?>
-            <label><?php echo $field->label; ?></label>
-
-            <?php if (!empty($field->instructions)) : ?>
-            <p class="instructions"><?php echo $field->instructions; ?></p>
-            <?php endif; ?>
-
-            <div class="field cfs_<?php echo $field->type; ?>">
-            <?php if ('loop' == $field->type) : ?>
-                <?php $this->recursive_html($group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i); ?>
-            <?php else : ?>
-            <?php
-                $this->parent->create_field((object) array(
-                    'type' => $field->type,
-                    'input_name' => "cfs[input]{$parent_tag}[$i][$field->id][value][]",
-                    'input_class' => $field->type,
-                    'options' => $field->options,
-                    'value' => $values[$i][$field->id],
-                ));
-            ?>
-            <?php endif; ?>
+            <div class="cfs_loop_head">
+                <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
+                <span class="label">Loop Row</span> -
+                <span class="notes">drag and drop to re-order</span>
             </div>
-        <?php endforeach; ?>
+            <div class="cfs_loop_body">
+            <?php foreach ($results as $field) : ?>
+                <label><?php echo $field->label; ?></label>
+
+                <?php if (!empty($field->instructions)) : ?>
+                <p class="instructions"><?php echo $field->instructions; ?></p>
+                <?php endif; ?>
+
+                <div class="field cfs_<?php echo $field->type; ?>">
+                <?php if ('loop' == $field->type) : ?>
+                    <?php $this->recursive_html($group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i); ?>
+                <?php else : ?>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => $field->type,
+                        'input_name' => "cfs[input]{$parent_tag}[$i][$field->id][value][]",
+                        'input_class' => $field->type,
+                        'options' => $field->options,
+                        'value' => $values[$i][$field->id],
+                    ));
+                ?>
+                <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+            </div>
         </div>
 
         <?php endforeach; endif; ?>
@@ -180,6 +194,17 @@ class cfs_Loop extends cfs_Field
 
                 $('.cfs_delete_field').live('click', function() {
                     $(this).closest('.loop_wrapper').remove();
+                });
+
+                $('.cfs_loop_head').live('click', function() {
+                    $(this).siblings('.cfs_loop_body').toggle();
+                    $(this).toggleClass('open');
+                });
+
+                $('.cfs_loop').sortable({
+                    axis: 'y',
+                    items: '.loop_wrapper',
+                    handle: '.cfs_loop_head'
                 });
             });
         })(jQuery);
