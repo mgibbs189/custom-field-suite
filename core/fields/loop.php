@@ -203,6 +203,7 @@ class cfs_Loop extends cfs_Field
 
                 $('.cfs_loop').sortable({
                     axis: 'y',
+                    containment: 'parent',
                     items: '.loop_wrapper',
                     handle: '.cfs_loop_head',
                     update: function(event, ui) {
