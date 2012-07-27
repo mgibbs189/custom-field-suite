@@ -9,6 +9,10 @@
     border-bottom: 1px solid #dfdfdf;
 }
 
+.cfs_input .field:last-child {
+    border-bottom: none;
+}
+
 .cfs_input .field input[type="text"],
 .cfs_input .field textarea,
 .cfs_input .field select {
@@ -214,7 +218,7 @@
 }
 
 .cfs_loop .cfs_loop_body {
-    padding: 5px;
+    padding: 10px;
     display: none;
     background: #f8f8f8;
 }

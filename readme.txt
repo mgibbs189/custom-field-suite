@@ -48,6 +48,10 @@ Visually create and manage custom fields. Custom Field Suite is a fork of [Advan
 
 == Changelog ==
 
+= 1.6.0 =
+* Drag-n-drop loop ordering on edit pages! (props Christian Bromann)
+* Added PHP notice for sites using deprecated get_reverse_related signature
+
 = 1.5.9 =
 * Bugfix: get_reverse_related - ctype_digit returns FALSE for integer values between -128 and 255 (props Lucia)
 
