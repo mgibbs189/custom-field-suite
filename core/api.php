@@ -220,6 +220,9 @@ class cfs_Api
             $options = $deprecated;
             $options['field_name'] = $post_id;
             $post_id = $old_post_id;
+
+            // Trigger a deprecated function signature error
+            trigger_error('The function signature for $cfs->get_reverse_related has changed. Please see the documentation.');
         }
 
         $where = "m.meta_value = '$post_id'";

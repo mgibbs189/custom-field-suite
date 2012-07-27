@@ -204,7 +204,30 @@ class cfs_Loop extends cfs_Field
                 $('.cfs_loop').sortable({
                     axis: 'y',
                     items: '.loop_wrapper',
-                    handle: '.cfs_loop_head'
+                    handle: '.cfs_loop_head',
+                    update: function(event, ui) {
+                        var counter = {};
+                        var last_depth = -1;
+                        var loop = ui.item.closest('.cfs_loop');
+                        loop.find('[name^="cfs[input]"]').each(function() {
+                            // get the loop depth, used to find the correct array element
+                            var depth = $(this).closest('.cfs_loop').parents('.cfs_loop').size();
+                            var array_index = 3 + (depth * 2);
+
+                            // If depth increases, set counter[depth] = 0
+                            // Otherwise, set counter[depth] = counter[depth] + 1
+                            counter[depth] = (depth > last_depth) ? 0 : counter[depth] + 1;
+                            last_depth = depth;
+
+                            // Update the current input, as well as any children
+                            $(this).closest('.loop_wrapper').find('[name^="cfs[input]"]').each(function() {
+                                var new_name = $(this).attr('name').split('[');
+                                new_name[array_index] = counter[depth] + ']';
+                                new_name = new_name.join('[');
+                                $(this).attr('name', new_name);
+                            });
+                        });
+                    }
                 });
             });
         })(jQuery);
