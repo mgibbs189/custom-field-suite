@@ -48,8 +48,13 @@ class cfs_Select extends cfs_Field
                 $field->input_class .= ' multiple';
             }
         }
+        // Single-select
+        elseif (!isset($field->input_class))
+        {
+            $field->input_class = '';
+        }
 
-        // Make sure the select box returns an array
+        // Force the select box to return an array
         if ('[]' != substr($field->input_name, -2))
         {
             $field->input_name .= '[]';
