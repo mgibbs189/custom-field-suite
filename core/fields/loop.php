@@ -17,6 +17,8 @@ class cfs_Loop extends cfs_Field
 
     function html($field)
     {
+        global $post;
+
         $this->values = $this->parent->api->get_fields($post->ID, array('for_input' => true));
         $this->recursive_clone($field->group_id, $field->id);
         $this->recursive_html($field->group_id, $field->id);
@@ -118,7 +120,7 @@ class cfs_Loop extends cfs_Field
     {
         $results = $this->parent->api->get_input_fields($group_id, $field_id);
         $parent_tag = empty($parent_tag) ? "[$field_id]" : $parent_tag;
-        eval("\$values = \$this->values{$parent_tag};");
+        eval("\$values = isset(\$this->values{$parent_tag}) ? \$this->values{$parent_tag} : false;");
 
         $offset = 0;
 

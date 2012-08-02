@@ -10,7 +10,7 @@ Visually create and manage custom fields.
 
 == Description ==
 
-Visually create and manage custom fields. Custom Field Suite is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/).
+Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/).
 
 [Custom Field Suite is now on Github!](https://github.com/logikal16/custom-field-suite)
 

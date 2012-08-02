@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2012-03-07 20:42:40+00:00\n"
+"POT-Creation-Date: 2012-07-31 11:43:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,51 +12,31 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: cfs.php:312 core/actions/admin_footer.php:12
+#: core/actions/admin_footer.php:63
 msgid "Custom Field Suite"
 msgstr ""
 
-#: cfs.php:313 core/admin/page_import.php:82
-msgid "Custom Field Import"
-msgstr ""
-
-#: cfs.php:313
-msgid "CFS Import"
-msgstr ""
-
-#: core/actions/admin_footer.php:15
+#: core/actions/admin_footer.php:66
 msgid "Changelog"
 msgstr ""
 
-#: core/actions/admin_footer.php:16
-msgid "See updates for"
+#: core/actions/admin_footer.php:67
+msgid "Read the user guide"
 msgstr ""
 
-#: core/actions/admin_footer.php:19
-msgid "Getting started?"
+#: core/actions/admin_footer.php:68
+msgid "View plugin page"
 msgstr ""
 
-#: core/actions/admin_footer.php:21
-msgid "View the plugin website"
-msgstr ""
-
-#: core/actions/admin_footer.php:25
-msgid "Please show your support!"
-msgstr ""
-
-#: core/actions/admin_footer.php:27
-msgid "Rate the plugin"
-msgstr ""
-
-#: core/actions/admin_head.php:36
+#: core/actions/admin_head.php:51
 msgid "Fields"
 msgstr ""
 
-#: core/actions/admin_head.php:37
+#: core/actions/admin_head.php:52
 msgid "Placement Rules"
 msgstr ""
 
-#: core/actions/admin_head.php:38
+#: core/actions/admin_head.php:53
 msgid "Extras"
 msgstr ""
 
@@ -100,7 +80,11 @@ msgstr ""
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: core/actions/init.php:49 core/admin/field_html.php:30
+#: core/actions/init.php:49
+msgid "Title"
+msgstr ""
+
+#: core/admin/field_html.php:30
 msgid "Label"
 msgstr ""
 
@@ -108,70 +92,66 @@ msgstr ""
 msgid "The field name that editors will see"
 msgstr ""
 
-#: core/admin/field_html.php:41
+#: core/admin/field_html.php:37
 msgid "Name"
 msgstr ""
 
-#: core/admin/field_html.php:42
+#: core/admin/field_html.php:38
 msgid "Only lowercase letters and underscores"
 msgstr ""
 
-#: core/admin/field_html.php:51
+#: core/admin/field_html.php:43
 msgid "Field Type"
 msgstr ""
 
-#: core/admin/field_html.php:68
-msgid "Field Instructions"
+#: core/admin/field_html.php:61
+msgid "Instructions"
 msgstr ""
 
-#: core/admin/field_html.php:69
-msgid "Instructions for authors when entering field data"
+#: core/admin/field_html.php:62
+msgid "Tips for editors when entering field data"
 msgstr ""
 
-#: core/admin/field_html.php:78 core/admin/field_html.php:83
-msgid "Save Field"
+#: core/admin/field_html.php:74
+msgid "Close"
 msgstr ""
 
-#: core/admin/field_html.php:84
-msgid "or continue editing"
-msgstr ""
-
-#: core/admin/meta_box_fields.php:37
+#: core/admin/meta_box_fields.php:59
 msgid "Add New Field"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:58 core/fields/relationship.php:91
+#: core/admin/meta_box_rules.php:76 core/fields/relationship.php:90
 msgid "Post Types"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:84
+#: core/admin/meta_box_rules.php:102
 msgid "User Roles"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:110
+#: core/admin/meta_box_rules.php:128
 msgid "Posts"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:136
+#: core/admin/meta_box_rules.php:154
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: core/admin/page_import.php:86
-msgid "Import Successful"
+#: core/admin/page_sync.php:82
+msgid "Custom Field Sync"
 msgstr ""
 
-#: core/admin/page_import.php:90
+#: core/admin/page_sync.php:86
+msgid "Sync Successful"
+msgstr ""
+
+#: core/admin/page_sync.php:90
 msgid ""
-"This tool will scan your existing custom fields, mapping values into Custom "
-"Field Suite."
+"This tool will scan your existing custom fields, mapping any applicable "
+"values into Custom Field Suite."
 msgstr ""
 
-#: core/admin/page_import.php:91
-msgid "Select the field groups to populate:"
-msgstr ""
-
-#: core/admin/page_import.php:116
-msgid "Import Field Data"
+#: core/admin/page_sync.php:115
+msgid "Synchronize"
 msgstr ""
 
 #: core/fields/date/date.php:9
@@ -194,23 +174,31 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: core/fields/file.php:71
-msgid "Attach File"
+#: core/fields/file.php:53
+msgid "Return Value"
+msgstr ""
+
+#: core/fields/file.php:93
+msgid "Use This File"
 msgstr ""
 
 #: core/fields/loop.php:9
 msgid "Loop"
 msgstr ""
 
-#: core/fields/loop.php:109
-msgid "Loop Fields"
+#: core/fields/loop.php:35
+msgid "Button Label"
+msgstr ""
+
+#: core/fields/loop.php:36
+msgid "Default: Add Row"
 msgstr ""
 
 #: core/fields/relationship.php:9
 msgid "Relationship"
 msgstr ""
 
-#: core/fields/relationship.php:92
+#: core/fields/relationship.php:91
 msgid "Limit posts to the following types"
 msgstr ""
 
@@ -238,16 +226,24 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
+#: core/fields/textarea.php:40
+msgid "Formatting"
+msgstr ""
+
 #: core/fields/true_false.php:9
 msgid "True / False"
 msgstr ""
 
-#: core/fields/true_false.php:27
+#: core/fields/true_false.php:28
 msgid "Message"
 msgstr ""
 
-#: core/fields/true_false.php:28
+#: core/fields/true_false.php:29
 msgid "The text beside the checkbox"
+msgstr ""
+
+#: core/fields/user.php:9
+msgid "User"
 msgstr ""
 
 #: core/fields/wysiwyg.php:9
