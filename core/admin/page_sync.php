@@ -89,30 +89,22 @@ $results = $wpdb->get_results($sql);
 
     <p><?php _e('This tool will scan your existing custom fields, mapping any applicable values into Custom Field Suite.', 'cfs'); ?></p>
     <form method="post" action="">
-        <table class="widefat">
-            <thead>
-                <tr>
-                    <th class="check-column"></th>
-                    <th>Field Groups</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($results as $result) : ?>
-                <tr>
-                    <td><input type="checkbox" name="groups[]" value="<?php echo $result->ID; ?>" /></td>
-                    <td><?php echo $result->post_title; ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th class="check-column"></th>
-                    <th>Field Groups</th>
-                </tr>
-            </tfoot>
+        <table>
+            <tr>
+                <td style="vertical-align:top">
+                    <div>Which field groups would you like to synchronize?</div>
+                    <div>
+                        <select name="groups[]" style="width:300px; height:120px" multiple="multiple">
+                        <?php foreach ($results as $result) : ?>
+                            <option value="<?php echo $result->ID; ?>"><?php echo $result->post_title; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" class="button-secondary" value="<?php _e('Synchronize', 'cfs'); ?>" />
+                    </div>
+                </td>
+            </tr>
         </table>
-        <div class="tablenav bottom">
-            <input type="submit" class="button-secondary" value="<?php _e('Synchronize', 'cfs'); ?>" />
-        </div>
     </form>
 </div>

@@ -2,6 +2,10 @@
 
 global $wpdb;
 
+$field_data = isset($_POST['cfs']['fields']) ? $_POST['cfs']['fields'] : array();
+$cfs_rules = isset($_POST['cfs']['rules']) ? $_POST['cfs']['rules'] : array();
+$cfs_extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
+
 /*---------------------------------------------------------------------------------------------
     Save fields
 ---------------------------------------------------------------------------------------------*/
@@ -9,7 +13,6 @@ global $wpdb;
 if (isset($_POST['cfs']['fields']))
 {
     $weight = 0;
-    $field_data = $_POST['cfs']['fields'];
     $table_name = $wpdb->prefix . 'cfs_fields';
 
     // remove all existing fields
@@ -49,7 +52,6 @@ if (isset($_POST['cfs']['fields']))
 ---------------------------------------------------------------------------------------------*/
 
 $data = array();
-$cfs_rules = $_POST['cfs']['rules'];
 $rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids');
 
 foreach ($rule_types as $type)
@@ -69,5 +71,4 @@ update_post_meta($post_id, 'cfs_rules', $data);
     Save extras
 ---------------------------------------------------------------------------------------------*/
 
-$cfs_extras = $_POST['cfs']['extras'];
 update_post_meta($post_id, 'cfs_extras', $cfs_extras);

@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/custom-field-suite/
 Description: Visually create and manage custom fields. CFS is a fork of Advanced Custom Fields.
-Version: 1.6.0
+Version: 1.6.1
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL
@@ -11,7 +11,7 @@ Copyright: Matt Gibbs
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.6.0';
+$cfs->version = '1.6.1';
 
 class Cfs
 {
@@ -50,6 +50,9 @@ class Cfs
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('save_post', array($this, 'save_post'));
         add_action('delete_post', array($this, 'delete_post'));
+
+        // ajax handlers
+        add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
 
         // 3rd party hooks
         add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
@@ -328,6 +331,7 @@ class Cfs
     function admin_menu()
     {
         add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
+        add_submenu_page('edit.php?post_type=cfs', 'Import / Export', 'Import / Export', 'manage_options', 'cfs-import', array($this, 'page_import'));
         add_submenu_page('edit.php?post_type=cfs', 'Synchronize', 'Synchronize', 'manage_options', 'cfs-sync', array($this, 'page_sync'));
     }
 
@@ -441,6 +445,164 @@ class Cfs
     function page_sync()
     {
         include($this->dir . '/core/admin/page_sync.php');
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    page_import
+    *
+    *    @author Matt Gibbs
+    *    @since 1.6.1
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function page_import()
+    {
+        include($this->dir . '/core/admin/page_import.php');
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    ajax_handler
+    *
+    *    @author Matt Gibbs
+    *    @since 1.6.1
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function ajax_handler()
+    {
+        global $wpdb;
+
+        if (is_admin())
+        {
+            // Export field groups
+            if ('export' == $_POST['action_type'])
+            {
+                $post_ids = array();
+                $field_groups = array();
+                foreach ($_POST['field_groups'] as $post_id)
+                {
+                    $post_ids[] = (int) $post_id;
+                }
+                $post_ids = implode(',', $post_ids);
+
+                $post_data = $wpdb->get_results("SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)");
+                foreach ($post_data as $row)
+                {
+                    $data = (array) $row;
+                    unset($data['ID']);
+                    $field_groups[$row->ID] = $data;
+                }
+
+                $meta_data = $wpdb->get_results("SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)");
+                foreach ($meta_data as $row)
+                {
+                    $data = (array) $row;
+                    unset($data['meta_id']);
+                    unset($data['post_id']);
+                    $field_groups[$row->post_id]['meta'][] = $data;
+                }
+
+                $field_data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($post_ids) ORDER BY post_id, parent_id, weight");
+                foreach ($field_data as $row)
+                {
+                    $data = (array) $row;
+                    unset($data['id']);
+                    unset($data['post_id']);
+                    $field_groups[$row->post_id]['fields'][$row->id] = $data;
+                }
+
+                echo json_encode($field_groups);
+            }
+            // Import field groups
+            elseif ('import' == $_POST['action_type'])
+            {
+                $input = json_decode(stripslashes($_POST['input']));
+
+                if (!empty($input))
+                {
+                    // Collect stats
+                    $stats = array();
+
+                    // Get all existing field group names
+                    $existing_groups = $wpdb->get_col("SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'");
+
+                    // Loop through field groups
+                    foreach ($input as $group_id => $group)
+                    {
+                        // Make sure this field group doesn't exist
+                        if (!in_array($group->post_name, $existing_groups))
+                        {
+                            // Insert new post
+                            $post_id = wp_insert_post(array(
+                                'post_title' => $group->post_title,
+                                'post_name' => $group->post_name,
+                                'post_type' => 'cfs',
+                                'post_status' => 'publish',
+                                'post_content' => '',
+                                'post_content_filtered' => '',
+                                'post_excerpt' => '',
+                                'to_ping' => '',
+                                'pinged' => '',
+                            ));
+
+                            // Loop through meta_data
+                            foreach ($group->meta as $row)
+                            {
+                                // add_post_meta serializes the meta_value (bad!)
+                                $wpdb->insert($wpdb->postmeta, array(
+                                    'post_id' => $post_id,
+                                    'meta_key' => $row->meta_key,
+                                    'meta_value' => $row->meta_value
+                                ));
+                            }
+
+                            // Loop through field_data
+                            $field_id_mapping = array();
+                            foreach ($group->fields as $old_id => $row)
+                            {
+                                $row_array = (array) $row;
+                                $row_array['post_id'] = $post_id;
+
+                                $wpdb->insert($wpdb->prefix . 'cfs_fields', $row_array);
+                                $field_id_mapping[$old_id] = $wpdb->insert_id;
+                            }
+
+                            // Update the parent_ids
+                            foreach ($field_id_mapping as $old_id => $new_id)
+                            {
+                                $new_field_ids = implode(',', $field_id_mapping);
+                                $wpdb->query("UPDATE {$wpdb->prefix}cfs_fields SET parent_id = '$new_id' WHERE parent_id = '$old_id' AND id IN ($new_field_ids)");
+                            }
+
+                            $stats['imported'][] = $group->post_title;
+                        }
+                        else
+                        {
+                            $stats['skipped'][] = $group->post_title;
+                        }
+                    }
+
+                    if (!empty($stats['imported']))
+                    {
+                        echo '<div><strong>Successfully imported:</strong> ' . implode(', ', $stats['imported']) . '</div>';
+                    }
+                    if (!empty($stats['skipped']))
+                    {
+                        echo '<div><strong>Skipped:</strong> ' . implode(', ', $stats['skipped']) . '</div>';
+                    }
+                }
+                else
+                {
+                    echo '<div><strong>Error:</strong> There are no field groups to import.</div>';
+                }
+            }
+        }
+
+        die();
     }
 
 

@@ -14,7 +14,7 @@ foreach ($types as $post_type)
 }
 
 $extras = get_post_meta($post->ID, 'cfs_extras', true);
-if (!is_array($extras))
+if (empty($extras))
 {
     $extras = array(
         'gforms' => array(
