@@ -588,7 +588,7 @@ class Cfs
 
                     if (!empty($stats['imported']))
                     {
-                        echo '<div><strong>Successfully imported:</strong> ' . implode(', ', $stats['imported']) . '</div>';
+                        echo '<div><strong>Imported:</strong> ' . implode(', ', $stats['imported']) . '</div>';
                     }
                     if (!empty($stats['skipped']))
                     {
@@ -597,7 +597,7 @@ class Cfs
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> There are no field groups to import.</div>';
+                    echo '<div><strong>Error:</strong> No field groups to import</div>';
                 }
             }
         }

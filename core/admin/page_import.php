@@ -80,6 +80,7 @@ $results = $wpdb->get_results($sql);
     <table>
         <tr>
             <td style="width:300px; vertical-align:top">
+                <div>Paste the code. Existing field groups will be skipped.</div>
                 <div>
                     <textarea id="import" style="width:98%; height:120px"></textarea>
                 </div>
@@ -88,7 +89,7 @@ $results = $wpdb->get_results($sql);
                 </div>
             </td>
             <td style="width:300px; vertical-align:top">
-                <div id="status-message">Paste the import code to continue. Existing field groups will be skipped.</div>
+                <div id="status-message"></div>
             </td>
         </tr>
     </table>

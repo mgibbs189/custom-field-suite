@@ -50,7 +50,7 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 
 = 1.6.1 =
 * Field group import / export
-* Cleaned PHP notices when WP_DEBUG = 1
+* Cleaned PHP notices when WP_DEBUG = 1 (props @scottkclark)
 
 = 1.6.0 =
 * Drag-n-drop loop ordering on edit pages! (props Christian Bromann)

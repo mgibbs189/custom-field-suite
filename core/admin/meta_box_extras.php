@@ -60,8 +60,8 @@ if ($is_gf_active)
             <?php else : ?>
 
             <div><a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> must be installed to use this feature.</div>
-            <p>Gravity Forms is a plugin for adding public forms to your site: everything from contact pages, multi-page forms, payment forms, and forms with conditional fields.</p>
-            <p>Once activated, you'll be able to save Gravity Forms entries as post items. This includes mapping of fields into Custom Field Suite.</p>
+            <p>Once enabled, you'll be able to save Gravity Forms entries as post items, including <a href="http://uproot.us/blog/how-to-save-gravity-forms-data-into-custom-field-suite/" target="_blank">saving entry data as custom fields using CFS.</a>.</p>
+            <p>Gravity Forms is a plugin for creating front-end forms. It works great for contact pages, multi-page forms, payment forms, forms with conditional fields, etc.</p>
         <?php endif; ?>
         </td>
     </tr>
