@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/custom-field-suite/
 Description: Visually create and manage custom fields. CFS is a fork of Advanced Custom Fields.
-Version: 1.6.1
+Version: 1.6.2
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL
@@ -11,7 +11,7 @@ Copyright: Matt Gibbs
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.6.1';
+$cfs->version = '1.6.2';
 
 class Cfs
 {
@@ -368,13 +368,10 @@ class Cfs
         }
         elseif (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
         {
-            if (isset($_POST['cfs']['input']))
-            {
-                $field_data = $_POST['cfs']['input'];
-                $post_data = array('ID' => $_POST['ID']);
-                $options = array('raw_input' => true);
-                $this->api->save_fields($field_data, $post_data, $options);
-            }
+            $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
+            $post_data = array('ID' => $_POST['ID']);
+            $options = array('raw_input' => true);
+            $this->api->save_fields($field_data, $post_data, $options);
         }
 
         return $post_id;

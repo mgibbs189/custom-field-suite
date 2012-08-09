@@ -48,6 +48,10 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 
 == Changelog ==
 
+= 1.6.2 =
+* Bugfix: rare bug with deleting loop rows (props Lucia)
+* Updated timepicker script (props @scottkclark)
+
 = 1.6.1 =
 * Field group import / export
 * Cleaned PHP notices when WP_DEBUG = 1 (props @scottkclark)

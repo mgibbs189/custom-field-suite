@@ -64,7 +64,7 @@
 
 .cfs_input .cfs_date input.date {
     width: 220px;
-    background: url(../images/icon-calendar.png) 98% 50% no-repeat;
+    background: #fff url(../images/icon-calendar.png) 98% 50% no-repeat;
 }
 
 /*---------------------------------------------------------------------------------------------
