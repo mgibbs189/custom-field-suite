@@ -21,6 +21,9 @@ class cfs_Wysiwyg extends cfs_Field
 
     function input_head()
     {
+        // Make sure the user has WYSIWYG enabled
+        if ('true' == get_user_meta(get_current_user_id(), 'rich_editing', true))
+        {
     ?>
         <script type="text/javascript">
         (function($) {
@@ -50,6 +53,7 @@ class cfs_Wysiwyg extends cfs_Field
         })(jQuery);
         </script>
     <?php
+        }
     }
 
     function wp_default_editor()
