@@ -65,11 +65,10 @@ class cfs_Loop extends cfs_Field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
-                <a class="cfs_toggle_field"></a>
                 <span class="label">Loop Row</span> -
-                <span class="notes">drag and drop to re-order</span>
+                <span class="notes">click to toggle, drag to re-order</span>
             </div>
-            <div class="cfs_loop_body">
+            <div class="cfs_loop_body open">
             <?php foreach ($results as $field) : ?>
                 <label><?php echo $field->label; ?></label>
 
@@ -131,9 +130,8 @@ class cfs_Loop extends cfs_Field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
-                <a class="cfs_toggle_field"></a>
                 <span class="label">Loop Row</span> -
-                <span class="notes">drag and drop to re-order</span>
+                <span class="notes">click to toggle, drag to re-order</span>
             </div>
             <div class="cfs_loop_body">
             <?php foreach ($results as $field) : ?>
@@ -199,8 +197,7 @@ class cfs_Loop extends cfs_Field
                 });
 
                 $('.cfs_loop_head').live('click', function() {
-                    $(this).siblings('.cfs_loop_body').toggle();
-                    $(this).toggleClass('open');
+                    $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
 
                 $('.cfs_loop').sortable({

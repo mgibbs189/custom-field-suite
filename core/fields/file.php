@@ -26,6 +26,8 @@ class cfs_File extends cfs_Field
             else
             {
                 $file_url = wp_get_attachment_url($field->value);
+                $filename = substr($file_url, strrpos($file_url, '/') + 1);
+                $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
             }
         }
 
@@ -105,7 +107,16 @@ class cfs_File extends cfs_Field
 
         if (isset($postdata['cfs_file']))
         {
-            $file_url = wp_attachment_is_image($id) ? wp_get_attachment_image($id) : $attachment['url'];
+            if (wp_attachment_is_image($id))
+            {
+                $file_url = wp_get_attachment_image($id);
+            }
+            else
+            {
+                $file_url = wp_get_attachment_url($id);
+                $filename = substr($file_url, strrpos($file_url, '/') + 1);
+                $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
+            }
     ?>
         <script type="text/javascript">
         self.parent.cfs_div.hide();

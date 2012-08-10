@@ -50,6 +50,8 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 
 = 1.6.2 =
 * Bugfix: rare bug with deleting loop rows (props Lucia)
+* Enhancement: new loop rows are expanded by default
+* Enhancement: file field UI improvements
 * Updated timepicker script (props @scottkclark)
 
 = 1.6.1 =

@@ -84,6 +84,16 @@
 }
 
 /*---------------------------------------------------------------------------------------------
+    File
+---------------------------------------------------------------------------------------------*/
+
+.cfs_file .file_url img {
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 1px 2px #ddd;
+}
+
+/*---------------------------------------------------------------------------------------------
     Relationship, User
 ---------------------------------------------------------------------------------------------*/
 
@@ -174,13 +184,6 @@
     background-position: 0 100%;
 }
 
-.cfs_toggle_field {
-    float: right;
-    width: 15px;
-    height: 15px;
-    background: url(../images/arrows.png) no-repeat;
-}
-
 .cfs_loop_head.open .cfs_toggle_field {
     background-position: 0px -35px;
 }
@@ -219,6 +222,10 @@
 
 .cfs_loop .cfs_loop_body {
     padding: 10px;
-    display: none;
     background: #f8f8f8;
+    display: none;
+}
+
+.cfs_loop .cfs_loop_body.open {
+    display: block;
 }
