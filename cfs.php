@@ -331,8 +331,7 @@ class Cfs
     function admin_menu()
     {
         add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
-        add_submenu_page('edit.php?post_type=cfs', 'Import / Export', 'Import / Export', 'manage_options', 'cfs-import', array($this, 'page_import'));
-        add_submenu_page('edit.php?post_type=cfs', 'Synchronize', 'Synchronize', 'manage_options', 'cfs-sync', array($this, 'page_sync'));
+        add_submenu_page('edit.php?post_type=cfs', 'Tools', 'Tools', 'manage_options', 'cfs-tools', array($this, 'page_tools'));
     }
 
 
@@ -432,31 +431,16 @@ class Cfs
 
     /*--------------------------------------------------------------------------------------
     *
-    *    page_sync
+    *    page_tools
     *
     *    @author Matt Gibbs
-    *    @since 1.3.4
+    *    @since 1.6.3
     *
     *-------------------------------------------------------------------------------------*/
 
-    function page_sync()
+    function page_tools()
     {
-        include($this->dir . '/core/admin/page_sync.php');
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    page_import
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.1
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function page_import()
-    {
-        include($this->dir . '/core/admin/page_import.php');
+        include($this->dir . '/core/admin/page_tools.php');
     }
 
 
@@ -517,9 +501,9 @@ class Cfs
             // Import field groups
             elseif ('import' == $_POST['action_type'])
             {
-                $input = json_decode(stripslashes($_POST['input']));
+                $code = json_decode(stripslashes($_POST['import_code']));
 
-                if (!empty($input))
+                if (!empty($code))
                 {
                     // Collect stats
                     $stats = array();
@@ -528,7 +512,7 @@ class Cfs
                     $existing_groups = $wpdb->get_col("SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'");
 
                     // Loop through field groups
-                    foreach ($input as $group_id => $group)
+                    foreach ($code as $group_id => $group)
                     {
                         // Make sure this field group doesn't exist
                         if (!in_array($group->post_name, $existing_groups))
@@ -594,7 +578,82 @@ class Cfs
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> No field groups to import</div>';
+                    echo '<div><strong>Error:</strong> Nothing to import</div>';
+                }
+            }
+            // Sync custom fields
+            elseif ('sync' == $_POST['action_type'])
+            {
+                if (isset($_POST['field_groups']))
+                {
+                    $group_ids = (array) $_POST['field_groups'];
+                    foreach ($group_ids as $group_id)
+                    {
+                        $rules = get_post_meta($group_id, 'cfs_rules', true);
+                        $post_types = $post_ids = $term_ids = '';
+                        $fields = array();
+
+                        // Get this group's fields
+                        $sql = "
+                        SELECT id, name
+                        FROM {$wpdb->prefix}cfs_fields
+                        WHERE post_id = '$group_id' AND parent_id = 0";
+                        $results = $wpdb->get_results($sql);
+                        foreach ($results as $result)
+                        {
+                            $fields[$result->name] = $result->id;
+                        }
+
+                        if (isset($rules['post_types']))
+                        {
+                            $post_types = implode("','", $rules['post_types']['values']);
+                            $operator = ('==' == $rules['post_types']['operator'][0]) ? 'IN' : 'NOT IN';
+                            $post_types = " AND p.post_type $operator ('$post_types')";
+                        }
+                        if (isset($rules['post_ids']))
+                        {
+                            $post_ids = implode(',', $rules['post_ids']['values']);
+                            $operator = ('==' == $rules['post_ids']['operator'][0]) ? 'IN' : 'NOT IN';
+                            $post_ids = " AND p.ID $operator ($post_ids)";
+                        }
+                        if (isset($rules['term_ids']))
+                        {
+                            $term_ids = implode(',', $rules['term_ids']['values']);
+                            $operator = ('==' == $rules['term_ids']['operator'][0]) ? 'IN' : 'NOT IN';
+                            $term_ids = "
+                            INNER JOIN $wpdb->term_relationships tr ON tr.object_id = p.ID
+                            INNER JOIN $wpdb->term_taxonomy tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.term_id $operator ($term_ids)";
+                        }
+
+                        $sql = "
+                        SELECT m.meta_id, m.post_id, m.meta_key
+                        FROM $wpdb->postmeta m
+                        INNER JOIN $wpdb->posts p ON p.ID = m.post_id $post_types $post_ids $term_ids
+                        LEFT JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
+                        WHERE v.meta_id IS NULL";
+                        $results = $wpdb->get_results($sql);
+
+                        $tuples = array();
+                        foreach ($results as $result)
+                        {
+                            if (isset($fields[$result->meta_key]))
+                            {
+                                $field_id = $fields[$result->meta_key];
+                                $tuples[] = "($field_id, $result->meta_id, $result->post_id, 0, 0)";
+                            }
+                        }
+
+                        if (0 < count($tuples))
+                        {
+                            $wpdb->query("INSERT INTO {$wpdb->prefix}cfs_values (field_id, meta_id, post_id, weight, sub_weight) VALUES " . implode(',', $tuples));
+                        }
+                    }
+
+                    echo 'Sync successful';
+                }
+                else
+                {
+                    echo '<div><strong>Error:</strong> No field groups selected</div>';
                 }
             }
         }

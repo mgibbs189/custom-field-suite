@@ -12,10 +12,12 @@ class cfs_Date extends cfs_Field
         // Include necessary scripts
         if (in_array($GLOBALS['pagenow'], array('post.php', 'post-new.php')))
         {
+            wp_register_style('jquery-ui-timepicker', $this->parent->url . '/core/fields/date/date.css');
             wp_register_script('jquery-ui-timepicker', $this->parent->url . '/core/fields/date/jquery.ui.timepicker.js',
                 array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider')
             );
 
+            wp_enqueue_style('jquery-ui-timepicker');
             wp_enqueue_script('jquery-ui-timepicker');
         }
     }
@@ -23,7 +25,6 @@ class cfs_Date extends cfs_Field
     function input_head($field = null)
     {
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/date/date.css" />
         <script type="text/javascript">
         (function($) {
             $('.cfs_date input.date').live('focus', function() {
