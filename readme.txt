@@ -49,6 +49,8 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 == Changelog ==
 
 = 1.6.3 =
+* New tabbed UI for Import / Export / Synchronize
+* New "Debug Information" tab for helping with issue diagnosis
 * Bugfix: checkbox missing from Select field multi-select option (props HighStand)
 
 = 1.6.2 =

@@ -63,9 +63,14 @@ p.search-box {
             <h3 class="hndle"><span><?php _e('Custom Field Suite', 'cfs'); ?> <?php echo $this->version; ?></span></h3>
             <div class="inside">
                 <div class="field">
-                    <p><a href="http://wordpress.org/extend/plugins/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a></p>
-                    <p><a href="http://uproot.us/custom-field-suite/docs/" target="_blank"><?php _e('Read the user guide', 'cfs'); ?></a></p>
-                    <p><a href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank"><?php _e('View plugin page', 'cfs'); ?></a></p>
+                    <p>
+                        <a href="http://wordpress.org/extend/plugins/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="http://uproot.us/custom-field-suite/docs/" target="_blank"><?php _e('User Guide', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="http://uproot.us/" target="_blank"><?php _e('Website', 'cfs'); ?></a>
+                    </p>
+                </div>
+                <div class="field">
+                    <p>Please consider supporting the plugin by <a href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank">rating it on wordpress.org</a> or donating.</p>
                 </div>
                 <div class="field">
                     <p>
