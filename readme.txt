@@ -44,7 +44,10 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 2. Browse to `Field Groups` menu to configure.
 
 == Screenshots ==
-1. A custom field group, with loop nesting.
+1. A custom field group with field nesting (loop field)
+2. Clicking on a field name expands the box to show options
+3. Placement Rules determine where field groups appear
+4. The Tools area for migrating field groups
 
 == Changelog ==
 
@@ -52,6 +55,7 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 * New tabbed UI for Import / Export / Synchronize
 * New "Debug Information" tab for helping with issue diagnosis
 * Bugfix: checkbox missing from Select field multi-select option (props HighStand)
+* Added new screenshots
 
 = 1.6.2 =
 * Bugfix: rare bug with deleting loop rows (props Lucia)
