@@ -39,10 +39,20 @@ field_index = <?php echo $field_count; ?>;
 field_clone = <?php echo json_encode($field_clone); ?>;
 options_html = <?php echo json_encode($options_html); ?>;
 
+(function($) {
+    $(function() {
+        $('span.checkbox').live('click', function() {
+            var val = $(this).hasClass('active') ? 0 : 1;
+            $(this).siblings('input').val(val);
+            $(this).toggleClass('active');
+        });
+    });
+})(jQuery);
+
 </script>
 
-<script type="text/javascript" src="<?php echo $this->url; ?>/js/fields.js"></script>
-<script type="text/javascript" src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
+<script src="<?php echo $this->url; ?>/js/fields.js"></script>
+<script src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/fields.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/select2/select2.css" />
 

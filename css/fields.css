@@ -227,6 +227,24 @@ span.cfs_delete_field:hover {
 }
 
 /*---------------------------------------------------------------------------------------------
+    Checkboxes
+---------------------------------------------------------------------------------------------*/
+
+span.checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(../images/checkbox-off.png) no-repeat;
+    vertical-align: bottom;
+    margin-right: 3px;
+}
+
+span.checkbox.active {
+    background: url(../images/checkbox-on.png) no-repeat;
+}
+
+/*---------------------------------------------------------------------------------------------
     Hide some submit buttons
 ---------------------------------------------------------------------------------------------*/
 
