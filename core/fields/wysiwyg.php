@@ -2,6 +2,8 @@
 
 class cfs_Wysiwyg extends cfs_Field
 {
+    
+    static $in_filter = false;
 
     function __construct($parent)
     {
@@ -68,6 +70,14 @@ class cfs_Wysiwyg extends cfs_Field
 
     function format_value_for_api($value, $field)
     {
-        return apply_filters('the_content', $value[0]);
+        $output = $value[ 0 ];
+        
+        if ( !self::$in_filter ) {
+            self::$in_filter = true;
+            $output = apply_filters( 'the_content', $output );
+            self::$in_filter = false;
+        }
+        
+        return $output;
     }
 }
