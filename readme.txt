@@ -51,6 +51,9 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 
 == Changelog ==
 
+= 1.6.4 =
+* Added new wysiwyg "Formatting" option
+
 = 1.6.3 =
 * New tabbed UI for Import / Export / Synchronize
 * New "Debug Information" tab for helping with issue diagnosis
