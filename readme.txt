@@ -53,6 +53,7 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 
 = 1.6.4 =
 * Added new wysiwyg "Formatting" option
+* Enhancement: encapsulated jQuery UI CSS to prevent plugin conflicts
 
 = 1.6.3 =
 * New tabbed UI for Import / Export / Synchronize
