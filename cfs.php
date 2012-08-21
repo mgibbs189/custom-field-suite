@@ -200,6 +200,10 @@ class Cfs
             }
         }
 
+        if(false !== ($filtered = apply_filters('cfs_match_groups', array($matches, $post_id, $post_type)))){
+            $matches = $filtered;
+        }
+
         return $matches;
     }
 
