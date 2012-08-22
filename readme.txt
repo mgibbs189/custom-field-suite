@@ -10,9 +10,17 @@ Visually create and manage custom fields.
 
 == Description ==
 
-Visually create and manage custom fields.
+Custom Field Suite is yet another custom fields plugin for WordPress. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a simple yet powerful API for displaying custom fields throughout your site.
 
-CFS is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/). The focus of this plugin is performance and stability. 
+CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/). The main goals of this plugin are stability, performance, and avoiding feature bloat.
+
+= Why use CFS? =
+* CFS is stable. Our top priority is keeping your data safe. We thoroughly test all changes before releasing a new version.
+* CFS is fast.
+* CFS uses minimal resources.
+* CFS integrates with [Gravity Forms](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/).
+* CFS supports custom field types (we had it before ACF).
+* CFS is 100% free.
 
 = Field Types =
 * Text (api returns text)
@@ -27,17 +35,15 @@ CFS is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/ad
 * Loop (a container for other fields, api returns array of arrays)
 
 = More Features =
-* Drag-n-drop field management UI that supports field hierarchy
-* Customize where each field group will appear
+* Drag-n-drop field management UI
+* Loop fields support unlimited nesting!
+* Placement Rules allow you to customize where each field group appears
 * [Create your own field types](http://uproot.us/custom-field-suite/docs/custom-field-type/)
-* [Gravity Forms integration](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/)
-* Quickly and easily migrate existing custom fields into CFS
-* Loop fields can have unlimited nesting!
+* Quickly migrate existing custom fields into CFS
 
 = Documentation and Support =
 * http://uproot.us/
 * http://uproot.us/custom-field-suite/docs/
-* http://uproot.us/forums/
 * https://github.com/logikal16/custom-field-suite/
 
 == Installation ==
