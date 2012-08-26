@@ -59,6 +59,10 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 
 == Changelog ==
 
+= 1.6.5 =
+* Bugfix: Handle arrays for field get_option (props Migual Peixe)
+* Added "cfs_matching_groups" hook to override which field groups are used (props Gator92)
+
 = 1.6.4 =
 * Added new wysiwyg "Formatting" option
 * Enhancement: encapsulated jQuery UI CSS to prevent plugin conflicts

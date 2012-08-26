@@ -90,7 +90,7 @@ class cfs_Wysiwyg extends cfs_Field
 
     function format_value_for_api($value, $field)
     {
-        $formatting = $this->get_option('formatting', 'default');
-        return ('none' == $formatting) ? $value[0] : apply_filters('the_content', $value[0]);
+        $formatting = $this->get_option($field, 'formatting', 'default');
+        return ('none' == $formatting[0]) ? $value[0] : apply_filters('the_content', $value[0]);
     }
 }
