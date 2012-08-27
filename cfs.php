@@ -45,6 +45,7 @@ class Cfs
 
         // add actions
         add_action('init', array($this, 'init'));
+        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('admin_head', array($this, 'admin_head'));
         add_action('admin_footer', array($this, 'admin_footer'));
         add_action('admin_menu', array($this, 'admin_menu'));
@@ -318,6 +319,23 @@ class Cfs
         {
             include($this->dir . '/core/actions/admin_footer.php');
         }
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    add_meta_boxes
+    *
+    *    @author Matt Gibbs
+    *    @since 1.6.6
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function add_meta_boxes()
+    {
+        add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
+        add_meta_box('cfs_rules', __('Placement Rules', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'rules'));
+        add_meta_box('cfs_extras', __('Extras', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'extras'));
     }
 
 

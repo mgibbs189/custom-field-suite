@@ -57,10 +57,6 @@ options_html = <?php echo json_encode($options_html); ?>;
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/select2/select2.css" />
 
 <?php
-
-    add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
-    add_meta_box('cfs_rules', __('Placement Rules', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'rules'));
-    add_meta_box('cfs_extras', __('Extras', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'extras'));
 }
 
 /*---------------------------------------------------------------------------------------------
