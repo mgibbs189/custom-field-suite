@@ -734,7 +734,7 @@ class Cfs
                 $field_id = $field['id'];
 
                 // handle fields with children
-                if (null !== $field['inputs'])
+                if (!empty($field['inputs']))
                 {
                     $values = array();
 
