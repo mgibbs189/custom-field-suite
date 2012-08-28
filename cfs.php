@@ -20,6 +20,7 @@ class Cfs
     public $siteurl;
     public $version;
     public $fields;
+    public $matching_groups;
     public $used_types;
     public $api;
 
@@ -45,12 +46,12 @@ class Cfs
 
         // add actions
         add_action('init', array($this, 'init'));
-        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('admin_head', array($this, 'admin_head'));
         add_action('admin_footer', array($this, 'admin_footer'));
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('save_post', array($this, 'save_post'));
         add_action('delete_post', array($this, 'delete_post'));
+        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
 
         // ajax handlers
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
@@ -135,7 +136,7 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_matching_groups($post_id, $is_public = false)
+    function get_matching_groups($post_id, $skip_roles = false)
     {
         global $wpdb, $current_user;
 
@@ -173,7 +174,7 @@ class Cfs
         );
 
         // Ignore user_roles if used within get_fields
-        if (false !== $is_public)
+        if (false !== $skip_roles)
         {
             unset($rule_types['user_roles']);
         }
