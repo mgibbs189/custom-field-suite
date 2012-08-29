@@ -44,7 +44,7 @@ class cfs_Loop extends cfs_Field
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
                         'input_class' => '',
-                        'value' => $this->get_option($field, 'button_label', 'Add Row'),
+                        'value' => $this->get_option($field, 'button_label', __('Add Row', 'cfs')),
                     ));
                 ?>
             </td>
@@ -65,8 +65,8 @@ class cfs_Loop extends cfs_Field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
-                <span class="label">Loop Row</span> -
-                <span class="notes">click to toggle, drag to re-order</span>
+                <span class="label"><?php _e('Loop Row', 'cfs'); ?></span> -
+                <span class="notes"><?php _e('click to toggle, drag to re-order', 'cfs'); ?></span>
             </div>
             <div class="cfs_loop_body open">
             <?php foreach ($results as $field) : ?>
@@ -79,7 +79,7 @@ class cfs_Loop extends cfs_Field
                 <div class="field cfs_<?php echo $field->type; ?>">
                 <?php if ('loop' == $field->type) : ?>
                     <div class="table_footer">
-                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', 'Add Row')); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
+                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
                     </div>
                 <?php else : ?>
                 <?php
@@ -130,8 +130,8 @@ class cfs_Loop extends cfs_Field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
-                <span class="label">Loop Row</span> -
-                <span class="notes">click to toggle, drag to re-order</span>
+                <span class="label"><?php _e('Loop Row', 'cfs'); ?></span> -
+                <span class="notes"><?php _e('click to toggle, drag to re-order', 'cfs'); ?></span>
             </div>
             <div class="cfs_loop_body">
             <?php foreach ($results as $field) : ?>
@@ -165,7 +165,7 @@ class cfs_Loop extends cfs_Field
         <?php $loop_field = $this->parent->api->get_input_fields(false, false, $field_id); ?>
 
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', 'Add Row')); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
         </div>
     <?php
     }

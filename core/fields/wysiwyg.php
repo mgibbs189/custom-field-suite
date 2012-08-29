@@ -21,6 +21,8 @@ class cfs_Wysiwyg extends cfs_Field
 
     function options_html($key, $field)
     {
+        $default_text = __('Default', 'cfs');
+        $none_text = __('None (bypass filters)', 'cfs');
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -31,7 +33,7 @@ class cfs_Wysiwyg extends cfs_Field
                     $this->parent->create_field((object) array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
-                        'options' => array('choices' => "default : Default\nnone : None (bypass filters)"),
+                        'options' => array('choices' => "default : $default_text\nnone : $none_text"),
                         'input_class' => '',
                         'value' => $this->get_option($field, 'formatting', 'default'),
                     ));

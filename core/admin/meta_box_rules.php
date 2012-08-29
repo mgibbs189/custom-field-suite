@@ -2,6 +2,9 @@
 
 global $post, $wpdb, $wp_roles;
 
+$equals_text = __('equals', 'cfs');
+$not_equals_text = __('is not', 'cfs');
+
 $rules = get_post_meta($post->ID, 'cfs_rules', true);
 
 // Populate rules if empty
@@ -64,7 +67,7 @@ foreach ($results as $result)
 (function($) {
     $(function() {
         $('.select2').select2({
-            placeholder: 'Select some options'
+            placeholder: '<?php _e('Select some options', 'cfs'); ?>'
         });
     });
 })(jQuery);
@@ -80,7 +83,7 @@ foreach ($results as $result)
                 $this->create_field((object) array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_types]",
-                    'options' => array('choices' => "== : equals\n!= : is not"),
+                    'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
                     'value' => $rules['post_types']['operator'],
                 ));
             ?>
@@ -106,7 +109,7 @@ foreach ($results as $result)
                 $this->create_field((object) array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][user_roles]",
-                    'options' => array('choices' => "== : equals\n!= : is not"),
+                    'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
                     'value' => $rules['user_roles']['operator'],
                 ));
             ?>
@@ -132,7 +135,7 @@ foreach ($results as $result)
                 $this->create_field((object) array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_ids]",
-                    'options' => array('choices' => "== : equals\n!= : is not"),
+                    'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
                     'value' => $rules['post_ids']['operator'],
                 ));
             ?>
@@ -158,7 +161,7 @@ foreach ($results as $result)
                 $this->create_field((object) array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][term_ids]",
-                    'options' => array('choices' => "== : equals\n!= : is not"),
+                    'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
                     'value' => $rules['term_ids']['operator'],
                 ));
             ?>

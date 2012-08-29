@@ -72,7 +72,7 @@
                         <input type="hidden" name="cfs[fields][<?php echo $field->weight; ?>][id]" class="field_id" value="<?php echo $field->id; ?>" />
                         <input type="hidden" name="cfs[fields][<?php echo $field->weight; ?>][parent_id]" class="parent_id" value="<?php echo $field->parent_id; ?>" />
                         <input type="button" value="<?php _e('Close'); ?>" class="button-secondary cfs_edit_field" />
-                        &nbsp; -or- &nbsp; <span class="cfs_delete_field">delete</span>
+                        &nbsp; -<?php _e('or', 'cfs'); ?>- &nbsp; <span class="cfs_delete_field"><?php _e('delete', 'cfs'); ?></span>
                     </td>
                 </tr>
             </tbody>

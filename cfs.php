@@ -351,8 +351,8 @@ class Cfs
 
     function admin_menu()
     {
-        add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
-        add_submenu_page('edit.php?post_type=cfs', 'Tools', 'Tools', 'manage_options', 'cfs-tools', array($this, 'page_tools'));
+        add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs');
+        add_submenu_page('edit.php?post_type=cfs', __('Tools', 'cfs'), __('Tools', 'cfs'), 'manage_options', 'cfs-tools', array($this, 'page_tools'));
     }
 
 
@@ -590,16 +590,16 @@ class Cfs
 
                     if (!empty($stats['imported']))
                     {
-                        echo '<div><strong>Imported:</strong> ' . implode(', ', $stats['imported']) . '</div>';
+                        echo '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
                     }
                     if (!empty($stats['skipped']))
                     {
-                        echo '<div><strong>Skipped:</strong> ' . implode(', ', $stats['skipped']) . '</div>';
+                        echo '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
                     }
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> Nothing to import</div>';
+                    echo '<div>' . __('Nothing to import', 'cfs') . '</div>';
                 }
             }
             // Sync custom fields
@@ -674,7 +674,7 @@ class Cfs
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> No field groups selected</div>';
+                    echo '<div>' . __('No field groups selected', 'cfs') . '</div>';
                 }
             }
         }

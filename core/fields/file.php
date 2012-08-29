@@ -49,6 +49,8 @@ class cfs_File extends cfs_Field
 
     function options_html($key, $field)
     {
+        $file_url_text = __('File URL', 'cfs');
+        $attachment_id_text = __('Attachment ID', 'cfs');
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -59,7 +61,7 @@ class cfs_File extends cfs_Field
                     $this->parent->create_field((object) array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][return_value]",
-                        'options' => array('choices' => "url : File URL\nid : Attachment ID"),
+                        'options' => array('choices' => "url : $file_url_text\nid : $attachment_id_text"),
                         'input_class' => '',
                         'value' => $this->get_option($field, 'return_value', 'url'),
                     ));
@@ -144,7 +146,7 @@ class cfs_File extends cfs_Field
             $(function() {
                 $('.cfs_input .media.button.add').live('click', function() {
                     window.cfs_div = $(this);
-                    tb_show('Attach file', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
+                    tb_show(_e('Attach file', 'cfs'), 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
                     return false;
                 });
                 $('.cfs_input .media.button.remove').live('click', function() {

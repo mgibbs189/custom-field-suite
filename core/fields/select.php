@@ -122,7 +122,7 @@ class cfs_Select extends cfs_Field
                         'input_name' => "cfs[fields][$key][options][multiple]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option($field, 'multiple'),
-                        'options' => array('message' => 'This a multi-select field'),
+                        'options' => array('message' => __('This a multi-select field', 'cfs')),
                     ));
                 ?>
             </td>
