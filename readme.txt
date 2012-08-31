@@ -21,6 +21,7 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 * CFS integrates with [Gravity Forms](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/).
 * CFS supports custom field types (we had it before ACF).
 * CFS is 100% free.
+* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/) You're welcomed to participate in the development process!
 
 = Field Types =
 * Text (api returns text)
@@ -44,7 +45,6 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 = Documentation and Support =
 * http://uproot.us/
 * http://uproot.us/custom-field-suite/docs/
-* https://github.com/logikal16/custom-field-suite/
 
 == Installation ==
 
@@ -61,6 +61,7 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 
 = 1.6.6 =
 * Added Polish translation (props Bartosz Arendt)
+* Updated the translation .POT file
 * Fixed minor Gravity Forms integration bug
 
 = 1.6.5 =

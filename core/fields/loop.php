@@ -30,6 +30,8 @@ class cfs_Loop extends cfs_Field
 
     function options_html($key, $field)
     {
+        $closed_text = __('Closed', 'cfs');
+        $open_text = __('Open', 'cfs');
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -45,6 +47,22 @@ class cfs_Loop extends cfs_Field
                         'input_name' => "cfs[fields][$key][options][button_label]",
                         'input_class' => '',
                         'value' => $this->get_option($field, 'button_label', __('Add Row', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label><?php _e('Row Display', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => 'select',
+                        'input_name' => "cfs[fields][$key][options][display]",
+                        'options' => array('choices' => "closed : $closed_text\nopen : $open_text"),
+                        'input_class' => '',
+                        'value' => $this->get_option($field, 'display', 'closed'),
                     ));
                 ?>
             </td>
@@ -121,6 +139,13 @@ class cfs_Loop extends cfs_Field
         $parent_tag = empty($parent_tag) ? "[$field_id]" : $parent_tag;
         eval("\$values = isset(\$this->values{$parent_tag}) ? \$this->values{$parent_tag} : false;");
 
+        // Get field definitions
+        $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
+        $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
+        $display = $this->get_option($loop_field[$field_id], 'display', 'closed');
+        $css_class = ('open' == $display[0]) ? ' open' : '';
+
+
         $offset = 0;
 
         if ($values) :
@@ -133,7 +158,7 @@ class cfs_Loop extends cfs_Field
                 <span class="label"><?php _e('Loop Row', 'cfs'); ?></span> -
                 <span class="notes"><?php _e('click to toggle, drag to re-order', 'cfs'); ?></span>
             </div>
-            <div class="cfs_loop_body">
+            <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ($results as $field) : ?>
                 <label><?php echo $field->label; ?></label>
 
@@ -162,10 +187,8 @@ class cfs_Loop extends cfs_Field
 
         <?php endforeach; endif; ?>
 
-        <?php $loop_field = $this->parent->api->get_input_fields(false, false, $field_id); ?>
-
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($button_label); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
         </div>
     <?php
     }
