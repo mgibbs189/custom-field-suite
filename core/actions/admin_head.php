@@ -65,6 +65,7 @@ options_html = <?php echo json_encode($options_html); ?>;
 
 else
 {
+    $hide_editor = false;
     $field_group_ids = $this->get_matching_groups($post->ID);
 
     if (!empty($field_group_ids))
@@ -77,6 +78,16 @@ else
         // Support for multiple metaboxes
         foreach ($field_group_ids as $group_id => $title)
         {
+            // Get field group options
+            $extras = get_post_meta($group_id, 'cfs_extras', true);
+            if (isset($extras['hide_editor']))
+            {
+                if (0 < (int) $extras['hide_editor'])
+                {
+                    $hide_editor = true;
+                }
+            }
+
             // Call the init() field method
             $results = $wpdb->get_results("SELECT DISTINCT type FROM {$wpdb->prefix}cfs_fields WHERE post_id = '$group_id' ORDER BY parent_id, weight");
             foreach ($results as $result)
@@ -96,7 +107,7 @@ else
         $has_editor = post_type_supports($post->post_type, 'editor');
         add_post_type_support($post->post_type, 'editor');
 
-        if (!$has_editor)
+        if (!$has_editor || $hide_editor)
         {
 ?>
 

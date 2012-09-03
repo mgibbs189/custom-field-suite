@@ -21,6 +21,7 @@ if (empty($extras))
             'form_id' => '',
             'post_type' => '',
         ),
+        'hide_editor' => '',
     );
 }
 
@@ -35,7 +36,23 @@ if ($is_gf_active)
 <table style="width:100%">
     <tr>
         <td class="label">
-            <img src="http://gravityforms.s3.amazonaws.com/banners/125x125_2.gif" alt="Gravity Forms" />
+            <label><?php _e('Content Editor', 'cfs'); ?></label>
+        </td>
+        <td style="vertical-align:top">
+            <?php
+                $this->create_field((object) array(
+                    'type' => 'true_false',
+                    'input_name' => "cfs[extras][hide_editor]",
+                    'input_class' => 'true_false',
+                    'value' => $extras['hide_editor'],
+                    'options' => array('message' => __('Hide the content editor', 'cfs')),
+                ));
+            ?>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label><?php _e('Gravity Forms Integration', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
             <?php if($is_gf_active) : ?>
@@ -55,13 +72,11 @@ if ($is_gf_active)
                 <option value="<?php echo $post_type; ?>"<?php echo $selected; ?>><?php echo $post_type; ?></option>
                 <?php endforeach; ?>
             </select>
-            <p>Make sure that your Gravity Forms and CFS <strong>field labels</strong> match exactly!</p>
+            <p>Make sure that your Gravity Form and CFS <strong>field labels</strong> match exactly!</p>
 
             <?php else : ?>
 
-            <div><a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> must be installed to use this feature.</div>
-            <p>Once enabled, you'll be able to save Gravity Forms entries as post items, including <a href="http://uproot.us/blog/how-to-save-gravity-forms-data-into-custom-field-suite/" target="_blank">saving entry data as custom fields using CFS.</a>.</p>
-            <p>Gravity Forms is a plugin for creating front-end forms. It works great for contact pages, multi-page forms, payment forms, forms with conditional fields, etc.</p>
+            <div>Please install <a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> to use this feature.</div>
         <?php endif; ?>
         </td>
     </tr>
