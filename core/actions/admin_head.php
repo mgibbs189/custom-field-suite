@@ -80,12 +80,9 @@ else
         {
             // Get field group options
             $extras = get_post_meta($group_id, 'cfs_extras', true);
-            if (isset($extras['hide_editor']))
+            if (isset($extras['hide_editor']) && 0 < (int) $extras['hide_editor'])
             {
-                if (0 < (int) $extras['hide_editor'])
-                {
-                    $hide_editor = true;
-                }
+                $hide_editor = true;
             }
 
             // Call the init() field method
