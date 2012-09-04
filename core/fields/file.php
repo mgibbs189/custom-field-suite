@@ -146,7 +146,7 @@ class cfs_File extends cfs_Field
             $(function() {
                 $('.cfs_input .media.button.add').live('click', function() {
                     window.cfs_div = $(this);
-                    tb_show(_e('Attach file', 'cfs'), 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
+                    tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
                     return false;
                 });
                 $('.cfs_input .media.button.remove').live('click', function() {

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 22:42+0100\n"
-"PO-Revision-Date: 2012-08-27 22:43+0100\n"
+"POT-Creation-Date: 2012-09-04 07:52+0100\n"
+"PO-Revision-Date: 2012-09-04 08:03+0100\n"
 "Last-Translator: Bartosz Arendt <info@digitalfactory.pl>\n"
 "Language-Team: Digital Factory <info@digitalfactory.pl>\n"
 "MIME-Version: 1.0\n"
@@ -17,14 +17,42 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:335
+#: ../cfs.php:336
+msgid "Fields"
+msgstr "Pola"
+
+#: ../cfs.php:337
+msgid "Placement Rules"
+msgstr "Opcje wyświetlania"
+
+#: ../cfs.php:338
+msgid "Extras"
+msgstr "Dodatki"
+
+#: ../cfs.php:353
 #: ../core/actions/init.php:13
 msgid "Field Groups"
 msgstr "Grupy pól"
 
-#: ../cfs.php:336
+#: ../cfs.php:354
 msgid "Tools"
 msgstr "Narzędzia"
+
+#: ../cfs.php:592
+msgid "Imported"
+msgstr "Zaimportowane"
+
+#: ../cfs.php:596
+msgid "Skipped"
+msgstr "Pominięto"
+
+#: ../cfs.php:601
+msgid "Nothing to import"
+msgstr "Nic do zaimportowania"
+
+#: ../cfs.php:676
+msgid "No field groups selected"
+msgstr "Nie wybrano grup pól"
 
 #: ../core/actions/admin_footer.php:63
 msgid "Custom Field Suite"
@@ -41,18 +69,6 @@ msgstr "Podręcznik użytkownika"
 #: ../core/actions/admin_footer.php:69
 msgid "Website"
 msgstr "Strona www"
-
-#: ../core/actions/admin_head.php:61
-msgid "Fields"
-msgstr "Pola"
-
-#: ../core/actions/admin_head.php:62
-msgid "Placement Rules"
-msgstr "Opcje wyświetlania"
-
-#: ../core/actions/admin_head.php:63
-msgid "Extras"
-msgstr "Dodatki"
 
 #: ../core/actions/init.php:14
 msgid "Field Group"
@@ -126,23 +142,55 @@ msgstr "Instrukcje dla użytkowników przy wprowadzaniu danych"
 msgid "Close"
 msgstr "Zamknij"
 
+#: ../core/admin/field_html.php:75
+msgid "or"
+msgstr "lub"
+
+#: ../core/admin/field_html.php:75
+msgid "delete"
+msgstr "usuń"
+
+#: ../core/admin/meta_box_extras.php:39
+msgid "Content Editor"
+msgstr "Edytor treści"
+
+#: ../core/admin/meta_box_extras.php:48
+msgid "Hide the content editor"
+msgstr "Ukryj edytor treści"
+
+#: ../core/admin/meta_box_extras.php:55
+msgid "Gravity Forms Integration"
+msgstr "Integracja z Gravity Forms"
+
 #: ../core/admin/meta_box_fields.php:59
 msgid "Add New Field"
 msgstr "Dodaj nowe pole"
 
-#: ../core/admin/meta_box_rules.php:76
+#: ../core/admin/meta_box_rules.php:5
+msgid "equals"
+msgstr "jest równe"
+
+#: ../core/admin/meta_box_rules.php:6
+msgid "is not"
+msgstr "nie jest równe"
+
+#: ../core/admin/meta_box_rules.php:70
+msgid "Select some options"
+msgstr "Wybierz opcje"
+
+#: ../core/admin/meta_box_rules.php:79
 msgid "Post Types"
 msgstr "Typy wpisów"
 
-#: ../core/admin/meta_box_rules.php:102
+#: ../core/admin/meta_box_rules.php:105
 msgid "User Roles"
 msgstr "Role użytkowników"
 
-#: ../core/admin/meta_box_rules.php:128
+#: ../core/admin/meta_box_rules.php:131
 msgid "Posts"
 msgstr "Wpisy"
 
-#: ../core/admin/meta_box_rules.php:154
+#: ../core/admin/meta_box_rules.php:157
 msgid "Taxonomy Terms"
 msgstr "Terminy"
 
@@ -199,11 +247,19 @@ msgstr "Dodaj plik"
 msgid "Remove"
 msgstr "Usuń"
 
-#: ../core/fields/file.php:55
+#: ../core/fields/file.php:52
+msgid "File URL"
+msgstr "Adres URL pliku"
+
+#: ../core/fields/file.php:53
+msgid "Attachment ID"
+msgstr "ID załącznika"
+
+#: ../core/fields/file.php:57
 msgid "Return Value"
 msgstr "Zwraca wartość"
 
-#: ../core/fields/file.php:95
+#: ../core/fields/file.php:97
 msgid "Use This File"
 msgstr "Użyj tego pliku"
 
@@ -211,23 +267,45 @@ msgstr "Użyj tego pliku"
 msgid "Loop"
 msgstr "Pętla"
 
-#: ../core/fields/loop.php:37
+#: ../core/fields/loop.php:33
+msgid "Closed"
+msgstr "Zamknięte"
+
+#: ../core/fields/loop.php:34
+msgid "Open"
+msgstr "Otwórz"
+
+#: ../core/fields/loop.php:38
+msgid "Row Display"
+msgstr "Wyświetlanie rzędu"
+
+#: ../core/fields/loop.php:47
+msgid "Show the values by default"
+msgstr "Pokaż wartości domyślnie"
+
+#: ../core/fields/loop.php:55
 msgid "Button Label"
 msgstr "Etykieta przycisku"
 
-#: ../core/fields/loop.php:38
+#: ../core/fields/loop.php:56
 msgid "Default: Add Row"
 msgstr "Domyśłnie: Dodaj rząd"
 
-#: ../core/fields/loop.php:68
-#: ../core/fields/loop.php:133
+#: ../core/fields/loop.php:65
+#: ../core/fields/loop.php:100
+#: ../core/fields/loop.php:144
+msgid "Add Row"
+msgstr "Dodaj rząd"
+
+#: ../core/fields/loop.php:86
+#: ../core/fields/loop.php:158
 msgid "Loop Row"
 msgstr "Kolejny rząd"
 
-#: ../core/fields/loop.php:69
-#: ../core/fields/loop.php:134
+#: ../core/fields/loop.php:87
+#: ../core/fields/loop.php:159
 msgid "click to toggle, drag to re-order"
-msgstr "kliknij by rozwinąć, przeciągnij aby zmienić kolejność"
+msgstr "kliknij aby otworzyć/zamknąć, przeciągnij aby zmienić kolejność"
 
 #: ../core/fields/relationship.php:9
 msgid "Relationship"
@@ -253,8 +331,12 @@ msgstr "Każdą opcję wpisz w oddzielnym rzędzie"
 msgid "Select multiple values?"
 msgstr "Możłiwość wybrania wielu opcji?"
 
+#: ../core/fields/select.php:125
+msgid "This a multi-select field"
+msgstr "To jest pole wieokrotnego wyboru"
+
 #: ../core/fields/text.php:18
-#: ../core/fields/textarea.php:25
+#: ../core/fields/textarea.php:27
 msgid "Default Value"
 msgstr "Wartość domyśłna"
 
@@ -262,8 +344,16 @@ msgstr "Wartość domyśłna"
 msgid "Textarea"
 msgstr "Obszar tekstowy"
 
-#: ../core/fields/textarea.php:40
-#: ../core/fields/wysiwyg.php:27
+#: ../core/fields/textarea.php:22
+msgid "None"
+msgstr "Brak"
+
+#: ../core/fields/textarea.php:23
+msgid "Convert newlines to"
+msgstr "Konwertuj nowe linie na"
+
+#: ../core/fields/textarea.php:42
+#: ../core/fields/wysiwyg.php:29
 msgid "Formatting"
 msgstr "Formatowanie"
 
@@ -286,6 +376,14 @@ msgstr "Użytkownik"
 #: ../core/fields/wysiwyg.php:9
 msgid "Wysiwyg Editor"
 msgstr "Edytor WYSIWYG"
+
+#: ../core/fields/wysiwyg.php:24
+msgid "Default"
+msgstr "Domyślne"
+
+#: ../core/fields/wysiwyg.php:25
+msgid "None (bypass filters)"
+msgstr "Brak (przechwyć filtry)"
 
 #: ../core/fields/date/date.php:9
 msgid "Date"
@@ -311,6 +409,3 @@ msgstr "Data"
 
 #~ msgid "Attach File"
 #~ msgstr "Załącz plik"
-
-#~ msgid "Notes"
-#~ msgstr "Notatka"
