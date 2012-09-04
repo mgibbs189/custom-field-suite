@@ -20,7 +20,6 @@ class Cfs
     public $siteurl;
     public $version;
     public $fields;
-    public $matching_groups;
     public $used_types;
     public $api;
 
