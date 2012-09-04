@@ -35,6 +35,22 @@ class cfs_Loop extends cfs_Field
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e('Row Display', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field((object) array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][row_display]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'row_display'),
+                        'options' => array('message' => __('Show the values by default', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label>
                     <?php _e('Button Label', 'cfs'); ?>
                     <span class="cfs_tooltip" title="<?php _e('Default: Add Row', 'cfs'); ?>"></span>
@@ -47,22 +63,6 @@ class cfs_Loop extends cfs_Field
                         'input_name' => "cfs[fields][$key][options][button_label]",
                         'input_class' => '',
                         'value' => $this->get_option($field, 'button_label', __('Add Row', 'cfs')),
-                    ));
-                ?>
-            </td>
-        </tr>
-        <tr class="field_option field_option_<?php echo $this->name; ?>">
-            <td class="label">
-                <label><?php _e('Row Display', 'cfs'); ?></label>
-            </td>
-            <td>
-                <?php
-                    $this->parent->create_field((object) array(
-                        'type' => 'select',
-                        'input_name' => "cfs[fields][$key][options][display]",
-                        'options' => array('choices' => "closed : $closed_text\nopen : $open_text"),
-                        'input_class' => '',
-                        'value' => $this->get_option($field, 'display', 'closed'),
                     ));
                 ?>
             </td>
@@ -139,11 +139,11 @@ class cfs_Loop extends cfs_Field
         $parent_tag = empty($parent_tag) ? "[$field_id]" : $parent_tag;
         eval("\$values = isset(\$this->values{$parent_tag}) ? \$this->values{$parent_tag} : false;");
 
-        // Get field definitions
+        // Get field options
         $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
-        $display = $this->get_option($loop_field[$field_id], 'display', 'closed');
-        $css_class = ('open' == $display[0]) ? ' open' : '';
+        $row_display = $this->get_option($loop_field[$field_id], 'row_display', 0);
+        $css_class = (0 < (int) $row_display) ? ' open' : '';
 
 
         $offset = 0;
