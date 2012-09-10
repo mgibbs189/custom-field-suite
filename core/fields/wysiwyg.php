@@ -49,7 +49,7 @@ class cfs_Wysiwyg extends cfs_Field
         if ('true' == get_user_meta(get_current_user_id(), 'rich_editing', true))
         {
     ?>
-        <script type="text/javascript">
+        <script>
         (function($) {
             var wysiwyg_count = 0;
 

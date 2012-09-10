@@ -80,7 +80,7 @@ class cfs_File extends cfs_Field
             $post_type = get_post_type($_GET['post_id']);
             add_post_type_support($post_type, 'editor');
     ?>
-        <script type="text/javascript">
+        <script>
         (function($) {
             $(function() {
                 $('form#filter').each(function() {
@@ -120,7 +120,7 @@ class cfs_File extends cfs_Field
                 $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
             }
     ?>
-        <script type="text/javascript">
+        <script>
         self.parent.cfs_div.hide();
         self.parent.cfs_div.siblings('.media.button.remove').show();
         self.parent.cfs_div.siblings('.file_url').html('<?php echo $file_url; ?>');
@@ -141,7 +141,7 @@ class cfs_File extends cfs_Field
     {
         global $post;
     ?>
-        <script type="text/javascript">
+        <script>
         (function($) {
             $(function() {
                 $('.cfs_input .media.button.add').live('click', function() {

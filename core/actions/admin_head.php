@@ -33,7 +33,7 @@ if ('cfs' == $GLOBALS['post_type'])
     $field_clone = ob_get_clean();
 ?>
 
-<script type="text/javascript">
+<script>
 
 field_index = <?php echo $field_count; ?>;
 field_clone = <?php echo json_encode($field_clone); ?>;

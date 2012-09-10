@@ -118,7 +118,7 @@ class cfs_Loop extends cfs_Field
         $buffer = ob_get_clean();
     ?>
 
-        <script type="text/javascript">
+        <script>
         CFS.loop_buffer[<?php echo $field_id; ?>] = <?php echo json_encode($buffer); ?>;
         </script>
 
@@ -200,7 +200,7 @@ class cfs_Loop extends cfs_Field
     function input_head($field = null)
     {
     ?>
-        <script type="text/javascript">
+        <script>
         var CFS = CFS || { loop_buffer: [] };
 
         (function($) {

@@ -8,7 +8,7 @@ $not_equals_text = __('is not', 'cfs');
 $rules = get_post_meta($post->ID, 'cfs_rules', true);
 
 // Populate rules if empty
-$rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids');
+$rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
 
 foreach ($rule_types as $type)
 {
@@ -61,9 +61,17 @@ foreach ($results as $result)
 {
     $term_ids[] = "$result->term_id : ($result->taxonomy) $result->name";
 }
+
+// Page templates
+$page_templates = array();
+$templates = get_page_templates();
+foreach ($templates as $template_name => $filename)
+{
+    $page_templates[] = "$filename : $template_name";
+}
 ?>
 
-<script type="text/javascript">
+<script>
 (function($) {
     $(function() {
         $('.select2').select2({
@@ -174,6 +182,32 @@ foreach ($results as $result)
                     'input_name' => "cfs[rules][term_ids]",
                     'options' => array('multiple' => '1', 'choices' => implode("\n", $term_ids)),
                     'value' => $rules['term_ids']['values'],
+                ));
+            ?>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label><?php _e('Page Template', 'cfs'); ?></label>
+        </td>
+        <td style="width:80px; vertical-align:top">
+            <?php
+                $this->create_field(array(
+                    'type' => 'select',
+                    'input_name' => "cfs[rules][operator][page_templates]",
+                    'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
+                    'value' => $rules['page_templates']['operator'],
+                ));
+            ?>
+        </td>
+        <td>
+            <?php
+                $this->create_field(array(
+                    'type' => 'select',
+                    'input_class' => 'select2',
+                    'input_name' => "cfs[rules][page_templates]",
+                    'options' => array('multiple' => '1', 'choices' => implode("\n", $page_templates)),
+                    'value' => $rules['page_templates']['values'],
                 ));
             ?>
         </td>

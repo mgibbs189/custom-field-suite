@@ -45,7 +45,7 @@ class cfs_True_false extends cfs_Field
     function input_head()
     {
     ?>
-        <script type="text/javascript">
+        <script>
         (function($) {
             $(function() {
                 $('.cfs_add_field').click(function() {

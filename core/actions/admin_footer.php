@@ -48,7 +48,7 @@ p.search-box {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 (function($) {
     $(function() {
         $('.wp-list-table').before($('#posts-sidebar-box').html());

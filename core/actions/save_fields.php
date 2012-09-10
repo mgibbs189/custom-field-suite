@@ -52,7 +52,7 @@ if (isset($_POST['cfs']['fields']))
 ---------------------------------------------------------------------------------------------*/
 
 $data = array();
-$rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids');
+$rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
 
 foreach ($rule_types as $type)
 {
