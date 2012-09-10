@@ -25,7 +25,7 @@ class cfs_Color extends cfs_Field
         (function($) {
             $('.cfs_color input.color').live('focus', function() {
                 if (!$(this).hasClass('ready')) {
-                    $(this).addClass('ready').miniColors();
+                    $(this).addClass('ready').miniColors({ letterCase: 'lowercase' });
                 }
             });
         })(jQuery);

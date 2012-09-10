@@ -155,3 +155,8 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 * Fixed: saving multiple user values with $cfs->save()
 * Updated screenshot
 * Cleaned up CSS
+
+== Upgrade Notice ==
+
+= 1.6.8 =
+* Database update required. PLEASE BACKUP YOUR DATABASE!
