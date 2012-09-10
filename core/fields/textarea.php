@@ -19,8 +19,6 @@ class cfs_Textarea extends cfs_Field
 
     function options_html($key, $field)
     {
-        $none_text = __('None', 'cfs');
-        $newlines_text = __('Convert newlines to', 'cfs');
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -46,7 +44,12 @@ class cfs_Textarea extends cfs_Field
                     $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
-                        'options' => array('choices' => "none : $none_text\nauto_br : $newlines_text <br />"),
+                        'options' => array(
+                            'choices' => array(
+                                'none' => __('None', 'cfs'),
+                                'auto_br' => __('Convert newlines to <br />', 'cfs')
+                            )
+                        ),
                         'input_class' => '',
                         'value' => $this->get_option($field, 'formatting', 'auto_br'),
                     ));

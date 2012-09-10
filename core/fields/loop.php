@@ -30,8 +30,6 @@ class cfs_Loop extends cfs_Field
 
     function options_html($key, $field)
     {
-        $closed_text = __('Closed', 'cfs');
-        $open_text = __('Open', 'cfs');
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
