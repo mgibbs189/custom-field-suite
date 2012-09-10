@@ -102,7 +102,7 @@ class cfs_Select extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][choices]",
                         'input_class' => '',
@@ -117,7 +117,7 @@ class cfs_Select extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][multiple]",
                         'input_class' => 'true_false',

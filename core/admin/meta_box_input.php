@@ -29,7 +29,7 @@ foreach ($input_fields as $key => $field)
 
     <div class="cfs_<?php echo $field->type; ?>">
     <?php
-        $this->create_field((object) array(
+        $this->create_field(array(
             'id' => $field->id,
             'group_id' => $group_id,
             'post_id' => $field->post_id,

@@ -65,7 +65,7 @@ p.search-box {
                 <div class="field">
                     <p>
                         <a href="http://wordpress.org/extend/plugins/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a> &nbsp; | &nbsp;
-                        <a href="http://uproot.us/custom-field-suite/docs/" target="_blank"><?php _e('User Guide', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="http://uproot.us/custom-field-suite/documentation/" target="_blank"><?php _e('User Guide', 'cfs'); ?></a> &nbsp; | &nbsp;
                         <a href="http://uproot.us/" target="_blank"><?php _e('Website', 'cfs'); ?></a>
                     </p>
                 </div>

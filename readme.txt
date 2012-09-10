@@ -1,27 +1,27 @@
 ﻿=== Custom Field Suite ===
 Contributors: logikal16
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JMVGK3L35X6BU
+Donate link: https://uproot.us/donate/
 Tags: custom fields, custom, fields, cck, gravity forms, views, wysiwyg, relationship, date, loop, file upload
 Requires at least: 3.2
-Tested up to: 3.4.1
+Tested up to: 3.4.2
 Stable tag: trunk
 
 Visually create and manage custom fields.
 
 == Description ==
 
-Custom Field Suite is yet another custom fields plugin for WordPress. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a simple yet powerful API for displaying custom fields throughout your site.
+Custom Field Suite is a custom fields plugin for WordPress. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a lightweight API for displaying custom fields throughout your site.
 
 CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/). The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
 = Why use CFS? =
-* CFS is stable. Our top priority is keeping your data safe. We thoroughly test all changes before releasing a new version.
+* CFS is stable. Our top priority is keeping your data safe. We test all changes before releasing new versions.
 * CFS is fast.
 * CFS uses minimal resources.
-* CFS integrates with [Gravity Forms](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/).
+* CFS supports [Gravity Forms](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/).
 * CFS supports custom field types (we had it before ACF).
 * CFS is 100% free.
-* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/) You're welcomed to participate in the development process!
+* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/) You're encouraged to participate in the development process!
 
 = Field Types =
 * Text (api returns text)
@@ -44,7 +44,7 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 
 = Documentation and Support =
 * http://uproot.us/
-* http://uproot.us/custom-field-suite/docs/
+* http://uproot.us/custom-field-suite/documentation/
 
 == Installation ==
 

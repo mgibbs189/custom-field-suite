@@ -155,7 +155,7 @@ class cfs_User extends cfs_Field
         return $value;
     }
 
-    function pre_save($value)
+    function pre_save($value, $field)
     {
         if (!empty($value))
         {

@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/custom-field-suite/
 Description: Visually create and manage custom fields. CFS is a fork of Advanced Custom Fields.
-Version: 1.6.7
+Version: 1.6.8
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL
@@ -11,13 +11,12 @@ Copyright: Matt Gibbs
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.6.7';
+$cfs->version = '1.6.8';
 
 class Cfs
 {
     public $dir;
     public $url;
-    public $siteurl;
     public $version;
     public $fields;
     public $used_types;
@@ -36,7 +35,6 @@ class Cfs
     {
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
-        $this->siteurl = get_bloginfo('url');
         $this->used_types = array();
 
         // load the api
@@ -81,7 +79,49 @@ class Cfs
         // get all available field types
         $this->fields = $this->get_field_types();
 
-        include($this->dir . '/core/actions/init.php');
+        // customize the table header
+        add_filter('manage_edit-cfs_columns', array($this, 'cfs_columns'));
+
+        $labels = array(
+            'name' => __('Field Groups', 'cfs'),
+            'singular_name' => __('Field Group', 'cfs'),
+            'add_new' => __('Add New', 'cfs'),
+            'add_new_item' => __('Add New Field Group', 'cfs'),
+            'edit_item' =>  __('Edit Field Group', 'cfs'),
+            'new_item' => __('New Field Group', 'cfs'),
+            'view_item' => __('View Field Group', 'cfs'),
+            'search_items' => __('Search Field Groups', 'cfs'),
+            'not_found' =>  __('No Field Groups found', 'cfs'),
+            'not_found_in_trash' => __('No Field Groups found in Trash', 'cfs'),
+        );
+
+        register_post_type('cfs', array(
+            'labels' => $labels,
+            'public' => false,
+            'show_ui' => true,
+            'show_in_menu' => false,
+            'capability_type' => 'page',
+            'hierarchical' => false,
+            'supports' => array('title'),
+        ));
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    cfs_columns
+    *
+    *    @author Matt Gibbs
+    *    @since 1.0.0
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function cfs_columns()
+    {
+        return array(
+            'cb' => '<input type="checkbox" />',
+            'title' => __('Title', 'cfs'),
+        );
     }
 
 
@@ -218,6 +258,7 @@ class Cfs
 
     function create_field($field)
     {
+        $field = (object) $field;
         $this->fields[$field->type]->html($field);
     }
 

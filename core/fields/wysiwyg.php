@@ -30,7 +30,7 @@ class cfs_Wysiwyg extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
                         'options' => array('choices' => "default : $default_text\nnone : $none_text"),

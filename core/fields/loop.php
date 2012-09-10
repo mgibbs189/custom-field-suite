@@ -39,7 +39,7 @@ class cfs_Loop extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][row_display]",
                         'input_class' => 'true_false',
@@ -58,7 +58,7 @@ class cfs_Loop extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
                         'input_class' => '',
@@ -101,7 +101,7 @@ class cfs_Loop extends cfs_Field
                     </div>
                 <?php else : ?>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => $field->type,
                         'input_name' => "cfs[input][clone][$field->id][value][]",
                         'input_class' => $field->type,
@@ -171,7 +171,7 @@ class cfs_Loop extends cfs_Field
                     <?php $this->recursive_html($group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i); ?>
                 <?php else : ?>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => $field->type,
                         'input_name' => "cfs[input]{$parent_tag}[$i][$field->id][value][]",
                         'input_class' => $field->type,

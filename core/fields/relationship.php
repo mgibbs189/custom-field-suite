@@ -92,7 +92,7 @@ class cfs_Relationship extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][post_types]",
                         'input_class' => '',
@@ -219,7 +219,7 @@ class cfs_Relationship extends cfs_Field
         return $value;
     }
 
-    function pre_save($value)
+    function pre_save($value, $field)
     {
         if (!empty($value))
         {

@@ -28,7 +28,7 @@ class cfs_Textarea extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][default_value]",
                         'input_class' => '',
@@ -43,7 +43,7 @@ class cfs_Textarea extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
                         'options' => array('choices' => "none : $none_text\nauto_br : $newlines_text <br />"),

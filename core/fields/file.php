@@ -58,7 +58,7 @@ class cfs_File extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][return_value]",
                         'options' => array('choices' => "url : $file_url_text\nid : $attachment_id_text"),

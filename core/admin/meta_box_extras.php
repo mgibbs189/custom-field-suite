@@ -40,7 +40,7 @@ if ($is_gf_active)
         </td>
         <td style="vertical-align:top">
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'true_false',
                     'input_name' => "cfs[extras][hide_editor]",
                     'input_class' => 'true_false',

@@ -30,7 +30,7 @@ class cfs_True_false extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][message]",
                         'input_class' => '',

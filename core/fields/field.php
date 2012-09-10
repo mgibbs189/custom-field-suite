@@ -25,23 +25,6 @@ class cfs_Field
 
     /*--------------------------------------------------------------------------------------
     *
-    *    init($field)
-    *
-    *    Trigger any WP hooks
-    *
-    *    @author Matt Gibbs
-    *    @since 1.2.5
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function init($field)
-    {
-
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
     *    html($field)
     *
     *    @author Matt Gibbs
@@ -89,7 +72,7 @@ class cfs_Field
 
     /*--------------------------------------------------------------------------------------
     *
-    *    format_value_for_api($value)
+    *    format_value_for_api($value, $field)
     *
     *    @author Matt Gibbs
     *    @since 1.0.0
@@ -104,7 +87,7 @@ class cfs_Field
 
     /*--------------------------------------------------------------------------------------
     *
-    *    format_value_for_input($value)
+    *    format_value_for_input($value, $field)
     *
     *    @author Matt Gibbs
     *    @since 1.0.5
@@ -119,14 +102,14 @@ class cfs_Field
 
     /*--------------------------------------------------------------------------------------
     *
-    *    pre_save($value)
+    *    pre_save($value, $field)
     *
     *    @author Matt Gibbs
     *    @since 1.4.2
     *
     *-------------------------------------------------------------------------------------*/
 
-    function pre_save($value)
+    function pre_save($value, $field)
     {
         return $value;
     }

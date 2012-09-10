@@ -80,7 +80,7 @@ foreach ($results as $result)
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_types]",
                     'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
@@ -90,7 +90,7 @@ foreach ($results as $result)
         </td>
         <td>
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_types]",
@@ -106,7 +106,7 @@ foreach ($results as $result)
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][user_roles]",
                     'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
@@ -116,7 +116,7 @@ foreach ($results as $result)
         </td>
         <td>
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][user_roles]",
@@ -132,7 +132,7 @@ foreach ($results as $result)
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_ids]",
                     'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
@@ -142,7 +142,7 @@ foreach ($results as $result)
         </td>
         <td>
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_ids]",
@@ -158,7 +158,7 @@ foreach ($results as $result)
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][term_ids]",
                     'options' => array('choices' => "== : $equals_text\n!= : $not_equals_text"),
@@ -168,7 +168,7 @@ foreach ($results as $result)
         </td>
         <td>
             <?php
-                $this->create_field((object) array(
+                $this->create_field(array(
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][term_ids]",
