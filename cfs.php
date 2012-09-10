@@ -144,6 +144,7 @@ class Cfs
             'textarea' => $this->dir . '/core/fields/textarea.php',
             'wysiwyg' => $this->dir . '/core/fields/wysiwyg.php',
             'date' => $this->dir . '/core/fields/date/date.php',
+            'color' => $this->dir . '/core/fields/color/color.php',
             'true_false' => $this->dir . '/core/fields/true_false.php',
             'select' => $this->dir . '/core/fields/select.php',
             'relationship' => $this->dir . '/core/fields/relationship.php',
