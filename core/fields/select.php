@@ -13,26 +13,6 @@ class cfs_Select extends cfs_Field
     function html($field)
     {
         $multiple = '';
-        $choices = array();
-
-        // Handle choice labels (value : label)
-        $temp = explode("\n", $field->options['choices']);
-
-        foreach ($temp as $val)
-        {
-            // Remove all newlines and whitespace
-            $val = trim($val);
-
-            if (false !== strpos($val, ' : '))
-            {
-                $choice = explode(' : ', $val);
-                $choices[$choice[0]] = $choice[1];
-            }
-            else
-            {
-                $choices[$val] = $val;
-            }
-        }
 
         // Multi-select
         if (isset($field->options['multiple']) && '1' == $field->options['multiple'])
@@ -61,7 +41,7 @@ class cfs_Select extends cfs_Field
         }
     ?>
         <select name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>"<?php echo $multiple; ?>>
-        <?php foreach ($choices as $val => $label) : ?>
+        <?php foreach ($field->options['choices'] as $val => $label) : ?>
             <?php $selected = in_array($val, (array) $field->value) ? ' selected' : ''; ?>
             <option value="<?php echo htmlspecialchars($val); ?>"<?php echo $selected; ?>><?php echo htmlspecialchars($label); ?></option>
         <?php endforeach; ?>
@@ -94,6 +74,19 @@ class cfs_Select extends cfs_Field
 
     function options_html($key, $field)
     {
+        // Convert choices to textarea-friendly format
+        if (isset($field->options['choices']) && is_array($field->options['choices']))
+        {
+            foreach ($field->options['choices'] as $choice_key => $choice_val)
+            {
+                $field->options['choices'][$choice_key] = "$choice_key : $choice_val";
+            }
+            $field->options['choices'] = implode("\n", $field->options['choices']);
+        }
+        else
+        {
+            $field->options['choices'] = '';
+        }
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -138,5 +131,37 @@ class cfs_Select extends cfs_Field
     function format_value_for_api($value, $field)
     {
         return $value;
+    }
+
+    function pre_save_field($field)
+    {
+        $choices = trim($field['options']['choices']);
+        $new_choices = array();
+
+        if (!empty($choices))
+        {
+            $choices = str_replace("\r\n", "\n", $choices);
+            $choices = str_replace("\r", "\n", $choices);
+            $choices = (false !== strpos($choices, "\n")) ? explode("\n", $choices) : (array) $choices;
+
+            foreach ($choices as $choice)
+            {
+                $choice = trim($choice);
+                if (false !== ($pos = strpos($choice, ' : ')))
+                {
+                    $array_key = substr($choice, 0, $pos);
+                    $array_value = substr($choice, $pos + 3);
+                    $new_choices[$array_key] = $array_value;
+                }
+                else
+                {
+                    $new_choices[$choice] = $choice;
+                }
+            }
+        }
+
+        $field['options']['choices'] = $new_choices;
+
+        return $field;
     }
 }

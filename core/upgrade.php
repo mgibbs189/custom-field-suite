@@ -137,5 +137,48 @@ if (version_compare($last_version, $this->version, '<'))
         }
     }
 
+    // Convert select options to arrays
+    if (version_compare($last_version, '1.6.8', '<'))
+    {
+        $results = $wpdb->get_results("SELECT id, options FROM {$wpdb->prefix}cfs_fields WHERE type = 'select'");
+        foreach ($results as $result)
+        {
+            $field_id = $result->id;
+            $options = unserialize($result->options);
+
+            if (isset($options['choices']) && !is_array($options['choices']))
+            {
+                $choices = trim($options['choices']);
+                $new_choices = array();
+
+                if (!empty($choices))
+                {
+                    $choices = str_replace("\r\n", "\n", $choices);
+                    $choices = str_replace("\r", "\n", $choices);
+                    $choices = (false !== strpos($choices, "\n")) ? explode("\n", $choices) : (array) $choices;
+
+                    foreach ($choices as $choice)
+                    {
+                        $choice = trim($choice);
+                        if (false !== ($pos = strpos($choice, ' : ')))
+                        {
+                            $array_key = substr($choice, 0, $pos);
+                            $array_value = substr($choice, $pos + 3);
+                            $new_choices[$array_key] = $array_value;
+                        }
+                        else
+                        {
+                            $new_choices[$choice] = $choice;
+                        }
+                    }
+                }
+
+                $options['choices'] = $new_choices;
+                $sql = "UPDATE {$wpdb->prefix}cfs_fields SET options = %s WHERE id = %d LIMIT 1";
+                $wpdb->query($wpdb->prepare($sql, serialize($options), $field_id));
+            }
+        }
+    }
+
     update_option('cfs_version', $this->version);
 }

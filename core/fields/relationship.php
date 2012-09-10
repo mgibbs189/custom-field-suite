@@ -83,7 +83,6 @@ class cfs_Relationship extends cfs_Field
     {
         $post_types = isset($field->options['post_types']) ? $field->options['post_types'] : null;
         $choices = get_post_types(array('exclude_from_search' => false));
-        $choices = implode("\n", $choices);
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -96,7 +95,7 @@ class cfs_Relationship extends cfs_Field
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][post_types]",
                         'input_class' => '',
-                        'options' => array('choices' => $choices, 'multiple' => '1'),
+                        'options' => array('multiple' => '1', 'choices' => $choices),
                         'value' => $this->get_option($field, 'post_types'),
                     ));
                 ?>

@@ -61,7 +61,9 @@ CFS is a [fork](http://bit.ly/14vScj) of [Advanced Custom Fields](http://wordpre
 
 = 1.6.8 =
 * Code cleanup
+* Added new "pre_save_field" method
 * Added "Page Template" placement rule
+* Internal - converted select options from string to array
 
 = 1.6.7 =
 * Fixed file upload button bug (props baysaa)

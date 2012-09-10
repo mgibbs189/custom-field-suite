@@ -23,6 +23,9 @@ if (isset($_POST['cfs']['fields']))
         // clean the field
         $field = stripslashes_deep($field);
 
+        // allow for field customizations
+        $field = $this->fields[$field['type']]->pre_save_field($field);
+
         $data = array(
             'name' => $field['name'],
             'label' => $field['label'],
