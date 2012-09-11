@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2012-07-31 11:43:26+00:00\n"
+"POT-Creation-Date: 2012-09-04 14:47:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,36 +12,56 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
+#: cfs.php:336
+msgid "Fields"
+msgstr ""
+
+#: cfs.php:337
+msgid "Placement Rules"
+msgstr ""
+
+#: cfs.php:338
+msgid "Extras"
+msgstr ""
+
+#: cfs.php:353 core/actions/init.php:13
+msgid "Field Groups"
+msgstr ""
+
+#: cfs.php:354
+msgid "Tools"
+msgstr ""
+
+#: cfs.php:592
+msgid "Imported"
+msgstr ""
+
+#: cfs.php:596
+msgid "Skipped"
+msgstr ""
+
+#: cfs.php:601
+msgid "Nothing to import"
+msgstr ""
+
+#: cfs.php:676
+msgid "No field groups selected"
+msgstr ""
+
 #: core/actions/admin_footer.php:63
 msgid "Custom Field Suite"
 msgstr ""
 
-#: core/actions/admin_footer.php:66
+#: core/actions/admin_footer.php:67
 msgid "Changelog"
 msgstr ""
 
-#: core/actions/admin_footer.php:67
-msgid "Read the user guide"
-msgstr ""
-
 #: core/actions/admin_footer.php:68
-msgid "View plugin page"
+msgid "User Guide"
 msgstr ""
 
-#: core/actions/admin_head.php:51
-msgid "Fields"
-msgstr ""
-
-#: core/actions/admin_head.php:52
-msgid "Placement Rules"
-msgstr ""
-
-#: core/actions/admin_head.php:53
-msgid "Extras"
-msgstr ""
-
-#: core/actions/init.php:13
-msgid "Field Groups"
+#: core/actions/admin_footer.php:69
+msgid "Website"
 msgstr ""
 
 #: core/actions/init.php:14
@@ -116,42 +136,56 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: core/admin/field_html.php:75
+msgid "or"
+msgstr ""
+
+#: core/admin/field_html.php:75
+msgid "delete"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:39
+msgid "Content Editor"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:48
+msgid "Hide the content editor"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:55
+msgid "Gravity Forms Integration"
+msgstr ""
+
 #: core/admin/meta_box_fields.php:59
 msgid "Add New Field"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:76 core/fields/relationship.php:90
+#: core/admin/meta_box_rules.php:5
+msgid "equals"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:6
+msgid "is not"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:70
+msgid "Select some options"
+msgstr ""
+
+#: core/admin/meta_box_rules.php:79 core/fields/relationship.php:90
 msgid "Post Types"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:102
+#: core/admin/meta_box_rules.php:105
 msgid "User Roles"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:128
+#: core/admin/meta_box_rules.php:131
 msgid "Posts"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:154
+#: core/admin/meta_box_rules.php:157
 msgid "Taxonomy Terms"
-msgstr ""
-
-#: core/admin/page_sync.php:82
-msgid "Custom Field Sync"
-msgstr ""
-
-#: core/admin/page_sync.php:86
-msgid "Sync Successful"
-msgstr ""
-
-#: core/admin/page_sync.php:90
-msgid ""
-"This tool will scan your existing custom fields, mapping any applicable "
-"values into Custom Field Suite."
-msgstr ""
-
-#: core/admin/page_sync.php:115
-msgid "Synchronize"
 msgstr ""
 
 #: core/fields/date/date.php:9
@@ -166,19 +200,27 @@ msgstr ""
 msgid "File Upload"
 msgstr ""
 
-#: core/fields/file.php:42
+#: core/fields/file.php:44
 msgid "Add File"
 msgstr ""
 
-#: core/fields/file.php:43
+#: core/fields/file.php:45
 msgid "Remove"
 msgstr ""
 
+#: core/fields/file.php:52
+msgid "File URL"
+msgstr ""
+
 #: core/fields/file.php:53
+msgid "Attachment ID"
+msgstr ""
+
+#: core/fields/file.php:57
 msgid "Return Value"
 msgstr ""
 
-#: core/fields/file.php:93
+#: core/fields/file.php:97
 msgid "Use This File"
 msgstr ""
 
@@ -186,12 +228,40 @@ msgstr ""
 msgid "Loop"
 msgstr ""
 
-#: core/fields/loop.php:35
+#: core/fields/loop.php:33
+msgid "Closed"
+msgstr ""
+
+#: core/fields/loop.php:34
+msgid "Open"
+msgstr ""
+
+#: core/fields/loop.php:38
+msgid "Row Display"
+msgstr ""
+
+#: core/fields/loop.php:47
+msgid "Show the values by default"
+msgstr ""
+
+#: core/fields/loop.php:55
 msgid "Button Label"
 msgstr ""
 
-#: core/fields/loop.php:36
+#: core/fields/loop.php:56
 msgid "Default: Add Row"
+msgstr ""
+
+#: core/fields/loop.php:65 core/fields/loop.php:100 core/fields/loop.php:144
+msgid "Add Row"
+msgstr ""
+
+#: core/fields/loop.php:86 core/fields/loop.php:158
+msgid "Loop Row"
+msgstr ""
+
+#: core/fields/loop.php:87 core/fields/loop.php:159
+msgid "click to toggle, drag to re-order"
 msgstr ""
 
 #: core/fields/relationship.php:9
@@ -206,19 +276,23 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: core/fields/select.php:95
+#: core/fields/select.php:100
 msgid "Choices"
 msgstr ""
 
-#: core/fields/select.php:96
+#: core/fields/select.php:101
 msgid "Enter one choice per line"
 msgstr ""
 
-#: core/fields/select.php:111
+#: core/fields/select.php:116
 msgid "Select multiple values?"
 msgstr ""
 
-#: core/fields/text.php:18 core/fields/textarea.php:25
+#: core/fields/select.php:125
+msgid "This a multi-select field"
+msgstr ""
+
+#: core/fields/text.php:18 core/fields/textarea.php:27
 msgid "Default Value"
 msgstr ""
 
@@ -226,7 +300,15 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
-#: core/fields/textarea.php:40
+#: core/fields/textarea.php:22
+msgid "None"
+msgstr ""
+
+#: core/fields/textarea.php:23
+msgid "Convert newlines to"
+msgstr ""
+
+#: core/fields/textarea.php:42 core/fields/wysiwyg.php:29
 msgid "Formatting"
 msgstr ""
 
@@ -248,4 +330,12 @@ msgstr ""
 
 #: core/fields/wysiwyg.php:9
 msgid "Wysiwyg Editor"
+msgstr ""
+
+#: core/fields/wysiwyg.php:24
+msgid "Default"
+msgstr ""
+
+#: core/fields/wysiwyg.php:25
+msgid "None (bypass filters)"
 msgstr ""

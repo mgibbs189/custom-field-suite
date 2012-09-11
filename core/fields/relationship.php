@@ -83,7 +83,6 @@ class cfs_Relationship extends cfs_Field
     {
         $post_types = isset($field->options['post_types']) ? $field->options['post_types'] : null;
         $choices = get_post_types(array('exclude_from_search' => false));
-        $choices = implode("\n", $choices);
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -92,11 +91,11 @@ class cfs_Relationship extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][post_types]",
                         'input_class' => '',
-                        'options' => array('choices' => $choices, 'multiple' => '1'),
+                        'options' => array('multiple' => '1', 'choices' => $choices),
                         'value' => $this->get_option($field, 'post_types'),
                     ));
                 ?>
@@ -109,8 +108,8 @@ class cfs_Relationship extends cfs_Field
     {
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />
-        <script type="text/javascript" src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
-        <script type="text/javascript">
+        <script src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
+        <script>
         (function($) {
             update_relationship_values = function(field) {
                 var post_ids = [];
@@ -219,7 +218,7 @@ class cfs_Relationship extends cfs_Field
         return $value;
     }
 
-    function pre_save($value)
+    function pre_save($value, $field)
     {
         if (!empty($value))
         {

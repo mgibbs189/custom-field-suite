@@ -26,7 +26,7 @@ class cfs_Textarea extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][default_value]",
                         'input_class' => '',
@@ -41,10 +41,15 @@ class cfs_Textarea extends cfs_Field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field((object) array(
+                    $this->parent->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
-                        'options' => array('choices' => "none : None\nauto_br : Convert newlines to <br />"),
+                        'options' => array(
+                            'choices' => array(
+                                'none' => __('None', 'cfs'),
+                                'auto_br' => __('Convert newlines to <br />', 'cfs')
+                            )
+                        ),
                         'input_class' => '',
                         'value' => $this->get_option($field, 'formatting', 'auto_br'),
                     ));
@@ -62,6 +67,6 @@ class cfs_Textarea extends cfs_Field
     function format_value_for_api($value, $field)
     {
         $formatting = $this->get_option($field, 'formatting', 'none');
-        return ('none' == $formatting) ? $value[0] : nl2br($value[0]);
+        return ('none' == $formatting[0]) ? $value[0] : nl2br($value[0]);
     }
 }

@@ -68,6 +68,14 @@
 }
 
 /*---------------------------------------------------------------------------------------------
+    Date
+---------------------------------------------------------------------------------------------*/
+
+.cfs_input .cfs_color input.color {
+    width: 100px;
+}
+
+/*---------------------------------------------------------------------------------------------
     Wysiwyg
 ---------------------------------------------------------------------------------------------*/
 
@@ -172,20 +180,14 @@
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_delete_field {
-    display: inline-block;
-    vertical-align: bottom;
+    float: right;
     width: 16px;
     height: 16px;
     background: url(../images/button_remove.png) no-repeat;
-    margin-right: 5px;
 }
 
 .cfs_delete_field:hover {
     background-position: 0 100%;
-}
-
-.cfs_loop_head.open .cfs_toggle_field {
-    background-position: 0px -35px;
 }
 
 .cfs_input .cfs_loop label {

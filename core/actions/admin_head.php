@@ -33,24 +33,30 @@ if ('cfs' == $GLOBALS['post_type'])
     $field_clone = ob_get_clean();
 ?>
 
-<script type="text/javascript">
+<script>
 
 field_index = <?php echo $field_count; ?>;
 field_clone = <?php echo json_encode($field_clone); ?>;
 options_html = <?php echo json_encode($options_html); ?>;
 
+(function($) {
+    $(function() {
+        $('span.checkbox').live('click', function() {
+            var val = $(this).hasClass('active') ? 0 : 1;
+            $(this).siblings('input').val(val);
+            $(this).toggleClass('active');
+        });
+    });
+})(jQuery);
+
 </script>
 
-<script type="text/javascript" src="<?php echo $this->url; ?>/js/fields.js"></script>
-<script type="text/javascript" src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
+<script src="<?php echo $this->url; ?>/js/fields.js"></script>
+<script src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/fields.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/select2/select2.css" />
 
 <?php
-
-    add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
-    add_meta_box('cfs_rules', __('Placement Rules', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'rules'));
-    add_meta_box('cfs_extras', __('Extras', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'extras'));
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -59,6 +65,7 @@ options_html = <?php echo json_encode($options_html); ?>;
 
 else
 {
+    $hide_editor = false;
     $field_group_ids = $this->get_matching_groups($post->ID);
 
     if (!empty($field_group_ids))
@@ -71,13 +78,11 @@ else
         // Support for multiple metaboxes
         foreach ($field_group_ids as $group_id => $title)
         {
-            // Call the init() field method
-            $results = $wpdb->get_results("SELECT DISTINCT type FROM {$wpdb->prefix}cfs_fields WHERE post_id = '$group_id' ORDER BY parent_id, weight");
-            foreach ($results as $result)
+            // Get field group options
+            $extras = get_post_meta($group_id, 'cfs_extras', true);
+            if (isset($extras['hide_editor']) && 0 < (int) $extras['hide_editor'])
             {
-                $this->fields[$result->type]->init(
-                    $this->fields[$result->type]
-                );
+                $hide_editor = true;
             }
 
             add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, 'normal', 'high', array('box' => 'input', 'group_id' => $group_id));
@@ -90,7 +95,7 @@ else
         $has_editor = post_type_supports($post->post_type, 'editor');
         add_post_type_support($post->post_type, 'editor');
 
-        if (!$has_editor)
+        if (!$has_editor || $hide_editor)
         {
 ?>
 

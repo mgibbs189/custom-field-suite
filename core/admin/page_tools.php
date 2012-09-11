@@ -70,7 +70,7 @@ $results = $wpdb->get_results($sql);
 </script>
 
 <div class="wrap">
-    <div id="icon-tools" class="icon32"><br></div>
+    <div id="icon-edit" class="icon32"><br></div>
     <h2 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export" href="javascript:;">Export</a>
         <a class="nav-tab" rel="import" href="javascript:;">Import</a>

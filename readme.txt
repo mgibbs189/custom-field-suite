@@ -1,24 +1,34 @@
 ﻿=== Custom Field Suite ===
 Contributors: logikal16
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JMVGK3L35X6BU
-Tags: custom, fields, custom fields, cck, post types, gravity forms, views, field permissions
+Donate link: https://uproot.us/contributors/
+Tags: custom fields, custom, fields, cck, gravity forms, views, wysiwyg, relationship, date, loop, upload
 Requires at least: 3.2
-Tested up to: 3.4.1
+Tested up to: 3.4.2
 Stable tag: trunk
 
 Visually create and manage custom fields.
 
 == Description ==
 
-Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/).
+Custom Field Suite is a custom fields plugin for WordPress. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a lightweight API for displaying custom fields throughout your site.
 
-[Custom Field Suite is now on Github!](https://github.com/logikal16/custom-field-suite)
+CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals of this plugin are stability, performance, and avoiding feature bloat.
+
+= Why use CFS? =
+* CFS is stable. Our top priority is keeping your data safe. We test all changes before releasing new versions.
+* CFS is fast.
+* CFS uses minimal resources.
+* CFS supports [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/).
+* CFS supports custom field types (we had it before ACF).
+* CFS is 100% free.
+* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/) You're encouraged to participate in the development process!
 
 = Field Types =
 * Text (api returns text)
 * Textarea (api returns text with `<br />`)
 * Wysiwyg Editor (api returns html)
 * Date (api returns text)
+* Color (api returns HEX value)
 * True / False (api returns 0 or 1)
 * Select (api returns array of values)
 * Relationship (api returns array of post IDs)
@@ -27,16 +37,15 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 * Loop (a container for other fields, api returns array of arrays)
 
 = More Features =
-* Drag-n-drop field management UI that supports field hierarchy
-* Customize where each field group will appear
+* Drag-n-drop field management UI
+* Loop fields support unlimited nesting!
+* Placement Rules allow you to customize where each field group appears
+* Use the Sync feature to import existing custom field values
 * [Create your own field types](http://uproot.us/custom-field-suite/docs/custom-field-type/)
-* [Gravity Forms integration](http://uproot.us/custom-field-suite/docs/gravity-forms-integration/)
-* Quickly and easily migrate existing custom fields into CFS
-* Loop fields can have unlimited nesting!
 
 = Documentation and Support =
 * http://uproot.us/
-* http://uproot.us/forums/
+* http://uproot.us/custom-field-suite/documentation/
 
 == Installation ==
 
@@ -44,73 +53,41 @@ Visually create and manage custom fields. CFS is a fork of [Advanced Custom Fiel
 2. Browse to `Field Groups` menu to configure.
 
 == Screenshots ==
-1. A custom field group, with loop nesting.
+1. A custom field group with field nesting (loop field)
+2. Clicking on a field name expands the box to show options
+3. Placement Rules determine where field groups appear
+4. The Tools area for migrating field groups
 
 == Changelog ==
 
-= 1.6.2 =
-* Bugfix: rare bug with deleting loop rows (props Lucia)
-* Enhancement: new loop rows are expanded by default
-* Enhancement: file field UI improvements
-* Updated timepicker script (props @scottkclark)
+= 1.6.8 =
+* Added "Page Template" placement rule
+* Improved Loop field UI (props @tdwesten)
+* Converted select options from string to array (internal)
+* Added new "pre_save_field" method
+* Code cleanup
 
-= 1.6.1 =
-* Field group import / export
-* Cleaned PHP notices when WP_DEBUG = 1 (props @scottkclark)
+= 1.6.7 =
+* Fixed file upload button bug (props baysaa)
 
-= 1.6.0 =
-* Drag-n-drop loop ordering on edit pages! (props Christian Bromann)
-* Added PHP notice for sites using deprecated get_reverse_related signature
+= 1.6.6 =
+* Added Polish translation (props Bartosz Arendt)
+* Added loop option to expand rows by default
+* Added field group option to hide the content editor
+* Updated translation .POT file
+* Fixed minor Gravity Forms integration bug
 
-= 1.5.9 =
-* Bugfix: get_reverse_related - ctype_digit returns FALSE for integer values between -128 and 255 (props Lucia)
+= 1.6.5 =
+* Bugfix: Handle arrays for field get_option (props Migual Peixe)
+* Added "cfs_matching_groups" hook to override which field groups are used (props Gator92)
 
-= 1.5.8 =
-* Enhancement: true_false field stores value, even if false
-* Bugfix: API bugfix, enforce active field groups for get()
-* Renamed Import page to Synchronize
+= 1.6.4 =
+* Added new wysiwyg "Formatting" option
+* Enhancement: encapsulated jQuery UI CSS to prevent plugin conflicts
 
+[See the full changelog](https://uproot.us/custom-field-suite/changelog/)
 
-= 1.5.7 =
-* Enhancement: removed eval() in the API
-* Enhancement: updated function signature for $cfs->get_reverse_related
-* Bugfix: dashes in field name caused API error
-* Bugfix: "Add Row" in loop field added 1 row per field group
+== Upgrade Notice ==
 
-= 1.5.6 =
-* Bugfix: API ordering error when using multiple field groups on a single post
-* Loop field support for custom "Add Row" label
-
-= 1.5.5 =
-* Bugfix: existing file upload fields should return URL instead of ID
-
-= 1.5.4 =
-* Bugfix: loop field default values not showing
-* File upload: new "Return Value" option: File URL or Attachment ID
-* API: get_reverse_related() has new 3rd parameter: $options
-* API: get_reverse_related() supports post_type filtering
-
-= 1.5.3 =
-* Fixed UI issue with hierarchical Loop fields
-* Updated chosen/select2 script
-* Tested against WP 3.4
-
-= 1.5.2 =
-* Added new $field parameter to format_value functions
-* Added textarea "Formatting" option (disable automatic BR tags)
-* Fixed warnings when saving via Gravity Forms (props @flyingpylon)
-
-= 1.5.1 =
-* Bugfix: API returns array for last field's value (props @mickola, @brandon)
-* Bugfix: issue with multiple loops and adding rows (props @stephen_d)
-
-= 1.5.0 =
-* BACK UP YOUR DATABASE before upgrading!
-* Re-added loop field, complete rewrite
-* Loop fields can now be nested within other loop fields (unlimited depth)
-* New drag-n-drop field management interface
-* Upgraded / optimized the date picker
-* Fixed: saving multiple relationship values with $cfs->save()
-* Fixed: saving multiple user values with $cfs->save()
-* Updated screenshot
-* Cleaned up CSS
+= 1.6.8 =
+* Database update required. PLEASE BACKUP YOUR DATABASE!

@@ -66,8 +66,8 @@ class cfs_User extends cfs_Field
     {
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />
-        <script type="text/javascript" src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
-        <script type="text/javascript">
+        <script src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
+        <script>
         (function($) {
             update_user_values = function(field) {
                 var post_ids = [];
@@ -155,7 +155,7 @@ class cfs_User extends cfs_Field
         return $value;
     }
 
-    function pre_save($value)
+    function pre_save($value, $field)
     {
         if (!empty($value))
         {

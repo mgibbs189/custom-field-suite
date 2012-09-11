@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/custom-field-suite/
 Description: Visually create and manage custom fields. CFS is a fork of Advanced Custom Fields.
-Version: 1.6.2
+Version: 1.6.8
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL
@@ -11,13 +11,12 @@ Copyright: Matt Gibbs
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.6.2';
+$cfs->version = '1.6.8';
 
 class Cfs
 {
     public $dir;
     public $url;
-    public $siteurl;
     public $version;
     public $fields;
     public $used_types;
@@ -36,7 +35,6 @@ class Cfs
     {
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
-        $this->siteurl = get_bloginfo('url');
         $this->used_types = array();
 
         // load the api
@@ -50,12 +48,14 @@ class Cfs
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('save_post', array($this, 'save_post'));
         add_action('delete_post', array($this, 'delete_post'));
+        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
 
         // ajax handlers
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
 
         // 3rd party hooks
         add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
+        //add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
 
         // add translations
         load_plugin_textdomain('cfs', false, 'custom-field-suite/lang');
@@ -79,7 +79,49 @@ class Cfs
         // get all available field types
         $this->fields = $this->get_field_types();
 
-        include($this->dir . '/core/actions/init.php');
+        // customize the table header
+        add_filter('manage_edit-cfs_columns', array($this, 'cfs_columns'));
+
+        $labels = array(
+            'name' => __('Field Groups', 'cfs'),
+            'singular_name' => __('Field Group', 'cfs'),
+            'add_new' => __('Add New', 'cfs'),
+            'add_new_item' => __('Add New Field Group', 'cfs'),
+            'edit_item' =>  __('Edit Field Group', 'cfs'),
+            'new_item' => __('New Field Group', 'cfs'),
+            'view_item' => __('View Field Group', 'cfs'),
+            'search_items' => __('Search Field Groups', 'cfs'),
+            'not_found' =>  __('No Field Groups found', 'cfs'),
+            'not_found_in_trash' => __('No Field Groups found in Trash', 'cfs'),
+        );
+
+        register_post_type('cfs', array(
+            'labels' => $labels,
+            'public' => false,
+            'show_ui' => true,
+            'show_in_menu' => false,
+            'capability_type' => 'page',
+            'hierarchical' => false,
+            'supports' => array('title'),
+        ));
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    cfs_columns
+    *
+    *    @author Matt Gibbs
+    *    @since 1.0.0
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function cfs_columns()
+    {
+        return array(
+            'cb' => '<input type="checkbox" />',
+            'title' => __('Title', 'cfs'),
+        );
     }
 
 
@@ -102,6 +144,7 @@ class Cfs
             'textarea' => $this->dir . '/core/fields/textarea.php',
             'wysiwyg' => $this->dir . '/core/fields/wysiwyg.php',
             'date' => $this->dir . '/core/fields/date/date.php',
+            'color' => $this->dir . '/core/fields/color/color.php',
             'true_false' => $this->dir . '/core/fields/true_false.php',
             'select' => $this->dir . '/core/fields/select.php',
             'relationship' => $this->dir . '/core/fields/relationship.php',
@@ -133,7 +176,7 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_matching_groups($post_id, $is_public = false)
+    function get_matching_groups($post_id, $skip_roles = false)
     {
         global $wpdb, $current_user;
 
@@ -171,7 +214,7 @@ class Cfs
         );
 
         // Ignore user_roles if used within get_fields
-        if (false !== $is_public)
+        if (false !== $skip_roles)
         {
             unset($rule_types['user_roles']);
         }
@@ -200,7 +243,8 @@ class Cfs
             }
         }
 
-        return $matches;
+        // Allow for overrides
+        return apply_filters('cfs_matching_groups', $matches, $post_id, $post_type);
     }
 
 
@@ -215,6 +259,7 @@ class Cfs
 
     function create_field($field)
     {
+        $field = (object) $field;
         $this->fields[$field->type]->html($field);
     }
 
@@ -321,6 +366,23 @@ class Cfs
 
     /*--------------------------------------------------------------------------------------
     *
+    *    add_meta_boxes
+    *
+    *    @author Matt Gibbs
+    *    @since 1.6.6
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function add_meta_boxes()
+    {
+        add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
+        add_meta_box('cfs_rules', __('Placement Rules', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'rules'));
+        add_meta_box('cfs_extras', __('Extras', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'extras'));
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    admin_menu
     *
     *    @author Matt Gibbs
@@ -330,8 +392,8 @@ class Cfs
 
     function admin_menu()
     {
-        add_object_page('Field Groups', 'Field Groups', 'manage_options', 'edit.php?post_type=cfs');
-        add_submenu_page('edit.php?post_type=cfs', 'Tools', 'Tools', 'manage_options', 'cfs-tools', array($this, 'page_tools'));
+        add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs');
+        add_submenu_page('edit.php?post_type=cfs', __('Tools', 'cfs'), __('Tools', 'cfs'), 'manage_options', 'cfs-tools', array($this, 'page_tools'));
     }
 
 
@@ -569,16 +631,16 @@ class Cfs
 
                     if (!empty($stats['imported']))
                     {
-                        echo '<div><strong>Imported:</strong> ' . implode(', ', $stats['imported']) . '</div>';
+                        echo '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
                     }
                     if (!empty($stats['skipped']))
                     {
-                        echo '<div><strong>Skipped:</strong> ' . implode(', ', $stats['skipped']) . '</div>';
+                        echo '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
                     }
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> Nothing to import</div>';
+                    echo '<div>' . __('Nothing to import', 'cfs') . '</div>';
                 }
             }
             // Sync custom fields
@@ -653,7 +715,7 @@ class Cfs
                 }
                 else
                 {
-                    echo '<div><strong>Error:</strong> No field groups selected</div>';
+                    echo '<div>' . __('No field groups selected', 'cfs') . '</div>';
                 }
             }
         }
@@ -713,7 +775,7 @@ class Cfs
                 $field_id = $field['id'];
 
                 // handle fields with children
-                if (null !== $field['inputs'])
+                if (!empty($field['inputs']))
                 {
                     $values = array();
 
@@ -762,5 +824,24 @@ class Cfs
             // save data
             $this->save($field_data, $post_data);
         }
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    wpml_handler
+    *
+    *    Properly copy CFS fields on WPML post duplication
+    *    Requires WPML 2.6.0+
+    *
+    *    @author Matt Gibbs
+    *    @since 1.6.8
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function wpml_handler($master_id, $lang, $post_data, $duplicate_id)
+    {
+        $field_data = $this->get(false, $master_id);
+        $this->save($field_data, array('ID' => $duplicate_id));
     }
 }
