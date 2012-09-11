@@ -160,7 +160,7 @@ class Cfs
         {
             $class_name = 'cfs_' . ucwords($type);
             
-            if (!empty($path) && !class_exists($class_name))
+            if (!class_exists($class_name))
                 include_once($path);
                 
             $field_types[$type] = new $class_name($this);
