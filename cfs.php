@@ -158,8 +158,11 @@ class Cfs
 
         foreach ($field_types as $type => $path)
         {
-            include_once($path);
             $class_name = 'cfs_' . ucwords($type);
+            
+            if (!class_exists($class_name))
+                include_once($path);
+                
             $field_types[$type] = new $class_name($this);
         }
 
