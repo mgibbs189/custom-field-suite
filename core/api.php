@@ -486,6 +486,8 @@ class cfs_Api
                 )
             );
         }
+
+        return $post_id;
     }
 
 

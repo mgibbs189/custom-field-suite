@@ -55,7 +55,7 @@ class Cfs
 
         // 3rd party hooks
         add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
-        //add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 2);
+        //add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
 
         // add translations
         load_plugin_textdomain('cfs', false, 'custom-field-suite/lang');
@@ -835,7 +835,7 @@ class Cfs
     *    Requires WPML 2.6.0+
     *
     *    @author Matt Gibbs
-    *    @since 1.6.5
+    *    @since 1.6.8
     *
     *-------------------------------------------------------------------------------------*/
 
