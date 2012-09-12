@@ -3,7 +3,7 @@
 class cfs_Api
 {
     public $parent;
-    public $data;
+    public $cache;
 
     /*--------------------------------------------------------------------------------------
     *
@@ -41,13 +41,13 @@ class cfs_Api
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
-        if (!isset($this->data[$options->format][$post_id][$field_name]))
+        if (!isset($this->cache[$options->format][$post_id][$field_name]))
         {
             $fields = $this->get_fields($post_id);
             return $fields[$field_name];
         }
 
-        return $this->data[$options->format][$post_id][$field_name];
+        return $this->cache[$options->format][$post_id][$field_name];
     }
 
 
@@ -72,9 +72,9 @@ class cfs_Api
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Return cached results
-        if (isset($this->data[$options->format][$post_id]))
+        if (isset($this->cache[$options->format][$post_id]))
         {
-            return $this->data[$options->format][$post_id];
+            return $this->cache[$options->format][$post_id];
         }
 
         $field_data = array();
@@ -171,7 +171,7 @@ class cfs_Api
             }
         }
 
-        $this->data[$options->format][$post_id] = $field_data;
+        $this->cache[$options->format][$post_id] = $field_data;
         return $field_data;
     }
 
