@@ -14,7 +14,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function __construct($parent)
+    public function __construct($parent)
     {
         $this->parent = $parent;
     }
@@ -29,20 +29,25 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_field($field_name, $post_id = false)
+    public function get_field($field_name, $post_id = false, $options = array())
     {
         global $post;
+
+        $defaults = array(
+            'format' => 'api', // "api", "input", or "raw"
+        );
+        $options = (object) array_merge($defaults, $options);
 
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
-        if (!isset($this->data[$post_id][$field_name]))
+        if (!isset($this->data[$options->format][$post_id][$field_name]))
         {
             $fields = $this->get_fields($post_id);
             return $fields[$field_name];
         }
 
-        return $this->data[$post_id][$field_name];
+        return $this->data[$options->format][$post_id][$field_name];
     }
 
 
@@ -55,21 +60,21 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_fields($post_id = false, $options = array())
+    public function get_fields($post_id = false, $options = array())
     {
         global $post, $wpdb;
 
         $defaults = array(
-            'for_input' => false,
+            'format' => 'api', // "api", "input", or "raw"
         );
         $options = (object) array_merge($defaults, $options);
 
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Return cached results
-        if (isset($this->data[$post_id]))
+        if (isset($this->data[$options->format][$post_id]))
         {
-            return $this->data[$post_id];
+            return $this->data[$options->format][$post_id];
         }
 
         $field_data = array();
@@ -114,7 +119,7 @@ class cfs_Api
                 if (!empty($result->hierarchy))
                 {
                     // Format for API (field names)
-                    if (false === $options->for_input)
+                    if ('api' == $options->format || 'raw' == $options->format)
                     {
                         $tmp = explode(':', $result->hierarchy);
                         foreach ($tmp as $key => $val)
@@ -136,8 +141,16 @@ class cfs_Api
                 }
                 else
                 {
-                    // If "for_input" is false, get the field name
-                    $hierarchy = (false === $options->for_input) ? $field->name : $field->id;
+                    // Get the field name for "api" or "raw" formats
+                    if ('api' == $options->format || 'raw' == $options->format)
+                    {
+                        $hierarchy = $field->name;
+                    }
+                    else
+                    {
+                        $hierarchy = $field->id;
+                    }
+
                     $field_data[$hierarchy][] = $result->meta_value;
                 }
 
@@ -158,7 +171,7 @@ class cfs_Api
             }
         }
 
-        $this->data[$post_id] = $field_data;
+        $this->data[$options->format][$post_id] = $field_data;
         return $field_data;
     }
 
@@ -179,7 +192,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function assemble_value_array(&$field_data, $hierarchy, $field, $value = false, $options = false)
+    private function assemble_value_array(&$field_data, $hierarchy, $field, $value = false, $options = false)
     {
         $data = &$field_data;
         foreach (explode(':', $hierarchy) as $i)
@@ -207,7 +220,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($post_id, $options = array(), $deprecated = array())
+    public function get_reverse_related($post_id, $options = array(), $deprecated = array())
     {
         global $wpdb;
 
@@ -271,7 +284,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_labels($field_name = false, $post_id = false)
+    public function get_labels($field_name = false, $post_id = false)
     {
         global $post, $wpdb;
 
@@ -311,15 +324,19 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function apply_value_filters($field, $value, $options)
+    private function apply_value_filters($field, $value, $options)
     {
-        if (false !== $options->for_input)
+        if ('api' == $options->format)
+        {
+            $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
+        }
+        elseif ('input' == $options->format)
         {
             $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
         }
         else
         {
-            $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
+            $value = $this->parent->fields[$field->type]->format_value($value, $field);
         }
 
         return $value;
@@ -335,11 +352,11 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_input_fields($group_id = false, $parent_id = false, $field_id = false)
+    public function get_input_fields($group_id = false, $parent_id = false, $field_id = false)
     {
         global $post, $wpdb;
 
-        $values = $this->get_fields($post->ID, array('for_input' => true));
+        $values = $this->get_fields($post->ID, array('format' => 'input'));
 
         $where = 'WHERE 1';
         $where .= (false !== $group_id) ? " AND post_id = $group_id" : '';
@@ -379,7 +396,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function save_fields($field_data = array(), $post_data = array(), $options = array())
+    public function save_fields($field_data = array(), $post_data = array(), $options = array())
     {
         global $wpdb;
 
@@ -500,7 +517,7 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function save_fields_recursive($params)
+    private function save_fields_recursive($params)
     {
         global $wpdb;
 

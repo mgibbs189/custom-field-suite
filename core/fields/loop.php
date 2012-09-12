@@ -19,7 +19,7 @@ class cfs_Loop extends cfs_Field
     {
         global $post;
 
-        $this->values = $this->parent->api->get_fields($post->ID, array('for_input' => true));
+        $this->values = $this->parent->api->get_fields($post->ID, array('format' => 'input'));
         $this->recursive_clone($field->group_id, $field->id);
         $this->recursive_html($field->group_id, $field->id);
     }
@@ -254,6 +254,11 @@ class cfs_Loop extends cfs_Field
         })(jQuery);
         </script>
     <?php
+    }
+
+    function format_value($value, $field)
+    {
+        return $value;
     }
 
     function format_value_for_api($value, $field)

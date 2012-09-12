@@ -208,6 +208,11 @@ class cfs_Relationship extends cfs_Field
     <?php
     }
 
+    function format_value($value, $field)
+    {
+        return $value;
+    }
+
     function format_value_for_input($value, $field)
     {
         return empty($value) ? '' : implode(',', $value);

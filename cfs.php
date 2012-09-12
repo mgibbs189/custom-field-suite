@@ -55,7 +55,7 @@ class Cfs
 
         // 3rd party hooks
         add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
-        //add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
+        add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
 
         // add translations
         load_plugin_textdomain('cfs', false, 'custom-field-suite/lang');
@@ -279,13 +279,13 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get($field_name = false, $post_id = false)
+    function get($field_name = false, $post_id = false, $options = array())
     {
         if (false !== $field_name)
         {
-            return $this->api->get_field($field_name, $post_id);
+            return $this->api->get_field($field_name, $post_id, $options);
         }
-        return $this->api->get_fields($post_id);
+        return $this->api->get_fields($post_id, $options);
     }
 
 
@@ -847,7 +847,7 @@ class Cfs
 
     function wpml_handler($master_id, $lang, $post_data, $duplicate_id)
     {
-        $field_data = $this->get(false, $master_id);
+        $field_data = $this->get(false, $master_id, array('format' => 'raw'));
         $this->save($field_data, array('ID' => $duplicate_id));
     }
 }
