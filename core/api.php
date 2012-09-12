@@ -401,7 +401,7 @@ class cfs_Api
         global $wpdb;
 
         $defaults = array(
-            'raw_input' => false,
+            'format' => 'api', // "api" or "input"
         );
         $options = (object) array_merge($defaults, $options);
 
@@ -453,7 +453,7 @@ class cfs_Api
         }
 
         // If this is an API call, flatten the data!
-        if (false === $options->raw_input)
+        if ('api' == $options->format)
         {
             // Remove the parent field data if using $cfs->save()
             $field_ids = array();
@@ -496,7 +496,7 @@ class cfs_Api
                     'parent_id' => 0,
                     'all_fields' => $fields,
                     'hierarchy' => array(),
-                    'raw_input' => $options->raw_input,
+                    'format' => $options->format,
                     'field_id_lookup' => $field_id_lookup,
                     'weight' => 0,
                     'depth' => 0,
@@ -527,9 +527,9 @@ class cfs_Api
 
         if (0 == $params['depth'] % 2)
         {
-            // If not raw_input, then field_id is actually the field name, and
+            // If not raw input, then field_id is actually the field name, and
             // we need to lookup the ID from the "field_id_lookup" array
-            if (false === $params['raw_input'])
+            if ('input' != $params['format'])
             {
                 $field_name = $field_id;
                 $field_id = (int) $params['field_id_lookup'][$params['parent_id'] . ':' . $field_name];

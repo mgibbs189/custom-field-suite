@@ -437,7 +437,7 @@ class Cfs
         {
             $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
             $post_data = array('ID' => $_POST['ID']);
-            $options = array('raw_input' => true);
+            $options = array('format' => 'input');
             $this->api->save_fields($field_data, $post_data, $options);
         }
 
