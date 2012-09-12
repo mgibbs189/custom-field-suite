@@ -1,9 +1,9 @@
 ﻿=== Custom Field Suite ===
 Contributors: logikal16
 Donate link: https://uproot.us/contributors/
-Tags: custom fields, custom, fields, cck, gravity forms, views, wysiwyg, relationship, date, loop, upload
+Tags: fields, custom fields, cck, wysiwyg, relationship, date, loop, upload
 Requires at least: 3.2
-Tested up to: 3.4.2
+Tested up to: 3.5-alpha
 Stable tag: trunk
 
 Visually create and manage custom fields.
@@ -59,6 +59,9 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.6.9 =
+* $cfs->save() returns the post ID (props Miguel Peixe)
 
 = 1.6.8 =
 * Added "Page Template" placement rule

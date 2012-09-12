@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/custom-field-suite/
-Description: Visually create and manage custom fields. CFS is a fork of Advanced Custom Fields.
+Description: Visually create and manage custom fields.
 Version: 1.6.8
 Author: Matt Gibbs
 Author URI: http://uproot.us/
@@ -158,8 +158,14 @@ class Cfs
 
         foreach ($field_types as $type => $path)
         {
-            include_once($path);
             $class_name = 'cfs_' . ucwords($type);
+
+            // Allow for multiple classes per file
+            if (!class_exists($class_name))
+            {
+                include_once($path);
+            }
+
             $field_types[$type] = new $class_name($this);
         }
 

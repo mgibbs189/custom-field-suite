@@ -79,7 +79,7 @@ class cfs_Field
     *
     *-------------------------------------------------------------------------------------*/
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         return $value[0];
     }
@@ -94,7 +94,7 @@ class cfs_Field
     *
     *-------------------------------------------------------------------------------------*/
 
-    function format_value_for_input($value, $field)
+    function format_value_for_input($value, $field = null)
     {
         return $value[0];
     }
@@ -109,7 +109,7 @@ class cfs_Field
     *
     *-------------------------------------------------------------------------------------*/
 
-    function pre_save($value, $field)
+    function pre_save($value, $field = null)
     {
         return $value;
     }
@@ -139,7 +139,7 @@ class cfs_Field
     *
     *-------------------------------------------------------------------------------------*/
 
-    function load_value($field)
+    function load_value($field = null)
     {
 
     }

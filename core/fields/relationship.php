@@ -104,7 +104,7 @@ class cfs_Relationship extends cfs_Field
     <?php
     }
 
-    function input_head($field = null)
+    function input_head()
     {
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />

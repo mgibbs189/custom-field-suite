@@ -17,7 +17,7 @@ class cfs_Color extends cfs_Field
         }
     }
 
-    function input_head($field = null)
+    function input_head()
     {
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/color/color.css" />

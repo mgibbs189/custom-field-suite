@@ -20,7 +20,7 @@ class cfs_Date extends cfs_Field
         }
     }
 
-    function input_head($field = null)
+    function input_head()
     {
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/date/date.css" />
