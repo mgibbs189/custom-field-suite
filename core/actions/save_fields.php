@@ -10,52 +10,49 @@ $cfs_extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array()
     Save fields
 ---------------------------------------------------------------------------------------------*/
 
-if (isset($_POST['cfs']['fields']))
+$weight = 0;
+$table_name = $wpdb->prefix . 'cfs_fields';
+
+// remove all existing fields
+$wpdb->query("DELETE FROM $table_name WHERE post_id = '$post_id'");
+
+foreach ($field_data as $key => $field)
 {
-    $weight = 0;
-    $table_name = $wpdb->prefix . 'cfs_fields';
+    // clean the field
+    $field = stripslashes_deep($field);
 
-    // remove all existing fields
-    $wpdb->query("DELETE FROM $table_name WHERE post_id = '$post_id'");
+    // allow for field customizations
+    $field = $this->fields[$field['type']]->pre_save_field($field);
 
-    foreach ($field_data as $key => $field)
+    // not all fields have options
+    $options = '';
+
+    if (isset($field['options']) && is_array($field['options']))
     {
-        // clean the field
-        $field = stripslashes_deep($field);
-
-        // allow for field customizations
-        $field = $this->fields[$field['type']]->pre_save_field($field);
-
-        // not all fields have options
-        $options = '';
-
-        if (isset($field['options']) && is_array($field['options']))
-        {
-            $options = serialize($field['options']);
-        }
-
-        $data = array(
-            'name' => $field['name'],
-            'label' => $field['label'],
-            'type' => $field['type'],
-            'instructions' => $field['instructions'],
-            'post_id' => $post_id,
-            'parent_id' => $field['parent_id'],
-            'weight' => $weight,
-            'options' => $options,
-        );
-
-        // use an existing ID if available
-        if (0 < (int) $field['id'])
-        {
-            $data['id'] = (int) $field['id'];
-        }
-
-        // insert the field
-        $wpdb->insert($table_name, $data);
-
-        $weight++;
+        $options = serialize($field['options']);
     }
+
+    $data = array(
+        'name' => $field['name'],
+        'label' => $field['label'],
+        'type' => $field['type'],
+        'instructions' => $field['instructions'],
+        'post_id' => $post_id,
+        'parent_id' => $field['parent_id'],
+        'weight' => $weight,
+        'options' => $options,
+    );
+
+    // use an existing ID if available
+    if (0 < (int) $field['id'])
+    {
+        $data['id'] = (int) $field['id'];
+    }
+
+    // insert the field
+    $wpdb->insert($table_name, $data);
+
+    $weight++;
 }
 
 /*---------------------------------------------------------------------------------------------
