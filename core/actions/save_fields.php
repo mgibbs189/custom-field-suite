@@ -21,16 +21,11 @@ foreach ($field_data as $key => $field)
     // clean the field
     $field = stripslashes_deep($field);
 
+    // save empty string for fields without options
+    $field['options'] = !empty($field['options']) ? serialize($field['options']) : '';
+
     // allow for field customizations
     $field = $this->fields[$field['type']]->pre_save_field($field);
-
-    // not all fields have options
-    $options = '';
-
-    if (isset($field['options']) && is_array($field['options']))
-    {
-        $options = serialize($field['options']);
-    }
 
     $data = array(
         'name' => $field['name'],
@@ -40,7 +35,7 @@ foreach ($field_data as $key => $field)
         'post_id' => $post_id,
         'parent_id' => $field['parent_id'],
         'weight' => $weight,
-        'options' => $options,
+        'options' => $field['options'],
     );
 
     // use an existing ID if available
