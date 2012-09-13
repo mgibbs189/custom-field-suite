@@ -90,12 +90,12 @@ class cfs_Wysiwyg extends cfs_Field
 
     function format_value_for_input($value, $field)
     {
-        return wp_richedit_pre($value[0]);
+        return wp_richedit_pre($value);
     }
 
     function format_value_for_api($value, $field)
     {
         $formatting = $this->get_option($field, 'formatting', 'default');
-        return ('none' == $formatting[0]) ? $value[0] : apply_filters('the_content', $value[0]);
+        return ('none' == $formatting[0]) ? $value : apply_filters('the_content', $value);
     }
 }

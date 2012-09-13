@@ -64,7 +64,7 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * $cfs->save() returns the post ID (props Miguel Peixe)
 * WPML 2.6+ support (properly copies custom field data on post duplication)
 * Added new $options parameter to $cfs->get (documentation shortly)
-* Added new "format_value" field method (returns raw values)
+* Added new "prepare_value" field method (format raw DB values)
 
 = 1.6.8 =
 * Added "Page Template" placement rule

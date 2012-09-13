@@ -74,6 +74,6 @@ class cfs_True_false extends cfs_Field
 
     function format_value_for_api($value, $field)
     {
-        return (0 < (int) $value[0]) ? 1 : 0;
+        return (0 < (int) $value) ? 1 : 0;
     }
 }

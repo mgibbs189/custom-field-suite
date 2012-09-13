@@ -61,12 +61,12 @@ class cfs_Textarea extends cfs_Field
 
     function format_value_for_input($value, $field)
     {
-        return htmlspecialchars($value[0], ENT_QUOTES);
+        return htmlspecialchars($value, ENT_QUOTES);
     }
 
     function format_value_for_api($value, $field)
     {
         $formatting = $this->get_option($field, 'formatting', 'none');
-        return ('none' == $formatting[0]) ? $value[0] : nl2br($value[0]);
+        return ('none' == $formatting[0]) ? $value : nl2br($value);
     }
 }

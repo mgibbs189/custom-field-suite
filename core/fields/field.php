@@ -72,14 +72,18 @@ class cfs_Field
 
     /*--------------------------------------------------------------------------------------
     *
-    *    format_value($value, $field)
+    *    prepare_value($value, $field = null)
+    *
+    *    Values are retrieved from the database as an array, even for field types that
+    *    don't expect arrays. For field types that should return array values, make
+    *    sure to override this method and return $value.
     *
     *    @author Matt Gibbs
     *    @since 1.6.9
     *
     *-------------------------------------------------------------------------------------*/
 
-    function format_value($value, $field = null)
+    function prepare_value($value, $field = null)
     {
         return $value[0];
     }
@@ -89,6 +93,8 @@ class cfs_Field
     *
     *    format_value_for_api($value, $field)
     *
+    *    This method formats the value for use with $cfs->get().
+    *
     *    @author Matt Gibbs
     *    @since 1.0.0
     *
@@ -96,13 +102,15 @@ class cfs_Field
 
     function format_value_for_api($value, $field = null)
     {
-        return $value[0];
+        return $value;
     }
 
 
     /*--------------------------------------------------------------------------------------
     *
     *    format_value_for_input($value, $field)
+    *
+    *    This method formats the value for use with HTML inputs.
     *
     *    @author Matt Gibbs
     *    @since 1.0.5
@@ -111,7 +119,7 @@ class cfs_Field
 
     function format_value_for_input($value, $field = null)
     {
-        return $value[0];
+        return $value;
     }
 
 
@@ -142,21 +150,6 @@ class cfs_Field
     function pre_save_field($field)
     {
         return $field;
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    load_value($field)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function load_value($field = null)
-    {
-
     }
 
 

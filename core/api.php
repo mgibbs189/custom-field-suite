@@ -326,6 +326,8 @@ class cfs_Api
 
     private function apply_value_filters($field, $value, $options)
     {
+        $value = $this->parent->fields[$field->type]->prepare_value($value, $field);
+
         if ('api' == $options->format)
         {
             $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
@@ -333,10 +335,6 @@ class cfs_Api
         elseif ('input' == $options->format)
         {
             $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
-        }
-        else
-        {
-            $value = $this->parent->fields[$field->type]->format_value($value, $field);
         }
 
         return $value;
