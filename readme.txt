@@ -68,6 +68,7 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * Fixed PHP notices (props @baxang)
 * Bugfix: Error handling for field groups without fields
 * Bugfix: Inability to remove all fields in a field group
+* Enhancement: prevent consecutive underscores with field name generator
 
 = 1.6.8 =
 * Added "Page Template" placement rule
