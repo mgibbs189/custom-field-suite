@@ -11,6 +11,7 @@ $results = $this->api->get_input_fields($post->ID);
     Create <ul> based on field structure
 ---------------------------------------------------------------------------------------------*/
 
+$levels = 0;
 $levels = array();
 $last_level = $diff = 0;
 

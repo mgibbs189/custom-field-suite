@@ -26,6 +26,14 @@ if (isset($_POST['cfs']['fields']))
         // allow for field customizations
         $field = $this->fields[$field['type']]->pre_save_field($field);
 
+        // not all fields have options
+        $options = '';
+
+        if (isset($field['options'] && is_array($field['options'])))
+        {
+            $options = serialize($field['options']);
+        }
+
         $data = array(
             'name' => $field['name'],
             'label' => $field['label'],
@@ -34,7 +42,7 @@ if (isset($_POST['cfs']['fields']))
             'post_id' => $post_id,
             'parent_id' => $field['parent_id'],
             'weight' => $weight,
-            'options' => serialize($field['options']),
+            'options' => $options,
         );
 
         // use an existing ID if available

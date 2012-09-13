@@ -65,6 +65,7 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * WPML 2.6+ support (properly copies custom field data on post duplication)
 * Added new $options parameter to $cfs->get (documentation shortly)
 * Added new "prepare_value" field method (format raw DB values)
+* Fixed PHP notices (props @baxang)
 
 = 1.6.8 =
 * Added "Page Template" placement rule
