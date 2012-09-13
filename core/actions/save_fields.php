@@ -21,11 +21,11 @@ foreach ($field_data as $key => $field)
     // clean the field
     $field = stripslashes_deep($field);
 
-    // save empty string for fields without options
-    $field['options'] = !empty($field['options']) ? serialize($field['options']) : '';
-
     // allow for field customizations
     $field = $this->fields[$field['type']]->pre_save_field($field);
+
+    // save empty string for fields without options
+    $field['options'] = !empty($field['options']) ? serialize($field['options']) : '';
 
     $data = array(
         'name' => $field['name'],
