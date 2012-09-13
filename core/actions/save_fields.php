@@ -34,8 +34,11 @@ if (isset($_POST['cfs']['fields']))
             'post_id' => $post_id,
             'parent_id' => $field['parent_id'],
             'weight' => $weight,
-            'options' => serialize($field['options']),
         );
+
+        if (isset($field['options']) && is_array($field['options'])) {
+            $data['options'] = serialize($field['options']);
+        }
 
         // use an existing ID if available
         if (0 < (int) $field['id'])
