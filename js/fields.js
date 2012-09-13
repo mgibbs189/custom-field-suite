@@ -62,6 +62,7 @@
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
                 var val = label_text.replace(/\s/g, '_');
+                val = val.replace(/[_]+/, '_');
                 val = val.replace(/[^a-zA-Z0-9_]/g, '');
                 name.val(val.toLowerCase());
                 name.trigger('keyup');
