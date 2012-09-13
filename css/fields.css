@@ -18,7 +18,7 @@
 
 #cfs_fields .fields {
     margin: 0;
-    background: #888;
+    background: #21759B;
 }
 
 #cfs_fields .fields li {
@@ -34,7 +34,7 @@
 }
 
 #cfs_fields .field.form_open .field_meta td {
-    background-color: #888;
+    background-color: #21759B;
     color: #fff;
 }
 
@@ -76,8 +76,6 @@
 ---------------------------------------------------------------------------------------------*/
 
 .field_form {
-    padding: 0 0 1px 0;
-    background-color: #888;
     display: none;
 }
 
@@ -139,7 +137,7 @@
 }
 
 .field_form tr.field_actions td {
-    border-bottom: 0;
+    border-bottom: 1px solid #21759B;
 }
 
 .field_form select,
