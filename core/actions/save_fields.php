@@ -29,7 +29,7 @@ if (isset($_POST['cfs']['fields']))
         // not all fields have options
         $options = '';
 
-        if (isset($field['options'] && is_array($field['options'])))
+        if (isset($field['options']) && is_array($field['options']))
         {
             $options = serialize($field['options']);
         }
