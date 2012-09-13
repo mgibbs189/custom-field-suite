@@ -77,6 +77,7 @@ class cfs_Api
             return $this->cache[$options->format][$post_id];
         }
 
+        $fields = array();
         $field_data = array();
 
         // Get all field groups for this post
@@ -92,82 +93,85 @@ class cfs_Api
                 $fields[$result->id] = $result;
             }
 
-            // Make sure we're using active field groups
-            $field_ids = implode(',', array_keys($fields));
-
-            // Get all the field data
-            $sql = "
-            SELECT m.meta_value, v.field_id, f.parent_id, v.hierarchy, v.weight, v.sub_weight
-            FROM {$wpdb->prefix}cfs_values v
-            INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-            INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
-            WHERE f.id IN ($field_ids) AND v.post_id IN ($post_id)
-            ORDER BY f.weight, v.field_id, v.weight, v.sub_weight";
-
-            $results = $wpdb->get_results($sql);
-            $num_rows = $wpdb->num_rows;
-
-            $prev_hierarchy = '';
-            $prev_field_id = '';
-            $prev_item = '';
-
-            foreach ($results as $order_num => $result)
+            if (!empty($fields))
             {
-                $field = $fields[$result->field_id];
-                $current_item = "{$result->hierarchy}.{$result->weight}.{$result->field_id}";
+                // Make sure we're using active field groups
+                $field_ids = implode(',', array_keys($fields));
 
-                if (!empty($result->hierarchy))
+                // Get all the field data
+                $sql = "
+                SELECT m.meta_value, v.field_id, f.parent_id, v.hierarchy, v.weight, v.sub_weight
+                FROM {$wpdb->prefix}cfs_values v
+                INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+                INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
+                WHERE f.id IN ($field_ids) AND v.post_id IN ($post_id)
+                ORDER BY f.weight, v.field_id, v.weight, v.sub_weight";
+
+                $results = $wpdb->get_results($sql);
+                $num_rows = $wpdb->num_rows;
+
+                $prev_hierarchy = '';
+                $prev_field_id = '';
+                $prev_item = '';
+
+                foreach ($results as $order_num => $result)
                 {
-                    // Format for API (field names)
-                    if ('api' == $options->format || 'raw' == $options->format)
+                    $field = $fields[$result->field_id];
+                    $current_item = "{$result->hierarchy}.{$result->weight}.{$result->field_id}";
+
+                    if (!empty($result->hierarchy))
                     {
-                        $tmp = explode(':', $result->hierarchy);
-                        foreach ($tmp as $key => $val)
+                        // Format for API (field names)
+                        if ('api' == $options->format || 'raw' == $options->format)
                         {
-                            if (0 == ($key % 2))
+                            $tmp = explode(':', $result->hierarchy);
+                            foreach ($tmp as $key => $val)
                             {
-                                $tmp[$key] = $fields[$val]->name;
+                                if (0 == ($key % 2))
+                                {
+                                    $tmp[$key] = $fields[$val]->name;
+                                }
                             }
+                            $hierarchy = implode(':', $tmp);
                         }
-                        $hierarchy = implode(':', $tmp);
-                    }
-                    // Format for input (field IDs)
-                    else
-                    {
-                        $hierarchy = $result->hierarchy;
-                    }
+                        // Format for input (field IDs)
+                        else
+                        {
+                            $hierarchy = $result->hierarchy;
+                        }
 
-                    $this->assemble_value_array($field_data, $hierarchy, $field, $result->meta_value);
-                }
-                else
-                {
-                    // Get the field name for "api" or "raw" formats
-                    if ('api' == $options->format || 'raw' == $options->format)
-                    {
-                        $hierarchy = $field->name;
+                        $this->assemble_value_array($field_data, $hierarchy, $field, $result->meta_value);
                     }
                     else
                     {
-                        $hierarchy = $field->id;
+                        // Get the field name for "api" or "raw" formats
+                        if ('api' == $options->format || 'raw' == $options->format)
+                        {
+                            $hierarchy = $field->name;
+                        }
+                        else
+                        {
+                            $hierarchy = $field->id;
+                        }
+
+                        $field_data[$hierarchy][] = $result->meta_value;
                     }
 
-                    $field_data[$hierarchy][] = $result->meta_value;
-                }
+                    // Assemble the values
+                    if ($current_item != $prev_item && '' != $prev_item) // call apply_value_filters on previous field
+                    {
+                        $this->assemble_value_array($field_data, $prev_hierarchy, $fields[$prev_field_id], false, $options);
+                    }
 
-                // Assemble the values
-                if ($current_item != $prev_item && '' != $prev_item) // call apply_value_filters on previous field
-                {
-                    $this->assemble_value_array($field_data, $prev_hierarchy, $fields[$prev_field_id], false, $options);
-                }
+                    if ($num_rows == ($order_num + 1)) // last row
+                    {
+                        $this->assemble_value_array($field_data, $hierarchy, $field, false, $options);
+                    }
 
-                if ($num_rows == ($order_num + 1)) // last row
-                {
-                    $this->assemble_value_array($field_data, $hierarchy, $field, false, $options);
+                    $prev_hierarchy = $hierarchy;
+                    $prev_field_id = $field->id;
+                    $prev_item = $current_item;
                 }
-
-                $prev_hierarchy = $hierarchy;
-                $prev_field_id = $field->id;
-                $prev_item = $current_item;
             }
         }
 
