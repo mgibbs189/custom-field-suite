@@ -58,13 +58,13 @@
 
         // Auto-populate the field name
         $('.field_form .field_label input').live('blur', function() {
-            var label_text = $(this).val();
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
-                var val = label_text.replace(/\s/g, '_');
-                val = val.replace(/[_]+/, '_');
-                val = val.replace(/[^a-zA-Z0-9_]/g, '');
-                name.val(val.toLowerCase());
+                var val = $.trim($(this).val()).toLowerCase();
+                val = val.replace(/[^a-z0-9-_ ]/g, ''); // strip invalid characters
+                val = val.replace(/[- ]/g, '_'); // replace space and hyphen with underscore
+                val = val.replace(/[_]{2,}/g, '_'); // strip consecutive underscores
+                name.val(val);
                 name.trigger('keyup');
             }
         });
