@@ -61,7 +61,7 @@
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
                 var val = $.trim($(this).val()).toLowerCase();
-                val = val.replace(/[^a-z0-9-_ ]/g, ''); // strip invalid characters
+                val = val.replace(/[^\w- ]/g, ''); // strip invalid characters
                 val = val.replace(/[- ]/g, '_'); // replace space and hyphen with underscore
                 val = val.replace(/[_]{2,}/g, '_'); // strip consecutive underscores
                 name.val(val);
