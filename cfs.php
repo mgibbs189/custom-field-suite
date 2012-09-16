@@ -190,6 +190,7 @@ class Cfs
         $matches = array();
         $post_id = (int) $post_id;
         $post_type = get_post_type($post_id);
+        $page_template = get_post_meta($post_id, '_wp_page_template', true);
         $user_roles = $current_user->roles;
         $term_ids = array();
 
@@ -217,6 +218,7 @@ class Cfs
             'user_roles' => $user_roles,
             'term_ids' => $term_ids,
             'post_ids' => $post_id,
+            'page_templates' => $page_template,
         );
 
         // Ignore user_roles if used within get_fields
