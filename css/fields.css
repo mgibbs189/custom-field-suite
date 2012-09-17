@@ -12,13 +12,17 @@
     text-align: right;
 }
 
-#cfs_fields .field.even td {
+#cfs_fields .field_meta.even td {
     background-color: #fcfcfc;
 }
 
 #cfs_fields .fields {
     margin: 0;
     background: #21759B;
+}
+
+#cfs_fields .fields a.cfs_edit_field {
+    font-weight: normal;
 }
 
 #cfs_fields .fields li {
@@ -137,7 +141,7 @@
 }
 
 .field_form tr.field_actions td {
-    border-bottom: 1px solid #21759B;
+    background: #fff;
 }
 
 .field_form select,
@@ -184,20 +188,34 @@ span.cfs_delete_field:hover {
     padding: 0;
 }
 
+#cfs_rules table,
+#cfs_extras table {
+    width: 100%;
+    border-spacing: 0;
+}
+
 #cfs_rules table td,
 #cfs_extras table td {
     padding: 10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#cfs_rules table tr:last-child td,
+#cfs_extras table tr:last-child td {
+    border-bottom: none;
 }
 
 #cfs_rules table td.label,
 #cfs_extras table td.label {
     width: 24%;
+    background: #fff;
+    border-right: 1px solid #dfdfdf;
     vertical-align: top;
 }
 
 #cfs_rules table td.label label,
 #cfs_extras table td.label label {
-    font-weight: bold;
     color: #333;
 }
 

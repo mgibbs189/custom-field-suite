@@ -81,7 +81,7 @@ foreach ($templates as $template_name => $filename)
 })(jQuery);
 </script>
 
-<table style="width:100%">
+<table>
     <tr>
         <td class="label">
             <label><?php _e('Post Types', 'cfs'); ?></label>

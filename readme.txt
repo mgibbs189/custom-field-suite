@@ -59,6 +59,10 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 
 == Changelog ==
 
+= 1.7.0 =
+* Cleanup: rename postmeta keys when fields are renamed
+* Cleanup: delete values when a field is deleted
+
 = 1.6.9 =
 * $cfs->save() returns the post ID (props Miguel Peixe)
 * Added new "prepare_value" field method (format raw DB values)
@@ -96,8 +100,3 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * Enhancement: encapsulated jQuery UI CSS to prevent plugin conflicts
 
 [See the full changelog](https://uproot.us/custom-field-suite/changelog/)
-
-== Upgrade Notice ==
-
-= 1.6.8 =
-* Database update required. PLEASE BACKUP YOUR DATABASE!

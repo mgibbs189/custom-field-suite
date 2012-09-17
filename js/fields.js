@@ -1,8 +1,8 @@
 (function($) {
     $(function() {
         function update_order() {
-            $('.fields .field').removeClass('even');
-            $('.fields .field:even').addClass('even');
+            $('.fields .field_meta').removeClass('even');
+            $('.fields .field_meta:even').addClass('even');
         }
 
         update_order();
@@ -27,11 +27,11 @@
 
         // Add a new field
         $('.cfs_add_field').live('click', function() {
-            var html = field_clone.replace(/\[clone\]/g, '['+field_index+']');
+            var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
             $('.fields').append('<li>' + html + '</li>');
             $('.fields li:last .field_label a').click();
             $('.fields li:last .field_type select').change();
-            field_index = field_index + 1;
+            CFS.field_index = CFS.field_index + 1;
         });
 
         // Delete a field
@@ -50,7 +50,7 @@
         $('.field_form .field_type select').live('change', function() {
             var type = $(this).val();
             var input_name = $(this).attr('name').replace('[type]', '');
-            var html = options_html[type].replace(/cfs\[fields\]\[clone\]/g, input_name);
+            var html = CFS.options_html[type].replace(/cfs\[fields\]\[clone\]/g, input_name);
             $(this).closest('.field').find('.field_meta .field_type').html(type);
             $(this).closest('.field').find('.field_option').remove();
             $(this).closest('.field_basics').after(html);

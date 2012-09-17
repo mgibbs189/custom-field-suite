@@ -33,7 +33,7 @@ if ($is_gf_active)
 }
 ?>
 
-<table style="width:100%">
+<table>
     <tr>
         <td class="label">
             <label><?php _e('Content Editor', 'cfs'); ?></label>
