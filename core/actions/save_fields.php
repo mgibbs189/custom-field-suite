@@ -11,7 +11,15 @@ $cfs_extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array()
 ---------------------------------------------------------------------------------------------*/
 
 $weight = 0;
+$prev_fields = array();
 $table_name = $wpdb->prefix . 'cfs_fields';
+
+// get existing fields (check for renamed or deleted fields)
+$results = $wpdb->query("SELECT id, name FROM $table_name WHERE post_id = '$post_id'");
+foreach ($results as $result)
+{
+    $prev_fields[$result->id] = $result->name;
+}
 
 // remove all existing fields
 $wpdb->query("DELETE FROM $table_name WHERE post_id = '$post_id'");
@@ -42,6 +50,20 @@ foreach ($field_data as $key => $field)
     if (0 < (int) $field['id'])
     {
         $data['id'] = (int) $field['id'];
+
+        // Rename the postmeta key if necessary
+        if ($field['name'] != $prev_fields[$data['id']])
+        {
+            $wpdb->query(
+                $wpdb->prepare("
+                    UPDATE {$wpdb->postmeta} m
+                    INNER JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
+                    SET meta_key = %s
+                    WHERE v.field_id = %d",
+                    $field['name'], $data['id']
+                )
+            );
+        }
     }
 
     // insert the field
