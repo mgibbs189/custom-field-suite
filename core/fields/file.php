@@ -21,7 +21,8 @@ class cfs_File extends cfs_Field
         {
             if (wp_attachment_is_image($field->value))
             {
-                $file_url = wp_get_attachment_image($field->value);
+                $file_url = wp_get_attachment_image_src($field->value);
+                $file_url = '<img src="' . $file_url[0] . '" />';
             }
             else
             {
@@ -114,7 +115,8 @@ class cfs_File extends cfs_Field
         {
             if (wp_attachment_is_image($id))
             {
-                $file_url = wp_get_attachment_image($id);
+                $file_url = wp_get_attachment_image_src($id);
+                $file_url = '<img src="' . $file_url[0] . '" />';
             }
             else
             {

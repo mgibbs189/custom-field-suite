@@ -98,7 +98,12 @@
 .cfs_file .file_url img {
     padding: 5px;
     background: #fff;
+    vertical-align: bottom;
     box-shadow: 0 1px 2px #ddd;
+}
+
+.cfs_file .media.button.hidden {
+    display: none;
 }
 
 /*---------------------------------------------------------------------------------------------
