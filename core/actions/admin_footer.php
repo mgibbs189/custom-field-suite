@@ -150,17 +150,15 @@ p.search-box {
             <div class="inside">
                 <div class="field">
                     <p>
-                        <a href="https://uproot.us/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="https://uproot.us/" target="_blank"><?php _e('Homepage', 'cfs'); ?></a> &nbsp; | &nbsp;
                         <a href="https://uproot.us/custom-field-suite/documentation/" target="_blank"><?php _e('User Guide', 'cfs'); ?></a> &nbsp; | &nbsp;
-                        <a href="https://uproot.us/" target="_blank"><?php _e('Website', 'cfs'); ?></a>
+                        <a href="https://uproot.us/custom-field-suite/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a>
                     </p>
                 </div>
                 <div class="field">
-                    <p>Please support the plugin by <a href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank">rating it on wordpress.org</a> or donating.</p>
-                </div>
-                <div class="field">
                     <p>
-                        <a class="btn btn-success" href="https:uproot.us/contributors/" target="_blank">Donate Now</a>
+                        <a class="btn btn-success" href="https:uproot.us/contributors/" target="_blank"><?php _e('Donate', 'cfs'); ?></a>
+                        <a class="btn" href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank"><?php _e('Rate the plugin', 'cfs'); ?></a>
                     </p>
                 </div>
             </div>
