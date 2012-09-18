@@ -63,8 +63,8 @@
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_input .cfs_date input.date {
-    width: 220px;
-    background: #fff url(../images/icon-calendar.png) 98% 50% no-repeat;
+    width: 160px;
+    background: #fff url(../images/icon-calendar.png) 98% 2px no-repeat;
 }
 
 /*---------------------------------------------------------------------------------------------
