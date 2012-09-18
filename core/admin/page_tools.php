@@ -12,8 +12,10 @@ $results = $wpdb->get_results($sql);
 
 <style type="text/css">
 .content-container { padding-top: 15px; }
+.nav-tab { cursor: pointer; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
+#icon-edit { background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat; }
 </style>
 
 <script>
@@ -72,10 +74,10 @@ $results = $wpdb->get_results($sql);
 <div class="wrap">
     <div id="icon-edit" class="icon32"><br></div>
     <h2 class="nav-tab-wrapper">
-        <a class="nav-tab nav-tab-active" rel="export" href="javascript:;">Export</a>
-        <a class="nav-tab" rel="import" href="javascript:;">Import</a>
-        <a class="nav-tab" rel="sync" href="javascript:;">Synchronize</a>
-        <a class="nav-tab" rel="debug" href="javascript:;">Debug Information</a>
+        <a class="nav-tab nav-tab-active" rel="export">Export</a>
+        <a class="nav-tab" rel="import">Import</a>
+        <a class="nav-tab" rel="sync">Synchronize</a>
+        <a class="nav-tab" rel="debug">Debug Information</a>
     </h2>
 
     <div class="content-container">

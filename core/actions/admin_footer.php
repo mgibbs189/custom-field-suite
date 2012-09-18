@@ -47,6 +47,10 @@ p.search-box {
     border-bottom:  none;
 }
 
+#icon-edit {
+    background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat;
+}
+
 .btn {
   display: inline-block;
   *display: inline;

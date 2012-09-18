@@ -60,10 +60,11 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 == Changelog ==
 
 = 1.7.0 =
-* Cleanup: rename postmeta keys when fields are renamed
-* Cleanup: delete values when a field is deleted
+* Enhancement: rename postmeta keys when fields are renamed
+* Enhancement: delete values when a field is deleted
 * File field compatibility fixes for WP 3.5
 * Improved field management UI
+* Added new logo (https://github.com/somerandomdude/Iconic)
 
 = 1.6.9 =
 * $cfs->save() returns the post ID (props Miguel Peixe)
