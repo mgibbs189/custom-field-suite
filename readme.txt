@@ -60,10 +60,11 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 == Changelog ==
 
 = 1.7.0 =
-* Enhancement: rename postmeta keys when fields are renamed
-* Enhancement: delete values when a field is deleted
+* Improved: field management UI
+* Improved: select field returns associative array (value, label)
+* Improved: rename postmeta keys when fields are renamed
+* Improved: delete values when a field is deleted
 * File field compatibility fixes for WP 3.5
-* Improved field management UI
 * Added new logo (https://github.com/somerandomdude/Iconic)
 
 = 1.6.9 =
@@ -75,7 +76,7 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * Bugfix: Page Template placement rule (props Hylkep)
 * Bugfix: Error handling for field groups without fields
 * Bugfix: Inability to remove all fields in a field group
-* Enhancement: prevent consecutive underscores with field name generator
+* Improved: prevent consecutive underscores with field name generator
 
 = 1.6.8 =
 * Added "Page Template" placement rule
@@ -100,6 +101,6 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 
 = 1.6.4 =
 * Added new wysiwyg "Formatting" option
-* Enhancement: encapsulated jQuery UI CSS to prevent plugin conflicts
+* Improved: encapsulated jQuery UI CSS to prevent plugin conflicts
 
 [See the full changelog](https://uproot.us/custom-field-suite/changelog/)

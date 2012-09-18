@@ -123,6 +123,20 @@ class cfs_Select extends cfs_Field
     <?php
     }
 
+    function format_value_for_api($value, $field)
+    {
+        $value_array = array();
+        $choices = $field->options['choices'];
+
+        // Return an associative array (value, label)
+        foreach ($value as $val)
+        {
+            $value_array[$val] = isset($choices[$val]) ? $choices[$val] : $val;
+        }
+
+        return $value_array;
+    }
+
     function prepare_value($value, $field)
     {
         return $value;
@@ -130,8 +144,8 @@ class cfs_Select extends cfs_Field
 
     function pre_save_field($field)
     {
-        $choices = trim($field['options']['choices']);
         $new_choices = array();
+        $choices = trim($field['options']['choices']);
 
         if (!empty($choices))
         {
