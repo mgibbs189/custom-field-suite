@@ -41,13 +41,13 @@ class cfs_Api
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
-        if (!isset($this->cache[$options->format][$post_id][$field_name]))
+        if (!isset($this->cache[$post_id][$options->format][$field_name]))
         {
             $fields = $this->get_fields($post_id);
             return $fields[$field_name];
         }
 
-        return $this->cache[$options->format][$post_id][$field_name];
+        return $this->cache[$post_id][$options->format][$field_name];
     }
 
 
@@ -72,9 +72,9 @@ class cfs_Api
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Return cached results
-        if (isset($this->cache[$options->format][$post_id]))
+        if (isset($this->cache[$post_id][$options->format]))
         {
-            return $this->cache[$options->format][$post_id];
+            return $this->cache[$post_id][$options->format];
         }
 
         $fields = array();
@@ -175,7 +175,7 @@ class cfs_Api
             }
         }
 
-        $this->cache[$options->format][$post_id] = $field_data;
+        $this->cache[$post_id][$options->format] = $field_data;
         return $field_data;
     }
 
@@ -505,6 +505,9 @@ class cfs_Api
                 )
             );
         }
+
+        // Clear the cache
+        $this->cache[$post_id] = null;
 
         return $post_id;
     }
