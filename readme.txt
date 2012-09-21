@@ -64,6 +64,7 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 * Improved: select field returns associative array (value, label)
 * Improved: rename postmeta keys when fields are renamed
 * Improved: delete values when a field is deleted
+* Bugfix: clear cache on $cfs->save (props dataworx)
 * File field compatibility fixes for WP 3.5
 * Added new logo (https://github.com/somerandomdude/Iconic)
 
