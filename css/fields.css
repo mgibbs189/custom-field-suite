@@ -27,6 +27,7 @@
 
 #cfs_fields .fields a.cfs_edit_field {
     font-weight: normal;
+    cursor: pointer;
 }
 
 #cfs_fields .fields li {

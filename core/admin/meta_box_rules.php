@@ -75,7 +75,7 @@ foreach ($templates as $template_name => $filename)
 (function($) {
     $(function() {
         $('.select2').select2({
-            placeholder: '<?php _e('Select some options', 'cfs'); ?>'
+            placeholder: '<?php _e('Leave blank to skip this rule', 'cfs'); ?>'
         });
     });
 })(jQuery);

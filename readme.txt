@@ -59,6 +59,10 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 
 == Changelog ==
 
+= 1.7.1 =
+* Placement rules clarification text
+* Allow editing of fields without labels
+
 = 1.7.0 =
 * Improved: field management UI
 * Improved: select field returns associative array (value, label)

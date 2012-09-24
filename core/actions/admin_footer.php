@@ -157,7 +157,7 @@ p.search-box {
                 </div>
                 <div class="field">
                     <p>
-                        <a class="btn btn-success" href="https:uproot.us/contributors/" target="_blank"><?php _e('Donate', 'cfs'); ?></a>
+                        <a class="btn btn-success" href="https://uproot.us/contributors/" target="_blank"><?php _e('Donate', 'cfs'); ?></a>
                         <a class="btn" href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank"><?php _e('Rate the plugin', 'cfs'); ?></a>
                     </p>
                 </div>

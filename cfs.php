@@ -6,8 +6,7 @@ Description: Visually create and manage custom fields.
 Version: 1.7.0
 Author: Matt Gibbs
 Author URI: https://uproot.us/
-License: GPL
-Copyright: Matt Gibbs
+License: GPL2
 */
 
 $cfs = new Cfs();
