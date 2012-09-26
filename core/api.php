@@ -594,8 +594,8 @@ class cfs_Api
                 $new_params['weight'] = $field_id;
                 $new_params['depth']++;
 
-                // If not raw_input, then sub_field_id is actually the field name
-                if (false === $params['raw_input'])
+                // If not raw input, then sub_field_id is actually the field name
+                if ('input' != $params['format'])
                 {
                     if (0 == $new_params['depth'] % 2)
                     {

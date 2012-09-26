@@ -86,6 +86,7 @@ class cfs_Loop extends cfs_Field
 
     function recursive_clone($group_id, $field_id)
     {
+        $loop_field_ids = array();
         $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
 
@@ -108,7 +109,10 @@ class cfs_Loop extends cfs_Field
                 <?php endif; ?>
 
                 <div class="field cfs_<?php echo $field->type; ?>">
-                <?php if ('loop' == $field->type) : ?>
+                <?php
+                if ('loop' == $field->type) :
+                    $loop_field_ids[] = $field->id;
+                ?>
                     <div class="table_footer">
                         <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
                     </div>
@@ -136,9 +140,9 @@ class cfs_Loop extends cfs_Field
         </script>
 
     <?php
-        if ('loop' == $field->type)
+        foreach ($loop_field_ids as $loop_field_id)
         {
-            $this->recursive_clone($group_id, $field->id);
+            $this->recursive_clone($group_id, $loop_field_id);
         }
     }
 

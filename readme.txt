@@ -3,16 +3,16 @@ Contributors: logikal16
 Donate link: https://uproot.us/contributors/
 Tags: fields, custom fields, cck, wysiwyg, relationship, date, loop, upload
 Requires at least: 3.2
-Tested up to: 3.5-alpha
+Tested up to: 3.5
 Stable tag: trunk
 
-Visually create and manage custom fields.
+Dead simple custom field management.
 
 == Description ==
 
 Custom Field Suite is a custom fields management plugin. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a lightweight API for displaying custom fields throughout your site.
 
-CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals of this plugin are stability, performance, and avoiding feature bloat.
+**CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
 = Why use CFS? =
 * CFS is stable. We test all changes before releasing a new version.
@@ -62,6 +62,8 @@ CFS is a [fork](http://bit.ly/14vScj) of Advanced Custom Fields. The main goals 
 = 1.7.1 =
 * Placement rules clarification text
 * Allow editing of fields without labels
+* Added new "Row Label" Loop option
+* Bugfix for nested loop fields (props Hylkep)
 
 = 1.7.0 =
 * Improved: field management UI

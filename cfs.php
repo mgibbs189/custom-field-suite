@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Field Suite
 Plugin URI: https://uproot.us/
-Description: Visually create and manage custom fields.
+Description: Dead simple custom field management.
 Version: 1.7.0
 Author: Matt Gibbs
 Author URI: https://uproot.us/
