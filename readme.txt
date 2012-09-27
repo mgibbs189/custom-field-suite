@@ -63,7 +63,8 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 * Placement rules clarification text
 * Allow editing of fields without labels
 * Added new "Row Label" Loop option
-* Bugfix for nested loop fields (props Hylkep)
+* Bugfix: nested loop fields (props Hylkep)
+* Updated timepicker JS
 
 = 1.7.0 =
 * Improved: field management UI
