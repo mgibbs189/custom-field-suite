@@ -436,9 +436,10 @@ class Cfs
         }
         elseif (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
         {
+            $field_groups = isset($_POST['cfs']['field_groups']) ? $_POST['cfs']['field_groups'] : array();
             $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
             $post_data = array('ID' => $_POST['ID']);
-            $options = array('format' => 'input');
+            $options = array('format' => 'input', 'field_groups' => $field_groups);
             $this->save($field_data, $post_data, $options);
         }
 
@@ -849,6 +850,10 @@ class Cfs
     function wpml_handler($master_id, $lang, $post_data, $duplicate_id)
     {
         $field_data = $this->get(false, $master_id, array('format' => 'raw'));
-        $this->save($field_data, array('ID' => $duplicate_id));
+
+        if (!empty($field_data))
+        {
+            $this->save($field_data, array('ID' => $duplicate_id));
+        }
     }
 }

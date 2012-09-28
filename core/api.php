@@ -404,6 +404,7 @@ class cfs_Api
 
         $defaults = array(
             'format' => 'api', // "api" or "input"
+            'field_groups' => array(),
         );
         $options = (object) array_merge($defaults, $options);
 
@@ -431,13 +432,22 @@ class cfs_Api
             }
         }
 
-        // Get all field groups for this post
-        $group_ids = $this->parent->get_matching_groups($post_id, true);
+        // For input forms, get the group IDs from the form
+        // Otherwise, we might not get the correct group IDs (e.g. the taxonomy changed)
+        if ('input' == $options->format)
+        {
+            $group_ids = $options->field_groups;
+        }
+        elseif ('api' == $options->format)
+        {
+            $group_ids = $this->parent->get_matching_groups($post_id, true);
+            $group_ids = array_keys($group_ids);
+        }
 
         if (!empty($group_ids))
         {
             $parent_fields = array();
-            $group_ids = implode(',', array_keys($group_ids));
+            $group_ids = implode(',', $group_ids);
             $results = $wpdb->get_results("SELECT id, type, parent_id, name FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
             foreach ($results as $result)
             {
@@ -457,7 +467,6 @@ class cfs_Api
         // If this is an API call, flatten the data!
         if ('api' == $options->format)
         {
-            // Remove the parent field data if using $cfs->save()
             $field_ids = array();
 
             foreach ($field_data as $field_name => $junk)
@@ -474,14 +483,15 @@ class cfs_Api
             WHERE v.post_id = '$post_id' AND (v.field_id IN ($field_ids) OR v.base_field_id IN ($field_ids))";
             $wpdb->query($sql);
         }
-        else
+        elseif ('input' == $options->format)
         {
             // If saving raw input, delete existing postdata
             $sql = "
             DELETE v, m
             FROM {$wpdb->prefix}cfs_values v
+            INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
             LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-            WHERE v.post_id = '$post_id'";
+            WHERE v.post_id = '$post_id' AND f.post_id IN ($group_ids)";
             $wpdb->query($sql);
         }
 

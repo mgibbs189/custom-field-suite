@@ -49,7 +49,7 @@ class cfs_Relationship extends cfs_Field
         <div class="filter_posts">
             <input type="text" class="cfs_filter_input" autocomplete="off" />
             <div class="cfs_filter_help">
-                <div class="cfs_help_text hidden">
+                <div class="cfs_tooltip hidden">
                     <ul>
                         <li style="font-size:15px; font-weight:bold">Sample queries</li>
                         <li>"foobar" (find posts containing "foobar")</li>
@@ -134,7 +134,7 @@ class cfs_Relationship extends cfs_Field
                     // tooltip
                     $this.find('.cfs_filter_help').tipTip({
                         maxWidth: '400px',
-                        content: $this.find('.cfs_help_text').html()
+                        content: $this.find('.cfs_tooltip').html()
                     });
 
                     // sortable

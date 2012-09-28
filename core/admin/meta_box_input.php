@@ -1,12 +1,15 @@
-<input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
-
 <?php
 
 // Passed from add_meta_box
 $group_id = $metabox['args']['group_id'];
 
 $input_fields = $this->api->get_input_fields($group_id);
+?>
 
+<input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
+<input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
+
+<?php
 // Add any necessary head scripts
 foreach ($input_fields as $key => $field)
 {

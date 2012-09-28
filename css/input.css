@@ -84,11 +84,11 @@
 }
 
 .cfs_wysiwyg textarea {
-    height: 320px;
+    height: 300px;
 }
 
-.cfs_wysiwyg .wp_themeSkin .mceStatusbar a.mceResize {
-    top: -2px !important;
+.cfs_wysiwyg .wp-media-buttons {
+    padding: 5px 0;
 }
 
 /*---------------------------------------------------------------------------------------------
