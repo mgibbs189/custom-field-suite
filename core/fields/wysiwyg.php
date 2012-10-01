@@ -15,7 +15,14 @@ class cfs_Wysiwyg extends cfs_Field
     function html($field)
     {
     ?>
-        <textarea name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" rows="4"><?php echo $field->value; ?></textarea>
+        <div class="wp-editor-wrap">
+            <div class="wp-media-buttons">
+                <?php do_action('media_buttons'); ?>
+            </div>
+            <div class="wp-editor-container">
+                <textarea name="<?php echo $field->input_name; ?>" class="wp-editor-area <?php echo $field->input_class; ?>" rows="4"><?php echo $field->value; ?></textarea>
+            </div>
+        </div>
     <?php
     }
 
@@ -61,6 +68,12 @@ class cfs_Wysiwyg extends cfs_Field
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
+
+                // Set the correct editor
+                $('a.add_media').click(function() {
+                    var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
+                    wpActiveEditor = editor_id;
+                });
             });
 
             $.fn.init_wysiwyg = function() {

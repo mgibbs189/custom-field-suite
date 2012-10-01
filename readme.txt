@@ -21,7 +21,7 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 * CFS supports [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/).
 * CFS allows you to [add your own field types](http://uproot.us/custom-field-suite/docs/custom-field-type/).
 * CFS is 100% free.
-* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/)
+* [CFS is on GitHub](https://github.com/logikal16/custom-field-suite/)
 
 = Field Types =
 * Text (api returns text)
@@ -59,6 +59,10 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 
 == Changelog ==
 
+= 1.7.2 =
+* Added Media button to WYSIWYG fields
+* Bugfix: [fatal error when a post update causes a rules mismatch](https://github.com/logikal16/custom-field-suite/issues/55) (props Gator92)
+
 = 1.7.1 =
 * Placement rules clarification text
 * Allow editing of fields without labels
@@ -92,23 +96,5 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 * Converted select options from string to array (internal)
 * Added new "pre_save_field" method
 * Code cleanup
-
-= 1.6.7 =
-* Fixed file upload button bug (props baysaa)
-
-= 1.6.6 =
-* Added Polish translation (props Bartosz Arendt)
-* Added loop option to expand rows by default
-* Added field group option to hide the content editor
-* Updated translation .POT file
-* Fixed minor Gravity Forms integration bug
-
-= 1.6.5 =
-* Bugfix: Handle arrays for field get_option (props Migual Peixe)
-* Added "cfs_matching_groups" hook to override which field groups are used (props Gator92)
-
-= 1.6.4 =
-* Added new wysiwyg "Formatting" option
-* Improved: encapsulated jQuery UI CSS to prevent plugin conflicts
 
 [See the full changelog](https://uproot.us/custom-field-suite/changelog/)
