@@ -15,6 +15,7 @@ $results = $wpdb->get_results($sql);
 .nav-tab { cursor: pointer; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
+#button-export, #button-sync { margin-top: 4px; }
 #icon-edit { background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat; }
 </style>
 
@@ -85,10 +86,10 @@ $results = $wpdb->get_results($sql);
         <!-- Export -->
 
         <div class="tab-content export active">
+            <h2>Which field groups would you like to export?</h2>
             <table>
                 <tr>
                     <td style="width:300px; vertical-align:top">
-                        <div>Which field groups would you like to export?</div>
                         <div>
                             <select id="export-field-groups" style="width:300px; height:200px" multiple="multiple">
                                 <?php foreach ($results as $result) : ?>
@@ -102,7 +103,6 @@ $results = $wpdb->get_results($sql);
                     </td>
                     <td style="width:300px; vertical-align:top">
                         <div id="export-area" style="display:none">
-                            <div>Export code:</div>
                             <div>
                                 <textarea id="export-output" style="width:98%; height:200px"></textarea>
                             </div>
@@ -115,10 +115,10 @@ $results = $wpdb->get_results($sql);
         <!-- Import -->
 
         <div class="tab-content import">
+            <h2>Paste the import code below. Existing field groups will be skipped.</h2>
             <table>
                 <tr>
                     <td style="width:300px; vertical-align:top">
-                        <div>Paste the code. Existing field groups will be skipped.</div>
                         <div>
                             <textarea id="import-code" style="width:98%; height:200px"></textarea>
                         </div>
@@ -136,10 +136,10 @@ $results = $wpdb->get_results($sql);
         <!-- Synchronize -->
 
         <div class="tab-content sync">
+            <h2>CFS will attempt to automatically import custom field values.</h2>
             <table>
                 <tr>
                     <td style="width:300px; vertical-align:top">
-                        <div>This tool will scan your existing custom fields, mapping any applicable values into Custom Field Suite.</div>
                         <div>
                             <select id="sync-field-groups" style="width:300px; height:200px" multiple="multiple">
                                 <?php foreach ($results as $result) : ?>
@@ -148,7 +148,7 @@ $results = $wpdb->get_results($sql);
                             </select>
                         </div>
                         <div>
-                            <input type="button" id="button-sync" class="button" value="Export" />
+                            <input type="button" id="button-sync" class="button" value="Synchronize" />
                         </div>
                     </td>
                     <td style="width:300px; vertical-align:top">
@@ -161,6 +161,7 @@ $results = $wpdb->get_results($sql);
         <!-- Debug Information -->
 
         <div class="tab-content debug">
+            <h2>Your site uses the following software:</h2>
 <textarea style="width:600px; height:200px">
 WordPress <?php global $wp_version; echo $wp_version; ?>
 

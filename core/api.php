@@ -432,8 +432,8 @@ class cfs_Api
             }
         }
 
-        // For input forms, get the group IDs from the form
-        // Otherwise, we might not get the correct group IDs (e.g. the taxonomy changed)
+        // For input forms, get the group IDs from the HTTP POST
+        // Otherwise, the field group might not match anymore (e.g. the taxonomy changed)
         if ('input' == $options->format)
         {
             $group_ids = $options->field_groups;

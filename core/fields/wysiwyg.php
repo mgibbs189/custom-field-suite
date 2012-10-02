@@ -69,7 +69,7 @@ class cfs_Wysiwyg extends cfs_Field
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
 
-                // Set the correct editor
+                // Set the active editor
                 $('a.add_media').click(function() {
                     var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
                     wpActiveEditor = editor_id;
@@ -84,6 +84,9 @@ class cfs_Wysiwyg extends cfs_Field
                     wysiwyg_count = wysiwyg_count + 1;
                     var input_id = 'cfs_wysiwyg_' + wysiwyg_count;
                     $(this).find('.wysiwyg').attr('id', input_id);
+
+                    // WP 3.5+
+                    $(this).find('a.add_media').attr('data-editor', input_id);
 
                     // create wysiwyg
                     tinyMCE.settings.theme_advanced_buttons2 += ',code';

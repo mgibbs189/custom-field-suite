@@ -62,6 +62,7 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 = 1.7.2 =
 * Added Media button to WYSIWYG fields
 * Bugfix: [fatal error when a post update causes a rules mismatch](https://github.com/logikal16/custom-field-suite/issues/55) (props Gator92)
+* Tools page UI improvements
 
 = 1.7.1 =
 * Placement rules clarification text
