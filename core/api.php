@@ -429,6 +429,7 @@ class cfs_Api
             if (1 < count($post_data))
             {
                 $wpdb->update($wpdb->posts, $post_data, array('ID' => $post_id));
+                clean_post_cache($post_id);
             }
         }
 
