@@ -101,6 +101,22 @@ class cfs_Relationship extends cfs_Field
                 ?>
             </td>
         </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label><?php _e('Validation', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][required]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'required'),
+                        'options' => array('message' => __('This is a required field', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
     <?php
     }
 

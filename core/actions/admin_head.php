@@ -74,6 +74,7 @@ else
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/input.css" />
+<script src="<?php echo $this->url; ?>/js/validation.js"></script>
 
 <?php
         // Support for multiple metaboxes
