@@ -106,7 +106,7 @@ class cfs_Select extends cfs_Field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Select multiple values?', 'cfs'); ?></label>
+                <label><?php _e('Multi-select?', 'cfs'); ?></label>
             </td>
             <td>
                 <?php

@@ -17,7 +17,7 @@
                 }
             },
             'valid_color': {
-                'error': 'Please enter a valid color (#ff0000)',
+                'error': 'Please enter a valid color HEX (#ff0000)',
                 'validate': function(val) {
                     var regex = /^#[0-9a-zA-Z]{3,}$/;
                     return regex.test(val);
@@ -39,6 +39,8 @@
         };
 
         $('form#post').submit(function() {
+
+            // skip validation for drafts
             if ('draft' != $('#post_status').val()) {
                 var passthru = true;
 
@@ -47,18 +49,17 @@
 
                     // reset error styling
                     $this.find('.error').hide();
-                    $this.removeClass('invalid');
 
                     var type = $this.attr('data-type');
                     var validator = $this.attr('data-validator');
 
-                    // perform the validation
+                    // a validator is specified
                     if ('' != validator) {
 
                         // the validator exists
                         if ('object' == typeof CFS.validators[validator]) {
 
-                            // figure out how to get the field value
+                            // figure out the field value
                             if ('function' == typeof CFS.get_field_value[type]) {
                                 var val = CFS.get_field_value[type]($this);
                             }
@@ -77,7 +78,6 @@
                                 }
                                 $this.find('.error').html(CFS.validators[validator]['error']);
                                 $this.find('.error').show();
-                                $this.addClass('invalid');
                             }
                         }
                     }
