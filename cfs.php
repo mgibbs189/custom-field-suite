@@ -37,7 +37,7 @@ class Cfs
         $this->used_types = array();
 
         // load the api
-        include($this->dir . '/core/api.php');
+        include($this->dir . '/core/classes/api.php');
         $this->api = new cfs_Api($this);
 
         // add actions
@@ -73,7 +73,8 @@ class Cfs
     function init()
     {
         // perform upgrades
-        include($this->dir . '/core/upgrade.php');
+        include($this->dir . '/core/classes/upgrade.php');
+        $upgrade = new cfs_Upgrade($this->version);
 
         // get all available field types
         $this->fields = $this->get_field_types();
@@ -136,7 +137,7 @@ class Cfs
     function get_field_types()
     {
         // include the parent field type
-        include($this->dir . '/core/fields/field.php');
+        include($this->dir . '/core/classes/field.php');
 
         $field_types = array(
             'text' => $this->dir . '/core/fields/text.php',

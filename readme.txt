@@ -1,58 +1,57 @@
 === Custom Field Suite ===
 Contributors: logikal16
 Donate link: https://uproot.us/contributors/
-Tags: fields, custom fields, cck, wysiwyg, relationship, date, loop, upload
+Tags: custom fields, custom field, fields, post meta, cck, wysiwyg, relationship, loop, file upload
 Requires at least: 3.2
 Tested up to: 3.5
 Stable tag: trunk
 
-Dead simple custom field management.
+Really simple custom field management.
 
 == Description ==
 
-Custom Field Suite is a custom fields management plugin. It allows you to visually create groups of custom fields. Each field group can be placed on the edit pages of your choosing. It also includes a lightweight API for displaying custom fields throughout your site.
+Create groups of custom fields, then choose which edit screens to appear on. Each field group has its own meta box, allowing for plenty of customization. CFS includes a lightweight API for displaying custom fields throughout your site.
 
 **CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
 = Why use CFS? =
-* CFS is easy-to-use. You and your clients will LOVE it!
+* CFS is easy to use. You and your clients will LOVE it!
 * CFS is stable. We test all changes before releasing a new version.
 * CFS is fast and uses minimal server resources.
-* CFS is 100% free.
-* CFS has [full documentation](https://uproot.us/custom-field-suite/documentation/).
-* Our [forums](https://uproot.us/forums/) will quickly provide support when you need it.
-* CFS integrates with [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/). CFS can even save Gravity Forms entries as custom post type items with custom fields.
+* CFS has [full documentation](https://uproot.us/custom-field-suite/documentation/) and [support forums](https://uproot.us/forums/).
+* CFS works well with [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/). It can save GF entries as post items.
 * CFS supports [adding your own field types](http://uproot.us/custom-field-suite/docs/custom-field-type/).
-* [CFS is on GitHub](https://github.com/logikal16/custom-field-suite/)
+* [We're on GitHub!](https://github.com/logikal16/custom-field-suite/)
 
 = Field Types =
-* Text (api returns text)
-* Textarea (api returns text with `<br />`)
-* Wysiwyg Editor (api returns html)
-* Date (api returns text)
-* Color (api returns HEX value)
-* True / False (api returns 0 or 1)
-* Select (api returns array of values)
-* Relationship (api returns array of post IDs)
-* User (api returns array of user IDs)
-* File Upload (api returns file url or attachment ID)
-* Loop (a container for other fields, api returns array of arrays)
+* [Text](https://uproot.us/docs/text/)
+* [Textarea](https://uproot.us/docs/textarea/)
+* [Wysiwyg Editor](https://uproot.us/docs/wysiwyg/)
+* [Date](https://uproot.us/docs/date/)
+* [Color](https://uproot.us/docs/color/)
+* [True / False](https://uproot.us/docs/true-false/)
+* [Select](https://uproot.us/docs/select/)
+* [File Upload](https://uproot.us/docs/file-upload/)
+* [User](https://uproot.us/docs/user/)
+* [Relationship](https://uproot.us/docs/relationship/)
+* [Loop](https://uproot.us/docs/loop/)
 
 = More Features =
 * Field validation
-* Drag-n-drop field management UI
+* Drag-and-drop field management
 * Loop fields support unlimited nesting!
 * Placement Rules let you choose where each field group appears
-* Use the Sync feature to import custom fields into existing field groups
+* Sync feature for importing meta values into existing field groups
 
 = Documentation and Support =
 * http://uproot.us/
 * http://uproot.us/custom-field-suite/documentation/
+* https://uproot.us/forums/
 
 == Installation ==
 
 1. Download and activate the plugin.
-2. Browse to `Field Groups` menu to configure.
+2. Browse to the `Field Groups` menu to configure.
 
 == Screenshots ==
 1. A custom field group with field nesting (loop field)
@@ -61,6 +60,9 @@ Custom Field Suite is a custom fields management plugin. It allows you to visual
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.7.4 =
+* Added German translation (props Sascha Brosi)
 
 = 1.7.3 =
 * Added field validation
