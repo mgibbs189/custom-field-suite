@@ -78,7 +78,7 @@ class cfs_User extends cfs_Field
             }
 
             $(function() {
-                $('.cfs_add_field').bind('go', function() {
+                $('.cfs_add_field').live('go', function() {
                     $('.cfs_user:not(.ready)').init_user();
                 });
                 $('.cfs_user').init_user();

@@ -28,14 +28,20 @@
                                 <td class="field_label">
                                     <label>
                                         <?php _e('Label', 'cfs'); ?>
-                                        <span class="cfs_tooltip" title="<?php _e('The field name that editors will see', 'cfs'); ?>"></span>
+                                        <div class="cfs_tooltip">
+                                            <div class="tooltip_inner"><?php _e('The field label that editors will see.', 'cfs'); ?></div>
+                                        </div>
                                     </label>
                                     <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][label]" value="<?php echo empty($field->id) ? '' : esc_attr($field->label); ?>" />
                                 </td>
                                 <td class="field_name">
                                     <label>
                                         <?php _e('Name', 'cfs'); ?>
-                                        <span class="cfs_tooltip" title="<?php _e('Only lowercase letters and underscores', 'cfs'); ?>"></span>
+                                        <div class="cfs_tooltip">
+                                            <div class="tooltip_inner">
+                                                <?php _e('The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'cfs'); ?>
+                                            </div>
+                                        </div>
                                     </label>
                                     <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][name]" value="<?php echo empty($field->id) ? '' : esc_attr($field->name); ?>" />
                                 </td>
@@ -59,7 +65,9 @@
                     <td class="label">
                         <label>
                             <?php _e('Instructions', 'cfs'); ?>
-                            <span class="cfs_tooltip" title="<?php _e('Tips for editors when entering field data', 'cfs'); ?>"></span>
+                            <div class="cfs_tooltip">
+                                <div class="tooltip_inner"><?php _e('Notes for editors during data entry', 'cfs'); ?></div>
+                            </div>
                         </label>
                     </td>
                     <td>

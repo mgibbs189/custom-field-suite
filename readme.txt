@@ -62,7 +62,9 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 == Changelog ==
 
 = 1.7.4 =
+* Improved upgrade script
 * Added German translation (props Sascha Brosi)
+* Bugfix: checkboxes not working within loop fields (props @sc0ttkclark)
 
 = 1.7.3 =
 * Added field validation

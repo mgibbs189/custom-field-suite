@@ -47,15 +47,36 @@ CFS.options_html = <?php echo json_encode($options_html); ?>;
             $(this).siblings('input').val(val);
             $(this).toggleClass('active');
         });
+
+        $('.cfs_add_field').click(function() {
+            $('.cfs_tooltip:not(.ready)').init_tooltip();
+        });
+
+        $('.field_type select').live('change', function() {
+            $('.cfs_tooltip:not(.ready)').init_tooltip();
+        });
+
+        $('.cfs_tooltip').init_tooltip();
     });
+
+    $.fn.init_tooltip = function() {
+        this.each(function() {
+            $(this).addClass('ready');
+            $(this).tipTip({
+                content: $(this).html()
+            });
+        });
+    }
 })(jQuery);
 
 </script>
 
 <script src="<?php echo $this->url; ?>/js/fields.js"></script>
 <script src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
+<script src="<?php echo $this->url; ?>/js/tipTip/jquery.tipTip.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/fields.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/select2/select2.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/tipTip/tipTip.css" />
 
 <?php
 }
