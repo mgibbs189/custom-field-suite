@@ -5,8 +5,26 @@
             $('.fields .field_meta:even').addClass('even');
         }
 
-        update_order();
+        function init_tooltip() {
+            $('.cfs_tooltip:not(.ready)').each(function() {
+                $(this).addClass('ready');
+                $(this).tipTip({
+                    content: $(this).html()
+                });
+            });
+        }
 
+        update_order();
+        init_tooltip();
+
+        // Setup checkboxes
+        $('span.checkbox').live('click', function() {
+            var val = $(this).hasClass('active') ? 0 : 1;
+            $(this).siblings('input').val(val);
+            $(this).toggleClass('active');
+        });
+
+        // Drag-and-drop support
         $('ul.fields').sortable({
             items: 'ul, li',
             connectWith: 'ul.fields',
@@ -32,6 +50,7 @@
             $('.fields li:last .field_label a').click();
             $('.fields li:last .field_type select').change();
             CFS.field_index = CFS.field_index + 1;
+            init_tooltip();
         });
 
         // Delete a field
@@ -54,6 +73,7 @@
             $(this).closest('.field').find('.field_meta .field_type').html(type);
             $(this).closest('.field').find('.field_option').remove();
             $(this).closest('.field_basics').after(html);
+            init_tooltip();
         });
 
         // Auto-populate the field name

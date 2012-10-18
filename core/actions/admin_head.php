@@ -40,35 +40,6 @@ CFS.field_index = <?php echo $field_count; ?>;
 CFS.field_clone = <?php echo json_encode($field_clone); ?>;
 CFS.options_html = <?php echo json_encode($options_html); ?>;
 
-(function($) {
-    $(function() {
-        $('span.checkbox').live('click', function() {
-            var val = $(this).hasClass('active') ? 0 : 1;
-            $(this).siblings('input').val(val);
-            $(this).toggleClass('active');
-        });
-
-        $('.cfs_add_field').click(function() {
-            $('.cfs_tooltip:not(.ready)').init_tooltip();
-        });
-
-        $('.field_type select').live('change', function() {
-            $('.cfs_tooltip:not(.ready)').init_tooltip();
-        });
-
-        $('.cfs_tooltip').init_tooltip();
-    });
-
-    $.fn.init_tooltip = function() {
-        this.each(function() {
-            $(this).addClass('ready');
-            $(this).tipTip({
-                content: $(this).html()
-            });
-        });
-    }
-})(jQuery);
-
 </script>
 
 <script src="<?php echo $this->url; ?>/js/fields.js"></script>

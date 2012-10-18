@@ -3,14 +3,14 @@
 Plugin Name: Custom Field Suite
 Plugin URI: https://uproot.us/
 Description: Dead simple custom field management.
-Version: 1.7.3
+Version: 1.7.4
 Author: Matt Gibbs
 Author URI: https://uproot.us/
 License: GPL2
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.7.3';
+$cfs->version = '1.7.4';
 
 class Cfs
 {
