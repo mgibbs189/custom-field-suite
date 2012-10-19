@@ -1,472 +1,416 @@
+# Copyright (C) 2012 
+# This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite v1.7.3\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-10-13 23:12:15+0000\n"
-"Last-Translator: Sascha Brosi <sascha.brosi@milizfeuerwehr.ch>\n"
-"Language-Team: \n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"POT-Creation-Date: 2012-10-19 17:39:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-Bookmarks: \n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
+"PO-Revision-Date: 2012-10-19 20:17+0100\n"
+"Last-Translator: Sascha Brosi <sascha.brosi@milizfeuerwehr.ch>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: cfs.php:85
-#: cfs.php:402
-#@ cfs
+#: cfs.php:86 cfs.php:403
 msgid "Field Groups"
 msgstr "Felder-Gruppen"
 
-#: cfs.php:86
-#@ cfs
+#: cfs.php:87
 msgid "Field Group"
 msgstr "Felder-Gruppe"
 
-#: cfs.php:87
-#@ cfs
+#: cfs.php:88
 msgid "Add New"
 msgstr "Erstellen"
 
-#: cfs.php:88
-#@ cfs
+#: cfs.php:89
 msgid "Add New Field Group"
 msgstr "Neue Felder-Gruppe hinzufügen"
 
-#: cfs.php:89
-#@ cfs
+#: cfs.php:90
 msgid "Edit Field Group"
 msgstr "Felder-Gruppe bearbeiten"
 
-#: cfs.php:90
-#@ cfs
+#: cfs.php:91
 msgid "New Field Group"
 msgstr "Neue Felder-Gruppe"
 
-#: cfs.php:91
-#@ cfs
+#: cfs.php:92
 msgid "View Field Group"
 msgstr "Felder-Gruppe anzeigen"
 
-#: cfs.php:92
-#@ cfs
+#: cfs.php:93
 msgid "Search Field Groups"
 msgstr "Felder-Gruppe suchen"
 
-#: cfs.php:93
-#@ cfs
+#: cfs.php:94
 msgid "No Field Groups found"
 msgstr "Keine Felder-Gruppen gefunden"
 
-#: cfs.php:94
-#@ cfs
+#: cfs.php:95
 msgid "No Field Groups found in Trash"
 msgstr "Im Papierkorb keine Felder-Gruppen gefunden"
 
-#: cfs.php:122
-#@ cfs
+#: cfs.php:123
 msgid "Title"
 msgstr "Titel"
 
-#: cfs.php:385
-#@ cfs
+#: cfs.php:386
 msgid "Fields"
 msgstr "Felder"
 
-#: cfs.php:386
-#@ cfs
+#: cfs.php:387
 msgid "Placement Rules"
 msgstr "Regeln"
 
-#: cfs.php:387
-#@ cfs
+#: cfs.php:388
 msgid "Extras"
 msgstr "Extras"
 
-#: cfs.php:403
-#@ cfs
+#: cfs.php:404
 msgid "Tools"
 msgstr "Werkzeuge"
 
-#: cfs.php:642
-#@ cfs
+#: cfs.php:643
 msgid "Imported"
 msgstr "Importiert"
 
-#: cfs.php:646
-#@ cfs
+#: cfs.php:647
 msgid "Skipped"
 msgstr "Übersprungen"
 
-#: cfs.php:651
-#@ cfs
+#: cfs.php:652
 msgid "Nothing to import"
 msgstr "Nichts zum importieren"
 
-#: cfs.php:726
-#@ cfs
+#: cfs.php:727
 msgid "No field groups selected"
-msgstr "Keine Feldgruppen ausgewählt"
+msgstr "Keine Felder-Gruppen ausgewählt"
 
 #: core/actions/admin_footer.php:67
-#@ cfs
 msgid "Custom Field Suite"
-msgstr "Eigene Felder Suite"
+msgstr "Benutzerdefinierte Felder Suite"
 
 #: core/actions/admin_footer.php:71
-#@ cfs
 msgid "Homepage"
 msgstr "Homepage"
 
 #: core/actions/admin_footer.php:72
-#@ cfs
 msgid "User Guide"
 msgstr "Benutzerhandbuch"
 
 #: core/actions/admin_footer.php:73
-#@ cfs
 msgid "Changelog"
 msgstr "Änderungsprotokoll"
 
 #: core/actions/admin_footer.php:78
-#@ cfs
 msgid "Donate"
 msgstr "Spenden"
 
 #: core/actions/admin_footer.php:79
-#@ cfs
 msgid "Rate the plugin"
 msgstr "Bewerte das Plugin"
 
 #: core/admin/field_html.php:30
-#@ cfs
 msgid "Label"
 msgstr "Beschriftung"
 
-#: core/admin/field_html.php:31
-#@ cfs
-msgid "The field name that editors will see"
-msgstr "Der Name des Feldes, den die Redakteure sehen"
+#: core/admin/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "Die Beschriftung des Feldes, welche die Redakteure sehen."
 
-#: core/admin/field_html.php:37
-#@ cfs
+#: core/admin/field_html.php:39
 msgid "Name"
 msgstr "Name"
 
-#: core/admin/field_html.php:38
-#@ cfs
-msgid "Only lowercase letters and underscores"
-msgstr "Nur Kleinbuchstaben und Unterstriche"
+#: core/admin/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"Der Feld-Name wird in get () übergeben, um Werte abzurufen. Verwende nur "
+"Kleinbuchstaben, Zahlen und Unterstriche."
 
-#: core/admin/field_html.php:43
-#@ cfs
+#: core/admin/field_html.php:49
 msgid "Field Type"
 msgstr "Feldtyp"
 
-#: core/admin/field_html.php:61
-#@ cfs
+#: core/admin/field_html.php:67
 msgid "Instructions"
-msgstr "Anweisung"
+msgstr "Anweisungen"
 
-#: core/admin/field_html.php:62
-#@ cfs
-msgid "Tips for editors when entering field data"
-msgstr "Tipps für Redakteure beim ausfüllen des Feldes."
+#: core/admin/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Hinweise für die Dateneingabe"
 
-#: core/admin/field_html.php:74
-#@ default
+#: core/admin/field_html.php:82
 msgid "Close"
 msgstr "Schliessen"
 
-#: core/admin/field_html.php:75
-#@ cfs
+#: core/admin/field_html.php:83
 msgid "or"
 msgstr "oder"
 
-#: core/admin/field_html.php:75
-#@ cfs
+#: core/admin/field_html.php:83
 msgid "delete"
 msgstr "löschen"
 
 #: core/admin/meta_box_extras.php:39
-#@ cfs
 msgid "Content Editor"
-msgstr "Inhalt-Editor"
+msgstr "Inhalts-Editor"
 
 #: core/admin/meta_box_extras.php:48
-#@ cfs
 msgid "Hide the content editor"
-msgstr "Verstecke den Inhalt-Editor"
+msgstr "Blende den Inhalts-Editor aus"
 
 #: core/admin/meta_box_extras.php:55
-#@ cfs
 msgid "Gravity Forms Integration"
-msgstr "Gravity Forms integration"
+msgstr "Gravity Forms Integration"
+
+#: core/admin/meta_box_extras.php:75
+msgid "Your Gravity Form and CFS field labels must match exactly!"
+msgstr ""
+"Die Gravity Form und CFS Feldbezeichnungen müssen exakt übereinstimmen!"
+
+#: core/admin/meta_box_extras.php:79
+msgid "Please install"
+msgstr "Bitte installieren"
+
+#: core/admin/meta_box_extras.php:79
+msgid "to use this feature"
+msgstr "um dieses Feature zu nutzen"
 
 #: core/admin/meta_box_fields.php:60
-#@ cfs
 msgid "Add New Field"
 msgstr "Neues Feld hinzufügen"
 
 #: core/admin/meta_box_rules.php:5
-#@ cfs
 msgid "equals"
 msgstr "ist gleich"
 
 #: core/admin/meta_box_rules.php:6
-#@ cfs
 msgid "is not"
 msgstr "ist nicht gleich"
 
 #: core/admin/meta_box_rules.php:78
-#@ cfs
 msgid "Leave blank to skip this rule"
 msgstr "Leer lassen, um diese Regel zu überspringen"
 
-#: core/admin/meta_box_rules.php:87
-#: core/fields/relationship.php:89
-#@ cfs
+#: core/admin/meta_box_rules.php:87 core/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Artikel-Typ"
 
 #: core/admin/meta_box_rules.php:118
-#@ cfs
 msgid "User Roles"
 msgstr "Benutzer-Rolle"
 
 #: core/admin/meta_box_rules.php:149
-#@ cfs
 msgid "Posts"
 msgstr "Artikel"
 
 #: core/admin/meta_box_rules.php:180
-#@ cfs
 msgid "Taxonomy Terms"
 msgstr "Taxonomie"
 
 #: core/admin/meta_box_rules.php:211
-#@ cfs
 msgid "Page Template"
 msgstr "Seiten-Vorlage"
 
+#: core/admin/page_tools.php:78 core/admin/page_tools.php:101
+msgid "Export"
+msgstr "Export"
+
+#: core/admin/page_tools.php:79 core/admin/page_tools.php:126
+msgid "Import"
+msgstr "Import"
+
+#: core/admin/page_tools.php:80 core/admin/page_tools.php:151
+msgid "Synchronize"
+msgstr "Synchronisation"
+
+#: core/admin/page_tools.php:81
+msgid "Debug"
+msgstr "Debug"
+
+#: core/admin/page_tools.php:89
+msgid "Which field groups would you like to export?"
+msgstr "Welche Felder-Gruppen willst Du exportieren?"
+
+#: core/admin/page_tools.php:118
+msgid "Paste the import code below. Existing field groups will be skipped."
+msgstr ""
+"Füge den Import-Code unten ein. Bestehende Felder-Gruppen werden "
+"übersprungen."
+
+#: core/admin/page_tools.php:139
+msgid "CFS will attempt to import custom field values."
+msgstr ""
+"CFS wird versuchen, Werte für benutzerdefinierte Felder zu importieren."
+
+#: core/admin/page_tools.php:164
+msgid "Your site uses the following software:"
+msgstr "Deine Seite benutzt folgende Software"
+
+#: core/classes/field.php:21 core/fields/text.php:9
+msgid "Text"
+msgstr "Eingabefeld"
+
+#: core/classes/field.php:57 core/fields/file.php:77
+#: core/fields/relationship.php:106 core/fields/select.php:125
+#: core/fields/text.php:33 core/fields/textarea.php:61
+#: core/fields/true_false.php:44
+msgid "Validation"
+msgstr "Erforderlich?"
+
+#: core/classes/field.php:66 core/fields/file.php:86
+#: core/fields/relationship.php:115 core/fields/select.php:134
+#: core/fields/text.php:42 core/fields/textarea.php:70
+#: core/fields/true_false.php:53
+msgid "This is a required field"
+msgstr "Dies ist ein Pflichtfeld"
+
 #: core/fields/color/color.php:9
-#@ cfs
 msgid "Color"
 msgstr "Farbauswahl"
 
 #: core/fields/date/date.php:9
-#@ cfs
 msgid "Date"
 msgstr "Datumsfeld"
 
-#: core/fields/field.php:21
-#: core/fields/text.php:9
-#@ cfs
-msgid "Text"
-msgstr "Eingabefeld"
-
-#: core/fields/field.php:57
-#: core/fields/file.php:77
-#: core/fields/relationship.php:106
-#: core/fields/select.php:125
-#: core/fields/text.php:33
-#: core/fields/textarea.php:61
-#: core/fields/true_false.php:44
-#@ cfs
-msgid "Validation"
-msgstr "Erforderlich?"
-
-#: core/fields/field.php:66
-#: core/fields/file.php:86
-#: core/fields/relationship.php:115
-#: core/fields/select.php:134
-#: core/fields/text.php:42
-#: core/fields/textarea.php:70
-#: core/fields/true_false.php:53
-#@ cfs
-msgid "This is a required field"
-msgstr "Dies ist ein Pflichtfeld"
-
 #: core/fields/file.php:9
-#@ cfs
 msgid "File Upload"
 msgstr "Datei-Upload"
 
 #: core/fields/file.php:45
-#@ cfs
 msgid "Add File"
 msgstr "Datei hinzufügen"
 
 #: core/fields/file.php:46
-#@ cfs
 msgid "Remove"
 msgstr "Entfernen"
 
 #: core/fields/file.php:56
-#@ cfs
 msgid "Return Value"
 msgstr "Rückgabewert"
 
 #: core/fields/file.php:65
-#@ cfs
 msgid "File URL"
 msgstr "Datei-URL"
 
 #: core/fields/file.php:66
-#@ cfs
 msgid "Attachment ID"
 msgstr "Datei-ID"
 
 #: core/fields/file.php:117
-#@ cfs
 msgid "Use This File"
 msgstr "Diese Datei benutzen"
 
 #: core/fields/file.php:170
-#@ cfs
 msgid "Attach file"
 msgstr "Dateien hinzufügen"
 
 #: core/fields/loop.php:9
-#@ cfs
 msgid "Loop"
 msgstr "Schleife"
 
 #: core/fields/loop.php:36
-#@ cfs
 msgid "Row Display"
 msgstr "Zeilenwerte anzeigen"
 
 #: core/fields/loop.php:45
-#@ cfs
 msgid "Show the values by default"
 msgstr "Zeigt die Werte standardmssig an"
 
 #: core/fields/loop.php:52
-#@ cfs
 msgid "Row Label"
 msgstr "Zeilenbeschriftung"
 
-#: core/fields/loop.php:60
-#: core/fields/loop.php:91
-#: core/fields/loop.php:162
-#@ cfs
+#: core/fields/loop.php:60 core/fields/loop.php:91 core/fields/loop.php:162
 msgid "Loop Row"
 msgstr "Kopfzeile"
 
 #: core/fields/loop.php:67
-#@ cfs
 msgid "Button Label"
 msgstr "Schaltflächebeschriftung"
 
-#: core/fields/loop.php:75
-#: core/fields/loop.php:117
-#: core/fields/loop.php:163
-#@ cfs
+#: core/fields/loop.php:75 core/fields/loop.php:117 core/fields/loop.php:163
 msgid "Add Row"
 msgstr "Zeile hinzufügen"
 
 #: core/fields/relationship.php:9
-#@ cfs
 msgid "Relationship"
 msgstr "Beziehung"
 
 #: core/fields/relationship.php:90
-#@ cfs
 msgid "Limit posts to the following types"
 msgstr "Begrenzung der Artikel zu den folgenden Typen"
 
 #: core/fields/select.php:9
-#@ cfs
 msgid "Select"
 msgstr "Auswahlfeld"
 
 #: core/fields/select.php:93
-#@ cfs
 msgid "Choices"
 msgstr "Auswahlmöglichkeiten"
 
 #: core/fields/select.php:94
-#@ cfs
 msgid "Enter one choice per line"
 msgstr "Eine Auswahlmöglichkeit pro Zeile"
 
 #: core/fields/select.php:109
-#@ cfs
 msgid "Multi-select?"
 msgstr "Mehrere Werte auswählen?"
 
 #: core/fields/select.php:118
-#@ cfs
 msgid "This is a multi-select field"
 msgstr "Dieses Feld erlaubt es, mehrere Werte auszuwählen"
 
-#: core/fields/text.php:18
-#: core/fields/textarea.php:25
-#@ cfs
+#: core/fields/text.php:18 core/fields/textarea.php:25
 msgid "Default Value"
 msgstr "Standardwert"
 
 #: core/fields/textarea.php:9
-#@ cfs
 msgid "Textarea"
 msgstr "Mehrzeiliges-Eingabefeld"
 
-#: core/fields/textarea.php:40
-#: core/fields/wysiwyg.php:34
-#@ cfs
+#: core/fields/textarea.php:40 core/fields/wysiwyg.php:34
 msgid "Formatting"
 msgstr "Formatierung"
 
 #: core/fields/textarea.php:49
-#@ cfs
 msgid "None"
 msgstr "Keine"
 
 #: core/fields/textarea.php:50
-#@ cfs
 msgid "Convert newlines to <br />"
 msgstr "Konvertiert Zeilenumbrüche zu <br />"
 
 #: core/fields/true_false.php:9
-#@ cfs
 msgid "True / False"
 msgstr "Ja / Nein"
 
 #: core/fields/true_false.php:28
-#@ cfs
 msgid "Message"
 msgstr "Nachricht"
 
 #: core/fields/true_false.php:29
-#@ cfs
 msgid "The text beside the checkbox"
 msgstr "Der Text neben dem Kontrollkästchen"
 
 #: core/fields/user.php:9
-#@ cfs
 msgid "User"
 msgstr "Benutzer"
 
 #: core/fields/wysiwyg.php:9
-#@ cfs
 msgid "Wysiwyg Editor"
 msgstr "WYSIWYG-Editor"
 
 #: core/fields/wysiwyg.php:43
-#@ cfs
 msgid "Default"
 msgstr "Standard"
 
 #: core/fields/wysiwyg.php:44
-#@ cfs
 msgid "None (bypass filters)"
 msgstr "Keine (Bypass-Filter)"
-

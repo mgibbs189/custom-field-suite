@@ -61,6 +61,10 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 
 == Changelog ==
 
+= 1.7.5 =
+* Updated German translations (props Sacha Brosi)
+* Support for custom validation
+
 = 1.7.4 =
 * Improved upgrade script
 * Added German translation (props Sascha Brosi)
