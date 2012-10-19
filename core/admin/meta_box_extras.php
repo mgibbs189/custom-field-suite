@@ -72,11 +72,11 @@ if ($is_gf_active)
                 <option value="<?php echo $post_type; ?>"<?php echo $selected; ?>><?php echo $post_type; ?></option>
                 <?php endforeach; ?>
             </select>
-            <p>Make sure that your Gravity Form and CFS <strong>field labels</strong> match exactly!</p>
+            <p><?php _e('Your Gravity Form and CFS field labels must match exactly', 'cfs'); ?></p>
 
             <?php else : ?>
 
-            <div>Please install <a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> to use this feature.</div>
+            <div><?php _e('Please install', 'cfs'); ?> <a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> <?php _e('to use this feature', 'cfs'); ?>.</div>
         <?php endif; ?>
         </td>
     </tr>

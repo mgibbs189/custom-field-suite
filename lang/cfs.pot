@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2012-10-08 12:43:56+00:00\n"
+"POT-Creation-Date: 2012-10-19 17:39:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,79 +12,79 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: cfs.php:85 cfs.php:402
+#: cfs.php:86 cfs.php:403
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:86
+#: cfs.php:87
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:87
+#: cfs.php:88
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:88
+#: cfs.php:89
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:89
+#: cfs.php:90
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:91
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:91
+#: cfs.php:92
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:92
+#: cfs.php:93
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:93
+#: cfs.php:94
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:95
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:122
+#: cfs.php:123
 msgid "Title"
 msgstr ""
 
-#: cfs.php:385
+#: cfs.php:386
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:386
+#: cfs.php:387
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:387
+#: cfs.php:388
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:403
+#: cfs.php:404
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:642
+#: cfs.php:643
 msgid "Imported"
 msgstr ""
 
-#: cfs.php:646
+#: cfs.php:647
 msgid "Skipped"
 msgstr ""
 
-#: cfs.php:651
+#: cfs.php:652
 msgid "Nothing to import"
 msgstr ""
 
-#: cfs.php:726
+#: cfs.php:727
 msgid "No field groups selected"
 msgstr ""
 
@@ -116,39 +116,41 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: core/admin/field_html.php:31
-msgid "The field name that editors will see"
+#: core/admin/field_html.php:32
+msgid "The field label that editors will see."
 msgstr ""
 
-#: core/admin/field_html.php:37
+#: core/admin/field_html.php:39
 msgid "Name"
 msgstr ""
 
-#: core/admin/field_html.php:38
-msgid "Only lowercase letters and underscores"
+#: core/admin/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
 msgstr ""
 
-#: core/admin/field_html.php:43
+#: core/admin/field_html.php:49
 msgid "Field Type"
 msgstr ""
 
-#: core/admin/field_html.php:61
+#: core/admin/field_html.php:67
 msgid "Instructions"
 msgstr ""
 
-#: core/admin/field_html.php:62
-msgid "Tips for editors when entering field data"
+#: core/admin/field_html.php:69
+msgid "Notes for editors during data entry"
 msgstr ""
 
-#: core/admin/field_html.php:74
+#: core/admin/field_html.php:82
 msgid "Close"
 msgstr ""
 
-#: core/admin/field_html.php:75
+#: core/admin/field_html.php:83
 msgid "or"
 msgstr ""
 
-#: core/admin/field_html.php:75
+#: core/admin/field_html.php:83
 msgid "delete"
 msgstr ""
 
@@ -162,6 +164,18 @@ msgstr ""
 
 #: core/admin/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:75
+msgid "Your Gravity Form and CFS field labels must match exactly!"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:79
+msgid "Please install"
+msgstr ""
+
+#: core/admin/meta_box_extras.php:79
+msgid "to use this feature"
 msgstr ""
 
 #: core/admin/meta_box_fields.php:60
@@ -200,30 +214,62 @@ msgstr ""
 msgid "Page Template"
 msgstr ""
 
-#: core/fields/color/color.php:9
-msgid "Color"
+#: core/admin/page_tools.php:78 core/admin/page_tools.php:101
+msgid "Export"
 msgstr ""
 
-#: core/fields/date/date.php:9
-msgid "Date"
+#: core/admin/page_tools.php:79 core/admin/page_tools.php:126
+msgid "Import"
 msgstr ""
 
-#: core/fields/field.php:21 core/fields/text.php:9
+#: core/admin/page_tools.php:80 core/admin/page_tools.php:151
+msgid "Synchronize"
+msgstr ""
+
+#: core/admin/page_tools.php:81
+msgid "Debug"
+msgstr ""
+
+#: core/admin/page_tools.php:89
+msgid "Which field groups would you like to export?"
+msgstr ""
+
+#: core/admin/page_tools.php:118
+msgid "Paste the import code below. Existing field groups will be skipped."
+msgstr ""
+
+#: core/admin/page_tools.php:139
+msgid "CFS will attempt to import custom field values."
+msgstr ""
+
+#: core/admin/page_tools.php:164
+msgid "Your site uses the following software:"
+msgstr ""
+
+#: core/classes/field.php:21 core/fields/text.php:9
 msgid "Text"
 msgstr ""
 
-#: core/fields/field.php:57 core/fields/file.php:77
+#: core/classes/field.php:57 core/fields/file.php:77
 #: core/fields/relationship.php:106 core/fields/select.php:125
 #: core/fields/text.php:33 core/fields/textarea.php:61
 #: core/fields/true_false.php:44
 msgid "Validation"
 msgstr ""
 
-#: core/fields/field.php:66 core/fields/file.php:86
+#: core/classes/field.php:66 core/fields/file.php:86
 #: core/fields/relationship.php:115 core/fields/select.php:134
 #: core/fields/text.php:42 core/fields/textarea.php:70
 #: core/fields/true_false.php:53
 msgid "This is a required field"
+msgstr ""
+
+#: core/fields/color/color.php:9
+msgid "Color"
+msgstr ""
+
+#: core/fields/date/date.php:9
+msgid "Date"
 msgstr ""
 
 #: core/fields/file.php:9
