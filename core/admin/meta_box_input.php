@@ -26,7 +26,6 @@ foreach ($input_fields as $key => $field)
 
         if (isset($field->options['required']) && 0 < (int) $field->options['required'])
         {
-            // TODO: remove hard-coded validation
             if ('date' == $field->type)
             {
                 $validator = 'valid_date';
@@ -41,7 +40,7 @@ foreach ($input_fields as $key => $field)
             }
         }
 ?>
-<div class="field" data-type="<?php echo $field->type; ?>" data-validator="<?php echo $validator; ?>">
+<div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
     <label><?php echo $field->label; ?></label>
 
     <?php if (!empty($field->instructions)) : ?>

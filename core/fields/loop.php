@@ -217,8 +217,6 @@ class cfs_Loop extends cfs_Field
     {
     ?>
         <script>
-        var CFS = CFS || { loop_buffer: [] };
-
         (function($) {
             $(function() {
                 $('.cfs_add_field').live('click', function() {

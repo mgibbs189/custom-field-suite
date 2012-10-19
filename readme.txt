@@ -1,4 +1,4 @@
-=== Custom Field Suite ===
+﻿=== Custom Field Suite ===
 Contributors: logikal16
 Donate link: https://uproot.us/contributors/
 Tags: custom fields, custom field, fields, post meta, cck, wysiwyg, relationship, loop, file upload
