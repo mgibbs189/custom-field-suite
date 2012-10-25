@@ -65,7 +65,7 @@ class cfs_Relationship extends cfs_Field
         <div class="available_posts post_list">
         <?php foreach ($available_posts as $post) : ?>
             <?php $class = (isset($selected_posts[$post->ID])) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $post->ID; ?>" post_type="<?php echo $post->post_type; ?>"<?php echo $class; ?>><?php echo $post->post_title; ?></div>
+            <div rel="<?php echo $post->ID; ?>" post_type="<?php echo $post->post_type; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo $post->post_title; ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -123,8 +123,6 @@ class cfs_Relationship extends cfs_Field
     function input_head()
     {
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />
-        <script src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
         <script>
         (function($) {
             update_relationship_values = function(field) {

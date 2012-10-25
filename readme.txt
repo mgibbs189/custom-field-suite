@@ -14,7 +14,7 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 
 **CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
-= Why use CFS? =
+= Why use Custom Field Suite? =
 * CFS is easy to use. You and your clients will LOVE it!
 * CFS is stable. We test all changes before releasing a new version.
 * CFS is fast and uses minimal server resources.
@@ -63,7 +63,10 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 
 = 1.7.5 =
 * Updated German translations (props Sacha Brosi)
-* Support for custom validation
+* Added hook: cfs_custom_validation
+* Hovering over a relationship item will display its post type
+* Updated select2 script (placement rules area)
+* Refactored ajax handling
 
 = 1.7.4 =
 * Improved upgrade script
@@ -96,23 +99,5 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 * Bugfix: clear cache on $cfs->save (props dataworx)
 * File field compatibility fixes for WP 3.5
 * Added new logo (https://github.com/somerandomdude/Iconic)
-
-= 1.6.9 =
-* $cfs->save() returns the post ID (props Miguel Peixe)
-* Added new "prepare_value" field method (format raw DB values)
-* WPML 2.6+ support (properly copies custom field data on post duplication)
-* Added new $options parameter to $cfs->get (documentation shortly)
-* Fixed PHP notices (props @baxang)
-* Bugfix: Page Template placement rule (props Hylkep)
-* Bugfix: Error handling for field groups without fields
-* Bugfix: Inability to remove all fields in a field group
-* Improved: prevent consecutive underscores with field name generator
-
-= 1.6.8 =
-* Added "Page Template" placement rule
-* Improved Loop field UI (props @tdwesten)
-* Converted select options from string to array (internal)
-* Added new "pre_save_field" method
-* Code cleanup
 
 [See the full changelog](https://uproot.us/custom-field-suite/changelog/)

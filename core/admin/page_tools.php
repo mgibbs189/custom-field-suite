@@ -60,8 +60,8 @@ $results = $wpdb->get_results($sql);
             if (null != groups) {
                 $.post(ajaxurl, {
                     action: 'cfs_ajax_handler',
-                    action_type: 'sync',
-                    field_groups: $('#sync-field-groups').val()
+                    action_type: 'map_values',
+                    field_groups: groups
                 },
                 function(response) {
                     $('#sync-message').html(response);
