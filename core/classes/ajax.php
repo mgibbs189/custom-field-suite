@@ -149,14 +149,16 @@ class cfs_Ajax
                 }
             }
 
+            $return = '';
             if (!empty($stats['imported']))
             {
-                return '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
+                $return .= '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
             }
             if (!empty($stats['skipped']))
             {
-                return '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
+                $return .= '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
             }
+            return $return;
         }
         else
         {
