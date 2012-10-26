@@ -28,13 +28,13 @@ class cfs_Ajax
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function export()
+    public function export($options)
     {
         global $wpdb;
 
         $post_ids = array();
         $field_groups = array();
-        foreach ($_POST['field_groups'] as $post_id)
+        foreach ($options['field_groups'] as $post_id)
         {
             $post_ids[] = (int) $post_id;
         }
@@ -79,11 +79,11 @@ class cfs_Ajax
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function import()
+    public function import($options)
     {
         global $wpdb;
 
-        $code = json_decode(stripslashes($_POST['import_code']));
+        $code = json_decode(stripslashes($options['import_code']));
 
         if (!empty($code))
         {

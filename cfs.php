@@ -533,7 +533,7 @@ class Cfs
 
             if (method_exists($ajax, $ajax_method))
             {
-                $ajax->$ajax_method();
+                $ajax->$ajax_method($_POST);
             }
             exit;
         }

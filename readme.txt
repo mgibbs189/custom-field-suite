@@ -1,4 +1,4 @@
-Ôªø=== Custom Field Suite ===
+=== Custom Field Suite ===
 Contributors: logikal16
 Donate link: https://uproot.us/contributors/
 Tags: custom fields, custom field, fields, post meta, cck, wysiwyg, relationship, loop, file upload
@@ -77,7 +77,7 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 = 1.7.3 =
 * Added field validation
 * Bugfix: get_post_type caching causing Gravity Form save error (props producerism)
-* Added Hungarian translation (props J√≥zsef Szij√°rt√≥)
+* Added Hungarian translation (props JÛzsef Szij·rtÛ)
 
 = 1.7.2 =
 * Added Media button to WYSIWYG fields
