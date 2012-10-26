@@ -66,7 +66,7 @@ class cfs_Ajax
             $field_groups[$row->post_id]['fields'][$row->id] = $data;
         }
 
-        echo json_encode($field_groups);
+        return $field_groups;
     }
 
 
@@ -151,16 +151,16 @@ class cfs_Ajax
 
             if (!empty($stats['imported']))
             {
-                echo '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
+                return '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
             }
             if (!empty($stats['skipped']))
             {
-                echo '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
+                return '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
             }
         }
         else
         {
-            echo '<div>' . __('Nothing to import', 'cfs') . '</div>';
+            return '<div>' . __('Nothing to import', 'cfs') . '</div>';
         }
     }
 
@@ -174,13 +174,13 @@ class cfs_Ajax
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function map_values()
+    public function map_values($options)
     {
         global $wpdb;
 
-        if (isset($_POST['field_groups']))
+        if (isset($options['field_groups']))
         {
-            $group_ids = (array) $_POST['field_groups'];
+            $group_ids = (array) $options['field_groups'];
             foreach ($group_ids as $group_id)
             {
                 $rules = get_post_meta($group_id, 'cfs_rules', true);
@@ -243,11 +243,11 @@ class cfs_Ajax
                 }
             }
 
-            echo 'Sync successful';
+            return 'Sync successful';
         }
         else
         {
-            echo '<div>' . __('No field groups selected', 'cfs') . '</div>';
+            return '<div>' . __('No field groups selected', 'cfs') . '</div>';
         }
     }
 }

@@ -533,7 +533,8 @@ class Cfs
 
             if (method_exists($ajax, $ajax_method))
             {
-                $ajax->$ajax_method($_POST);
+                $response = $ajax->ajax_method($_POST);
+                echo ('export' == $ajax_method) ? json_encode($response) : $response;
             }
             exit;
         }
