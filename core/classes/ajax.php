@@ -83,9 +83,7 @@ class cfs_Ajax
     {
         global $wpdb;
 
-        $code = json_decode(stripslashes($options['import_code']));
-
-        if (!empty($code))
+        if (!empty($options['import_code']))
         {
             // Collect stats
             $stats = array();
@@ -94,7 +92,7 @@ class cfs_Ajax
             $existing_groups = $wpdb->get_col("SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'");
 
             // Loop through field groups
-            foreach ($code as $group_id => $group)
+            foreach ($options['import_code'] as $group_id => $group)
             {
                 // Make sure this field group doesn't exist
                 if (!in_array($group->post_name, $existing_groups))

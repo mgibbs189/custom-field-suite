@@ -531,10 +531,20 @@ class Cfs
             include($this->dir . '/core/classes/ajax.php');
             $ajax = new cfs_Ajax();
 
-            if (method_exists($ajax, $ajax_method))
+            if ('import' == $ajax_method)
             {
-                $response = $ajax->ajax_method($_POST);
-                echo ('export' == $ajax_method) ? json_encode($response) : $response;
+                $options = array(
+                    'import_code' => json_decode(stripslashes($_POST['import_code'])),
+                );
+                echo $ajax->import($options);
+            }
+            elseif ('export' == $ajax_method)
+            {
+                echo json_encode($ajax->export($_POST));
+            }
+            elseif ('map_values' == $ajax_method)
+            {
+                echo $ajax->map_values($_POST);
             }
             exit;
         }
