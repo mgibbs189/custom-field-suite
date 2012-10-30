@@ -36,8 +36,11 @@ class Cfs
         $this->url = plugins_url('custom-field-suite');
         $this->used_types = array();
 
-        // load the api
         include($this->dir . '/core/classes/api.php');
+        include($this->dir . '/core/classes/upgrade.php');
+        include($this->dir . '/core/classes/field.php');
+
+        // load the api
         $this->api = new cfs_Api($this);
 
         // add actions
@@ -69,7 +72,6 @@ class Cfs
     function init()
     {
         // perform upgrades
-        include($this->dir . '/core/classes/upgrade.php');
         $upgrade = new cfs_Upgrade($this->version);
 
         // get all available field types
@@ -132,9 +134,6 @@ class Cfs
 
     function get_field_types()
     {
-        // include the parent field type
-        include($this->dir . '/core/classes/field.php');
-
         $field_types = array(
             'text' => $this->dir . '/core/fields/text.php',
             'textarea' => $this->dir . '/core/fields/textarea.php',
@@ -311,9 +310,9 @@ class Cfs
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_reverse_related($post_id, $options = array(), $deprecated = array())
+    function get_reverse_related($post_id, $options = array())
     {
-        return $this->api->get_reverse_related($post_id, $options, $deprecated);
+        return $this->api->get_reverse_related($post_id, $options);
     }
 
 
@@ -542,9 +541,9 @@ class Cfs
             {
                 echo json_encode($ajax->export($_POST));
             }
-            elseif ('map_values' == $ajax_method)
+            elseif (method_exists($ajax, $ajax_method))
             {
-                echo $ajax->map_values($_POST);
+                echo $ajax->$ajax_method($_POST);
             }
             exit;
         }

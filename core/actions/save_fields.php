@@ -101,6 +101,12 @@ foreach ($rule_types as $type)
 {
     if (!empty($cfs_rules[$type]))
     {
+        // Break apart the autocomplete string
+        if ('post_ids' == $type)
+        {
+            $cfs_rules[$type] = explode(',', $cfs_rules[$type]);
+        }
+
         $data[$type] = array(
             'operator' => $cfs_rules['operator'][$type],
             'values' => $cfs_rules[$type],

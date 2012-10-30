@@ -224,23 +224,9 @@ class cfs_Api
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function get_reverse_related($post_id, $options = array(), $deprecated = array())
+    public function get_reverse_related($post_id, $options = array())
     {
         global $wpdb;
-
-        // Handle function signature change
-        // ctype_digit returns FALSE for integer values between -128 and 255
-        if (!is_numeric($post_id))
-        {
-            // old signature: $field_name, $post_id, $options
-            $old_post_id = $options;
-            $options = $deprecated;
-            $options['field_name'] = $post_id;
-            $post_id = $old_post_id;
-
-            // Trigger a deprecated function signature error
-            trigger_error('The function signature for $cfs->get_reverse_related has changed. Please see the documentation.');
-        }
 
         $where = "m.meta_value = '$post_id'";
 

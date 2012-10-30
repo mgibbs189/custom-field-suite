@@ -36,18 +36,22 @@ foreach ($wp_roles->roles as $key => $role)
 }
 
 // Post IDs
-$sql = "
-SELECT ID, post_type, post_title
-FROM $wpdb->posts
-WHERE
-    post_status IN ('publish', 'private') AND
-    post_type NOT IN ('cfs', 'attachment', 'revision', 'nav_menu_item')
-ORDER BY post_type, post_title";
-$results = $wpdb->get_results($sql);
-
-foreach ($results as $result)
+$post_ids = array();
+$rules_post_ids = '';
+if (!empty($rules['post_ids']['values']))
 {
-    $post_ids[$result->ID] = "($result->post_type) $result->post_title";
+    $rules_post_ids = implode(',', $rules['post_ids']['values']);
+
+    $sql = "
+    SELECT ID, post_type, post_title
+    FROM $wpdb->posts
+    WHERE ID IN ($rules_post_ids)
+    ORDER BY post_type, post_title";
+    $results = $wpdb->get_results($sql);
+    foreach ($results as $result)
+    {
+        $post_ids[] = array('id' => $result->ID, 'text' => "($result->post_type) $result->post_title");
+    }
 }
 
 // Term IDs
@@ -76,6 +80,35 @@ foreach ($templates as $template_name => $filename)
     $(function() {
         $('.select2').select2({
             placeholder: '<?php _e('Leave blank to skip this rule', 'cfs'); ?>'
+        });
+
+        $('.select2-ajax').select2({
+            multiple: true,
+            placeholder: '<?php _e('Leave blank to skip this rule', 'cfs'); ?>',
+            minimumInputLength: 3,
+            ajax: {
+                url: ajaxurl,
+                type: 'POST',
+                dataType: 'json',
+                data: function(term, page) {
+                    return {
+                        q: term,
+                        action: 'cfs_ajax_handler',
+                        action_type: 'search_posts'
+                    }
+                },
+                results: function(data, page) {
+                    return { results: data };
+                }
+            },
+            initSelection: function(element, callback) {
+                var data = [];
+                var post_ids = <?php echo json_encode($post_ids); ?>;
+                $(post_ids).each(function(idx, val) {
+                    data.push({ id: val.id, text: val.text });
+                });
+                callback(data);
+            }
         });
     });
 })(jQuery);
@@ -164,15 +197,7 @@ foreach ($templates as $template_name => $filename)
             ?>
         </td>
         <td>
-            <?php
-                $this->create_field(array(
-                    'type' => 'select',
-                    'input_class' => 'select2',
-                    'input_name' => "cfs[rules][post_ids]",
-                    'options' => array('multiple' => '1', 'choices' => $post_ids),
-                    'value' => $rules['post_ids']['values'],
-                ));
-            ?>
+            <input type="hidden" name="cfs[rules][post_ids]" class="select2-ajax" value="<?php echo $rules_post_ids; ?>" style="width:99.95%" />
         </td>
     </tr>
     <tr>

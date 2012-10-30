@@ -54,20 +54,6 @@ $results = $wpdb->get_results($sql);
                 $('#import-message').html(response);
             });
         });
-
-        $('#button-sync').click(function() {
-            var groups = $('#sync-field-groups').val();
-            if (null != groups) {
-                $.post(ajaxurl, {
-                    action: 'cfs_ajax_handler',
-                    action_type: 'map_values',
-                    field_groups: groups
-                },
-                function(response) {
-                    $('#sync-message').html(response);
-                });
-            }
-        });
     });
 })(jQuery);
 </script>
@@ -77,7 +63,6 @@ $results = $wpdb->get_results($sql);
     <h2 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
         <a class="nav-tab" rel="import"><?php _e('Import', 'cfs'); ?></a>
-        <a class="nav-tab" rel="sync"><?php _e('Synchronize', 'cfs'); ?></a>
         <a class="nav-tab" rel="debug"><?php _e('Debug', 'cfs'); ?></a>
     </h2>
 
@@ -128,31 +113,6 @@ $results = $wpdb->get_results($sql);
                     </td>
                     <td style="width:300px; vertical-align:top">
                         <div id="import-message"></div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Synchronize -->
-
-        <div class="tab-content sync">
-            <h2><?php _e('CFS will attempt to import custom field values.', 'cfs'); ?></h2>
-            <table>
-                <tr>
-                    <td style="width:300px; vertical-align:top">
-                        <div>
-                            <select id="sync-field-groups" style="width:300px; height:200px" multiple="multiple">
-                                <?php foreach ($results as $result) : ?>
-                                <option value="<?php echo $result->ID; ?>"><?php echo $result->post_title; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div>
-                            <input type="button" id="button-sync" class="button" value="<?php _e('Synchronize', 'cfs'); ?>" />
-                        </div>
-                    </td>
-                    <td style="width:300px; vertical-align:top">
-                        <div id="sync-message"></div>
                     </td>
                 </tr>
             </table>

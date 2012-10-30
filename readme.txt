@@ -61,6 +61,12 @@ Create groups of custom fields, then choose which edit screens to appear on. Eac
 
 == Changelog ==
 
+= 1.7.6 =
+* Autocomplete for "Posts" placement rule
+* Allow for programmatic import/export (props unkhz)
+* Removed deprecated parameter from `get_reverse_related`
+* Disabled "Synchronize" feature, pending rewrite
+
 = 1.7.5 =
 * Updated German translations (props Sacha Brosi)
 * Added hook: cfs_custom_validation

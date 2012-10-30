@@ -11,11 +11,32 @@ class cfs_Ajax
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function search_posts()
+    public function search_posts($options)
     {
         global $wpdb;
 
+        $keywords = $wpdb->escape($options['q']);
 
+        $sql = "
+        SELECT ID, post_type, post_title
+        FROM $wpdb->posts
+        WHERE
+            post_status IN ('publish', 'private') AND
+            post_type NOT IN ('cfs', 'attachment', 'revision', 'nav_menu_item') AND
+            post_title LIKE '%$keywords%'
+        ORDER BY post_type, post_title
+        LIMIT 10";
+        $results = $wpdb->get_results($sql);
+
+        $output = array();
+        foreach ($results as $result)
+        {
+            $output[] = array(
+                'id' => $result->ID,
+                'text' => "($result->post_type) $result->post_title"
+            );
+        }
+        return json_encode($output);
     }
 
 
