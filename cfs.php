@@ -2,15 +2,15 @@
 /*
 Plugin Name: Custom Field Suite
 Plugin URI: https://uproot.us/
-Description: Really simple custom field management.
-Version: 1.7.5
+Description: Visually add custom fields to your WordPress edit pages.
+Version: 1.7.6
 Author: Matt Gibbs
 Author URI: https://uproot.us/
 License: GPL2
 */
 
 $cfs = new Cfs();
-$cfs->version = '1.7.5';
+$cfs->version = '1.7.6';
 
 class Cfs
 {
