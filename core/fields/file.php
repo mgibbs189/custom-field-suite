@@ -44,7 +44,7 @@ class cfs_File extends cfs_Field
         <span class="file_url"><?php echo $file_url; ?></span>
         <input type="button" class="media button add<?php echo $css_hide['add']; ?>" value="<?php _e('Add File', 'cfs'); ?>" />
         <input type="button" class="media button remove<?php echo $css_hide['remove']; ?>" value="<?php _e('Remove', 'cfs'); ?>" />
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+        <input type="hidden" name="<?php echo $field->input_name; ?>" class="file_value" value="<?php echo $field->value; ?>" />
     <?php
     }
 
@@ -145,7 +145,7 @@ class cfs_File extends cfs_Field
         self.parent.cfs_div.hide();
         self.parent.cfs_div.siblings('.media.button.remove').show();
         self.parent.cfs_div.siblings('.file_url').html('<?php echo $file_url; ?>');
-        self.parent.cfs_div.siblings('.file').val('<?php echo $id; ?>');
+        self.parent.cfs_div.siblings('.file_value').val('<?php echo $id; ?>');
         self.parent.cfs_div = null;
         self.parent.tb_remove();
         </script>
@@ -172,7 +172,7 @@ class cfs_File extends cfs_Field
                 });
                 $('.cfs_input .media.button.remove').live('click', function() {
                     $(this).siblings('.file_url').html('');
-                    $(this).siblings('.file').val('');
+                    $(this).siblings('.file_value').val('');
                     $(this).siblings('.media.button.add').show();
                     $(this).hide();
                 });
