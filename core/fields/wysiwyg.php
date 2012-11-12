@@ -93,6 +93,20 @@ class cfs_Wysiwyg extends cfs_Field
                     tinyMCE.execCommand('mceAddControl', false, input_id);
                 });
             };
+
+            $(document).live('cfs/sortable_start', function(event, ui) {
+                $(ui).find('.wysiwyg').each(function() {
+                    var id = $(this).attr('id');
+                    tinyMCE.execCommand('mceRemoveControl', false, id);
+                });
+            });
+
+            $(document).live('cfs/sortable_stop', function(event, ui) {
+                $(ui).find('.wysiwyg').each(function() {
+                    var id = $(this).attr('id');
+                    tinyMCE.execCommand('mceAddControl', false, id);
+                });
+            });
         })(jQuery);
         </script>
     <?php

@@ -242,6 +242,12 @@ class cfs_Loop extends cfs_Field
                     containment: 'parent',
                     items: '.loop_wrapper',
                     handle: '.cfs_loop_head',
+                    start: function(event, ui) {
+                        $(document).trigger('cfs/sortable_start', ui.item);
+                    },
+                    stop: function(event, ui) {
+                        $(document).trigger('cfs/sortable_stop', ui.item);
+                    },
                     update: function(event, ui) {
                         var counter = {};
                         var last_depth = -1;
