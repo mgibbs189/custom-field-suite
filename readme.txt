@@ -49,6 +49,10 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 
 == Changelog ==
 
+= 1.7.7 =
+* Compatibility fix for WooFramework
+* Bugfix: dragging wysiwyg fields within a loop field
+
 = 1.7.6 =
 * Autocomplete for "Posts" placement rule
 * Allow for programmatic import/export (props unkhz)
