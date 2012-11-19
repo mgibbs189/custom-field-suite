@@ -78,9 +78,12 @@
 
         // Auto-populate the field name
         $('.field_form .field_label input').live('blur', function() {
+            var val = $(this).val();
+            //for browser autofill
+            $(this).closest('.field').find('.field_meta .field_label a').html(val);
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
-                var val = $.trim($(this).val()).toLowerCase();
+                val = $.trim(val).toLowerCase();
                 val = val.replace(/[^\w- ]/g, ''); // strip invalid characters
                 val = val.replace(/[- ]/g, '_'); // replace space and hyphen with underscore
                 val = val.replace(/[_]{2,}/g, '_'); // strip consecutive underscores
@@ -89,9 +92,11 @@
             }
         });
 
-        $('.field_form .field_label input').live('keyup', function() {
-            var val = $(this).val();
-            $(this).closest('.field').find('.field_meta .field_label a').html(val);
+        $('.field_form .field_label input').live('keyup paste', function() {
+            var ele = $(this);
+            setTimeout(function(){
+                $(ele).closest('.field').find('.field_meta .field_label a').html(ele.val());
+            },1);
         });
 
         $('.field_form .field_name input').live('keyup', function() {
