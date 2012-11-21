@@ -49,6 +49,9 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 
 == Changelog ==
 
+= 1.7.8 =
+* Field management - autofill and paste support (props @Gator92)
+
 = 1.7.7 =
 * Compatibility fix for WooFramework
 * Bugfix: dragging wysiwyg fields within a loop field

@@ -79,8 +79,10 @@
         // Auto-populate the field name
         $('.field_form .field_label input').live('blur', function() {
             var val = $(this).val();
-            //for browser autofill
+
+            // browser autofill support
             $(this).closest('.field').find('.field_meta .field_label a').html(val);
+
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
                 val = $.trim(val).toLowerCase();
@@ -93,10 +95,10 @@
         });
 
         $('.field_form .field_label input').live('keyup paste', function() {
-            var ele = $(this);
-            setTimeout(function(){
-                $(ele).closest('.field').find('.field_meta .field_label a').html(ele.val());
-            },1);
+            var $this = $(this);
+            setTimeout(function() {
+                $this.closest('.field').find('.field_meta .field_label a').html($this.val());
+            }, 1);
         });
 
         $('.field_form .field_name input').live('keyup', function() {
