@@ -18,7 +18,6 @@ class cfs_Loop extends cfs_Field
     function html($field)
     {
         global $post;
-
         $this->values = $this->parent->api->get_fields($post->ID, array('format' => 'input'));
         $this->recursive_clone($field->group_id, $field->id);
         $this->recursive_html($field->group_id, $field->id);
@@ -97,7 +96,7 @@ class cfs_Loop extends cfs_Field
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
-                <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
             </div>
             <div class="cfs_loop_body open">
@@ -129,6 +128,10 @@ class cfs_Loop extends cfs_Field
                 <?php endif; ?>
                 </div>
             <?php endforeach; ?>
+                <div class="cfs_controls">
+                    <input type="button" value="<?php _e('Close'); ?>" class="button-secondary cfs_close_loop"/>
+                    &nbsp; -<?php _e('or', 'cfs'); ?>- &nbsp; <span class="cfs_delete_field"><?php _e('delete', 'cfs'); ?></span>
+                </div>
             </div>
         </div>
     <?php
@@ -171,7 +174,7 @@ class cfs_Loop extends cfs_Field
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
-                <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
@@ -198,6 +201,10 @@ class cfs_Loop extends cfs_Field
                 <?php endif; ?>
                 </div>
             <?php endforeach; ?>
+                <div class="cfs_controls">
+                    <input type="button" value="<?php _e('Close'); ?>" class="button-secondary cfs_close_loop"/>
+                    &nbsp; -<?php _e('or', 'cfs'); ?>- &nbsp; <span class="cfs_delete_field"><?php _e('delete', 'cfs'); ?></span>
+                </div>
             </div>
         </div>
 
@@ -229,12 +236,34 @@ class cfs_Loop extends cfs_Field
                     $(this).trigger('go');
                 });
 
-                $('.cfs_delete_field').live('click', function() {
-                    $(this).closest('.loop_wrapper').remove();
+                $('.cfs_delete_field').live('click', function(e){
+                    var confirm = window.confirm('<?php echo translate('Delete') . ' ';?>' + $(this).parents('.loop_wrapper').children('.cfs_loop_head').children('.label').text() + '?');
+                    if(confirm){
+                        $(this).parents('.loop_wrapper').remove();//closest
+                    }
+                });
+
+                $('.cfs_loop_head').live({
+                    mouseenter:
+                    function(){
+                        $(this).children('.cfs_toggle_field').addClass('hov');
+                    },
+                    mouseleave:
+                    function(){
+                        if(false === $(this).siblings('.cfs_loop_body').is(':visible')){
+                            $(this).children('.cfs_toggle_field').removeClass('hov');
+                        }
+                    }
+                });
+
+                $('.cfs_close_loop').live('click', function(e){
+                    e.preventDefault();//parents('.loop_wrapper').children
+                    $(this).parents('.cfs_loop_body').toggleClass('open').siblings('.cfs_loop_head').children('.cfs_toggle_field').removeClass('hov');
                 });
 
                 $('.cfs_loop_head').live('click', function() {
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
+                    $(this).children('.cfs_toggle_field').addClass('hov');
                 });
 
                 $('.cfs_loop').sortable({
