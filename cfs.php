@@ -102,6 +102,8 @@ class Cfs
             'hierarchical' => false,
             'supports' => array('title'),
         ));
+        
+        do_action('cfs_after_init');
     }
 
 
@@ -318,6 +320,22 @@ class Cfs
 
     /*--------------------------------------------------------------------------------------
     *
+    *   save_field_group
+    * 
+    *   updates or inserts field group
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    public function save_field_group($field_data = array(), $post_data = array(), $options = array(), $post_id)
+    {
+        return $this->api->save_field_group($field_data, $post_data, $options, $this->fields, $post_id);
+    }
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    save field values (and post data)
     *
     *    @author Matt Gibbs
@@ -428,7 +446,10 @@ class Cfs
 
         if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_fields'))
         {
-            include($this->dir . '/core/actions/save_fields.php');
+            $field_data = isset($_POST['cfs']['fields']) ? $_POST['cfs']['fields'] : array();
+            $cfs_rules = isset($_POST['cfs']['rules']) ? $_POST['cfs']['rules'] : array();
+            $cfs_extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
+            $this->save_field_group($field_data, $cfs_rules, $cfs_extras, $post_id);
         }
         elseif (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
         {
