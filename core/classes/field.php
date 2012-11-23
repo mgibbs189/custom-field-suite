@@ -102,9 +102,8 @@ class cfs_Field
 
     function prepare_value($value, $field = null)
     {
-        return $value[0];
+        return empty($value) ? '' : $value[0];
     }
-
 
     /*--------------------------------------------------------------------------------------
     *
