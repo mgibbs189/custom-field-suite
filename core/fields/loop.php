@@ -63,6 +63,22 @@ class cfs_Loop extends cfs_Field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e('Row Numbers', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][row_numbers]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'row_numbers'),
+                        'options' => array('message' => __('Show the row number after each label', 'cfs'))
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e('Button Label', 'cfs'); ?></label>
             </td>
             <td>
@@ -163,19 +179,22 @@ class cfs_Loop extends cfs_Field
         $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
         $row_display = $this->get_option($loop_field[$field_id], 'row_display', 0);
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
+        $row_numbers = $this->get_option($loop_field[$field_id], 'row_numbers', 0);
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
         $css_class = (0 < (int) $row_display) ? ' open' : '';
 
         $offset = 0;
+        $weight = 0;
 
         if ($values) :
             foreach ($values as $i => $value) :
                 $offset = ($i + 1);
+                $weight++;
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_toggle_field"></a>
-                <span class="label"><?php echo esc_attr($row_label); ?></span>
+                <span class="label"><?php echo esc_attr($row_label) . ($row_numbers ? " $weight" : ''); ?></span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ($results as $field) : ?>
@@ -211,7 +230,7 @@ class cfs_Loop extends cfs_Field
         <?php endforeach; endif; ?>
 
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($button_label); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($button_label); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" data-row-numbers="<?php echo $row_numbers;?>" />
         </div>
     <?php
     }
@@ -227,12 +246,18 @@ class cfs_Loop extends cfs_Field
         (function($) {
             $(function() {
                 $('.cfs_add_field').live('click', function() {
+                    //num_rows is not always == the actual number of loop rows, it's the next available index
                     var num_rows = $(this).attr('data-num-rows');
+                    var row_numbers = $(this).attr('data-row-numbers');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
                     $(this).attr('data-num-rows', parseInt(num_rows)+1);
-                    $(this).closest('.table_footer').before(html);
+                    var table_footer = $(this).closest('.table_footer');
+                    table_footer.before(html);
+                    if('1' === row_numbers){//show the row number using the actual number of loop rows
+                        table_footer.siblings('.loop_wrapper :last').children('.cfs_loop_head').children('.label').append(' ' + table_footer.siblings('.loop_wrapper').length);
+                    }
                     $(this).trigger('go');
                 });
 
