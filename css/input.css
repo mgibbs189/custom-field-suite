@@ -188,7 +188,7 @@
     float: right;
     width: 16px;
     height: 16px;
-    background: url('/wp-admin/images/arrows.png') no-repeat 0 -34px;
+    background: url(../../../../wp-admin/images/arrows.png) no-repeat 0 -34px;
     cursor: pointer;
 }
 
