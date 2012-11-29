@@ -51,6 +51,8 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 
 = 1.7.8 =
 * Field management - autofill and paste support (props @Gator92)
+* Cleaned up PHP notices for get() with missing fields (props @jchristopher)
+* Updated Hungarian translation (props [hutch.hu](http://hutch.hu/))
 
 = 1.7.7 =
 * Compatibility fix for WooFramework
@@ -74,31 +76,5 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 * Added German translation (props Sascha Brosi)
 * Bugfix: javascript issues for fields within sub-loop fields (props @sc0ttkclark)
 * Added tooltips to field management page
-
-= 1.7.3 =
-* Added field validation
-* Bugfix: get_post_type caching causing Gravity Form save error (props producerism)
-* Added Hungarian translation (props József Szijártó)
-
-= 1.7.2 =
-* Added Media button to WYSIWYG fields
-* Bugfix: [fatal error when a post update causes a rules mismatch](https://github.com/logikal16/custom-field-suite/issues/55) (props Gator92)
-* Tools page UI improvements
-
-= 1.7.1 =
-* Placement rules clarification text
-* Allow editing of fields without labels
-* Added new "Row Label" Loop option
-* Bugfix: nested loop fields (props Hylkep)
-* Updated timepicker JS
-
-= 1.7.0 =
-* Improved: field management UI
-* Improved: select field returns associative array (value, label)
-* Improved: rename postmeta keys when fields are renamed
-* Improved: delete values when a field is deleted
-* Bugfix: clear cache on $cfs->save (props dataworx)
-* File field compatibility fixes for WP 3.5
-* Added new logo (https://github.com/somerandomdude/Iconic)
 
 [See the full changelog](https://uproot.us/custom-field-suite/changelog/)
