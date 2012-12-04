@@ -13,6 +13,15 @@ Visually add custom fields to your WordPress edit pages.
 
 Custom Field Suite (CFS) lets you create groups of custom fields, and assign edit screens for each field group to appear on. Then, simply add `$cfs->get('your_field')` into your templates to display custom field values throughout your site.
 
+= Features =
+* Field types include [text](https://uproot.us/docs/text/), [textarea](https://uproot.us/docs/textarea/), [wysiwyg](https://uproot.us/docs/wysiwyg/), [date](https://uproot.us/docs/date/), [color](https://uproot.us/docs/color/), [select](https://uproot.us/docs/select/), [file upload](https://uproot.us/docs/file-upload/), [user](https://uproot.us/docs/user/), [relationship](https://uproot.us/docs/relationship/), and [loop](https://uproot.us/docs/loop/)
+* Field validation
+* Drag-and-drop field management
+* Loop fields support unlimited nesting
+* Placement Rules let you choose where each field group appears
+
+**CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
+
 = Why use Custom Field Suite? =
 * CFS is super easy to use.
 * CFS is stable. We test all changes before releasing a new version.
@@ -21,15 +30,6 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 * CFS works well with [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
 * CFS supports [adding your own field types](http://uproot.us/custom-field-suite/docs/custom-field-type/).
 * [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/)
-
-**CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
-
-= Features =
-* Field types include [text](https://uproot.us/docs/text/), [textarea](https://uproot.us/docs/textarea/), [wysiwyg](https://uproot.us/docs/wysiwyg/), [date](https://uproot.us/docs/date/), [color](https://uproot.us/docs/color/), [select](https://uproot.us/docs/select/), [file upload](https://uproot.us/docs/file-upload/), [user](https://uproot.us/docs/user/), [relationship](https://uproot.us/docs/relationship/), and [loop](https://uproot.us/docs/loop/)
-* Field validation
-* Drag-and-drop field management
-* Loop fields support unlimited nesting
-* Placement Rules let you choose where each field group appears
 
 = Documentation and Support =
 * http://uproot.us/
@@ -48,6 +48,9 @@ Custom Field Suite (CFS) lets you create groups of custom fields, and assign edi
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.7.9 =
+* Bugfix: field validation for new posts
 
 = 1.7.8 =
 * Field management - autofill and paste support (props @Gator92)

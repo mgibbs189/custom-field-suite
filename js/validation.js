@@ -38,10 +38,15 @@ jQuery(function($) {
         }
     };
 
+    CFS.is_draft = false;
+    $('#save-post').live('click', function() {
+        CFS.is_draft = true;
+    });
+
     $('form#post').submit(function() {
 
         // skip validation for drafts
-        if ('draft' != $('#post_status').val()) {
+        if (false === CFS.is_draft) {
             var passthru = true;
 
             $('.cfs_input .field').each(function() {
@@ -85,6 +90,7 @@ jQuery(function($) {
 
             if (!passthru) {
                 $('#publish').removeClass('button-primary-disabled');
+                $('#save-post').removeClass('button-disabled');
                 $('.spinner').hide();
                 return false;
             }
