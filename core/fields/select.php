@@ -42,6 +42,7 @@ class cfs_Select extends cfs_Field
     ?>
         <select name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>"<?php echo $multiple; ?>>
         <?php foreach ($field->options['choices'] as $val => $label) : ?>
+            <?php $val = ('{empty}' == $val) ? '' : $val; ?>
             <?php $selected = in_array($val, (array) $field->value) ? ' selected' : ''; ?>
             <option value="<?php echo esc_attr($val); ?>"<?php echo $selected; ?>><?php echo esc_attr($label); ?></option>
         <?php endforeach; ?>
