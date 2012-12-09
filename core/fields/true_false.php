@@ -1,6 +1,6 @@
 <?php
 
-class cfs_True_false extends cfs_Field
+class cfs_true_false extends cfs_field
 {
 
     function __construct($parent)

@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Color extends cfs_Field
+class cfs_color extends cfs_field
 {
 
     function __construct($parent)

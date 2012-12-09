@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Upgrade
+class cfs_upgrade
 {
     public $version;
     public $last_version;

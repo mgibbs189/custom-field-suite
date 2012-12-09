@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Date extends cfs_Field
+class cfs_date extends cfs_field
 {
 
     function __construct($parent)

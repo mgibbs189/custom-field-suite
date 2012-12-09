@@ -3,16 +3,16 @@
 Plugin Name: Custom Field Suite
 Plugin URI: https://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 1.7.8
+Version: 1.7.9
 Author: Matt Gibbs
 Author URI: https://uproot.us/
 License: GPL2
 */
 
-$cfs = new Cfs();
-$cfs->version = '1.7.8';
+$cfs = new cfs();
+$cfs->version = '1.7.9';
 
-class Cfs
+class cfs
 {
     public $dir;
     public $url;
@@ -41,10 +41,12 @@ class Cfs
         include($this->dir . '/core/classes/upgrade.php');
         include($this->dir . '/core/classes/field.php');
         include($this->dir . '/core/classes/form.php');
+        include($this->dir . '/core/classes/third_party.php');
 
         // load classes
-        $this->api = new cfs_Api($this);
-        $this->form = new cfs_Form($this);
+        $this->api = new cfs_api($this);
+        $this->form = new cfs_form($this);
+        $this->third_party = new cfs_third_party($this);
 
         // add actions
         add_action('init', array($this, 'init'));
@@ -55,8 +57,6 @@ class Cfs
         add_action('delete_post', array($this, 'delete_post'));
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
-        add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
-        add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
 
         // add translations
         load_plugin_textdomain('cfs', false, 'custom-field-suite/lang');
@@ -75,7 +75,7 @@ class Cfs
     function init()
     {
         // perform upgrades
-        $upgrade = new cfs_Upgrade($this->version);
+        $upgrade = new cfs_upgrade($this->version);
 
         // get all available field types
         $this->fields = $this->get_field_types();
@@ -156,7 +156,7 @@ class Cfs
 
         foreach ($field_types as $type => $path)
         {
-            $class_name = 'cfs_' . ucwords($type);
+            $class_name = 'cfs_' . $type;
 
             // Allow for multiple classes per file
             if (!class_exists($class_name))
@@ -168,89 +168,6 @@ class Cfs
         }
 
         return $field_types;
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_matching_groups
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function get_matching_groups($post_id, $skip_roles = false)
-    {
-        global $wpdb, $current_user;
-
-        // Get variables
-        $matches = array();
-        $post_id = (int) $post_id;
-        $post_type = get_post_type($post_id);
-        $page_template = get_post_meta($post_id, '_wp_page_template', true);
-        $user_roles = $current_user->roles;
-        $term_ids = array();
-
-        // Get all term ids associated with this post
-        $sql = "
-        SELECT tt.term_id
-        FROM $wpdb->term_taxonomy tt
-        INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
-        $results = $wpdb->get_results($wpdb->prepare($sql, $post_id));
-        foreach ($results as $result)
-        {
-            $term_ids[] = $result->term_id;
-        }
-
-        // Get all rules
-        $sql = "
-        SELECT p.ID, p.post_title, m.meta_value AS rules
-        FROM $wpdb->posts p
-        INNER JOIN $wpdb->postmeta m ON m.post_id = p.ID AND m.meta_key = 'cfs_rules'
-        WHERE p.post_status = 'publish'";
-        $results = $wpdb->get_results($sql);
-
-        $rule_types = array(
-            'post_types' => $post_type,
-            'user_roles' => $user_roles,
-            'term_ids' => $term_ids,
-            'post_ids' => $post_id,
-            'page_templates' => $page_template,
-        );
-
-        // Ignore user_roles if used within get_fields
-        if (false !== $skip_roles)
-        {
-            unset($rule_types['user_roles']);
-        }
-
-        foreach ($results as $result)
-        {
-            $fail = false;
-            $rules = unserialize($result->rules);
-
-            foreach ($rule_types as $rule_type => $value)
-            {
-                if (isset($rules[$rule_type]))
-                {
-                    $operator = (array) $rules[$rule_type]['operator'];
-                    $in_array = (0 < count(array_intersect((array) $value, $rules[$rule_type]['values'])));
-                    if (($in_array && '!=' == $operator[0]) || (!$in_array && '==' == $operator[0]))
-                    {
-                        $fail = true;
-                    }
-                }
-            }
-
-            if (!$fail)
-            {
-                $matches[$result->ID] = $result->post_title;
-            }
-        }
-
-        // Allow for overrides
-        return apply_filters('cfs_matching_groups', $matches, $post_id, $post_type);
     }
 
 
@@ -415,6 +332,7 @@ class Cfs
     {
         add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/images/logo-small.png');
         add_submenu_page('edit.php?post_type=cfs', __('Tools', 'cfs'), __('Tools', 'cfs'), 'manage_options', 'cfs-tools', array($this, 'page_tools'));
+        //add_submenu_page('edit.php?post_type=cfs', __('Add-ons', 'cfs'), __('Add-ons', 'cfs'), 'manage_options', 'cfs-addons', array($this, 'page_addons'));
     }
 
 
@@ -530,6 +448,21 @@ class Cfs
 
     /*--------------------------------------------------------------------------------------
     *
+    *    page_addons
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.0
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function page_addons()
+    {
+        include($this->dir . '/core/admin/page_addons.php');
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    ajax_handler
     *
     *    @author Matt Gibbs
@@ -546,7 +479,7 @@ class Cfs
         if ($ajax_method && is_admin())
         {
             include($this->dir . '/core/classes/ajax.php');
-            $ajax = new cfs_Ajax();
+            $ajax = new cfs_ajax();
 
             if ('import' == $ajax_method)
             {
@@ -564,132 +497,6 @@ class Cfs
                 echo $ajax->$ajax_method($_POST);
             }
             exit;
-        }
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    gform_handler (gravity forms)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.3.0
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function gform_handler($entry, $form)
-    {
-        global $wpdb;
-
-        // get the form id
-        $form_id = $entry['form_id'];
-
-        // see if any field groups use this form id
-        $field_groups = array();
-        $results = $wpdb->get_results("SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = 'cfs_extras'");
-        foreach ($results as $result)
-        {
-            $meta_value = unserialize($result->meta_value);
-            $meta_value = $meta_value['gforms'];
-
-            if ($form_id == $meta_value['form_id'])
-            {
-                $fields = array();
-                $all_fields = $wpdb->get_results("SELECT name, label FROM {$wpdb->prefix}cfs_fields WHERE post_id = '{$result->post_id}'");
-                foreach ($all_fields as $field)
-                {
-                    $fields[$field->label] = $field->name;
-                }
-
-                $field_groups[$result->post_id] = array(
-                    'post_type' => $meta_value['post_type'],
-                    'fields' => $fields,
-                );
-            }
-        }
-
-        // If there's some matching groups, parse the GF field data
-        if (!empty($field_groups))
-        {
-            $form_data = array();
-
-            // get submitted fields
-            foreach ($form['fields'] as $field)
-            {
-                $field_id = $field['id'];
-
-                // handle fields with children
-                if (!empty($field['inputs']))
-                {
-                    $values = array();
-
-                    foreach ($field['inputs'] as $sub_field)
-                    {
-                        $sub_field_value = $entry[$sub_field['id']];
-
-                        if (!empty($sub_field_value))
-                        {
-                            $values[] = $sub_field_value;
-                        }
-                    }
-                    $value = implode("\n", $values);
-                }
-                elseif ('multiselect' == $field['type'])
-                {
-                    $value = explode(',', $entry[$field_id]);
-                }
-                else
-                {
-                    $value = $entry[$field_id];
-                }
-
-                $form_data[$field['label']] = $value;
-            }
-        }
-
-        foreach ($field_groups as $post_id => $data)
-        {
-            $field_data = array();
-            $intersect = array_intersect_key($form_data, $data['fields']);
-            foreach ($intersect as $key => $field_value)
-            {
-                $field_name = $data['fields'][$key];
-                $field_data[$field_name] = $field_value;
-            }
-
-            $post_data = array(
-                'post_type' => $data['post_type'],
-            );
-            if (isset($entry['post_id']))
-            {
-                $post_data['ID'] = $entry['post_id'];
-            }
-
-            // save data
-            $this->save($field_data, $post_data);
-        }
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    wpml_handler
-    *
-    *    Properly copy CFS fields on WPML post duplication
-    *    Requires WPML 2.6.0+
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.8
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function wpml_handler($master_id, $lang, $post_data, $duplicate_id)
-    {
-        $field_data = $this->get(false, $master_id, array('format' => 'raw'));
-
-        if (!empty($field_data))
-        {
-            $this->save($field_data, array('ID' => $duplicate_id));
         }
     }
 }

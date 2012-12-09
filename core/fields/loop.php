@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Loop extends cfs_Field
+class cfs_loop extends cfs_field
 {
 
     function __construct($parent)

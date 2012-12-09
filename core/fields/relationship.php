@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Relationship extends cfs_Field
+class cfs_relationship extends cfs_field
 {
 
     function __construct($parent)

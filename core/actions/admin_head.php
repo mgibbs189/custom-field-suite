@@ -61,7 +61,7 @@ var CFS = {
 else
 {
     $hide_editor = false;
-    $field_group_ids = $this->get_matching_groups($post->ID);
+    $field_group_ids = $this->api->get_matching_groups($post->ID);
 
     if (!empty($field_group_ids))
     {

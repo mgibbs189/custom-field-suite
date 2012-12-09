@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Wysiwyg extends cfs_Field
+class cfs_wysiwyg extends cfs_field
 {
 
     function __construct($parent)

@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Form
+class cfs_form
 {
     public $parent;
 

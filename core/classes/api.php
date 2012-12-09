@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Api
+class cfs_api
 {
     public $parent;
     public $cache;
@@ -82,7 +82,7 @@ class cfs_Api
         $field_data = array();
 
         // Get all field groups for this post
-        $group_ids = $this->parent->get_matching_groups($post_id, true);
+        $group_ids = $this->get_matching_groups($post_id, true);
 
         if (!empty($group_ids))
         {
@@ -282,7 +282,7 @@ class cfs_Api
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Get all field groups for this post
-        $group_ids = $this->parent->get_matching_groups($post_id, true);
+        $group_ids = $this->get_matching_groups($post_id, true);
 
         $labels = array();
 
@@ -378,6 +378,89 @@ class cfs_Api
 
     /*--------------------------------------------------------------------------------------
     *
+    *    get_matching_groups
+    *
+    *    @author Matt Gibbs
+    *    @since 1.0.0
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function get_matching_groups($post_id, $skip_roles = false)
+    {
+        global $wpdb, $current_user;
+
+        // Get variables
+        $matches = array();
+        $post_id = (int) $post_id;
+        $post_type = get_post_type($post_id);
+        $page_template = get_post_meta($post_id, '_wp_page_template', true);
+        $user_roles = $current_user->roles;
+        $term_ids = array();
+
+        // Get all term ids associated with this post
+        $sql = "
+        SELECT tt.term_id
+        FROM $wpdb->term_taxonomy tt
+        INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
+        $results = $wpdb->get_results($wpdb->prepare($sql, $post_id));
+        foreach ($results as $result)
+        {
+            $term_ids[] = $result->term_id;
+        }
+
+        // Get all rules
+        $sql = "
+        SELECT p.ID, p.post_title, m.meta_value AS rules
+        FROM $wpdb->posts p
+        INNER JOIN $wpdb->postmeta m ON m.post_id = p.ID AND m.meta_key = 'cfs_rules'
+        WHERE p.post_status = 'publish'";
+        $results = $wpdb->get_results($sql);
+
+        $rule_types = array(
+            'post_types' => $post_type,
+            'user_roles' => $user_roles,
+            'term_ids' => $term_ids,
+            'post_ids' => $post_id,
+            'page_templates' => $page_template,
+        );
+
+        // Ignore user_roles if used within get_fields
+        if (false !== $skip_roles)
+        {
+            unset($rule_types['user_roles']);
+        }
+
+        foreach ($results as $result)
+        {
+            $fail = false;
+            $rules = unserialize($result->rules);
+
+            foreach ($rule_types as $rule_type => $value)
+            {
+                if (isset($rules[$rule_type]))
+                {
+                    $operator = (array) $rules[$rule_type]['operator'];
+                    $in_array = (0 < count(array_intersect((array) $value, $rules[$rule_type]['values'])));
+                    if (($in_array && '!=' == $operator[0]) || (!$in_array && '==' == $operator[0]))
+                    {
+                        $fail = true;
+                    }
+                }
+            }
+
+            if (!$fail)
+            {
+                $matches[$result->ID] = $result->post_title;
+            }
+        }
+
+        // Allow for overrides
+        return apply_filters('cfs_matching_groups', $matches, $post_id, $post_type);
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    save_fields
     *
     *    @author Matt Gibbs
@@ -428,7 +511,7 @@ class cfs_Api
         }
         elseif ('api' == $options->format)
         {
-            $group_ids = $this->parent->get_matching_groups($post_id, true);
+            $group_ids = $this->get_matching_groups($post_id, true);
             $group_ids = array_keys($group_ids);
         }
 

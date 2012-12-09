@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Text extends cfs_Field
+class cfs_text extends cfs_field
 {
 
     function __construct($parent)

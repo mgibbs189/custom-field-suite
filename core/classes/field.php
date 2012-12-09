@@ -1,6 +1,6 @@
 <?php
 
-class cfs_Field
+class cfs_field
 {
     public $name;
     public $label;
