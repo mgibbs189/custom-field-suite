@@ -59,7 +59,7 @@ class cfs
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
 
         // add translations
-        load_plugin_textdomain('cfs', false, 'custom-field-suite/lang');
+        load_plugin_textdomain('cfs', false, 'custom-field-suite/languages');
     }
 
 
