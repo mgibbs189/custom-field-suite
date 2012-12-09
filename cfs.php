@@ -364,7 +364,16 @@ class cfs
 
         if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_fields'))
         {
-            include($this->dir . '/core/actions/save_fields.php');
+            $fields = isset($_POST['cfs']['fields']) ? $_POST['cfs']['fields'] : array();
+            $rules = isset($_POST['cfs']['rules']) ? $_POST['cfs']['rules'] : array();
+            $extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
+
+            $this->api->save_field_group(array(
+                'post_id' => $post_id,
+                'fields' => $fields,
+                'rules' => $rules,
+                'extras' => $extras,
+            ));
         }
         elseif (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
         {
@@ -372,6 +381,7 @@ class cfs
             $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
             $post_data = array('ID' => $_POST['ID']);
             $options = array('format' => 'input', 'field_groups' => $field_groups);
+
             $this->save($field_data, $post_data, $options);
         }
 
