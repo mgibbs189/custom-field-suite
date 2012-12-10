@@ -11,14 +11,14 @@ Visually add custom fields to your WordPress edit pages.
 
 == Description ==
 
-Custom Field Suite (CFS) lets you create groups of custom fields. Then, simply add `$cfs->get('your_field')` into your templates to display custom field values throughout your site.
+Custom Field Suite (CFS) lets you visually create and manage custom fields.
 
 = Features =
-* Field types include [text](https://uproot.us/docs/text/), [textarea](https://uproot.us/docs/textarea/), [wysiwyg](https://uproot.us/docs/wysiwyg/), [date](https://uproot.us/docs/date/), [color](https://uproot.us/docs/color/), [select](https://uproot.us/docs/select/), [file upload](https://uproot.us/docs/file-upload/), [user](https://uproot.us/docs/user/), [relationship](https://uproot.us/docs/relationship/), and [loop](https://uproot.us/docs/loop/)
+* Many field types: [text](https://uproot.us/docs/text/), [textarea](https://uproot.us/docs/textarea/), [wysiwyg](https://uproot.us/docs/wysiwyg/), [date](https://uproot.us/docs/date/), [color](https://uproot.us/docs/color/), [select](https://uproot.us/docs/select/), [file upload](https://uproot.us/docs/file-upload/), [user](https://uproot.us/docs/user/), [relationship](https://uproot.us/docs/relationship/), and [loop](https://uproot.us/docs/loop/)
 * Field validation
 * Drag-and-drop field management
-* Loop fields support unlimited nesting
-* Placement Rules let you choose where each field group appears
+* Unlimited nesting for loop fields
+* Easily customize where each field group appears
 
 **CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
@@ -47,6 +47,9 @@ Custom Field Suite (CFS) lets you create groups of custom fields. Then, simply a
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.8.0 =
+* New `get_field_info` API method
 
 = 1.7.9 =
 * Bugfix: field validation for new posts

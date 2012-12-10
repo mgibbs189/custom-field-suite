@@ -268,14 +268,14 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
-    *    get_labels
+    *    get_field_info
     *
     *    @author Matt Gibbs
-    *    @since 1.3.3
+    *    @since 1.8.0
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function get_labels($field_name = false, $post_id = false)
+    public function get_field_info($field_name = false, $post_id = false)
     {
         global $post, $wpdb;
 
@@ -284,25 +284,24 @@ class cfs_api
         // Get all field groups for this post
         $group_ids = $this->get_matching_groups($post_id, true);
 
-        $labels = array();
+        $output = array();
 
         if (!empty($group_ids))
         {
             $group_ids = implode(',', array_keys($group_ids));
-            $results = $wpdb->get_results("SELECT name, label FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
+            $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
             foreach ($results as $result)
             {
-                if (empty($field_name))
+                $result->options = unserialize($result->options);
+
+                if (empty($field_name) || $result->name == $field_name)
                 {
-                    $labels[$result->name] = $result->label;
-                }
-                elseif ($result->name == $field_name)
-                {
-                    $labels = $result->label;
+                    $output[$result->name] = (array) $result;
                 }
             }
         }
-        return $labels;
+
+        return $output;
     }
 
 

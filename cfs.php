@@ -202,6 +202,7 @@ class cfs
         {
             return $this->api->get_field($field_name, $post_id, $options);
         }
+
         return $this->api->get_fields($post_id, $options);
     }
 
@@ -217,7 +218,23 @@ class cfs
 
     function get_labels($field_name = false, $post_id = false)
     {
-        return $this->api->get_labels($field_name, $post_id);
+        $field_info = $this->api->get_field_info($field_name, $post_id);
+
+        if (false !== $field_name)
+        {
+            return $field_info[$field_name]['label'];
+        }
+        else
+        {
+            $output = array();
+
+            foreach ($field_info as $name => $field_data)
+            {
+                $output[$name] = $field_data['label'];
+            }
+
+            return $output;
+        }
     }
 
 
