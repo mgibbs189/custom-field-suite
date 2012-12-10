@@ -10,15 +10,14 @@ License: GPL2
 */
 
 $cfs = new cfs();
-$cfs->version = '1.7.9';
 
 class cfs
 {
     public $dir;
     public $url;
     public $version;
-    public $fields;
     public $used_types;
+    public $fields;
     public $form;
     public $api;
 
@@ -33,6 +32,7 @@ class cfs
 
     function __construct()
     {
+        $this->version = '1.7.9';
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
         $this->used_types = array();
@@ -279,7 +279,7 @@ class cfs
     {
         if (in_array($GLOBALS['pagenow'], array('post.php', 'post-new.php')))
         {
-            include($this->dir . '/core/actions/admin_head.php');
+            include($this->dir . '/core/admin/admin_head.php');
         }
     }
 
@@ -297,7 +297,7 @@ class cfs
     {
         if (isset($GLOBALS['post_type']) && 'cfs' == $GLOBALS['post_type'] && 'edit.php' == $GLOBALS['pagenow'])
         {
-            include($this->dir . '/core/actions/admin_footer.php');
+            include($this->dir . '/core/admin/admin_footer.php');
         }
     }
 

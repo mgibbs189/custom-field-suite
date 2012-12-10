@@ -50,6 +50,7 @@ Custom Field Suite (CFS) lets you create groups of custom fields. Then, simply a
 
 = 1.7.9 =
 * Bugfix: field validation for new posts
+* Improved `cfs_field_types` hook implementation
 * Updated UI Timepicker to fix compability issues (props @saltcod)
 * Allow for {empty} placeholder for empty select value
 * Moved saving of field groups to the API class (props @Gator92)
