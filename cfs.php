@@ -105,6 +105,8 @@ class cfs
             'hierarchical' => false,
             'supports' => array('title'),
         ));
+
+        do_action('cfs_init');
     }
 
 
