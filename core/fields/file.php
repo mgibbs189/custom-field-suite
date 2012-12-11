@@ -107,6 +107,9 @@ class cfs_file extends cfs_field
                     $(this).append('<input type="hidden" name="cfs_file" value="1" />');
                 });
 
+                // Hide the "From URL" tab
+                $('#media-upload-header li#tab-type_url').hide();
+
                 $('#media-items').bind('DOMNodeInserted', function() {
                     var $this = $(this);
                     $this.find('tr.image_alt').hide();

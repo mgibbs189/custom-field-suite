@@ -43,7 +43,7 @@ class cfs_api
         // Trigger get_fields if not in cache
         if (!isset($this->cache[$post_id][$options->format][$field_name]))
         {
-            $fields = $this->get_fields($post_id);
+            $fields = $this->get_fields($post_id, (array) $options);
 
             return isset($fields[$field_name]) ? $fields[$field_name] : null;
         }
