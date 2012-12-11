@@ -122,26 +122,25 @@ $results = $wpdb->get_results($sql);
 
         <div class="tab-content debug">
             <h2><?php _e('Your site uses the following software:', 'cfs'); ?></h2>
-<textarea style="width:600px; height:200px">
-WordPress <?php global $wp_version; echo $wp_version; ?>
-
-PHP <?php echo phpversion(); ?>
-
-<?php echo $_SERVER['SERVER_SOFTWARE']; ?>
-
-<?php echo $_SERVER['HTTP_USER_AGENT']; ?>
-
-
--- Active Plugins --
 <?php
+global $wp_version;
+
+echo '<textarea style="width:600px; height:200px">';
+echo 'WordPress ' . $wp_version . "\n";
+echo 'PHP ' . phpversion() . "\n";
+echo $_SERVER['SERVER_SOFTWARE'] . "\n";
+echo $_SERVER['HTTP_USER_AGENT'] . "\n";
+echo "\n--- Active Plugins ---\n";
+
 $all_plugins = get_plugins();
 foreach ($all_plugins as $plugin_file => $plugin_data) {
     if (is_plugin_active($plugin_file)) {
         echo $plugin_data['Name'] . ' ' . $plugin_data['Version'] . "\n";
     }
 }
+
+echo '</textarea>';
 ?>
-</textarea>
         </div>
     </div>
 </div>

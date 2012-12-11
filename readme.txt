@@ -1,5 +1,5 @@
 === Custom Field Suite ===
-Contributors: logikal16
+Contributors: logikal16, mgibbs189
 Donate link: https://uproot.us/donate/
 Tags: custom fields, fields, postmeta, cck, wysiwyg, relationship, upload
 Requires at least: 3.2
@@ -50,6 +50,9 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 
 = 1.8.0 =
 * New `get_field_info` API method
+* Bugfix: $options not passed into API::get_fields (props @Gator92)
+* Added `cfs_init` hook (props @Gator92)
+* File field stability fixes
 
 = 1.7.9 =
 * Bugfix: field validation for new posts
