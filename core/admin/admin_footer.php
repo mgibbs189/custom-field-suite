@@ -1,5 +1,5 @@
 <style type="text/css">
-.tablenav {
+.tablenav.top {
     display: none;
 }
 

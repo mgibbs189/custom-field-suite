@@ -28,7 +28,7 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 * CFS is fast and uses minimal server resources.
 * CFS works well with [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
 * CFS supports [adding your own field types](https://uproot.us/docs/creating-custom-field-types/).
-* [CFS is on GitHub!](https://github.com/logikal16/custom-field-suite/)
+* [CFS is on GitHub!](https://github.com/mgibbs189/custom-field-suite/)
 
 = Documentation and Support =
 * http://uproot.us/
@@ -51,6 +51,8 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 = 1.8.0 =
 * New `get_field_info` API method
 * Bugfix: $options not passed into API::get_fields (props @Gator92)
+* Bugfix: Added pagination on CFS listing page (props codeSte)
+* Removed uninstall hook (manual reset coming soon)
 * Added `cfs_init` hook (props @Gator92)
 * File field stability fixes
 
