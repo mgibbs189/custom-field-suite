@@ -207,6 +207,7 @@ class cfs_api
 
         if (false !== $value)
         {
+            $data = (array) $data;
             $data[] = $value;
         }
         else
