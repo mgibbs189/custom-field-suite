@@ -54,6 +54,18 @@ $results = $wpdb->get_results($sql);
                 $('#import-message').html(response);
             });
         });
+
+        $('#button-reset').click(function() {
+            if (confirm('This will delete all CFS data. Are you sure?')) {
+                $.post(ajaxurl, {
+                    action: 'cfs_ajax_handler',
+                    action_type: 'reset'
+                },
+                function(response) {
+                    window.location.replace(response);
+                });
+            }
+        });
     });
 })(jQuery);
 </script>
@@ -64,6 +76,7 @@ $results = $wpdb->get_results($sql);
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
         <a class="nav-tab" rel="import"><?php _e('Import', 'cfs'); ?></a>
         <a class="nav-tab" rel="debug"><?php _e('Debug', 'cfs'); ?></a>
+        <a class="nav-tab" rel="reset"><?php _e('Reset', 'cfs'); ?></a>
     </h2>
 
     <div class="content-container">
@@ -141,6 +154,14 @@ foreach ($all_plugins as $plugin_file => $plugin_data) {
 
 echo '</textarea>';
 ?>
+        </div>
+
+        <!-- Reset -->
+
+        <div class="tab-content reset">
+            <h2><?php _e('Reset and deactivate.', 'cfs'); ?></h2>
+            <p><?php _e('This will delete all CFS data and deactivate the plugin.'); ?></p>
+            <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'cfs'); ?>" />
         </div>
     </div>
 </div>
