@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Custom Field Suite
-Plugin URI: https://uproot.us/
+Plugin URI: http://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
 Version: 1.8.0
 Author: Matt Gibbs
-Author URI: https://uproot.us/
+Author URI: http://uproot.us/
 License: GPL2
 */
 

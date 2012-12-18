@@ -1,6 +1,6 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
-Donate link: https://uproot.us/donate/
+Donate link: http://uproot.us/donate/
 Tags: custom fields, fields, postmeta, cck, wysiwyg, relationship, upload
 Requires at least: 3.3
 Tested up to: 3.5
@@ -14,7 +14,7 @@ Visually add custom fields to your WordPress edit pages.
 Custom Field Suite (CFS) lets you visually create and manage custom fields.
 
 = Features =
-* Many field types: [text](https://uproot.us/docs/text/), [textarea](https://uproot.us/docs/textarea/), [wysiwyg](https://uproot.us/docs/wysiwyg/), [date](https://uproot.us/docs/date/), [color](https://uproot.us/docs/color/), [select](https://uproot.us/docs/select/), [file upload](https://uproot.us/docs/file-upload/), [user](https://uproot.us/docs/user/), [relationship](https://uproot.us/docs/relationship/), and [loop](https://uproot.us/docs/loop/)
+* Many field types: [text](http://uproot.us/docs/text/), [textarea](http://uproot.us/docs/textarea/), [wysiwyg](http://uproot.us/docs/wysiwyg/), [date](http://uproot.us/docs/date/), [color](http://uproot.us/docs/color/), [select](http://uproot.us/docs/select/), [file upload](http://uproot.us/docs/file-upload/), [user](http://uproot.us/docs/user/), [relationship](http://uproot.us/docs/relationship/), and [loop](http://uproot.us/docs/loop/)
 * Field validation
 * Drag-and-drop field management
 * Unlimited nesting for loop fields
@@ -26,14 +26,14 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 * CFS is super easy to use.
 * CFS is stable. We test all changes before releasing a new version.
 * CFS is fast and uses minimal server resources.
-* CFS works well with [Gravity Forms](https://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
-* CFS supports [adding your own field types](https://uproot.us/docs/creating-custom-field-types/).
+* CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
+* CFS supports [adding your own field types](http://uproot.us/docs/creating-custom-field-types/).
 * [CFS is on GitHub!](https://github.com/mgibbs189/custom-field-suite/)
 
 = Documentation and Support =
 * http://uproot.us/
 * http://uproot.us/projects/cfs/documentation/
-* https://uproot.us/forums/
+* http://uproot.us/forums/
 
 == Installation ==
 
@@ -51,6 +51,7 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 = 1.8.0 =
 * New `get_field_info` API method
 * New Add-ons system!
+* Added a `Reset` option (under the Tools menu)
 * Bugfix: error for relationships within nested loop fields (props felipepastor)
 * Bugfix: $options not passed into API::get_fields (props @Gator92)
 * Added pagination on CFS listing page (props codeSte)
@@ -94,4 +95,4 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 * Bugfix: javascript issues for fields within sub-loop fields (props @sc0ttkclark)
 * Added tooltips to field management page
 
-[See the full changelog](https://uproot.us/custom-field-suite/changelog/)
+[See the full changelog](http://uproot.us/projects/cfs/changelog/)
