@@ -2,7 +2,7 @@
 Contributors: logikal16, mgibbs189
 Donate link: https://uproot.us/donate/
 Tags: custom fields, fields, postmeta, cck, wysiwyg, relationship, upload
-Requires at least: 3.2
+Requires at least: 3.3
 Tested up to: 3.5
 Stable tag: trunk
 License: GPL2
@@ -50,8 +50,10 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 
 = 1.8.0 =
 * New `get_field_info` API method
+* New Add-ons system!
+* Bugfix: error for relationships within nested loop fields (props felipepastor)
 * Bugfix: $options not passed into API::get_fields (props @Gator92)
-* Bugfix: Added pagination on CFS listing page (props codeSte)
+* Added pagination on CFS listing page (props codeSte)
 * Removed uninstall hook (manual reset coming soon)
 * Added `cfs_init` hook (props @Gator92)
 * File field stability fixes
