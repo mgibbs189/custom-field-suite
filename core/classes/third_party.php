@@ -35,21 +35,23 @@ class cfs_third_party
         foreach ($results as $result)
         {
             $meta_value = unserialize($result->meta_value);
-            $meta_value = $meta_value['gforms'];
 
-            if ($form_id == $meta_value['form_id'])
+            if (isset($meta_value['gforms']))
             {
-                $fields = array();
-                $all_fields = $wpdb->get_results("SELECT name, label FROM {$wpdb->prefix}cfs_fields WHERE post_id = '{$result->post_id}'");
-                foreach ($all_fields as $field)
+                if ($form_id == $meta_value['gforms']['form_id'])
                 {
-                    $fields[$field->label] = $field->name;
-                }
+                    $fields = array();
+                    $all_fields = $wpdb->get_results("SELECT name, label FROM {$wpdb->prefix}cfs_fields WHERE post_id = '{$result->post_id}'");
+                    foreach ($all_fields as $field)
+                    {
+                        $fields[$field->label] = $field->name;
+                    }
 
-                $field_groups[$result->post_id] = array(
-                    'post_type' => $meta_value['post_type'],
-                    'fields' => $fields,
-                );
+                    $field_groups[$result->post_id] = array(
+                        'post_type' => $meta_value['gforms']['post_type'],
+                        'fields' => $fields,
+                    );
+                }
             }
         }
 

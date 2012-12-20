@@ -295,7 +295,11 @@ class cfs_api
             {
                 $result->options = unserialize($result->options);
 
-                if (empty($field_name) || $result->name == $field_name)
+                if ($result->name == $field_name)
+                {
+                    $output = (array) $result;
+                }
+                elseif (empty($field_name))
                 {
                     $output[$result->name] = (array) $result;
                 }

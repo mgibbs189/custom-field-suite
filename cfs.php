@@ -222,9 +222,9 @@ class cfs
     {
         $field_info = $this->api->get_field_info($field_name, $post_id);
 
-        if (false !== $field_name)
+        if (!empty($field_name))
         {
-            return $field_info[$field_name]['label'];
+            return $field_info['label'];
         }
         else
         {
