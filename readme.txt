@@ -51,6 +51,7 @@ Custom Field Suite (CFS) lets you visually create and manage custom fields.
 = 1.8.1 =
 * Fixed notice for Gravity Forms
 * Cleaned up `get_field_info` API method
+* Added Post Type Switcher plugin support
 
 = 1.8.0 =
 * New `get_field_info` API method

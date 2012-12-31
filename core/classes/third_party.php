@@ -8,8 +8,13 @@ class cfs_third_party
     {
         $this->parent = $parent;
 
-        // add actions
+        // Post Type Switcher - http://wordpress.org/extend/plugins/post-type-switcher/
+        add_filter('pts_post_type_filter', array($this, 'pts_post_type_filter'));
+
+        // Gravity Forms - http://www.gravityforms.com/
         add_action('gform_post_submission', array($this, 'gform_handler'), 10, 2);
+
+        // WPML - http://wpml.org/
         add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
     }
 
@@ -138,5 +143,27 @@ class cfs_third_party
         {
             $this->parent->save($field_data, array('ID' => $duplicate_id));
         }
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    pts_post_type_filter
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.1
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function pts_post_type_filter($args)
+    {
+        global $current_screen;
+
+        if ('cfs' == $current_screen->id)
+        {
+            $args = array('public' => false, 'show_ui' => true);
+        }
+
+        return $args;
     }
 }
