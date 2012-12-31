@@ -1,34 +1,34 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
 Donate link: http://uproot.us/donate/
-Tags: custom fields, fields, postmeta, cck, wysiwyg, relationship, upload
+Tags: custom fields, fields, postmeta, metabox, cck, wysiwyg, relationship, upload
 Requires at least: 3.3
 Tested up to: 3.5
 Stable tag: trunk
 License: GPL2
 
-Visually add custom fields to your WordPress edit pages.
+Add custom fields to the edit screens of your choosing.
 
 == Description ==
 
-Custom Field Suite (CFS) lets you visually create and manage custom fields.
+Custom Field Suite (CFS) lets you add custom fields to the edit screens of your choosing. Each "field group" is contained within a meta box. Add as many field groups as you need!
 
 = Features =
-* Many field types: [text](http://uproot.us/docs/text/), [textarea](http://uproot.us/docs/textarea/), [wysiwyg](http://uproot.us/docs/wysiwyg/), [date](http://uproot.us/docs/date/), [color](http://uproot.us/docs/color/), [select](http://uproot.us/docs/select/), [file upload](http://uproot.us/docs/file-upload/), [user](http://uproot.us/docs/user/), [relationship](http://uproot.us/docs/relationship/), and [loop](http://uproot.us/docs/loop/)
+* Many field types: [Text](http://uproot.us/docs/text/), [Textarea](http://uproot.us/docs/textarea/), [WYSIWYG](http://uproot.us/docs/wysiwyg/), [Date](http://uproot.us/docs/date/), [Color](http://uproot.us/docs/color/), [Select](http://uproot.us/docs/select/), [File Upload](http://uproot.us/docs/file-upload/), [User](http://uproot.us/docs/user/), [Relationship](http://uproot.us/docs/relationship/), [Loop](http://uproot.us/docs/loop/) and more!
+* The "Placement Rules" area lets you control where each field group appears
 * Field validation
 * Drag-and-drop field management
 * Unlimited nesting for loop fields
 * Easily customize where each field group appears
 
-**CFS is a fork of Advanced Custom Fields.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
+**CFS is a fork of Advanced Custom Fields v2.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
 = Why use Custom Field Suite? =
 * CFS is super easy to use.
 * CFS is stable. We test all changes before releasing a new version.
-* CFS is fast and uses minimal server resources.
+* CFS is fast and uses few server resources.
 * CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
 * CFS supports [adding your own field types](http://uproot.us/docs/creating-custom-field-types/).
-* [CFS is on GitHub!](https://github.com/mgibbs189/custom-field-suite/)
 
 = Documentation and Support =
 * http://uproot.us/
