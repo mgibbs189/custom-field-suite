@@ -128,7 +128,10 @@ class cfs_file extends cfs_field
 
     function media_send_to_editor($html, $id, $attachment)
     {
-        parse_str($_POST['_wp_http_referer'], $postdata);
+        if (isset($_POST['_wp_http_referer']))
+        {
+            parse_str($_POST['_wp_http_referer'], $postdata);
+        }
 
         if (isset($postdata['cfs_file']))
         {
