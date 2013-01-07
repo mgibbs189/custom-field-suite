@@ -184,15 +184,32 @@
     Loop
 ---------------------------------------------------------------------------------------------*/
 
-.cfs_delete_field {
+.cfs_toggle_field {
     float: right;
     width: 16px;
     height: 16px;
-    background: url(../images/button_remove.png) no-repeat;
+    background: url(../../../../wp-admin/images/arrows.png) no-repeat 0 -34px;
+    cursor: pointer;
 }
 
-.cfs_delete_field:hover {
-    background-position: 0 100%;
+.cfs_toggle_field.hov{
+    background-position: 0 2px;
+}
+
+.cfs_controls {
+    margin: 3px auto 0 auto; text-align:center;
+}
+
+span.cfs_delete_field {
+    text-decoration: underline;
+    cursor: pointer;
+    color: red;
+}
+
+span.cfs_delete_field:hover {
+    text-decoration: none;
+    background: red;
+    color: #fff;
 }
 
 .cfs_input .cfs_loop label {
@@ -213,12 +230,13 @@
 .cfs_loop .cfs_loop_head {
     background-color: #F1F1F1;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#F9F9F9),to(#ECECEC));
-    cursor: pointer;
-    padding: 5px;
+    cursor: move;
+    padding: 5px 5px 5px 8px;
 }
 
 .cfs_loop .label {
-    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
 }
 
 .cfs_loop .notes {
@@ -230,6 +248,7 @@
 .cfs_loop .cfs_loop_body {
     padding: 10px;
     background: #f8f8f8;
+    border-top: solid 1px #dfdfdf;
     display: none;
 }
 
