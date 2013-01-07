@@ -98,6 +98,7 @@ class cfs_loop extends cfs_field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
             </div>
             <div class="cfs_loop_body open">
@@ -172,6 +173,7 @@ class cfs_loop extends cfs_field
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
+                <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
@@ -230,11 +232,13 @@ class cfs_loop extends cfs_field
                 });
 
                 $('.cfs_delete_field').live('click', function() {
-                    $(this).closest('.loop_wrapper').remove();
+                    if (confirm('Remove this row?')) {
+                        $(this).closest('.loop_wrapper').remove();
+                    }
                 });
 
-                $('.cfs_loop_head').live('click', function() {
-                    $(this).siblings('.cfs_loop_body').toggleClass('open');
+                $('.cfs_toggle_field').live('click', function() {
+                    $(this).closest('.cfs_loop_head').siblings('.cfs_loop_body').toggleClass('open');
                 });
 
                 $('.cfs_loop').sortable({

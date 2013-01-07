@@ -155,11 +155,6 @@
     cursor: pointer;
 }
 
-.cfs_relationship .selected_posts div span.remove:hover,
-.cfs_user .selected_posts div span.remove:hover{
-    background-position: 0 100%;
-}
-
 .cfs_relationship .filter_posts,
 .cfs_user .filter_posts {
     margin-bottom: 5px;
@@ -191,8 +186,12 @@
     background: url(../images/button_remove.png) no-repeat;
 }
 
-.cfs_delete_field:hover {
-    background-position: 0 100%;
+.cfs_toggle_field {
+    float: right;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background: url(../images/button_minimize.png) 0px 8px no-repeat;
 }
 
 .cfs_input .cfs_loop label {
