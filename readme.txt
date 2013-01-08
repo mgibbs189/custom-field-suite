@@ -19,7 +19,6 @@ Custom Field Suite (CFS) lets you add custom fields to the edit screens of your 
 * Field validation
 * Drag-and-drop field management
 * Unlimited nesting for loop fields
-* Easily customize where each field group appears
 
 **CFS is a fork of Advanced Custom Fields v2.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
 
@@ -47,6 +46,10 @@ Custom Field Suite (CFS) lets you add custom fields to the edit screens of your 
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.8.2 =
+* Loop field UI tweaks
+* Bugfix: rare PHP notice prevented Wysiwyg image insertion
 
 = 1.8.1 =
 * Fixed notice for Gravity Forms
