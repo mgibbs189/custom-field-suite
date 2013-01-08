@@ -64,6 +64,22 @@ class cfs_loop extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e('Supplement Row Label', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    $this->parent->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][row_label_supplement]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'row_label_supplement'),
+                        'options' => array('message' => __('Append the value of the first field to the Row Label <span class="description"> Useful for <code>text</code> fields that act as titles</span>', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e('Button Label', 'cfs'); ?></label>
             </td>
             <td>
@@ -161,14 +177,28 @@ class cfs_loop extends cfs_field
         $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
         $row_display = $this->get_option($loop_field[$field_id], 'row_display', 0);
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
+        $row_label_supplement = $this->get_option($loop_field[$field_id], 'row_label_supplement', 0);
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
         $css_class = (0 < (int) $row_display) ? ' open' : '';
 
         $offset = 0;
 
         if ($values) :
+
+            $orig_row_label = $row_label; // storing it in case we supplement during the foreach
+
             foreach ($values as $i => $value) :
                 $offset = ($i + 1);
+
+                // do we want to supplement the row title?
+                if ($row_label_supplement && is_array($values) && count($values))
+                {
+                    // we want to supplement the row title with the value of the first field
+                    $value_keys = array_keys($values[$offset-1]);
+                    $supplement = $values[$offset-1][$value_keys[0]];
+                    if (is_string($supplement))
+                        $row_label = $orig_row_label . ' - ' . $supplement;
+                }
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
