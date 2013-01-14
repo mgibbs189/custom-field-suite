@@ -22,7 +22,6 @@ class cfs_text extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][default_value]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'default_value'),
                     ));
                 ?>

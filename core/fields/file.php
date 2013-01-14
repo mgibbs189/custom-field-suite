@@ -66,7 +66,6 @@ class cfs_file extends cfs_field
                                 'id' => __('Attachment ID', 'cfs')
                             )
                         ),
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'return_value', 'url'),
                     ));
                 ?>

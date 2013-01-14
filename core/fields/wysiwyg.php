@@ -44,7 +44,6 @@ class cfs_wysiwyg extends cfs_field
                                 'none' => __('None (bypass filters)', 'cfs')
                             )
                         ),
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'formatting', 'default'),
                     ));
                 ?>
