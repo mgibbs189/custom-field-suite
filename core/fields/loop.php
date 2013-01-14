@@ -56,7 +56,6 @@ class cfs_loop extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][row_label]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'row_label', __('Loop Row', 'cfs')),
                     ));
                 ?>
@@ -71,7 +70,6 @@ class cfs_loop extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'button_label', __('Add Row', 'cfs')),
                     ));
                 ?>

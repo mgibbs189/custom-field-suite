@@ -99,7 +99,6 @@ class cfs_select extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][choices]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'choices'),
                     ));
                 ?>

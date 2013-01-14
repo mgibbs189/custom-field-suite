@@ -33,7 +33,6 @@ class cfs_true_false extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][message]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'message'),
                     ));
                 ?>

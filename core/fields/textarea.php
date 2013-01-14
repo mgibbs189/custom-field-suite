@@ -29,7 +29,6 @@ class cfs_textarea extends cfs_field
                     $this->parent->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][default_value]",
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'default_value'),
                     ));
                 ?>
@@ -50,7 +49,6 @@ class cfs_textarea extends cfs_field
                                 'auto_br' => __('Convert newlines to <br />', 'cfs')
                             )
                         ),
-                        'input_class' => '',
                         'value' => $this->get_option($field, 'formatting', 'auto_br'),
                     ));
                 ?>

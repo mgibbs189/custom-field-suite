@@ -184,7 +184,15 @@ class cfs
 
     function create_field($field)
     {
-        $field = (object) $field;
+        $defaults = array(
+            'type' => 'text',
+            'input_name' => '',
+            'input_class' => '',
+            'options' => array(),
+            'value' => '',
+        );
+
+        $field = (object) array_merge($defaults, $field);
         $this->fields[$field->type]->html($field);
     }
 
@@ -206,6 +214,21 @@ class cfs
         }
 
         return $this->api->get_fields($post_id, $options);
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    get_field_info
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.3
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function get_field_info($field_name = false, $post_id = false)
+    {
+        return $this->api->get_field_info($field_name, $post_id);
     }
 
 
