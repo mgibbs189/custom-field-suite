@@ -219,6 +219,32 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
+    *    apply_value_filters
+    *
+    *    @author Matt Gibbs
+    *    @since 1.0.0
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    private function apply_value_filters($field, $value, $options)
+    {
+        $value = $this->parent->fields[$field->type]->prepare_value($value, $field);
+
+        if ('api' == $options->format)
+        {
+            $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
+        }
+        elseif ('input' == $options->format)
+        {
+            $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
+        }
+
+        return $value;
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    get_reverse_related
     *
     *    @author Matt Gibbs
@@ -307,32 +333,6 @@ class cfs_api
         }
 
         return $output;
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    apply_value_filters
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    private function apply_value_filters($field, $value, $options)
-    {
-        $value = $this->parent->fields[$field->type]->prepare_value($value, $field);
-
-        if ('api' == $options->format)
-        {
-            $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
-        }
-        elseif ('input' == $options->format)
-        {
-            $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
-        }
-
-        return $value;
     }
 
 
