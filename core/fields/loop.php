@@ -162,6 +162,25 @@ class cfs_loop extends cfs_field
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
         $css_class = (0 < (int) $row_display) ? ' open' : '';
 
+        /*
+            Handle dynamic row labels
+            1. Check for dynamic labels
+            2. If they exist, find the dynamic label's field ID
+        */
+        $dynamic_field_id = false;
+        if ('{my_loop_text}' == $row_label)
+        {
+            $row_label = trim($row_label, '{}');
+            foreach ($results as $result)
+            {
+                if ($row_label == $result->name)
+                {
+                    $dynamic_field_id = $result->id;
+                }
+            }
+        }
+
+        // Do the dirty work
         $offset = 0;
 
         if ($values) :
@@ -172,7 +191,11 @@ class cfs_loop extends cfs_field
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
+                <?php if (empty($dynamic_field_id)) : ?>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
+                <?php else : ?>
+                <span class="label"><?php echo esc_attr($values[$i][$dynamic_field_id]); ?></span>
+                <?php endif; ?>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ($results as $field) : ?>
