@@ -63,7 +63,7 @@ class cfs_true_false extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_add_field').live('go', function() {
+                $('.cfs_add_field').on('go', function() {
                     $('.cfs_true_false:not(.ready)').init_true_false();
                 });
                 $('.cfs_true_false').init_true_false();

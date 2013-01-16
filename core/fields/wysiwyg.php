@@ -63,7 +63,7 @@ class cfs_wysiwyg extends cfs_field
             var wysiwyg_count = 0;
 
             $(function() {
-                $('.cfs_add_field').live('go', function() {
+                $('.cfs_add_field').on('go', function() {
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
@@ -93,14 +93,14 @@ class cfs_wysiwyg extends cfs_field
                 });
             };
 
-            $(document).live('cfs/sortable_start', function(event, ui) {
+            $(document).on('cfs/sortable_start', function(event, ui) {
                 $(ui).find('.wysiwyg').each(function() {
                     var id = $(this).attr('id');
                     tinyMCE.execCommand('mceRemoveControl', false, id);
                 });
             });
 
-            $(document).live('cfs/sortable_stop', function(event, ui) {
+            $(document).on('cfs/sortable_stop', function(event, ui) {
                 $(ui).find('.wysiwyg').each(function() {
                     var id = $(this).attr('id');
                     tinyMCE.execCommand('mceAddControl', false, id);

@@ -249,7 +249,7 @@ class cfs_loop extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_add_field').live('click', function() {
+                $('.cfs_add_field').on('click', function() {
                     var num_rows = $(this).attr('data-num-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
@@ -259,13 +259,13 @@ class cfs_loop extends cfs_field
                     $(this).trigger('go');
                 });
 
-                $('.cfs_delete_field').live('click', function() {
+                $('.cfs_delete_field').on('click', function() {
                     if (confirm('Remove this row?')) {
                         $(this).closest('.loop_wrapper').remove();
                     }
                 });
 
-                $('.cfs_loop_head').live('click', function() {
+                $('.cfs_loop_head').on('click', function() {
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
 

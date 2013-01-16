@@ -39,7 +39,7 @@ jQuery(function($) {
     };
 
     CFS.is_draft = false;
-    $('#save-post').live('click', function() {
+    $('#save-post').on('click', function() {
         CFS.is_draft = true;
     });
 

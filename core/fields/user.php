@@ -78,7 +78,7 @@ class cfs_user extends cfs_field
             }
 
             $(function() {
-                $('.cfs_add_field').live('go', function() {
+                $('.cfs_add_field').on('go', function() {
                     $('.cfs_user:not(.ready)').init_user();
                 });
                 $('.cfs_user').init_user();
@@ -115,7 +115,7 @@ class cfs_user extends cfs_field
                     });
 
                     // remove selected post
-                    $this.find('.selected_posts span.remove').live('click', function() {
+                    $this.find('.selected_posts span.remove').on('click', function() {
                         var div = $(this).parent();
                         var parent = div.closest('.field');
                         var post_id = div.attr('rel');
