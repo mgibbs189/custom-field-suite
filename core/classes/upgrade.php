@@ -30,6 +30,7 @@ class cfs_upgrade
     {
         global $wpdb;
 
+        /*
         $sql = "
         CREATE TABLE {$wpdb->prefix}cfs_fields (
             id INT unsigned not null auto_increment,
@@ -45,6 +46,7 @@ class cfs_upgrade
             INDEX post_id_idx (post_id)
         ) DEFAULT CHARSET=utf8";
         dbDelta($sql);
+        */
 
         $sql = "
         CREATE TABLE {$wpdb->prefix}cfs_values (

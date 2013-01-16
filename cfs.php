@@ -444,9 +444,11 @@ class cfs
     {
         global $wpdb;
 
-        $post_id = (int) $post_id;
-        $table = ('cfs' == get_post_type($post_id)) ? 'cfs_fields' : 'cfs_values';
-        $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->prefix}{$table} WHERE post_id = %d", $post_id));
+        if ('cfs' != get_post_type($post_id))
+        {
+            $post_id = (int) $post_id;
+            $wpdb->query("DELETE FROM {$wpdb->prefix}cfs_values WHERE post_id = $post_id");
+        }
 
         return true;
     }
