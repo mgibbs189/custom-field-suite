@@ -85,11 +85,11 @@ class cfs_loop extends cfs_field
     function recursive_clone($group_id, $field_id)
     {
         $loop_field_ids = array();
-        $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
+        $loop_field = $this->parent->api->get_input_fields(array('field_id' => $field_id));
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
 
         // Get the sub-fields
-        $results = $this->parent->api->get_input_fields($group_id, $field_id);
+        $results = $this->parent->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
 
         ob_start();
     ?>
@@ -151,12 +151,12 @@ class cfs_loop extends cfs_field
 
     function recursive_html($group_id, $field_id, $parent_tag = '', $parent_weight = 0)
     {
-        $results = $this->parent->api->get_input_fields($group_id, $field_id);
+        $results = $this->parent->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
         $parent_tag = empty($parent_tag) ? "[$field_id]" : $parent_tag;
         eval("\$values = isset(\$this->values{$parent_tag}) ? \$this->values{$parent_tag} : false;");
 
         // Get field options
-        $loop_field = $this->parent->api->get_input_fields(false, false, $field_id);
+        $loop_field = $this->parent->api->get_input_fields(array('field_id' => $field_id));
         $row_display = $this->get_option($loop_field[$field_id], 'row_display', 0);
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));

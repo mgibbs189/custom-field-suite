@@ -14,13 +14,13 @@ class cfs_user extends cfs_field
     {
         global $wpdb;
 
-        $selected_posts = array();
-        $available_posts = array();
+        $selected_users = array();
+        $available_users = array();
 
         $results = $wpdb->get_results("SELECT ID, user_login FROM $wpdb->users ORDER BY user_login");
         foreach ($results as $result)
         {
-            $available_posts[] = $result;
+            $available_users[] = $result;
         }
 
         if (!empty($field->value))
@@ -28,7 +28,7 @@ class cfs_user extends cfs_field
             $results = $wpdb->get_results("SELECT ID, user_login FROM $wpdb->users WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)");
             foreach ($results as $result)
             {
-                $selected_posts[$result->ID] = $result;
+                $selected_users[$result->ID] = $result;
             }
         }
     ?>
@@ -46,15 +46,15 @@ class cfs_user extends cfs_field
         </div>
 
         <div class="available_posts post_list">
-        <?php foreach ($available_posts as $post) : ?>
-            <?php $class = (isset($selected_posts[$post->ID])) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?>><?php echo $post->user_login; ?></div>
+        <?php foreach ($available_users as $user) : ?>
+            <?php $class = (isset($selected_users[$user->ID])) ? ' class="used"' : ''; ?>
+            <div rel="<?php echo $user->ID; ?>"<?php echo $class; ?>><?php echo $user->user_login; ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
-        <?php foreach ($selected_posts as $post) : ?>
-            <div rel="<?php echo $post->ID; ?>"><span class="remove"></span><?php echo $post->user_login; ?></div>
+        <?php foreach ($selected_users as $user) : ?>
+            <div rel="<?php echo $user->ID; ?>"><span class="remove"></span><?php echo $user->user_login; ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>

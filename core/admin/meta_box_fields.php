@@ -5,7 +5,7 @@
 
 global $post;
 
-$results = $this->api->get_input_fields($post->ID);
+$results = $this->api->get_input_fields(array('group_id' => $post->ID));
 
 /*---------------------------------------------------------------------------------------------
     Create <ul> based on field structure

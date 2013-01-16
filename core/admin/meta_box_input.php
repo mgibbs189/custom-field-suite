@@ -3,7 +3,7 @@
 // Passed from add_meta_box
 $group_id = $metabox['args']['group_id'];
 
-$input_fields = $this->api->get_input_fields($group_id);
+$input_fields = $this->api->get_input_fields(array('group_id' => $group_id));
 ?>
 
 <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
