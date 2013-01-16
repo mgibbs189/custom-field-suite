@@ -146,6 +146,35 @@ class cfs_loop extends cfs_field
     }
 
     /*---------------------------------------------------------------------------------------------
+        dynamic_label
+    ---------------------------------------------------------------------------------------------*/
+
+    function dynamic_label($row_label, $fields, $values)
+    {
+        preg_match_all("/({(.*?)})/", $row_label, $matches);
+        if (!empty($matches))
+        {
+            // Get all field names and IDs
+            $all_fields = array();
+            foreach ($fields as $field)
+            {
+                $all_fields[$field->name] = (int) $field->id;
+            }
+
+            foreach ($matches[2] as $field_name)
+            {
+                $field_id = isset($all_fields[$field_name]) ? $all_fields[$field_name] : false;
+                if (isset($values[$field_id]))
+                {
+                    $row_label = str_replace('{' . $field_name . '}', $values[$field_id], $row_label);
+                }
+            }
+        }
+
+        return $row_label;
+    }
+
+    /*---------------------------------------------------------------------------------------------
         recursive_html
     ---------------------------------------------------------------------------------------------*/
 
@@ -162,24 +191,6 @@ class cfs_loop extends cfs_field
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
         $css_class = (0 < (int) $row_display) ? ' open' : '';
 
-        /*
-            Handle dynamic row labels
-            1. Check for dynamic labels
-            2. If they exist, find the dynamic label's field ID
-        */
-        $dynamic_field_id = false;
-        if ('{' == substr($row_label, 0, 1) && '}' == substr($row_label, -1))
-        {
-            $row_label = trim($row_label, '{}');
-            foreach ($results as $result)
-            {
-                if ($row_label == $result->name)
-                {
-                    $dynamic_field_id = $result->id;
-                }
-            }
-        }
-
         // Do the dirty work
         $offset = 0;
 
@@ -191,11 +202,7 @@ class cfs_loop extends cfs_field
             <div class="cfs_loop_head">
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
-                <?php if (empty($dynamic_field_id)) : ?>
-                <span class="label"><?php echo esc_attr($row_label); ?>&nbsp;</span>
-                <?php else : ?>
-                <span class="label"><?php echo esc_attr($values[$i][$dynamic_field_id]); ?>&nbsp;</span>
-                <?php endif; ?>
+                <span class="label"><?php echo esc_attr($this->dynamic_label($row_label, $results, $values[$i])); ?>&nbsp;</span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ($results as $field) : ?>
