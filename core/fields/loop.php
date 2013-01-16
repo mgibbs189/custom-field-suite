@@ -168,7 +168,7 @@ class cfs_loop extends cfs_field
             2. If they exist, find the dynamic label's field ID
         */
         $dynamic_field_id = false;
-        if ('{my_loop_text}' == $row_label)
+        if ('{' == substr($row_label, 0, 1) && '}' == substr($row_label, -1))
         {
             $row_label = trim($row_label, '{}');
             foreach ($results as $result)
@@ -192,9 +192,9 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
                 <?php if (empty($dynamic_field_id)) : ?>
-                <span class="label"><?php echo esc_attr($row_label); ?></span>
+                <span class="label"><?php echo esc_attr($row_label); ?>&nbsp;</span>
                 <?php else : ?>
-                <span class="label"><?php echo esc_attr($values[$i][$dynamic_field_id]); ?></span>
+                <span class="label"><?php echo esc_attr($values[$i][$dynamic_field_id]); ?>&nbsp;</span>
                 <?php endif; ?>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
@@ -258,8 +258,8 @@ class cfs_loop extends cfs_field
                     }
                 });
 
-                $('.cfs_toggle_field').live('click', function() {
-                    $(this).closest('.cfs_loop_head').siblings('.cfs_loop_body').toggleClass('open');
+                $('.cfs_loop_head').live('click', function() {
+                    $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
 
                 $('.cfs_loop').sortable({
