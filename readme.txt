@@ -49,6 +49,7 @@ Custom Field Suite (CFS) lets you add custom fields to the edit screens of your 
 
 = 1.8.3 =
 * Cleaned up `get_input_fields` API method
+* Added support for dynamic Loop row labels (e.g. `{last_name}`)
 * Removed unnecessary code
 
 = 1.8.2 =
