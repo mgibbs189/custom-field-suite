@@ -154,7 +154,7 @@ msgstr "Mező típusa"
 
 # @ cfs
 #: core/admin/field_html.php:67
-msgid "Instructions"
+msgid "Notes"
 msgstr "Utasítás"
 
 # @ cfs

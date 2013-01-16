@@ -103,8 +103,8 @@ class cfs_loop extends cfs_field
             <?php foreach ($results as $field) : ?>
                 <label><?php echo $field->label; ?></label>
 
-                <?php if (!empty($field->instructions)) : ?>
-                <p class="instructions"><?php echo $field->instructions; ?></p>
+                <?php if (!empty($field->notes)) : ?>
+                <p class="notes"><?php echo $field->notes; ?></p>
                 <?php endif; ?>
 
                 <div class="field cfs_<?php echo $field->type; ?>">
@@ -208,8 +208,8 @@ class cfs_loop extends cfs_field
             <?php foreach ($results as $field) : ?>
                 <label><?php echo $field->label; ?></label>
 
-                <?php if (!empty($field->instructions)) : ?>
-                <p class="instructions"><?php echo $field->instructions; ?></p>
+                <?php if (!empty($field->notes)) : ?>
+                <p class="notes"><?php echo $field->notes; ?></p>
                 <?php endif; ?>
 
                 <div class="field cfs_<?php echo $field->type; ?>">

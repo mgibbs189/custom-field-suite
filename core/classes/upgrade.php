@@ -204,5 +204,34 @@ class cfs_upgrade
                 }
             }
         }
+
+        // Remove the fields table
+        if (version_compare($this->last_version, '1.8.4', '<'))
+        {
+            $next_field_id = (int) $wpdb->get_var("SELECT id FROM {$wpdb->prefix}cfs_fields ORDER BY id DESC LIMIT 1");
+            update_option('cfs_next_field_id', $next_field_id + 1);
+
+            $sql = "
+            SELECT id, label, type, instructions AS notes, post_id, parent_id, weight, options
+            FROM {$wpdb->prefix}cfs_fields
+            ORDER BY post_id, parent_id, weight";
+            $results = $wpdb->get_results($sql);
+
+            $fields = array();
+            foreach ($results as $result)
+            {
+                $post_id = $result->post_id;
+                unset($result->post_id);
+                $result->options = unserialize($result->options);
+                $fields[$post_id][] = (array) $result;
+            }
+
+            foreach ($fields as $post_id => $field_data)
+            {
+                update_post_meta($post_id, 'cfs_fields', $field_data);
+            }
+
+            // $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_fields");
+        }
     }
 }

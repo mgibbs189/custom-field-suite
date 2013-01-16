@@ -775,7 +775,7 @@ class cfs_api
                 'name' => $field['name'],
                 'label' => $field['label'],
                 'type' => $field['type'],
-                'instructions' => $field['instructions'],
+                'notes' => $field['notes'],
                 'post_id' => $post_id,
                 'parent_id' => $field['parent_id'],
                 'weight' => $weight,

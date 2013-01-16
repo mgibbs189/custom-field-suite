@@ -138,7 +138,7 @@ msgid "Field Type"
 msgstr "Feldtyp"
 
 #: core/admin/field_html.php:67
-msgid "Instructions"
+msgid "Notes"
 msgstr "Anweisungen"
 
 #: core/admin/field_html.php:69

@@ -61,17 +61,17 @@
 
                 <?php $this->fields[$field->type]->options_html($field->weight, $field); ?>
 
-                <tr class="field_instructions">
+                <tr class="field_notes">
                     <td class="label">
                         <label>
-                            <?php _e('Instructions', 'cfs'); ?>
+                            <?php _e('Notes', 'cfs'); ?>
                             <div class="cfs_tooltip">
                                 <div class="tooltip_inner"><?php _e('Notes for editors during data entry', 'cfs'); ?></div>
                             </div>
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][instructions]" value="<?php echo esc_attr($field->instructions); ?>" />
+                        <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][notes]" value="<?php echo esc_attr($field->notes); ?>" />
                     </td>
                 </tr>
                 <tr class="field_actions">

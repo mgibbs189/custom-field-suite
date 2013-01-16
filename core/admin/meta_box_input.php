@@ -43,8 +43,8 @@ foreach ($input_fields as $key => $field)
 <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
     <label><?php echo $field->label; ?></label>
 
-    <?php if (!empty($field->instructions)) : ?>
-    <p class="instructions"><?php echo $field->instructions; ?></p>
+    <?php if (!empty($field->notes)) : ?>
+    <p class="notes"><?php echo $field->notes; ?></p>
     <?php endif; ?>
 
     <div class="cfs_<?php echo $field->type; ?>">

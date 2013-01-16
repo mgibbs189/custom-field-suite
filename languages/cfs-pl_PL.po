@@ -131,7 +131,7 @@ msgid "Field Type"
 msgstr "Rodzaj pola"
 
 #: ../core/admin/field_html.php:61
-msgid "Instructions"
+msgid "Notes"
 msgstr "Instrukcje"
 
 #: ../core/admin/field_html.php:62

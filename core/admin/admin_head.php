@@ -30,7 +30,7 @@ if ('cfs' == $GLOBALS['post_type'])
         'name' => 'new_field',
         'label' => 'New Field',
         'type' => 'text',
-        'instructions' => '',
+        'notes' => '',
         'weight' => 'clone',
     );
 
