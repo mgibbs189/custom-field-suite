@@ -192,7 +192,7 @@ class cfs
             'value' => '',
         );
 
-        $field = (object) array_merge($defaults, $field);
+        $field = (object) array_merge($defaults, (array) $field);
         $this->fields[$field->type]->html($field);
     }
 
