@@ -41,7 +41,9 @@ foreach ($input_fields as $key => $field)
         }
 ?>
 <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
+    <?php if (!empty($field->label)) : ?>
     <label><?php echo $field->label; ?></label>
+    <?php endif; ?>
 
     <?php if (!empty($field->notes)) : ?>
     <p class="notes"><?php echo $field->notes; ?></p>
