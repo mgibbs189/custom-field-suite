@@ -214,7 +214,7 @@ class cfs_upgrade
             update_option('cfs_next_field_id', $next_field_id + 1);
 
             $sql = "
-            SELECT id, label, type, instructions AS notes, post_id, parent_id, weight, options
+            SELECT id, name, label, type, instructions AS notes, post_id, parent_id, weight, options
             FROM {$wpdb->prefix}cfs_fields
             ORDER BY post_id, parent_id, weight";
             $results = $wpdb->get_results($sql);

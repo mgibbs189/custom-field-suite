@@ -748,17 +748,18 @@ class cfs_api
         $weight = 0;
         $prev_fields = array();
         $current_field_ids = array();
-        $table_name = $wpdb->prefix . 'cfs_fields';
+        $next_field_id = (int) get_option('cfs_next_field_id');
+        $existing_fields = get_post_meta($post_id, 'cfs_fields', true);
 
-        // Get existing fields (check for renamed or deleted fields)
-        $results = $wpdb->get_results("SELECT id, name FROM $table_name WHERE post_id = '$post_id'");
-        foreach ($results as $result)
+        if (!empty($existing_fields))
         {
-            $prev_fields[$result->id] = $result->name;
+            foreach ($existing_fields as $item)
+            {
+                $prev_fields[$item['id']] = $item['name'];
+            }
         }
 
-        // Remove all existing fields
-        $wpdb->query("DELETE FROM $table_name WHERE post_id = '$post_id'");
+        $new_fields = array();
 
         foreach ($params->fields as $key => $field)
         {
@@ -768,30 +769,17 @@ class cfs_api
             // Allow for field customizations
             $field = $this->parent->fields[$field['type']]->pre_save_field($field);
 
-            // Save empty string for fields without options
-            $field['options'] = !empty($field['options']) ? serialize($field['options']) : '';
-
-            $data = array(
-                'name' => $field['name'],
-                'label' => $field['label'],
-                'type' => $field['type'],
-                'notes' => $field['notes'],
-                'post_id' => $post_id,
-                'parent_id' => $field['parent_id'],
-                'weight' => $weight,
-                'options' => $field['options'],
-            );
+            // Save empty array for fields without options
+            $field['options'] = empty($field['options']) ? array() : $field['options'];
 
             // Use an existing ID if available
             if (0 < (int) $field['id'])
             {
-                $data['id'] = (int) $field['id'];
-
                 // We use this variable to check for deleted fields
-                $current_field_ids[] = $data['id'];
+                $current_field_ids[] = $field['id'];
 
                 // Rename the postmeta key if necessary
-                if ($field['name'] != $prev_fields[$data['id']])
+                if ($field['name'] != $prev_fields[$field['id']])
                 {
                     $wpdb->query(
                         $wpdb->prepare("
@@ -799,17 +787,37 @@ class cfs_api
                             INNER JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
                             SET meta_key = %s
                             WHERE v.field_id = %d",
-                            $field['name'], $data['id']
+                            $field['name'], $field['id']
                         )
                     );
                 }
             }
+            else
+            {
+                $field['id'] = $next_field_id;
+                $next_field_id++;
+            }
 
-            // Insert the field
-            $wpdb->insert($table_name, $data);
+            $data = array(
+                'id' => $field['id'],
+                'name' => $field['name'],
+                'label' => $field['label'],
+                'type' => $field['type'],
+                'notes' => $field['notes'],
+                'weight' => $weight,
+                'options' => $field['options'],
+            );
+
+            $new_fields[] = $data;
 
             $weight++;
         }
+
+        // Save the fields
+        update_post_meta($post_id, 'cfs_fields', $new_fields);
+
+        // Update the field ID counter
+        update_option('cfs_next_field_id', $next_field_id);
 
         // Remove values for deleted fields
         $deleted_field_ids = array_diff(array_keys($prev_fields), $current_field_ids);

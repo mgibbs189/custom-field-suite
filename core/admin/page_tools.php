@@ -11,8 +11,8 @@ $results = $wpdb->get_results($sql);
 ?>
 
 <style type="text/css">
-.content-container { padding-top: 15px; }
 .nav-tab { cursor: pointer; }
+.nav-tab:first-child { margin-left: 15px; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
 #button-export, #button-sync { margin-top: 4px; }
@@ -72,12 +72,14 @@ $results = $wpdb->get_results($sql);
 
 <div class="wrap">
     <div id="icon-edit" class="icon32"><br></div>
-    <h2 class="nav-tab-wrapper">
+    <h2>Tools</h2>
+
+    <h3 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
         <a class="nav-tab" rel="import"><?php _e('Import', 'cfs'); ?></a>
         <a class="nav-tab" rel="debug"><?php _e('Debug', 'cfs'); ?></a>
         <a class="nav-tab" rel="reset"><?php _e('Reset', 'cfs'); ?></a>
-    </h2>
+    </h3>
 
     <div class="content-container">
 
@@ -113,7 +115,7 @@ $results = $wpdb->get_results($sql);
         <!-- Import -->
 
         <div class="tab-content import">
-            <h2><?php _e('Paste the import code below. Existing field groups will be skipped.', 'cfs'); ?></h2>
+            <h2><?php _e('Paste the import code below.', 'cfs'); ?></h2>
             <table>
                 <tr>
                     <td style="width:300px; vertical-align:top">
@@ -134,7 +136,7 @@ $results = $wpdb->get_results($sql);
         <!-- Debug Information -->
 
         <div class="tab-content debug">
-            <h2><?php _e('Your site uses the following software:', 'cfs'); ?></h2>
+            <h2><?php _e('Debug information', 'cfs'); ?></h2>
 <?php
 global $wp_version;
 
