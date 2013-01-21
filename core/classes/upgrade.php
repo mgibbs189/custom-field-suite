@@ -30,24 +30,6 @@ class cfs_upgrade
     {
         global $wpdb;
 
-        /*
-        $sql = "
-        CREATE TABLE {$wpdb->prefix}cfs_fields (
-            id INT unsigned not null auto_increment,
-            name TEXT,
-            label TEXT,
-            type TEXT,
-            instructions TEXT,
-            post_id INT unsigned,
-            parent_id INT unsigned default 0,
-            weight INT unsigned,
-            options TEXT,
-            PRIMARY KEY (id),
-            INDEX post_id_idx (post_id)
-        ) DEFAULT CHARSET=utf8";
-        dbDelta($sql);
-        */
-
         $sql = "
         CREATE TABLE {$wpdb->prefix}cfs_values (
             id INT unsigned not null auto_increment,
@@ -233,6 +215,7 @@ class cfs_upgrade
                 update_post_meta($post_id, 'cfs_fields', $field_data);
             }
 
+            // Leave the cfs_fields table just in case
             // $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_fields");
         }
     }

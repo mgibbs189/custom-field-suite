@@ -22,6 +22,104 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
+    *    array_orderby
+    *
+    *    @description Sort an associative array by 1 or more criteria
+    *    @link http://php.net/manual/en/function.array-multisort.php#100534
+    *    @since 1.8.4
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    private function array_orderby()
+    {
+        $args = func_get_args();
+        $data = array_shift($args);
+        foreach ($args as $n => $field)
+        {
+            if (is_string($field))
+            {
+                $tmp = array();
+                foreach ($data as $key => $row)
+                {
+                    $tmp[$key] = $row[$field];
+                }
+
+                $args[$n] = $tmp;
+            }
+        }
+
+        $args[] = &$data;
+        call_user_func_array('array_multisort', $args);
+        return array_pop($args);
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    find_input_fields
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.4
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    private function find_input_fields($params)
+    {
+        global $wpdb;
+
+        $defaults = array(
+            'post_id' => array(),
+            'field_id' => array(),
+            'field_type' => array(),
+            'field_name' => array(),
+            'parent_id' => array(),
+        );
+
+        $params = (object) array_merge($defaults, $params);
+
+        $where = '';
+        if (!empty($params->post_id))
+        {
+            $post_ids = implode(',', (array) $params->post_id);
+            $where .= " AND post_id IN ($post_ids)";
+        }
+
+        $output = array();
+        $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
+        foreach ($results as $result)
+        {
+            $result = unserialize($result->meta_value);
+
+            if (!empty($result))
+            {
+                foreach ($result as $field)
+                {
+                    if (empty($params->field_id) || in_array($field['id'], (array) $params->field_id))
+                    {
+                        if (empty($params->parent_id) || in_array($field['parent_id'], (array) $params->parent_id))
+                        {
+                            if (empty($params->field_type) || in_array($field['type'], (array) $params->field_type))
+                            {
+                                if (empty($params->field_name) || in_array($field['name'], (array) $params->field_name))
+                                {
+                                    $output[] = $field;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Sort by field weight
+        $output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
+
+        return $output;
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    get_field
     *
     *    @author Matt Gibbs
@@ -86,11 +184,10 @@ class cfs_api
 
         if (!empty($group_ids))
         {
-            $group_ids = implode(',', array_keys($group_ids));
-            $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
+            $results = $this->find_input_fields(array('post_id' => array_keys($group_ids)));
             foreach ($results as $result)
             {
-                $result->options = unserialize($result->options);
+                $result = (object) $result;
                 $fields[$result->id] = $result;
             }
 
@@ -101,12 +198,11 @@ class cfs_api
 
                 // Get all the field data
                 $sql = "
-                SELECT m.meta_value, v.field_id, f.parent_id, v.hierarchy, v.weight, v.sub_weight
+                SELECT m.meta_value, v.field_id, v.hierarchy, v.weight
                 FROM {$wpdb->prefix}cfs_values v
                 INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-                INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
-                WHERE f.id IN ($field_ids) AND v.post_id IN ($post_id)
-                ORDER BY f.weight, v.field_id, v.weight, v.sub_weight";
+                WHERE v.field_id IN ($field_ids) AND v.post_id IN ($post_id)
+                ORDER BY FIELD(v.field_id, $field_ids), v.weight, v.sub_weight";
 
                 $results = $wpdb->get_results($sql);
                 $num_rows = $wpdb->num_rows;
@@ -115,7 +211,7 @@ class cfs_api
                 $prev_field_id = '';
                 $prev_item = '';
 
-                foreach ($results as $order_num => $result)
+                foreach ($results as $row_count => $result)
                 {
                     $field = $fields[$result->field_id];
                     $current_item = "{$result->hierarchy}.{$result->weight}.{$result->field_id}";
@@ -164,7 +260,7 @@ class cfs_api
                         $this->assemble_value_array($field_data, $prev_hierarchy, $fields[$prev_field_id], false, $options);
                     }
 
-                    if ($num_rows == ($order_num + 1)) // last row
+                    if ($num_rows == ($row_count + 1)) // last row
                     {
                         $this->assemble_value_array($field_data, $hierarchy, $field, false, $options);
                     }
@@ -274,13 +370,24 @@ class cfs_api
             $where .= " AND p.post_status IN ('$post_status')";
         }
 
+        // Limit to relationship fields
+        $results = $this->find_input_fields(array('field_type' => 'relationship'));
+        if (!empty($results))
+        {
+            $field_ids = array();
+            foreach ($results as $result)
+            {
+                $field_ids[] = $result['id'];
+            }
+            $where .= " AND v.field_in IN (' . implode(',', $field_ids) . ')";
+        }
+
         $sql = "
         SELECT DISTINCT p.ID
-        FROM {$wpdb->prefix}cfs_fields f
-        INNER JOIN {$wpdb->prefix}cfs_values v ON v.field_id = f.id
+        FROM {$wpdb->prefix}cfs_values v
         INNER JOIN $wpdb->posts p ON p.ID = v.post_id
         INNER JOIN $wpdb->postmeta m ON m.meta_id = v.meta_id
-        WHERE f.type IN ('relationship') AND $where";
+        WHERE $where";
 
         $results = $wpdb->get_results($sql);
         $output = array();
@@ -315,12 +422,9 @@ class cfs_api
 
         if (!empty($group_ids))
         {
-            $group_ids = implode(',', array_keys($group_ids));
-            $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
+            $results = $this->find_input_fields(array('post_id' => $group_ids));
             foreach ($results as $result)
             {
-                $result->options = unserialize($result->options);
-
                 if ($result->name == $field_name)
                 {
                     $output = (array) $result;
@@ -357,19 +461,17 @@ class cfs_api
         $params = (object) array_merge($defaults, $params);
         $values = $this->get_fields($post->ID, array('format' => 'input'));
 
-        $where = 'WHERE 1';
-        $where .= $params->group_id ? " AND post_id = $params->group_id" : '';
-        $where .= $params->field_id ? " AND id = $params->field_id" : '';
-        $where .= $params->parent_id ? " AND parent_id = $params->parent_id" : '';
-
         $fields = array();
 
-        $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields $where ORDER BY weight");
+        $results = $this->find_input_fields(array(
+            'post_id' => $params->group_id,
+            'field_id' => $params->field_id,
+            'parent_id' => $params->parent_id,
+        ));
 
         foreach ($results as $field)
         {
-            // Unserialize the options
-            $field->options = (@unserialize($field->options)) ? unserialize($field->options) : array();
+            $field = (object) $field;
 
             // If no field value exists, set it to NULL
             $field->value = isset($values[$field->id]) ? $values[$field->id] : null;
@@ -528,10 +630,10 @@ class cfs_api
         if (!empty($group_ids))
         {
             $parent_fields = array();
-            $group_ids = implode(',', $group_ids);
-            $results = $wpdb->get_results("SELECT id, type, parent_id, name FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($group_ids) ORDER BY weight");
+            $results = $this->find_input_fields(array('post_id' => $group_ids));
             foreach ($results as $result)
             {
+                $result = (object) $result;
                 $fields[$result->id] = $result;
 
                 // Store lookup values for the recursion
@@ -567,13 +669,23 @@ class cfs_api
         elseif ('input' == $options->format)
         {
             // If saving raw input, delete existing postdata
-            $sql = "
-            DELETE v, m
-            FROM {$wpdb->prefix}cfs_values v
-            INNER JOIN {$wpdb->prefix}cfs_fields f ON f.id = v.field_id
-            LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-            WHERE v.post_id = '$post_id' AND f.post_id IN ($group_ids)";
-            $wpdb->query($sql);
+            $results = $this->find_input_fields(array('post_id' => $group_ids));
+            if (!empty($results))
+            {
+                $field_ids = array();
+                foreach ($results as $result)
+                {
+                    $field_ids[] = $result['id'];
+                }
+                $field_ids = implode(',', $field_ids);
+
+                $sql = "
+                DELETE v, m
+                FROM {$wpdb->prefix}cfs_values v
+                LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
+                WHERE v.post_id = '$post_id' AND v.field_id IN ($field_ids)";
+                $wpdb->query($sql);
+            }
         }
 
         // Save recursively
@@ -712,21 +824,6 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
-    *    get_field_groups
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.4
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function get_field_groups()
-    {
-        
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
     *    save_field_group
     *
     *    @author Matt Gibbs
@@ -769,6 +866,9 @@ class cfs_api
             // Allow for field customizations
             $field = $this->parent->fields[$field['type']]->pre_save_field($field);
 
+            // Set the parent ID
+            $field['parent_id'] = empty($field['parent_id']) ? 0 : (int) $field['parent_id'];
+
             // Save empty array for fields without options
             $field['options'] = empty($field['options']) ? array() : $field['options'];
 
@@ -804,6 +904,7 @@ class cfs_api
                 'label' => $field['label'],
                 'type' => $field['type'],
                 'notes' => $field['notes'],
+                'parent_id' => $field['parent_id'],
                 'weight' => $weight,
                 'options' => $field['options'],
             );
