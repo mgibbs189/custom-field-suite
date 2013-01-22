@@ -421,7 +421,18 @@ class cfs_api
         }
 
         $output = array();
-        $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
+
+        // Cache the query (get fields)
+        if (!isset($this->cache['cfs_fields'][$where]))
+        {
+            $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
+            $this->cache['cfs_fields'][$where] = $results;
+        }
+        else
+        {
+            $results = $this->cache['cfs_fields'][$where];
+        }
+
         foreach ($results as $result)
         {
             $result = unserialize($result->meta_value);
@@ -507,31 +518,27 @@ class cfs_api
         $post_type = get_post_type($post_id);
         $page_template = get_post_meta($post_id, '_wp_page_template', true);
         $user_roles = $current_user->roles;
-        $term_ids = array();
 
-        // Get all term ids associated with this post
-        $sql = "
-        SELECT tt.term_id
-        FROM $wpdb->term_taxonomy tt
-        INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
-        $results = $wpdb->get_results($wpdb->prepare($sql, $post_id));
-        foreach ($results as $result)
+        // Cache the query (get rules)
+        if (!isset($this->cache['cfs_rules']))
         {
-            $term_ids[] = $result->term_id;
+            $sql = "
+            SELECT p.ID, p.post_title, m.meta_value AS rules
+            FROM $wpdb->posts p
+            INNER JOIN $wpdb->postmeta m ON m.post_id = p.ID AND m.meta_key = 'cfs_rules'
+            WHERE p.post_status = 'publish'";
+            $results = $wpdb->get_results($sql);
+            $this->cache['cfs_rules'] = $results;
         }
-
-        // Get all rules
-        $sql = "
-        SELECT p.ID, p.post_title, m.meta_value AS rules
-        FROM $wpdb->posts p
-        INNER JOIN $wpdb->postmeta m ON m.post_id = p.ID AND m.meta_key = 'cfs_rules'
-        WHERE p.post_status = 'publish'";
-        $results = $wpdb->get_results($sql);
+        else
+        {
+            $results = $this->cache['cfs_rules'];
+        }
 
         $rule_types = array(
             'post_types' => $post_type,
             'user_roles' => $user_roles,
-            'term_ids' => $term_ids,
+            'term_ids' => array(),
             'post_ids' => $post_id,
             'page_templates' => $page_template,
         );
@@ -551,6 +558,20 @@ class cfs_api
             {
                 if (isset($rules[$rule_type]))
                 {
+                    // Only lookup a post's term IDs if the rule exists
+                    if ('term_ids' == $rule_type)
+                    {
+                        $sql = "
+                        SELECT tt.term_id
+                        FROM $wpdb->term_taxonomy tt
+                        INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
+                        $results = $wpdb->get_results($wpdb->prepare($sql, $post_id));
+                        foreach ($results as $result)
+                        {
+                            $value[] = $result->term_id;
+                        }
+                    }
+
                     $operator = (array) $rules[$rule_type]['operator'];
                     $in_array = (0 < count(array_intersect((array) $value, $rules[$rule_type]['values'])));
                     if (($in_array && '!=' == $operator[0]) || (!$in_array && '==' == $operator[0]))
