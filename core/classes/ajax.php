@@ -91,7 +91,7 @@ class cfs_ajax
     *-------------------------------------------------------------------------------------*/
 
     public function import($options)
-    {echo '<pre>';var_dump($options);echo '</pre>';die();
+    {
         global $wpdb;
 
         if (!empty($options['import_code']))
@@ -106,12 +106,12 @@ class cfs_ajax
             foreach ($options['import_code'] as $group_id => $group)
             {
                 // Make sure this field group doesn't exist
-                if (!in_array($group->post_name, $existing_groups))
+                if (!in_array($group['post_name'], $existing_groups))
                 {
                     // Insert new post
                     $post_id = wp_insert_post(array(
-                        'post_title' => $group->post_title,
-                        'post_name' => $group->post_name,
+                        'post_title' => $group['post_title'],
+                        'post_name' => $group['post_name'],
                         'post_type' => 'cfs',
                         'post_status' => 'publish',
                         'post_content' => '',
@@ -121,40 +121,32 @@ class cfs_ajax
                         'pinged' => '',
                     ));
 
-                    // Loop through meta_data
-                    foreach ($group->meta as $row)
-                    {
-                        // add_post_meta serializes the meta_value (bad!)
-                        $wpdb->insert($wpdb->postmeta, array(
-                            'post_id' => $post_id,
-                            'meta_key' => $row->meta_key,
-                            'meta_value' => $row->meta_value
-                        ));
-                    }
-
-                    // Loop through field_data
+                    // Generate new field IDs
                     $field_id_mapping = array();
-                    foreach ($group->fields as $old_id => $row)
+                    $next_field_id = (int) get_option('cfs_next_field_id');
+                    foreach ($group['cfs_fields'] as $key => $data)
                     {
-                        $row_array = (array) $row;
-                        $row_array['post_id'] = $post_id;
-
-                        $wpdb->insert($wpdb->prefix . 'cfs_fields', $row_array);
-                        $field_id_mapping[$old_id] = $wpdb->insert_id;
+                        $id = $group['cfs_fields'][$key]['id'];
+                        $parent_id = $group['cfs_fields'][$key]['parent_id'];
+                        $field_id_mapping[$id] = $next_field_id;
+                        $group['cfs_fields'][$key]['id'] = $next_field_id;
+                        if (0 < (int) $parent_id)
+                        {
+                            $group['cfs_fields'][$key]['parent_id'] = $field_id_mapping[$parent_id];
+                        }
+                        $next_field_id++;
                     }
 
-                    // Update the parent_ids
-                    foreach ($field_id_mapping as $old_id => $new_id)
-                    {
-                        $new_field_ids = implode(',', $field_id_mapping);
-                        $wpdb->query("UPDATE {$wpdb->prefix}cfs_fields SET parent_id = '$new_id' WHERE parent_id = '$old_id' AND id IN ($new_field_ids)");
-                    }
+                    update_option('cfs_next_field_id', $next_field_id);
+                    update_post_meta($post_id, 'cfs_fields', $group['cfs_fields']);
+                    update_post_meta($post_id, 'cfs_rules', $group['cfs_rules']);
+                    update_post_meta($post_id, 'cfs_extras', $group['cfs_extras']);
 
-                    $stats['imported'][] = $group->post_title;
+                    $stats['imported'][] = $group['post_title'];
                 }
                 else
                 {
-                    $stats['skipped'][] = $group->post_title;
+                    $stats['skipped'][] = $group['post_title'];
                 }
             }
 

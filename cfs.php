@@ -538,7 +538,7 @@ class cfs
             if ('import' == $ajax_method)
             {
                 $options = array(
-                    'import_code' => json_decode(stripslashes($_POST['import_code'])),
+                    'import_code' => json_decode(stripslashes($_POST['import_code']), true),
                 );
                 echo $ajax->import($options);
             }

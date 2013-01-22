@@ -45,6 +45,9 @@ class cfs_upgrade
             INDEX post_id_idx (post_id)
         ) DEFAULT CHARSET=utf8";
         dbDelta($sql);
+
+        // Set the field counter
+        update_option('cfs_next_field_id', 1);
     }
 
     private function run_upgrade()
