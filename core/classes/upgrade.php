@@ -189,7 +189,7 @@ class cfs_upgrade
             }
         }
 
-        // Remove the fields table
+        // Stop using the cfs_fields table
         if (version_compare($this->last_version, '1.8.4', '<'))
         {
             $next_field_id = (int) $wpdb->get_var("SELECT id FROM {$wpdb->prefix}cfs_fields ORDER BY id DESC LIMIT 1");
@@ -214,9 +214,6 @@ class cfs_upgrade
             {
                 update_post_meta($post_id, 'cfs_fields', $field_data);
             }
-
-            // Leave the cfs_fields table just in case
-            // $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_fields");
         }
     }
 }

@@ -48,6 +48,7 @@ Custom Field Suite (CFS) lets you add custom fields to the edit screens of your 
 == Changelog ==
 
 = 1.8.4 =
+* Removed the `cfs_fields` table
 * Replaced jQuery .live with .on (requires WP 3.3+)
 
 = 1.8.3 =

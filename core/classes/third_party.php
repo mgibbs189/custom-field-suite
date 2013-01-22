@@ -46,8 +46,7 @@ class cfs_third_party
                 if ($form_id == $meta_value['gforms']['form_id'])
                 {
                     $fields = array();
-                    $all_fields = get_post_meta($result->post_id, 'cfs_fields', true);
-                    $all_fields = empty($all_fields) ? array() : $all_fields;
+                    $all_fields = $this->parent->api->find_input_fields(array('post_id' => $result->post_id));
                     foreach ($all_fields as $field)
                     {
                         $fields[$field['label']] = $field['name'];

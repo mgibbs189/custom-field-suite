@@ -22,104 +22,6 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
-    *    array_orderby
-    *
-    *    @description Sort an associative array by 1 or more criteria
-    *    @link http://php.net/manual/en/function.array-multisort.php#100534
-    *    @since 1.8.4
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    private function array_orderby()
-    {
-        $args = func_get_args();
-        $data = array_shift($args);
-        foreach ($args as $n => $field)
-        {
-            if (is_string($field))
-            {
-                $tmp = array();
-                foreach ($data as $key => $row)
-                {
-                    $tmp[$key] = $row[$field];
-                }
-
-                $args[$n] = $tmp;
-            }
-        }
-
-        $args[] = &$data;
-        call_user_func_array('array_multisort', $args);
-        return array_pop($args);
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    find_input_fields
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.4
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    private function find_input_fields($params)
-    {
-        global $wpdb;
-
-        $defaults = array(
-            'post_id' => array(),
-            'field_id' => array(),
-            'field_type' => array(),
-            'field_name' => array(),
-            'parent_id' => array(),
-        );
-
-        $params = (object) array_merge($defaults, $params);
-
-        $where = '';
-        if (!empty($params->post_id))
-        {
-            $post_ids = implode(',', (array) $params->post_id);
-            $where .= " AND post_id IN ($post_ids)";
-        }
-
-        $output = array();
-        $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
-        foreach ($results as $result)
-        {
-            $result = unserialize($result->meta_value);
-
-            if (!empty($result))
-            {
-                foreach ($result as $field)
-                {
-                    if (empty($params->field_id) || in_array($field['id'], (array) $params->field_id))
-                    {
-                        if (empty($params->parent_id) || in_array($field['parent_id'], (array) $params->parent_id))
-                        {
-                            if (empty($params->field_type) || in_array($field['type'], (array) $params->field_type))
-                            {
-                                if (empty($params->field_name) || in_array($field['name'], (array) $params->field_name))
-                                {
-                                    $output[] = $field;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // Sort by field weight
-        $output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
-
-        return $output;
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
     *    get_field
     *
     *    @author Matt Gibbs
@@ -490,6 +392,104 @@ class cfs_api
 
     /*--------------------------------------------------------------------------------------
     *
+    *    find_input_fields
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.4
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    private function find_input_fields($params)
+    {
+        global $wpdb;
+
+        $defaults = array(
+            'post_id' => array(),
+            'field_id' => array(),
+            'field_type' => array(),
+            'field_name' => array(),
+            'parent_id' => array(),
+        );
+
+        $params = (object) array_merge($defaults, $params);
+
+        $where = '';
+        if (!empty($params->post_id))
+        {
+            $post_ids = implode(',', (array) $params->post_id);
+            $where .= " AND post_id IN ($post_ids)";
+        }
+
+        $output = array();
+        $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
+        foreach ($results as $result)
+        {
+            $result = unserialize($result->meta_value);
+
+            if (!empty($result))
+            {
+                foreach ($result as $field)
+                {
+                    if (empty($params->field_id) || in_array($field['id'], (array) $params->field_id))
+                    {
+                        if (empty($params->parent_id) || in_array($field['parent_id'], (array) $params->parent_id))
+                        {
+                            if (empty($params->field_type) || in_array($field['type'], (array) $params->field_type))
+                            {
+                                if (empty($params->field_name) || in_array($field['name'], (array) $params->field_name))
+                                {
+                                    $output[] = $field;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Sort by field weight
+        $output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
+
+        return $output;
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    array_orderby
+    *
+    *    @description Sort an associative array by 1 or more criteria
+    *    @link http://php.net/manual/en/function.array-multisort.php#100534
+    *    @since 1.8.4
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    private function array_orderby()
+    {
+        $args = func_get_args();
+        $data = array_shift($args);
+        foreach ($args as $n => $field)
+        {
+            if (is_string($field))
+            {
+                $tmp = array();
+                foreach ($data as $key => $row)
+                {
+                    $tmp[$key] = $row[$field];
+                }
+
+                $args[$n] = $tmp;
+            }
+        }
+
+        $args[] = &$data;
+        call_user_func_array('array_multisort', $args);
+        return array_pop($args);
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
     *    get_matching_groups
     *
     *    @author Matt Gibbs
@@ -497,7 +497,7 @@ class cfs_api
     *
     *-------------------------------------------------------------------------------------*/
 
-    function get_matching_groups($post_id, $skip_roles = false)
+    public function get_matching_groups($post_id, $skip_roles = false)
     {
         global $wpdb, $current_user;
 

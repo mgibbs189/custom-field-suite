@@ -64,27 +64,17 @@ class cfs_ajax
         $post_data = $wpdb->get_results("SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)");
         foreach ($post_data as $row)
         {
-            $data = (array) $row;
-            unset($data['ID']);
-            $field_groups[$row->ID] = $data;
+            $field_groups[$row->ID] = array(
+                'post_title' => $row->post_title,
+                'post_name' => $row->post_name,
+            );
         }
 
         $meta_data = $wpdb->get_results("SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)");
         foreach ($meta_data as $row)
         {
-            $data = (array) $row;
-            unset($data['meta_id']);
-            unset($data['post_id']);
-            $field_groups[$row->post_id]['meta'][] = $data;
-        }
-
-        $field_data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}cfs_fields WHERE post_id IN ($post_ids) ORDER BY post_id, parent_id, weight");
-        foreach ($field_data as $row)
-        {
-            $data = (array) $row;
-            unset($data['id']);
-            unset($data['post_id']);
-            $field_groups[$row->post_id]['fields'][$row->id] = $data;
+            $value = unserialize($row->meta_value);
+            $field_groups[$row->post_id][$row->meta_key] = $value;
         }
 
         return $field_groups;
@@ -101,7 +91,7 @@ class cfs_ajax
     *-------------------------------------------------------------------------------------*/
 
     public function import($options)
-    {
+    {echo '<pre>';var_dump($options);echo '</pre>';die();
         global $wpdb;
 
         if (!empty($options['import_code']))
@@ -213,8 +203,8 @@ class cfs_ajax
         $wpdb->query($sql);
 
         // Drop tables
-        $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_fields");
         $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_values");
         delete_option('cfs_version');
+        delete_option('cfs_next_field_id');
     }
 }
