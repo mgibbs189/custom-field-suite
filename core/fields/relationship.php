@@ -160,7 +160,7 @@ class cfs_relationship extends cfs_field
                     });
 
                     // add selected post
-                    $this.find('.available_posts div').on('click', function() {
+                    $this.find('.available_posts div').live('click', function() {
                         var parent = $(this).closest('.field');
                         var post_id = $(this).attr('rel');
                         var html = $(this).html();
@@ -170,7 +170,7 @@ class cfs_relationship extends cfs_field
                     });
 
                     // remove selected post
-                    $this.find('.selected_posts span.remove').on('click', function() {
+                    $this.find('.selected_posts span.remove').live('click', function() {
                         var div = $(this).parent();
                         var parent = div.closest('.field');
                         var post_id = div.attr('rel');
@@ -180,7 +180,7 @@ class cfs_relationship extends cfs_field
                     });
 
                     // filter posts
-                    $this.find('.cfs_filter_input').on('keyup', function() {
+                    $this.find('.cfs_filter_input').live('keyup', function() {
                         var input = $(this).val();
                         var output = { types: [], keywords: [] };
                         var pieces = output.keywords = input.split(' ');
