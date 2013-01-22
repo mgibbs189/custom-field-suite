@@ -63,7 +63,7 @@ class cfs_true_false extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_add_field').on('go', function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_true_false:not(.ready)').init_true_false();
                 });
                 $('.cfs_true_false').init_true_false();
@@ -75,7 +75,7 @@ class cfs_true_false extends cfs_field
                     $this.addClass('ready');
 
                     // handle click
-                    $this.find('span.checkbox').click(function() {
+                    $this.find('span.checkbox').on('click', function() {
                         var val = $(this).hasClass('active') ? 0 : 1;
                         $(this).siblings('.true_false').val(val);
                         $(this).toggleClass('active');

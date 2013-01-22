@@ -56,7 +56,7 @@ class cfs_select extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_add_field').on('go', function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_select:not(.ready)').init_select();
                 });
                 $('.cfs_select').init_select();

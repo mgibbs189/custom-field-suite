@@ -26,7 +26,7 @@ class cfs_date extends cfs_field
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/date/date.css" />
         <script>
         (function($) {
-            $('.cfs_date input.date').on('focus', function() {
+            $(document).on('focus', '.cfs_date input.date', function() {
                 if (!$(this).hasClass('ready')) {
                     $(this).addClass('ready').datetimepicker({ stepMinute: 5, dateFormat: 'yy-mm-dd' });
                     if ($('.cfs-ui-date').length < 1) {

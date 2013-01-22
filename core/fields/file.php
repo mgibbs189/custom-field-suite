@@ -170,12 +170,12 @@ class cfs_file extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_input .media.button.add').on('click', function() {
+                $(document).on('click', '.cfs_input .media.button.add', function() {
                     window.cfs_div = $(this);
                     tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
                     return false;
                 });
-                $('.cfs_input .media.button.remove').on('click', function() {
+                $(document).on('click', '.cfs_input .media.button.remove', function() {
                     $(this).siblings('.file_url').html('');
                     $(this).siblings('.file_value').val('');
                     $(this).siblings('.media.button.add').show();

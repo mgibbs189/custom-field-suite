@@ -249,23 +249,23 @@ class cfs_loop extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $('.cfs_add_field').on('click', function() {
+                $(document).on('click', '.cfs_add_field', function() {
                     var num_rows = $(this).attr('data-num-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
                     $(this).attr('data-num-rows', parseInt(num_rows)+1);
                     $(this).closest('.table_footer').before(html);
-                    $(this).trigger('go');
+                    $(this).trigger('cfs/ready');
                 });
 
-                $('.cfs_delete_field').on('click', function() {
+                $(document).on('click', '.cfs_delete_field', function() {
                     if (confirm('Remove this row?')) {
                         $(this).closest('.loop_wrapper').remove();
                     }
                 });
 
-                $('.cfs_loop_head').on('click', function() {
+                $(document).on('click', '.cfs_loop_head', function() {
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
 

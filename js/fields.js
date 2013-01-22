@@ -18,7 +18,7 @@
         init_tooltip();
 
         // Setup checkboxes
-        $('span.checkbox').live('click', function() {
+        $(document).on('click', 'span.checkbox', function() {
             var val = $(this).hasClass('active') ? 0 : 1;
             $(this).siblings('input').val(val);
             $(this).toggleClass('active');
@@ -44,7 +44,7 @@
         });
 
         // Add a new field
-        $('.cfs_add_field').live('click', function() {
+        $(document).on('click', '.cfs_add_field', function() {
             var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
             $('.fields').append('<li>' + html + '</li>');
             $('.fields li:last .field_label a').click();
@@ -54,19 +54,19 @@
         });
 
         // Delete a field
-        $('.cfs_delete_field').live('click', function() {
+        $(document).on('click', '.cfs_delete_field', function() {
             $(this).closest('li').remove();
         });
 
         // Pop open the edit fields
-        $('.cfs_edit_field').live('click', function() {
+        $(document).on('click', '.cfs_edit_field', function() {
             var field = $(this).closest('.field');
             field.toggleClass('form_open');
             field.find('.field_form').slideToggle();
         });
 
         // Add or replace field_type options
-        $('.field_form .field_type select').live('change', function() {
+        $(document).on('change', '.field_form .field_type select', function() {
             var type = $(this).val();
             var input_name = $(this).attr('name').replace('[type]', '');
             var html = CFS.options_html[type].replace(/cfs\[fields\]\[clone\]/g, input_name);
@@ -77,7 +77,7 @@
         });
 
         // Auto-populate the field name
-        $('.field_form .field_label input').live('blur', function() {
+        $(document).on('blur', '.field_form .field_label input', function() {
             var val = $(this).val();
 
             // browser autofill support
@@ -94,14 +94,14 @@
             }
         });
 
-        $('.field_form .field_label input').live('keyup paste', function() {
+        $(document).on('keyup paste', '.field_form .field_label input', function() {
             var $this = $(this);
             setTimeout(function() {
                 $this.closest('.field').find('.field_meta .field_label a').html($this.val());
             }, 1);
         });
 
-        $('.field_form .field_name input').live('keyup', function() {
+        $(document).on('keyup', '.field_form .field_name input', function() {
             var val = jQuery(this).val();
             $(this).closest('.field').find('.field_meta .field_name').html(val);
         });

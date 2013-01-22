@@ -63,13 +63,13 @@ class cfs_wysiwyg extends cfs_field
             var wysiwyg_count = 0;
 
             $(function() {
-                $('.cfs_add_field').on('go', function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
 
                 // Set the active editor
-                $('a.add_media').click(function() {
+                $(document).on('click', 'a.add_media', function() {
                     var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
                     wpActiveEditor = editor_id;
                 });

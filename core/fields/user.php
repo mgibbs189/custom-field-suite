@@ -78,7 +78,7 @@ class cfs_user extends cfs_field
             }
 
             $(function() {
-                $('.cfs_add_field').on('go', function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_user:not(.ready)').init_user();
                 });
                 $('.cfs_user').init_user();
@@ -105,7 +105,7 @@ class cfs_user extends cfs_field
                     });
 
                     // add selected post
-                    $this.find('.available_posts div').click(function() {
+                    $this.find('.available_posts div').on('click', function() {
                         var parent = $(this).closest('.field');
                         var post_id = $(this).attr('rel');
                         var html = $(this).html();
@@ -125,7 +125,7 @@ class cfs_user extends cfs_field
                     });
 
                     // filter posts
-                    $this.find('.cfs_filter_input').keyup(function() {
+                    $this.find('.cfs_filter_input').on('keyup', function() {
                         var input = $(this).val();
                         var parent = $(this).closest('.field');
                         var regex = new RegExp(input, 'i');

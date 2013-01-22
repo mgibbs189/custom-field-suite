@@ -23,7 +23,7 @@ class cfs_color extends cfs_field
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/color/color.css" />
         <script>
         (function($) {
-            $('.cfs_color input.color').on('focus', function() {
+            $(document).on('focus', '.cfs_color input.color', function() {
                 if (!$(this).hasClass('ready')) {
                     $(this).addClass('ready').miniColors({ letterCase: 'lowercase' });
                 }

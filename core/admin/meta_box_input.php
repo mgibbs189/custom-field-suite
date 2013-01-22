@@ -54,7 +54,6 @@ foreach ($input_fields as $key => $field)
         $this->create_field(array(
             'id' => $field->id,
             'group_id' => $group_id,
-            'post_id' => $field->post_id,
             'type' => $field->type,
             'input_name' => "cfs[input][$field->id][value]",
             'input_class' => $field->type,

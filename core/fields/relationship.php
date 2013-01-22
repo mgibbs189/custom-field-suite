@@ -133,7 +133,7 @@ class cfs_relationship extends cfs_field
             }
 
             $(function() {
-                $('.cfs_add_field').on('go', function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_relationship:not(.ready)').init_relationship();
                 });
                 $('.cfs_relationship').init_relationship();
@@ -160,7 +160,7 @@ class cfs_relationship extends cfs_field
                     });
 
                     // add selected post
-                    $this.find('.available_posts div').click(function() {
+                    $this.find('.available_posts div').on('click', function() {
                         var parent = $(this).closest('.field');
                         var post_id = $(this).attr('rel');
                         var html = $(this).html();
@@ -180,7 +180,7 @@ class cfs_relationship extends cfs_field
                     });
 
                     // filter posts
-                    $this.find('.cfs_filter_input').keyup(function() {
+                    $this.find('.cfs_filter_input').on('keyup', function() {
                         var input = $(this).val();
                         var output = { types: [], keywords: [] };
                         var pieces = output.keywords = input.split(' ');
