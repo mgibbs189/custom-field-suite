@@ -399,7 +399,7 @@ class cfs_api
     *
     *-------------------------------------------------------------------------------------*/
 
-    private function find_input_fields($params)
+    public function find_input_fields($params)
     {
         global $wpdb;
 
