@@ -140,17 +140,17 @@ class cfs
     function get_field_types()
     {
         $field_types = array(
-            'text' => $this->dir . '/core/fields/text.php',
-            'textarea' => $this->dir . '/core/fields/textarea.php',
-            'wysiwyg' => $this->dir . '/core/fields/wysiwyg.php',
-            'date' => $this->dir . '/core/fields/date/date.php',
-            'color' => $this->dir . '/core/fields/color/color.php',
-            'true_false' => $this->dir . '/core/fields/true_false.php',
-            'select' => $this->dir . '/core/fields/select.php',
-            'relationship' => $this->dir . '/core/fields/relationship.php',
-            'user' => $this->dir . '/core/fields/user.php',
-            'file' => $this->dir . '/core/fields/file.php',
-            'loop' => $this->dir . '/core/fields/loop.php',
+            'text' =>               $this->dir . '/core/fields/text.php',
+            'textarea' =>           $this->dir . '/core/fields/textarea.php',
+            'wysiwyg' =>            $this->dir . '/core/fields/wysiwyg.php',
+            'date' =>               $this->dir . '/core/fields/date/date.php',
+            'color' =>              $this->dir . '/core/fields/color/color.php',
+            'true_false' =>         $this->dir . '/core/fields/true_false.php',
+            'select' =>             $this->dir . '/core/fields/select.php',
+            'relationship' =>       $this->dir . '/core/fields/relationship.php',
+            'user' =>               $this->dir . '/core/fields/user.php',
+            'file' =>               $this->dir . '/core/fields/file.php',
+            'loop' =>               $this->dir . '/core/fields/loop.php',
         );
 
         // support custom field types
@@ -160,7 +160,7 @@ class cfs
         {
             $class_name = 'cfs_' . $type;
 
-            // Allow for multiple classes per file
+            // allow for multiple classes per file
             if (!class_exists($class_name))
             {
                 include_once($path);

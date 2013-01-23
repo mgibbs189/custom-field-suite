@@ -281,7 +281,7 @@ class cfs_api
             {
                 $field_ids[] = $result['id'];
             }
-            $where .= " AND v.field_in IN (' . implode(',', $field_ids) . ')";
+            $where .= " AND v.field_id IN (" . implode(',', $field_ids) . ")";
         }
 
         $sql = "
