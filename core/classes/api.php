@@ -469,7 +469,7 @@ class cfs_api
     *
     *    array_orderby
     *
-    *    @description Sort an associative array by 1 or more criteria
+    *    @description MySQL "ORDER BY" for PHP associative arrays
     *    @link http://php.net/manual/en/function.array-multisort.php#100534
     *    @since 1.8.4
     *
@@ -852,8 +852,7 @@ class cfs_api
     {
         global $wpdb;
 
-        $params = (object) $params;
-        $post_id = $params->post_id;
+        $post_id = $params['post_id'];
 
         /*---------------------------------------------------------------------------------------------
             Save fields
@@ -875,7 +874,7 @@ class cfs_api
 
         $new_fields = array();
 
-        foreach ($params->fields as $key => $field)
+        foreach ($params['fields'] as $key => $field)
         {
             // Sanitize the field
             $field = stripslashes_deep($field);
@@ -960,17 +959,17 @@ class cfs_api
 
         foreach ($rule_types as $type)
         {
-            if (!empty($params->rules[$type]))
+            if (!empty($params['rules'][$type]))
             {
                 // Break apart the autocomplete string
                 if ('post_ids' == $type)
                 {
-                    $params->rules[$type] = explode(',', $params->rules[$type]);
+                    $params['rules'][$type] = explode(',', $params['rules'][$type]);
                 }
 
                 $data[$type] = array(
-                    'operator' => $params->rules['operator'][$type],
-                    'values' => $params->rules[$type],
+                    'operator' => $params['rules']['operator'][$type],
+                    'values' => $params['rules'][$type],
                 );
             }
         }
@@ -981,6 +980,6 @@ class cfs_api
             Save extras
         ---------------------------------------------------------------------------------------------*/
 
-        update_post_meta($post_id, 'cfs_extras', $params->extras);
+        update_post_meta($post_id, 'cfs_extras', $params['extras']);
     }
 }
