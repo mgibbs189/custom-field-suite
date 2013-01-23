@@ -565,11 +565,7 @@ class cfs_api
                         SELECT tt.term_id
                         FROM $wpdb->term_taxonomy tt
                         INNER JOIN $wpdb->term_relationships tr ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tr.object_id = %d";
-                        $results = $wpdb->get_results($wpdb->prepare($sql, $post_id));
-                        foreach ($results as $result)
-                        {
-                            $value[] = $result->term_id;
-                        }
+                        $value = $wpdb->get_col($wpdb->prepare($sql, $post_id));
                     }
 
                     $operator = (array) $rules[$rule_type]['operator'];
