@@ -1,9 +1,9 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
 Donate link: http://uproot.us/donate/
-Tags: custom fields, fields, postmeta, metabox, cck, wysiwyg, relationship, upload
+Tags: custom fields, fields, postmeta, meta box, cck, wysiwyg, relationship, upload
 Requires at least: 3.3
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: trunk
 License: GPL2
 
@@ -11,23 +11,25 @@ Add custom fields to the edit screens of your choosing.
 
 == Description ==
 
-Custom Field Suite (CFS) lets you add custom fields to the edit screens of your choosing. Each "field group" is contained within a meta box. Add as many field groups as you need!
+Custom Field Suite (CFS) lets you add custom fields to various edit screens. Each "field group" lives in its own meta box. Add as many field groups as you need!
 
 = Features =
-* Many field types: [Text](http://uproot.us/docs/text/), [Textarea](http://uproot.us/docs/textarea/), [WYSIWYG](http://uproot.us/docs/wysiwyg/), [Date](http://uproot.us/docs/date/), [Color](http://uproot.us/docs/color/), [Select](http://uproot.us/docs/select/), [File Upload](http://uproot.us/docs/file-upload/), [User](http://uproot.us/docs/user/), [Relationship](http://uproot.us/docs/relationship/), [Loop](http://uproot.us/docs/loop/) and more!
-* The "Placement Rules" area lets you control where each field group appears
-* Field validation
+* See the intro [screencast](http://screencast.com/t/2SmhTQob)
+* Many field types: [Text](http://uproot.us/docs/text/), [Textarea](http://uproot.us/docs/textarea/), [Visual Editor](http://uproot.us/docs/wysiwyg/), [Date](http://uproot.us/docs/date/), [Color](http://uproot.us/docs/color/), [Select](http://uproot.us/docs/select/), [File Upload](http://uproot.us/docs/file-upload/), [User](http://uproot.us/docs/user/), [Relationship](http://uproot.us/docs/relationship/), [Loop](http://uproot.us/docs/loop/) and you can also [create your own](http://uproot.us/docs/creating-custom-field-types/)!
+* Loop fields are repeatable containers for other fields. For example, place a `File Upload` field into a `Loop` field to create a photo gallery!
+* Each field group has a "Placement Rules" area, where you control which edit screens the field group should appear on
+* CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/), and can save Gravity Forms entries as post items.
 * Drag-and-drop field management
-* Unlimited nesting for loop fields
+* Field validation
 
-**CFS is a fork of Advanced Custom Fields v2.** The main goals of this plugin are stability, performance, and avoiding feature bloat.
+**CFS is a fork of Advanced Custom Fields v2.** The main goals of CFS are stability, performance, and avoiding feature bloat.
 
 = Why use Custom Field Suite? =
 * CFS is super easy to use.
-* CFS is stable. We test all changes before releasing a new version.
+* CFS is stable. We thoroughly test our code before each release.
+* Performance matters. CFS makes only a handful of database queries, and caching is used throughout.
 * CFS is fast and uses few server resources.
-* CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/) by saving Gravity Forms entries as post items.
-* CFS supports [adding your own field types](http://uproot.us/docs/creating-custom-field-types/).
+* Custom fields can be searchable (using the default WordPress search) with the help of plugins like [Search Everything](http://wordpress.org/extend/plugins/search-everything/).
 
 = Documentation and Support =
 * http://uproot.us/
