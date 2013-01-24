@@ -128,7 +128,8 @@ foreach ($templates as $template_name => $filename)
                         'choices' => array(
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        )
+                        ),
+                        'force_single' => true,
                     ),
                     'value' => $rules['post_types']['operator'],
                 ));
@@ -159,7 +160,8 @@ foreach ($templates as $template_name => $filename)
                         'choices' => array(
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        )
+                        ),
+                        'force_single' => true,
                     ),
                     'value' => $rules['user_roles']['operator'],
                 ));
@@ -190,7 +192,8 @@ foreach ($templates as $template_name => $filename)
                         'choices' => array(
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        )
+                        ),
+                        'force_single' => true,
                     ),
                     'value' => $rules['post_ids']['operator'],
                 ));
@@ -213,7 +216,8 @@ foreach ($templates as $template_name => $filename)
                         'choices' => array(
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        )
+                        ),
+                        'force_single' => true,
                     ),
                     'value' => $rules['term_ids']['operator'],
                 ));
