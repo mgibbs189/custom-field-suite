@@ -212,11 +212,14 @@ class cfs_upgrade
                 $result['options'] = unserialize($result['options']);
 
                 // Some field options should be strings
-                foreach ($result['options'] as $option_name => $option_value)
+                if (!empty($result['options']))
                 {
-                    if (in_array($option_name, array('formatting', 'return_value')))
+                    foreach ($result['options'] as $option_name => $option_value)
                     {
-                        $result['options'][$option_name] = $option_value[0];
+                        if (in_array($option_name, array('formatting', 'return_value')))
+                        {
+                            $result['options'][$option_name] = $option_value[0];
+                        }
                     }
                 }
 
