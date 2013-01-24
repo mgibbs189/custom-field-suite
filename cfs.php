@@ -391,17 +391,17 @@ class cfs
     {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
         {
-            return $post_id;
+            return;
         }
 
         if (!isset($_POST['cfs']['save']))
         {
-            return $post_id;
+            return;
         }
 
-        if (wp_is_post_revision($post_id))
+        if (false !== wp_is_post_revision($post_id))
         {
-            $post_id = wp_is_post_revision($post_id);
+            return;
         }
 
         if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_fields'))
@@ -426,8 +426,6 @@ class cfs
 
             $this->save($field_data, $post_data, $options);
         }
-
-        return $post_id;
     }
 
 
