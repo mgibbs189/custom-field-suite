@@ -42,7 +42,8 @@ class cfs_wysiwyg extends cfs_field
                             'choices' => array(
                                 'default' => __('Default', 'cfs'),
                                 'none' => __('None (bypass filters)', 'cfs')
-                            )
+                            ),
+                            'force_single' => true,
                         ),
                         'value' => $this->get_option($field, 'formatting', 'default'),
                     ));

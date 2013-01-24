@@ -202,15 +202,25 @@ class cfs_upgrade
             SELECT id, name, label, type, instructions AS notes, post_id, parent_id, weight, options
             FROM {$wpdb->prefix}cfs_fields
             ORDER BY post_id, parent_id, weight";
-            $results = $wpdb->get_results($sql);
+            $results = $wpdb->get_results($sql, ARRAY_A);
 
             $fields = array();
             foreach ($results as $result)
             {
-                $post_id = $result->post_id;
-                unset($result->post_id);
-                $result->options = unserialize($result->options);
-                $fields[$post_id][] = (array) $result;
+                $post_id = $result['post_id'];
+                unset($result['post_id']);
+                $result['options'] = unserialize($result['options']);
+
+                // Some field options should be strings
+                foreach ($result['options'] as $option_name => $option_value)
+                {
+                    if (in_array($option_name, array('formatting', 'return_value')))
+                    {
+                        $result['options'][$option_name] = $option_value[0];
+                    }
+                }
+
+                $fields[$post_id][] = $result;
             }
 
             foreach ($fields as $post_id => $field_data)

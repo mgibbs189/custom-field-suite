@@ -47,7 +47,8 @@ class cfs_textarea extends cfs_field
                             'choices' => array(
                                 'none' => __('None', 'cfs'),
                                 'auto_br' => __('Convert newlines to <br />', 'cfs')
-                            )
+                            ),
+                            'force_single' => true,
                         ),
                         'value' => $this->get_option($field, 'formatting', 'auto_br'),
                     ));

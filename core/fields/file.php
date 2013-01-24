@@ -64,7 +64,8 @@ class cfs_file extends cfs_field
                             'choices' => array(
                                 'url' => __('File URL', 'cfs'),
                                 'id' => __('Attachment ID', 'cfs')
-                            )
+                            ),
+                            'force_single' => true,
                         ),
                         'value' => $this->get_option($field, 'return_value', 'url'),
                     ));
