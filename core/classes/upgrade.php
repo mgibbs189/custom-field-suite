@@ -126,12 +126,9 @@ class cfs_upgrade
         // Handle nested loops
         if (version_compare($this->last_version, '1.5.0', '<'))
         {
-            if (version_compare($this->last_version, '1.0.0', '>='))
-            {
-                $wpdb->query("ALTER TABLE {$wpdb->prefix}cfs_values ADD COLUMN hierarchy TEXT AFTER post_id");
-                $wpdb->query("ALTER TABLE {$wpdb->prefix}cfs_values ADD COLUMN base_field_id INT unsigned default 0 AFTER post_id");
-                $wpdb->query("UPDATE {$wpdb->prefix}cfs_values SET hierarchy = '' WHERE hierarchy IS NULL");
-            }
+            $wpdb->query("ALTER TABLE {$wpdb->prefix}cfs_values ADD COLUMN hierarchy TEXT AFTER post_id");
+            $wpdb->query("ALTER TABLE {$wpdb->prefix}cfs_values ADD COLUMN base_field_id INT unsigned default 0 AFTER post_id");
+            $wpdb->query("UPDATE {$wpdb->prefix}cfs_values SET hierarchy = '' WHERE hierarchy IS NULL");
 
             $sql = "
             SELECT v.id, f.parent_id, v.weight, v.field_id
@@ -211,7 +208,7 @@ class cfs_upgrade
                 unset($result['post_id']);
                 $result['options'] = unserialize($result['options']);
 
-                // Some field options should be strings
+                // Save certain field options as strings
                 if (!empty($result['options']))
                 {
                     foreach ($result['options'] as $option_name => $option_value)

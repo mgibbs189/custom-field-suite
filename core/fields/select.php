@@ -34,7 +34,7 @@ class cfs_select extends cfs_field
             $field->input_class = '';
         }
 
-        // Force the select box to return an array
+        // Select boxes should return arrays (unless "force_single" is true)
         if ('[]' != substr($field->input_name, -2) && empty($field->options['force_single']))
         {
             $field->input_name .= '[]';
