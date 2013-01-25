@@ -49,6 +49,9 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 
 == Changelog ==
 
+= 1.8.4.1 =
+* Bugfix for `get_labels` (props @voltronik)
+
 = 1.8.4 =
 * Please backup your database!
 * CFS requires WordPress 3.3 or above!
