@@ -319,6 +319,7 @@ class cfs_api
 
         // Get all field groups for this post
         $group_ids = $this->get_matching_groups($post_id, true);
+        $group_ids = array_keys($group_ids);
 
         $output = array();
 
@@ -327,13 +328,13 @@ class cfs_api
             $results = $this->find_input_fields(array('post_id' => $group_ids));
             foreach ($results as $result)
             {
-                if ($result->name == $field_name)
+                if ($result['name'] == $field_name)
                 {
                     $output = (array) $result;
                 }
                 elseif (empty($field_name))
                 {
-                    $output[$result->name] = (array) $result;
+                    $output[$result['name']] = (array) $result;
                 }
             }
         }
