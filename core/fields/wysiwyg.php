@@ -126,6 +126,6 @@ class cfs_wysiwyg extends cfs_field
     function format_value_for_api($value, $field)
     {
         $formatting = $this->get_option($field, 'formatting', 'default');
-        return ('none' == $formatting[0]) ? $value : apply_filters('the_content', $value);
+        return ('none' == $formatting) ? $value : apply_filters('the_content', $value);
     }
 }

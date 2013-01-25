@@ -193,7 +193,7 @@ class cfs_file extends cfs_field
         if (ctype_digit($value))
         {
             $return_value = $this->get_option($field, 'return_value', 'url');
-            return ('id' == $return_value[0]) ? (int) $value : wp_get_attachment_url($value);
+            return ('id' == $return_value) ? (int) $value : wp_get_attachment_url($value);
         }
         return $value;
     }

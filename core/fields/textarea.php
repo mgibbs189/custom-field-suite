@@ -82,6 +82,6 @@ class cfs_textarea extends cfs_field
     function format_value_for_api($value, $field)
     {
         $formatting = $this->get_option($field, 'formatting', 'none');
-        return ('none' == $formatting[0]) ? $value : nl2br($value);
+        return ('none' == $formatting) ? $value : nl2br($value);
     }
 }
