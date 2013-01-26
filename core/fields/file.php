@@ -3,14 +3,28 @@
 class cfs_file extends cfs_field
 {
 
+    static $modal;
+
     function __construct($parent)
     {
+        global $post;
+
         $this->name = 'file';
         $this->label = __('File Upload', 'cfs');
         $this->parent = $parent;
+        $this->modal = version_compare( get_bloginfo( 'version' ), '3.5', '>=' );
 
-        add_action('admin_head-media-upload-popup', array($this, 'popup_head'));
-        add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
+        if( $this->modal )
+        {
+            add_action('admin_head-media-upload-popup', array($this, 'popup_head'));
+            add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
+        }
+        else
+        {
+            $post_id = isset( $post->ID ) ? $post->ID : null;
+            wp_enqueue_media( array( 'post' => $post_id ) );
+        }
+
     }
 
     function html($field)
@@ -171,11 +185,70 @@ class cfs_file extends cfs_field
         <script>
         (function($) {
             $(function() {
-                $(document).on('click', '.cfs_input .media.button.add', function() {
-                    window.cfs_div = $(this);
-                    tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
-                    return false;
-                });
+                <?php if( !$this->modal ) : ?>
+                    $(document).on('click', '.cfs_input .media.button.add', function() {
+                        window.cfs_div = $(this);
+                        tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
+                        return false;
+                    });
+                <?php else : ?>
+                    var $element     = $('input[name="cfs[input][<?php echo $field->id; ?>][value]"]').parent(),
+                        title        = '<?php echo esc_attr( __( $field->label, "cfs" ) ); ?>',
+                        button       = '<?php echo esc_attr( __( "Select", "cfs" ) ); ?>',
+                        frame;
+
+                    $element.on( 'click', '.media.button.add', function( event ) {
+                        var options, attachment;
+
+                        event.preventDefault();
+
+                        // if the frame already exists, open it
+                        if ( frame ) {
+                            frame.open();
+                            return;
+                        }
+
+                        // set our settings
+                        frame = wp.media({
+                            title: title,
+                            button: {
+                                text: button
+                            }
+                        });
+
+                        // set up our select handler
+                        frame.on( 'select', function() {
+                            selection = frame.state().get('selection');
+                            if ( ! selection )
+                                return;
+
+                            selection.each( function( attachment ) {
+
+                                // by default we'll assume it's a file URL
+                                attachment_html = attachment.attributes.url;
+
+                                // but we'll check to see if we can use a thumbnail instead
+                                if(typeof attachment.attributes.sizes !== 'undefined'){
+                                    if(typeof attachment.attributes.sizes.thumbnail !== 'undefined'){
+                                        if(typeof attachment.attributes.sizes.thumbnail.url !== 'undefined'){
+                                            // use the thumbnail
+                                            attachment_html = '<img src="'+attachment.attributes.sizes.thumbnail.url+'"/>';
+                                        }
+                                    }
+                                }
+
+                                $element.find('.media.button.add').hide();
+                                $element.find('.media.button.remove').show();
+                                $element.find('.file_url').html(attachment_html);
+                                $element.find('.file_value').val(attachment.id);
+                            });
+                        });
+
+                        // open the frame
+                        frame.open();
+
+                    });
+                <?php endif; ?>
                 $(document).on('click', '.cfs_input .media.button.remove', function() {
                     $(this).siblings('.file_url').html('');
                     $(this).siblings('.file_value').val('');
