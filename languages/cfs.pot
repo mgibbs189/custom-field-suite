@@ -1,114 +1,102 @@
-# Copyright (C) 2012 
+# Copyright (C) 2013 
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2012-10-19 17:39:31+00:00\n"
+"POT-Creation-Date: 2013-01-25 14:41:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: cfs.php:86 cfs.php:403
+#: cfs.php:87 cfs.php:375
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:87
+#: cfs.php:88
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:88
+#: cfs.php:89
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:89
+#: cfs.php:90
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:91
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:91
+#: cfs.php:92
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:92
+#: cfs.php:93
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:93
+#: cfs.php:94
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:95
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:95
+#: cfs.php:96
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:123
+#: cfs.php:126
 msgid "Title"
 msgstr ""
 
-#: cfs.php:386
+#: cfs.php:358
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:387
+#: cfs.php:359
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:388
+#: cfs.php:360
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:404
+#: cfs.php:376
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:643
-msgid "Imported"
+#: cfs.php:377
+msgid "Add-ons"
 msgstr ""
 
-#: cfs.php:647
-msgid "Skipped"
-msgstr ""
-
-#: cfs.php:652
-msgid "Nothing to import"
-msgstr ""
-
-#: cfs.php:727
-msgid "No field groups selected"
-msgstr ""
-
-#: core/actions/admin_footer.php:67
+#: core/admin/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr ""
 
-#: core/actions/admin_footer.php:71
+#: core/admin/admin_footer.php:71
 msgid "Homepage"
 msgstr ""
 
-#: core/actions/admin_footer.php:72
+#: core/admin/admin_footer.php:72
 msgid "User Guide"
 msgstr ""
 
-#: core/actions/admin_footer.php:73
+#: core/admin/admin_footer.php:73
 msgid "Changelog"
 msgstr ""
 
-#: core/actions/admin_footer.php:78
+#: core/admin/admin_footer.php:78
 msgid "Donate"
 msgstr ""
 
-#: core/actions/admin_footer.php:79
+#: core/admin/admin_footer.php:79
 msgid "Rate the plugin"
 msgstr ""
 
@@ -167,7 +155,7 @@ msgid "Gravity Forms Integration"
 msgstr ""
 
 #: core/admin/meta_box_extras.php:75
-msgid "Your Gravity Form and CFS field labels must match exactly!"
+msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 
 #: core/admin/meta_box_extras.php:79
@@ -190,27 +178,27 @@ msgstr ""
 msgid "is not"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:78
+#: core/admin/meta_box_rules.php:82 core/admin/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:87 core/fields/relationship.php:89
+#: core/admin/meta_box_rules.php:120 core/fields/relationship.php:89
 msgid "Post Types"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:118
+#: core/admin/meta_box_rules.php:152
 msgid "User Roles"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:149
+#: core/admin/meta_box_rules.php:184
 msgid "Posts"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:180
+#: core/admin/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: core/admin/meta_box_rules.php:211
+#: core/admin/meta_box_rules.php:240
 msgid "Page Template"
 msgstr ""
 
@@ -222,12 +210,12 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: core/admin/page_tools.php:80 core/admin/page_tools.php:151
-msgid "Synchronize"
+#: core/admin/page_tools.php:80
+msgid "Debug"
 msgstr ""
 
 #: core/admin/page_tools.php:81
-msgid "Debug"
+msgid "Reset"
 msgstr ""
 
 #: core/admin/page_tools.php:89
@@ -235,15 +223,35 @@ msgid "Which field groups would you like to export?"
 msgstr ""
 
 #: core/admin/page_tools.php:118
-msgid "Paste the import code below. Existing field groups will be skipped."
+msgid "Paste the import code below."
 msgstr ""
 
 #: core/admin/page_tools.php:139
-msgid "CFS will attempt to import custom field values."
+msgid "Debug information"
 msgstr ""
 
 #: core/admin/page_tools.php:164
-msgid "Your site uses the following software:"
+msgid "Reset and deactivate."
+msgstr ""
+
+#: core/admin/page_tools.php:165
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr ""
+
+#: core/admin/page_tools.php:166
+msgid "Delete everything"
+msgstr ""
+
+#: core/classes/ajax.php:156
+msgid "Imported"
+msgstr ""
+
+#: core/classes/ajax.php:160
+msgid "Skipped"
+msgstr ""
+
+#: core/classes/ajax.php:166
+msgid "Nothing to import"
 msgstr ""
 
 #: core/classes/field.php:21 core/fields/text.php:9
@@ -251,16 +259,16 @@ msgid "Text"
 msgstr ""
 
 #: core/classes/field.php:57 core/fields/file.php:77
-#: core/fields/relationship.php:106 core/fields/select.php:125
-#: core/fields/text.php:33 core/fields/textarea.php:61
-#: core/fields/true_false.php:44
+#: core/fields/relationship.php:105 core/fields/select.php:125
+#: core/fields/text.php:32 core/fields/textarea.php:60
+#: core/fields/true_false.php:43
 msgid "Validation"
 msgstr ""
 
 #: core/classes/field.php:66 core/fields/file.php:86
-#: core/fields/relationship.php:115 core/fields/select.php:134
-#: core/fields/text.php:42 core/fields/textarea.php:70
-#: core/fields/true_false.php:53
+#: core/fields/relationship.php:114 core/fields/select.php:134
+#: core/fields/text.php:41 core/fields/textarea.php:69
+#: core/fields/true_false.php:52
 msgid "This is a required field"
 msgstr ""
 
@@ -296,11 +304,11 @@ msgstr ""
 msgid "Attachment ID"
 msgstr ""
 
-#: core/fields/file.php:117
+#: core/fields/file.php:120
 msgid "Use This File"
 msgstr ""
 
-#: core/fields/file.php:170
+#: core/fields/file.php:176
 msgid "Attach file"
 msgstr ""
 
@@ -320,15 +328,15 @@ msgstr ""
 msgid "Row Label"
 msgstr ""
 
-#: core/fields/loop.php:60 core/fields/loop.php:91 core/fields/loop.php:162
+#: core/fields/loop.php:59 core/fields/loop.php:89 core/fields/loop.php:190
 msgid "Loop Row"
 msgstr ""
 
-#: core/fields/loop.php:67
+#: core/fields/loop.php:66
 msgid "Button Label"
 msgstr ""
 
-#: core/fields/loop.php:75 core/fields/loop.php:117 core/fields/loop.php:163
+#: core/fields/loop.php:73 core/fields/loop.php:116 core/fields/loop.php:191
 msgid "Add Row"
 msgstr ""
 
@@ -344,11 +352,11 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: core/fields/select.php:93
+#: core/fields/select.php:94
 msgid "Choices"
 msgstr ""
 
-#: core/fields/select.php:94
+#: core/fields/select.php:95
 msgid "Enter one choice per line"
 msgstr ""
 
@@ -368,15 +376,15 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
-#: core/fields/textarea.php:40 core/fields/wysiwyg.php:34
+#: core/fields/textarea.php:39 core/fields/wysiwyg.php:34
 msgid "Formatting"
 msgstr ""
 
-#: core/fields/textarea.php:49
+#: core/fields/textarea.php:48
 msgid "None"
 msgstr ""
 
-#: core/fields/textarea.php:50
+#: core/fields/textarea.php:49
 msgid "Convert newlines to <br />"
 msgstr ""
 

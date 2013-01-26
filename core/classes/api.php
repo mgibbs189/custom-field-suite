@@ -460,7 +460,7 @@ class cfs_api
         }
 
         // Sort by field weight
-        $output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
+        //$output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
 
         return $output;
     }
@@ -480,23 +480,29 @@ class cfs_api
     {
         $args = func_get_args();
         $data = array_shift($args);
+
+        if (!is_array($data))
+        {
+            return false;
+        }
+
+        $multisort_params = array();
         foreach ($args as $n => $field)
         {
             if (is_string($field))
             {
-                $tmp = array();
+                ${"tmp_$n"} = array();
                 foreach ($data as $key => $row)
                 {
-                    $tmp[$key] = $row[$field];
+                    ${"tmp_$n"}[$key] = $row[$field];
                 }
-
-                $args[$n] = $tmp;
+                $multisort_params[$n] = &${"tmp_$n"};
             }
         }
 
-        $args[] = &$data;
-        call_user_func_array('array_multisort', $args);
-        return array_pop($args);
+        $multisort_params[] = &$data;
+        call_user_func_array('array_multisort', $multisort_params);
+        return array_pop($multisort_params);
     }
 
 
