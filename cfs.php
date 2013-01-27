@@ -18,7 +18,6 @@ class cfs
     public $version;
     public $used_types;
     public $fields;
-    public $form;
     public $api;
 
     /*--------------------------------------------------------------------------------------
@@ -40,12 +39,10 @@ class cfs
         include($this->dir . '/core/classes/api.php');
         include($this->dir . '/core/classes/upgrade.php');
         include($this->dir . '/core/classes/field.php');
-        include($this->dir . '/core/classes/form.php');
         include($this->dir . '/core/classes/third_party.php');
 
         // load classes
         $this->api = new cfs_api($this);
-        $this->form = new cfs_form($this);
         $this->third_party = new cfs_third_party($this);
 
         // add actions
@@ -275,21 +272,6 @@ class cfs
     function get_reverse_related($post_id, $options = array())
     {
         return $this->api->get_reverse_related($post_id, $options);
-    }
-
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    form
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.0
-    *
-    *-------------------------------------------------------------------------------------*/
-
-    function form($options = array())
-    {
-        return $this->form->create_form($options);
     }
 
 

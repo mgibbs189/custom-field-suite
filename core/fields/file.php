@@ -2,15 +2,22 @@
 
 class cfs_file extends cfs_field
 {
+    public $new_media;
 
     function __construct($parent)
     {
         $this->name = 'file';
         $this->label = __('File Upload', 'cfs');
         $this->parent = $parent;
+        $this->new_media = version_compare(get_bloginfo('version'), '3.5', '>=');
 
-        add_action('admin_head-media-upload-popup', array($this, 'popup_head'));
-        add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
+        // These hooks are required for WP 3.5+
+        // https://github.com/thomasgriffin/New-Media-Image-Uploader
+        if (!$this->new_media)
+        {
+            add_action('admin_head-media-upload-popup', array($this, 'popup_head'));
+            add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
+        }
     }
 
     function html($field)
@@ -32,18 +39,12 @@ class cfs_file extends cfs_field
             }
         }
 
-        if (empty($field->value))
-        {
-            $css_hide = array('add' => '', 'remove' => ' hidden');
-        }
-        else
-        {
-            $css_hide = array('add' => ' hidden', 'remove' => '');
-        }
+        // CSS logic for "Add" / "Remove" buttons
+        $css = empty($field->value) ? array('', ' hidden') : array(' hidden', '');
     ?>
         <span class="file_url"><?php echo $file_url; ?></span>
-        <input type="button" class="media button add<?php echo $css_hide['add']; ?>" value="<?php _e('Add File', 'cfs'); ?>" />
-        <input type="button" class="media button remove<?php echo $css_hide['remove']; ?>" value="<?php _e('Remove', 'cfs'); ?>" />
+        <input type="button" class="media button add<?php echo $css[0]; ?>" value="<?php _e('Add File', 'cfs'); ?>" />
+        <input type="button" class="media button remove<?php echo $css[1]; ?>" value="<?php _e('Remove', 'cfs'); ?>" />
         <input type="hidden" name="<?php echo $field->input_name; ?>" class="file_value" value="<?php echo $field->value; ?>" />
     <?php
     }
@@ -167,15 +168,60 @@ class cfs_file extends cfs_field
     function input_head($field = null)
     {
         global $post;
+
+        if ($this->new_media)
+        {
+            wp_enqueue_media();
+        }
     ?>
         <script>
         (function($) {
             $(function() {
+
+            <?php if (!$this->new_media) : ?>
+
                 $(document).on('click', '.cfs_input .media.button.add', function() {
                     window.cfs_div = $(this);
                     tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
                     return false;
                 });
+
+            <?php else : ?>
+
+                var cfs_media_frame;
+
+                $(document).on('click', '.cfs_input .media.button.add', function(e) {
+                    $this = $(this);
+
+                    if (cfs_media_frame) {
+                        cfs_media_frame.open();
+                        return;
+                    }
+
+                    cfs_media_frame = wp.media.frames.cfs_media_frame = wp.media({
+                        multiple: false
+                    });
+
+                    cfs_media_frame.on('select', function() {
+                        var attachment = cfs_media_frame.state().get('selection').first().toJSON();
+                        if ('image' == attachment.type) {
+                            file_url = '<img src="' + attachment.sizes.thumbnail.url + '" />';
+                        }
+                        else {
+                            file_url = '<a href="' + attachment.url + '" target="_blank">' + attachment.filename + '</a>';
+                        }
+                        $this.hide();
+                        $this.siblings('.media.button.remove').show();
+                        $this.siblings('.file_value').val(attachment.id);
+                        $this.siblings('.file_url').html(file_url);
+                    });
+
+                    cfs_media_frame.open();
+                    cfs_media_frame.content.mode('upload');
+                });
+
+            <?php endif; ?>
+
                 $(document).on('click', '.cfs_input .media.button.remove', function() {
                     $(this).siblings('.file_url').html('');
                     $(this).siblings('.file_value').val('');
