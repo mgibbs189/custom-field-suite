@@ -36,23 +36,25 @@ if ($is_gf_active)
 <table>
     <tr>
         <td class="label">
-            <label><?php _e('Content Editor', 'cfs'); ?></label>
+            <label><?php _e('Display Settings', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
-            <?php
-                $this->create_field(array(
-                    'type' => 'true_false',
-                    'input_name' => "cfs[extras][hide_editor]",
-                    'input_class' => 'true_false',
-                    'value' => $extras['hide_editor'],
-                    'options' => array('message' => __('Hide the content editor', 'cfs')),
-                ));
-            ?>
+            <div>
+                <?php
+                    $this->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[extras][hide_editor]",
+                        'input_class' => 'true_false',
+                        'value' => $extras['hide_editor'],
+                        'options' => array('message' => __('Hide the content editor', 'cfs')),
+                    ));
+                ?>
+            </div>
         </td>
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e('Gravity Forms Integration', 'cfs'); ?></label>
+            <label><?php _e('Gravity Forms', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
             <?php if($is_gf_active) : ?>

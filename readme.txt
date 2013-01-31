@@ -52,6 +52,8 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 = 1.8.5 =
 * Front-end forms!
 * 3.5 media uploader support (props @jchristopher)
+* Added French translation (props @jcbrebion)
+* Bugfix: PHP 5.3.x array_multisort warning
 * Cleaned up admin-head.php
 
 = 1.8.4.1 =

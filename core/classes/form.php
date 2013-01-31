@@ -51,19 +51,21 @@ class cfs_form
         }
 
         $this->nonce = wp_create_nonce('cfs_save_input');
+
+        //wp_enqueue_script('jquery');
     }
 
 
     /*--------------------------------------------------------------------------------------
     *
-    *    include_assets
+    *    load_assets
     *
     *    @author Matt Gibbs
     *    @since 1.8.5
     *
     *-------------------------------------------------------------------------------------*/
 
-    public function include_assets()
+    public function load_assets()
     {
         if ($this->assets_loaded)
         {
@@ -113,7 +115,7 @@ var CFS = {
             'post_status' => 'draft', // add
         );
 
-        $this->include_assets();
+        $this->load_assets();
 
         $params = array_merge($defaults, $params);
 
@@ -126,6 +128,7 @@ var CFS = {
     ?>
         <div class="cfs_input no_box">
         <form id="post" method="post" action="">
+            <div style="display:none"><textarea id="evilwysiwyg"></textarea></div>
     <?php
         }
     ?>

@@ -78,9 +78,6 @@ else
 
             $args = array('box' => 'input', 'group_id' => $group_id);
             add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, 'normal', 'high', $args);
-
-            // Add .cfs_input to the metabox CSS
-            add_filter("postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'cfs_postbox_classes');
         }
 
         // Force editor support
@@ -91,15 +88,14 @@ else
         {
             echo '<style type="text/css">#poststuff .postarea { display: none; }</style>';
         }
+?>
+
+<script>
+jQuery(function($) {
+    $('.postbox[id^="cfs"]').addClass('cfs_input');
+});
+</script>
+
+<?php
     }
-}
-
-/*---------------------------------------------------------------------------------------------
-    Helper functions
----------------------------------------------------------------------------------------------*/
-
-function cfs_postbox_classes($classes)
-{
-    $classes[] = 'cfs_input';
-    return $classes;
 }
