@@ -1,0 +1,427 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"POT-Creation-Date: 2013-01-25 14:41:30+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-01-31 19:11+0100\n"
+"Last-Translator: Jean-Christophe Brebion <pro@jcbrebion.com>\n"
+"Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: French\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: cfs.php:87 cfs.php:375
+msgid "Field Groups"
+msgstr "CFS"
+
+#: cfs.php:88
+msgid "Field Group"
+msgstr "Groupe de champs"
+
+#: cfs.php:89
+msgid "Add New"
+msgstr "Ajouter un nouveau"
+
+#: cfs.php:90
+msgid "Add New Field Group"
+msgstr "Ajouter un nouveau groupe de champs"
+
+#: cfs.php:91
+msgid "Edit Field Group"
+msgstr "Modifier le groupe de champs"
+
+#: cfs.php:92
+msgid "New Field Group"
+msgstr "Nouveau groupe de champs"
+
+#: cfs.php:93
+msgid "View Field Group"
+msgstr "Voir le groupe de champs"
+
+#: cfs.php:94
+msgid "Search Field Groups"
+msgstr "Recherche d'un groupe de champs"
+
+#: cfs.php:95
+msgid "No Field Groups found"
+msgstr "Aucun groupe de champs trouvé"
+
+#: cfs.php:96
+msgid "No Field Groups found in Trash"
+msgstr "Aucun groupe de champs trouvé dans la corbeille"
+
+#: cfs.php:126
+msgid "Title"
+msgstr "Titre"
+
+#: cfs.php:358
+msgid "Fields"
+msgstr "Champs"
+
+#: cfs.php:359
+msgid "Placement Rules"
+msgstr "Règles d'affichage"
+
+#: cfs.php:360
+msgid "Extras"
+msgstr "Extras"
+
+#: cfs.php:376
+msgid "Tools"
+msgstr "Outils"
+
+#: cfs.php:377
+msgid "Add-ons"
+msgstr "Add-ons"
+
+#: core/admin/admin_footer.php:67
+msgid "Custom Field Suite"
+msgstr "Custom Field Suite"
+
+#: core/admin/admin_footer.php:71
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#: core/admin/admin_footer.php:72
+msgid "User Guide"
+msgstr "Guide utilisateur"
+
+#: core/admin/admin_footer.php:73
+msgid "Changelog"
+msgstr "Notes de version"
+
+#: core/admin/admin_footer.php:78
+msgid "Donate"
+msgstr "Faire un don"
+
+#: core/admin/admin_footer.php:79
+msgid "Rate the plugin"
+msgstr "Noter le plugin"
+
+#: core/admin/field_html.php:30
+msgid "Label"
+msgstr "Intitulé"
+
+#: core/admin/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "L'intitulé du champ, visible par les utilisateurs."
+
+#: core/admin/field_html.php:39
+msgid "Name"
+msgstr "Nom"
+
+#: core/admin/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"Le nom du champ qui sera passé dans get() afin de récupérer ses valeurs. "
+"Seules les lettres minuscules, les chiffres ou le caractère de soulignement "
+"sont autorisés."
+
+#: core/admin/field_html.php:49
+msgid "Field Type"
+msgstr "Type de champ"
+
+#: core/admin/field_html.php:67
+msgid "Notes"
+msgstr "Instructions"
+
+#: core/admin/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Instructions destinées aux utilisateurs lors du remplissage du champ."
+
+#: core/admin/field_html.php:82
+msgid "Close"
+msgstr "Fermer"
+
+#: core/admin/field_html.php:83
+msgid "or"
+msgstr "ou"
+
+#: core/admin/field_html.php:83
+msgid "delete"
+msgstr "supprimer"
+
+#: core/admin/meta_box_extras.php:39
+msgid "Content Editor"
+msgstr "Éditeur visuel (WYSIWYG)"
+
+#: core/admin/meta_box_extras.php:48
+msgid "Hide the content editor"
+msgstr "Masquer l'éditeur visuel (WYSIWYG)"
+
+#: core/admin/meta_box_extras.php:55
+msgid "Gravity Forms Integration"
+msgstr "Intégration avec Gravity Forms"
+
+#: core/admin/meta_box_extras.php:75
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr ""
+"Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
+"parfaitement"
+
+#: core/admin/meta_box_extras.php:79
+msgid "Please install"
+msgstr "Veuillez installer"
+
+#: core/admin/meta_box_extras.php:79
+msgid "to use this feature"
+msgstr "pour utiliser cette fonctionnalité"
+
+#: core/admin/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Ajouter un nouveau champ"
+
+#: core/admin/meta_box_rules.php:5
+msgid "equals"
+msgstr "est"
+
+#: core/admin/meta_box_rules.php:6
+msgid "is not"
+msgstr "n'est pas"
+
+#: core/admin/meta_box_rules.php:82 core/admin/meta_box_rules.php:87
+msgid "Leave blank to skip this rule"
+msgstr "Laisser vide pour ignorer cette règle"
+
+#: core/admin/meta_box_rules.php:120 core/fields/relationship.php:89
+msgid "Post Types"
+msgstr "Types de contenu"
+
+#: core/admin/meta_box_rules.php:152
+msgid "User Roles"
+msgstr "Rôles utilisateur"
+
+#: core/admin/meta_box_rules.php:184
+msgid "Posts"
+msgstr "Articles"
+
+#: core/admin/meta_box_rules.php:208
+msgid "Taxonomy Terms"
+msgstr "Termes de taxonomie"
+
+#: core/admin/meta_box_rules.php:240
+msgid "Page Template"
+msgstr "Modèle de page"
+
+#: core/admin/page_tools.php:78 core/admin/page_tools.php:101
+msgid "Export"
+msgstr "Exporter"
+
+#: core/admin/page_tools.php:79 core/admin/page_tools.php:126
+msgid "Import"
+msgstr "Importer"
+
+#: core/admin/page_tools.php:80
+msgid "Debug"
+msgstr "Débuggage"
+
+#: core/admin/page_tools.php:81
+msgid "Reset"
+msgstr "Remettre à zéro"
+
+#: core/admin/page_tools.php:89
+msgid "Which field groups would you like to export?"
+msgstr "Quels groupes de champs souhaitez-vous exporter?"
+
+#: core/admin/page_tools.php:118
+msgid "Paste the import code below."
+msgstr "Veuillez coller le code d'import ci-dessous."
+
+#: core/admin/page_tools.php:139
+msgid "Debug information"
+msgstr "Informations de débuggage"
+
+#: core/admin/page_tools.php:164
+msgid "Reset and deactivate."
+msgstr "Remettre à zéro et désactiver."
+
+#: core/admin/page_tools.php:165
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr ""
+"Toutes les données de CFS seront supprimées et le plugin sera désactivé."
+
+#: core/admin/page_tools.php:166
+msgid "Delete everything"
+msgstr "Supprimer tout"
+
+#: core/classes/ajax.php:156
+msgid "Imported"
+msgstr "Importé"
+
+#: core/classes/ajax.php:160
+msgid "Skipped"
+msgstr "Ignoré"
+
+#: core/classes/ajax.php:166
+msgid "Nothing to import"
+msgstr "Rien à importer"
+
+#: core/classes/field.php:21 core/fields/text.php:9
+msgid "Text"
+msgstr "Texte"
+
+#: core/classes/field.php:57 core/fields/file.php:77
+#: core/fields/relationship.php:105 core/fields/select.php:125
+#: core/fields/text.php:32 core/fields/textarea.php:60
+#: core/fields/true_false.php:43
+msgid "Validation"
+msgstr "Validation"
+
+#: core/classes/field.php:66 core/fields/file.php:86
+#: core/fields/relationship.php:114 core/fields/select.php:134
+#: core/fields/text.php:41 core/fields/textarea.php:69
+#: core/fields/true_false.php:52
+msgid "This is a required field"
+msgstr "Ce champ est obligatoire"
+
+#: core/fields/color/color.php:9
+msgid "Color"
+msgstr "Couleur"
+
+#: core/fields/date/date.php:9
+msgid "Date"
+msgstr "Date"
+
+#: core/fields/file.php:9
+msgid "File Upload"
+msgstr "Fichier"
+
+#: core/fields/file.php:45
+msgid "Add File"
+msgstr "Ajouter un fichier"
+
+#: core/fields/file.php:46
+msgid "Remove"
+msgstr "Retirer"
+
+#: core/fields/file.php:56
+msgid "Return Value"
+msgstr "Valeur de retour"
+
+#: core/fields/file.php:65
+msgid "File URL"
+msgstr "URL du fichier"
+
+#: core/fields/file.php:66
+msgid "Attachment ID"
+msgstr "ID du fichier attaché"
+
+#: core/fields/file.php:120
+msgid "Use This File"
+msgstr "Utiliser ce fichier"
+
+#: core/fields/file.php:176
+msgid "Attach file"
+msgstr "Attacher le fichier"
+
+#: core/fields/loop.php:9
+msgid "Loop"
+msgstr "Boucle"
+
+#: core/fields/loop.php:36
+msgid "Row Display"
+msgstr "Affichage de la rangée"
+
+#: core/fields/loop.php:45
+msgid "Show the values by default"
+msgstr "Afficher les valeurs par défaut"
+
+#: core/fields/loop.php:52
+msgid "Row Label"
+msgstr "Intitulé de la rangée"
+
+#: core/fields/loop.php:59 core/fields/loop.php:89 core/fields/loop.php:190
+msgid "Loop Row"
+msgstr "Rangée sans nom"
+
+#: core/fields/loop.php:66
+msgid "Button Label"
+msgstr "Intitulé du bouton"
+
+#: core/fields/loop.php:73 core/fields/loop.php:116 core/fields/loop.php:191
+msgid "Add Row"
+msgstr "Ajouter une rangée"
+
+#: core/fields/relationship.php:9
+msgid "Relationship"
+msgstr "Relation"
+
+#: core/fields/relationship.php:90
+msgid "Limit posts to the following types"
+msgstr "Limiter les articles aux types suivants"
+
+#: core/fields/select.php:9
+msgid "Select"
+msgstr "Liste déroulante"
+
+#: core/fields/select.php:94
+msgid "Choices"
+msgstr "Choix"
+
+#: core/fields/select.php:95
+msgid "Enter one choice per line"
+msgstr "Veuillez entrer un choix par ligne"
+
+#: core/fields/select.php:109
+msgid "Multi-select?"
+msgstr "Sélection multiple?"
+
+#: core/fields/select.php:118
+msgid "This is a multi-select field"
+msgstr "Ceci est un champ de sélection multiple."
+
+#: core/fields/text.php:18 core/fields/textarea.php:25
+msgid "Default Value"
+msgstr "Valeur par défaut"
+
+#: core/fields/textarea.php:9
+msgid "Textarea"
+msgstr "Zone de texte"
+
+#: core/fields/textarea.php:39 core/fields/wysiwyg.php:34
+msgid "Formatting"
+msgstr "Formatage"
+
+#: core/fields/textarea.php:48
+msgid "None"
+msgstr "Aucun"
+
+#: core/fields/textarea.php:49
+msgid "Convert newlines to <br />"
+msgstr "Convertir les sauts de ligne en <br />"
+
+#: core/fields/true_false.php:9
+msgid "True / False"
+msgstr "Vrai / Faux"
+
+#: core/fields/true_false.php:28
+msgid "Message"
+msgstr "Message"
+
+#: core/fields/true_false.php:29
+msgid "The text beside the checkbox"
+msgstr "Texte associé à la case à cocher"
+
+#: core/fields/user.php:9
+msgid "User"
+msgstr "Utilisateur"
+
+#: core/fields/wysiwyg.php:9
+msgid "Wysiwyg Editor"
+msgstr "Éditeur WYSIWYG"
+
+#: core/fields/wysiwyg.php:43
+msgid "Default"
+msgstr "Défault"
+
+#: core/fields/wysiwyg.php:44
+msgid "None (bypass filters)"
+msgstr "Aucun (ignorer les filtres)"
