@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 1.8.4.1
+Version: 1.8.5
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL2
@@ -18,6 +18,7 @@ class cfs
     public $version;
     public $used_types;
     public $fields;
+    public $form;
     public $api;
 
     /*--------------------------------------------------------------------------------------
@@ -31,7 +32,7 @@ class cfs
 
     function __construct()
     {
-        $this->version = '1.8.4.1';
+        $this->version = '1.8.5';
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
         $this->used_types = array();
@@ -39,10 +40,12 @@ class cfs
         include($this->dir . '/core/classes/api.php');
         include($this->dir . '/core/classes/upgrade.php');
         include($this->dir . '/core/classes/field.php');
+        include($this->dir . '/core/classes/form.php');
         include($this->dir . '/core/classes/third_party.php');
 
         // load classes
         $this->api = new cfs_api($this);
+        $this->form = new cfs_form($this);
         $this->third_party = new cfs_third_party($this);
 
         // add actions
@@ -287,6 +290,25 @@ class cfs
     function save($field_data = array(), $post_data = array(), $options = array())
     {
         return $this->api->save_fields($field_data, $post_data, $options);
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    display a front-end form
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.5
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function form($params = array())
+    {
+        ob_start();
+
+        $this->form->render($params);
+
+        return ob_get_clean();
     }
 
 

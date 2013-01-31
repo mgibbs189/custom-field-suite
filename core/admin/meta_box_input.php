@@ -3,66 +3,6 @@
 // Passed from add_meta_box
 $group_id = $metabox['args']['group_id'];
 
-$input_fields = $this->api->get_input_fields(array('group_id' => $group_id));
-?>
-
-<input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
-<input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
-
-<?php
-// Add any necessary head scripts
-foreach ($input_fields as $key => $field)
-{
-    if (!isset($this->used_types[$field->type]))
-    {
-        $this->fields[$field->type]->input_head($field);
-        $this->used_types[$field->type] = true;
-    }
-
-    // Ignore sub-fields
-    if (1 > (int) $field->parent_id)
-    {
-        $validator = '';
-
-        if (isset($field->options['required']) && 0 < (int) $field->options['required'])
-        {
-            if ('date' == $field->type)
-            {
-                $validator = 'valid_date';
-            }
-            elseif ('color' == $field->type)
-            {
-                $validator = 'valid_color';
-            }
-            else
-            {
-                $validator = 'required';
-            }
-        }
-?>
-<div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
-    <?php if (!empty($field->label)) : ?>
-    <label><?php echo $field->label; ?></label>
-    <?php endif; ?>
-
-    <?php if (!empty($field->notes)) : ?>
-    <p class="notes"><?php echo $field->notes; ?></p>
-    <?php endif; ?>
-
-    <div class="cfs_<?php echo $field->type; ?>">
-    <?php
-        $this->create_field(array(
-            'id' => $field->id,
-            'group_id' => $group_id,
-            'type' => $field->type,
-            'input_name' => "cfs[input][$field->id][value]",
-            'input_class' => $field->type,
-            'options' => $field->options,
-            'value' => $field->value,
-        ));
-    ?>
-    </div>
-</div>
-<?php
-    }
-}
+$this->form->render(
+    array('front_end' => false, 'group_id' => $group_id)
+);

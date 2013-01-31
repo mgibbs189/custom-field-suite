@@ -66,21 +66,6 @@ else
 
     if (!empty($field_group_ids))
     {
-?>
-
-<link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/input.css" />
-<script>
-var CFS = {
-    'validators': {},
-    'get_field_value': {},
-    'loop_buffer': []
-};
-</script>
-<script src="<?php echo $this->url; ?>/js/validation.js"></script>
-<?php
-        // Add custom validators
-        do_action('cfs_custom_validation');
-
         // Support for multiple metaboxes
         foreach ($field_group_ids as $group_id => $title)
         {
@@ -91,7 +76,8 @@ var CFS = {
                 $hide_editor = true;
             }
 
-            add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, 'normal', 'high', array('box' => 'input', 'group_id' => $group_id));
+            $args = array('box' => 'input', 'group_id' => $group_id);
+            add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, 'normal', 'high', $args);
 
             // Add .cfs_input to the metabox CSS
             add_filter("postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'cfs_postbox_classes');
@@ -103,11 +89,7 @@ var CFS = {
 
         if (!$has_editor || $hide_editor)
         {
-?>
-
-<style type="text/css">#poststuff .postarea { display: none; }</style>
-
-<?php
+            echo '<style type="text/css">#poststuff .postarea { display: none; }</style>';
         }
     }
 }

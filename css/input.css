@@ -20,8 +20,9 @@
 }
 
 .cfs_input .field label {
+    font-size: 16px;
     font-weight: bold;
-    padding: 0 0 6px 0;
+    padding: 0 0 10px 0;
     cursor: default;
     display: block;
 }
@@ -30,6 +31,21 @@
     margin: 0 0 6px 0;
     font-size: 11px;
     color: #999;
+}
+
+.cfs_input.no_box {
+    background: none;
+    border: none;
+}
+
+.cfs_input.no_box .hndle,
+.cfs_input.no_box .handlediv {
+    display: none;
+}
+
+.cfs_input.no_box .field {
+    padding: 10px 0;
+    border: none;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -214,10 +230,6 @@
     background-image: -webkit-gradient(linear,left top,left bottom,from(#F9F9F9),to(#ECECEC));
     cursor: pointer;
     padding: 5px;
-}
-
-.cfs_loop .label {
-    font-weight: bold;
 }
 
 .cfs_loop .notes {
