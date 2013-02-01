@@ -17,6 +17,7 @@ class cfs
     public $url;
     public $version;
     public $used_types;
+    public $field_group;
     public $fields;
     public $form;
     public $api;
@@ -40,12 +41,14 @@ class cfs
         include($this->dir . '/core/classes/api.php');
         include($this->dir . '/core/classes/upgrade.php');
         include($this->dir . '/core/classes/field.php');
+        include($this->dir . '/core/classes/field_group.php');
         include($this->dir . '/core/classes/form.php');
         include($this->dir . '/core/classes/third_party.php');
 
         // load classes
         $this->api = new cfs_api($this);
         $this->form = new cfs_form($this);
+        $this->field_group = new cfs_field_group($this);
         $this->third_party = new cfs_third_party($this);
 
         // add actions
@@ -542,11 +545,11 @@ class cfs
                 $options = array(
                     'import_code' => json_decode(stripslashes($_POST['import_code']), true),
                 );
-                echo $ajax->import($options);
+                echo $this->field_group->import($options);
             }
             elseif ('export' == $ajax_method)
             {
-                echo json_encode($ajax->export($_POST));
+                echo json_encode($this->field_group->export($_POST));
             }
             elseif ('reset' == $ajax_method)
             {

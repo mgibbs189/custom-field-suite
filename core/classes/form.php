@@ -126,9 +126,10 @@ var CFS = {
         if (false !== $params['front_end'])
         {
     ?>
-        <div class="cfs_input no_box">
-        <form id="post" method="post" action="">
-            <div style="display:none"><textarea id="evilwysiwyg"></textarea></div>
+
+<div class="cfs_input no_box">
+    <form id="post" method="post" action="">
+
     <?php
         }
     ?>
@@ -167,6 +168,7 @@ var CFS = {
                     }
                 }
     ?>
+
         <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
             <?php if (!empty($field->label)) : ?>
             <label><?php echo $field->label; ?></label>
@@ -177,6 +179,7 @@ var CFS = {
             <?php endif; ?>
 
             <div class="cfs_<?php echo $field->type; ?>">
+
     <?php
                 $this->parent->create_field(array(
                     'id' => $field->id,
@@ -188,8 +191,10 @@ var CFS = {
                     'value' => $field->value,
                 ));
     ?>
+
             </div>
         </div>
+
     <?php
             }
         }
@@ -197,11 +202,13 @@ var CFS = {
         if (false !== $params['front_end'])
         {
     ?>
+
         <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
         <input type="hidden" name="cfs[public]" value="1" />
         <input type="submit" value="Submit" />
-        </form>
-        </div>
+    </form>
+</div>
+
     <?php
         }
     }
