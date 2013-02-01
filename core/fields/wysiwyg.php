@@ -65,28 +65,18 @@ class cfs_wysiwyg extends cfs_field
 
             $(function() {
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
-                    handle_wysiwyg();
+                    $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
+                $('.cfs_wysiwyg').init_wysiwyg();
 
-                // TinyMCE hates hidden containers (e.g. loops)
+                // TinyMCE hates hidden containers
                 $(document).on('click', '.cfs_loop_head', function() {
-                    handle_wysiwyg();
-                });
-
-                function handle_wysiwyg() {
-                    $('.cfs_wysiwyg:not(.ready)').each(function() {
-                        if (0 < $(this).closest('.cfs_loop_body').length) {
-                            if ($(this).closest('.cfs_loop_body').hasClass('open')) {
-                                $(this).init_wysiwyg();
-                            }
-                        }
-                        else {
-                            $(this).init_wysiwyg();
-                        }
+                    $(this).siblings('.cfs_loop_body.open').find('.wysiwyg').each(function() {
+                        var id = $(this).attr('id');
+                        tinyMCE.execCommand('mceRemoveControl', false, id);
+                        tinyMCE.execCommand('mceAddControl', false, id);
                     });
-                }
-
-                handle_wysiwyg();
+                });
 
                 // Set the active editor
                 $(document).on('click', 'a.add_media', function() {
