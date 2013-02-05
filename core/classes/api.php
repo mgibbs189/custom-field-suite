@@ -459,9 +459,6 @@ class cfs_api
             }
         }
 
-        // Sort by field weight
-        //$output = $this->array_orderby($output, 'weight', SORT_NUMERIC);
-
         return $output;
     }
 

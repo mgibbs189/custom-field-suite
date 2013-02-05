@@ -5,14 +5,8 @@ global $post, $wpdb;
 /*---------------------------------------------------------------------------------------------
     Field management screen
 ---------------------------------------------------------------------------------------------*/
-?>
 
-<script src="<?php echo $this->url; ?>/js/tipTip/jquery.tipTip.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/tipTip/tipTip.css" />
-
-<?php
-
-if ('cfs' == $GLOBALS['post_type'])
+if ('cfs' == $screen->post_type)
 {
     foreach ($this->fields as $field_name => $field_data)
     {
@@ -49,8 +43,10 @@ var CFS = {
 </script>
 <script src="<?php echo $this->url; ?>/js/fields.js"></script>
 <script src="<?php echo $this->url; ?>/js/select2/select2.min.js"></script>
+<script src="<?php echo $this->url; ?>/js/tipTip/jquery.tipTip.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/css/fields.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/select2/select2.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->url; ?>/js/tipTip/tipTip.css" />
 
 <?php
 }

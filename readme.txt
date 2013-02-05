@@ -55,6 +55,7 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 * Added French translation (props @jcbrebion)
 * Bugfix: PHP 5.3.x array_multisort warning
 * Bugfix: WYSIWYG height within hidden container (e.g. loop)
+* Bugfix: Error handling for missing field types
 * Cleaned up admin-head.php
 
 = 1.8.4.1 =

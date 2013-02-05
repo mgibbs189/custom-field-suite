@@ -17,6 +17,12 @@ $last_level = $diff = 0;
 
 foreach ($results as $field)
 {
+    // Skip missing field types
+    if (!isset($this->fields[$field->type]))
+    {
+        continue;
+    }
+
     $level = 0;
     if (0 < (int) $field->parent_id)
     {

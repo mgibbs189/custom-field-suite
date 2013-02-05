@@ -326,7 +326,9 @@ class cfs
 
     function admin_head()
     {
-        if (in_array($GLOBALS['pagenow'], array('post.php', 'post-new.php')))
+        $screen = get_current_screen();
+
+        if ('post' == $screen->base)
         {
             include($this->dir . '/core/admin/admin_head.php');
         }
@@ -344,7 +346,9 @@ class cfs
 
     function admin_footer()
     {
-        if (isset($GLOBALS['post_type']) && 'cfs' == $GLOBALS['post_type'] && 'edit.php' == $GLOBALS['pagenow'])
+        $screen = get_current_screen();
+
+        if ('edit' == $screen->base && 'cfs' == $screen->post_type)
         {
             include($this->dir . '/core/admin/admin_footer.php');
         }
@@ -423,15 +427,6 @@ class cfs
                 'rules' => $rules,
                 'extras' => $extras,
             ));
-        }
-        elseif (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
-        {
-            $field_groups = isset($_POST['cfs']['field_groups']) ? $_POST['cfs']['field_groups'] : array();
-            $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
-            $post_data = array('ID' => $_POST['ID']);
-            $options = array('format' => 'input', 'field_groups' => $field_groups);
-
-            $this->save($field_data, $post_data, $options);
         }
     }
 

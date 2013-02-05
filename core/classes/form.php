@@ -3,8 +3,6 @@
 class cfs_form
 {
     public $parent;
-    public $assets_loaded;
-    public $nonce;
 
     /*--------------------------------------------------------------------------------------
     *
@@ -18,9 +16,10 @@ class cfs_form
     public function __construct($parent)
     {
         $this->parent = $parent;
-        $this->assets_loaded = false;
 
-        add_action('init', array($this, 'init'), 12); // make sure it loads after CFS
+        add_action('init', array($this, 'init'), 12); // load after CFS
+        add_action('wp_head', array($this, 'load_assets'));
+        add_action('admin_head', array($this, 'load_assets'));
     }
 
 
@@ -35,7 +34,7 @@ class cfs_form
 
     public function init()
     {
-        if (isset($_POST['cfs']['public']) && isset($_POST['cfs']['save']))
+        if (isset($_POST['cfs']['save']))
         {
             if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
             {
@@ -45,14 +44,13 @@ class cfs_form
                 $options = array('format' => 'input', 'field_groups' => $field_groups);
                 $this->parent->save($field_data, $post_data, $options);
 
-                header('Location: ' . $_SERVER['REQUEST_URI']);
-                exit;
+                if (isset($_POST['cfs']['public']))
+                {
+                    header('Location: ' . $_SERVER['REQUEST_URI']);
+                    exit;
+                }
             }
         }
-
-        $this->nonce = wp_create_nonce('cfs_save_input');
-
-        //wp_enqueue_script('jquery');
     }
 
 
@@ -67,12 +65,13 @@ class cfs_form
 
     public function load_assets()
     {
-        if ($this->assets_loaded)
-        {
-            return;
-        }
-
-        $this->assets_loaded = true;
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery-ui-core');
+        wp_enqueue_script('jquery-ui-sortable');
+        wp_enqueue_script('cfs-validation', $this->parent->url . '/js/validation.js');
+        wp_enqueue_script('tiptip', $this->parent->url . '/js/tipTip/jquery.tipTip.js');
+        wp_enqueue_style('tiptip', $this->parent->url . '/js/tipTip/tipTip.css');
+        wp_enqueue_style('cfs-input', $this->parent->url . '/css/input.css');
     ?>
 
 <script>
@@ -82,13 +81,9 @@ var CFS = {
     'loop_buffer': []
 };
 </script>
-<script src="<?php echo $this->parent->url; ?>/js/validation.js"></script>
-<script src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/css/input.css" />
 
     <?php
-        // Add custom validators
+
         do_action('cfs_custom_validation');
     }
 
@@ -115,8 +110,6 @@ var CFS = {
             'post_status' => 'draft', // add
         );
 
-        $this->load_assets();
-
         $params = array_merge($defaults, $params);
 
         $group_id = (int) $params['group_id'];
@@ -132,15 +125,16 @@ var CFS = {
 
     <?php
         }
-    ?>
 
-        <input type="hidden" name="cfs[save]" value="<?php echo $this->nonce; ?>" />
-        <input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
-
-    <?php
         // Add any necessary head scripts
         foreach ($input_fields as $key => $field)
         {
+            // Skip missing field types
+            if (!isset($this->parent->fields[$field->type]))
+            {
+                continue;
+            }
+
             if (!isset($this->parent->used_types[$field->type]))
             {
                 $this->parent->fields[$field->type]->input_head($field);
@@ -198,12 +192,17 @@ var CFS = {
     <?php
             }
         }
+    ?>
 
+        <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
+        <input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
+        <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
+
+    <?php
         if (false !== $params['front_end'])
         {
     ?>
 
-        <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
         <input type="hidden" name="cfs[public]" value="1" />
         <input type="submit" value="Submit" />
     </form>
