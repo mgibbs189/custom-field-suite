@@ -3,6 +3,8 @@
 class cfs_form
 {
     public $parent;
+    public $used_types;
+    public $assets_loaded;
 
     /*--------------------------------------------------------------------------------------
     *
@@ -16,10 +18,10 @@ class cfs_form
     public function __construct($parent)
     {
         $this->parent = $parent;
+        $this->used_types = array();
+        $this->assets_loaded = false;
 
         add_action('init', array($this, 'init'), 12); // load after CFS
-        add_action('wp_head', array($this, 'load_assets'));
-        add_action('admin_head', array($this, 'load_assets'));
     }
 
 
@@ -65,6 +67,13 @@ class cfs_form
 
     public function load_assets()
     {
+        if ($this->assets_loaded)
+        {
+            return;
+        }
+
+        $this->assets_loaded = true;
+
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');
@@ -135,10 +144,10 @@ var CFS = {
                 continue;
             }
 
-            if (!isset($this->parent->used_types[$field->type]))
+            if (!isset($this->used_types[$field->type]))
             {
                 $this->parent->fields[$field->type]->input_head($field);
-                $this->parent->used_types[$field->type] = true;
+                $this->used_types[$field->type] = true;
             }
 
             // Ignore sub-fields

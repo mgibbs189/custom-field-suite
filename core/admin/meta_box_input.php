@@ -1,8 +1,8 @@
 <?php
 
-// Passed from add_meta_box
-$group_id = $metabox['args']['group_id'];
+$this->form->load_assets();
 
-echo $this->form(
-    array('front_end' => false, 'group_id' => $group_id)
-);
+echo $this->form(array(
+    'group_id' => $metabox['args']['group_id'],
+    'front_end' => false,
+));

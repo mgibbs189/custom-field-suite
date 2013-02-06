@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 1.8.4.2
+Version: 1.8.5
 Author: Matt Gibbs
 Author URI: http://uproot.us/
 License: GPL2
@@ -16,7 +16,6 @@ class cfs
     public $dir;
     public $url;
     public $version;
-    public $used_types;
     public $field_group;
     public $fields;
     public $form;
@@ -33,10 +32,9 @@ class cfs
 
     function __construct()
     {
-        $this->version = '1.8.4.2';
+        $this->version = '1.8.5';
         $this->dir = (string) dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
-        $this->used_types = array();
 
         include($this->dir . '/core/classes/api.php');
         include($this->dir . '/core/classes/upgrade.php');
