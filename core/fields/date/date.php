@@ -8,20 +8,11 @@ class cfs_date extends cfs_field
         $this->name = 'date';
         $this->label = __('Date', 'cfs');
         $this->parent = $parent;
-
-        // Include necessary scripts
-        if (in_array($GLOBALS['pagenow'], array('post.php', 'post-new.php')))
-        {
-            wp_register_script('jquery-ui-timepicker', $this->parent->url . '/core/fields/date/jquery.ui.timepicker.js',
-                array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider')
-            );
-
-            wp_enqueue_script('jquery-ui-timepicker');
-        }
     }
 
     function input_head()
     {
+        $this->load_assets();
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/date/date.css" />
         <script>
@@ -37,5 +28,14 @@ class cfs_date extends cfs_field
         })(jQuery);
         </script>
     <?php
+    }
+
+    function load_assets()
+    {
+        wp_register_script('jquery-ui-timepicker', $this->parent->url . '/core/fields/date/jquery.ui.timepicker.js',
+            array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider')
+        );
+
+        wp_enqueue_script('jquery-ui-timepicker');
     }
 }
