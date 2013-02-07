@@ -112,11 +112,11 @@ var CFS = {
 
         $defaults = array(
             'group_id' => false, // add
-            'group_title' => false, // add
+            //'group_title' => false, // add
             'front_end' => true,
-            'post_id' => false, // edit
-            'post_type' => 'post', // add
-            'post_status' => 'draft', // add
+            //'post_id' => false, // edit
+            //'post_type' => 'post', // add
+            //'post_status' => 'draft', // add
         );
 
         $params = array_merge($defaults, $params);
