@@ -33,7 +33,7 @@ class cfs
     function __construct()
     {
         $this->version = '1.8.5';
-        $this->dir = (string) dirname(__FILE__);
+        $this->dir = dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
 
         include($this->dir . '/core/classes/api.php');
