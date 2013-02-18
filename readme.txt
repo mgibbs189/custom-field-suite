@@ -49,6 +49,10 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 
 == Changelog ==
 
+= 1.8.6 =
+* Bugfix: CFS forced wysiwyg in "html" mode
+* Bugfix: javascript error for file uploads without thumbnails
+
 = 1.8.5 =
 * Front-end forms
 * 3.5 media uploader support (props @jchristopher)

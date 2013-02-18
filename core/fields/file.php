@@ -11,7 +11,7 @@ class cfs_file extends cfs_field
         $this->parent = $parent;
         $this->new_media = version_compare(get_bloginfo('version'), '3.5', '>=');
 
-        // These hooks are required for WP 3.5+
+        // These hooks are required for WP < 3.5
         // https://github.com/thomasgriffin/New-Media-Image-Uploader
         if (!$this->new_media)
         {
@@ -205,7 +205,11 @@ class cfs_file extends cfs_field
                     cfs_media_frame.on('select', function() {
                         var attachment = cfs_media_frame.state().get('selection').first().toJSON();
                         if ('image' == attachment.type) {
-                            file_url = '<img src="' + attachment.sizes.thumbnail.url + '" />';
+                            file_url = attachment.sizes.full.url;
+                            if ('undefined' != typeof attachment.sizes.thumbnail) {
+                                file_url = attachment.sizes.thumbnail.url;
+                            }
+                            file_url = '<img src="' + file_url + '" />';
                         }
                         else {
                             file_url = '<a href="' + attachment.url + '" target="_blank">' + attachment.filename + '</a>';
