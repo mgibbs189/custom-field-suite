@@ -68,6 +68,8 @@ class cfs_wysiwyg extends cfs_field
     ?>
         <script>
         (function($) {
+
+            var wpautop = true;
             var wysiwyg_count = 0;
 
             $(function() {
@@ -75,15 +77,6 @@ class cfs_wysiwyg extends cfs_field
                     $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
-
-                // TinyMCE hates hidden containers
-                $(document).on('click', '.cfs_loop_head', function() {
-                    $(this).siblings('.cfs_loop_body.open').find('.wysiwyg').each(function() {
-                        var id = $(this).attr('id');
-                        tinyMCE.execCommand('mceRemoveControl', false, id);
-                        tinyMCE.execCommand('mceAddControl', false, id);
-                    });
-                });
 
                 // Set the active editor
                 $(document).on('click', 'a.add_media', function() {
@@ -99,29 +92,33 @@ class cfs_wysiwyg extends cfs_field
                     // generate css id
                     wysiwyg_count = wysiwyg_count + 1;
                     var input_id = 'cfs_wysiwyg_' + wysiwyg_count;
+
+                    // set the wysiwyg css id
                     $(this).find('.wysiwyg').attr('id', input_id);
 
                     // WP 3.5+
                     $(this).find('a.add_media').attr('data-editor', input_id);
 
                     // create wysiwyg
+                    tinyMCE.settings.wpautop = false;
                     tinyMCE.settings.theme_advanced_buttons2 += ',code';
                     tinyMCE.execCommand('mceAddControl', false, input_id);
+                    tinyMCE.settings.wpautop = wpautop;
                 });
             };
 
             $(document).on('cfs/sortable_start', function(event, ui) {
+                tinyMCE.settings.wpautop = false;
                 $(ui).find('.wysiwyg').each(function() {
-                    var id = $(this).attr('id');
-                    tinyMCE.execCommand('mceRemoveControl', false, id);
+                    tinyMCE.execCommand('mceRemoveControl', false, $(this).attr('id'));
                 });
             });
 
             $(document).on('cfs/sortable_stop', function(event, ui) {
                 $(ui).find('.wysiwyg').each(function() {
-                    var id = $(this).attr('id');
-                    tinyMCE.execCommand('mceAddControl', false, id);
+                    tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
                 });
+                tinyMCE.settings.wpautop = wpautop;
             });
         })(jQuery);
         </script>
