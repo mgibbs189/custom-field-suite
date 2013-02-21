@@ -9,10 +9,7 @@ class cfs_wysiwyg extends cfs_field
         $this->label = __('Wysiwyg Editor', 'cfs');
         $this->parent = $parent;
 
-        if (version_compare(get_bloginfo('version'), '3.5', '<'))
-        {
-            add_filter('wp_default_editor', array($this, 'wp_default_editor'));
-        }
+        add_filter('wp_default_editor', array($this, 'wp_default_editor'));
     }
 
     function html($field)
