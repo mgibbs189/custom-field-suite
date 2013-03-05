@@ -222,6 +222,16 @@
     padding: 6px 0;
 }
 
+.cfs_input .cfs_loop_toggle {
+    float: right;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 6px;
+    background: url(../images/icon-toggle.png) no-repeat;
+}
+
 .cfs_loop .loop_wrapper {
     border: 1px solid #dfdfdf;
     border-radius: 3px;

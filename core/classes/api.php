@@ -261,6 +261,10 @@ class cfs_api
             $field_name = implode("','", (array) $options['field_name']);
             $where .= " AND m.meta_key IN ('$field_name')";
         }
+        if (isset($options['field_type']))
+        {
+            $field_type = $options['field_type'];
+        }
         if (isset($options['post_type']))
         {
             $post_type = implode("','", (array) $options['post_type']);
@@ -272,8 +276,9 @@ class cfs_api
             $where .= " AND p.post_status IN ('$post_status')";
         }
 
-        // Limit to relationship fields
-        $results = $this->find_input_fields(array('field_type' => 'relationship'));
+        // Limit to specific field types
+        $field_type = empty($field_type) ? 'relationship' : $field_type;
+        $results = $this->find_input_fields(array('field_type' => $field_type));
         if (!empty($results))
         {
             $field_ids = array();

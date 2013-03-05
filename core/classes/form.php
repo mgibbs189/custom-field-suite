@@ -111,12 +111,15 @@ var CFS = {
         global $post;
 
         $defaults = array(
-            'group_id' => false, // add
-            //'group_title' => false, // add
+            'group_id' => false,
+            'group_title' => false,
+            'post_id' => false,
+            'post_title' => false,
+            'post_content' => false,
+            'post_status' => 'draft',
+            'post_type' => 'post',
+            'fields' => array(),
             'front_end' => true,
-            //'post_id' => false, // edit
-            //'post_type' => 'post', // add
-            //'post_status' => 'draft', // add
         );
 
         $params = array_merge($defaults, $params);
@@ -173,6 +176,10 @@ var CFS = {
     ?>
 
         <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
+            <?php if ('loop' == $field->type) : ?>
+            <span class="cfs_loop_toggle" title="Toggle row visibility"></span>
+            <?php endif; ?>
+
             <?php if (!empty($field->label)) : ?>
             <label><?php echo $field->label; ?></label>
             <?php endif; ?>
@@ -207,10 +214,7 @@ var CFS = {
         <input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
         <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
 
-    <?php
-        if (false !== $params['front_end'])
-        {
-    ?>
+        <?php if (false !== $params['front_end']) : ?>
 
         <input type="hidden" name="cfs[public]" value="1" />
         <input type="submit" value="Submit" />
@@ -218,6 +222,6 @@ var CFS = {
 </div>
 
     <?php
-        }
+        endif;
     }
 }
