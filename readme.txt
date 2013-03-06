@@ -53,6 +53,7 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 * Fixed newlines issue for sub-loop wysiwyg fields (props @jchristopher)
 * Ability to use `get_reverse_related` on custom field types
 * wysiwyg must be in "tinymce" mode for assets to load
+* Added toggle button to loop fields
 
 = 1.8.6 =
 * Bugfix: CFS forced wysiwyg in "html" mode
