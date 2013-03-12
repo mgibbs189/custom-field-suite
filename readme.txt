@@ -7,7 +7,7 @@ Tested up to: 3.6
 Stable tag: trunk
 License: GPL2
 
-Add custom fields to the edit screens of your choosing.
+Custom Field Suite (CFS) is a plugin for adding and managing custom fields.
 
 == Description ==
 
