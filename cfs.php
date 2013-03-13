@@ -59,6 +59,11 @@ class cfs
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
 
+        if (!is_admin())
+        {
+            add_action('parse_query', array($this, 'parse_query'));
+        }
+
         // add translations
         load_plugin_textdomain('cfs', false, 'custom-field-suite/languages');
     }
@@ -449,6 +454,26 @@ class cfs
         }
 
         return true;
+    }
+
+
+    /*--------------------------------------------------------------------------------------
+    *
+    *    parse_query
+    *
+    *    Make sure that $cfs is defined for template parts
+    *    get_template_part() -> locate_template() -> load_template()
+    *    load_template() extracts the $wp_query->query_vars array into variables,
+    *        so we want to force it to create $cfs too.
+    *
+    *    @author Matt Gibbs
+    *    @since 1.8.8
+    *
+    *-------------------------------------------------------------------------------------*/
+
+    function parse_query($wp_query)
+    {
+        $wp_query->query_vars['cfs'] = $this;
     }
 
 
