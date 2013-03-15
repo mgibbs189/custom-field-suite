@@ -1,13 +1,13 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
 Donate link: http://uproot.us/donate/
-Tags: custom fields, fields, postmeta, meta box, cck, wysiwyg, relationship, upload
+Tags: custom fields, fields, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
 Requires at least: 3.3
 Tested up to: 3.6
 Stable tag: trunk
 License: GPL2
 
-Custom Field Suite (CFS) is a plugin for adding and managing custom fields.
+Custom Field Suite (CFS) is a lightweight custom fields plugin for WordPress.
 
 == Description ==
 
@@ -48,6 +48,11 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.8.8 =
+* Re-added loop "Row Display" option
+* Ensuring that $cfs exists for template parts
+* Added `cfs_pre_render_fields` filter for altering field settings
 
 = 1.8.7 =
 * Fixed newlines issue for sub-loop wysiwyg fields (props @jchristopher)

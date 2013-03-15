@@ -431,7 +431,7 @@ class cfs_api
         // Cache the query (get fields)
         if (!isset($this->cache['cfs_fields'][$where]))
         {
-            $results = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
+            $results = $wpdb->get_results("SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = 'cfs_fields' $where");
             $this->cache['cfs_fields'][$where] = $results;
         }
         else
@@ -441,12 +441,17 @@ class cfs_api
 
         foreach ($results as $result)
         {
+            // Loop fields need the group ID
+            $group_id = (int) $result->post_id;
+
             $result = unserialize($result->meta_value);
 
             if (!empty($result))
             {
                 foreach ($result as $field)
                 {
+                    $field['group_id'] = $group_id;
+
                     if (empty($params->field_id) || in_array($field['id'], (array) $params->field_id))
                     {
                         if (empty($params->parent_id) || in_array($field['parent_id'], (array) $params->parent_id))
@@ -632,7 +637,7 @@ class cfs_api
         }
         else
         {
-            $post_id = $post_data['ID'];
+            $post_id = (int) $post_data['ID'];
 
             if (1 < count($post_data))
             {

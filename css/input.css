@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+    Container
+---------------------------------------------------------------------------------------------*/
+
 #poststuff .cfs_input .inside {
     margin: 0;
     padding: 0;
@@ -45,6 +49,13 @@
 .cfs_input.no_box .field {
     padding: 10px 0;
     border: none;
+}
+
+.cfs_input .error {
+    padding: 5px;
+    margin: 5px 0;
+    background: #ffebe8;
+    border: 1px solid #c00;
 }
 
 .hidden {
