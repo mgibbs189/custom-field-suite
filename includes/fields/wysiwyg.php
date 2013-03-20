@@ -66,7 +66,7 @@ class cfs_wysiwyg extends cfs_field
         <script>
         (function($) {
 
-            var wpautop = true;
+            var wpautop;
             var wysiwyg_count = 0;
 
             $(function() {
@@ -97,6 +97,8 @@ class cfs_wysiwyg extends cfs_field
                     $(this).find('a.add_media').attr('data-editor', input_id);
 
                     // create wysiwyg
+                    wpautop = tinyMCE.settings.wpautop;
+
                     tinyMCE.settings.wpautop = false;
                     tinyMCE.settings.theme_advanced_buttons2 += ',code';
                     tinyMCE.execCommand('mceAddControl', false, input_id);

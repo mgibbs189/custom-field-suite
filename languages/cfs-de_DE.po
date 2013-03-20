@@ -89,43 +89,43 @@ msgstr "Nichts zum importieren"
 msgid "No field groups selected"
 msgstr "Keine Felder-Gruppen ausgewählt"
 
-#: core/actions/admin_footer.php:67
+#: includes/actions/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr "Benutzerdefinierte Felder Suite"
 
-#: core/actions/admin_footer.php:71
+#: includes/actions/admin_footer.php:71
 msgid "Homepage"
 msgstr "Homepage"
 
-#: core/actions/admin_footer.php:72
+#: includes/actions/admin_footer.php:72
 msgid "User Guide"
 msgstr "Benutzerhandbuch"
 
-#: core/actions/admin_footer.php:73
+#: includes/actions/admin_footer.php:73
 msgid "Changelog"
 msgstr "Änderungsprotokoll"
 
-#: core/actions/admin_footer.php:78
+#: includes/actions/admin_footer.php:78
 msgid "Donate"
 msgstr "Spenden"
 
-#: core/actions/admin_footer.php:79
+#: includes/actions/admin_footer.php:79
 msgid "Rate the plugin"
 msgstr "Bewerte das Plugin"
 
-#: core/admin/field_html.php:30
+#: includes/admin/field_html.php:30
 msgid "Label"
 msgstr "Beschriftung"
 
-#: core/admin/field_html.php:32
+#: includes/admin/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "Die Beschriftung des Feldes, welche die Redakteure sehen."
 
-#: core/admin/field_html.php:39
+#: includes/admin/field_html.php:39
 msgid "Name"
 msgstr "Name"
 
-#: core/admin/field_html.php:42
+#: includes/admin/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -133,284 +133,284 @@ msgstr ""
 "Der Feld-Name wird in get () übergeben, um Werte abzurufen. Verwende nur "
 "Kleinbuchstaben, Zahlen und Unterstriche."
 
-#: core/admin/field_html.php:49
+#: includes/admin/field_html.php:49
 msgid "Field Type"
 msgstr "Feldtyp"
 
-#: core/admin/field_html.php:67
+#: includes/admin/field_html.php:67
 msgid "Notes"
 msgstr "Anweisungen"
 
-#: core/admin/field_html.php:69
+#: includes/admin/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Hinweise für die Dateneingabe"
 
-#: core/admin/field_html.php:82
+#: includes/admin/field_html.php:82
 msgid "Close"
 msgstr "Schliessen"
 
-#: core/admin/field_html.php:83
+#: includes/admin/field_html.php:83
 msgid "or"
 msgstr "oder"
 
-#: core/admin/field_html.php:83
+#: includes/admin/field_html.php:83
 msgid "delete"
 msgstr "löschen"
 
-#: core/admin/meta_box_extras.php:39
+#: includes/admin/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Inhalts-Editor"
 
-#: core/admin/meta_box_extras.php:48
+#: includes/admin/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Blende den Inhalts-Editor aus"
 
-#: core/admin/meta_box_extras.php:55
+#: includes/admin/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Gravity Forms Integration"
 
-#: core/admin/meta_box_extras.php:75
+#: includes/admin/meta_box_extras.php:75
 msgid "Your Gravity Form and CFS field labels must match exactly!"
 msgstr ""
 "Die Gravity Form und CFS Feldbezeichnungen müssen exakt übereinstimmen!"
 
-#: core/admin/meta_box_extras.php:79
+#: includes/admin/meta_box_extras.php:79
 msgid "Please install"
 msgstr "Bitte installieren"
 
-#: core/admin/meta_box_extras.php:79
+#: includes/admin/meta_box_extras.php:79
 msgid "to use this feature"
 msgstr "um dieses Feature zu nutzen"
 
-#: core/admin/meta_box_fields.php:60
+#: includes/admin/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Neues Feld hinzufügen"
 
-#: core/admin/meta_box_rules.php:5
+#: includes/admin/meta_box_rules.php:5
 msgid "equals"
 msgstr "ist gleich"
 
-#: core/admin/meta_box_rules.php:6
+#: includes/admin/meta_box_rules.php:6
 msgid "is not"
 msgstr "ist nicht gleich"
 
-#: core/admin/meta_box_rules.php:78
+#: includes/admin/meta_box_rules.php:78
 msgid "Leave blank to skip this rule"
 msgstr "Leer lassen, um diese Regel zu überspringen"
 
-#: core/admin/meta_box_rules.php:87 core/fields/relationship.php:89
+#: includes/admin/meta_box_rules.php:87 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Artikel-Typ"
 
-#: core/admin/meta_box_rules.php:118
+#: includes/admin/meta_box_rules.php:118
 msgid "User Roles"
 msgstr "Benutzer-Rolle"
 
-#: core/admin/meta_box_rules.php:149
+#: includes/admin/meta_box_rules.php:149
 msgid "Posts"
 msgstr "Artikel"
 
-#: core/admin/meta_box_rules.php:180
+#: includes/admin/meta_box_rules.php:180
 msgid "Taxonomy Terms"
 msgstr "Taxonomie"
 
-#: core/admin/meta_box_rules.php:211
+#: includes/admin/meta_box_rules.php:211
 msgid "Page Template"
 msgstr "Seiten-Vorlage"
 
-#: core/admin/page_tools.php:78 core/admin/page_tools.php:101
+#: includes/admin/page_tools.php:78 includes/admin/page_tools.php:101
 msgid "Export"
 msgstr "Export"
 
-#: core/admin/page_tools.php:79 core/admin/page_tools.php:126
+#: includes/admin/page_tools.php:79 includes/admin/page_tools.php:126
 msgid "Import"
 msgstr "Import"
 
-#: core/admin/page_tools.php:80 core/admin/page_tools.php:151
+#: includes/admin/page_tools.php:80 includes/admin/page_tools.php:151
 msgid "Synchronize"
 msgstr "Synchronisation"
 
-#: core/admin/page_tools.php:81
+#: includes/admin/page_tools.php:81
 msgid "Debug"
 msgstr "Debug"
 
-#: core/admin/page_tools.php:89
+#: includes/admin/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "Welche Felder-Gruppen willst Du exportieren?"
 
-#: core/admin/page_tools.php:118
+#: includes/admin/page_tools.php:118
 msgid "Paste the import code below. Existing field groups will be skipped."
 msgstr ""
 "Füge den Import-Code unten ein. Bestehende Felder-Gruppen werden "
 "übersprungen."
 
-#: core/admin/page_tools.php:139
+#: includes/admin/page_tools.php:139
 msgid "CFS will attempt to import custom field values."
 msgstr ""
 "CFS wird versuchen, Werte für benutzerdefinierte Felder zu importieren."
 
-#: core/admin/page_tools.php:164
+#: includes/admin/page_tools.php:164
 msgid "Your site uses the following software:"
 msgstr "Deine Seite benutzt folgende Software"
 
-#: core/classes/field.php:21 core/fields/text.php:9
+#: includes/classes/field.php:21 includes/fields/text.php:9
 msgid "Text"
 msgstr "Eingabefeld"
 
-#: core/classes/field.php:57 core/fields/file.php:77
-#: core/fields/relationship.php:106 core/fields/select.php:125
-#: core/fields/text.php:33 core/fields/textarea.php:61
-#: core/fields/true_false.php:44
+#: includes/classes/field.php:57 includes/fields/file.php:77
+#: includes/fields/relationship.php:106 includes/fields/select.php:125
+#: includes/fields/text.php:33 includes/fields/textarea.php:61
+#: includes/fields/true_false.php:44
 msgid "Validation"
 msgstr "Erforderlich?"
 
-#: core/classes/field.php:66 core/fields/file.php:86
-#: core/fields/relationship.php:115 core/fields/select.php:134
-#: core/fields/text.php:42 core/fields/textarea.php:70
-#: core/fields/true_false.php:53
+#: includes/classes/field.php:66 includes/fields/file.php:86
+#: includes/fields/relationship.php:115 includes/fields/select.php:134
+#: includes/fields/text.php:42 includes/fields/textarea.php:70
+#: includes/fields/true_false.php:53
 msgid "This is a required field"
 msgstr "Dies ist ein Pflichtfeld"
 
-#: core/fields/color/color.php:9
+#: includes/fields/color/color.php:9
 msgid "Color"
 msgstr "Farbauswahl"
 
-#: core/fields/date/date.php:9
+#: includes/fields/date/date.php:9
 msgid "Date"
 msgstr "Datumsfeld"
 
-#: core/fields/file.php:9
+#: includes/fields/file.php:9
 msgid "File Upload"
 msgstr "Datei-Upload"
 
-#: core/fields/file.php:45
+#: includes/fields/file.php:45
 msgid "Add File"
 msgstr "Datei hinzufügen"
 
-#: core/fields/file.php:46
+#: includes/fields/file.php:46
 msgid "Remove"
 msgstr "Entfernen"
 
-#: core/fields/file.php:56
+#: includes/fields/file.php:56
 msgid "Return Value"
 msgstr "Rückgabewert"
 
-#: core/fields/file.php:65
+#: includes/fields/file.php:65
 msgid "File URL"
 msgstr "Datei-URL"
 
-#: core/fields/file.php:66
+#: includes/fields/file.php:66
 msgid "Attachment ID"
 msgstr "Datei-ID"
 
-#: core/fields/file.php:117
+#: includes/fields/file.php:117
 msgid "Use This File"
 msgstr "Diese Datei benutzen"
 
-#: core/fields/file.php:170
+#: includes/fields/file.php:170
 msgid "Attach file"
 msgstr "Dateien hinzufügen"
 
-#: core/fields/loop.php:9
+#: includes/fields/loop.php:9
 msgid "Loop"
 msgstr "Schleife"
 
-#: core/fields/loop.php:36
+#: includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Zeilenwerte anzeigen"
 
-#: core/fields/loop.php:45
+#: includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Zeigt die Werte standardmssig an"
 
-#: core/fields/loop.php:52
+#: includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Zeilenbeschriftung"
 
-#: core/fields/loop.php:60 core/fields/loop.php:91 core/fields/loop.php:162
+#: includes/fields/loop.php:60 includes/fields/loop.php:91 includes/fields/loop.php:162
 msgid "Loop Row"
 msgstr "Kopfzeile"
 
-#: core/fields/loop.php:67
+#: includes/fields/loop.php:67
 msgid "Button Label"
 msgstr "Schaltflächebeschriftung"
 
-#: core/fields/loop.php:75 core/fields/loop.php:117 core/fields/loop.php:163
+#: includes/fields/loop.php:75 includes/fields/loop.php:117 includes/fields/loop.php:163
 msgid "Add Row"
 msgstr "Zeile hinzufügen"
 
-#: core/fields/relationship.php:9
+#: includes/fields/relationship.php:9
 msgid "Relationship"
 msgstr "Beziehung"
 
-#: core/fields/relationship.php:90
+#: includes/fields/relationship.php:90
 msgid "Limit posts to the following types"
 msgstr "Begrenzung der Artikel zu den folgenden Typen"
 
-#: core/fields/select.php:9
+#: includes/fields/select.php:9
 msgid "Select"
 msgstr "Auswahlfeld"
 
-#: core/fields/select.php:93
+#: includes/fields/select.php:93
 msgid "Choices"
 msgstr "Auswahlmöglichkeiten"
 
-#: core/fields/select.php:94
+#: includes/fields/select.php:94
 msgid "Enter one choice per line"
 msgstr "Eine Auswahlmöglichkeit pro Zeile"
 
-#: core/fields/select.php:109
+#: includes/fields/select.php:109
 msgid "Multi-select?"
 msgstr "Mehrere Werte auswählen?"
 
-#: core/fields/select.php:118
+#: includes/fields/select.php:118
 msgid "This is a multi-select field"
 msgstr "Dieses Feld erlaubt es, mehrere Werte auszuwählen"
 
-#: core/fields/text.php:18 core/fields/textarea.php:25
+#: includes/fields/text.php:18 includes/fields/textarea.php:25
 msgid "Default Value"
 msgstr "Standardwert"
 
-#: core/fields/textarea.php:9
+#: includes/fields/textarea.php:9
 msgid "Textarea"
 msgstr "Mehrzeiliges-Eingabefeld"
 
-#: core/fields/textarea.php:40 core/fields/wysiwyg.php:34
+#: includes/fields/textarea.php:40 includes/fields/wysiwyg.php:34
 msgid "Formatting"
 msgstr "Formatierung"
 
-#: core/fields/textarea.php:49
+#: includes/fields/textarea.php:49
 msgid "None"
 msgstr "Keine"
 
-#: core/fields/textarea.php:50
+#: includes/fields/textarea.php:50
 msgid "Convert newlines to <br />"
 msgstr "Konvertiert Zeilenumbrüche zu <br />"
 
-#: core/fields/true_false.php:9
+#: includes/fields/true_false.php:9
 msgid "True / False"
 msgstr "Ja / Nein"
 
-#: core/fields/true_false.php:28
+#: includes/fields/true_false.php:28
 msgid "Message"
 msgstr "Nachricht"
 
-#: core/fields/true_false.php:29
+#: includes/fields/true_false.php:29
 msgid "The text beside the checkbox"
 msgstr "Der Text neben dem Kontrollkästchen"
 
-#: core/fields/user.php:9
+#: includes/fields/user.php:9
 msgid "User"
 msgstr "Benutzer"
 
-#: core/fields/wysiwyg.php:9
+#: includes/fields/wysiwyg.php:9
 msgid "Wysiwyg Editor"
 msgstr "WYSIWYG-Editor"
 
-#: core/fields/wysiwyg.php:43
+#: includes/fields/wysiwyg.php:43
 msgid "Default"
 msgstr "Standard"
 
-#: core/fields/wysiwyg.php:44
+#: includes/fields/wysiwyg.php:44
 msgid "None (bypass filters)"
 msgstr "Keine (Bypass-Filter)"

@@ -36,12 +36,12 @@ class cfs
         $this->dir = dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
 
-        include($this->dir . '/core/classes/api.php');
-        include($this->dir . '/core/classes/upgrade.php');
-        include($this->dir . '/core/classes/field.php');
-        include($this->dir . '/core/classes/field_group.php');
-        include($this->dir . '/core/classes/form.php');
-        include($this->dir . '/core/classes/third_party.php');
+        include($this->dir . '/includes/classes/api.php');
+        include($this->dir . '/includes/classes/upgrade.php');
+        include($this->dir . '/includes/classes/field.php');
+        include($this->dir . '/includes/classes/field_group.php');
+        include($this->dir . '/includes/classes/form.php');
+        include($this->dir . '/includes/classes/third_party.php');
 
         // load classes
         $this->api = new cfs_api($this);
@@ -146,17 +146,17 @@ class cfs
     function get_field_types()
     {
         $field_types = array(
-            'text' =>               $this->dir . '/core/fields/text.php',
-            'textarea' =>           $this->dir . '/core/fields/textarea.php',
-            'wysiwyg' =>            $this->dir . '/core/fields/wysiwyg.php',
-            'date' =>               $this->dir . '/core/fields/date/date.php',
-            'color' =>              $this->dir . '/core/fields/color/color.php',
-            'true_false' =>         $this->dir . '/core/fields/true_false.php',
-            'select' =>             $this->dir . '/core/fields/select.php',
-            'relationship' =>       $this->dir . '/core/fields/relationship.php',
-            'user' =>               $this->dir . '/core/fields/user.php',
-            'file' =>               $this->dir . '/core/fields/file.php',
-            'loop' =>               $this->dir . '/core/fields/loop.php',
+            'text' =>               $this->dir . '/includes/fields/text.php',
+            'textarea' =>           $this->dir . '/includes/fields/textarea.php',
+            'wysiwyg' =>            $this->dir . '/includes/fields/wysiwyg.php',
+            'date' =>               $this->dir . '/includes/fields/date/date.php',
+            'color' =>              $this->dir . '/includes/fields/color/color.php',
+            'true_false' =>         $this->dir . '/includes/fields/true_false.php',
+            'select' =>             $this->dir . '/includes/fields/select.php',
+            'relationship' =>       $this->dir . '/includes/fields/relationship.php',
+            'user' =>               $this->dir . '/includes/fields/user.php',
+            'file' =>               $this->dir . '/includes/fields/file.php',
+            'loop' =>               $this->dir . '/includes/fields/loop.php',
         );
 
         // support custom field types
@@ -333,7 +333,7 @@ class cfs
 
         if ('post' == $screen->base)
         {
-            include($this->dir . '/core/admin/admin_head.php');
+            include($this->dir . '/includes/admin/admin_head.php');
         }
     }
 
@@ -353,7 +353,7 @@ class cfs
 
         if ('edit' == $screen->base && 'cfs' == $screen->post_type)
         {
-            include($this->dir . '/core/admin/admin_footer.php');
+            include($this->dir . '/includes/admin/admin_footer.php');
         }
     }
 
@@ -386,7 +386,7 @@ class cfs
 
     function admin_menu()
     {
-        add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/images/logo-small.png');
+        add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/assets/images/logo-small.png');
         add_submenu_page('edit.php?post_type=cfs', __('Tools', 'cfs'), __('Tools', 'cfs'), 'manage_options', 'cfs-tools', array($this, 'page_tools'));
         add_submenu_page('edit.php?post_type=cfs', __('Add-ons', 'cfs'), __('Add-ons', 'cfs'), 'manage_options', 'cfs-addons', array($this, 'page_addons'));
     }
@@ -489,7 +489,7 @@ class cfs
     function meta_box($post, $metabox)
     {
         $box = $metabox['args']['box'];
-        include($this->dir . "/core/admin/meta_box_$box.php");
+        include($this->dir . "/includes/admin/meta_box_$box.php");
     }
 
 
@@ -504,7 +504,7 @@ class cfs
 
     function field_html($field)
     {
-        include($this->dir . '/core/admin/field_html.php');
+        include($this->dir . '/includes/admin/field_html.php');
     }
 
 
@@ -519,7 +519,7 @@ class cfs
 
     function page_tools()
     {
-        include($this->dir . '/core/admin/page_tools.php');
+        include($this->dir . '/includes/admin/page_tools.php');
     }
 
 
@@ -534,7 +534,7 @@ class cfs
 
     function page_addons()
     {
-        include($this->dir . '/core/admin/page_addons.php');
+        include($this->dir . '/includes/admin/page_addons.php');
     }
 
 
@@ -555,7 +555,7 @@ class cfs
 
         if ($ajax_method && is_admin())
         {
-            include($this->dir . '/core/classes/ajax.php');
+            include($this->dir . '/includes/classes/ajax.php');
             $ajax = new cfs_ajax();
 
             if ('import' == $ajax_method)

@@ -16,7 +16,7 @@ $results = $wpdb->get_results($sql);
 .tab-content { display: none; }
 .tab-content.active { display: block; }
 #button-export, #button-sync { margin-top: 4px; }
-#icon-edit { background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat; }
+#icon-edit { background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat; }
 </style>
 
 <script>

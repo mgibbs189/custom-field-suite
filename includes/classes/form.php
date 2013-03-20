@@ -108,10 +108,10 @@ class cfs_form
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');
-        wp_enqueue_script('cfs-validation', $this->parent->url . '/js/validation.js');
-        wp_enqueue_script('tiptip', $this->parent->url . '/js/tipTip/jquery.tipTip.js');
-        wp_enqueue_style('tiptip', $this->parent->url . '/js/tipTip/tipTip.css');
-        wp_enqueue_style('cfs-input', $this->parent->url . '/css/input.css');
+        wp_enqueue_script('cfs-validation', $this->parent->url . '/assets/js/validation.js');
+        wp_enqueue_script('tiptip', $this->parent->url . '/assets/js/tipTip/jquery.tipTip.js');
+        wp_enqueue_style('tiptip', $this->parent->url . '/assets/js/tipTip/tipTip.css');
+        wp_enqueue_style('cfs-input', $this->parent->url . '/assets/css/input.css');
     ?>
 
 <script>

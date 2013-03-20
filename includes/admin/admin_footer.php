@@ -48,7 +48,7 @@ p.search-box {
 }
 
 #icon-edit {
-    background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat;
+    background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat;
 }
 </style>
 

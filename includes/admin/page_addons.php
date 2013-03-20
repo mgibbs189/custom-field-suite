@@ -17,7 +17,7 @@ $json = json_decode($json);
 ?>
 
 <style type="text/css">
-#icon-edit { background: url(<?php echo $this->url; ?>/images/logo.png) no-repeat; }
+#icon-edit { background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat; }
 </style>
 
 <div class="wrap">

@@ -14,7 +14,7 @@ class cfs_date extends cfs_field
     {
         $this->load_assets();
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/core/fields/date/date.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/date.css" />
         <script>
         (function($) {
             $(document).on('focus', '.cfs_date input.date', function() {
@@ -32,7 +32,7 @@ class cfs_date extends cfs_field
 
     function load_assets()
     {
-        wp_register_script('jquery-ui-timepicker', $this->parent->url . '/core/fields/date/jquery.ui.timepicker.js',
+        wp_register_script('jquery-ui-timepicker', $this->parent->url . '/includes/fields/date/jquery.ui.timepicker.js',
             array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider')
         );
 

@@ -65,8 +65,6 @@ class cfs_user extends cfs_field
     function input_head()
     {
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/js/tipTip/tipTip.css" />
-        <script src="<?php echo $this->parent->url; ?>/js/tipTip/jquery.tipTip.js"></script>
         <script>
         (function($) {
             update_user_values = function(field) {
