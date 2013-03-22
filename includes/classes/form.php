@@ -174,8 +174,8 @@ var CFS = {
         global $post;
 
         $defaults = array(
-            'post_id' => false,
-            'group_id' => false, // required only for new posts
+            'post_id' => $post->ID, // set to false for new entries
+            'field_groups' => array(), // group IDs, required for new entries
             'post_title' => false,
             'post_content' => false,
             'post_status' => 'draft',
@@ -186,21 +186,21 @@ var CFS = {
         $params = array_merge($defaults, $params);
         $input_fields = array();
 
-        if (false !== $params['group_id'])
+        $post_id = (int) $params['post_id'];
+
+        if (empty($params['field_groups']))
         {
-            $post_id = false;
-            $group_id = (int) $params['group_id'];
+            $field_groups = $this->parent->api->get_matching_groups($post_id, true);
+            $field_groups = array_keys($field_groups);
         }
         else
         {
-            $post_id = empty($params['post_id']) ? $post->ID : $params['post_id'];
-            $group_id = $this->parent->api->get_matching_groups($post_id, true);
-            $group_id = array_keys($group_id);
+            $field_groups = $params['field_groups'];
         }
 
-        if (!empty($group_id))
+        if (!empty($field_groups))
         {
-            $input_fields = $this->parent->api->get_input_fields(array('group_id' => $group_id));
+            $input_fields = $this->parent->api->get_input_fields(array('group_id' => $field_groups));
         }
 
         // Hook to allow for overridden field settings
@@ -213,7 +213,7 @@ var CFS = {
                 'post_id' => $post_id,
                 'post_type' => $params['post_type'],
                 'post_status' => $params['post_status'],
-                'field_groups' => $group_id,
+                'field_groups' => $field_groups,
             );
     ?>
 
@@ -228,8 +228,8 @@ var CFS = {
     ?>
 
         <div class="field" data-validator="required">
-            <label>Post Title</label>
-            <input type="text" name="cfs[post_title]" value="<?php echo esc_attr($post->post_title); ?>" />
+            <label><?php _e('Post Title', 'cfs'); ?></label>
+            <input type="text" name="cfs[post_title]" value="<?php echo empty($post_id) ? '' : esc_attr($post->post_title); ?>" />
         </div>
 
     <?php
@@ -240,8 +240,8 @@ var CFS = {
     ?>
 
         <div class="field">
-            <label>Post Content</label>
-            <textarea name="cfs[post_content]"><?php echo esc_textarea($post->post_content); ?></textarea>
+            <label><?php _e('Post Content', 'cfs'); ?></label>
+            <textarea name="cfs[post_content]"><?php echo empty($post_id) ? '' : esc_textarea($post->post_content); ?></textarea>
         </div>
 
     <?php
@@ -324,12 +324,12 @@ var CFS = {
         <?php if (false === $params['front_end']) : ?>
 
         <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
-        <input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
+        <input type="hidden" name="cfs[field_groups][]" value="<?php echo $field_groups; ?>" />
 
         <?php else : ?>
 
         <input type="hidden" name="cfs[public]" value="1" />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="<?php _e('Submit', 'cfs'); ?>" />
     </form>
 </div>
 

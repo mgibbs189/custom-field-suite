@@ -50,6 +50,7 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 == Changelog ==
 
 = 1.8.8 =
+* Several form() enhancements!
 * Re-added loop "Row Display" option
 * Ensuring that $cfs exists for template parts
 * Added `cfs_pre_render_fields` filter for altering field settings
