@@ -51,25 +51,18 @@ class cfs_form
                 $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
                 $post_data = array();
 
-                if (isset($_POST['cfs']['public']))
-                {
+                // Public form settings are SESSION-based for added security
+                if (isset($_POST['cfs']['public'])) {
                     $post_id = (int) $_SESSION['cfs']['post_id'];
                     $field_groups = isset($_SESSION['cfs']['field_groups']) ? $_SESSION['cfs']['field_groups'] : array();
                 }
-                else
-                {
+                else {
                     $post_id = (int) $_POST['cfs']['post_id'];
                     $field_groups = isset($_POST['cfs']['field_groups']) ? $_POST['cfs']['field_groups'] : array();
                 }
 
-                // Existing post ID
-                if (0 < $post_id) {
-                    $post_data['ID'] = $post_id;
-                }
-
                 // Sanitize field groups
-                foreach ($field_groups as $key => $val)
-                {
+                foreach ($field_groups as $key => $val) {
                     $field_groups[$key] = (int) $val;
                 }
 
@@ -84,7 +77,7 @@ class cfs_form
                 }
 
                 // New posts
-                if (-1 == $post_id) {
+                if ($post_id < 1) {
                     // Post type
                     if (isset($_SESSION['cfs']['post_type'])) {
                         $post_data['post_type'] = $_SESSION['cfs']['post_type'];
@@ -95,12 +88,14 @@ class cfs_form
                         $post_data['post_status'] = $_SESSION['cfs']['post_status'];
                     }
                 }
+                else {
+                    $post_data['ID'] = $post_id;
+                }
 
                 $options = array('format' => 'input', 'field_groups' => $field_groups);
-                $this->parent->save($field_data, $post_data, $options);
+                $post_id = $this->parent->save($field_data, $post_data, $options);
 
-                if (isset($_POST['cfs']['public']))
-                {
+                if (isset($_POST['cfs']['public'])) {
                     header('Location: ' . $_SERVER['REQUEST_URI']);
                     exit;
                 }
@@ -179,8 +174,8 @@ var CFS = {
         global $post;
 
         $defaults = array(
-            'group_id' => false,
-            'post_id' => false, // set to -1 for new posts
+            'post_id' => false,
+            'group_id' => false, // required only for new posts
             'post_title' => false,
             'post_content' => false,
             'post_status' => 'draft',
@@ -191,14 +186,14 @@ var CFS = {
         $params = array_merge($defaults, $params);
         $input_fields = array();
 
-        $post_id = empty($params['post_id']) ? $post->ID : $params['post_id'];
-
         if (false !== $params['group_id'])
         {
+            $post_id = false;
             $group_id = (int) $params['group_id'];
         }
         else
         {
+            $post_id = empty($params['post_id']) ? $post->ID : $params['post_id'];
             $group_id = $this->parent->api->get_matching_groups($post_id, true);
             $group_id = array_keys($group_id);
         }
@@ -325,10 +320,10 @@ var CFS = {
     ?>
 
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
-        <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
 
         <?php if (false === $params['front_end']) : ?>
 
+        <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
         <input type="hidden" name="cfs[field_groups][]" value="<?php echo $group_id; ?>" />
 
         <?php else : ?>

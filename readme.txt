@@ -14,7 +14,7 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin for WordPress.
 Custom Field Suite (CFS) lets you add custom fields to various edit screens. Each "field group" lives in its own meta box. Add as many field groups as you need!
 
 = Features =
-* See the intro [screencast](http://screencast.com/t/2SmhTQob)
+* [How to Use CFS](http://uproot.us/docs/how-to-use-cfs/)
 * Many field types: [Text](http://uproot.us/docs/text/), [Textarea](http://uproot.us/docs/textarea/), [Visual Editor](http://uproot.us/docs/wysiwyg/), [Date](http://uproot.us/docs/date/), [Color](http://uproot.us/docs/color/), [Select](http://uproot.us/docs/select/), [File Upload](http://uproot.us/docs/file-upload/), [User](http://uproot.us/docs/user/), [Relationship](http://uproot.us/docs/relationship/), [Loop](http://uproot.us/docs/loop/) and you can also [create your own](http://uproot.us/docs/creating-custom-field-types/)!
 * Loop fields are repeatable containers for other fields. For example, place a `File Upload` field into a `Loop` field to create a photo gallery!
 * Each field group has a "Placement Rules" area, where you control which edit screens the field group should appear on
