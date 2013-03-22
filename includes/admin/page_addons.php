@@ -25,7 +25,7 @@ $json = json_decode($json);
     <h2>Add-ons</h2>
     <?php foreach ($json as $addon) : ?>
     <div class="list-item" style="float:left; width:240px; height:320px; margin:15px 15px 0 0">
-        <div style="background:#21759b; color:#fff; padding:5px">
+        <div style="padding:5px">
             <?php echo $addon->title; ?>
             <?php if (!empty($addon->version)) : ?>
             <span style="font-size:10px">v<?php echo $addon->version; ?></span>
@@ -42,9 +42,6 @@ $json = json_decode($json);
                 <?php endif; ?>
                 <?php if (!empty($addon->purchase_price) && !empty($addon->learn_more_url)) : ?>
                 <a class="button-secondary" href="<?php echo $addon->learn_more_url; ?>" target="_blank">Buy - $<?php echo $addon->purchase_price; ?></a>
-                <?php endif; ?>
-                <?php if (!empty($addon->download_url)) : ?>
-                <a class="button-secondary" href="<?php echo $addon->download_url; ?>" target="_blank" title="<?php echo $addon->last_updated; ?>">Download</a>
                 <?php endif; ?>
             </div>
         </div>
