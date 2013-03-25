@@ -51,13 +51,13 @@ class cfs_form
                 $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
                 $post_data = array();
 
-                // Public form settings are SESSION-based for added security
-                if (isset($_POST['cfs']['public'])) {
-                    $post_id = (int) $_SESSION['cfs']['post_id'];
+                // Form settings are SESSION-based for added security
+                $post_id = (int) $_SESSION['cfs']['post_id'];
+
+                if (true === $_SESSION['cfs']['front_end']) {
                     $field_groups = isset($_SESSION['cfs']['field_groups']) ? $_SESSION['cfs']['field_groups'] : array();
                 }
                 else {
-                    $post_id = (int) $_POST['cfs']['post_id'];
                     $field_groups = isset($_POST['cfs']['field_groups']) ? $_POST['cfs']['field_groups'] : array();
                 }
 
@@ -93,10 +93,16 @@ class cfs_form
                 }
 
                 $options = array('format' => 'input', 'field_groups' => $field_groups);
-                $post_id = $this->parent->save($field_data, $post_data, $options);
+                $this->parent->save($field_data, $post_data, $options);
 
-                if (isset($_POST['cfs']['public'])) {
-                    header('Location: ' . $_SERVER['REQUEST_URI']);
+                // Redirect public forms
+                if (true === $_SESSION['cfs']['front_end']) {
+                    $redirect_url = $_SERVER['REQUEST_URI'];
+                    if (!empty($_SESSION['cfs']['confirmation_url'])) {
+                        $redirect_url = $_SESSION['cfs']['confirmation_url'];
+                    }
+                    unset($_SESSION['cfs']);
+                    header('Location: ' . $redirect_url);
                     exit;
                 }
             }
@@ -180,6 +186,8 @@ var CFS = {
             'post_content' => false,
             'post_status' => 'draft',
             'post_type' => 'post',
+            'confirmation_message' => '',
+            'confirmation_url' => '',
             'front_end' => true,
         );
 
@@ -206,15 +214,19 @@ var CFS = {
         // Hook to allow for overridden field settings
         $input_fields = apply_filters('cfs_pre_render_fields', $input_fields, $params);
 
+        // Form variables
+        $_SESSION['cfs'] = array(
+            'post_id' => $post_id,
+            'post_type' => $params['post_type'],
+            'post_status' => $params['post_status'],
+            'field_groups' => $field_groups,
+            'confirmation_message' => $params['confirmation_message'],
+            'confirmation_url' => $params['confirmation_url'],
+            'front_end' => $params['front_end'],
+        );
+
         if (false !== $params['front_end'])
         {
-            // Session variables for front-end forms
-            $_SESSION['cfs'] = array(
-                'post_id' => $post_id,
-                'post_type' => $params['post_type'],
-                'post_status' => $params['post_status'],
-                'field_groups' => $field_groups,
-            );
     ?>
 
 <div class="cfs_input no_box">
@@ -323,12 +335,10 @@ var CFS = {
 
         <?php if (false === $params['front_end']) : ?>
 
-        <input type="hidden" name="cfs[post_id]" value="<?php echo $post_id; ?>" />
         <input type="hidden" name="cfs[field_groups][]" value="<?php echo $field_groups; ?>" />
 
         <?php else : ?>
 
-        <input type="hidden" name="cfs[public]" value="1" />
         <input type="submit" value="<?php _e('Submit', 'cfs'); ?>" />
     </form>
 </div>
