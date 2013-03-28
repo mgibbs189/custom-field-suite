@@ -47,7 +47,9 @@ class cfs_form
         {
             if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
             {
-                $session = $_SESSION['cfs'];
+                // Hash is added in case of multiple simultaneous edit pages
+                $hash = $_POST['cfs']['save_hash'];
+                $session = $_SESSION['cfs'][$hash];
 
                 if (empty($session))
                 {
@@ -102,7 +104,7 @@ class cfs_form
                         $redirect_url = $session['confirmation_url'];
                     }
 
-                    unset($_SESSION['cfs']);
+                    unset($_SESSION['cfs'][$nonce]);
                     header('Location: ' . $redirect_url);
                     exit;
                 }
@@ -217,8 +219,7 @@ var CFS = {
         // Hook to allow for overridden field settings
         $input_fields = apply_filters('cfs_pre_render_fields', $input_fields, $params);
 
-        // Form variables
-        $_SESSION['cfs'] = array(
+        $session_data = array(
             'post_id' => $post_id,
             'post_type' => $params['post_type'],
             'post_status' => $params['post_status'],
@@ -227,6 +228,12 @@ var CFS = {
             'confirmation_url' => $params['confirmation_url'],
             'front_end' => $params['front_end'],
         );
+
+        // Create a verification hash based on the SESSION options
+        $hash = md5(serialize($session_data));
+
+        // Set the SESSION
+        $_SESSION['cfs'][$hash] = $session_data;
 
         if (false !== $params['front_end'])
         {
@@ -335,6 +342,7 @@ var CFS = {
     ?>
 
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
+        <input type="hidden" name="cfs[save_hash]" value="<?php echo $hash; ?>" />
 
         <?php if (false !== $params['front_end']) : ?>
 

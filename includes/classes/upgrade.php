@@ -12,10 +12,9 @@ class cfs_upgrade
 
         if (version_compare($this->last_version, $this->version, '<'))
         {
-            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-
             if (version_compare($this->last_version, '1.0.0', '<'))
             {
+                require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
                 $this->clean_install();
             }
             else
