@@ -47,9 +47,9 @@ class cfs_form
         {
             if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
             {
-                // Hash is added in case of multiple simultaneous edit pages
+                // Hash is used to handle multiple active edit pages
                 $hash = $_POST['cfs']['save_hash'];
-                $session = $_SESSION['cfs'][$hash];
+                $session = isset($_SESSION['cfs'][$hash]) ? $_SESSION['cfs'][$hash] : false;
 
                 if (empty($session))
                 {
@@ -131,7 +131,6 @@ class cfs_form
 
         $this->assets_loaded = true;
 
-        // Queue necessary scripts
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');

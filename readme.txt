@@ -1,7 +1,7 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
 Donate link: http://uproot.us/donate/
-Tags: custom fields, fields, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
+Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
 Requires at least: 3.3
 Tested up to: 3.6
 Stable tag: trunk
@@ -48,6 +48,12 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.8.9 =
+* Bugfix: compatibility fix for PHP sessions
+* Bugfix: form save error with multiple edit pages open
+* Added `submit_label` form parameter
+* Updated translation file
 
 = 1.8.8 =
 * Several form() enhancements!
