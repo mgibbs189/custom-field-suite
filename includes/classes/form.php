@@ -104,7 +104,7 @@ class cfs_form
                         $redirect_url = $session['confirmation_url'];
                     }
 
-                    unset($_SESSION['cfs'][$nonce]);
+                    unset($_SESSION['cfs'][$hash]);
                     header('Location: ' . $redirect_url);
                     exit;
                 }
