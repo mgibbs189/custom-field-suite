@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2013-01-25 14:41:30+00:00\n"
+"POT-Creation-Date: 2013-03-26 15:31:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,67 +12,67 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: cfs.php:87 cfs.php:375
+#: cfs.php:93 cfs.php:389
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:88
+#: cfs.php:94
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:89
+#: cfs.php:95
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:96
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:91
+#: cfs.php:97
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:92
+#: cfs.php:98
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:93
+#: cfs.php:99
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:100
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:95
+#: cfs.php:101
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:96
+#: cfs.php:102
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:126
+#: cfs.php:132
 msgid "Title"
 msgstr ""
 
-#: cfs.php:358
+#: cfs.php:372
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:359
+#: cfs.php:373
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:360
+#: cfs.php:374
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:376
+#: cfs.php:390
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:377
+#: cfs.php:391
 msgid "Add-ons"
 msgstr ""
 
@@ -81,11 +81,11 @@ msgid "Custom Field Suite"
 msgstr ""
 
 #: includes/admin/admin_footer.php:71
-msgid "Homepage"
+msgid "Documentation"
 msgstr ""
 
 #: includes/admin/admin_footer.php:72
-msgid "User Guide"
+msgid "Donate"
 msgstr ""
 
 #: includes/admin/admin_footer.php:73
@@ -93,11 +93,7 @@ msgid "Changelog"
 msgstr ""
 
 #: includes/admin/admin_footer.php:78
-msgid "Donate"
-msgstr ""
-
-#: includes/admin/admin_footer.php:79
-msgid "Rate the plugin"
+msgid "Review CFS on WordPress.org"
 msgstr ""
 
 #: includes/admin/field_html.php:30
@@ -143,30 +139,30 @@ msgid "delete"
 msgstr ""
 
 #: includes/admin/meta_box_extras.php:39
-msgid "Content Editor"
+msgid "Display Settings"
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:48
+#: includes/admin/meta_box_extras.php:49
 msgid "Hide the content editor"
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:55
-msgid "Gravity Forms Integration"
+#: includes/admin/meta_box_extras.php:57
+msgid "Gravity Forms"
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:75
+#: includes/admin/meta_box_extras.php:77
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/admin/meta_box_extras.php:81
 msgid "Please install"
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/admin/meta_box_extras.php:81
 msgid "to use this feature"
 msgstr ""
 
-#: includes/admin/meta_box_fields.php:60
+#: includes/admin/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr ""
 
@@ -242,34 +238,46 @@ msgstr ""
 msgid "Delete everything"
 msgstr ""
 
-#: includes/classes/ajax.php:156
-msgid "Imported"
-msgstr ""
-
-#: includes/classes/ajax.php:160
-msgid "Skipped"
-msgstr ""
-
-#: includes/classes/ajax.php:166
-msgid "Nothing to import"
-msgstr ""
-
 #: includes/classes/field.php:21 includes/fields/text.php:9
 msgid "Text"
 msgstr ""
 
-#: includes/classes/field.php:57 includes/fields/file.php:77
+#: includes/classes/field.php:57 includes/fields/file.php:78
 #: includes/fields/relationship.php:105 includes/fields/select.php:125
 #: includes/fields/text.php:32 includes/fields/textarea.php:60
 #: includes/fields/true_false.php:43
 msgid "Validation"
 msgstr ""
 
-#: includes/classes/field.php:66 includes/fields/file.php:86
+#: includes/classes/field.php:66 includes/fields/file.php:87
 #: includes/fields/relationship.php:114 includes/fields/select.php:134
 #: includes/fields/text.php:41 includes/fields/textarea.php:69
 #: includes/fields/true_false.php:52
 msgid "This is a required field"
+msgstr ""
+
+#: includes/classes/field_group.php:94
+msgid "Imported"
+msgstr ""
+
+#: includes/classes/field_group.php:98
+msgid "Skipped"
+msgstr ""
+
+#: includes/classes/field_group.php:104
+msgid "Nothing to import"
+msgstr ""
+
+#: includes/classes/form.php:243
+msgid "Post Title"
+msgstr ""
+
+#: includes/classes/form.php:255
+msgid "Post Content"
+msgstr ""
+
+#: includes/classes/form.php:342
+msgid "Submit"
 msgstr ""
 
 #: includes/fields/color/color.php:9
@@ -280,35 +288,35 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/fields/file.php:9
+#: includes/fields/file.php:10
 msgid "File Upload"
 msgstr ""
 
-#: includes/fields/file.php:45
+#: includes/fields/file.php:46
 msgid "Add File"
 msgstr ""
 
-#: includes/fields/file.php:46
+#: includes/fields/file.php:47
 msgid "Remove"
 msgstr ""
 
-#: includes/fields/file.php:56
+#: includes/fields/file.php:57
 msgid "Return Value"
 msgstr ""
 
-#: includes/fields/file.php:65
+#: includes/fields/file.php:66
 msgid "File URL"
 msgstr ""
 
-#: includes/fields/file.php:66
+#: includes/fields/file.php:67
 msgid "Attachment ID"
 msgstr ""
 
-#: includes/fields/file.php:120
+#: includes/fields/file.php:121
 msgid "Use This File"
 msgstr ""
 
-#: includes/fields/file.php:176
+#: includes/fields/file.php:185
 msgid "Attach file"
 msgstr ""
 
@@ -328,7 +336,8 @@ msgstr ""
 msgid "Row Label"
 msgstr ""
 
-#: includes/fields/loop.php:59 includes/fields/loop.php:89 includes/fields/loop.php:190
+#: includes/fields/loop.php:59 includes/fields/loop.php:89
+#: includes/fields/loop.php:190
 msgid "Loop Row"
 msgstr ""
 
@@ -336,7 +345,8 @@ msgstr ""
 msgid "Button Label"
 msgstr ""
 
-#: includes/fields/loop.php:73 includes/fields/loop.php:116 includes/fields/loop.php:191
+#: includes/fields/loop.php:73 includes/fields/loop.php:116
+#: includes/fields/loop.php:191
 msgid "Add Row"
 msgstr ""
 

@@ -24,11 +24,6 @@ class cfs_form
         add_action('cfs_init', array($this, 'init'));
         add_action('wp_head', array($this, 'head_scripts'));
         add_action('admin_head', array($this, 'head_scripts'));
-
-        // Start the session
-        if ('' == session_id()) {
-            session_start();
-        }
     }
 
 
@@ -43,23 +38,28 @@ class cfs_form
 
     public function init()
     {
+        if ('' == session_id()) {
+            session_start();
+        }
+
         // Save the form
         if (isset($_POST['cfs']['save']))
         {
             if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
             {
+                $session = $_SESSION['cfs'];
+
+                if (empty($session))
+                {
+                    die('Your session has expired.');
+                }
+
                 $field_data = isset($_POST['cfs']['input']) ? $_POST['cfs']['input'] : array();
                 $post_data = array();
 
-                // Form settings are SESSION-based for added security
-                $post_id = (int) $_SESSION['cfs']['post_id'];
-
-                if (true === $_SESSION['cfs']['front_end']) {
-                    $field_groups = isset($_SESSION['cfs']['field_groups']) ? $_SESSION['cfs']['field_groups'] : array();
-                }
-                else {
-                    $field_groups = isset($_POST['cfs']['field_groups']) ? $_POST['cfs']['field_groups'] : array();
-                }
+                // Form settings are session-based for added security
+                $post_id = (int) $session['post_id'];
+                $field_groups = isset($session['field_groups']) ? $session['field_groups'] : array();
 
                 // Sanitize field groups
                 foreach ($field_groups as $key => $val) {
@@ -79,13 +79,13 @@ class cfs_form
                 // New posts
                 if ($post_id < 1) {
                     // Post type
-                    if (isset($_SESSION['cfs']['post_type'])) {
-                        $post_data['post_type'] = $_SESSION['cfs']['post_type'];
+                    if (isset($session['post_type'])) {
+                        $post_data['post_type'] = $session['post_type'];
                     }
 
                     // Post status
-                    if (isset($_SESSION['cfs']['post_status'])) {
-                        $post_data['post_status'] = $_SESSION['cfs']['post_status'];
+                    if (isset($session['post_status'])) {
+                        $post_data['post_status'] = $session['post_status'];
                     }
                 }
                 else {
@@ -96,11 +96,12 @@ class cfs_form
                 $this->parent->save($field_data, $post_data, $options);
 
                 // Redirect public forms
-                if (true === $_SESSION['cfs']['front_end']) {
+                if (true === $session['front_end']) {
                     $redirect_url = $_SERVER['REQUEST_URI'];
-                    if (!empty($_SESSION['cfs']['confirmation_url'])) {
-                        $redirect_url = $_SESSION['cfs']['confirmation_url'];
+                    if (!empty($session['confirmation_url'])) {
+                        $redirect_url = $session['confirmation_url'];
                     }
+
                     unset($_SESSION['cfs']);
                     header('Location: ' . $redirect_url);
                     exit;
@@ -128,6 +129,7 @@ class cfs_form
 
         $this->assets_loaded = true;
 
+        // Queue necessary scripts
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');
@@ -188,6 +190,7 @@ var CFS = {
             'post_type' => 'post',
             'confirmation_message' => '',
             'confirmation_url' => '',
+            'submit_label' => __('Submit', 'cfs'),
             'front_end' => true,
         );
 
@@ -333,13 +336,9 @@ var CFS = {
 
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
 
-        <?php if (false === $params['front_end']) : ?>
+        <?php if (false !== $params['front_end']) : ?>
 
-        <input type="hidden" name="cfs[field_groups][]" value="<?php echo $field_groups; ?>" />
-
-        <?php else : ?>
-
-        <input type="submit" value="<?php _e('Submit', 'cfs'); ?>" />
+        <input type="submit" value="<?php echo esc_attr($params['submit_label']); ?>" />
     </form>
 </div>
 
