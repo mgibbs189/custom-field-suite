@@ -218,11 +218,16 @@ var CFS = {
         // Hook to allow for overridden field settings
         $input_fields = apply_filters('cfs_pre_render_fields', $input_fields, $params);
 
+        // The SESSION should contain all applicable field group IDs. Since add_meta_box only
+        // passes 1 field group at a time, we use $cfs->group_ids from admin_head.php
+        // to store all group IDs needed for the SESSION.
+        $all_group_ids = (false === $params['front_end']) ? $this->parent->group_ids : $field_groups;
+
         $session_data = array(
             'post_id' => $post_id,
             'post_type' => $params['post_type'],
             'post_status' => $params['post_status'],
-            'field_groups' => $field_groups,
+            'field_groups' => $all_group_ids,
             'confirmation_message' => $params['confirmation_message'],
             'confirmation_url' => $params['confirmation_url'],
             'front_end' => $params['front_end'],

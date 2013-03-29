@@ -58,12 +58,15 @@ var CFS = {
 else
 {
     $hide_editor = false;
-    $field_group_ids = $this->api->get_matching_groups($post->ID);
+    $field_groups = $this->api->get_matching_groups($post->ID);
 
-    if (!empty($field_group_ids))
+    if (!empty($field_groups))
     {
+        // Store field group IDs as an array for front-end forms
+        $this->group_ids = array_keys($field_groups);
+
         // Support for multiple metaboxes
-        foreach ($field_group_ids as $group_id => $title)
+        foreach ($field_groups as $group_id => $title)
         {
             // Get field group options
             $extras = get_post_meta($group_id, 'cfs_extras', true);
