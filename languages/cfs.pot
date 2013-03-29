@@ -1,16 +1,18 @@
-# Copyright (C) 2013 
-# This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
-"Project-Id-Version:  \n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2013-03-26 15:31:17+00:00\n"
+"Project-Id-Version: Custom Field Suite 1.8.9\n"
+"POT-Creation-Date: 2013-03-29 07:05-0500\n"
+"PO-Revision-Date: 2013-03-29 07:07-0500\n"
+"Last-Translator: \n"
+"Language-Team: Matt Gibbs <logikal16@gmail.com>\n"
+"Language: English\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: cfs.php:93 cfs.php:389
 msgid "Field Groups"
@@ -268,24 +270,16 @@ msgstr ""
 msgid "Nothing to import"
 msgstr ""
 
-#: includes/classes/form.php:243
-msgid "Post Title"
-msgstr ""
-
-#: includes/classes/form.php:255
-msgid "Post Content"
-msgstr ""
-
-#: includes/classes/form.php:342
+#: includes/classes/form.php:194
 msgid "Submit"
 msgstr ""
 
-#: includes/fields/color/color.php:9
-msgid "Color"
+#: includes/classes/form.php:257
+msgid "Post Title"
 msgstr ""
 
-#: includes/fields/date/date.php:9
-msgid "Date"
+#: includes/classes/form.php:269
+msgid "Post Content"
 msgstr ""
 
 #: includes/fields/file.php:10
@@ -424,4 +418,12 @@ msgstr ""
 
 #: includes/fields/wysiwyg.php:44
 msgid "None (bypass filters)"
+msgstr ""
+
+#: includes/fields/color/color.php:9
+msgid "Color"
+msgstr ""
+
+#: includes/fields/date/date.php:9
+msgid "Date"
 msgstr ""
