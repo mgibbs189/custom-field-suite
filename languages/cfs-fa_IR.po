@@ -1,0 +1,435 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
+"POT-Creation-Date: 2013-03-26 15:31:17+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-03-30 17:28+0330\n"
+"Last-Translator: Vahid Masoomi <masoomi.vahid@gmail.com>\n"
+"Language-Team: www.ZooZ.ir <masoomi.vahid@gmail.com>\n"
+"X-Generator: Poedit 1.5.5\n"
+"Language: fa_IR\n"
+
+#: cfs.php:93 cfs.php:389
+msgid "Field Groups"
+msgstr "گروه فیلدها"
+
+#: cfs.php:94
+msgid "Field Group"
+msgstr "گروه فیلد"
+
+#: cfs.php:95
+msgid "Add New"
+msgstr "افزودن"
+
+#: cfs.php:96
+msgid "Add New Field Group"
+msgstr "افزودن گروه فیلد جدید"
+
+#: cfs.php:97
+msgid "Edit Field Group"
+msgstr "ویرایش گروه فیلد"
+
+#: cfs.php:98
+msgid "New Field Group"
+msgstr "فیلد گروه جدید"
+
+#: cfs.php:99
+msgid "View Field Group"
+msgstr "مشاهده  گروه فیلد"
+
+#: cfs.php:100
+msgid "Search Field Groups"
+msgstr "جستجوی گروه فیلد"
+
+#: cfs.php:101
+msgid "No Field Groups found"
+msgstr "هیچ گروه فیلدی یافت نشد"
+
+#: cfs.php:102
+msgid "No Field Groups found in Trash"
+msgstr "هیچ گروه فیلدی در سطل بازیافت یافت نشد"
+
+#: cfs.php:132
+msgid "Title"
+msgstr "عنوان"
+
+#: cfs.php:372
+msgid "Fields"
+msgstr "فیلدها"
+
+#: cfs.php:373
+msgid "Placement Rules"
+msgstr "شروط جاگذاری"
+
+#: cfs.php:374
+msgid "Extras"
+msgstr "اضافات"
+
+#: cfs.php:390
+msgid "Tools"
+msgstr "ابزارها"
+
+#: cfs.php:391
+msgid "Add-ons"
+msgstr "اضافات"
+
+#: includes/admin/admin_footer.php:67
+msgid "Custom Field Suite"
+msgstr "فیلد سفارشی"
+
+#: includes/admin/admin_footer.php:71
+msgid "Documentation"
+msgstr "اسناد"
+
+#: includes/admin/admin_footer.php:72
+msgid "Donate"
+msgstr "کمک مالی"
+
+#: includes/admin/admin_footer.php:73
+msgid "Changelog"
+msgstr "تغییرات"
+
+#: includes/admin/admin_footer.php:78
+msgid "Review CFS on WordPress.org"
+msgstr "صفحه افزونه در وردپرس"
+
+#: includes/admin/field_html.php:30
+msgid "Label"
+msgstr "برچسب"
+
+#: includes/admin/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "برچسبی که نویسنده آن را می بیند"
+
+#: includes/admin/field_html.php:39
+msgid "Name"
+msgstr "نام"
+
+#: includes/admin/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"نام فیلد توسط فرمان get() جهت بازیابی مقادیر ارسال می شود. لطفا فقط از حروف "
+"کوچک، اعداد و علائم تاکیدی استفاده کنید."
+
+#: includes/admin/field_html.php:49
+msgid "Field Type"
+msgstr "نوع فیلد"
+
+#: includes/admin/field_html.php:67
+msgid "Notes"
+msgstr "تذکر"
+
+#: includes/admin/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "تذکری برای نویسنده"
+
+#: includes/admin/field_html.php:82
+msgid "Close"
+msgstr "بستن"
+
+#: includes/admin/field_html.php:83
+msgid "or"
+msgstr "یا"
+
+#: includes/admin/field_html.php:83
+msgid "delete"
+msgstr "حذف"
+
+#: includes/admin/meta_box_extras.php:39
+msgid "Display Settings"
+msgstr "نمایش تنظیمات"
+
+#: includes/admin/meta_box_extras.php:49
+msgid "Hide the content editor"
+msgstr "مخفی سازی محتوای ویرایشگر"
+
+#: includes/admin/meta_box_extras.php:57
+msgid "Gravity Forms"
+msgstr "فرم Gravity"
+
+#: includes/admin/meta_box_extras.php:77
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr ""
+"برچسبهای Gravity Form و گروه فیلدهای شما باید دقیقا با یکدیگر مطابقت داشته "
+"باشند."
+
+#: includes/admin/meta_box_extras.php:81
+msgid "Please install"
+msgstr "لطفا"
+
+#: includes/admin/meta_box_extras.php:81
+msgid "to use this feature"
+msgstr "را نصب کنید تا بتوانید از این قابلیت استفاده کنید"
+
+#: includes/admin/meta_box_fields.php:66
+msgid "Add New Field"
+msgstr "افزودن فیلد جدید"
+
+#: includes/admin/meta_box_rules.php:5
+msgid "equals"
+msgstr "برابر با"
+
+#: includes/admin/meta_box_rules.php:6
+msgid "is not"
+msgstr "نباشد"
+
+#: includes/admin/meta_box_rules.php:82 includes/admin/meta_box_rules.php:87
+msgid "Leave blank to skip this rule"
+msgstr "درصورتی که مایل به انتخاب این شرط نیستید، خالی رها کنید."
+
+#: includes/admin/meta_box_rules.php:120 includes/fields/relationship.php:89
+msgid "Post Types"
+msgstr "نوع نوشته"
+
+#: includes/admin/meta_box_rules.php:152
+msgid "User Roles"
+msgstr "مجوز کاربری"
+
+#: includes/admin/meta_box_rules.php:184
+msgid "Posts"
+msgstr "نوشته ها"
+
+#: includes/admin/meta_box_rules.php:208
+msgid "Taxonomy Terms"
+msgstr "قوانین طبقه بندی"
+
+#: includes/admin/meta_box_rules.php:240
+msgid "Page Template"
+msgstr "قالب برگه"
+
+#: includes/admin/page_tools.php:78 includes/admin/page_tools.php:101
+msgid "Export"
+msgstr "دریافت خروجی"
+
+#: includes/admin/page_tools.php:79 includes/admin/page_tools.php:126
+msgid "Import"
+msgstr "وارد کردن"
+
+#: includes/admin/page_tools.php:80
+msgid "Debug"
+msgstr "اشکال زدایی"
+
+#: includes/admin/page_tools.php:81
+msgid "Reset"
+msgstr "بازنشانی"
+
+#: includes/admin/page_tools.php:89
+msgid "Which field groups would you like to export?"
+msgstr "مایلید از کدام گروه فیلد خروجی تهیه کنید؟"
+
+#: includes/admin/page_tools.php:118
+msgid "Paste the import code below."
+msgstr "کد خروجی را اینجا وارد کنید."
+
+#: includes/admin/page_tools.php:139
+msgid "Debug information"
+msgstr "اطلاعات اشکال زدایی"
+
+#: includes/admin/page_tools.php:164
+msgid "Reset and deactivate."
+msgstr "بازنشانی و غیرفعال سازی."
+
+#: includes/admin/page_tools.php:165
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr ""
+"با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می "
+"شود."
+
+#: includes/admin/page_tools.php:166
+msgid "Delete everything"
+msgstr "حذف و غیرفعال سازی"
+
+#: includes/classes/field.php:21 includes/fields/text.php:9
+msgid "Text"
+msgstr "متن"
+
+#: includes/classes/field.php:57 includes/fields/file.php:78
+#: includes/fields/relationship.php:105 includes/fields/select.php:125
+#: includes/fields/text.php:32 includes/fields/textarea.php:60
+#: includes/fields/true_false.php:43
+msgid "Validation"
+msgstr "مجوز"
+
+#: includes/classes/field.php:66 includes/fields/file.php:87
+#: includes/fields/relationship.php:114 includes/fields/select.php:134
+#: includes/fields/text.php:41 includes/fields/textarea.php:69
+#: includes/fields/true_false.php:52
+msgid "This is a required field"
+msgstr "تکمیل این فیلد اجباری است"
+
+#: includes/classes/field_group.php:94
+msgid "Imported"
+msgstr "وارد شد"
+
+#: includes/classes/field_group.php:98
+msgid "Skipped"
+msgstr "رد شده"
+
+#: includes/classes/field_group.php:104
+msgid "Nothing to import"
+msgstr "چیزی برای وارد کردن وجود ندارد"
+
+#: includes/classes/form.php:243
+msgid "Post Title"
+msgstr "عنوان نوشته"
+
+#: includes/classes/form.php:255
+msgid "Post Content"
+msgstr "محتوای نوشته"
+
+#: includes/classes/form.php:342
+msgid "Submit"
+msgstr "ارسال"
+
+#: includes/fields/color/color.php:9
+msgid "Color"
+msgstr "رنگ"
+
+#: includes/fields/date/date.php:9
+msgid "Date"
+msgstr "تاریخ"
+
+#: includes/fields/file.php:10
+msgid "File Upload"
+msgstr "آپلود فایل"
+
+#: includes/fields/file.php:46
+msgid "Add File"
+msgstr "افزودن فایل"
+
+#: includes/fields/file.php:47
+msgid "Remove"
+msgstr "حذف"
+
+#: includes/fields/file.php:57
+msgid "Return Value"
+msgstr "مقدار برگشت"
+
+#: includes/fields/file.php:66
+msgid "File URL"
+msgstr "آدرس فایل"
+
+#: includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "آی دی فایل پیوستی"
+
+#: includes/fields/file.php:121
+msgid "Use This File"
+msgstr "استفاده از این فایل"
+
+#: includes/fields/file.php:185
+msgid "Attach file"
+msgstr "پیوست فایل"
+
+#: includes/fields/loop.php:9
+msgid "Loop"
+msgstr "حلقه"
+
+#: includes/fields/loop.php:36
+msgid "Row Display"
+msgstr "نمایش ردیف"
+
+#: includes/fields/loop.php:45
+msgid "Show the values by default"
+msgstr "نمایش مقادیر پیشفرض"
+
+#: includes/fields/loop.php:52
+msgid "Row Label"
+msgstr "برچسب ردیف"
+
+#: includes/fields/loop.php:59 includes/fields/loop.php:89
+#: includes/fields/loop.php:190
+msgid "Loop Row"
+msgstr "ردیف حلقه"
+
+#: includes/fields/loop.php:66
+msgid "Button Label"
+msgstr "برچسب دکمه"
+
+#: includes/fields/loop.php:73 includes/fields/loop.php:116
+#: includes/fields/loop.php:191
+msgid "Add Row"
+msgstr "افزودن ردیف"
+
+#: includes/fields/relationship.php:9
+msgid "Relationship"
+msgstr "ارتباط"
+
+#: includes/fields/relationship.php:90
+msgid "Limit posts to the following types"
+msgstr "محدودسازی نوشته ها به این نوع"
+
+#: includes/fields/select.php:9
+msgid "Select"
+msgstr "انتخاب"
+
+#: includes/fields/select.php:94
+msgid "Choices"
+msgstr "انتخاب"
+
+#: includes/fields/select.php:95
+msgid "Enter one choice per line"
+msgstr "هر انتخاب در هر سطر"
+
+#: includes/fields/select.php:109
+msgid "Multi-select?"
+msgstr "چند انتخابی؟"
+
+#: includes/fields/select.php:118
+msgid "This is a multi-select field"
+msgstr "این یک فیلت چند انتخابی است"
+
+#: includes/fields/text.php:18 includes/fields/textarea.php:25
+msgid "Default Value"
+msgstr "مقدار پیشفرض"
+
+#: includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "جعبه متن"
+
+#: includes/fields/textarea.php:39 includes/fields/wysiwyg.php:34
+msgid "Formatting"
+msgstr "فرمت"
+
+#: includes/fields/textarea.php:48
+msgid "None"
+msgstr "هیچ"
+
+#: includes/fields/textarea.php:49
+msgid "Convert newlines to <br />"
+msgstr "تبدیل نیوزلاین به <br />"
+
+#: includes/fields/true_false.php:9
+msgid "True / False"
+msgstr "صحیح/غلط"
+
+#: includes/fields/true_false.php:28
+msgid "Message"
+msgstr "پیغام"
+
+#: includes/fields/true_false.php:29
+msgid "The text beside the checkbox"
+msgstr "متن کنار جعبه علامت زن"
+
+#: includes/fields/user.php:9
+msgid "User"
+msgstr "کاربر"
+
+#: includes/fields/wysiwyg.php:9
+msgid "Wysiwyg Editor"
+msgstr "ویرایشگر Wysiwyg"
+
+#: includes/fields/wysiwyg.php:43
+msgid "Default"
+msgstr "پیشفرض"
+
+#: includes/fields/wysiwyg.php:44
+msgid "None (bypass filters)"
+msgstr "هیچ (bypass filters)"
