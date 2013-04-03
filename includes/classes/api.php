@@ -36,19 +36,19 @@ class cfs_api
         $defaults = array(
             'format' => 'api', // "api", "input", or "raw"
         );
-        $options = (object) array_merge($defaults, $options);
+        $options = array_merge($defaults, $options);
 
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
-        if (!isset($this->cache[$post_id][$options->format][$field_name]))
+        if (!isset($this->cache[$post_id][$options['format']][$field_name]))
         {
-            $fields = $this->get_fields($post_id, (array) $options);
+            $fields = $this->get_fields($post_id, $options);
 
             return isset($fields[$field_name]) ? $fields[$field_name] : null;
         }
 
-        return $this->cache[$post_id][$options->format][$field_name];
+        return $this->cache[$post_id][$options['format']][$field_name];
     }
 
 
@@ -68,14 +68,14 @@ class cfs_api
         $defaults = array(
             'format' => 'api', // "api", "input", or "raw"
         );
-        $options = (object) array_merge($defaults, $options);
+        $options = array_merge($defaults, $options);
 
         $post_id = empty($post_id) ? $post->ID : (int) $post_id;
 
         // Return cached results
-        if (isset($this->cache[$post_id][$options->format]))
+        if (isset($this->cache[$post_id][$options['format']]))
         {
-            return $this->cache[$post_id][$options->format];
+            return $this->cache[$post_id][$options['format']];
         }
 
         $fields = array();
@@ -121,7 +121,7 @@ class cfs_api
                     if (!empty($result->hierarchy))
                     {
                         // Format for API (field names)
-                        if ('api' == $options->format || 'raw' == $options->format)
+                        if ('api' == $options['format'] || 'raw' == $options['format'])
                         {
                             $tmp = explode(':', $result->hierarchy);
                             foreach ($tmp as $key => $val)
@@ -144,7 +144,7 @@ class cfs_api
                     else
                     {
                         // Get the field name for "api" or "raw" formats
-                        if ('api' == $options->format || 'raw' == $options->format)
+                        if ('api' == $options['format'] || 'raw' == $options['format'])
                         {
                             $hierarchy = $field->name;
                         }
@@ -174,7 +174,7 @@ class cfs_api
             }
         }
 
-        $this->cache[$post_id][$options->format] = $field_data;
+        $this->cache[$post_id][$options['format']] = $field_data;
         return $field_data;
     }
 
@@ -228,11 +228,11 @@ class cfs_api
     {
         $value = $this->parent->fields[$field->type]->prepare_value($value, $field);
 
-        if ('api' == $options->format)
+        if ('api' == $options['format'])
         {
             $value = $this->parent->fields[$field->type]->format_value_for_api($value, $field);
         }
-        elseif ('input' == $options->format)
+        elseif ('input' == $options['format'])
         {
             $value = $this->parent->fields[$field->type]->format_value_for_input($value, $field);
         }
@@ -618,8 +618,9 @@ class cfs_api
         $defaults = array(
             'format' => 'api', // "api" or "input"
             'field_groups' => array(),
+            'is_revision' => false,
         );
-        $options = (object) array_merge($defaults, $options);
+        $options = array_merge($defaults, $options);
 
         // create post if the ID is missing
         if (empty($post_data['ID']))
@@ -648,13 +649,22 @@ class cfs_api
 
         // For input forms, get the group IDs from the HTTP POST
         // Otherwise, the field group might not match anymore (e.g. the taxonomy changed)
-        if ('input' == $options->format)
+        if ('input' == $options['format'])
         {
-            $group_ids = $options->field_groups;
+            $group_ids = $options['field_groups'];
         }
-        elseif ('api' == $options->format)
+        elseif ('api' == $options['format'])
         {
-            $group_ids = $this->get_matching_groups($post_id, true);
+            // If this is a revision, get the parent post's field groups
+            if ($options['is_revision'])
+            {
+                $revision_id = wp_is_post_revision($post_id);
+                $group_ids = $this->get_matching_groups($revision_id, true);
+            }
+            else
+            {
+                $group_ids = $this->get_matching_groups($post_id, true);
+            }
             $group_ids = array_keys($group_ids);
         }
 
@@ -664,22 +674,22 @@ class cfs_api
             $results = $this->find_input_fields(array('post_id' => $group_ids));
             foreach ($results as $result)
             {
-                $result = (object) $result;
-                $fields[$result->id] = $result;
+                // Store all the field objects for the current field group(s)
+                $fields[$result['id']] = (object) $result;
 
                 // Store lookup values for the recursion
-                $field_id_lookup[$result->parent_id . ':' . $result->name] = $result->id;
+                $field_id_lookup[$result['parent_id'] . ':' . $result['name']] = $result['id'];
 
                 // Store parent fields separately
-                if (0 == (int) $result->parent_id)
+                if (0 == (int) $result['parent_id'])
                 {
-                    $parent_fields[$result->name] = $result->id;
+                    $parent_fields[$result['name']] = $result['id'];
                 }
             }
         }
 
         // If this is an API call, flatten the data!
-        if ('api' == $options->format)
+        if ('api' == $options['format'])
         {
             $field_ids = array();
 
@@ -697,7 +707,7 @@ class cfs_api
             WHERE v.post_id = '$post_id' AND (v.field_id IN ($field_ids) OR v.base_field_id IN ($field_ids))";
             $wpdb->query($sql);
         }
-        elseif ('input' == $options->format)
+        elseif ('input' == $options['format'])
         {
             // If saving raw input, delete existing postdata
             $results = $this->find_input_fields(array('post_id' => $group_ids));
@@ -732,7 +742,7 @@ class cfs_api
                     'parent_id' => 0,
                     'all_fields' => $fields,
                     'hierarchy' => array(),
-                    'format' => $options->format,
+                    'format' => $options['format'],
                     'field_id_lookup' => $field_id_lookup,
                     'weight' => 0,
                     'depth' => 0,
