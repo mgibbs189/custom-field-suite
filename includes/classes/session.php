@@ -33,19 +33,22 @@ class cfs_session
         global $wpdb;
 
         $now = time();
+        $output = array();
         $session_data = $wpdb->get_var("SELECT data FROM {$wpdb->prefix}cfs_sessions WHERE id = '$this->session_id' AND expires > '$now'");
-        if (empty($session_data)) {
-            $session_data = array();
-        }
-        else {
+        if (!empty($session_data)) {
             $session_data = unserialize($session_data);
+
+            if (null != $key) {
+                if (isset($session_data[$key])) {
+                    $output = $session_data[$key];
+                }
+            }
+            else {
+                $output = $session_data;
+            }
         }
 
-        if (null != $key && isset($session_data[$key])) {
-            return $session_data[$key];
-        }
-
-        return $session_data;
+        return $output;
     }
 
 

@@ -48,7 +48,7 @@ class cfs_upgrade
 
         $sql = "
         CREATE TABLE {$wpdb->prefix}cfs_sessions (
-            id VARCHAR(32) unsigned not null auto_increment,
+            id VARCHAR(32),
             data TEXT,
             expires VARCHAR(10),
             PRIMARY KEY (id)
@@ -245,7 +245,7 @@ class cfs_upgrade
 
             $sql = "
             CREATE TABLE {$wpdb->prefix}cfs_sessions (
-                id VARCHAR(32) unsigned not null auto_increment,
+                id VARCHAR(32),
                 data TEXT,
                 expires VARCHAR(10),
                 PRIMARY KEY (id)
