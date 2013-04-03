@@ -5,6 +5,7 @@ class cfs_form
     public $parent;
     public $used_types;
     public $assets_loaded;
+    public $session;
 
     /*--------------------------------------------------------------------------------------
     *
@@ -38,9 +39,7 @@ class cfs_form
 
     public function init()
     {
-        if ('' == session_id()) {
-            session_start();
-        }
+        $this->session = new cfs_session();
 
         // Save the form
         if (isset($_POST['cfs']['save']))
@@ -49,7 +48,8 @@ class cfs_form
             {
                 // Hash is used to handle multiple active edit pages
                 $hash = $_POST['cfs']['save_hash'];
-                $session = isset($_SESSION['cfs'][$hash]) ? $_SESSION['cfs'][$hash] : false;
+
+                $session = $this->session->get($hash);
 
                 if (empty($session))
                 {
@@ -104,7 +104,7 @@ class cfs_form
                         $redirect_url = $session['confirmation_url'];
                     }
 
-                    unset($_SESSION['cfs'][$hash]);
+                    $this->session->cleanup();
                     header('Location: ' . $redirect_url);
                     exit;
                 }
@@ -237,7 +237,7 @@ var CFS = {
         $hash = md5(serialize($session_data));
 
         // Set the SESSION
-        $_SESSION['cfs'][$hash] = $session_data;
+        $this->session->set($hash, $session_data);
 
         if (false !== $params['front_end'])
         {

@@ -46,6 +46,15 @@ class cfs_upgrade
         ) DEFAULT CHARSET=utf8";
         dbDelta($sql);
 
+        $sql = "
+        CREATE TABLE {$wpdb->prefix}cfs_sessions (
+            id VARCHAR(32) unsigned not null auto_increment,
+            data TEXT,
+            expires VARCHAR(10),
+            PRIMARY KEY (id)
+        ) DEFAULT CHARSET=utf8";
+        dbDelta($sql);
+
         // Set the field counter
         update_option('cfs_next_field_id', 1);
     }
@@ -227,6 +236,21 @@ class cfs_upgrade
             {
                 update_post_meta($post_id, 'cfs_fields', $field_data);
             }
+        }
+
+        // Add the sessions table
+        if (version_compare($this->last_version, '1.9.0', '<'))
+        {
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+            $sql = "
+            CREATE TABLE {$wpdb->prefix}cfs_sessions (
+                id VARCHAR(32) unsigned not null auto_increment,
+                data TEXT,
+                expires VARCHAR(10),
+                PRIMARY KEY (id)
+            ) DEFAULT CHARSET=utf8";
+            dbDelta($sql);
         }
     }
 }

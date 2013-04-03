@@ -40,6 +40,7 @@ class cfs
         include($this->dir . '/includes/classes/upgrade.php');
         include($this->dir . '/includes/classes/field.php');
         include($this->dir . '/includes/classes/field_group.php');
+        include($this->dir . '/includes/classes/session.php');
         include($this->dir . '/includes/classes/form.php');
         include($this->dir . '/includes/classes/third_party.php');
 
