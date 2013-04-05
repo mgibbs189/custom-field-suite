@@ -17,32 +17,68 @@ $json = json_decode($json);
 ?>
 
 <style type="text/css">
-#icon-edit { background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat; }
+#icon-edit {
+  background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat;
+}
+
+.addon {
+  float: left;
+  width: 220px;
+  margin: 15px 15px 0 0;
+}
+
+.addon-container {
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.addon-thumbnail {
+  padding: 10px 0;
+  background: #fcfcfc;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.addon-main {
+  padding: 10px 15px;
+  height: 100px;
+}
+
+.addon-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.addon-purpose {
+  color: #888;
+}
+
+.addon-learn-more {
+  border-top: 1px solid #e1e1e1;
+  background: #fcfcfc;
+  padding: 10px 0;
+}
 </style>
 
 <div class="wrap">
     <div id="icon-edit" class="icon32"><br></div>
     <h2>Add-ons</h2>
     <?php foreach ($json as $addon) : ?>
-    <div class="list-item" style="float:left; width:240px; height:320px; margin:15px 15px 0 0">
-        <div style="padding:5px">
-            <?php echo $addon->title; ?>
-            <?php if (!empty($addon->version)) : ?>
-            <span style="font-size:10px">v<?php echo $addon->version; ?></span>
-            <?php endif; ?>
-        </div>
-        <?php if (!empty($addon->thumbnail)) : ?>
-        <img src="<?php echo $addon->thumbnail; ?>" style="display:block" alt="" />
-        <?php endif; ?>
-        <div style="padding:5px">
-            <div style="margin-bottom:10px"><?php echo $addon->summary; ?></div>
-            <div>
-                <?php if (!empty($addon->learn_more_url)) : ?>
-                <a class="button-secondary" href="<?php echo $addon->learn_more_url; ?>" target="_blank">Learn More</a>
-                <?php endif; ?>
-                <?php if (!empty($addon->purchase_price) && !empty($addon->learn_more_url)) : ?>
-                <a class="button-secondary" href="<?php echo $addon->learn_more_url; ?>" target="_blank">Buy - $<?php echo $addon->purchase_price; ?></a>
-                <?php endif; ?>
+    <div class="addon">
+        <div class="addon-container">
+            <div class="addon-thumbnail">
+                <a href="<?php echo $addon->learn_more_url; ?>" target="_blank">
+                    <img src="<?php echo $addon->thumbnail; ?>" alt="" />
+                </a>
+            </div>
+            <div class="addon-main">
+                <div class="addon-title">
+                    <a href="<?php echo $addon->learn_more_url; ?>" target="_blank"><?php echo $addon->title; ?></a>
+                </div>
+                <div class="addon-purpose"><?php echo $addon->purpose; ?></div>
+            </div>
+            <div class="addon-learn-more">
+                <a class="button-primary" href="<?php echo $addon->learn_more_url; ?>" target="_blank">Learn more</a>
             </div>
         </div>
     </div>

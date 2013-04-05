@@ -57,7 +57,7 @@ if ($is_gf_active)
             <label><?php _e('Gravity Forms', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
-            <?php if($is_gf_active) : ?>
+            <?php if ($is_gf_active) : ?>
 
             <select name="cfs[extras][gforms][form_id]">
                 <option value="">-- Gravity Form --</option>

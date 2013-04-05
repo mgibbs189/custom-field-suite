@@ -92,6 +92,9 @@ class cfs_file extends cfs_field
     <?php
     }
 
+    /**
+     * @deprecated for WP < 3.5
+     */
     function popup_head()
     {
         // Don't interfere with the default Media popup
@@ -127,6 +130,9 @@ class cfs_file extends cfs_field
         }
     }
 
+    /**
+     * @deprecated for WP < 3.5
+     */
     function media_send_to_editor($html, $id, $attachment)
     {
         if (isset($_POST['_wp_http_referer']))
