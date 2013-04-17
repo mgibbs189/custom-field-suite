@@ -95,7 +95,12 @@ class cfs_form
                 }
 
                 $options = array('format' => 'input', 'field_groups' => $field_groups);
+
+                // Save the input values
                 $this->parent->save($field_data, $post_data, $options);
+
+                // Delete expired sessions
+                $this->session->cleanup();
 
                 // Redirect public forms
                 if (true === $session['front_end']) {
@@ -104,7 +109,6 @@ class cfs_form
                         $redirect_url = $session['confirmation_url'];
                     }
 
-                    $this->session->cleanup();
                     header('Location: ' . $redirect_url);
                     exit;
                 }

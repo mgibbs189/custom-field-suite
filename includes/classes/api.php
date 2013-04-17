@@ -526,6 +526,10 @@ class cfs_api
     {
         global $wpdb, $current_user;
 
+        if (wp_is_post_revision($post_id)) {
+            $post_id = wp_is_post_revision($post_id);
+        }
+
         // Get variables
         $matches = array();
         $post_id = (int) $post_id;
@@ -618,7 +622,6 @@ class cfs_api
         $defaults = array(
             'format' => 'api', // "api" or "input"
             'field_groups' => array(),
-            'is_revision' => false,
         );
         $options = array_merge($defaults, $options);
 
@@ -655,8 +658,8 @@ class cfs_api
         }
         elseif ('api' == $options['format'])
         {
-            // If this is a revision, get the parent post's field groups
-            if ($options['is_revision'])
+            // For revisions, get the parent post's field groups
+            if (wp_is_post_revision($post_id))
             {
                 $revision_id = wp_is_post_revision($post_id);
                 $group_ids = $this->get_matching_groups($revision_id, true);
@@ -665,6 +668,7 @@ class cfs_api
             {
                 $group_ids = $this->get_matching_groups($post_id, true);
             }
+
             $group_ids = array_keys($group_ids);
         }
 

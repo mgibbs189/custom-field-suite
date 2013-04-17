@@ -58,10 +58,13 @@ class cfs_wysiwyg extends cfs_field
         // Make sure the user has WYSIWYG enabled
         if ('true' == get_user_meta(get_current_user_id(), 'rich_editing', true))
         {
-            // Load TinyMCE for front-end forms
-            echo '<div class="hidden">';
-            wp_editor('', 'cfswysi');
-            echo '</div>';
+            if (!is_admin())
+            {
+                // Load TinyMCE for front-end forms
+                echo '<div class="hidden">';
+                wp_editor('', 'cfswysi');
+                echo '</div>';
+            }
     ?>
         <script>
         (function($) {

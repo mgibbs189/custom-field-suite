@@ -49,6 +49,12 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 
 == Changelog ==
 
+= 1.9.0 =
+* Table-based sessions for better compatibility
+* Improved add-on page
+* Added Persian translation (props Vahid Masoomi)
+* Cleanup of API class
+
 = 1.8.9 =
 * Bugfix: compatibility fix for PHP sessions
 * Bugfix: form save error with multiple edit pages open
