@@ -20,6 +20,30 @@ jQuery(function($) {
                 return regex.test(val);
             }
         },
+        'limit': {
+            'error': function(el) {
+                var limits = el.attr('data-validator').split('|')[1].split(',');
+                if (limits[0] == limits[1]) {
+                    return 'Please select ' + limits[0] + ' item(s)';
+                }
+                else {
+                    return 'Please select between ' + limits[0] + ' and ' + limits[1] + ' items';
+                }
+            },
+            'validate': function(val, el) {
+                var count = ('' == val) ? 0 : val.split(',').length;
+                var limits = el.attr('data-validator').split('|')[1].split(',');
+                var min = parseInt(limits[0]);
+                var max = parseInt(limits[1]);
+                if (0 < min && count < min) {
+                    return false;
+                }
+                if (0 < max && max < count) {
+                    return false;
+                }
+                return true;
+            }
+        }
     };
 
     // Get the value for non-standard field types
@@ -56,7 +80,7 @@ jQuery(function($) {
                 $this.find('.error').hide();
 
                 var type = $this.attr('data-type');
-                var validator = $this.attr('data-validator');
+                var validator = $this.attr('data-validator').split('|')[0];
 
                 // a validator is specified
                 if ('' != validator) {
@@ -73,7 +97,7 @@ jQuery(function($) {
                         }
 
                         // pass the value through the validator
-                        var is_valid = CFS.validators[validator]['validate'](val);
+                        var is_valid = CFS.validators[validator]['validate'](val, $this);
 
                         if (!is_valid) {
                             passthru = false;
@@ -81,7 +105,13 @@ jQuery(function($) {
                             if ($this.find('.error').length < 1) {
                                 $this.append('<div class="error"></div>');
                             }
-                            $this.find('.error').html(CFS.validators[validator]['error']);
+
+                            // error can be either a string or function
+                            var error_msg = CFS.validators[validator]['error'];
+                            if ('function' == typeof error_msg) {
+                                error_msg = error_msg($this);
+                            }
+                            $this.find('.error').html(error_msg);
                             $this.find('.error').show();
                         }
                     }

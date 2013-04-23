@@ -314,6 +314,13 @@ var CFS = {
             {
                 $validator = '';
 
+                if ('relationship' == $field->type)
+                {
+                    $min = empty($field->options['limit_min']) ? 0 : (int) $field->options['limit_min'];
+                    $max = empty($field->options['limit_max']) ? 0 : (int) $field->options['limit_max'];
+                    $validator = "limit|$min,$max";
+                }
+
                 if (isset($field->options['required']) && 0 < (int) $field->options['required'])
                 {
                     if ('date' == $field->type)
