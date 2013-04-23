@@ -49,6 +49,10 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 
 == Changelog ==
 
+= 1.9.1 =
+* Added `cfs_pre_save_input` action hook
+* Added `cfs_after_save_input` action hook
+
 = 1.9.0 =
 * Table-based sessions for better compatibility
 * Improved add-on page

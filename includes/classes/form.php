@@ -96,8 +96,25 @@ class cfs_form
 
                 $options = array('format' => 'input', 'field_groups' => $field_groups);
 
+                // Hook parameters
+                $hook_params = array(
+                    'field_data' => $field_data,
+                    'post_data' => $post_data,
+                    'options' => $options,
+                );
+
+                // Pre-save hook
+                do_action('cfs_pre_save_input', $hook_params);
+
                 // Save the input values
-                $this->parent->save($field_data, $post_data, $options);
+                $hook_params['post_data']['ID'] = $this->parent->save(
+                    $field_data,
+                    $post_data,
+                    $options
+                );
+
+                // After-save hook
+                do_action('cfs_after_save_input', $hook_params);
 
                 // Delete expired sessions
                 $this->session->cleanup();
