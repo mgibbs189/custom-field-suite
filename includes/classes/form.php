@@ -155,13 +155,9 @@ class cfs_form
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');
-        wp_enqueue_script('cfs-validation', $this->parent->url . '/assets/js/validation.js');
         wp_enqueue_script('tiptip', $this->parent->url . '/assets/js/tipTip/jquery.tipTip.js');
         wp_enqueue_style('tiptip', $this->parent->url . '/assets/js/tipTip/tipTip.css');
         wp_enqueue_style('cfs-input', $this->parent->url . '/assets/css/input.css');
-
-        // Allow for custom client-side field validators
-        do_action('cfs_custom_validation');
     }
 
 
@@ -178,15 +174,11 @@ class cfs_form
     {
     ?>
 
-<script>
-var CFS = {
-    'validators': {},
-    'get_field_value': {},
-    'loop_buffer': []
-};
-</script>
+<script src="<?php echo $this->parent->url; ?>/assets/js/validation.js"></script>
 
     <?php
+        // Allow for custom client-side field validators
+        do_action('cfs_custom_validation');
     }
 
 

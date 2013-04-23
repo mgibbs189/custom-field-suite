@@ -1,3 +1,9 @@
+var CFS = {
+    'validators': {},
+    'get_field_value': {},
+    'loop_buffer': []
+};
+
 jQuery(function($) {
     CFS.validators = {
         'required': {
