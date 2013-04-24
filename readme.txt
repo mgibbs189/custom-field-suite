@@ -7,34 +7,30 @@ Tested up to: 3.6
 Stable tag: trunk
 License: GPL2
 
-Custom Field Suite (CFS) is a lightweight custom fields plugin for WordPress.
+Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Description ==
 
-Custom Field Suite (CFS) lets you add custom fields to various edit screens. Each "field group" lives in its own meta box. Add as many field groups as you need!
+= Custom Field Suite (CFS) is a lightweight custom fields plugin =
 
-= Features =
-* [How to Use CFS](http://uproot.us/docs/how-to-use-cfs/)
-* Many field types: [Text](http://uproot.us/docs/text/), [Textarea](http://uproot.us/docs/textarea/), [Visual Editor](http://uproot.us/docs/wysiwyg/), [Date](http://uproot.us/docs/date/), [Color](http://uproot.us/docs/color/), [Select](http://uproot.us/docs/select/), [File Upload](http://uproot.us/docs/file-upload/), [User](http://uproot.us/docs/user/), [Relationship](http://uproot.us/docs/relationship/), [Loop](http://uproot.us/docs/loop/) and you can also [create your own](http://uproot.us/docs/creating-custom-field-types/)!
-* Loop fields are repeatable containers for other fields. For example, place a `File Upload` field into a `Loop` field to create a photo gallery!
-* Each field group has a "Placement Rules" area, where you control which edit screens the field group should appear on
-* CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/), and can save Gravity Forms entries as post items.
-* Drag-and-drop field management
-* Field validation
+* Visually create and manage custom fields
+* Over a dozen field types: text, date, relationship, file upload, user, loop, google maps, etc.
+* Each field group has a "Placement Rules" area, where you define which edit screens to appear on
+* Loop fields are repeatable containers for other fields. For example, place a `File Upload` field into a loop to create a gallery!
+* Create your own field types using the `cfs_field_types` hook
+* CFS works well with Gravity Forms, and can save GF entries as post items
+* Includes client-side field validation
 
-**CFS is a fork of Advanced Custom Fields v2.** The main goals of CFS are stability, performance, and avoiding feature bloat.
+**CFS is a fork of Advanced Custom Fields v2.** The goals of this plugin are stability, performance, and avoiding feature bloat.
 
-= Why use Custom Field Suite? =
-* CFS is super easy to use.
-* CFS is stable. We thoroughly test our code before each release.
-* Performance matters. CFS makes only a handful of database queries, and caching is used throughout.
-* CFS is fast and uses few server resources.
-* Custom fields can be searchable (using the default WordPress search) with the help of plugins like [Search Everything](http://wordpress.org/extend/plugins/search-everything/).
+= Getting Started =
+[See the CFS overview page →](http://uproot.us/projects/cfs/)
 
-= Documentation and Support =
-* http://uproot.us/
-* http://uproot.us/projects/cfs/documentation/
-* http://uproot.us/forums/
+= Documentation =
+[View the documentation →](http://uproot.us/projects/cfs/documentation/)
+
+= Support =
+[Visit the support forums →](http://uproot.us/forums/)
 
 == Installation ==
 
@@ -128,41 +124,5 @@ Custom Field Suite (CFS) lets you add custom fields to various edit screens. Eac
 * Removed uninstall hook (manual reset coming soon)
 * Added `cfs_init` hook (props @Gator92)
 * File field stability fixes
-
-= 1.7.9 =
-* Bugfix: field validation for new posts
-* Improved `cfs_field_types` hook implementation
-* Updated UI Timepicker to fix compability issues (props @saltcod)
-* Allow for {empty} placeholder for empty select value
-* Moved saving of field groups to the API class (props @Gator92)
-* Updated links to uproot.us
-
-= 1.7.8 =
-* Field management - autofill and paste support (props @Gator92)
-* Cleaned up PHP notices for get() with missing fields (props @jchristopher)
-* Updated Hungarian translation (props [hutch.hu](http://hutch.hu/))
-
-= 1.7.7 =
-* Compatibility fix for WooFramework
-* Bugfix: dragging wysiwyg fields within a loop field
-
-= 1.7.6 =
-* Autocomplete for "Posts" placement rule
-* Allow for programmatic import/export (props unkhz)
-* Removed deprecated parameter from `get_reverse_related`
-* Disabled "Synchronize" feature, pending rewrite
-
-= 1.7.5 =
-* Updated German translations (props Sacha Brosi)
-* Added hook: cfs_custom_validation
-* Hovering over a relationship item will display its post type
-* Updated select2 script (placement rules area)
-* Refactored ajax handling
-
-= 1.7.4 =
-* Improved upgrade script
-* Added German translation (props Sascha Brosi)
-* Bugfix: javascript issues for fields within sub-loop fields (props @sc0ttkclark)
-* Added tooltips to field management page
 
 [See the full changelog](http://uproot.us/projects/cfs/changelog/)

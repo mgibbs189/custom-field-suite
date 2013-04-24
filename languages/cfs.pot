@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Field Suite 1.8.9\n"
-"POT-Creation-Date: 2013-03-29 07:05-0500\n"
-"PO-Revision-Date: 2013-03-29 07:07-0500\n"
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2013-04-24 13:10-0500\n"
+"PO-Revision-Date: 2013-04-24 13:10-0500\n"
 "Last-Translator: \n"
 "Language-Team: Matt Gibbs <logikal16@gmail.com>\n"
 "Language: English\n"
@@ -14,67 +14,67 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:93 cfs.php:389
+#: cfs.php:106 cfs.php:402
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:107
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:95
+#: cfs.php:108
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:96
+#: cfs.php:109
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:97
+#: cfs.php:110
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:98
+#: cfs.php:111
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:99
+#: cfs.php:112
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:100
+#: cfs.php:113
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:101
+#: cfs.php:114
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:102
+#: cfs.php:115
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:132
+#: cfs.php:145
 msgid "Title"
 msgstr ""
 
-#: cfs.php:372
+#: cfs.php:385
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:373
+#: cfs.php:386
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:374
+#: cfs.php:387
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:390
+#: cfs.php:403
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:391
+#: cfs.php:404
 msgid "Add-ons"
 msgstr ""
 
@@ -245,16 +245,14 @@ msgid "Text"
 msgstr ""
 
 #: includes/classes/field.php:57 includes/fields/file.php:78
-#: includes/fields/relationship.php:105 includes/fields/select.php:125
-#: includes/fields/text.php:32 includes/fields/textarea.php:60
-#: includes/fields/true_false.php:43
+#: includes/fields/select.php:125 includes/fields/text.php:32
+#: includes/fields/textarea.php:60 includes/fields/true_false.php:43
 msgid "Validation"
 msgstr ""
 
 #: includes/classes/field.php:66 includes/fields/file.php:87
-#: includes/fields/relationship.php:114 includes/fields/select.php:134
-#: includes/fields/text.php:41 includes/fields/textarea.php:69
-#: includes/fields/true_false.php:52
+#: includes/fields/select.php:134 includes/fields/text.php:41
+#: includes/fields/textarea.php:69 includes/fields/true_false.php:52
 msgid "This is a required field"
 msgstr ""
 
@@ -270,15 +268,15 @@ msgstr ""
 msgid "Nothing to import"
 msgstr ""
 
-#: includes/classes/form.php:194
+#: includes/classes/form.php:207
 msgid "Submit"
 msgstr ""
 
-#: includes/classes/form.php:257
+#: includes/classes/form.php:270
 msgid "Post Title"
 msgstr ""
 
-#: includes/classes/form.php:269
+#: includes/classes/form.php:282
 msgid "Post Content"
 msgstr ""
 
@@ -306,11 +304,11 @@ msgstr ""
 msgid "Attachment ID"
 msgstr ""
 
-#: includes/fields/file.php:121
+#: includes/fields/file.php:124
 msgid "Use This File"
 msgstr ""
 
-#: includes/fields/file.php:185
+#: includes/fields/file.php:191
 msgid "Attach file"
 msgstr ""
 
@@ -350,6 +348,10 @@ msgstr ""
 
 #: includes/fields/relationship.php:90
 msgid "Limit posts to the following types"
+msgstr ""
+
+#: includes/fields/relationship.php:105
+msgid "Limits"
 msgstr ""
 
 #: includes/fields/select.php:9
