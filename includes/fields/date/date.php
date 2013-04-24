@@ -19,10 +19,7 @@ class cfs_date extends cfs_field
         (function($) {
             $(document).on('focus', '.cfs_date input.date', function() {
                 if (!$(this).hasClass('ready')) {
-                    $(this).addClass('ready').datetimepicker({ stepMinute: 5, dateFormat: 'yy-mm-dd' });
-                    if ($('.cfs-ui-date').length < 1) {
-                        $('#ui-datepicker-div').wrap('<div class="cfs-ui-date" />');
-                    }
+                    $(this).addClass('ready').pikaday();
                 }
             });
         })(jQuery);
@@ -32,10 +29,9 @@ class cfs_date extends cfs_field
 
     function load_assets()
     {
-        wp_register_script('jquery-ui-timepicker', $this->parent->url . '/includes/fields/date/jquery.ui.timepicker.js',
-            array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider')
-        );
-
-        wp_enqueue_script('jquery-ui-timepicker');
+        wp_register_script('moment', $this->parent->url . '/includes/fields/date/moment.js');
+        wp_register_script('pikaday', $this->parent->url . '/includes/fields/date/pikaday.js', array('jquery'));
+        wp_enqueue_script('moment');
+        wp_enqueue_script('pikaday');
     }
 }
