@@ -33,52 +33,9 @@ class cfs
     public $form;
     public $api;
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    __construct
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
-
     function __construct()
     {
-        $this->version = '1.9.1';
-        $this->dir = dirname(__FILE__);
-        $this->url = plugins_url('custom-field-suite');
-
-        include($this->dir . '/includes/classes/api.php');
-        include($this->dir . '/includes/classes/upgrade.php');
-        include($this->dir . '/includes/classes/field.php');
-        include($this->dir . '/includes/classes/field_group.php');
-        include($this->dir . '/includes/classes/session.php');
-        include($this->dir . '/includes/classes/form.php');
-        include($this->dir . '/includes/classes/third_party.php');
-
-        // load classes
-        $this->api = new cfs_api($this);
-        $this->form = new cfs_form($this);
-        $this->field_group = new cfs_field_group($this);
-        $this->third_party = new cfs_third_party($this);
-
-        // add actions
         add_action('init', array($this, 'init'));
-        add_action('admin_head', array($this, 'admin_head'));
-        add_action('admin_footer', array($this, 'admin_footer'));
-        add_action('admin_menu', array($this, 'admin_menu'));
-        add_action('save_post', array($this, 'save_post'));
-        add_action('delete_post', array($this, 'delete_post'));
-        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
-        add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
-
-        if (!is_admin())
-        {
-            add_action('parse_query', array($this, 'parse_query'));
-        }
-
-        // add translations
-        load_plugin_textdomain('cfs', false, 'custom-field-suite/languages');
     }
 
 
@@ -93,10 +50,41 @@ class cfs
 
     function init()
     {
-        // perform upgrades
+        $this->version = '1.9.1';
+        $this->dir = dirname(__FILE__);
+        $this->url = plugins_url('custom-field-suite');
+
+        // add translations
+        load_plugin_textdomain('cfs', false, 'custom-field-suite/languages');
+
+        add_action('admin_head', array($this, 'admin_head'));
+        add_action('admin_footer', array($this, 'admin_footer'));
+        add_action('admin_menu', array($this, 'admin_menu'));
+        add_action('save_post', array($this, 'save_post'));
+        add_action('delete_post', array($this, 'delete_post'));
+        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
+        add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
+
+        if (!is_admin())
+        {
+            add_action('parse_query', array($this, 'parse_query'));
+        }
+
+        include($this->dir . '/includes/classes/api.php');
+        include($this->dir . '/includes/classes/upgrade.php');
+        include($this->dir . '/includes/classes/field.php');
+        include($this->dir . '/includes/classes/field_group.php');
+        include($this->dir . '/includes/classes/session.php');
+        include($this->dir . '/includes/classes/form.php');
+        include($this->dir . '/includes/classes/third_party.php');
+
         $upgrade = new cfs_upgrade($this->version);
 
-        // get all available field types
+        // load classes
+        $this->api = new cfs_api($this);
+        $this->form = new cfs_form($this);
+        $this->field_group = new cfs_field_group($this);
+        $this->third_party = new cfs_third_party($this);
         $this->fields = $this->get_field_types();
 
         // customize the table header
