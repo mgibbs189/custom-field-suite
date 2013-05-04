@@ -1,7 +1,7 @@
 <?php
 function cfs_load_addons() {
     if (false === ($cache = get_transient('cfs_addons'))) {
-        $feed = wp_remote_get('http://uproot.us/add-ons/');
+        $feed = wp_remote_get('https://uproot.us/add-ons/', array('sslverify' => false));
         if (!is_wp_error($feed)) {
             if (isset($feed['body']) && 0 < strlen($feed['body'])) {
                 $cache = wp_remote_retrieve_body($feed);
