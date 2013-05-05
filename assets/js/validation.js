@@ -1,8 +1,7 @@
-var CFS = {
-    'validators': {},
-    'get_field_value': {},
-    'loop_buffer': []
-};
+var CFS = CFS || {};
+CFS['validators'] = {};
+CFS['get_field_value'] = {};
+CFS['loop_buffer'] = [];
 
 jQuery(function($) {
     CFS.validators = {

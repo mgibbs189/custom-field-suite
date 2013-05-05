@@ -35,11 +35,10 @@ if ('cfs' == $screen->post_type)
 ?>
 
 <script>
-var CFS = {
-    'field_index': <?php echo $field_count; ?>,
-    'field_clone': <?php echo json_encode($field_clone); ?>,
-    'options_html': <?php echo json_encode($options_html); ?>
-};
+var CFS = CFS || {};
+CFS['field_index'] = <?php echo $field_count; ?>;
+CFS['field_clone'] = <?php echo json_encode($field_clone); ?>;
+CFS['options_html'] = <?php echo json_encode($options_html); ?>;
 </script>
 <script src="<?php echo $this->url; ?>/assets/js/fields.js"></script>
 <script src="<?php echo $this->url; ?>/assets/js/select2/select2.min.js"></script>
