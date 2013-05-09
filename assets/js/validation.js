@@ -85,7 +85,8 @@ jQuery(function($) {
                 $this.find('.error').hide();
 
                 var type = $this.attr('data-type');
-                var validator = $this.attr('data-validator').split('|')[0];
+                var validator = $this.attr('data-validator');
+                validator = ('undefined' != typeof validator) ? validator.split('|')[0] : '';
 
                 // a validator is specified
                 if ('' != validator) {

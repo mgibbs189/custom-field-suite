@@ -113,7 +113,7 @@ class cfs_loop extends cfs_field
                     $loop_field_ids[] = $field->id;
                 ?>
                     <div class="table_footer">
-                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-num-rows="0" />
+                        <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($this->get_option($field, 'button_label', __('Add Row', 'cfs'))); ?>" data-loop-tag="[clone][<?php echo $field->id; ?>]" data-rows="0" />
                     </div>
                 <?php else : ?>
                 <?php
@@ -192,11 +192,11 @@ class cfs_loop extends cfs_field
         $css_class = (0 < (int) $row_display) ? ' open' : '';
 
         // Do the dirty work
-        $offset = 0;
+        $row_offset = -1;
 
         if ($values) :
             foreach ($values as $i => $value) :
-                $offset = ($i + 1);
+                $row_offset = max($i, $row_offset);
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head">
@@ -234,7 +234,7 @@ class cfs_loop extends cfs_field
         <?php endforeach; endif; ?>
 
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($button_label); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-num-rows="<?php echo $offset; ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr($button_label); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-rows="<?php echo ($row_offset + 1); ?>" />
         </div>
     <?php
     }
@@ -250,11 +250,11 @@ class cfs_loop extends cfs_field
         (function($) {
             $(function() {
                 $(document).on('click', '.cfs_add_field', function() {
-                    var num_rows = $(this).attr('data-num-rows');
+                    var num_rows = $(this).attr('data-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
-                    $(this).attr('data-num-rows', parseInt(num_rows)+1);
+                    $(this).attr('data-rows', parseInt(num_rows)+1);
                     $(this).closest('.table_footer').before(html);
                     $(this).trigger('cfs/ready');
                 });
