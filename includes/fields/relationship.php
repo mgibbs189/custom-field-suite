@@ -10,6 +10,9 @@ class cfs_relationship extends cfs_field
         $this->parent = $parent;
     }
 
+
+
+
     function html($field)
     {
         global $wpdb;
@@ -79,6 +82,9 @@ class cfs_relationship extends cfs_field
     <?php
     }
 
+
+
+
     function options_html($key, $field)
     {
         $post_types = isset($field->options['post_types']) ? $field->options['post_types'] : null;
@@ -111,6 +117,9 @@ class cfs_relationship extends cfs_field
         </tr>
     <?php
     }
+
+
+
 
     function input_head()
     {
@@ -214,15 +223,24 @@ class cfs_relationship extends cfs_field
     <?php
     }
 
+
+
+
     function prepare_value($value, $field)
     {
         return $value;
     }
 
+
+
+
     function format_value_for_input($value, $field)
     {
         return empty($value) ? '' : implode(',', $value);
     }
+
+
+
 
     function pre_save($value, $field)
     {

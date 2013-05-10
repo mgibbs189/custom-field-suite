@@ -10,6 +10,9 @@ class cfs_select extends cfs_field
         $this->parent = $parent;
     }
 
+
+
+
     function html($field)
     {
         $multiple = '';
@@ -50,6 +53,9 @@ class cfs_select extends cfs_field
     <?php
     }
 
+
+
+
     function input_head()
     {
     ?>
@@ -72,6 +78,9 @@ class cfs_select extends cfs_field
         </script>
     <?php
     }
+
+
+
 
     function options_html($key, $field)
     {
@@ -139,6 +148,9 @@ class cfs_select extends cfs_field
     <?php
     }
 
+
+
+
     function format_value_for_api($value, $field)
     {
         $value_array = array();
@@ -153,10 +165,16 @@ class cfs_select extends cfs_field
         return $value_array;
     }
 
+
+
+
     function prepare_value($value, $field)
     {
         return $value;
     }
+
+
+
 
     function pre_save_field($field)
     {

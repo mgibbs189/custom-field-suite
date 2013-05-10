@@ -10,6 +10,9 @@ class cfs_user extends cfs_field
         $this->parent = $parent;
     }
 
+
+
+
     function html($field)
     {
         global $wpdb;
@@ -61,6 +64,9 @@ class cfs_user extends cfs_field
         <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
     <?php
     }
+
+
+
 
     function input_head()
     {
@@ -143,15 +149,24 @@ class cfs_user extends cfs_field
     <?php
     }
 
+
+
+
     function prepare_value($value, $field)
     {
         return $value;
     }
 
+
+
+
     function format_value_for_input($value, $field)
     {
         return empty($value) ? '' : implode(',', $value);
     }
+
+
+
 
     function pre_save($value, $field)
     {

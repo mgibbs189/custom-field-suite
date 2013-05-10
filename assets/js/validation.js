@@ -9,12 +9,12 @@ jQuery(function($) {
             'error': 'Please enter a value',
             'validate': function(val) {
                 return ('' != val && null != val);
-            },
+            }
         },
         'valid_date': {
             'error': 'Please enter a valid date (YYYY-MM-DD HH:MM)',
             'validate': function(val) {
-                var regex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+                var regex = /^\d{4}-\d{2}-\d{2}/;
                 return regex.test(val);
             }
         },

@@ -10,6 +10,9 @@ class cfs_text extends cfs_field
         $this->parent = $parent;
     }
 
+
+
+
     function options_html($key, $field)
     {
     ?>
@@ -45,6 +48,9 @@ class cfs_text extends cfs_field
         </tr>
     <?php
     }
+
+
+
 
     function format_value_for_input($value, $field)
     {

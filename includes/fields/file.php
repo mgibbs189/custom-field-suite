@@ -2,7 +2,11 @@
 
 class cfs_file extends cfs_field
 {
+
     public $new_media;
+
+
+
 
     function __construct($parent)
     {
@@ -19,6 +23,9 @@ class cfs_file extends cfs_field
             add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
         }
     }
+
+
+
 
     function html($field)
     {
@@ -48,6 +55,9 @@ class cfs_file extends cfs_field
         <input type="hidden" name="<?php echo $field->input_name; ?>" class="file_value" value="<?php echo $field->value; ?>" />
     <?php
     }
+
+
+
 
     function options_html($key, $field)
     {
@@ -92,6 +102,9 @@ class cfs_file extends cfs_field
     <?php
     }
 
+
+
+
     /**
      * @deprecated for WP < 3.5
      */
@@ -129,6 +142,9 @@ class cfs_file extends cfs_field
     <?php
         }
     }
+
+
+
 
     /**
      * @deprecated for WP < 3.5
@@ -170,6 +186,9 @@ class cfs_file extends cfs_field
             return $html;
         }
     }
+
+
+
 
     function input_head($field = null)
     {
@@ -243,6 +262,9 @@ class cfs_file extends cfs_field
         </script>
     <?php
     }
+
+
+
 
     function format_value_for_api($value, $field)
     {

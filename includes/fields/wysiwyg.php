@@ -2,7 +2,11 @@
 
 class cfs_wysiwyg extends cfs_field
 {
+
     public $wp_default_editor;
+
+
+
 
     function __construct($parent)
     {
@@ -10,22 +14,15 @@ class cfs_wysiwyg extends cfs_field
         $this->label = __('Wysiwyg Editor', 'cfs');
         $this->parent = $parent;
 
-        // use this instead of wp_editor() due to dynamic (sub-loop) wysiwyg fields
+        // wp_editor() won't work for dynamic-generated wysiwygs
         add_filter('wp_default_editor', array($this, 'wp_default_editor'));
 
-        // if needed, force TinyMCE into HTML mode
+        // force HTML mode for main content editor
         add_action('tiny_mce_before_init', array($this, 'editor_pre_init'));
     }
 
-    function editor_pre_init($settings)
-    {
-        if ('html' == $this->wp_default_editor)
-        {
-            // reference: http://www.tinymce.com/wiki.php/Configuration3x:Callbacks
-            $settings['oninit'] = "function() { switchEditors.go('content', 'html'); }";
-        }
-        return $settings;
-    }
+
+
 
     function html($field)
     {
@@ -40,6 +37,9 @@ class cfs_wysiwyg extends cfs_field
         </div>
     <?php
     }
+
+
+
 
     function options_html($key, $field)
     {
@@ -67,6 +67,9 @@ class cfs_wysiwyg extends cfs_field
         </tr>
     <?php
     }
+
+
+
 
     function input_head()
     {
@@ -143,6 +146,9 @@ class cfs_wysiwyg extends cfs_field
         }
     }
 
+
+
+
     function wp_default_editor($default)
     {
         $this->wp_default_editor = $default;
@@ -150,10 +156,29 @@ class cfs_wysiwyg extends cfs_field
         return 'tinymce'; // html or tinymce
     }
 
+
+
+
+    function editor_pre_init($settings)
+    {
+        if ('html' == $this->wp_default_editor)
+        {
+            $settings['oninit'] = "function() { switchEditors.go('content', 'html'); }";
+        }
+
+        return $settings;
+    }
+
+
+
+
     function format_value_for_input($value, $field)
     {
         return wp_richedit_pre($value);
     }
+
+
+
 
     function format_value_for_api($value, $field)
     {

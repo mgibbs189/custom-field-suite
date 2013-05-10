@@ -45,6 +45,10 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 1.9.3 =
+* Bugfix: CFS respects wp_default_editor()
+* Bugfix: (IE) removed extra comma from validation.js
+
 = 1.9.2 =
 * Replaced date picker with Pikaday
 * Bugfix - javascript "undefined method replace" error

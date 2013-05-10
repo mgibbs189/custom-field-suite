@@ -10,9 +10,13 @@ class cfs_color extends cfs_field
         $this->parent = $parent;
     }
 
+
+
+
     function input_head()
     {
-        $this->load_assets();
+        wp_register_script('miniColors', $this->parent->url . '/includes/fields/color/jquery.miniColors.min.js');
+        wp_enqueue_script('miniColors');
     ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/color/color.css" />
         <script>
@@ -25,11 +29,5 @@ class cfs_color extends cfs_field
         })(jQuery);
         </script>
     <?php
-    }
-
-    function load_assets()
-    {
-        wp_register_script('miniColors', $this->parent->url . '/includes/fields/color/jquery.miniColors.min.js');
-        wp_enqueue_script('miniColors');
     }
 }
