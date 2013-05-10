@@ -313,11 +313,29 @@ class cfs_loop extends cfs_field
                         $(document).trigger('cfs/sortable_stop', ui.item);
                     },
                     update: function(event, ui) {
-                        // TODO fix me!
-                        var $loop = ui.item.closest('.cfs_loop');
+                        // To re-order field names:
+                        // 1. Get the depth of the dragged element
+                        // 2. Loop through each input field within the dragged element
+                        // 3. Reset the array index within the name attribute
+                        var $container = ui.item.closest('.field');
+                        var depth = $container.closest('.cfs_loop').parents('.cfs_loop').length;
+                        var array_element = 3 + (depth * 2);
 
-                        // debugging
-                        $loop.find('[name^="cfs[input]"]').each(function() {
+                        var counter = -1;
+                        var last_index = -1;
+                        $container.find('[name^="cfs[input]"]').each(function() {
+                            var name_attr = $(this).attr('name').split('[');
+                            var current_index = parseInt( name_attr[array_element] );
+                            if (current_index != last_index) {
+                                counter += 1;
+                            }
+                            name_attr[array_element] = counter + ']';
+                            last_index = current_index;
+                            $(this).attr('name', name_attr.join('['));
+                        });
+
+                        // debug
+                        $container.find('[name^="cfs[input]"]').each(function() {
                             console.log($(this).attr('name') + ' = ' + $(this).val());
                         });
                     }
