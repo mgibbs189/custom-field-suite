@@ -2,6 +2,7 @@
 
 class cfs_wysiwyg extends cfs_field
 {
+    public $wp_default_editor;
 
     function __construct($parent)
     {
@@ -9,7 +10,21 @@ class cfs_wysiwyg extends cfs_field
         $this->label = __('Wysiwyg Editor', 'cfs');
         $this->parent = $parent;
 
+        // use this instead of wp_editor() due to dynamic (sub-loop) wysiwyg fields
         add_filter('wp_default_editor', array($this, 'wp_default_editor'));
+
+        // if needed, force TinyMCE into HTML mode
+        add_action('tiny_mce_before_init', array($this, 'editor_pre_init'));
+    }
+
+    function editor_pre_init($settings)
+    {
+        if ('html' == $this->wp_default_editor)
+        {
+            // reference: http://www.tinymce.com/wiki.php/Configuration3x:Callbacks
+            $settings['oninit'] = "function() { switchEditors.go('content', 'html'); }";
+        }
+        return $settings;
     }
 
     function html($field)
@@ -55,12 +70,12 @@ class cfs_wysiwyg extends cfs_field
 
     function input_head()
     {
-        // Make sure the user has WYSIWYG enabled
+        // make sure the user has WYSIWYG enabled
         if ('true' == get_user_meta(get_current_user_id(), 'rich_editing', true))
         {
             if (!is_admin())
             {
-                // Load TinyMCE for front-end forms
+                // load TinyMCE for front-end forms
                 echo '<div class="hidden">';
                 wp_editor('', 'cfswysi');
                 echo '</div>';
@@ -78,7 +93,7 @@ class cfs_wysiwyg extends cfs_field
                 });
                 $('.cfs_wysiwyg').init_wysiwyg();
 
-                // Set the active editor
+                // set the active editor
                 $(document).on('click', 'a.add_media', function() {
                     var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
                     wpActiveEditor = editor_id;
@@ -128,8 +143,10 @@ class cfs_wysiwyg extends cfs_field
         }
     }
 
-    function wp_default_editor()
+    function wp_default_editor($default)
     {
+        $this->wp_default_editor = $default;
+
         return 'tinymce'; // html or tinymce
     }
 
