@@ -294,13 +294,6 @@ class cfs_loop extends cfs_field
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
                 });
 
-                // Custom sort method
-                $.fn.sortByDepth = function() {
-                    return $(this).sort(function(a, b) {
-                        return $(a).parents('.cfs_loop').length - $(b).parents('.cfs_loop').length;
-                    });
-                }
-
                 $('.cfs_loop').sortable({
                     axis: 'y',
                     containment: 'parent',
