@@ -46,10 +46,7 @@ class cfs_form
         {
             if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_input'))
             {
-                // Hash is used to handle multiple active edit pages
-                $hash = $_POST['cfs']['save_hash'];
-
-                $session = $this->session->get($hash);
+                $session = $this->session->get();
 
                 if (empty($session))
                 {
@@ -246,11 +243,8 @@ class cfs_form
             'front_end' => $params['front_end'],
         );
 
-        // Create a verification hash based on the SESSION options
-        $hash = md5(serialize($session_data));
-
         // Set the SESSION
-        $this->session->set($hash, $session_data);
+        $this->session->set($session_data);
 
         if (false !== $params['front_end'])
         {
@@ -366,7 +360,7 @@ class cfs_form
     ?>
 
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
-        <input type="hidden" name="cfs[save_hash]" value="<?php echo $hash; ?>" />
+        <input type="hidden" name="cfs[session_id]" value="<?php echo $this->session->session_id; ?>" />
 
         <?php if (false !== $params['front_end']) : ?>
 
