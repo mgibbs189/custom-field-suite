@@ -9,6 +9,9 @@ class cfs_session
 
 
 
+    /**
+     * Constructor
+     */
     public function __construct() {
         if (isset($_POST['cfs']['session_id']) && $this->is_valid($_POST['cfs']['session_id'])) {
             $this->session_id = $_POST['cfs']['session_id'];
@@ -21,6 +24,10 @@ class cfs_session
 
 
 
+    /**
+     * Load the session (expired sessions return an empty array)
+     * @return array
+     */
     public function get() {
         global $wpdb;
 
@@ -37,6 +44,10 @@ class cfs_session
 
 
 
+    /**
+     * Update the session
+     * @param array $session_data 
+     */
     public function set($session_data) {
         global $wpdb;
 
@@ -53,6 +64,9 @@ class cfs_session
 
 
 
+    /**
+     * Remove expired sessions
+     */
     public function cleanup() {
         global $wpdb;
 
@@ -63,6 +77,11 @@ class cfs_session
 
 
 
+    /**
+     * Validate the MD5 session hash
+     * @param string $session_id 
+     * @return boolean
+     */
     public function is_valid($session_id) {
         return preg_match("/^([a-f0-9]{32})$/", $session_id) ? true : false;
     }

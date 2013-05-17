@@ -6,15 +6,14 @@ class cfs_field
     public $label;
     public $parent;
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    __construct($parent)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+
+    /**
+     * Constructor
+     * @param object $parent 
+     * @since 1.0.5
+     */
     function __construct($parent)
     {
         $this->name = 'text';
@@ -23,15 +22,13 @@ class cfs_field
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    html($field)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Generate the field HTML
+     * @param object $field 
+     * @since 1.0.5
+     */
     function html($field)
     {
     ?>
@@ -40,15 +37,14 @@ class cfs_field
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    options_html($key, $field)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Generate settings HTML for the field group edit screen
+     * @param int $key The unique field identifier
+     * @param object $field 
+     * @since 1.0.5
+     */
     function options_html($key, $field)
     {
     ?>
@@ -72,113 +68,108 @@ class cfs_field
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    input_head($field = null)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Add necessary field scripts or CSS (triggered once per pageload)
+     * @param mixed $field The field object (optional)
+     * @since 1.0.5
+     */
     function input_head($field = null)
     {
 
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    prepare_value($value, $field = null)
-    *
-    *    Values are retrieved from the database as an array, even for field types that
-    *    don't expect arrays. For field types that should return array values, make
-    *    sure to override this method and return $value.
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.9
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Format the value directly after database load
+     * 
+     * Values are retrieved from the database as an array, even for field types that
+     * don't expect arrays. For field types that should return array values, make
+     * sure to override this method and return $value.
+     * 
+     * @param mixed $value 
+     * @param mixed $field The field object (optional)
+     * @return mixed The field value
+     * @since 1.6.9
+     */
     function prepare_value($value, $field = null)
     {
         return $value[0];
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    format_value_for_api($value, $field)
-    *
-    *    This method formats the value for use with $cfs->get().
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Format the value for use with $cfs->get
+     * @param mixed $value 
+     * @param mixed $field The field object (optional)
+     * @return mixed
+     * @since 1.0.5
+     */
     function format_value_for_api($value, $field = null)
     {
         return $value;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    format_value_for_input($value, $field)
-    *
-    *    This method formats the value for use with HTML inputs.
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Format the value for use with HTML input elements
+     * @param mixed $value 
+     * @param mixed $field The field object (optional)
+     * @return mixed
+     * @since 1.0.5
+     */
     function format_value_for_input($value, $field = null)
     {
         return $value;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    pre_save($value, $field)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.4.2
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Format the value before saving to DB
+     * @param mixed $value 
+     * @param mixed $field The field object (optional)
+     * @return mixed
+     * @since 1.4.2
+     */
     function pre_save($value, $field = null)
     {
         return $value;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    pre_save_field($field)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.8
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Modify field settings before saving to DB
+     * @param object $field
+     * @return object
+     * @since 1.6.8
+     */
     function pre_save_field($field)
     {
         return $field;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_option($field, $option_name, $default_value)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.4.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Helper method to retrieve a field setting
+     * @param object $field 
+     * @param string $option_name 
+     * @param mixed $default_value 
+     * @return mixed
+     * @since 1.4.3
+     */
     function get_option($field, $option_name, $default_value = '')
     {
         if (isset($field->options[$option_name]))

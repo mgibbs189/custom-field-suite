@@ -4,30 +4,28 @@ class cfs_field_group
 {
     public $parent;
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    __construct
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+
+    /**
+     * Constructor
+     * @param object $parent 
+     * @since 1.8.5
+     */
     public function __construct($parent)
     {
         $this->parent = $parent;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    import
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Import field groups
+     * @param array $options 
+     * @return string The response message
+     * @since 1.8.5
+     */
     public function import($options)
     {
         global $wpdb;
@@ -106,15 +104,14 @@ class cfs_field_group
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    export
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Export field groups
+     * @param array $options 
+     * @return array An array of field group data
+     * @since 1.8.5
+     */
     public function export($options)
     {
         global $wpdb;

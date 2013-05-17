@@ -4,6 +4,10 @@ class cfs_third_party
 {
     public $parent;
 
+    /**
+     * Constructor
+     * @param object $parent 
+     */
     public function __construct($parent)
     {
         $this->parent = $parent;
@@ -18,15 +22,15 @@ class cfs_third_party
         add_action('icl_make_duplicate', array($this, 'wpml_handler'), 10, 4);
     }
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    gform_handler (gravity forms)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.3.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+
+    /**
+     * Gravity Forms support
+     * @param array $entry 
+     * @param array $form 
+     * @since 1.3.0
+     */
     function gform_handler($entry, $form)
     {
         global $wpdb;
@@ -123,18 +127,19 @@ class cfs_third_party
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    wpml_handler
-    *
-    *    Properly copy CFS fields on WPML post duplication
-    *    Requires WPML 2.6.0+
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.8
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * WPML support
+     * 
+     * Properly copy CFS fields on WPML post duplication (requires WPML 2.6+)
+     * 
+     * @param int $master_id 
+     * @param string $lang 
+     * @param array $post_data 
+     * @param int $duplicate_id 
+     * @since 1.6.8
+     */
     function wpml_handler($master_id, $lang, $post_data, $duplicate_id)
     {
         $field_data = $this->parent->get(false, $master_id, array('format' => 'raw'));
@@ -146,15 +151,14 @@ class cfs_third_party
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    pts_post_type_filter
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.1
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Post Type Switcher support
+     * @param array $args 
+     * @return array
+     * @since 1.8.1
+     */
     function pts_post_type_filter($args)
     {
         global $current_screen;

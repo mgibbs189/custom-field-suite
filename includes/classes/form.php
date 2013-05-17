@@ -7,15 +7,14 @@ class cfs_form
     public $assets_loaded;
     public $session;
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    __construct
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+
+    /**
+     * Constructor
+     * @param object $parent 
+     * @since 1.8.5
+     */
     public function __construct($parent)
     {
         $this->parent = $parent;
@@ -28,17 +27,22 @@ class cfs_form
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    init
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Initialize the session and save the form
+     * @since 1.8.5
+     */
     public function init()
     {
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            return;
+        }
+
         $this->session = new cfs_session();
 
         // Save the form
@@ -131,15 +135,12 @@ class cfs_form
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    load_assets
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Load form dependencies
+     * @since 1.8.5
+     */
     public function load_assets()
     {
         if ($this->assets_loaded)
@@ -158,15 +159,12 @@ class cfs_form
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    head_scripts
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.8
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Handle front-end validation
+     * @since 1.8.8
+     */
     function head_scripts()
     {
     ?>
@@ -179,15 +177,14 @@ class cfs_form
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    render
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Render the HTML input form
+     * @param array $params 
+     * @return string form HTML code
+     * @since 1.8.5
+     */
     public function render($params)
     {
         global $post;

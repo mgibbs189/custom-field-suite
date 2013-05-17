@@ -2,16 +2,11 @@
 
 class cfs_ajax
 {
-
-    /*--------------------------------------------------------------------------------------
-    *
-    *    search_posts
-    *
-    *    @author Matt Gibbs
-    *    @since 1.7.5
-    *
-    *-------------------------------------------------------------------------------------*/
-
+    /**
+     * Search posts (in the Placement Rules area)
+     * @param array $options 
+     * @return string A JSON results object
+     */
     public function search_posts($options)
     {
         global $wpdb;
@@ -41,15 +36,11 @@ class cfs_ajax
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    reset
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Remove all traces of CFS
+     */
     public function reset()
     {
         global $wpdb;

@@ -5,30 +5,30 @@ class cfs_api
     public $parent;
     public $cache;
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    __construct
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+
+    /**
+     * Constructor
+     * @param object $parent
+     * @since 1.0.0
+     */
     public function __construct($parent)
     {
         $this->parent = $parent;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_field
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get a field value
+     * @param string $field_name
+     * @param mixed $post_id The post ID (false for the current post ID)
+     * @param array $options 
+     * @return mixed The field value
+     * @since 1.0.0
+     */
     public function get_field($field_name, $post_id = false, $options = array())
     {
         global $post;
@@ -52,15 +52,15 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_fields
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get all field values for a specific post
+     * @param mixed $post_id The post ID (false for the current post ID)
+     * @param array $options 
+     * @return array An associative array of field values
+     * @since 1.0.0
+     */
     public function get_fields($post_id = false, $options = array())
     {
         global $post, $wpdb;
@@ -179,22 +179,17 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    assemble_value_array
-    *
-    *    Replace a value within a multidimensional array without using eval()
-    *
-    *    @param array $field_data The value array
-    *    @param string $hierarchy The array element to target
-    *    @param object $field The field object passed into apply_value_filters
-    *    @param mixed $value The replacement value; bypass apply_value_filters
-    *    @param mixed $options The options passed into apply_value_filters
-    *    @author Matt Gibbs
-    *    @since 1.5.7
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Replace a value within a multidimensional array without using eval()
+     * @param array &$field_data The value array
+     * @param string $hierarchy The array element to target
+     * @param object $field The field object passed into apply_value_filters
+     * @param mixed $value The replacement value; bypass apply_value_filters
+     * @param mixed $options The options passed into apply_value_filters
+     * @since 1.5.7
+     */
     private function assemble_value_array(&$field_data, $hierarchy, $field, $value = false, $options = false)
     {
         $data = &$field_data;
@@ -215,15 +210,16 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    apply_value_filters
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Format a field value
+     * @param object $field 
+     * @param mixed $value 
+     * @param array $options 
+     * @return mixed
+     * @since 1.0.0
+     */
     private function apply_value_filters($field, $value, $options)
     {
         $value = $this->parent->fields[$field->type]->prepare_value($value, $field);
@@ -241,15 +237,15 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_reverse_related
-    *
-    *    @author Matt Gibbs
-    *    @since 1.4.4
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get referenced field values (using relationship fields)
+     * @param int $post_id 
+     * @param array $options 
+     * @return array
+     * @since 1.4.4
+     */
     public function get_reverse_related($post_id, $options = array())
     {
         global $wpdb;
@@ -307,15 +303,15 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_field_info
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get properties for one or more fields
+     * @param mixed $field_name A string field name, or false for all fields
+     * @param mixed $post_id The post ID (false for the current post ID)
+     * @return array
+     * @since 1.8.0
+     */
     public function get_field_info($field_name = false, $post_id = false)
     {
         global $post, $wpdb;
@@ -348,15 +344,14 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_input_fields
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get input fields and their values
+     * @param array $params 
+     * @return array
+     * @since 1.0.0
+     */
     public function get_input_fields($params)
     {
         global $post, $wpdb;
@@ -396,15 +391,14 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    find_input_fields
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.4
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Find input fields
+     * @param array $params 
+     * @return array
+     * @since 1.8.4
+     */
     public function find_input_fields($params)
     {
         global $wpdb;
@@ -473,16 +467,14 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    array_orderby
-    *
-    *    @description MySQL "ORDER BY" for PHP associative arrays
-    *    @link http://php.net/manual/en/function.array-multisort.php#100534
-    *    @since 1.8.4
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * MySQL "ORDER BY" for PHP associative arrays
+     * @link http://php.net/manual/en/function.array-multisort.php#100534
+     * @return array
+     * @since 1.8.4
+     */
     private function array_orderby()
     {
         $args = func_get_args();
@@ -513,15 +505,15 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_matching_groups
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Determine which field groups to use for the current post
+     * @param int $post_id 
+     * @param boolean $skip_roles 
+     * @return array
+     * @since 1.0.0
+     */
     public function get_matching_groups($post_id, $skip_roles = false)
     {
         global $wpdb, $current_user;
@@ -606,15 +598,16 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    save_fields
-    *
-    *    @author Matt Gibbs
-    *    @since 1.1.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Save field values
+     * @param array $field_data 
+     * @param array $post_data 
+     * @param array $options 
+     * @return int The post ID
+     * @since 1.1.3
+     */
     public function save_fields($field_data = array(), $post_data = array(), $options = array())
     {
         global $wpdb;
@@ -761,15 +754,13 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    save_fields_recursive
-    *
-    *    @author Matt Gibbs
-    *    @since 1.5.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Extends save_fields method to support loop fields
+     * @param array $params 
+     * @since 1.5.0
+     */
     private function save_fields_recursive($params)
     {
         global $wpdb;
@@ -867,15 +858,13 @@ class cfs_api
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    save_field_group
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Save field group settings
+     * @param array $params 
+     * @since 1.8.0
+     */
     function save_field_group($params = array())
     {
         global $wpdb;
