@@ -120,7 +120,7 @@
 
     compareDates = function(a,b)
     {
-        // weak date comparison (use setToStartOfDay(date) to ensure correct result)
+        // weak date comparison (use setToStartOfDay(date) to ensure correct result, don't forget about showTime)
         return a.getTime() === b.getTime();
     },
 
@@ -162,7 +162,8 @@
         bound: undefined,
 
         // the default output format for `.toString()` and `field` value
-        format: 'YYYY-MM-DD',
+        // set in `config` based on if showTime is set
+        format: null,
 
         // the initial date to view when first opened
         defaultDate: null,
@@ -191,6 +192,9 @@
 
         // how many months are visible (not implemented yet)
         numberOfMonths: 1,
+
+        // time
+        showTime: true,
 
         // internationalization
         i18n: {
@@ -312,6 +316,28 @@
         return '<table cellpadding="0" cellspacing="0" class="pika-table">' + renderHead(opts) + renderBody(data) + '</table>';
     },
 
+    renderTimePicker = function(num_options, increment, selected_val, select_class, display_func) {
+        var to_return = '<td><select class="pika-select '+select_class+'">';
+        for (var i=0; i<num_options; i += increment) {
+            to_return += '<option value="'+i+'" '+(i==selected_val ? 'selected' : '')+'>'+display_func(i)+'</option>'
+        }
+        to_return += '</select></td>';
+        return to_return;
+    },
+
+    renderTime = function(hh, mm)
+    {
+        var to_return = '<table cellpadding="0" cellspacing="0" class="pika-time"><tbody><tr>' +
+            renderTimePicker(24, 1, hh, 'pika-select-hour', function(i) {
+                if (i < 10) return "0" + i; return i;
+            }) +
+            '<td>:</td>' +
+            renderTimePicker(60, 5, mm, 'pika-select-minute', function(i) { if (i < 10) return "0" + i; return i });
+
+        return to_return + '</tr></tbody></table>';
+    },
+
+
 
     /**
      * Pikaday constructor
@@ -334,7 +360,7 @@
 
             if (!hasClass(target, 'is-disabled')) {
                 if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty')) {
-                    self.setDate(new Date(self._y, self._m, parseInt(target.innerHTML, 10)));
+                    self.setDate(new Date(self._y, self._m, parseInt(target.innerHTML, 10), self._hh, self._mm));
                     if (opts.bound) {
                         sto(function() {
                             self.hide();
@@ -373,6 +399,14 @@
             }
             else if (hasClass(target, 'pika-select-year')) {
                 self.gotoYear(target.value);
+            }
+            else if (hasClass(target, 'pika-select-hour')) {
+                self._hh = target.value;
+                self.setTime(self._hh, self._mm);
+            }
+            else if (hasClass(target, 'pika-select-minute')) {
+                self._mm = target.value;
+                self.setTime(self._hh, self._mm);
             }
         };
 
@@ -526,12 +560,12 @@
                 opts.maxDate = opts.minDate = false;
             }
             if (opts.minDate) {
-                setToStartOfDay(opts.minDate);
+                if (!opts.showTime) setToStartOfDay(opts.minDate);
                 opts.minYear  = opts.minDate.getFullYear();
                 opts.minMonth = opts.minDate.getMonth();
             }
             if (opts.maxDate) {
-                setToStartOfDay(opts.maxDate);
+                if (!opts.showTime) setToStartOfDay(opts.maxDate);
                 opts.maxYear  = opts.maxDate.getFullYear();
                 opts.maxMonth = opts.maxDate.getMonth();
             }
@@ -547,6 +581,14 @@
                 }
             }
 
+            // If no format is given, set based on showTime
+            if (opts.format === null) {
+                opts.format = 'YYYY-MM-DD';
+                if (opts.showTime) {
+                    opts.format += ' HH:mm';
+                }
+            }
+
             return opts;
         },
 
@@ -555,7 +597,7 @@
          */
         toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
+            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._o.showTime ? this._d.toString() : this._d.toDateString();
         },
 
         /**
@@ -585,6 +627,16 @@
         },
 
         /**
+         * set the current time selection
+         */
+        setTime: function(hours, minutes) {
+            if (this._d) {
+                this._d.setHours(this._hh, this._mm);
+                this.setDate(this._d);
+            }
+        },
+
+        /**
          * set the current selection
          */
         setDate: function(date, preventOnSelect)
@@ -610,7 +662,13 @@
             }
 
             this._d = new Date(date.getTime());
-            setToStartOfDay(this._d);
+
+            if (this._o.showTime && !this._o.showSeconds) {
+                this._d.setSeconds(0);
+            } else if (!this._o.showTime) {
+                setToStartOfDay(this._d);
+            }
+
             this.gotoDate(this._d);
 
             if (this._o.field) {
@@ -632,6 +690,8 @@
             }
             this._y = date.getFullYear();
             this._m = date.getMonth();
+            this._hh = date.getHours();
+            this._mm = date.getMinutes();
             this.draw();
         },
 
@@ -681,6 +741,22 @@
         },
 
         /**
+         * change the minDate
+         */
+        setMinDate: function(value)
+        {
+            this._o.minDate = value;
+        },
+
+        /**
+         * change the maxDate
+         */
+        setMaxDate: function(value)
+        {
+            this._o.maxDate = value;
+        },
+
+        /**
          * refresh the HTML
          */
         draw: function(force)
@@ -708,6 +784,9 @@
             }
 
             this.el.innerHTML = renderTitle(this) + this.render(this._y, this._m);
+            if (opts.showTime) {
+                this.el.innerHTML += renderTime(this._hh, this._mm);
+            }
 
             if (opts.bound) {
                 var pEl  = opts.field,
@@ -742,7 +821,7 @@
                 before = new Date(year, month, 1).getDay(),
                 data   = [],
                 row    = [];
-            setToStartOfDay(now);
+            if (!opts.showTime) setToStartOfDay(now);
             if (opts.firstDay > 0) {
                 before -= opts.firstDay;
                 if (before < 0) {
