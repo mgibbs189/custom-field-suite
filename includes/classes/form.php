@@ -22,8 +22,8 @@ class cfs_form
         $this->assets_loaded = false;
 
         add_action('cfs_init', array($this, 'init'));
-        add_action('wp_head', array($this, 'head_scripts'));
         add_action('admin_head', array($this, 'head_scripts'));
+        add_action('admin_print_footer_scripts', array($this, 'footer_scripts'));
     }
 
 
@@ -150,10 +150,13 @@ class cfs_form
 
         $this->assets_loaded = true;
 
-        wp_enqueue_script('jquery');
+        add_action('wp_head', array($this, 'head_scripts'));
+        add_action('wp_footer', array($this, 'footer_scripts'), 25);
+
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-sortable');
-        wp_enqueue_script('tiptip', $this->parent->url . '/assets/js/tipTip/jquery.tipTip.js');
+        wp_enqueue_script('cfs-validation', $this->parent->url . '/assets/js/validation.js', array('jquery'));
+        wp_enqueue_script('tiptip', $this->parent->url . '/assets/js/tipTip/jquery.tipTip.js', array('jquery'));
         wp_enqueue_style('tiptip', $this->parent->url . '/assets/js/tipTip/tipTip.css');
         wp_enqueue_style('cfs-input', $this->parent->url . '/assets/css/input.css');
     }
@@ -169,10 +172,25 @@ class cfs_form
     {
     ?>
 
-<script src="<?php echo $this->parent->url; ?>/assets/js/validation.js"></script>
+<script>
+var CFS = CFS || {};
+CFS['validators'] = {};
+CFS['get_field_value'] = {};
+CFS['loop_buffer'] = [];
+</script>
 
     <?php
-        // Allow for custom client-side field validators
+    }
+
+
+
+
+    /**
+     * Allow for custom client-side validators
+     * @since 1.9.5
+     */
+    function footer_scripts()
+    {
         do_action('cfs_custom_validation');
     }
 

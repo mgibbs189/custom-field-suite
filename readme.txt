@@ -45,6 +45,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 1.9.5 =
+* Load validation.js only when needed (props @voltronik)
+
 = 1.9.4 =
 * Removed the need for session cookies
 * Time support for datepicker (https://github.com/owenmead/Pikaday)
