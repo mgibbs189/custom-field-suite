@@ -35,6 +35,11 @@ class cfs_third_party
     {
         global $wpdb;
 
+        if (empty($entry))
+        {
+            return;
+        }
+
         // get the form id
         $form_id = $entry['form_id'];
 
