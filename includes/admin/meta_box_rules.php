@@ -237,7 +237,7 @@ foreach ($templates as $template_name => $filename)
     </tr>
     <tr>
         <td class="label">
-            <label><?php _e('Page Template', 'cfs'); ?></label>
+            <label><?php _e('Page Templates', 'cfs'); ?></label>
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
@@ -248,7 +248,8 @@ foreach ($templates as $template_name => $filename)
                         'choices' => array(
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        )
+                        ),
+                        'force_single' => true,
                     ),
                     'value' => $rules['page_templates']['operator'],
                 ));

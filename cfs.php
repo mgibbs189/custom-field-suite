@@ -87,9 +87,6 @@ class cfs
         $this->third_party = new cfs_third_party($this);
         $this->fields = $this->get_field_types();
 
-        // customize the table header
-        add_filter('manage_edit-cfs_columns', array($this, 'cfs_columns'));
-
         $labels = array(
             'name' => __('Field Groups', 'cfs'),
             'singular_name' => __('Field Group', 'cfs'),
@@ -113,6 +110,10 @@ class cfs
             'supports' => array('title'),
         ));
 
+        // customize the table header
+        add_filter('manage_cfs_posts_columns', array($this, 'cfs_columns'));
+        add_action('manage_cfs_posts_custom_column', array($this, 'cfs_column_content'), 10, 2);
+
         do_action('cfs_init');
     }
 
@@ -131,7 +132,31 @@ class cfs
         return array(
             'cb' => '<input type="checkbox" />',
             'title' => __('Title', 'cfs'),
+            'placement' => __('Placement', 'cfs'),
         );
+    }
+
+    function cfs_column_content($column_name, $post_id)
+    {
+        if ('placement' == $column_name)
+        {
+            global $wpdb;
+
+            $labels = array(
+                'post_types' => __('Post Types', 'cfs'),
+                'user_roles' => __('User Roles', 'cfs'),
+                'post_ids' => __('Post IDs', 'cfs'),
+                'term_ids' => __('Term IDs', 'cfs'),
+                'page_templates' => __('Page Templates', 'cfs')
+            );
+
+            $results = $wpdb->get_var("SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1");
+            $results = unserialize($results);
+            foreach ($results as $criteria => $values) {
+                $label = $labels[$criteria];
+                echo "<div>$label " . $values['operator'] . ' ' . implode(', ', $values['values']) . '</div>';
+            }
+        }
     }
 
 
