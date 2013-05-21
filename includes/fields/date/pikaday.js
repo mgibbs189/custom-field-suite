@@ -316,9 +316,9 @@
         return '<table cellpadding="0" cellspacing="0" class="pika-table">' + renderHead(opts) + renderBody(data) + '</table>';
     },
 
-    renderTimePicker = function(num_options, increment, selected_val, select_class, display_func) {
+    renderTimePicker = function(num_options, selected_val, select_class, display_func) {
         var to_return = '<td><select class="pika-select '+select_class+'">';
-        for (var i=0; i<num_options; i += increment) {
+        for (var i=0; i<num_options; i++) {
             to_return += '<option value="'+i+'" '+(i==selected_val ? 'selected' : '')+'>'+display_func(i)+'</option>'
         }
         to_return += '</select></td>';
@@ -328,11 +328,11 @@
     renderTime = function(hh, mm)
     {
         var to_return = '<table cellpadding="0" cellspacing="0" class="pika-time"><tbody><tr>' +
-            renderTimePicker(24, 1, hh, 'pika-select-hour', function(i) {
+            renderTimePicker(24, hh, 'pika-select-hour', function(i) {
                 if (i < 10) return "0" + i; return i;
             }) +
             '<td>:</td>' +
-            renderTimePicker(60, 5, mm, 'pika-select-minute', function(i) { if (i < 10) return "0" + i; return i });
+            renderTimePicker(60, mm, 'pika-select-minute', function(i) { if (i < 10) return "0" + i; return i });
 
         return to_return + '</tr></tbody></table>';
     },
