@@ -47,6 +47,7 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 = 1.9.5 =
 * Load validation.js only when needed (props @voltronik)
+* Show placement rules on field group listing (props @sc0ttkclark)
 
 = 1.9.4 =
 * Removed the need for session cookies
