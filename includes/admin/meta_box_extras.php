@@ -78,7 +78,8 @@ if ($is_gf_active)
 
             <?php else : ?>
 
-            <div><?php _e('Please install', 'cfs'); ?> <a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a> <?php _e('to use this feature', 'cfs'); ?>.</div>
+			<?php $gf_url = '<a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a>'; ?>
+			<div><?php printf(__('Please install %s to use this feature.', 'cfs'), $gf_url); ?></div>
         <?php endif; ?>
         </td>
     </tr>
