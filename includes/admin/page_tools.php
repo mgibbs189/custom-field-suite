@@ -162,7 +162,7 @@ echo '</textarea>';
 
         <div class="tab-content reset">
             <h2><?php _e('Reset and deactivate.', 'cfs'); ?></h2>
-            <p><?php _e('This will delete all CFS data and deactivate the plugin.'); ?></p>
+            <p><?php _e('This will delete all CFS data and deactivate the plugin.', 'cfs'); ?></p>
             <input type="button" id="button-reset" class="button" value="<?php _e('Delete everything', 'cfs'); ?>" />
         </div>
     </div>
