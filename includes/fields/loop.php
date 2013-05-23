@@ -342,7 +342,7 @@ class cfs_loop extends cfs_field
 
 
 
-    function prepare_value($value, $field)
+    function prepare_value($value, $field = null)
     {
         return $value;
     }

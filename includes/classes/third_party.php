@@ -12,7 +12,7 @@ class cfs_third_party
     {
         $this->parent = $parent;
 
-        // Post Type Switcher - http://wordpress.org/extend/plugins/post-type-switcher/
+        // Post Type Switcher - http://wordpress.org/plugins/post-type-switcher/
         add_filter('pts_post_type_filter', array($this, 'pts_post_type_filter'));
 
         // Gravity Forms - http://www.gravityforms.com/

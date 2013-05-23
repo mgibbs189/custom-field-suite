@@ -75,7 +75,7 @@ p.search-box {
                 </div>
                 <div class="field">
                     <p>
-                        <a class="button" href="http://wordpress.org/extend/plugins/custom-field-suite/" target="_blank"><?php _e('Review CFS on WordPress.org', 'cfs'); ?></a>
+                        <a class="button" href="http://wordpress.org/plugins/custom-field-suite/" target="_blank"><?php _e('Review CFS on WordPress.org', 'cfs'); ?></a>
                     </p>
                 </div>
             </div>

@@ -14,15 +14,17 @@ foreach ($types as $post_type)
 }
 
 $extras = get_post_meta($post->ID, 'cfs_extras', true);
-if (empty($extras))
-{
-    $extras = array(
-        'gforms' => array(
-            'form_id' => '',
-            'post_type' => '',
-        ),
-        'hide_editor' => '',
-    );
+if (!isset($extras['gforms'])) {
+    $extras['gforms'] = array('form_id' => '', 'post_type' => '');
+}
+if (!isset($extras['hide_editor'])) {
+    $extras['hide_editor'] = '';
+}
+if (!isset($extras['order'])) {
+    $extras['order'] = 0;
+}
+if (!isset($extras['context'])) {
+    $extras['context'] = 'normal';
 }
 
 $is_gf_active = is_plugin_active('gravityforms/gravityforms.php');
@@ -34,6 +36,24 @@ if ($is_gf_active)
 ?>
 
 <table>
+    <tr>
+        <td class="label">
+            <label><?php _e('Order', 'cfs'); ?></label>
+            <p class="description">The field group with the lowest order will appear first.</p>
+        </td>
+        <td style="vertical-align:top">
+            <input type="text" name="cfs[extras][order]" value="<?php echo $extras['order']; ?>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label><?php _e('Position', 'cfs'); ?></label>
+        </td>
+        <td style="vertical-align:top">
+            <div><input type="radio" name="cfs[extras][context]" value="normal"<?php echo ($extras['context'] == 'normal') ? ' checked' : ''; ?> /> Normal</div>
+            <div><input type="radio" name="cfs[extras][context]" value="side"<?php echo ($extras['context'] == 'side') ? ' checked' : ''; ?> /> Side</div>
+        </td>
+    </tr>
     <tr>
         <td class="label">
             <label><?php _e('Display Settings', 'cfs'); ?></label>

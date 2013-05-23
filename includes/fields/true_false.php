@@ -66,7 +66,7 @@ class cfs_true_false extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
     ?>
         <script>
@@ -99,7 +99,7 @@ class cfs_true_false extends cfs_field
 
 
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         return (0 < (int) $value) ? 1 : 0;
     }

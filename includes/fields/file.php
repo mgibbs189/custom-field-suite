@@ -266,7 +266,7 @@ class cfs_file extends cfs_field
 
 
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         if (ctype_digit($value))
         {

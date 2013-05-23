@@ -83,7 +83,7 @@ class cfs_textarea extends cfs_field
 
 
 
-    function format_value_for_input($value, $field)
+    function format_value_for_input($value, $field = null)
     {
         return htmlspecialchars($value, ENT_QUOTES);
     }
@@ -91,7 +91,7 @@ class cfs_textarea extends cfs_field
 
 
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         $formatting = $this->get_option($field, 'formatting', 'none');
         return ('none' == $formatting) ? $value : nl2br($value);

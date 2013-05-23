@@ -69,13 +69,16 @@ else
         {
             // Get field group options
             $extras = get_post_meta($group_id, 'cfs_extras', true);
+            $context = isset($extras['context']) ? $extras['context'] : 'normal';
+            $priority = ('normal' == $context) ? 'high' : 'core';
+
             if (isset($extras['hide_editor']) && 0 < (int) $extras['hide_editor'])
             {
                 $hide_editor = true;
             }
 
             $args = array('box' => 'input', 'group_id' => $group_id);
-            add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, 'normal', 'high', $args);
+            add_meta_box("cfs_input_$group_id", $title, array($this, 'meta_box'), $post->post_type, $context, $priority, $args);
             add_filter("postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'cfs_postbox_classes');
         }
 

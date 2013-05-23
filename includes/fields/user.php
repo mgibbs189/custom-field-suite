@@ -68,7 +68,7 @@ class cfs_user extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
     ?>
         <script>
@@ -152,7 +152,7 @@ class cfs_user extends cfs_field
 
 
 
-    function prepare_value($value, $field)
+    function prepare_value($value, $field = null)
     {
         return $value;
     }
@@ -160,7 +160,7 @@ class cfs_user extends cfs_field
 
 
 
-    function format_value_for_input($value, $field)
+    function format_value_for_input($value, $field = null)
     {
         return empty($value) ? '' : implode(',', $value);
     }
@@ -168,7 +168,7 @@ class cfs_user extends cfs_field
 
 
 
-    function pre_save($value, $field)
+    function pre_save($value, $field = null)
     {
         if (!empty($value))
         {

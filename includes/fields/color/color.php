@@ -13,7 +13,7 @@ class cfs_color extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
         wp_register_script('miniColors', $this->parent->url . '/includes/fields/color/jquery.miniColors.min.js');
         wp_enqueue_script('miniColors');

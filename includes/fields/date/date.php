@@ -13,7 +13,7 @@ class cfs_date extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
         $this->load_assets();
     ?>

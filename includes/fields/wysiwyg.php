@@ -71,7 +71,7 @@ class cfs_wysiwyg extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
         // make sure the user has WYSIWYG enabled
         if ('true' == get_user_meta(get_current_user_id(), 'rich_editing', true))
@@ -172,7 +172,7 @@ class cfs_wysiwyg extends cfs_field
 
 
 
-    function format_value_for_input($value, $field)
+    function format_value_for_input($value, $field = null)
     {
         return wp_richedit_pre($value);
     }
@@ -180,7 +180,7 @@ class cfs_wysiwyg extends cfs_field
 
 
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         $formatting = $this->get_option($field, 'formatting', 'default');
         return ('none' == $formatting) ? $value : apply_filters('the_content', $value);

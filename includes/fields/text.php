@@ -52,7 +52,7 @@ class cfs_text extends cfs_field
 
 
 
-    function format_value_for_input($value, $field)
+    function format_value_for_input($value, $field = null)
     {
         return htmlspecialchars($value, ENT_QUOTES);
     }

@@ -56,7 +56,7 @@ class cfs_select extends cfs_field
 
 
 
-    function input_head()
+    function input_head($field = null)
     {
     ?>
         <script>
@@ -151,7 +151,7 @@ class cfs_select extends cfs_field
 
 
 
-    function format_value_for_api($value, $field)
+    function format_value_for_api($value, $field = null)
     {
         $value_array = array();
         $choices = $field->options['choices'];
@@ -168,7 +168,7 @@ class cfs_select extends cfs_field
 
 
 
-    function prepare_value($value, $field)
+    function prepare_value($value, $field = null)
     {
         return $value;
     }
