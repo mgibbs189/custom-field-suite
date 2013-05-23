@@ -530,19 +530,20 @@ class cfs_api
         $user_roles = $current_user->roles;
 
         // Cache the query (get rules)
-        if (!isset($this->cache['cfs_rules']))
+        if (!isset($this->cache['cfs_options']))
         {
             $sql = "
-            SELECT p.ID, p.post_title, m.meta_value AS rules
+            SELECT p.ID, p.post_title, m.meta_value AS rules, m2.meta_value AS extras
             FROM $wpdb->posts p
             INNER JOIN $wpdb->postmeta m ON m.post_id = p.ID AND m.meta_key = 'cfs_rules'
+            INNER JOIN $wpdb->postmeta m2 ON m2.post_id = p.ID AND m2.meta_key = 'cfs_extras'
             WHERE p.post_status = 'publish'";
             $results = $wpdb->get_results($sql);
-            $this->cache['cfs_rules'] = $results;
+            $this->cache['cfs_options'] = $results;
         }
         else
         {
-            $results = $this->cache['cfs_rules'];
+            $results = $this->cache['cfs_options'];
         }
 
         $rule_types = array(
@@ -563,6 +564,7 @@ class cfs_api
         {
             $fail = false;
             $rules = unserialize($result->rules);
+            $extras = unserialize($result->extras);
 
             foreach ($rule_types as $rule_type => $value)
             {
@@ -589,7 +591,21 @@ class cfs_api
 
             if (!$fail)
             {
-                $matches[$result->ID] = $result->post_title;
+                $temp[] = array(
+                    'post_id' => $result->ID,
+                    'post_title' => $result->post_title,
+                    'order' => empty($extras['order']) ? 0 : (int) $extras['order'],
+                );
+            }
+        }
+
+        // Sort the field groups
+        if (!empty($temp))
+        {
+            $temp = $this->array_orderby($temp, 'order');
+            foreach ($temp as $values)
+            {
+                $matches[$values['post_id']] = $values['post_title'];
             }
         }
 
@@ -855,148 +871,5 @@ class cfs_api
                 $this->save_fields_recursive($new_params);
             }
         }
-    }
-
-
-
-
-    /**
-     * Save field group settings
-     * @param array $params 
-     * @since 1.8.0
-     */
-    function save_field_group($params = array())
-    {
-        global $wpdb;
-
-        $post_id = $params['post_id'];
-
-        /*---------------------------------------------------------------------------------------------
-            Save fields
-        ---------------------------------------------------------------------------------------------*/
-
-        $weight = 0;
-        $prev_fields = array();
-        $current_field_ids = array();
-        $next_field_id = (int) get_option('cfs_next_field_id');
-        $existing_fields = get_post_meta($post_id, 'cfs_fields', true);
-
-        if (!empty($existing_fields))
-        {
-            foreach ($existing_fields as $item)
-            {
-                $prev_fields[$item['id']] = $item['name'];
-            }
-        }
-
-        $new_fields = array();
-
-        foreach ($params['fields'] as $key => $field)
-        {
-            // Sanitize the field
-            $field = stripslashes_deep($field);
-
-            // Allow for field customizations
-            $field = $this->parent->fields[$field['type']]->pre_save_field($field);
-
-            // Set the parent ID
-            $field['parent_id'] = empty($field['parent_id']) ? 0 : (int) $field['parent_id'];
-
-            // Save empty array for fields without options
-            $field['options'] = empty($field['options']) ? array() : $field['options'];
-
-            // Use an existing ID if available
-            if (0 < (int) $field['id'])
-            {
-                // We use this variable to check for deleted fields
-                $current_field_ids[] = $field['id'];
-
-                // Rename the postmeta key if necessary
-                if ($field['name'] != $prev_fields[$field['id']])
-                {
-                    $wpdb->query(
-                        $wpdb->prepare("
-                            UPDATE {$wpdb->postmeta} m
-                            INNER JOIN {$wpdb->prefix}cfs_values v ON v.meta_id = m.meta_id
-                            SET meta_key = %s
-                            WHERE v.field_id = %d",
-                            $field['name'], $field['id']
-                        )
-                    );
-                }
-            }
-            else
-            {
-                $field['id'] = $next_field_id;
-                $next_field_id++;
-            }
-
-            $data = array(
-                'id' => $field['id'],
-                'name' => $field['name'],
-                'label' => $field['label'],
-                'type' => $field['type'],
-                'notes' => $field['notes'],
-                'parent_id' => $field['parent_id'],
-                'weight' => $weight,
-                'options' => $field['options'],
-            );
-
-            $new_fields[] = $data;
-
-            $weight++;
-        }
-
-        // Save the fields
-        update_post_meta($post_id, 'cfs_fields', $new_fields);
-
-        // Update the field ID counter
-        update_option('cfs_next_field_id', $next_field_id);
-
-        // Remove values for deleted fields
-        $deleted_field_ids = array_diff(array_keys($prev_fields), $current_field_ids);
-
-        if (0 < count($deleted_field_ids))
-        {
-            $deleted_field_ids = implode(',', $deleted_field_ids);
-            $wpdb->query("
-                DELETE v, m
-                FROM {$wpdb->prefix}cfs_values v
-                INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
-                WHERE v.field_id IN ($deleted_field_ids)"
-            );
-        }
-
-        /*---------------------------------------------------------------------------------------------
-            Save rules
-        ---------------------------------------------------------------------------------------------*/
-
-        $data = array();
-        $rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
-
-        foreach ($rule_types as $type)
-        {
-            if (!empty($params['rules'][$type]))
-            {
-                // Break apart the autocomplete string
-                if ('post_ids' == $type)
-                {
-                    $params['rules'][$type] = explode(',', $params['rules'][$type]);
-                }
-
-                $data[$type] = array(
-                    'operator' => $params['rules']['operator'][$type],
-                    'values' => $params['rules'][$type],
-                );
-            }
-        }
-
-        update_post_meta($post_id, 'cfs_rules', $data);
-
-        /*---------------------------------------------------------------------------------------------
-            Save extras
-        ---------------------------------------------------------------------------------------------*/
-
-        update_post_meta($post_id, 'cfs_extras', $params['extras']);
     }
 }

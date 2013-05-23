@@ -33,21 +33,25 @@ class cfs
     public $form;
     public $api;
 
+
+
+
+    /**
+     * Constructor
+     * @since 1.0.0
+     */
     function __construct()
     {
         add_action('init', array($this, 'init'));
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    init
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Fire up CFS
+     * @since 1.0.0
+     */
     function init()
     {
         $this->version = '1.9.4';
@@ -118,15 +122,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    cfs_columns
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Customize table columns on the Field Groups listing page
+     * @since 1.0.0
+     */
     function cfs_columns()
     {
         return array(
@@ -136,6 +137,15 @@ class cfs
         );
     }
 
+
+
+
+    /**
+     * Populate the "Placement" column on the Field Groups listing page
+     * @param string $column_name 
+     * @param int $post_id 
+     * @since 1.9.5
+     */
     function cfs_column_content($column_name, $post_id)
     {
         if ('placement' == $column_name)
@@ -160,15 +170,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_field_types
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Register field types
+     * @since 1.0.0
+     */
     function get_field_types()
     {
         $field_types = array(
@@ -205,15 +212,13 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    create_field
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Generate input field HTML
+     * @param object $field 
+     * @since 1.0.0
+     */
     function create_field($field)
     {
         $defaults = array(
@@ -229,15 +234,16 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get field values from api
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Retrieve custom field values
+     * @param mixed $field_name 
+     * @param mixed $post_id 
+     * @param array $options 
+     * @return mixed
+     * @since 1.0.0
+     */
     function get($field_name = false, $post_id = false, $options = array())
     {
         if (false !== $field_name)
@@ -249,30 +255,31 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_field_info
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get custom field properties (label, name, settings, etc.)
+     * @param mixed $field_name 
+     * @param mixed $post_id 
+     * @return array
+     * @since 1.8.3
+     */
     function get_field_info($field_name = false, $post_id = false)
     {
         return $this->api->get_field_info($field_name, $post_id);
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_labels
-    *
-    *    @author Matt Gibbs
-    *    @since 1.3.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Get custom field labels
+     * @param mixed $field_name 
+     * @param mixed $post_id 
+     * @return mixed
+     * @since 1.3.3
+     * @deprecated 1.8.0
+     */
     function get_labels($field_name = false, $post_id = false)
     {
         $field_info = $this->api->get_field_info($field_name, $post_id);
@@ -295,45 +302,45 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    get_reverse_related
-    *
-    *    @author Matt Gibbs
-    *    @since 1.4.4
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Retrieve reverse-related values (using the relationship field type)
+     * @param int $post_id 
+     * @param array $options 
+     * @return array
+     * @since 1.4.4
+     */
     function get_reverse_related($post_id, $options = array())
     {
         return $this->api->get_reverse_related($post_id, $options);
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    save field values (and post data)
-    *
-    *    @author Matt Gibbs
-    *    @since 1.1.4
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Save field values (and post data)
+     * @param array $field_data 
+     * @param array $post_data 
+     * @param array $options 
+     * @return int The post ID
+     * @since 1.1.4
+     */
     function save($field_data = array(), $post_data = array(), $options = array())
     {
         return $this->api->save_fields($field_data, $post_data, $options);
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    display a front-end form
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Display a front-end form
+     * @param array $params 
+     * @return string The form HTML
+     * @since 1.8.5
+     */
     function form($params = array())
     {
         ob_start();
@@ -344,15 +351,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    admin_head
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * admin_head
+     * @since 1.0.0
+     */
     function admin_head()
     {
         $screen = get_current_screen();
@@ -364,15 +368,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    admin_footer
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * admin_footer
+     * @since 1.0.0
+     */
     function admin_footer()
     {
         $screen = get_current_screen();
@@ -384,15 +385,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    add_meta_boxes
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.6
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * add_meta_boxes
+     * @since 1.0.0
+     */
     function add_meta_boxes()
     {
         add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
@@ -401,15 +399,12 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    admin_menu
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * admin_menu
+     * @since 1.0.0
+     */
     function admin_menu()
     {
         add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/assets/images/logo-small.png');
@@ -418,15 +413,13 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    save_post
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * save_post
+     * @param int $post_id 
+     * @since 1.0.0
+     */
     function save_post($post_id)
     {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
@@ -450,7 +443,7 @@ class cfs
             $rules = isset($_POST['cfs']['rules']) ? $_POST['cfs']['rules'] : array();
             $extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
 
-            $this->api->save_field_group(array(
+            $this->field_group->save(array(
                 'post_id' => $post_id,
                 'fields' => $fields,
                 'rules' => $rules,
@@ -460,15 +453,14 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    delete_post
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * delete_post
+     * @param int $post_id 
+     * @return boolean
+     * @since 1.0.0
+     */
     function delete_post($post_id)
     {
         global $wpdb;
@@ -483,35 +475,31 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    parse_query
-    *
-    *    Make sure that $cfs is defined for template parts
-    *    get_template_part() -> locate_template() -> load_template()
-    *    load_template() extracts the $wp_query->query_vars array into variables,
-    *        so we want to force it to create $cfs too.
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.8
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * Make sure that $cfs is defined for template parts
+     * get_template_part() -> locate_template() -> load_template()
+     * load_template() extracts the $wp_query->query_vars array into variables,
+     *     so we want to force it to create $cfs too.
+     * 
+     * @param object $wp_query 
+     * @since 1.8.8
+     */
     function parse_query($wp_query)
     {
         $wp_query->query_vars['cfs'] = $this;
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    meta_box
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * meta_box
+     * @param object $post 
+     * @param array $metabox 
+     * @since 1.0.0
+     */
     function meta_box($post, $metabox)
     {
         $box = $metabox['args']['box'];
@@ -519,60 +507,49 @@ class cfs
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    field_html
-    *
-    *    @author Matt Gibbs
-    *    @since 1.0.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * field_html
+     * @param object $field 
+     * @since 1.0.3
+     */
     function field_html($field)
     {
         include($this->dir . '/includes/admin/field_html.php');
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    page_tools
-    *
-    *    @author Matt Gibbs
-    *    @since 1.6.3
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * page_tools
+     * @since 1.6.3
+     */
     function page_tools()
     {
         include($this->dir . '/includes/admin/page_tools.php');
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    page_addons
-    *
-    *    @author Matt Gibbs
-    *    @since 1.8.0
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * page_addons
+     * @since 1.8.0
+     */
     function page_addons()
     {
         include($this->dir . '/includes/admin/page_addons.php');
     }
 
 
-    /*--------------------------------------------------------------------------------------
-    *
-    *    ajax_handler
-    *
-    *    @author Matt Gibbs
-    *    @since 1.7.5
-    *
-    *-------------------------------------------------------------------------------------*/
 
+
+    /**
+     * ajax_handler
+     * @since 1.7.5
+     */
     function ajax_handler()
     {
         global $wpdb;
