@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Custom Field Suite
-Plugin URI: http://uproot.us/
+Plugin URI: http://uproot.us/projects/cfs/
 Description: Visually add custom fields to your WordPress edit pages.
 Version: 1.9.5
 Author: Matt Gibbs

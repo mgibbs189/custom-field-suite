@@ -38,8 +38,12 @@ if ($is_gf_active)
 <table>
     <tr>
         <td class="label">
-            <label><?php _e('Order', 'cfs'); ?></label>
-            <p class="description">The field group with the lowest order will appear first.</p>
+            <label>
+                <?php _e('Order', 'cfs'); ?>
+                <div class="cfs_tooltip">
+                    <div class="tooltip_inner"><?php _e('The field group with the lowest order will appear first.', 'cfs'); ?></div>
+                </div>
+            </label>
         </td>
         <td style="vertical-align:top">
             <input type="text" name="cfs[extras][order]" value="<?php echo $extras['order']; ?>" />

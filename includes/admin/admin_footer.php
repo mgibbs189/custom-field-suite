@@ -68,14 +68,14 @@ p.search-box {
             <div class="inside">
                 <div class="field">
                     <p>
-                        <a href="http://uproot.us/projects/cfs/documentation/" target="_blank"><?php _e('Documentation', 'cfs'); ?></a> &nbsp; | &nbsp;
-                        <a href="http://uproot.us/donate/" target="_blank"><?php _e('Donate', 'cfs'); ?></a> &nbsp; | &nbsp;
-                        <a href="http://uproot.us/projects/cfs/changelog/" target="_blank"><?php _e('Changelog', 'cfs'); ?></a>
+                        <a href="https://uproot.us/projects/cfs/documentation/" target="_blank"><?php _e('Documentation', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="https://uproot.us/forums/" target="_blank"><?php _e('Support', 'cfs'); ?></a> &nbsp; | &nbsp;
+                        <a href="https://uproot.us/projects/cfs/team/" target="_blank"><?php _e('Credits', 'cfs'); ?></a>
                     </p>
                 </div>
                 <div class="field">
                     <p>
-                        <a class="button" href="http://wordpress.org/plugins/custom-field-suite/" target="_blank"><?php _e('Review CFS on WordPress.org', 'cfs'); ?></a>
+                        <a class="button-primary" href="http://wordpress.org/plugins/custom-field-suite/" target="_blank"><?php _e('Rate CFS on WordPress.org', 'cfs'); ?></a>
                     </p>
                 </div>
             </div>

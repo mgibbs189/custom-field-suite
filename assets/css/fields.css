@@ -1,4 +1,21 @@
 /*---------------------------------------------------------------------------------------------
+    generic
+---------------------------------------------------------------------------------------------*/
+
+.cfs_tooltip {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/icon-question.png) no-repeat;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+.cfs_tooltip .tooltip_inner {
+    display: none;
+}
+
+/*---------------------------------------------------------------------------------------------
     #cfs_fields (container)
 ---------------------------------------------------------------------------------------------*/
 
@@ -124,19 +141,6 @@
 .field_form span.required {
     margin-right: 5px;
     color: red;
-}
-
-.field_form .cfs_tooltip {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: url(../images/icon-question.png) no-repeat;
-    margin-left: 4px;
-    vertical-align: top;
-}
-
-.field_form .cfs_tooltip .tooltip_inner {
-    display: none;
 }
 
 .field_form tr.field_basics table {
