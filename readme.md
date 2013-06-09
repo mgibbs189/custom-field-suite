@@ -10,7 +10,7 @@
 * CFS works well with [Gravity Forms](http://uproot.us/how-to-save-gravity-forms-data-into-custom-field-suite/), and can save GF entries as post items
 * Includes client-side field validation
 
-![Screenshot](http://uproot.us/wp-content/uploads/2011/10/intro-field-group.png)
+![Screenshot](https://uproot.us/wp-content/uploads/2011/10/intro-field-group.png)
 
 ## Getting Started
 [View the video tutorial on how to use CFS →](http://uproot.us/docs/how-to-use-cfs/)
