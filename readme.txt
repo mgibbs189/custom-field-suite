@@ -21,8 +21,6 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * CFS works well with Gravity Forms, and can save GF entries as post items
 * Includes client-side field validation
 
-**CFS is a fork of Advanced Custom Fields v2.** The goals of this plugin are stability, performance, and avoiding feature bloat.
-
 = Getting Started =
 [See the CFS overview page →](http://uproot.us/projects/cfs/)
 

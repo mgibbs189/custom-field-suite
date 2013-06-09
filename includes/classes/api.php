@@ -362,7 +362,7 @@ class cfs_api
             'parent_id' => false,
         );
         $params = array_merge($defaults, $params);
-        $values = $this->get_fields($post->id, array('format' => 'input'));
+        $values = $this->get_fields($post->ID, array('format' => 'input'));
 
         $fields = array();
 

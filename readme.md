@@ -12,8 +12,6 @@
 
 ![Screenshot](http://uproot.us/wp-content/uploads/2011/10/intro-field-group.png)
 
-**CFS is a fork of Advanced Custom Fields v2.** The goals of this plugin are stability, performance, and avoiding feature bloat.
-
 ## Getting Started
 [View the video tutorial on how to use CFS →](http://uproot.us/docs/how-to-use-cfs/)
 
