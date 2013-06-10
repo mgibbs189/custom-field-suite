@@ -43,6 +43,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 1.9.6 =
+* Bugfix for certain fields disappearing (props Karin Suzakura)
+
 = 1.9.5 =
 * Load validation.js only when needed (props @voltronik)
 * Show placement rules on field group listing (props @sc0ttkclark)
