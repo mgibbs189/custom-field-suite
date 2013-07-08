@@ -80,43 +80,43 @@ msgstr "Outils"
 msgid "Add-ons"
 msgstr "Add-ons"
 
-#: includes/admin/admin_footer.php:67
+#: includes/templates/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-#: includes/admin/admin_footer.php:71
+#: includes/templates/admin_footer.php:71
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#: includes/admin/admin_footer.php:72
+#: includes/templates/admin_footer.php:72
 msgid "User Guide"
 msgstr "Guide utilisateur"
 
-#: includes/admin/admin_footer.php:73
+#: includes/templates/admin_footer.php:73
 msgid "Changelog"
 msgstr "Notes de version"
 
-#: includes/admin/admin_footer.php:78
+#: includes/templates/admin_footer.php:78
 msgid "Donate"
 msgstr "Faire un don"
 
-#: includes/admin/admin_footer.php:79
+#: includes/templates/admin_footer.php:79
 msgid "Rate the plugin"
 msgstr "Noter le plugin"
 
-#: includes/admin/field_html.php:30
+#: includes/templates/field_html.php:30
 msgid "Label"
 msgstr "Intitulé"
 
-#: includes/admin/field_html.php:32
+#: includes/templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "L'intitulé du champ, visible par les utilisateurs."
 
-#: includes/admin/field_html.php:39
+#: includes/templates/field_html.php:39
 msgid "Name"
 msgstr "Nom"
 
-#: includes/admin/field_html.php:42
+#: includes/templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -125,130 +125,130 @@ msgstr ""
 "Seules les lettres minuscules, les chiffres ou le caractère de soulignement "
 "sont autorisés."
 
-#: includes/admin/field_html.php:49
+#: includes/templates/field_html.php:49
 msgid "Field Type"
 msgstr "Type de champ"
 
-#: includes/admin/field_html.php:67
+#: includes/templates/field_html.php:67
 msgid "Notes"
 msgstr "Instructions"
 
-#: includes/admin/field_html.php:69
+#: includes/templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Instructions destinées aux utilisateurs lors du remplissage du champ."
 
-#: includes/admin/field_html.php:82
+#: includes/templates/field_html.php:82
 msgid "Close"
 msgstr "Fermer"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "or"
 msgstr "ou"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "delete"
 msgstr "supprimer"
 
-#: includes/admin/meta_box_extras.php:39
+#: includes/templates/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Éditeur visuel (WYSIWYG)"
 
-#: includes/admin/meta_box_extras.php:48
+#: includes/templates/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Masquer l'éditeur visuel (WYSIWYG)"
 
-#: includes/admin/meta_box_extras.php:55
+#: includes/templates/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Intégration avec Gravity Forms"
 
-#: includes/admin/meta_box_extras.php:75
+#: includes/templates/meta_box_extras.php:75
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
 "parfaitement"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "Please install"
 msgstr "Veuillez installer"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "to use this feature"
 msgstr "pour utiliser cette fonctionnalité"
 
-#: includes/admin/meta_box_fields.php:60
+#: includes/templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Ajouter un nouveau champ"
 
-#: includes/admin/meta_box_rules.php:5
+#: includes/templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "est"
 
-#: includes/admin/meta_box_rules.php:6
+#: includes/templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "n'est pas"
 
-#: includes/admin/meta_box_rules.php:82 includes/admin/meta_box_rules.php:87
+#: includes/templates/meta_box_rules.php:82 includes/templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "Laisser vide pour ignorer cette règle"
 
-#: includes/admin/meta_box_rules.php:120 includes/fields/relationship.php:89
+#: includes/templates/meta_box_rules.php:120 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Types de contenu"
 
-#: includes/admin/meta_box_rules.php:152
+#: includes/templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr "Rôles utilisateur"
 
-#: includes/admin/meta_box_rules.php:184
+#: includes/templates/meta_box_rules.php:184
 msgid "Posts"
 msgstr "Articles"
 
-#: includes/admin/meta_box_rules.php:208
+#: includes/templates/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr "Termes de taxonomie"
 
-#: includes/admin/meta_box_rules.php:240
+#: includes/templates/meta_box_rules.php:240
 msgid "Page Template"
 msgstr "Modèle de page"
 
-#: includes/admin/page_tools.php:78 includes/admin/page_tools.php:101
+#: includes/templates/page_tools.php:78 includes/templates/page_tools.php:101
 msgid "Export"
 msgstr "Exporter"
 
-#: includes/admin/page_tools.php:79 includes/admin/page_tools.php:126
+#: includes/templates/page_tools.php:79 includes/templates/page_tools.php:126
 msgid "Import"
 msgstr "Importer"
 
-#: includes/admin/page_tools.php:80
+#: includes/templates/page_tools.php:80
 msgid "Debug"
 msgstr "Débuggage"
 
-#: includes/admin/page_tools.php:81
+#: includes/templates/page_tools.php:81
 msgid "Reset"
 msgstr "Remettre à zéro"
 
-#: includes/admin/page_tools.php:89
+#: includes/templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "Quels groupes de champs souhaitez-vous exporter?"
 
-#: includes/admin/page_tools.php:118
+#: includes/templates/page_tools.php:118
 msgid "Paste the import code below."
 msgstr "Veuillez coller le code d'import ci-dessous."
 
-#: includes/admin/page_tools.php:139
+#: includes/templates/page_tools.php:139
 msgid "Debug information"
 msgstr "Informations de débuggage"
 
-#: includes/admin/page_tools.php:164
+#: includes/templates/page_tools.php:164
 msgid "Reset and deactivate."
 msgstr "Remettre à zéro et désactiver."
 
-#: includes/admin/page_tools.php:165
+#: includes/templates/page_tools.php:165
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 "Toutes les données de CFS seront supprimées et le plugin sera désactivé."
 
-#: includes/admin/page_tools.php:166
+#: includes/templates/page_tools.php:166
 msgid "Delete everything"
 msgstr "Supprimer tout"
 

@@ -113,19 +113,19 @@ msgstr "Spenden"
 msgid "Rate the plugin"
 msgstr "Bewerte das Plugin"
 
-#: includes/admin/field_html.php:30
+#: includes/templates/field_html.php:30
 msgid "Label"
 msgstr "Beschriftung"
 
-#: includes/admin/field_html.php:32
+#: includes/templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "Die Beschriftung des Feldes, welche die Redakteure sehen."
 
-#: includes/admin/field_html.php:39
+#: includes/templates/field_html.php:39
 msgid "Name"
 msgstr "Name"
 
-#: includes/admin/field_html.php:42
+#: includes/templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -133,123 +133,123 @@ msgstr ""
 "Der Feld-Name wird in get () übergeben, um Werte abzurufen. Verwende nur "
 "Kleinbuchstaben, Zahlen und Unterstriche."
 
-#: includes/admin/field_html.php:49
+#: includes/templates/field_html.php:49
 msgid "Field Type"
 msgstr "Feldtyp"
 
-#: includes/admin/field_html.php:67
+#: includes/templates/field_html.php:67
 msgid "Notes"
 msgstr "Anweisungen"
 
-#: includes/admin/field_html.php:69
+#: includes/templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Hinweise für die Dateneingabe"
 
-#: includes/admin/field_html.php:82
+#: includes/templates/field_html.php:82
 msgid "Close"
 msgstr "Schliessen"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "or"
 msgstr "oder"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "delete"
 msgstr "löschen"
 
-#: includes/admin/meta_box_extras.php:39
+#: includes/templates/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Inhalts-Editor"
 
-#: includes/admin/meta_box_extras.php:48
+#: includes/templates/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Blende den Inhalts-Editor aus"
 
-#: includes/admin/meta_box_extras.php:55
+#: includes/templates/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Gravity Forms Integration"
 
-#: includes/admin/meta_box_extras.php:75
+#: includes/templates/meta_box_extras.php:75
 msgid "Your Gravity Form and CFS field labels must match exactly!"
 msgstr ""
 "Die Gravity Form und CFS Feldbezeichnungen müssen exakt übereinstimmen!"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "Please install"
 msgstr "Bitte installieren"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "to use this feature"
 msgstr "um dieses Feature zu nutzen"
 
-#: includes/admin/meta_box_fields.php:60
+#: includes/templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Neues Feld hinzufügen"
 
-#: includes/admin/meta_box_rules.php:5
+#: includes/templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "ist gleich"
 
-#: includes/admin/meta_box_rules.php:6
+#: includes/templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "ist nicht gleich"
 
-#: includes/admin/meta_box_rules.php:78
+#: includes/templates/meta_box_rules.php:78
 msgid "Leave blank to skip this rule"
 msgstr "Leer lassen, um diese Regel zu überspringen"
 
-#: includes/admin/meta_box_rules.php:87 includes/fields/relationship.php:89
+#: includes/templates/meta_box_rules.php:87 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Artikel-Typ"
 
-#: includes/admin/meta_box_rules.php:118
+#: includes/templates/meta_box_rules.php:118
 msgid "User Roles"
 msgstr "Benutzer-Rolle"
 
-#: includes/admin/meta_box_rules.php:149
+#: includes/templates/meta_box_rules.php:149
 msgid "Posts"
 msgstr "Artikel"
 
-#: includes/admin/meta_box_rules.php:180
+#: includes/templates/meta_box_rules.php:180
 msgid "Taxonomy Terms"
 msgstr "Taxonomie"
 
-#: includes/admin/meta_box_rules.php:211
+#: includes/templates/meta_box_rules.php:211
 msgid "Page Template"
 msgstr "Seiten-Vorlage"
 
-#: includes/admin/page_tools.php:78 includes/admin/page_tools.php:101
+#: includes/templates/page_tools.php:78 includes/templates/page_tools.php:101
 msgid "Export"
 msgstr "Export"
 
-#: includes/admin/page_tools.php:79 includes/admin/page_tools.php:126
+#: includes/templates/page_tools.php:79 includes/templates/page_tools.php:126
 msgid "Import"
 msgstr "Import"
 
-#: includes/admin/page_tools.php:80 includes/admin/page_tools.php:151
+#: includes/templates/page_tools.php:80 includes/templates/page_tools.php:151
 msgid "Synchronize"
 msgstr "Synchronisation"
 
-#: includes/admin/page_tools.php:81
+#: includes/templates/page_tools.php:81
 msgid "Debug"
 msgstr "Debug"
 
-#: includes/admin/page_tools.php:89
+#: includes/templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "Welche Felder-Gruppen willst Du exportieren?"
 
-#: includes/admin/page_tools.php:118
+#: includes/templates/page_tools.php:118
 msgid "Paste the import code below. Existing field groups will be skipped."
 msgstr ""
 "Füge den Import-Code unten ein. Bestehende Felder-Gruppen werden "
 "übersprungen."
 
-#: includes/admin/page_tools.php:139
+#: includes/templates/page_tools.php:139
 msgid "CFS will attempt to import custom field values."
 msgstr ""
 "CFS wird versuchen, Werte für benutzerdefinierte Felder zu importieren."
 
-#: includes/admin/page_tools.php:164
+#: includes/templates/page_tools.php:164
 msgid "Your site uses the following software:"
 msgstr "Deine Seite benutzt folgende Software"
 

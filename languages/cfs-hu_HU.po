@@ -125,21 +125,21 @@ msgid "Rate the plugin"
 msgstr "Bővítmény értékelése"
 
 # @ cfs
-#: includes/admin/field_html.php:30
+#: includes/templates/field_html.php:30
 msgid "Label"
 msgstr "Címke"
 
 # @ cfs
-#: includes/admin/field_html.php:32
+#: includes/templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "A mező névét csak a szerkesztők látják"
 
 # @ cfs
-#: includes/admin/field_html.php:39
+#: includes/templates/field_html.php:39
 msgid "Name"
 msgstr "Név"
 
-#: includes/admin/field_html.php:42
+#: includes/templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -148,132 +148,132 @@ msgstr ""
 "aláhúzást tartalmazhat."
 
 # @ cfs
-#: includes/admin/field_html.php:49
+#: includes/templates/field_html.php:49
 msgid "Field Type"
 msgstr "Mező típusa"
 
 # @ cfs
-#: includes/admin/field_html.php:67
+#: includes/templates/field_html.php:67
 msgid "Notes"
 msgstr "Utasítás"
 
 # @ cfs
-#: includes/admin/field_html.php:69
+#: includes/templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Tipp a szerkesztőknek, ha kitöltik a mezőt"
 
 # @ default
-#: includes/admin/field_html.php:82
+#: includes/templates/field_html.php:82
 msgid "Close"
 msgstr "Bezár"
 
 # @ cfs
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "or"
 msgstr "vagy"
 
 # @ cfs
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "delete"
 msgstr "törlés"
 
 # @ cfs
-#: includes/admin/meta_box_extras.php:39
+#: includes/templates/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Tartalomszerkesztő"
 
 # @ cfs
-#: includes/admin/meta_box_extras.php:48
+#: includes/templates/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Tartalomszerkesztő elrejtése"
 
 # @ cfs
-#: includes/admin/meta_box_extras.php:55
+#: includes/templates/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Gravity Froms integráció"
 
-#: includes/admin/meta_box_extras.php:75
+#: includes/templates/meta_box_extras.php:75
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "A Gravity Form és a CFS mezők címkéje meg kell egyezzen"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "Please install"
 msgstr "Kérem telepítse"
 
-#: includes/admin/meta_box_extras.php:79
+#: includes/templates/meta_box_extras.php:79
 msgid "to use this feature"
 msgstr "hogy használni tudja ezt a funkciót"
 
 # @ cfs
-#: includes/admin/meta_box_fields.php:60
+#: includes/templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Új mező hozzáadása"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:5
+#: includes/templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "egyenlő"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:6
+#: includes/templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "nem"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:82 includes/admin/meta_box_rules.php:87
+#: includes/templates/meta_box_rules.php:82 includes/templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "A szabály mellőzéséhez hagyja üresen"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:120 includes/fields/relationship.php:89
+#: includes/templates/meta_box_rules.php:120 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Bejegyzéstípusok"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:151
+#: includes/templates/meta_box_rules.php:151
 msgid "User Roles"
 msgstr "Felhasználói szintek"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:182
+#: includes/templates/meta_box_rules.php:182
 msgid "Posts"
 msgstr "Bejegyzések"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:205
+#: includes/templates/meta_box_rules.php:205
 msgid "Taxonomy Terms"
 msgstr "Taxonómiai feltételek"
 
 # @ cfs
-#: includes/admin/meta_box_rules.php:236
+#: includes/templates/meta_box_rules.php:236
 msgid "Page Template"
 msgstr "Oldalsablon"
 
-#: includes/admin/page_tools.php:64 includes/admin/page_tools.php:86
+#: includes/templates/page_tools.php:64 includes/templates/page_tools.php:86
 msgid "Export"
 msgstr "Exportálás"
 
 # @ cfs
-#: includes/admin/page_tools.php:65 includes/admin/page_tools.php:111
+#: includes/templates/page_tools.php:65 includes/templates/page_tools.php:111
 msgid "Import"
 msgstr "Importálás"
 
-#: includes/admin/page_tools.php:66
+#: includes/templates/page_tools.php:66
 msgid "Debug"
 msgstr "Hibakeresés"
 
-#: includes/admin/page_tools.php:74
+#: includes/templates/page_tools.php:74
 msgid "Which field groups would you like to export?"
 msgstr "Melyik mezőcsoportokat szeretné exportálni?"
 
-#: includes/admin/page_tools.php:103
+#: includes/templates/page_tools.php:103
 msgid "Paste the import code below. Existing field groups will be skipped."
 msgstr ""
 "Illessze be az alábbi importáló kódot. A meglévő mezőcsoportok kihagyásra "
 "kerülnek."
 
 # @ cfs
-#: includes/admin/page_tools.php:124
+#: includes/templates/page_tools.php:124
 msgid "Your site uses the following software:"
 msgstr "Az ön oldala a következő szoftvereket használja:"
 

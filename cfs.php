@@ -27,7 +27,7 @@ class cfs
 {
     public $dir;
     public $url;
-    public $version;
+    public $version = '1.9.6';
     public $field_group;
     public $fields;
     public $form;
@@ -54,7 +54,6 @@ class cfs
      */
     function init()
     {
-        $this->version = '1.9.6';
         $this->dir = dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
 
@@ -91,21 +90,19 @@ class cfs
         $this->third_party = new cfs_third_party($this);
         $this->fields = $this->get_field_types();
 
-        $labels = array(
-            'name' => __('Field Groups', 'cfs'),
-            'singular_name' => __('Field Group', 'cfs'),
-            'add_new' => __('Add New', 'cfs'),
-            'add_new_item' => __('Add New Field Group', 'cfs'),
-            'edit_item' =>  __('Edit Field Group', 'cfs'),
-            'new_item' => __('New Field Group', 'cfs'),
-            'view_item' => __('View Field Group', 'cfs'),
-            'search_items' => __('Search Field Groups', 'cfs'),
-            'not_found' =>  __('No Field Groups found', 'cfs'),
-            'not_found_in_trash' => __('No Field Groups found in Trash', 'cfs'),
-        );
-
         register_post_type('cfs', array(
-            'labels' => $labels,
+            'labels' => array(
+                'name' => __('Field Groups', 'cfs'),
+                'singular_name' => __('Field Group', 'cfs'),
+                'add_new' => __('Add New', 'cfs'),
+                'add_new_item' => __('Add New Field Group', 'cfs'),
+                'edit_item' =>  __('Edit Field Group', 'cfs'),
+                'new_item' => __('New Field Group', 'cfs'),
+                'view_item' => __('View Field Group', 'cfs'),
+                'search_items' => __('Search Field Groups', 'cfs'),
+                'not_found' =>  __('No Field Groups found', 'cfs'),
+                'not_found_in_trash' => __('No Field Groups found in Trash', 'cfs'),
+            ),
             'public' => false,
             'show_ui' => true,
             'show_in_menu' => false,
@@ -131,9 +128,9 @@ class cfs
     function cfs_columns()
     {
         return array(
-            'cb' => '<input type="checkbox" />',
-            'title' => __('Title', 'cfs'),
-            'placement' => __('Placement', 'cfs'),
+            'cb'            => '<input type="checkbox" />',
+            'title'         => __('Title', 'cfs'),
+            'placement'     => __('Placement', 'cfs'),
         );
     }
 
@@ -153,11 +150,11 @@ class cfs
             global $wpdb;
 
             $labels = array(
-                'post_types' => __('Post Types', 'cfs'),
-                'user_roles' => __('User Roles', 'cfs'),
-                'post_ids' => __('Post IDs', 'cfs'),
-                'term_ids' => __('Term IDs', 'cfs'),
-                'page_templates' => __('Page Templates', 'cfs')
+                'post_types'        => __('Post Types', 'cfs'),
+                'user_roles'        => __('User Roles', 'cfs'),
+                'post_ids'          => __('Post IDs', 'cfs'),
+                'term_ids'          => __('Term IDs', 'cfs'),
+                'page_templates'    => __('Page Templates', 'cfs')
             );
 
             $results = $wpdb->get_var("SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1");
@@ -179,17 +176,17 @@ class cfs
     function get_field_types()
     {
         $field_types = array(
-            'text' =>               $this->dir . '/includes/fields/text.php',
-            'textarea' =>           $this->dir . '/includes/fields/textarea.php',
-            'wysiwyg' =>            $this->dir . '/includes/fields/wysiwyg.php',
-            'date' =>               $this->dir . '/includes/fields/date/date.php',
-            'color' =>              $this->dir . '/includes/fields/color/color.php',
-            'true_false' =>         $this->dir . '/includes/fields/true_false.php',
-            'select' =>             $this->dir . '/includes/fields/select.php',
-            'relationship' =>       $this->dir . '/includes/fields/relationship.php',
-            'user' =>               $this->dir . '/includes/fields/user.php',
-            'file' =>               $this->dir . '/includes/fields/file.php',
-            'loop' =>               $this->dir . '/includes/fields/loop.php',
+            'text'                  => $this->dir . '/includes/fields/text.php',
+            'textarea'              => $this->dir . '/includes/fields/textarea.php',
+            'wysiwyg'               => $this->dir . '/includes/fields/wysiwyg.php',
+            'date'                  => $this->dir . '/includes/fields/date/date.php',
+            'color'                 => $this->dir . '/includes/fields/color/color.php',
+            'true_false'            => $this->dir . '/includes/fields/true_false.php',
+            'select'                => $this->dir . '/includes/fields/select.php',
+            'relationship'          => $this->dir . '/includes/fields/relationship.php',
+            'user'                  => $this->dir . '/includes/fields/user.php',
+            'file'                  => $this->dir . '/includes/fields/file.php',
+            'loop'                  => $this->dir . '/includes/fields/loop.php',
         );
 
         // support custom field types
@@ -363,7 +360,7 @@ class cfs
 
         if ('post' == $screen->base)
         {
-            include($this->dir . '/includes/admin/admin_head.php');
+            include($this->dir . '/includes/templates/admin_head.php');
         }
     }
 
@@ -380,7 +377,7 @@ class cfs
 
         if ('edit' == $screen->base && 'cfs' == $screen->post_type)
         {
-            include($this->dir . '/includes/admin/admin_footer.php');
+            include($this->dir . '/includes/templates/admin_footer.php');
         }
     }
 
@@ -503,7 +500,7 @@ class cfs
     function meta_box($post, $metabox)
     {
         $box = $metabox['args']['box'];
-        include($this->dir . "/includes/admin/meta_box_$box.php");
+        include($this->dir . "/includes/templates/meta_box_$box.php");
     }
 
 
@@ -516,7 +513,7 @@ class cfs
      */
     function field_html($field)
     {
-        include($this->dir . '/includes/admin/field_html.php');
+        include($this->dir . '/includes/templates/field_html.php');
     }
 
 
@@ -528,7 +525,7 @@ class cfs
      */
     function page_tools()
     {
-        include($this->dir . '/includes/admin/page_tools.php');
+        include($this->dir . '/includes/templates/page_tools.php');
     }
 
 
@@ -540,7 +537,7 @@ class cfs
      */
     function page_addons()
     {
-        include($this->dir . '/includes/admin/page_addons.php');
+        include($this->dir . '/includes/templates/page_addons.php');
     }
 
 

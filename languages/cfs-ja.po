@@ -65,13 +65,13 @@ msgid "Placement"
 msgstr "配置"
 
 #: cfs.php:156
-#: includes/admin/meta_box_rules.php:120
+#: includes/templates/meta_box_rules.php:120
 #: includes/fields/relationship.php:95
 msgid "Post Types"
 msgstr "投稿タイプ"
 
 #: cfs.php:157
-#: includes/admin/meta_box_rules.php:152
+#: includes/templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr "ユーザー権限グループ"
 
@@ -84,7 +84,7 @@ msgid "Term IDs"
 msgstr "分類ID"
 
 #: cfs.php:160
-#: includes/admin/meta_box_rules.php:240
+#: includes/templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr "固定ページテンプレート"
 
@@ -108,163 +108,163 @@ msgstr "ツール"
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: includes/admin/admin_footer.php:67
+#: includes/templates/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-#: includes/admin/admin_footer.php:71
+#: includes/templates/admin_footer.php:71
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: includes/admin/admin_footer.php:72
+#: includes/templates/admin_footer.php:72
 msgid "Support"
 msgstr "サポート"
 
-#: includes/admin/admin_footer.php:73
+#: includes/templates/admin_footer.php:73
 msgid "Credits"
 msgstr "クレジット"
 
-#: includes/admin/admin_footer.php:78
+#: includes/templates/admin_footer.php:78
 msgid "Rate CFS on WordPress.org"
 msgstr "WordPress.orgのプラグインページを表示"
 
-#: includes/admin/field_html.php:30
+#: includes/templates/field_html.php:30
 msgid "Label"
 msgstr "ラベル"
 
-#: includes/admin/field_html.php:32
+#: includes/templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "投稿編集画面で表示されるラベル"
 
-#: includes/admin/field_html.php:39
+#: includes/templates/field_html.php:39
 msgid "Name"
 msgstr "名前"
 
-#: includes/admin/field_html.php:42
+#: includes/templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
 msgstr "get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記述"
 
-#: includes/admin/field_html.php:49
+#: includes/templates/field_html.php:49
 msgid "Field Type"
 msgstr "フィールドタイプ"
 
-#: includes/admin/field_html.php:67
+#: includes/templates/field_html.php:67
 msgid "Notes"
 msgstr "概要"
 
-#: includes/admin/field_html.php:69
+#: includes/templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "データ入力時の説明や覚え書きなどを記述"
 
-#: includes/admin/field_html.php:82
+#: includes/templates/field_html.php:82
 msgid "Close"
 msgstr "閉じる"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "or"
 msgstr "または"
 
-#: includes/admin/field_html.php:83
+#: includes/templates/field_html.php:83
 msgid "delete"
 msgstr "削除"
 
-#: includes/admin/meta_box_extras.php:42
+#: includes/templates/meta_box_extras.php:42
 msgid "Order"
 msgstr "順序"
 
-#: includes/admin/meta_box_extras.php:44
+#: includes/templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 
-#: includes/admin/meta_box_extras.php:54
+#: includes/templates/meta_box_extras.php:54
 msgid "Position"
 msgstr "位置"
 
-#: includes/admin/meta_box_extras.php:63
+#: includes/templates/meta_box_extras.php:63
 msgid "Display Settings"
 msgstr "表示設定"
 
-#: includes/admin/meta_box_extras.php:73
+#: includes/templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr "コンテンツエディタを隠す"
 
-#: includes/admin/meta_box_extras.php:81
+#: includes/templates/meta_box_extras.php:81
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: includes/admin/meta_box_extras.php:101
+#: includes/templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "Gravity FormとCFSのフィールドのラベルは正確に一致する必要があります！"
 
-#: includes/admin/meta_box_extras.php:106
+#: includes/templates/meta_box_extras.php:106
 #, php-format
 msgid "Please install %s to use this feature."
 msgstr "この機能を使用するには %s をインストールして下さい"
 
-#: includes/admin/meta_box_fields.php:66
+#: includes/templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr "新規フィールドを追加"
 
-#: includes/admin/meta_box_rules.php:5
+#: includes/templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "等しい"
 
-#: includes/admin/meta_box_rules.php:6
+#: includes/templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "等しくない"
 
-#: includes/admin/meta_box_rules.php:82
-#: includes/admin/meta_box_rules.php:87
+#: includes/templates/meta_box_rules.php:82
+#: includes/templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "このルールをスキップするには空白のままにしておいてください"
 
-#: includes/admin/meta_box_rules.php:184
+#: includes/templates/meta_box_rules.php:184
 msgid "Posts"
 msgstr "投稿"
 
-#: includes/admin/meta_box_rules.php:208
+#: includes/templates/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr "分類"
 
-#: includes/admin/page_tools.php:78
-#: includes/admin/page_tools.php:101
+#: includes/templates/page_tools.php:78
+#: includes/templates/page_tools.php:101
 msgid "Export"
 msgstr "エクスポート"
 
-#: includes/admin/page_tools.php:79
-#: includes/admin/page_tools.php:126
+#: includes/templates/page_tools.php:79
+#: includes/templates/page_tools.php:126
 msgid "Import"
 msgstr "インポート"
 
-#: includes/admin/page_tools.php:80
+#: includes/templates/page_tools.php:80
 msgid "Debug"
 msgstr "デバッグ"
 
-#: includes/admin/page_tools.php:81
+#: includes/templates/page_tools.php:81
 msgid "Reset"
 msgstr "リセット"
 
-#: includes/admin/page_tools.php:89
+#: includes/templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "どのグループフィールドをエクスポートしますか？"
 
-#: includes/admin/page_tools.php:118
+#: includes/templates/page_tools.php:118
 msgid "Paste the import code below."
 msgstr "下のテキストエリアにインポートコードを貼り付けてください"
 
-#: includes/admin/page_tools.php:139
+#: includes/templates/page_tools.php:139
 msgid "Debug information"
 msgstr "デバッグ情報"
 
-#: includes/admin/page_tools.php:164
+#: includes/templates/page_tools.php:164
 msgid "Reset and deactivate."
 msgstr "リセット＆プラグイン無効化"
 
-#: includes/admin/page_tools.php:165
+#: includes/templates/page_tools.php:165
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "CFSデータを削除し、プラグインを無効化します"
 
-#: includes/admin/page_tools.php:166
+#: includes/templates/page_tools.php:166
 msgid "Delete everything"
 msgstr "全てを削除"
 
