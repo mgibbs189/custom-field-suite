@@ -60,6 +60,7 @@ class cfs_ajax
 
         // Drop tables
         $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_values");
+        $wpdb->query("DROP TABLE {$wpdb->prefix}cfs_sessions");
         delete_option('cfs_version');
         delete_option('cfs_next_field_id');
     }

@@ -21,17 +21,9 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, see <http://www.gnu.org/licenses/>.
 */
 
-$cfs = new cfs();
-
-class cfs
+class Custom_Field_Suite
 {
-    public $dir;
-    public $url;
     public $version = '1.9.6';
-    public $field_group;
-    public $fields;
-    public $form;
-    public $api;
 
 
 
@@ -68,11 +60,6 @@ class cfs
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
 
-        if (!is_admin())
-        {
-            add_action('parse_query', array($this, 'parse_query'));
-        }
-
         include($this->dir . '/includes/classes/api.php');
         include($this->dir . '/includes/classes/upgrade.php');
         include($this->dir . '/includes/classes/field.php');
@@ -91,24 +78,24 @@ class cfs
         $this->fields = $this->get_field_types();
 
         register_post_type('cfs', array(
-            'labels' => array(
-                'name' => __('Field Groups', 'cfs'),
-                'singular_name' => __('Field Group', 'cfs'),
-                'add_new' => __('Add New', 'cfs'),
-                'add_new_item' => __('Add New Field Group', 'cfs'),
-                'edit_item' =>  __('Edit Field Group', 'cfs'),
-                'new_item' => __('New Field Group', 'cfs'),
-                'view_item' => __('View Field Group', 'cfs'),
-                'search_items' => __('Search Field Groups', 'cfs'),
-                'not_found' =>  __('No Field Groups found', 'cfs'),
-                'not_found_in_trash' => __('No Field Groups found in Trash', 'cfs'),
+            'public'            => false,
+            'show_ui'           => true,
+            'show_in_menu'      => false,
+            'capability_type'   => 'page',
+            'hierarchical'      => false,
+            'supports'          => array('title'),
+            'labels'            => array(
+                'name'                  => __('Field Groups', 'cfs'),
+                'singular_name'         => __('Field Group', 'cfs'),
+                'add_new'               => __('Add New', 'cfs'),
+                'add_new_item'          => __('Add New Field Group', 'cfs'),
+                'edit_item'             =>  __('Edit Field Group', 'cfs'),
+                'new_item'              => __('New Field Group', 'cfs'),
+                'view_item'             => __('View Field Group', 'cfs'),
+                'search_items'          => __('Search Field Groups', 'cfs'),
+                'not_found'             =>  __('No Field Groups found', 'cfs'),
+                'not_found_in_trash'    => __('No Field Groups found in Trash', 'cfs'),
             ),
-            'public' => false,
-            'show_ui' => true,
-            'show_in_menu' => false,
-            'capability_type' => 'page',
-            'hierarchical' => false,
-            'supports' => array('title'),
         ));
 
         // customize the table header
@@ -441,10 +428,10 @@ class cfs
             $extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
 
             $this->field_group->save(array(
-                'post_id' => $post_id,
-                'fields' => $fields,
-                'rules' => $rules,
-                'extras' => $extras,
+                'post_id'   => $post_id,
+                'fields'    => $fields,
+                'rules'     => $rules,
+                'extras'    => $extras,
             ));
         }
     }
@@ -469,23 +456,6 @@ class cfs
         }
 
         return true;
-    }
-
-
-
-
-    /**
-     * Make sure that $cfs is defined for template parts
-     * get_template_part() -> locate_template() -> load_template()
-     * load_template() extracts the $wp_query->query_vars array into variables,
-     *     so we want to force it to create $cfs too.
-     * 
-     * @param object $wp_query 
-     * @since 1.8.8
-     */
-    function parse_query($wp_query)
-    {
-        $wp_query->query_vars['cfs'] = $this;
     }
 
 
@@ -588,3 +558,12 @@ class cfs
         }
     }
 }
+
+function CFS()
+{
+    global $cfs;
+
+    return $cfs;
+}
+
+$cfs = new Custom_Field_Suite();
