@@ -1,6 +1,6 @@
 === Custom Field Suite ===
 Contributors: logikal16, mgibbs189
-Donate link: http://uproot.us/donate/
+Donate link: https://uproot.us/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
 Requires at least: 3.5
 Tested up to: 3.6
@@ -22,13 +22,14 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * Includes client-side field validation
 
 = Getting Started =
-[See the CFS overview page →](http://uproot.us/projects/cfs/)
+[See the CFS overview page →](https://uproot.us/projects/cfs/)
 
 = Documentation =
-[View the documentation →](http://uproot.us/projects/cfs/documentation/)
+[View the documentation →](https://uproot.us/projects/cfs/documentation/)
+[GitHub](https://github.com/mgibbs189/custom-field-suite)
 
 = Support =
-[Visit the support forums →](http://uproot.us/forums/)
+[Visit the support forums →](https://uproot.us/forums/)
 
 == Installation ==
 
@@ -42,6 +43,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 1.9.7 =
+* Minor code housekeeping
 
 = 1.9.6 =
 * Bugfix for certain fields disappearing (props Karin Suzakura)

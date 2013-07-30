@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Custom Field Suite
-Plugin URI: http://uproot.us/projects/cfs/
+Plugin URI: https://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 1.9.6
+Version: 1.9.7
 Author: Matt Gibbs
-Author URI: http://uproot.us/
+Author URI: https://uproot.us/
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 class Custom_Field_Suite
 {
-    public $version = '1.9.6';
+    public $version = '1.9.7';
 
 
 
@@ -59,6 +59,11 @@ class Custom_Field_Suite
         add_action('delete_post', array($this, 'delete_post'));
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
+
+        if (!is_admin())
+        {
+            add_action('parse_query', array($this, 'parse_query'));
+        }
 
         include($this->dir . '/includes/classes/api.php');
         include($this->dir . '/includes/classes/upgrade.php');
@@ -557,13 +562,23 @@ class Custom_Field_Suite
             exit;
         }
     }
-}
 
-function CFS()
-{
-    global $cfs;
 
-    return $cfs;
+
+
+    /**
+     * Make sure that $cfs is defined for template parts
+     * get_template_part() -> locate_template() -> load_template()
+     * load_template() extracts the $wp_query->query_vars array into variables,
+     *     so we want to force it to create $cfs too.
+     * 
+     * @param object $wp_query 
+     * @since 1.8.8
+     */
+    function parse_query($wp_query)
+    {
+        $wp_query->query_vars['cfs'] = $this;
+    }
 }
 
 $cfs = new Custom_Field_Suite();
