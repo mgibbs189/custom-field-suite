@@ -38,14 +38,21 @@
             },
             update: function(event, ui) {
                 zebra_stripes();
-                var parent_id = ui.item.closest('li.loop').find('.field_id').first().val() || 0;
+
+                // Use parents() because closest() includes the current element
+                // ui.item is the <li>, and loop fields have <li class="loop">
+                var parent_id = 0;
+                if (0 < ui.item.parents('li.loop').length) {
+                    parent_id = ui.item.parents('li.loop').first().find('.field_id').first().val();
+                }
                 ui.item.find('.parent_id').first().val(parent_id);
 
-                // debug
+                /*
                 var $container = ui.item.closest('.fields');
                 $container.find('[name^="cfs[fields]"]').each(function() {
                     console.log($(this).attr('name') + ' = ' + $(this).val());
                 });
+                */
             }
         });
 
