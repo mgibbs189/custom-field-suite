@@ -20,11 +20,19 @@ class cfs_date extends cfs_field
         <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/date.css" />
         <script>
         (function($) {
-            $(document).on('focus', '.cfs_date input.date', function() {
-                if (!$(this).hasClass('ready')) {
-                    $(this).addClass('ready').pikaday();
-                }
+            $(function() {
+                $(document).on('cfs/ready', '.cfs_add_field', function() {
+                    $('.cfs_date:not(.ready)').init_date();
+                });
+                $('.cfs_date').init_date();
             });
+
+            $.fn.init_date = function() {
+                this.each(function() {
+                    $(this).find('input.date').datetime();
+                    $(this).addClass('ready');
+                });
+            };
         })(jQuery);
         </script>
     <?php
@@ -35,9 +43,7 @@ class cfs_date extends cfs_field
 
     function load_assets()
     {
-        wp_register_script('moment', $this->parent->url . '/includes/fields/date/moment.js');
-        wp_register_script('pikaday', $this->parent->url . '/includes/fields/date/pikaday.js', array('jquery'));
-        wp_enqueue_script('moment');
-        wp_enqueue_script('pikaday');
+        wp_register_script('jquery-datetime', $this->parent->url . '/includes/fields/date/jquery.datetime.js', array('jquery'));
+        wp_enqueue_script('jquery-datetime');
     }
 }
