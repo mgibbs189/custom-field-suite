@@ -44,6 +44,10 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 1.9.8 =
+* Replaced date picker
+* Bugfix: loop field sorting issue (props @ChrisVanPatten)
+
 = 1.9.7 =
 * Minor code housekeeping
 
