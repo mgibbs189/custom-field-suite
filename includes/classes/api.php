@@ -387,7 +387,7 @@ class cfs_api
             $fields[$field->id] = $field;
         }
 
-        return $fields;
+        return apply_filters('cfs_get_input_fields', $fields, $params);
     }
 
 
