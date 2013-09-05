@@ -6,6 +6,8 @@ Description: Visually add custom fields to your WordPress edit pages.
 Version: 1.9.9
 Author: Matt Gibbs
 Author URI: https://uproot.us/
+Text Domain: cfs
+Domain Path: /languages/
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -49,8 +51,17 @@ class Custom_Field_Suite
         $this->dir = dirname(__FILE__);
         $this->url = plugins_url('custom-field-suite');
 
-        // add translations
-        load_plugin_textdomain('cfs', false, 'custom-field-suite/languages');
+        // prepare translations loading
+        $textdomain = 'cfs';
+        $locale = apply_filters( 'plugin_locale', get_locale(), $textdomain );
+        $wp_lang_dir = apply_filters(
+            'cfs_translations_wp_lang_dir',
+            trailingslashit( WP_LANG_DIR ) . 'custom-field-suite/' . $textdomain . '-' . $locale . '.mo'
+        );
+
+        // load translations
+        load_textdomain( $textdomain, $wp_lang_dir );
+        load_plugin_textdomain( $textdomain, FALSE, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . 'languages/' );
 
         add_action('admin_head', array($this, 'admin_head'));
         add_action('admin_footer', array($this, 'admin_footer'));

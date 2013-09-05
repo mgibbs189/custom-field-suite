@@ -64,7 +64,7 @@
                 <tr class="field_notes">
                     <td class="label">
                         <label>
-                            <?php _e('Notes', 'cfs'); ?>
+                            <?php _e( 'Notes', 'cfs' ); ?>
                             <div class="cfs_tooltip">
                                 <div class="tooltip_inner"><?php _e('Notes for editors during data entry', 'cfs'); ?></div>
                             </div>
@@ -79,8 +79,8 @@
                     <td style="vertical-align:middle">
                         <input type="hidden" name="cfs[fields][<?php echo $field->weight; ?>][id]" class="field_id" value="<?php echo $field->id; ?>" />
                         <input type="hidden" name="cfs[fields][<?php echo $field->weight; ?>][parent_id]" class="parent_id" value="<?php echo $field->parent_id; ?>" />
-                        <input type="button" value="<?php _e('Close'); ?>" class="button-secondary cfs_edit_field" />
-                        &nbsp; -<?php _e('or', 'cfs'); ?>- &nbsp; <span class="cfs_delete_field"><?php _e('delete', 'cfs'); ?></span>
+                        <input type="button" value="<?php _e( 'Close', 'cfs' ); ?>" class="button-secondary cfs_edit_field" />
+                        &nbsp; -<?php _e( 'or', 'cfs' ); ?>- &nbsp; <span class="cfs_delete_field"><?php _e( 'delete', 'cfs' ); ?></span>
                     </td>
                 </tr>
             </tbody>

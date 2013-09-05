@@ -23,7 +23,7 @@ if ('cfs' == $screen->post_type)
         'id' => 0,
         'parent_id' => 0,
         'name' => 'new_field',
-        'label' => 'New Field',
+        'label' => __( 'New Field', 'cfs' ),
         'type' => 'text',
         'notes' => '',
         'weight' => 'clone',

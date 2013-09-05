@@ -62,7 +62,7 @@ $json = json_decode($json);
 
 <div class="wrap">
     <div id="icon-edit" class="icon32"><br></div>
-    <h2>Add-ons</h2>
+    <h2><?php _e( 'Add-ons', 'cfs' ); ?></h2>
     <?php foreach ($json as $addon) : ?>
     <div class="addon">
         <div class="addon-container">
@@ -78,7 +78,7 @@ $json = json_decode($json);
                 <div class="addon-purpose"><?php echo $addon->purpose; ?></div>
             </div>
             <div class="addon-learn-more">
-                <a class="button-primary" href="<?php echo $addon->learn_more_url; ?>" target="_blank">Learn more</a>
+                <a class="button-primary" href="<?php echo $addon->learn_more_url; ?>" target="_blank"><?php _e( 'Learn more', 'cfs' ); ?></a>
             </div>
         </div>
     </div>

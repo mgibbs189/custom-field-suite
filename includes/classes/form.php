@@ -341,7 +341,7 @@ CFS['loop_buffer'] = [];
 
         <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
             <?php if ('loop' == $field->type) : ?>
-            <span class="cfs_loop_toggle" title="Toggle row visibility"></span>
+            <span class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></span>
             <?php endif; ?>
 
             <?php if (!empty($field->label)) : ?>
