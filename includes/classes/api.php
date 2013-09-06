@@ -649,7 +649,7 @@ class cfs_api
         }
 
         // Allow for overrides
-        return apply_filters('cfs_matching_groups', $matches, $post_id, $post_type);
+        return apply_filters('cfs_matching_groups', $matches, $post_id, $post_type, $rule_types);
     }
 
 
