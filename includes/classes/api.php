@@ -519,6 +519,8 @@ class cfs_api
         global $wpdb, $current_user;
 
         if ( !is_array( $post_id ) ) {
+            $post_id = (int) $post_id;
+            
             if (wp_is_post_revision($post_id)) {
                 $post_id = wp_is_post_revision($post_id);
             }
