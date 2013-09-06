@@ -533,6 +533,7 @@ class cfs_api
             $rule_types = $post_id;
         }
         
+        // Detect post_types / page_templates if they weren't sent
         if ( isset( $rule_types[ 'post_ids' ] ) && !empty( $rule_types[ 'post_ids' ] ) ) {
             $rule_types[ 'post_ids' ] = array_map( 'absint', (array) $rule_types[ 'post_ids' ] );
             
