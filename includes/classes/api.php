@@ -524,58 +524,54 @@ class cfs_api
             if (wp_is_post_revision($post_id)) {
                 $post_id = wp_is_post_revision($post_id);
             }
-
-            // Get variables
-            $post_type = get_post_type($post_id);
-            $page_template = get_post_meta($post_id, '_wp_page_template', true);
-            $user_roles = $current_user->roles;
             
             $rule_types = array(
-                'post_types' => $post_type,
-                'user_roles' => $user_roles,
-                'term_ids' => array(),
-                'post_ids' => $post_id,
-                'page_templates' => $page_template,
+                'post_ids' => $post_id
             );
         }
         else {
-            $rule_types = array_merge(
-            	array(
-                	'post_types' => array(),
-                	'user_roles' => $current_user->roles,
-                	'term_ids' => array(),
-                	'post_ids' => array(),
-                	'page_templates' => array()
-                ),
-                $post_id
-            );
+            $rule_types = $post_id;
+        }
+        
+        if ( isset( $rule_types[ 'post_ids' ] ) && !empty( $rule_types[ 'post_ids' ] ) ) {
+            $rule_types[ 'post_ids' ] = array_map( 'absint', (array) $rule_types[ 'post_ids' ] );
             
-            if ( isset( $post_id[ 'post_ids' ] ) && !empty( $post_id[ 'post_ids' ] ) ) {
-                if ( !isset( $post_id[ 'post_types' ] ) ) {
-                    $rule_types[ 'post_types' ] = array();
+            if ( !isset( $rule_types[ 'post_types' ] ) ) {
+                $rule_types[ 'post_types' ] = array();
+                
+                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                    $post_type = get_post_type( $pid );
                     
-                    foreach ( (array) $rule_types[ 'post_ids' ] as $pid ) {
-                        $post_type = get_post_type( (int) $pid );
-                        
-                        if ( !in_array( $post_type, $rule_types[ 'post_types' ] ) ) {
-                            $rule_types[ 'post_types' ][] = $post_type;
-                        }
+                    if ( !in_array( $post_type, $rule_types[ 'post_types' ] ) ) {
+                        $rule_types[ 'post_types' ][] = $post_type;
                     }
                 }
+            }
+            
+            if ( !isset( $rule_types[ 'page_templates' ] ) ) {
+                $rule_types[ 'page_templates' ] = array();
                 
-                if ( !isset( $post_id[ 'page_templates' ] ) ) {
-                    $rule_types[ 'page_templates' ] = array();
+                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                    $page_template = get_post_meta( $pid, '_wp_page_template', true );
                     
-                    foreach ( (array) $rule_types[ 'post_ids' ] as $pid ) {
-                        $page_template = get_post_meta( (int) $pid, '_wp_page_template', true );
-                        
-                        if ( !empty( $page_template ) && !in_array( $page_template, $rule_types[ 'page_templates' ] ) ) {
-                            $rule_types[ 'page_templates' ][] = $page_template;
-                        }
+                    if ( !empty( $page_template ) && !in_array( $page_template, $rule_types[ 'page_templates' ] ) ) {
+                        $rule_types[ 'page_templates' ][] = $page_template;
                     }
                 }
             }
         }
+        
+        // Set defaults
+        $rule_types = array_merge(
+        	array(
+            	'post_types' => array(),
+            	'user_roles' => $current_user->roles,
+            	'term_ids' => array(),
+            	'post_ids' => array(),
+            	'page_templates' => array()
+            ),
+            $rule_types
+        );
 
         // Cache the query (get rules)
         if (!isset($this->cache['cfs_options']))
