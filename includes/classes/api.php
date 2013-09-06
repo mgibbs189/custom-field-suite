@@ -509,7 +509,7 @@ class cfs_api
 
     /**
      * Determine which field groups to use for the current post
-     * @param int $post_id 
+     * @param int|array $post_id Post ID or an array of rules to match
      * @param boolean $skip_roles 
      * @return array
      * @since 1.0.0
@@ -518,16 +518,36 @@ class cfs_api
     {
         global $wpdb, $current_user;
 
-        if (wp_is_post_revision($post_id)) {
-            $post_id = wp_is_post_revision($post_id);
-        }
+        if ( !is_array( $post_id ) ) {
+            if (wp_is_post_revision($post_id)) {
+                $post_id = wp_is_post_revision($post_id);
+            }
 
-        // Get variables
-        $matches = array();
-        $post_id = (int) $post_id;
-        $post_type = get_post_type($post_id);
-        $page_template = get_post_meta($post_id, '_wp_page_template', true);
-        $user_roles = $current_user->roles;
+            // Get variables
+            $post_type = get_post_type($post_id);
+            $page_template = get_post_meta($post_id, '_wp_page_template', true);
+            $user_roles = $current_user->roles;
+            
+            $rule_types = array(
+                'post_types' => $post_type,
+                'user_roles' => $user_roles,
+                'term_ids' => array(),
+                'post_ids' => $post_id,
+                'page_templates' => $page_template,
+            );
+        }
+        else {
+            $rule_types = array_merge(
+            	array(
+                	'post_types' => array(),
+                	'user_roles' => $current_user->roles,
+                	'term_ids' => array(),
+                	'post_ids' => array(),
+                	'page_templates' => array()
+                ),
+                $post_id
+            );
+        }
 
         // Cache the query (get rules)
         if (!isset($this->cache['cfs_options']))
@@ -546,14 +566,6 @@ class cfs_api
             $results = $this->cache['cfs_options'];
         }
 
-        $rule_types = array(
-            'post_types' => $post_type,
-            'user_roles' => $user_roles,
-            'term_ids' => array(),
-            'post_ids' => $post_id,
-            'page_templates' => $page_template,
-        );
-
         // Ignore user_roles if used within get_fields
         if (false !== $skip_roles)
         {
@@ -568,7 +580,7 @@ class cfs_api
 
             foreach ($rule_types as $rule_type => $value)
             {
-                if (isset($rules[$rule_type]))
+                if (isset($rules[$rule_type]) && !empty( $rules[ $rule_type ] ) )
                 {
                     // Only lookup a post's term IDs if the rule exists
                     if ('term_ids' == $rule_type)
@@ -598,6 +610,8 @@ class cfs_api
                 );
             }
         }
+        
+        $matches = array();
 
         // Sort the field groups
         if (!empty($temp))
