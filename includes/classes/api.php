@@ -549,6 +549,16 @@ class cfs_api
                 ),
                 $post_id
             );
+            
+            if ( isset( $post_id[ 'post_types' ] ) && !empty( $post_id[ 'post_types' ] ) ) {
+                if ( !isset( $post_id[ 'post_types' ] ) ) {
+                    $rule_types[ 'post_types' ] = array();
+                    
+                    foreach ( (array) $rule_types[ 'post_ids' ] as $pid ) {
+                        $rule_types[ 'post_types' ] = array();
+                    }
+                }
+            }
         }
 
         // Cache the query (get rules)
