@@ -550,12 +550,28 @@ class cfs_api
                 $post_id
             );
             
-            if ( isset( $post_id[ 'post_types' ] ) && !empty( $post_id[ 'post_types' ] ) ) {
+            if ( isset( $post_id[ 'post_ids' ] ) && !empty( $post_id[ 'post_ids' ] ) ) {
                 if ( !isset( $post_id[ 'post_types' ] ) ) {
                     $rule_types[ 'post_types' ] = array();
                     
                     foreach ( (array) $rule_types[ 'post_ids' ] as $pid ) {
-                        $rule_types[ 'post_types' ] = array();
+                        $post_type = get_post_type( (int) $pid );
+                        
+                        if ( !in_array( $post_type, $rule_types[ 'post_types' ] ) ) {
+                            $rule_types[ 'post_types' ][] = $post_type;
+                        }
+                    }
+                }
+                
+                if ( !isset( $post_id[ 'page_templates' ] ) ) {
+                    $rule_types[ 'page_templates' ] = array();
+                    
+                    foreach ( (array) $rule_types[ 'post_ids' ] as $pid ) {
+                        $page_template = get_post_meta( (int) $pid, '_wp_page_template', true );
+                        
+                        if ( !empty( $page_template ) && !in_array( $page_template, $rule_types[ 'page_templates' ] ) ) {
+                            $rule_types[ 'page_templates' ][] = $page_template;
+                        }
                     }
                 }
             }
