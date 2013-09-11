@@ -72,7 +72,7 @@ $results = $wpdb->get_results($sql);
 
 <div class="wrap">
     <div id="icon-edit" class="icon32"><br></div>
-    <h2>Tools</h2>
+    <h2><?php _e( 'Tools', 'cfs' ); ?></h2>
 
     <h3 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>

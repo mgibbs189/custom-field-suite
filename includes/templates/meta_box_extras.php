@@ -54,8 +54,8 @@ if ($is_gf_active)
             <label><?php _e('Position', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
-            <div><input type="radio" name="cfs[extras][context]" value="normal"<?php echo ($extras['context'] == 'normal') ? ' checked' : ''; ?> /> Normal</div>
-            <div><input type="radio" name="cfs[extras][context]" value="side"<?php echo ($extras['context'] == 'side') ? ' checked' : ''; ?> /> Side</div>
+            <div><input type="radio" name="cfs[extras][context]" value="normal"<?php echo ($extras['context'] == 'normal') ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'cfs' ); ?></div>
+            <div><input type="radio" name="cfs[extras][context]" value="side"<?php echo ($extras['context'] == 'side') ? ' checked' : ''; ?> /> <?php _e( 'Side', 'cfs' ); ?></div>
         </td>
     </tr>
     <tr>
