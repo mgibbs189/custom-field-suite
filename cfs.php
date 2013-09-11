@@ -28,63 +28,47 @@ class Custom_Field_Suite
     public $version = '1.9.9';
 
 
-
-
     /**
      * Constructor
      * @since 1.0.0
      */
-    function __construct()
-    {
-        add_action('init', array($this, 'init'));
+    function __construct() {
+        add_action( 'init', array( $this, 'init' ) );
     }
-
-
 
 
     /**
      * Fire up CFS
      * @since 1.0.0
      */
-    function init()
-    {
-        $this->dir = dirname(__FILE__);
-        $this->url = plugins_url('custom-field-suite');
+    function init() {
+        $this->dir = dirname( __FILE__ );
+        $this->url = plugins_url( 'custom-field-suite' );
 
-        // prepare translations loading
-        $textdomain = 'cfs';
-        $locale = apply_filters( 'plugin_locale', get_locale(), $textdomain );
-        $wp_lang_dir = apply_filters(
-            'cfs_translations_wp_lang_dir',
-            trailingslashit( WP_LANG_DIR ) . 'custom-field-suite/' . $textdomain . '-' . $locale . '.mo'
-        );
+        // i18n
+        $this->load_textdomain();
 
-        // load translations
-        load_textdomain( $textdomain, $wp_lang_dir );
-        load_plugin_textdomain( $textdomain, FALSE, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . 'languages/' );
+        add_action( 'admin_head',               array( $this, 'admin_head' ) );
+        add_action( 'admin_footer',             array( $this, 'admin_footer' ) );
+        add_action( 'admin_menu',               array( $this, 'admin_menu' ) );
+        add_action( 'save_post',                array( $this, 'save_post' ) );
+        add_action( 'delete_post',              array( $this, 'delete_post' ) );
+        add_action( 'add_meta_boxes',           array( $this, 'add_meta_boxes' ) );
+        add_action( 'wp_ajax_cfs_ajax_handler', array( $this, 'ajax_handler' ) );
 
-        add_action('admin_head', array($this, 'admin_head'));
-        add_action('admin_footer', array($this, 'admin_footer'));
-        add_action('admin_menu', array($this, 'admin_menu'));
-        add_action('save_post', array($this, 'save_post'));
-        add_action('delete_post', array($this, 'delete_post'));
-        add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
-        add_action('wp_ajax_cfs_ajax_handler', array($this, 'ajax_handler'));
-
-        if (!is_admin())
-        {
-            add_action('parse_query', array($this, 'parse_query'));
+        if ( !is_admin() ) {
+            add_action( 'parse_query', array( $this, 'parse_query' ) );
         }
 
-        include($this->dir . '/includes/classes/api.php');
-        include($this->dir . '/includes/classes/upgrade.php');
-        include($this->dir . '/includes/classes/field.php');
-        include($this->dir . '/includes/classes/field_group.php');
-        include($this->dir . '/includes/classes/session.php');
-        include($this->dir . '/includes/classes/form.php');
-        include($this->dir . '/includes/classes/third_party.php');
+        include( $this->dir . '/includes/classes/api.php' );
+        include( $this->dir . '/includes/classes/upgrade.php' );
+        include( $this->dir . '/includes/classes/field.php' );
+        include( $this->dir . '/includes/classes/field_group.php' );
+        include( $this->dir . '/includes/classes/session.php' );
+        include( $this->dir . '/includes/classes/form.php' );
+        include( $this->dir . '/includes/classes/third_party.php' );
 
-        $upgrade = new cfs_upgrade($this->version);
+        $upgrade = new cfs_upgrade( $this->version );
 
         // load classes
         $this->api = new cfs_api($this);
@@ -93,35 +77,46 @@ class Custom_Field_Suite
         $this->third_party = new cfs_third_party($this);
         $this->fields = $this->get_field_types();
 
-        register_post_type('cfs', array(
+        register_post_type( 'cfs', array(
             'public'            => false,
             'show_ui'           => true,
             'show_in_menu'      => false,
             'capability_type'   => 'page',
             'hierarchical'      => false,
-            'supports'          => array('title'),
+            'supports'          => array( 'title' ),
             'labels'            => array(
-                'name'                  => __('Field Groups', 'cfs'),
-                'singular_name'         => __('Field Group', 'cfs'),
-                'add_new'               => __('Add New', 'cfs'),
-                'add_new_item'          => __('Add New Field Group', 'cfs'),
-                'edit_item'             =>  __('Edit Field Group', 'cfs'),
-                'new_item'              => __('New Field Group', 'cfs'),
-                'view_item'             => __('View Field Group', 'cfs'),
-                'search_items'          => __('Search Field Groups', 'cfs'),
-                'not_found'             =>  __('No Field Groups found', 'cfs'),
-                'not_found_in_trash'    => __('No Field Groups found in Trash', 'cfs'),
+                'name'                  => __( 'Field Groups', 'cfs' ),
+                'singular_name'         => __( 'Field Group', 'cfs' ),
+                'add_new'               => __( 'Add New', 'cfs' ),
+                'add_new_item'          => __( 'Add New Field Group', 'cfs' ),
+                'edit_item'             => __( 'Edit Field Group', 'cfs' ),
+                'new_item'              => __( 'New Field Group', 'cfs' ),
+                'view_item'             => __( 'View Field Group', 'cfs' ),
+                'search_items'          => __( 'Search Field Groups', 'cfs' ),
+                'not_found'             => __( 'No Field Groups found', 'cfs' ),
+                'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'cfs' ),
             ),
         ));
 
         // customize the table header
-        add_filter('manage_cfs_posts_columns', array($this, 'cfs_columns'));
-        add_action('manage_cfs_posts_custom_column', array($this, 'cfs_column_content'), 10, 2);
+        add_filter( 'manage_cfs_posts_columns', array( $this, 'cfs_columns' ) );
+        add_action( 'manage_cfs_posts_custom_column', array( $this, 'cfs_column_content' ), 10, 2 );
 
-        do_action('cfs_init');
+        do_action( 'cfs_init' );
     }
 
 
+    function load_textdomain() {
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'cfs' );
+        $mofile = WP_LANG_DIR . '/custom-field-suite/cfs-' . $locale . '.mo';
+
+        if ( file_exists( $mofile ) ) {
+            load_textdomain( 'cfs', $mofile );
+        }
+        else {
+            load_plugin_textdomain( 'cfs', false, 'custom-field-suite/languages' );
+        }
+    }
 
 
     /**
@@ -132,12 +127,10 @@ class Custom_Field_Suite
     {
         return array(
             'cb'            => '<input type="checkbox" />',
-            'title'         => __('Title', 'cfs'),
-            'placement'     => __('Placement', 'cfs'),
+            'title'         => __( 'Title', 'cfs' ),
+            'placement'     => __( 'Placement', 'cfs' ),
         );
     }
-
-
 
 
     /**
@@ -146,30 +139,28 @@ class Custom_Field_Suite
      * @param int $post_id 
      * @since 1.9.5
      */
-    function cfs_column_content($column_name, $post_id)
+    function cfs_column_content( $column_name, $post_id )
     {
-        if ('placement' == $column_name)
+        if ( 'placement' == $column_name )
         {
             global $wpdb;
 
             $labels = array(
-                'post_types'        => __('Post Types', 'cfs'),
-                'user_roles'        => __('User Roles', 'cfs'),
-                'post_ids'          => __('Post IDs', 'cfs'),
-                'term_ids'          => __('Term IDs', 'cfs'),
-                'page_templates'    => __('Page Templates', 'cfs')
+                'post_types'        => __( 'Post Types', 'cfs' ),
+                'user_roles'        => __( 'User Roles', 'cfs' ),
+                'post_ids'          => __( 'Post IDs', 'cfs' ),
+                'term_ids'          => __( 'Term IDs', 'cfs' ),
+                'page_templates'    => __( 'Page Templates', 'cfs' )
             );
 
-            $results = $wpdb->get_var("SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1");
-            $results = unserialize($results);
-            foreach ($results as $criteria => $values) {
+            $results = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1" );
+            $results = unserialize( $results );
+            foreach ( $results as $criteria => $values ) {
                 $label = $labels[$criteria];
                 echo "<div>$label " . $values['operator'] . ' ' . implode(', ', $values['values']) . '</div>';
             }
         }
     }
-
-
 
 
     /**
@@ -193,25 +184,21 @@ class Custom_Field_Suite
         );
 
         // support custom field types
-        $field_types = apply_filters('cfs_field_types', $field_types);
+        $field_types = apply_filters( 'cfs_field_types', $field_types );
 
-        foreach ($field_types as $type => $path)
-        {
+        foreach ( $field_types as $type => $path ) {
             $class_name = 'cfs_' . $type;
 
             // allow for multiple classes per file
-            if (!class_exists($class_name))
-            {
-                include_once($path);
+            if ( !class_exists( $class_name ) ) {
+                include_once( $path );
             }
 
-            $field_types[$type] = new $class_name($this);
+            $field_types[$type] = new $class_name( $this );
         }
 
         return $field_types;
     }
-
-
 
 
     /**
@@ -219,8 +206,7 @@ class Custom_Field_Suite
      * @param object $field 
      * @since 1.0.0
      */
-    function create_field($field)
-    {
+    function create_field( $field ) {
         $defaults = array(
             'type' => 'text',
             'input_name' => '',
@@ -229,11 +215,9 @@ class Custom_Field_Suite
             'value' => '',
         );
 
-        $field = (object) array_merge($defaults, (array) $field);
-        $this->fields[$field->type]->html($field);
+        $field = (object) array_merge( $defaults, (array) $field );
+        $this->fields[$field->type]->html( $field );
     }
-
-
 
 
     /**
@@ -244,17 +228,13 @@ class Custom_Field_Suite
      * @return mixed
      * @since 1.0.0
      */
-    function get($field_name = false, $post_id = false, $options = array())
-    {
-        if (false !== $field_name)
-        {
-            return $this->api->get_field($field_name, $post_id, $options);
+    function get( $field_name = false, $post_id = false, $options = array() ) {
+        if ( false !== $field_name ) {
+            return $this->api->get_field( $field_name, $post_id, $options );
         }
 
-        return $this->api->get_fields($post_id, $options);
+        return $this->api->get_fields( $post_id, $options );
     }
-
-
 
 
     /**
@@ -264,12 +244,9 @@ class Custom_Field_Suite
      * @return array
      * @since 1.8.3
      */
-    function get_field_info($field_name = false, $post_id = false)
-    {
-        return $this->api->get_field_info($field_name, $post_id);
+    function get_field_info( $field_name = false, $post_id = false ) {
+        return $this->api->get_field_info( $field_name, $post_id );
     }
-
-
 
 
     /**
@@ -280,28 +257,22 @@ class Custom_Field_Suite
      * @since 1.3.3
      * @deprecated 1.8.0
      */
-    function get_labels($field_name = false, $post_id = false)
-    {
-        $field_info = $this->api->get_field_info($field_name, $post_id);
+    function get_labels( $field_name = false, $post_id = false ) {
+        $field_info = $this->api->get_field_info( $field_name, $post_id );
 
-        if (!empty($field_name))
-        {
+        if ( !empty( $field_name ) ) {
             return $field_info['label'];
         }
-        else
-        {
+        else {
             $output = array();
 
-            foreach ($field_info as $name => $field_data)
-            {
+            foreach ( $field_info as $name => $field_data ) {
                 $output[$name] = $field_data['label'];
             }
 
             return $output;
         }
     }
-
-
 
 
     /**
@@ -311,12 +282,9 @@ class Custom_Field_Suite
      * @return array
      * @since 1.4.4
      */
-    function get_reverse_related($post_id, $options = array())
-    {
-        return $this->api->get_reverse_related($post_id, $options);
+    function get_reverse_related( $post_id, $options = array() ) {
+        return $this->api->get_reverse_related( $post_id, $options );
     }
-
-
 
 
     /**
@@ -327,12 +295,9 @@ class Custom_Field_Suite
      * @return int The post ID
      * @since 1.1.4
      */
-    function save($field_data = array(), $post_data = array(), $options = array())
-    {
-        return $this->api->save_fields($field_data, $post_data, $options);
+    function save( $field_data = array(), $post_data = array(), $options = array() ) {
+        return $this->api->save_fields( $field_data, $post_data, $options );
     }
-
-
 
 
     /**
@@ -341,78 +306,61 @@ class Custom_Field_Suite
      * @return string The form HTML
      * @since 1.8.5
      */
-    function form($params = array())
-    {
+    function form( $params = array() ) {
         ob_start();
 
-        $this->form->render($params);
+        $this->form->render( $params );
 
         return ob_get_clean();
     }
-
-
 
 
     /**
      * admin_head
      * @since 1.0.0
      */
-    function admin_head()
-    {
+    function admin_head() {
         $screen = get_current_screen();
 
-        if ('post' == $screen->base)
-        {
-            include($this->dir . '/includes/templates/admin_head.php');
+        if ( 'post' == $screen->base ) {
+            include( $this->dir . '/includes/templates/admin_head.php' );
         }
     }
-
-
 
 
     /**
      * admin_footer
      * @since 1.0.0
      */
-    function admin_footer()
-    {
+    function admin_footer() {
         $screen = get_current_screen();
 
-        if ('edit' == $screen->base && 'cfs' == $screen->post_type)
-        {
+        if ( 'edit' == $screen->base && 'cfs' == $screen->post_type ) {
             include($this->dir . '/includes/templates/admin_footer.php');
         }
     }
-
-
 
 
     /**
      * add_meta_boxes
      * @since 1.0.0
      */
-    function add_meta_boxes()
-    {
-        add_meta_box('cfs_fields', __('Fields', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'fields'));
-        add_meta_box('cfs_rules', __('Placement Rules', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'rules'));
-        add_meta_box('cfs_extras', __('Extras', 'cfs'), array($this, 'meta_box'), 'cfs', 'normal', 'high', array('box' => 'extras'));
+    function add_meta_boxes() {
+        add_meta_box( 'cfs_fields', __('Fields', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'fields' ) );
+        add_meta_box( 'cfs_rules', __('Placement Rules', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'rules' ) );
+        add_meta_box( 'cfs_extras', __('Extras', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'extras' ) );
     }
-
-
 
 
     /**
      * admin_menu
      * @since 1.0.0
      */
-    function admin_menu()
-    {
-        add_object_page(__('Field Groups', 'cfs'), __('Field Groups', 'cfs'), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/assets/images/logo-small.png');
-        add_submenu_page('edit.php?post_type=cfs', __('Tools', 'cfs'), __('Tools', 'cfs'), 'manage_options', 'cfs-tools', array($this, 'page_tools'));
-        add_submenu_page('edit.php?post_type=cfs', __('Add-ons', 'cfs'), __('Add-ons', 'cfs'), 'manage_options', 'cfs-addons', array($this, 'page_addons'));
+    function admin_menu() {
+        add_object_page( __( 'Field Groups', 'cfs' ), __( 'Field Groups', 'cfs' ), 'manage_options', 'edit.php?post_type=cfs', null, $this->url . '/assets/images/logo-small.png' );
+        add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
+        add_submenu_page( 'edit.php?post_type=cfs', __( 'Add-ons', 'cfs' ), __( 'Add-ons', 'cfs' ), 'manage_options', 'cfs-addons', array( $this, 'page_addons' ) );
     }
-
-
 
 
     /**
@@ -420,39 +368,33 @@ class Custom_Field_Suite
      * @param int $post_id 
      * @since 1.0.0
      */
-    function save_post($post_id)
+    function save_post( $post_id )
     {
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-        {
+        if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
             return;
         }
 
-        if (!isset($_POST['cfs']['save']))
-        {
+        if ( !isset( $_POST['cfs']['save'] ) ) {
             return;
         }
 
-        if (false !== wp_is_post_revision($post_id))
-        {
+        if ( false !== wp_is_post_revision( $post_id ) ) {
             return;
         }
 
-        if (wp_verify_nonce($_POST['cfs']['save'], 'cfs_save_fields'))
-        {
-            $fields = isset($_POST['cfs']['fields']) ? $_POST['cfs']['fields'] : array();
-            $rules = isset($_POST['cfs']['rules']) ? $_POST['cfs']['rules'] : array();
-            $extras = isset($_POST['cfs']['extras']) ? $_POST['cfs']['extras'] : array();
+        if ( wp_verify_nonce( $_POST['cfs']['save'], 'cfs_save_fields' ) ) {
+            $fields = isset( $_POST['cfs']['fields'] ) ? $_POST['cfs']['fields'] : array();
+            $rules = isset( $_POST['cfs']['rules'] ) ? $_POST['cfs']['rules'] : array();
+            $extras = isset( $_POST['cfs']['extras'] ) ? $_POST['cfs']['extras'] : array();
 
-            $this->field_group->save(array(
+            $this->field_group->save( array(
                 'post_id'   => $post_id,
                 'fields'    => $fields,
                 'rules'     => $rules,
                 'extras'    => $extras,
-            ));
+            ) );
         }
     }
-
-
 
 
     /**
@@ -461,20 +403,16 @@ class Custom_Field_Suite
      * @return boolean
      * @since 1.0.0
      */
-    function delete_post($post_id)
-    {
+    function delete_post( $post_id ) {
         global $wpdb;
 
-        if ('cfs' != get_post_type($post_id))
-        {
+        if ( 'cfs' != get_post_type( $post_id ) ) {
             $post_id = (int) $post_id;
-            $wpdb->query("DELETE FROM {$wpdb->prefix}cfs_values WHERE post_id = $post_id");
+            $wpdb->query( "DELETE FROM {$wpdb->prefix}cfs_values WHERE post_id = $post_id" );
         }
 
         return true;
     }
-
-
 
 
     /**
@@ -483,13 +421,10 @@ class Custom_Field_Suite
      * @param array $metabox 
      * @since 1.0.0
      */
-    function meta_box($post, $metabox)
-    {
+    function meta_box( $post, $metabox ) {
         $box = $metabox['args']['box'];
-        include($this->dir . "/includes/templates/meta_box_$box.php");
+        include( $this->dir . "/includes/templates/meta_box_$box.php" );
     }
-
-
 
 
     /**
@@ -497,84 +432,64 @@ class Custom_Field_Suite
      * @param object $field 
      * @since 1.0.3
      */
-    function field_html($field)
-    {
-        include($this->dir . '/includes/templates/field_html.php');
+    function field_html( $field ) {
+        include( $this->dir . '/includes/templates/field_html.php' );
     }
-
-
 
 
     /**
      * page_tools
      * @since 1.6.3
      */
-    function page_tools()
-    {
-        include($this->dir . '/includes/templates/page_tools.php');
+    function page_tools() {
+        include( $this->dir . '/includes/templates/page_tools.php' );
     }
-
-
 
 
     /**
      * page_addons
      * @since 1.8.0
      */
-    function page_addons()
-    {
-        include($this->dir . '/includes/templates/page_addons.php');
+    function page_addons() {
+        include( $this->dir . '/includes/templates/page_addons.php' );
     }
-
-
 
 
     /**
      * ajax_handler
      * @since 1.7.5
      */
-    function ajax_handler()
-    {
+    function ajax_handler() {
         global $wpdb;
 
-        $ajax_method = isset($_POST['action_type']) ? $_POST['action_type'] : false;
+        $ajax_method = isset( $_POST['action_type'] ) ? $_POST['action_type'] : false;
 
-        if ($ajax_method && is_admin())
-        {
-            include($this->dir . '/includes/classes/ajax.php');
+        if ( $ajax_method && is_admin() ) {
+            include( $this->dir . '/includes/classes/ajax.php' );
             $ajax = new cfs_ajax();
 
-            if ('import' == $ajax_method)
-            {
+            if ( 'import' == $ajax_method ) {
                 $options = array(
-                    'import_code' => json_decode(stripslashes($_POST['import_code']), true),
+                    'import_code' => json_decode( stripslashes( $_POST['import_code'] ), true ),
                 );
-                echo $this->field_group->import($options);
+                echo $this->field_group->import( $options );
             }
-            elseif ('export' == $ajax_method)
-            {
-                echo json_encode($this->field_group->export($_POST));
+            elseif ('export' == $ajax_method) {
+                echo json_encode( $this->field_group->export( $_POST ) );
             }
-            elseif ('reset' == $ajax_method)
-            {
-                if (current_user_can('manage_options'))
-                {
+            elseif ('reset' == $ajax_method) {
+                if ( current_user_can( 'manage_options' ) ) {
                     $ajax->reset();
-
-                    deactivate_plugins(plugin_basename(__FILE__));
-
-                    echo admin_url('plugins.php');
+                    deactivate_plugins( plugin_basename( __FILE__ ) );
+                    echo admin_url( 'plugins.php' );
                 }
             }
-            elseif (method_exists($ajax, $ajax_method))
-            {
-                echo $ajax->$ajax_method($_POST);
+            elseif ( method_exists( $ajax, $ajax_method ) ) {
+                echo $ajax->$ajax_method( $_POST );
             }
             exit;
         }
     }
-
-
 
 
     /**
@@ -586,10 +501,10 @@ class Custom_Field_Suite
      * @param object $wp_query 
      * @since 1.8.8
      */
-    function parse_query($wp_query)
-    {
+    function parse_query( $wp_query ) {
         $wp_query->query_vars['cfs'] = $this;
     }
 }
+
 
 $cfs = new Custom_Field_Suite();
