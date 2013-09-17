@@ -8,7 +8,7 @@ class cfs_third_party
      * Constructor
      * @param object $parent 
      */
-    public function __construct($parent) {
+    public function __construct( $parent ) {
         $this->parent = $parent;
 
         // Post Type Switcher - http://wordpress.org/plugins/post-type-switcher/
@@ -21,8 +21,8 @@ class cfs_third_party
         add_action( 'icl_make_duplicate', array( $this, 'wpml_handler' ), 10, 4 );
 
         // Duplicate Post - http://wordpress.org/plugins/duplicate-post/
-        add_action( 'dp_duplicate_post', array($this, 'duplicate_post'), 10, 2 );
-        add_action( 'dp_duplicate_page', array($this, 'duplicate_post'), 10, 2 );
+        add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 10, 2 );
+        add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 10, 2 );
     }
 
 
@@ -32,7 +32,7 @@ class cfs_third_party
      * @param array $form 
      * @since 1.3.0
      */
-    function gform_handler($entry, $form) {
+    function gform_handler( $entry, $form ) {
         global $wpdb;
 
         if ( empty( $entry ) ) {
@@ -83,7 +83,7 @@ class cfs_third_party
                             $values[] = $sub_field_value;
                         }
                     }
-                    $value = implode("\n", $values);
+                    $value = implode( "\n", $values );
                 }
                 elseif ( 'multiselect' == $field['type'] ) {
                     $value = explode( ',', $entry[$field_id] );
