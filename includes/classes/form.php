@@ -208,22 +208,27 @@ CFS['loop_buffer'] = [];
         global $post;
 
         $defaults = array(
-            'post_id' => $post->ID, // set to false for new entries
-            'field_groups' => array(), // group IDs, required for new entries
-            'post_title' => false,
-            'post_content' => false,
-            'post_status' => 'draft',
-            'post_type' => 'post',
-            'confirmation_message' => '',
-            'confirmation_url' => '',
-            'submit_label' => __('Submit', 'cfs'),
-            'front_end' => true,
+            'post_id'               => false, // false = new entries
+            'field_groups'          => array(), // group IDs, required for new entries
+            'post_title'            => false,
+            'post_content'          => false,
+            'post_status'           => 'draft',
+            'post_type'             => 'post',
+            'excluded_fields'       => array(),
+            'confirmation_message'  => '',
+            'confirmation_url'      => '',
+            'submit_label'          => __('Submit', 'cfs'),
+            'front_end'             => true,
         );
 
         $params = array_merge($defaults, $params);
         $input_fields = array();
 
         $post_id = (int) $params['post_id'];
+
+        if ( 0 < $post_id ) {
+            $post = get_post( $post_id );
+        }
 
         if (empty($params['field_groups']))
         {
@@ -276,7 +281,7 @@ CFS['loop_buffer'] = [];
     ?>
 
         <div class="field" data-validator="required">
-            <label><?php _e('Post Title', 'cfs'); ?></label>
+            <label><?php echo $params['post_title']; ?></label>
             <input type="text" name="cfs[post_title]" value="<?php echo empty($post_id) ? '' : esc_attr($post->post_title); ?>" />
         </div>
 
@@ -288,7 +293,7 @@ CFS['loop_buffer'] = [];
     ?>
 
         <div class="field">
-            <label><?php _e('Post Content', 'cfs'); ?></label>
+            <label><?php echo $params['post_content']; ?></label>
             <textarea name="cfs[post_content]"><?php echo empty($post_id) ? '' : esc_textarea($post->post_content); ?></textarea>
         </div>
 
@@ -298,6 +303,11 @@ CFS['loop_buffer'] = [];
         // Add any necessary head scripts
         foreach ($input_fields as $key => $field)
         {
+            // Exclude fields 
+            if ( in_array( $field->name, (array) $params['excluded_fields'] ) ) {
+                continue;
+            }
+
             // Skip missing field types
             if (!isset($this->parent->fields[$field->type]))
             {
@@ -339,7 +349,7 @@ CFS['loop_buffer'] = [];
                 }
     ?>
 
-        <div class="field" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
+        <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
             <?php if ('loop' == $field->type) : ?>
             <span class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></span>
             <?php endif; ?>

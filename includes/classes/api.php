@@ -530,18 +530,8 @@ class cfs_api
                 'post_ids' => $post_id
             );
         }
-
-        // Set defaults
         else {
-            $rule_types = array_merge(
-                array(
-                    'post_types' => array(),
-                    'user_roles' => $current_user->roles,
-                    'term_ids' => array(),
-                    'post_ids' => array(),
-                    'page_templates' => array()
-                ), $params
-            );
+            $rule_types = $params;
         }
 
         // Detect post_types / page_templates if they weren't sent
@@ -572,6 +562,17 @@ class cfs_api
                 }
             }
         }
+
+        // Set defaults
+        $rule_types = array_merge(
+            array(
+                'post_types' => array(),
+                'user_roles' => $current_user->roles,
+                'term_ids' => array(),
+                'post_ids' => array(),
+                'page_templates' => array()
+            ), $rule_types
+        );
 
         // Cache the query (get rules)
         if ( !isset($this->cache['cfs_options'] ) ) {
