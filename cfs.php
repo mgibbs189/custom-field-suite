@@ -60,13 +60,13 @@ class Custom_Field_Suite
             add_action( 'parse_query', array( $this, 'parse_query' ) );
         }
 
-        include( $this->dir . '/includes/classes/api.php' );
-        include( $this->dir . '/includes/classes/upgrade.php' );
-        include( $this->dir . '/includes/classes/field.php' );
-        include( $this->dir . '/includes/classes/field_group.php' );
-        include( $this->dir . '/includes/classes/session.php' );
-        include( $this->dir . '/includes/classes/form.php' );
-        include( $this->dir . '/includes/classes/third_party.php' );
+        include( $this->dir . '/includes/api.php' );
+        include( $this->dir . '/includes/upgrade.php' );
+        include( $this->dir . '/includes/field.php' );
+        include( $this->dir . '/includes/field_group.php' );
+        include( $this->dir . '/includes/session.php' );
+        include( $this->dir . '/includes/form.php' );
+        include( $this->dir . '/includes/third_party.php' );
 
         $upgrade = new cfs_upgrade( $this->version );
 
@@ -323,7 +323,7 @@ class Custom_Field_Suite
         $screen = get_current_screen();
 
         if ( 'post' == $screen->base ) {
-            include( $this->dir . '/includes/templates/admin_head.php' );
+            include( $this->dir . '/templates/admin_head.php' );
         }
     }
 
@@ -336,7 +336,7 @@ class Custom_Field_Suite
         $screen = get_current_screen();
 
         if ( 'edit' == $screen->base && 'cfs' == $screen->post_type ) {
-            include($this->dir . '/includes/templates/admin_footer.php');
+            include($this->dir . '/templates/admin_footer.php');
         }
     }
 
@@ -423,7 +423,7 @@ class Custom_Field_Suite
      */
     function meta_box( $post, $metabox ) {
         $box = $metabox['args']['box'];
-        include( $this->dir . "/includes/templates/meta_box_$box.php" );
+        include( $this->dir . "/templates/meta_box_$box.php" );
     }
 
 
@@ -433,7 +433,7 @@ class Custom_Field_Suite
      * @since 1.0.3
      */
     function field_html( $field ) {
-        include( $this->dir . '/includes/templates/field_html.php' );
+        include( $this->dir . '/templates/field_html.php' );
     }
 
 
@@ -442,7 +442,7 @@ class Custom_Field_Suite
      * @since 1.6.3
      */
     function page_tools() {
-        include( $this->dir . '/includes/templates/page_tools.php' );
+        include( $this->dir . '/templates/page_tools.php' );
     }
 
 
@@ -451,7 +451,7 @@ class Custom_Field_Suite
      * @since 1.8.0
      */
     function page_addons() {
-        include( $this->dir . '/includes/templates/page_addons.php' );
+        include( $this->dir . '/templates/page_addons.php' );
     }
 
 
@@ -465,7 +465,7 @@ class Custom_Field_Suite
         $ajax_method = isset( $_POST['action_type'] ) ? $_POST['action_type'] : false;
 
         if ( $ajax_method && is_admin() ) {
-            include( $this->dir . '/includes/classes/ajax.php' );
+            include( $this->dir . '/includes/ajax.php' );
             $ajax = new cfs_ajax();
 
             if ( 'import' == $ajax_method ) {

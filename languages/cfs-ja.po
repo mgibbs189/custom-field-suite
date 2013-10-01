@@ -65,13 +65,13 @@ msgid "Placement"
 msgstr "配置"
 
 #: cfs.php:156
-#: includes/templates/meta_box_rules.php:120
+#: templates/meta_box_rules.php:120
 #: includes/fields/relationship.php:95
 msgid "Post Types"
 msgstr "投稿タイプ"
 
 #: cfs.php:157
-#: includes/templates/meta_box_rules.php:152
+#: templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr "ユーザー権限グループ"
 
@@ -84,7 +84,7 @@ msgid "Term IDs"
 msgstr "分類ID"
 
 #: cfs.php:160
-#: includes/templates/meta_box_rules.php:240
+#: templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr "固定ページテンプレート"
 
@@ -108,172 +108,172 @@ msgstr "ツール"
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: includes/templates/admin_footer.php:67
+#: templates/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr "Custom Field Suite"
 
-#: includes/templates/admin_footer.php:71
+#: templates/admin_footer.php:71
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: includes/templates/admin_footer.php:72
+#: templates/admin_footer.php:72
 msgid "Support"
 msgstr "サポート"
 
-#: includes/templates/admin_footer.php:73
+#: templates/admin_footer.php:73
 msgid "Credits"
 msgstr "クレジット"
 
-#: includes/templates/admin_footer.php:78
+#: templates/admin_footer.php:78
 msgid "Rate CFS on WordPress.org"
 msgstr "WordPress.orgのプラグインページを表示"
 
-#: includes/templates/field_html.php:30
+#: templates/field_html.php:30
 msgid "Label"
 msgstr "ラベル"
 
-#: includes/templates/field_html.php:32
+#: templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "投稿編集画面で表示されるラベル"
 
-#: includes/templates/field_html.php:39
+#: templates/field_html.php:39
 msgid "Name"
 msgstr "名前"
 
-#: includes/templates/field_html.php:42
+#: templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
 msgstr "get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記述"
 
-#: includes/templates/field_html.php:49
+#: templates/field_html.php:49
 msgid "Field Type"
 msgstr "フィールドタイプ"
 
-#: includes/templates/field_html.php:67
+#: templates/field_html.php:67
 msgid "Notes"
 msgstr "概要"
 
-#: includes/templates/field_html.php:69
+#: templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "データ入力時の説明や覚え書きなどを記述"
 
-#: includes/templates/field_html.php:82
+#: templates/field_html.php:82
 msgid "Close"
 msgstr "閉じる"
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "or"
 msgstr "または"
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "delete"
 msgstr "削除"
 
-#: includes/templates/meta_box_extras.php:42
+#: templates/meta_box_extras.php:42
 msgid "Order"
 msgstr "順序"
 
-#: includes/templates/meta_box_extras.php:44
+#: templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:54
+#: templates/meta_box_extras.php:54
 msgid "Position"
 msgstr "位置"
 
-#: includes/templates/meta_box_extras.php:63
+#: templates/meta_box_extras.php:63
 msgid "Display Settings"
 msgstr "表示設定"
 
-#: includes/templates/meta_box_extras.php:73
+#: templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr "コンテンツエディタを隠す"
 
-#: includes/templates/meta_box_extras.php:81
+#: templates/meta_box_extras.php:81
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: includes/templates/meta_box_extras.php:101
+#: templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "Gravity FormとCFSのフィールドのラベルは正確に一致する必要があります！"
 
-#: includes/templates/meta_box_extras.php:106
+#: templates/meta_box_extras.php:106
 #, php-format
 msgid "Please install %s to use this feature."
 msgstr "この機能を使用するには %s をインストールして下さい"
 
-#: includes/templates/meta_box_fields.php:66
+#: templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr "新規フィールドを追加"
 
-#: includes/templates/meta_box_rules.php:5
+#: templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "等しい"
 
-#: includes/templates/meta_box_rules.php:6
+#: templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "等しくない"
 
-#: includes/templates/meta_box_rules.php:82
-#: includes/templates/meta_box_rules.php:87
+#: templates/meta_box_rules.php:82
+#: templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "このルールをスキップするには空白のままにしておいてください"
 
-#: includes/templates/meta_box_rules.php:184
+#: templates/meta_box_rules.php:184
 msgid "Posts"
 msgstr "投稿"
 
-#: includes/templates/meta_box_rules.php:208
+#: templates/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr "分類"
 
-#: includes/templates/page_tools.php:78
-#: includes/templates/page_tools.php:101
+#: templates/page_tools.php:78
+#: templates/page_tools.php:101
 msgid "Export"
 msgstr "エクスポート"
 
-#: includes/templates/page_tools.php:79
-#: includes/templates/page_tools.php:126
+#: templates/page_tools.php:79
+#: templates/page_tools.php:126
 msgid "Import"
 msgstr "インポート"
 
-#: includes/templates/page_tools.php:80
+#: templates/page_tools.php:80
 msgid "Debug"
 msgstr "デバッグ"
 
-#: includes/templates/page_tools.php:81
+#: templates/page_tools.php:81
 msgid "Reset"
 msgstr "リセット"
 
-#: includes/templates/page_tools.php:89
+#: templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "どのグループフィールドをエクスポートしますか？"
 
-#: includes/templates/page_tools.php:118
+#: templates/page_tools.php:118
 msgid "Paste the import code below."
 msgstr "下のテキストエリアにインポートコードを貼り付けてください"
 
-#: includes/templates/page_tools.php:139
+#: templates/page_tools.php:139
 msgid "Debug information"
 msgstr "デバッグ情報"
 
-#: includes/templates/page_tools.php:164
+#: templates/page_tools.php:164
 msgid "Reset and deactivate."
 msgstr "リセット＆プラグイン無効化"
 
-#: includes/templates/page_tools.php:165
+#: templates/page_tools.php:165
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "CFSデータを削除し、プラグインを無効化します"
 
-#: includes/templates/page_tools.php:166
+#: templates/page_tools.php:166
 msgid "Delete everything"
 msgstr "全てを削除"
 
-#: includes/classes/field.php:20
+#: includes/field.php:20
 #: includes/fields/text.php:9
 msgid "Text"
 msgstr "単一行テキスト"
 
-#: includes/classes/field.php:53
+#: includes/field.php:53
 #: includes/fields/file.php:88
 #: includes/fields/select.php:134
 #: includes/fields/text.php:35
@@ -282,7 +282,7 @@ msgstr "単一行テキスト"
 msgid "Validation"
 msgstr "バリデーション"
 
-#: includes/classes/field.php:62
+#: includes/field.php:62
 #: includes/fields/file.php:97
 #: includes/fields/select.php:143
 #: includes/fields/text.php:44
@@ -291,27 +291,27 @@ msgstr "バリデーション"
 msgid "This is a required field"
 msgstr "入力必須フィールド"
 
-#: includes/classes/field_group.php:92
+#: includes/field_group.php:92
 msgid "Imported"
 msgstr "インポート完了しました"
 
-#: includes/classes/field_group.php:96
+#: includes/field_group.php:96
 msgid "Skipped"
 msgstr "スキップしました"
 
-#: includes/classes/field_group.php:102
+#: includes/field_group.php:102
 msgid "Nothing to import"
 msgstr "インポートできるデータがありません"
 
-#: includes/classes/form.php:219
+#: includes/form.php:219
 msgid "Submit"
 msgstr "送信"
 
-#: includes/classes/form.php:279
+#: includes/form.php:279
 msgid "Post Title"
 msgstr "投稿タイトル"
 
-#: includes/classes/form.php:291
+#: includes/form.php:291
 msgid "Post Content"
 msgstr "投稿本文"
 

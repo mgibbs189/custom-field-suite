@@ -110,123 +110,123 @@ msgstr "Nie znaleziono grup pól w koszu"
 msgid "Title"
 msgstr "Tutuł"
 
-#: ../includes/templates/field_html.php:30
+#: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Etykieta"
 
-#: ../includes/templates/field_html.php:31
+#: ../templates/field_html.php:31
 msgid "The field name that editors will see"
 msgstr "Nazwa pola, którą zobaczy użytkownik"
 
-#: ../includes/templates/field_html.php:37
+#: ../templates/field_html.php:37
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../includes/templates/field_html.php:38
+#: ../templates/field_html.php:38
 msgid "Only lowercase letters and underscores"
 msgstr "Dozwolone są tylko małe litery"
 
-#: ../includes/templates/field_html.php:43
+#: ../templates/field_html.php:43
 msgid "Field Type"
 msgstr "Rodzaj pola"
 
-#: ../includes/templates/field_html.php:61
+#: ../templates/field_html.php:61
 msgid "Notes"
 msgstr "Instrukcje"
 
-#: ../includes/templates/field_html.php:62
+#: ../templates/field_html.php:62
 msgid "Tips for editors when entering field data"
 msgstr "Instrukcje dla użytkowników przy wprowadzaniu danych"
 
-#: ../includes/templates/field_html.php:74
+#: ../templates/field_html.php:74
 msgid "Close"
 msgstr "Zamknij"
 
-#: ../includes/templates/field_html.php:75
+#: ../templates/field_html.php:75
 msgid "or"
 msgstr "lub"
 
-#: ../includes/templates/field_html.php:75
+#: ../templates/field_html.php:75
 msgid "delete"
 msgstr "usuń"
 
-#: ../includes/templates/meta_box_extras.php:39
+#: ../templates/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Edytor treści"
 
-#: ../includes/templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Ukryj edytor treści"
 
-#: ../includes/templates/meta_box_extras.php:55
+#: ../templates/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Integracja z Gravity Forms"
 
-#: ../includes/templates/meta_box_fields.php:59
+#: ../templates/meta_box_fields.php:59
 msgid "Add New Field"
 msgstr "Dodaj nowe pole"
 
-#: ../includes/templates/meta_box_rules.php:5
+#: ../templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "jest równe"
 
-#: ../includes/templates/meta_box_rules.php:6
+#: ../templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "nie jest równe"
 
-#: ../includes/templates/meta_box_rules.php:70
+#: ../templates/meta_box_rules.php:70
 msgid "Select some options"
 msgstr "Wybierz opcje"
 
-#: ../includes/templates/meta_box_rules.php:79
+#: ../templates/meta_box_rules.php:79
 msgid "Post Types"
 msgstr "Typy wpisów"
 
-#: ../includes/templates/meta_box_rules.php:105
+#: ../templates/meta_box_rules.php:105
 msgid "User Roles"
 msgstr "Role użytkowników"
 
-#: ../includes/templates/meta_box_rules.php:131
+#: ../templates/meta_box_rules.php:131
 msgid "Posts"
 msgstr "Wpisy"
 
-#: ../includes/templates/meta_box_rules.php:157
+#: ../templates/meta_box_rules.php:157
 msgid "Taxonomy Terms"
 msgstr "Terminy"
 
-#: ../includes/templates/page_import.php:82
+#: ../templates/page_import.php:82
 msgid "Custom Field Import"
 msgstr "Import własnych pól"
 
-#: ../includes/templates/page_import.php:86
+#: ../templates/page_import.php:86
 msgid "Import Successful"
 msgstr "Importowanie zakończone powodzeniem"
 
-#: ../includes/templates/page_import.php:90
+#: ../templates/page_import.php:90
 msgid "This tool will scan your existing custom fields, mapping values into Custom Field Suite."
 msgstr "To narzędzie przeskanuje istenijące własne pola i przypisze wartości do wtyczki Własne pola."
 
-#: ../includes/templates/page_import.php:91
+#: ../templates/page_import.php:91
 msgid "Select the field groups to populate:"
 msgstr "Wybierz grupy pól:"
 
-#: ../includes/templates/page_import.php:116
+#: ../templates/page_import.php:116
 msgid "Import Field Data"
 msgstr "Importuj dane z pól"
 
-#: ../includes/templates/page_sync.php:82
+#: ../templates/page_sync.php:82
 msgid "Custom Field Sync"
 msgstr "Synchronizacja własnych pól"
 
-#: ../includes/templates/page_sync.php:86
+#: ../templates/page_sync.php:86
 msgid "Sync Successful"
 msgstr "Synchronizacja zakończona"
 
-#: ../includes/templates/page_sync.php:90
+#: ../templates/page_sync.php:90
 msgid "This tool will scan your existing custom fields, mapping any applicable values into Custom Field Suite."
 msgstr "To narzędzie przeskanuje istenijące włąsne pola i przypisze wartości do wtyczki Własne pola."
 
-#: ../includes/templates/page_sync.php:115
+#: ../templates/page_sync.php:115
 msgid "Synchronize"
 msgstr "Synchronizacja"
 

@@ -125,21 +125,21 @@ msgid "Rate the plugin"
 msgstr "Bővítmény értékelése"
 
 # @ cfs
-#: includes/templates/field_html.php:30
+#: templates/field_html.php:30
 msgid "Label"
 msgstr "Címke"
 
 # @ cfs
-#: includes/templates/field_html.php:32
+#: templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "A mező névét csak a szerkesztők látják"
 
 # @ cfs
-#: includes/templates/field_html.php:39
+#: templates/field_html.php:39
 msgid "Name"
 msgstr "Név"
 
-#: includes/templates/field_html.php:42
+#: templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -148,161 +148,161 @@ msgstr ""
 "aláhúzást tartalmazhat."
 
 # @ cfs
-#: includes/templates/field_html.php:49
+#: templates/field_html.php:49
 msgid "Field Type"
 msgstr "Mező típusa"
 
 # @ cfs
-#: includes/templates/field_html.php:67
+#: templates/field_html.php:67
 msgid "Notes"
 msgstr "Utasítás"
 
 # @ cfs
-#: includes/templates/field_html.php:69
+#: templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Tipp a szerkesztőknek, ha kitöltik a mezőt"
 
 # @ default
-#: includes/templates/field_html.php:82
+#: templates/field_html.php:82
 msgid "Close"
 msgstr "Bezár"
 
 # @ cfs
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "or"
 msgstr "vagy"
 
 # @ cfs
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "delete"
 msgstr "törlés"
 
 # @ cfs
-#: includes/templates/meta_box_extras.php:39
+#: templates/meta_box_extras.php:39
 msgid "Content Editor"
 msgstr "Tartalomszerkesztő"
 
 # @ cfs
-#: includes/templates/meta_box_extras.php:48
+#: templates/meta_box_extras.php:48
 msgid "Hide the content editor"
 msgstr "Tartalomszerkesztő elrejtése"
 
 # @ cfs
-#: includes/templates/meta_box_extras.php:55
+#: templates/meta_box_extras.php:55
 msgid "Gravity Forms Integration"
 msgstr "Gravity Froms integráció"
 
-#: includes/templates/meta_box_extras.php:75
+#: templates/meta_box_extras.php:75
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "A Gravity Form és a CFS mezők címkéje meg kell egyezzen"
 
-#: includes/templates/meta_box_extras.php:79
+#: templates/meta_box_extras.php:79
 msgid "Please install"
 msgstr "Kérem telepítse"
 
-#: includes/templates/meta_box_extras.php:79
+#: templates/meta_box_extras.php:79
 msgid "to use this feature"
 msgstr "hogy használni tudja ezt a funkciót"
 
 # @ cfs
-#: includes/templates/meta_box_fields.php:60
+#: templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Új mező hozzáadása"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:5
+#: templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "egyenlő"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:6
+#: templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "nem"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:82 includes/templates/meta_box_rules.php:87
+#: templates/meta_box_rules.php:82 templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "A szabály mellőzéséhez hagyja üresen"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:120 includes/fields/relationship.php:89
+#: templates/meta_box_rules.php:120 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "Bejegyzéstípusok"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:151
+#: templates/meta_box_rules.php:151
 msgid "User Roles"
 msgstr "Felhasználói szintek"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:182
+#: templates/meta_box_rules.php:182
 msgid "Posts"
 msgstr "Bejegyzések"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:205
+#: templates/meta_box_rules.php:205
 msgid "Taxonomy Terms"
 msgstr "Taxonómiai feltételek"
 
 # @ cfs
-#: includes/templates/meta_box_rules.php:236
+#: templates/meta_box_rules.php:236
 msgid "Page Template"
 msgstr "Oldalsablon"
 
-#: includes/templates/page_tools.php:64 includes/templates/page_tools.php:86
+#: templates/page_tools.php:64 templates/page_tools.php:86
 msgid "Export"
 msgstr "Exportálás"
 
 # @ cfs
-#: includes/templates/page_tools.php:65 includes/templates/page_tools.php:111
+#: templates/page_tools.php:65 templates/page_tools.php:111
 msgid "Import"
 msgstr "Importálás"
 
-#: includes/templates/page_tools.php:66
+#: templates/page_tools.php:66
 msgid "Debug"
 msgstr "Hibakeresés"
 
-#: includes/templates/page_tools.php:74
+#: templates/page_tools.php:74
 msgid "Which field groups would you like to export?"
 msgstr "Melyik mezőcsoportokat szeretné exportálni?"
 
-#: includes/templates/page_tools.php:103
+#: templates/page_tools.php:103
 msgid "Paste the import code below. Existing field groups will be skipped."
 msgstr ""
 "Illessze be az alábbi importáló kódot. A meglévő mezőcsoportok kihagyásra "
 "kerülnek."
 
 # @ cfs
-#: includes/templates/page_tools.php:124
+#: templates/page_tools.php:124
 msgid "Your site uses the following software:"
 msgstr "Az ön oldala a következő szoftvereket használja:"
 
 # @ cfs
-#: includes/classes/ajax.php:174
+#: includes/ajax.php:174
 msgid "Imported"
 msgstr "Importált"
 
 # @ cfs
-#: includes/classes/ajax.php:178
+#: includes/ajax.php:178
 msgid "Skipped"
 msgstr "Mellőzött"
 
 # @ cfs
-#: includes/classes/ajax.php:184
+#: includes/ajax.php:184
 msgid "Nothing to import"
 msgstr "Nem importált"
 
 # @ cfs
-#: includes/classes/ajax.php:271
+#: includes/ajax.php:271
 msgid "No field groups selected"
 msgstr "Nincsenek mezőcsoportok kijelölve"
 
 # @ cfs
-#: includes/classes/field.php:21 includes/fields/field.php:21 includes/fields/text.php:9
+#: includes/field.php:21 includes/fields/field.php:21 includes/fields/text.php:9
 msgid "Text"
 msgstr "Szöveg"
 
-#: includes/classes/field.php:57 includes/fields/file.php:77
+#: includes/field.php:57 includes/fields/file.php:77
 #: includes/fields/relationship.php:106 includes/fields/select.php:125
 #: includes/fields/text.php:33 includes/fields/textarea.php:61
 #: includes/fields/true_false.php:44
@@ -310,7 +310,7 @@ msgid "Validation"
 msgstr "Érvényesítés"
 
 # @ cfs
-#: includes/classes/field.php:66 includes/fields/file.php:86
+#: includes/field.php:66 includes/fields/file.php:86
 #: includes/fields/relationship.php:115 includes/fields/select.php:134
 #: includes/fields/text.php:42 includes/fields/textarea.php:70
 #: includes/fields/true_false.php:53

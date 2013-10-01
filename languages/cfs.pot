@@ -65,135 +65,135 @@ msgstr ""
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:411 includes/templates/page_tools.php:75
+#: cfs.php:411 templates/page_tools.php:75
 msgid "Tools"
 msgstr ""
 
-#: includes/classes/field_group.php:92
+#: includes/field_group.php:92
 msgid "Imported"
 msgstr ""
 
-#: includes/classes/field_group.php:96
+#: includes/field_group.php:96
 msgid "Skipped"
 msgstr ""
 
-#: includes/classes/field_group.php:102
+#: includes/field_group.php:102
 msgid "Nothing to import"
 msgstr ""
 
-#: cfs.php:0 includes/templates/admin_footer.php:41
+#: cfs.php:0 templates/admin_footer.php:41
 msgid "Custom Field Suite"
 msgstr ""
 
-#: includes/templates/admin_footer.php:43
+#: templates/admin_footer.php:43
 msgid "Homepage"
 msgstr ""
 
-#: includes/templates/field_html.php:30
+#: templates/field_html.php:30
 msgid "Label"
 msgstr ""
 
-#: includes/templates/field_html.php:32
+#: templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr ""
 
-#: includes/templates/field_html.php:39
+#: templates/field_html.php:39
 msgid "Name"
 msgstr ""
 
-#: includes/templates/field_html.php:42
+#: templates/field_html.php:42
 msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
 msgstr ""
 
-#: includes/templates/field_html.php:49
+#: templates/field_html.php:49
 msgid "Field Type"
 msgstr ""
 
-#: includes/templates/field_html.php:67
+#: templates/field_html.php:67
 msgid "Notes"
 msgstr ""
 
-#: includes/templates/field_html.php:69
+#: templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr ""
 
-#: includes/templates/field_html.php:82
+#: templates/field_html.php:82
 msgid "Close"
 msgstr ""
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "or"
 msgstr ""
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "delete"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:73
+#: templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr ""
 
-#: includes/templates/meta_box_fields.php:66
+#: templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr ""
 
-#: includes/templates/meta_box_rules.php:5
+#: templates/meta_box_rules.php:5
 msgid "equals"
 msgstr ""
 
-#: includes/templates/meta_box_rules.php:6
+#: templates/meta_box_rules.php:6
 msgid "is not"
 msgstr ""
 
-#: includes/templates/meta_box_rules.php:82
-#: includes/templates/meta_box_rules.php:87
+#: templates/meta_box_rules.php:82
+#: templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr ""
 
 #: cfs.php:156 includes/fields/relationship.php:95
-#: includes/templates/meta_box_rules.php:120
+#: templates/meta_box_rules.php:120
 msgid "Post Types"
 msgstr ""
 
-#: cfs.php:157 includes/templates/meta_box_rules.php:152
+#: cfs.php:157 templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr ""
 
-#: includes/templates/meta_box_rules.php:184
+#: templates/meta_box_rules.php:184
 msgid "Posts"
 msgstr ""
 
-#: includes/templates/meta_box_rules.php:208
+#: templates/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: includes/templates/page_tools.php:78 includes/templates/page_tools.php:101
+#: templates/page_tools.php:78 templates/page_tools.php:101
 msgid "Export"
 msgstr ""
 
-#: includes/templates/page_tools.php:79 includes/templates/page_tools.php:126
+#: templates/page_tools.php:79 templates/page_tools.php:126
 msgid "Import"
 msgstr ""
 
-#: includes/templates/page_tools.php:80
+#: templates/page_tools.php:80
 msgid "Debug"
 msgstr ""
 
-#: includes/templates/page_tools.php:89
+#: templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr ""
 
-#: includes/classes/field.php:20 includes/fields/text.php:9
+#: includes/field.php:20 includes/fields/text.php:9
 msgid "Text"
 msgstr ""
 
-#: includes/classes/field.php:53 includes/fields/file.php:88
+#: includes/field.php:53 includes/fields/file.php:88
 #: includes/fields/select.php:134 includes/fields/text.php:35
 #: includes/fields/textarea.php:66 includes/fields/true_false.php:49
 msgid "Validation"
 msgstr ""
 
-#: includes/classes/field.php:62 includes/fields/file.php:97
+#: includes/field.php:62 includes/fields/file.php:97
 #: includes/fields/select.php:143 includes/fields/text.php:44
 #: includes/fields/textarea.php:75 includes/fields/true_false.php:58
 msgid "This is a required field"
@@ -357,23 +357,23 @@ msgstr ""
 msgid "Term IDs"
 msgstr ""
 
-#: cfs.php:160 includes/templates/meta_box_rules.php:240
+#: cfs.php:160 templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr ""
 
-#: cfs.php:412 includes/templates/page_addons.php:65
+#: cfs.php:412 templates/page_addons.php:65
 msgid "Add-ons"
 msgstr ""
 
-#: includes/classes/form.php:219
+#: includes/form.php:219
 msgid "Submit"
 msgstr ""
 
-#: includes/classes/form.php:279
+#: includes/form.php:279
 msgid "Post Title"
 msgstr ""
 
-#: includes/classes/form.php:291
+#: includes/form.php:291
 msgid "Post Content"
 msgstr ""
 
@@ -381,67 +381,67 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-#: includes/templates/admin_footer.php:44
+#: templates/admin_footer.php:44
 msgid "Documentation"
 msgstr ""
 
-#: includes/templates/admin_footer.php:45
+#: templates/admin_footer.php:45
 msgid "Forums"
 msgstr ""
 
-#: includes/templates/admin_footer.php:46
+#: templates/admin_footer.php:46
 msgid "Write a review"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:42
+#: templates/meta_box_extras.php:42
 msgid "Order"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:44
+#: templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:54
+#: templates/meta_box_extras.php:54
 msgid "Position"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:63
+#: templates/meta_box_extras.php:63
 msgid "Display Settings"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:81
+#: templates/meta_box_extras.php:81
 msgid "Gravity Forms"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:101
+#: templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:106
+#: templates/meta_box_extras.php:106
 msgid "Please install %s to use this feature."
 msgstr ""
 
-#: includes/templates/page_tools.php:81
+#: templates/page_tools.php:81
 msgid "Reset"
 msgstr ""
 
-#: includes/templates/page_tools.php:118
+#: templates/page_tools.php:118
 msgid "Paste the import code below."
 msgstr ""
 
-#: includes/templates/page_tools.php:139
+#: templates/page_tools.php:139
 msgid "Debug information"
 msgstr ""
 
-#: includes/templates/page_tools.php:164
+#: templates/page_tools.php:164
 msgid "Reset and deactivate."
 msgstr ""
 
-#: includes/templates/page_tools.php:165
+#: templates/page_tools.php:165
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 
-#: includes/templates/page_tools.php:166
+#: templates/page_tools.php:166
 msgid "Delete everything"
 msgstr ""
 
@@ -461,22 +461,22 @@ msgstr ""
 msgid "1.9.9"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:57
+#: templates/meta_box_extras.php:57
 msgid "Normal"
 msgstr ""
 
-#: includes/templates/meta_box_extras.php:58
+#: templates/meta_box_extras.php:58
 msgid "Side"
 msgstr ""
 
-#: includes/templates/page_addons.php:81
+#: templates/page_addons.php:81
 msgid "Learn more"
 msgstr ""
 
-#: includes/templates/admin_head.php:26
+#: templates/admin_head.php:26
 msgid "New Field"
 msgstr ""
 
-#: includes/classes/form.php:344
+#: includes/form.php:344
 msgid "Toggle row visibility"
 msgstr ""

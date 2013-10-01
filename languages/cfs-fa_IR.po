@@ -78,39 +78,39 @@ msgstr "ابزارها"
 msgid "Add-ons"
 msgstr "اضافات"
 
-#: includes/templates/admin_footer.php:67
+#: templates/admin_footer.php:67
 msgid "Custom Field Suite"
 msgstr "فیلد سفارشی"
 
-#: includes/templates/admin_footer.php:71
+#: templates/admin_footer.php:71
 msgid "Documentation"
 msgstr "اسناد"
 
-#: includes/templates/admin_footer.php:72
+#: templates/admin_footer.php:72
 msgid "Donate"
 msgstr "کمک مالی"
 
-#: includes/templates/admin_footer.php:73
+#: templates/admin_footer.php:73
 msgid "Changelog"
 msgstr "تغییرات"
 
-#: includes/templates/admin_footer.php:78
+#: templates/admin_footer.php:78
 msgid "Review CFS on WordPress.org"
 msgstr "صفحه افزونه در وردپرس"
 
-#: includes/templates/field_html.php:30
+#: templates/field_html.php:30
 msgid "Label"
 msgstr "برچسب"
 
-#: includes/templates/field_html.php:32
+#: templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "برچسبی که نویسنده آن را می بیند"
 
-#: includes/templates/field_html.php:39
+#: templates/field_html.php:39
 msgid "Name"
 msgstr "نام"
 
-#: includes/templates/field_html.php:42
+#: templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -118,173 +118,173 @@ msgstr ""
 "نام فیلد توسط فرمان get() جهت بازیابی مقادیر ارسال می شود. لطفا فقط از حروف "
 "کوچک، اعداد و علائم تاکیدی استفاده کنید."
 
-#: includes/templates/field_html.php:49
+#: templates/field_html.php:49
 msgid "Field Type"
 msgstr "نوع فیلد"
 
-#: includes/templates/field_html.php:67
+#: templates/field_html.php:67
 msgid "Notes"
 msgstr "تذکر"
 
-#: includes/templates/field_html.php:69
+#: templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "تذکری برای نویسنده"
 
-#: includes/templates/field_html.php:82
+#: templates/field_html.php:82
 msgid "Close"
 msgstr "بستن"
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "or"
 msgstr "یا"
 
-#: includes/templates/field_html.php:83
+#: templates/field_html.php:83
 msgid "delete"
 msgstr "حذف"
 
-#: includes/templates/meta_box_extras.php:39
+#: templates/meta_box_extras.php:39
 msgid "Display Settings"
 msgstr "نمایش تنظیمات"
 
-#: includes/templates/meta_box_extras.php:49
+#: templates/meta_box_extras.php:49
 msgid "Hide the content editor"
 msgstr "مخفی سازی محتوای ویرایشگر"
 
-#: includes/templates/meta_box_extras.php:57
+#: templates/meta_box_extras.php:57
 msgid "Gravity Forms"
 msgstr "فرم Gravity"
 
-#: includes/templates/meta_box_extras.php:77
+#: templates/meta_box_extras.php:77
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 "برچسبهای Gravity Form و گروه فیلدهای شما باید دقیقا با یکدیگر مطابقت داشته "
 "باشند."
 
-#: includes/templates/meta_box_extras.php:81
+#: templates/meta_box_extras.php:81
 msgid "Please install"
 msgstr "لطفا"
 
-#: includes/templates/meta_box_extras.php:81
+#: templates/meta_box_extras.php:81
 msgid "to use this feature"
 msgstr "را نصب کنید تا بتوانید از این قابلیت استفاده کنید"
 
-#: includes/templates/meta_box_fields.php:66
+#: templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr "افزودن فیلد جدید"
 
-#: includes/templates/meta_box_rules.php:5
+#: templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "برابر با"
 
-#: includes/templates/meta_box_rules.php:6
+#: templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "نباشد"
 
-#: includes/templates/meta_box_rules.php:82 includes/templates/meta_box_rules.php:87
+#: templates/meta_box_rules.php:82 templates/meta_box_rules.php:87
 msgid "Leave blank to skip this rule"
 msgstr "درصورتی که مایل به انتخاب این شرط نیستید، خالی رها کنید."
 
-#: includes/templates/meta_box_rules.php:120 includes/fields/relationship.php:89
+#: templates/meta_box_rules.php:120 includes/fields/relationship.php:89
 msgid "Post Types"
 msgstr "نوع نوشته"
 
-#: includes/templates/meta_box_rules.php:152
+#: templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr "مجوز کاربری"
 
-#: includes/templates/meta_box_rules.php:184
+#: templates/meta_box_rules.php:184
 msgid "Posts"
 msgstr "نوشته ها"
 
-#: includes/templates/meta_box_rules.php:208
+#: templates/meta_box_rules.php:208
 msgid "Taxonomy Terms"
 msgstr "قوانین طبقه بندی"
 
-#: includes/templates/meta_box_rules.php:240
+#: templates/meta_box_rules.php:240
 msgid "Page Template"
 msgstr "قالب برگه"
 
-#: includes/templates/page_tools.php:78 includes/templates/page_tools.php:101
+#: templates/page_tools.php:78 templates/page_tools.php:101
 msgid "Export"
 msgstr "دریافت خروجی"
 
-#: includes/templates/page_tools.php:79 includes/templates/page_tools.php:126
+#: templates/page_tools.php:79 templates/page_tools.php:126
 msgid "Import"
 msgstr "وارد کردن"
 
-#: includes/templates/page_tools.php:80
+#: templates/page_tools.php:80
 msgid "Debug"
 msgstr "اشکال زدایی"
 
-#: includes/templates/page_tools.php:81
+#: templates/page_tools.php:81
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: includes/templates/page_tools.php:89
+#: templates/page_tools.php:89
 msgid "Which field groups would you like to export?"
 msgstr "مایلید از کدام گروه فیلد خروجی تهیه کنید؟"
 
-#: includes/templates/page_tools.php:118
+#: templates/page_tools.php:118
 msgid "Paste the import code below."
 msgstr "کد خروجی را اینجا وارد کنید."
 
-#: includes/templates/page_tools.php:139
+#: templates/page_tools.php:139
 msgid "Debug information"
 msgstr "اطلاعات اشکال زدایی"
 
-#: includes/templates/page_tools.php:164
+#: templates/page_tools.php:164
 msgid "Reset and deactivate."
 msgstr "بازنشانی و غیرفعال سازی."
 
-#: includes/templates/page_tools.php:165
+#: templates/page_tools.php:165
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می "
 "شود."
 
-#: includes/templates/page_tools.php:166
+#: templates/page_tools.php:166
 msgid "Delete everything"
 msgstr "حذف و غیرفعال سازی"
 
-#: includes/classes/field.php:21 includes/fields/text.php:9
+#: includes/field.php:21 includes/fields/text.php:9
 msgid "Text"
 msgstr "متن"
 
-#: includes/classes/field.php:57 includes/fields/file.php:78
+#: includes/field.php:57 includes/fields/file.php:78
 #: includes/fields/relationship.php:105 includes/fields/select.php:125
 #: includes/fields/text.php:32 includes/fields/textarea.php:60
 #: includes/fields/true_false.php:43
 msgid "Validation"
 msgstr "مجوز"
 
-#: includes/classes/field.php:66 includes/fields/file.php:87
+#: includes/field.php:66 includes/fields/file.php:87
 #: includes/fields/relationship.php:114 includes/fields/select.php:134
 #: includes/fields/text.php:41 includes/fields/textarea.php:69
 #: includes/fields/true_false.php:52
 msgid "This is a required field"
 msgstr "تکمیل این فیلد اجباری است"
 
-#: includes/classes/field_group.php:94
+#: includes/field_group.php:94
 msgid "Imported"
 msgstr "وارد شد"
 
-#: includes/classes/field_group.php:98
+#: includes/field_group.php:98
 msgid "Skipped"
 msgstr "رد شده"
 
-#: includes/classes/field_group.php:104
+#: includes/field_group.php:104
 msgid "Nothing to import"
 msgstr "چیزی برای وارد کردن وجود ندارد"
 
-#: includes/classes/form.php:243
+#: includes/form.php:243
 msgid "Post Title"
 msgstr "عنوان نوشته"
 
-#: includes/classes/form.php:255
+#: includes/form.php:255
 msgid "Post Content"
 msgstr "محتوای نوشته"
 
-#: includes/classes/form.php:342
+#: includes/form.php:342
 msgid "Submit"
 msgstr "ارسال"
 

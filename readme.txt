@@ -3,7 +3,7 @@ Contributors: logikal16, mgibbs189
 Donate link: https://uproot.us/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
 Requires at least: 3.5
-Tested up to: 3.6
+Tested up to: 3.7
 Stable tag: trunk
 License: GPL2
 

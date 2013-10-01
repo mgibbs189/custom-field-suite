@@ -289,7 +289,7 @@ class cfs_loop extends cfs_field
                 });
 
                 // Hide or show all rows
-                // The HTML is located in classes/form.php
+                // The HTML is located in includes/form.php
                 $(document).on('click', '.cfs_loop_toggle', function() {
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
                 });
