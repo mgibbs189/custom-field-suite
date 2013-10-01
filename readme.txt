@@ -44,6 +44,14 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.0.0 =
+* Improved i18n (props @deckerweb)
+* Improved get_matching_groups API method (props @scottkclark)
+* Support for required wysiwyg fields
+* Support for the "Duplicate Posts" plugin
+* Added ability to exclude fields from front-end forms
+* Code formatting tweaks
+
 = 1.9.9 =
 * New checkerboard pattern for image thumbnails (props @jchristopher)
 * New `cfs_get_input_fields` hook (props @dbisso)
