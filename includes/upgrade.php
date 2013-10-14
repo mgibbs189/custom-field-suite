@@ -252,5 +252,18 @@ class cfs_upgrade
             ) DEFAULT CHARSET=utf8";
             dbDelta($sql);
         }
+
+        // Add the "depth" column
+        if (version_compare($this->last_version, '2.0.1', '<'))
+        {
+            $wpdb->query("ALTER TABLE {$wpdb->prefix}cfs_values ADD COLUMN depth INT unsigned default 0 AFTER hierarchy");
+
+            $results = $wpdb->get_results("SELECT id, hierarchy FROM {$wpdb->prefix}cfs_values WHERE hierarchy != ''");
+            foreach ($results as $result) {
+                $hierarchy_array = explode(':', $result->hierarchy);
+                $depth = floor(count($hierarchy_array) / 2);
+                $wpdb->query("UPDATE {$wpdb->prefix}cfs_values SET depth = '$depth' WHERE id = '$result->id' LIMIT 1");
+            }
+        }
     }
 }

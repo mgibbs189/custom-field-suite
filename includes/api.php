@@ -104,7 +104,7 @@ class cfs_api
                 FROM {$wpdb->prefix}cfs_values v
                 INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
                 WHERE v.field_id IN ($field_ids) AND v.post_id IN ($post_id)
-                ORDER BY FIELD(v.field_id, $field_ids), v.weight, v.sub_weight";
+                ORDER BY v.depth, v.weight, v.sub_weight";
 
                 $results = $wpdb->get_results($sql);
                 $num_rows = $wpdb->num_rows;
@@ -859,6 +859,7 @@ class cfs_api
                     'post_id' => $params['post_id'],
                     'base_field_id' => $base_field_id,
                     'hierarchy' => implode(':', $params['hierarchy']),
+                    'depth' => floor(count($params['hierarchy']) / 2),
                     'weight' => $params['weight'],
                     'sub_weight' => $sub_weight,
                 );
