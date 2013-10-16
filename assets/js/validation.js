@@ -59,6 +59,9 @@ jQuery(function($) {
         },
         'user': function(el) {
             return el.find('input.user').val();
+        },
+        'wysiwyg': function(el) {
+            return el.find('textarea').val();
         }
     };
 
