@@ -11,18 +11,18 @@ class cfs_ajax
     {
         global $wpdb;
 
-        $keywords = $wpdb->escape($options['q']);
-
-        $sql = "
+        $sql = $wpdb->prepare("
         SELECT ID, post_type, post_title
         FROM $wpdb->posts
         WHERE
             post_status IN ('publish', 'private') AND
             post_type NOT IN ('cfs', 'attachment', 'revision', 'nav_menu_item') AND
-            post_title LIKE '%$keywords%'
+            post_title LIKE '%s'
         ORDER BY post_type, post_title
-        LIMIT 10";
-        $results = $wpdb->get_results($sql);
+        LIMIT 10",
+        '%'.$options['q'].'%' );
+
+        $results = $wpdb->get_results( $sql );
 
         $output = array();
         foreach ($results as $result)
