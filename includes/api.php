@@ -379,7 +379,7 @@ class cfs_api
             // If no field value exists, set it to NULL
             $field->value = isset($values[$field->id]) ? $values[$field->id] : null;
 
-            if (isset($field->options['default_value']) && empty($field->value))
+            if (!isset($field->value) && isset($field->options['default_value']))
             {
                 $field->value = $field->options['default_value'];
             }
