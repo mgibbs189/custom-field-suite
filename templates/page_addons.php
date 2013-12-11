@@ -61,7 +61,6 @@ $json = json_decode($json);
 </style>
 
 <div class="wrap">
-    <div id="icon-edit" class="icon32"><br></div>
     <h2><?php _e( 'Add-ons', 'cfs' ); ?></h2>
     <?php foreach ($json as $addon) : ?>
     <div class="addon">

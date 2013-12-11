@@ -2,8 +2,8 @@
 Contributors: logikal16, mgibbs189
 Donate link: https://uproot.us/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
-Requires at least: 3.5
-Tested up to: 3.7
+Requires at least: 3.6
+Tested up to: 3.8
 Stable tag: trunk
 License: GPL2
 
@@ -43,6 +43,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.0.3 =
+* WP 3.8 compatibility updates
 
 = 2.0.2 =
 * Fixed fatal error for relationship fields

@@ -71,7 +71,6 @@ $results = $wpdb->get_results($sql);
 </script>
 
 <div class="wrap">
-    <div id="icon-edit" class="icon32"><br></div>
     <h2><?php _e( 'Tools', 'cfs' ); ?></h2>
 
     <h3 class="nav-tab-wrapper">
