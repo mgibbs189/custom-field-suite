@@ -20,6 +20,7 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * Create your own field types using the `cfs_field_types` hook
 * CFS works well with Gravity Forms, and can save GF entries as post items
 * Includes client-side field validation
+* This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 = Getting Started =
 [See the CFS overview page →](https://uproot.us/projects/cfs/)
@@ -43,6 +44,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.0.4 =
+* Fixed file upload issue with custom mime types
 
 = 2.0.3 =
 * WP 3.8 compatibility updates

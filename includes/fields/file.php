@@ -229,7 +229,8 @@ class cfs_file extends cfs_field
 
                     cfs_media_frame.on('select', function() {
                         var attachment = cfs_media_frame.state().get('selection').first().toJSON();
-                        if ('image' == attachment.type) {
+                        console.log(attachment);
+                        if ('image' == attachment.type && 'undefined' != typeof attachment.sizes) {
                             file_url = attachment.sizes.full.url;
                             if ('undefined' != typeof attachment.sizes.thumbnail) {
                                 file_url = attachment.sizes.thumbnail.url;
