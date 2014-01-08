@@ -84,6 +84,7 @@ class Custom_Field_Suite
             'capability_type'   => 'page',
             'hierarchical'      => false,
             'supports'          => array( 'title' ),
+            'query_var'         => false,
             'labels'            => array(
                 'name'                  => __( 'Field Groups', 'cfs' ),
                 'singular_name'         => __( 'Field Group', 'cfs' ),
