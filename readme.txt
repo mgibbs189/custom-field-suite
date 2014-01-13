@@ -45,6 +45,11 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.0.5 =
+* Image CSS fix (props @voltronik)
+* Force custom post type `query_var` to false
+* Replaced true_false .live() method to .on()
+
 = 2.0.4 =
 * Fixed file upload issue with custom mime types
 
