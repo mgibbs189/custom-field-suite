@@ -130,6 +130,8 @@
     background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQYV2NkYGCQBGJ08BxdgHGIKMTiF0wPgjwz2BUCADTeBYguWvyCAAAAAElFTkSuQmCC);
     vertical-align: bottom;
     box-shadow: 0 1px 2px #ddd;
+    max-width: 50%;
+    height: auto;
 }
 
 .cfs_file .media.button.hidden {
