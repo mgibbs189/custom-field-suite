@@ -17,7 +17,7 @@ class cfs_date extends cfs_field
     {
         $this->load_assets();
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/date.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/datepicker.css" />
         <script>
         (function($) {
             $(function() {
@@ -29,7 +29,12 @@ class cfs_date extends cfs_field
 
             $.fn.init_date = function() {
                 this.each(function() {
-                    $(this).find('input.date').datetime();
+                    //$(this).find('input.date').datetime();
+                    $(this).find('input.date').datepicker({
+                        format: 'yyyy-mm-dd',
+                        autoclose: true,
+                        clearBtn: true
+                    });
                     $(this).addClass('ready');
                 });
             };
@@ -43,7 +48,7 @@ class cfs_date extends cfs_field
 
     function load_assets()
     {
-        wp_register_script('jquery-datetime', $this->parent->url . '/includes/fields/date/jquery.datetime.js', array('jquery'));
-        wp_enqueue_script('jquery-datetime');
+        wp_register_script('bootstrap-datepicker', $this->parent->url . '/includes/fields/date/bootstrap-datepicker.js', array('jquery'));
+        wp_enqueue_script('bootstrap-datepicker');
     }
 }
