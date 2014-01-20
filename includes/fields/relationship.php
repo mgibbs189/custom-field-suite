@@ -3,18 +3,16 @@
 class cfs_relationship extends cfs_field
 {
 
-    function __construct($parent)
-    {
+    function __construct( $parent ) {
         $this->name = 'relationship';
-        $this->label = __('Relationship', 'cfs');
+        $this->label = __( 'Relationship', 'cfs' );
         $this->parent = $parent;
     }
 
 
 
 
-    function html($field)
-    {
+    function html( $field ) {
         global $wpdb;
 
         $where = '';
@@ -22,28 +20,23 @@ class cfs_relationship extends cfs_field
         $available_posts = array();
 
         // Limit to chosen post types
-        if (isset($field->options['post_types']))
-        {
+        if ( isset( $field->options['post_types'] ) ) {
             $where = array();
-            foreach ($field->options['post_types'] as $type)
-            {
+            foreach ( $field->options['post_types'] as $type ) {
                 $where[] = $type;
             }
-            $where = " AND post_type IN ('" . implode("','", $where) . "')";
+            $where = " AND post_type IN ('" . implode( "','", $where ) . "')";
         }
 
-        $results = $wpdb->get_results("SELECT ID, post_type, post_status, post_title FROM $wpdb->posts WHERE post_status IN ('publish','private') $where ORDER BY post_title");
-        foreach ($results as $result)
-        {
-            $result->post_title = ('private' == $result->post_status) ? '(Private) ' . $result->post_title : $result->post_title;
+        $results = $wpdb->get_results( "SELECT ID, post_type, post_status, post_title FROM $wpdb->posts WHERE post_status IN ('publish','private') $where ORDER BY post_title" );
+        foreach ( $results as $result ) {
+            $result->post_title = ( 'private' == $result->post_status ) ? '(Private) ' . $result->post_title : $result->post_title;
             $available_posts[] = $result;
         }
 
-        if (!empty($field->value))
-        {
-            $results = $wpdb->get_results("SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)");
-            foreach ($results as $result)
-            {
+        if ( !empty( $field->value ) ) {
+            $results = $wpdb->get_results( "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)" );
+            foreach ( $results as $result ) {
                 $result->post_title = ('private' == $result->post_status) ? '(Private) ' . $result->post_title : $result->post_title;
                 $selected_posts[$result->ID] = $result;
             }
@@ -66,14 +59,14 @@ class cfs_relationship extends cfs_field
         </div>
 
         <div class="available_posts post_list">
-        <?php foreach ($available_posts as $post) : ?>
-            <?php $class = (isset($selected_posts[$post->ID])) ? ' class="used"' : ''; ?>
+        <?php foreach ( $available_posts as $post ) : ?>
+            <?php $class = ( isset( $selected_posts[$post->ID] ) ) ? ' class="used"' : ''; ?>
             <div rel="<?php echo $post->ID; ?>" post_type="<?php echo $post->post_type; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo $post->post_title; ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
-        <?php foreach ($selected_posts as $post) : ?>
+        <?php foreach ( $selected_posts as $post ) : ?>
             <div rel="<?php echo $post->ID; ?>"><span class="remove"></span><?php echo $post->post_title; ?></div>
         <?php endforeach; ?>
         </div>
@@ -85,10 +78,15 @@ class cfs_relationship extends cfs_field
 
 
 
-    function options_html($key, $field)
-    {
-        $post_types = isset($field->options['post_types']) ? $field->options['post_types'] : null;
-        $choices = get_post_types(array('exclude_from_search' => false));
+    function options_html( $key, $field ) {
+
+        $post_types = isset( $field->options['post_types'] ) ? $field->options['post_types'] : null;
+
+        $params = apply_filters( 'facetwp_field_relationship_post_types', array(
+            'exclude_from_search' => false
+        ) );
+
+        $choices = get_post_types( $params );
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
@@ -97,22 +95,22 @@ class cfs_relationship extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
-                        'type' => 'select',
-                        'input_name' => "cfs[fields][$key][options][post_types]",
-                        'options' => array('multiple' => '1', 'choices' => $choices),
-                        'value' => $this->get_option($field, 'post_types'),
+                    $this->parent->create_field( array(
+                        'type'          => 'select',
+                        'input_name'    => "cfs[fields][$key][options][post_types]",
+                        'options'       => array( 'multiple' => '1', 'choices' => $choices ),
+                        'value'         => $this->get_option( $field, 'post_types' ),
                     ));
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Limits', 'cfs'); ?></label>
+                <label><?php _e( 'Limits', 'cfs' ); ?></label>
             </td>
             <td>
-                <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_min]" value="<?php echo $this->get_option($field, 'limit_min'); ?>" placeholder="min" style="width:60px" />
-                <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_max]" value="<?php echo $this->get_option($field, 'limit_max'); ?>" placeholder="max" style="width:60px" />
+                <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_min]" value="<?php echo $this->get_option( $field, 'limit_min' ); ?>" placeholder="min" style="width:60px" />
+                <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_max]" value="<?php echo $this->get_option( $field, 'limit_max' ); ?>" placeholder="max" style="width:60px" />
             </td>
         </tr>
     <?php
@@ -121,8 +119,7 @@ class cfs_relationship extends cfs_field
 
 
 
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
     ?>
         <script>
         (function($) {
@@ -226,33 +223,28 @@ class cfs_relationship extends cfs_field
 
 
 
-    function prepare_value($value, $field = null)
-    {
+    function prepare_value( $value, $field = null ) {
         return $value;
     }
 
 
 
 
-    function format_value_for_input($value, $field = null)
-    {
-        return empty($value) ? '' : implode(',', $value);
+    function format_value_for_input( $value, $field = null ) {
+        return empty( $value ) ? '' : implode( ',', $value );
     }
 
 
 
 
-    function pre_save($value, $field = null)
-    {
-        if (!empty($value))
-        {
+    function pre_save( $value, $field = null ) {
+        if ( !empty( $value ) ) {
             // Inside a loop, the value is $value[0]
             $value = (array) $value;
 
             // The raw input saves a comma-separated string
-            if (false !== strpos($value[0], ','))
-            {
-                return explode(',', $value[0]);
+            if ( false !== strpos( $value[0], ',' ) ) {
+                return explode( ',', $value[0] );
             }
 
             return $value;
