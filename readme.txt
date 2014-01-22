@@ -45,6 +45,10 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.1.0 =
+* Replaced datepicker
+* Added new `facetwp_field_relationship_post_types` filter
+
 = 2.0.5 =
 * Image CSS fix (props @voltronik)
 * Force custom post type `query_var` to false
