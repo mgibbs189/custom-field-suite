@@ -232,13 +232,20 @@ class cfs_loop extends cfs_field
                     <?php $this->recursive_html($group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i); ?>
                 <?php else : ?>
                 <?php
-                    $this->parent->create_field(array(
+                    $args = array(
                         'type' => $field->type,
                         'input_name' => "cfs[input]{$parent_tag}[$i][$field->id][value][]",
                         'input_class' => $field->type,
                         'options' => $field->options,
-                        'value' => $values[$i][$field->id],
-                    ));
+                    );
+                    if ( isset( $values[$i][$field->id] ) ) {
+                        $args['value'] = $values[$i][$field->id];
+                    }
+                    elseif ( isset( $field->options['default_value'] ) ) {
+                        $args['value'] = $field->options['default_value'];
+                    }
+
+                    $this->parent->create_field( $args );
                 ?>
                 <?php endif; ?>
                 </div>
@@ -325,11 +332,6 @@ class cfs_loop extends cfs_field
                             name_attr[array_element] = counter + ']';
                             last_index = current_index;
                             $(this).attr('name', name_attr.join('['));
-                        });
-
-                        // debug
-                        $container.find('[name^="cfs[input]"]').each(function() {
-                            console.log($(this).attr('name') + ' = ' + $(this).val());
                         });
                     }
                 });
