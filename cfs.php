@@ -60,13 +60,9 @@ class Custom_Field_Suite
             add_action( 'parse_query', array( $this, 'parse_query' ) );
         }
 
-        include( $this->dir . '/includes/api.php' );
-        include( $this->dir . '/includes/upgrade.php' );
-        include( $this->dir . '/includes/field.php' );
-        include( $this->dir . '/includes/field_group.php' );
-        include( $this->dir . '/includes/session.php' );
-        include( $this->dir . '/includes/form.php' );
-        include( $this->dir . '/includes/third_party.php' );
+        foreach ( array( 'api', 'upgrade', 'field', 'field_group', 'session', 'form', 'third_party' ) as $f ) {
+            include( $this->dir . "/includes/$f.php" );
+        }
 
         $upgrade = new cfs_upgrade( $this->version );
 
@@ -124,8 +120,7 @@ class Custom_Field_Suite
      * Customize table columns on the Field Groups listing page
      * @since 1.0.0
      */
-    function cfs_columns()
-    {
+    function cfs_columns() {
         return array(
             'cb'            => '<input type="checkbox" />',
             'title'         => __( 'Title', 'cfs' ),
@@ -140,10 +135,8 @@ class Custom_Field_Suite
      * @param int $post_id 
      * @since 1.9.5
      */
-    function cfs_column_content( $column_name, $post_id )
-    {
-        if ( 'placement' == $column_name )
-        {
+    function cfs_column_content( $column_name, $post_id ) {
+        if ( 'placement' == $column_name ) {
             global $wpdb;
 
             $labels = array(
@@ -156,6 +149,7 @@ class Custom_Field_Suite
 
             $results = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1" );
             $results = unserialize( $results );
+
             foreach ( $results as $criteria => $values ) {
                 $label = $labels[$criteria];
                 echo "<div>$label " . $values['operator'] . ' ' . implode(', ', $values['values']) . '</div>';
@@ -168,20 +162,20 @@ class Custom_Field_Suite
      * Register field types
      * @since 1.0.0
      */
-    function get_field_types()
-    {
+    function get_field_types() {
+
         $field_types = array(
-            'text'                  => $this->dir . '/includes/fields/text.php',
-            'textarea'              => $this->dir . '/includes/fields/textarea.php',
-            'wysiwyg'               => $this->dir . '/includes/fields/wysiwyg.php',
-            'date'                  => $this->dir . '/includes/fields/date/date.php',
-            'color'                 => $this->dir . '/includes/fields/color/color.php',
-            'true_false'            => $this->dir . '/includes/fields/true_false.php',
-            'select'                => $this->dir . '/includes/fields/select.php',
-            'relationship'          => $this->dir . '/includes/fields/relationship.php',
-            'user'                  => $this->dir . '/includes/fields/user.php',
-            'file'                  => $this->dir . '/includes/fields/file.php',
-            'loop'                  => $this->dir . '/includes/fields/loop.php',
+            'text'              => $this->dir . '/includes/fields/text.php',
+            'textarea'          => $this->dir . '/includes/fields/textarea.php',
+            'wysiwyg'           => $this->dir . '/includes/fields/wysiwyg.php',
+            'date'              => $this->dir . '/includes/fields/date/date.php',
+            'color'             => $this->dir . '/includes/fields/color/color.php',
+            'true_false'        => $this->dir . '/includes/fields/true_false.php',
+            'select'            => $this->dir . '/includes/fields/select.php',
+            'relationship'      => $this->dir . '/includes/fields/relationship.php',
+            'user'              => $this->dir . '/includes/fields/user.php',
+            'file'              => $this->dir . '/includes/fields/file.php',
+            'loop'              => $this->dir . '/includes/fields/loop.php',
         );
 
         // support custom field types
