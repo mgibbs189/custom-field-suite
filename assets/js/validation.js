@@ -117,6 +117,9 @@ jQuery(function($) {
                             }
                             $this.find('.error').html(error_msg);
                             $this.find('.error').show();
+                            $('html, body').animate({
+                                scrollTop: $this.find('.error').offset().top
+                            }, 500);
                         }
                     }
                 }
