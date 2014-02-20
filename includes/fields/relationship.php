@@ -82,11 +82,9 @@ class cfs_relationship extends cfs_field
 
         $post_types = isset( $field->options['post_types'] ) ? $field->options['post_types'] : null;
 
-        $params = apply_filters( 'facetwp_field_relationship_post_types', array(
-            'exclude_from_search' => false
-        ) );
+        $args = array( 'exclude_from_search' => false );
+        $choices = apply_filters( 'cfs_field_relationship_post_types', get_post_types( $args ) );
 
-        $choices = get_post_types( $params );
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
