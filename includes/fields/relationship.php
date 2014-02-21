@@ -25,6 +25,7 @@ class cfs_relationship extends cfs_field
             foreach ( $field->options['post_types'] as $type ) {
                 $where[] = $type;
             }
+            $where = apply_filters( 'cfs_field_relationship_post_types', $where );
             $where = " AND post_type IN ('" . implode( "','", $where ) . "')";
         }
 
