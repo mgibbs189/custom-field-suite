@@ -45,6 +45,12 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.1.1 =
+* Added animated scroll to validation errors (props @joshlevinson)
+* Added `cfs_field_relationship_post_types` filter (props @jchristopher)
+* Fixed PHP notice for loop sub-fields that don't exist
+* Updated translations
+
 = 2.1.0 =
 * Replaced datepicker
 * Added new `facetwp_field_relationship_post_types` filter
