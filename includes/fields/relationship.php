@@ -10,29 +10,44 @@ class cfs_relationship extends cfs_field
     }
 
 
-
-
     function html( $field ) {
         global $wpdb;
 
-        $where = '';
         $selected_posts = array();
         $available_posts = array();
 
-        // Limit to chosen post types
-        if ( isset( $field->options['post_types'] ) ) {
-            $where = array();
+        $post_types = array();
+        if ( !empty( $field->options['post_types'] ) ) {
             foreach ( $field->options['post_types'] as $type ) {
-                $where[] = $type;
+                $post_types[] = $type;
             }
-            $where = apply_filters( 'cfs_field_relationship_post_types', $where );
-            $where = " AND post_type IN ('" . implode( "','", $where ) . "')";
+        }
+        else {
+            $post_types = get_post_types( array( 'exclude_from_search' => true ) );
         }
 
-        $results = $wpdb->get_results( "SELECT ID, post_type, post_status, post_title FROM $wpdb->posts WHERE post_status IN ('publish','private') $where ORDER BY post_title" );
-        foreach ( $results as $result ) {
-            $result->post_title = ( 'private' == $result->post_status ) ? '(Private) ' . $result->post_title : $result->post_title;
-            $available_posts[] = $result;
+        // Deprecated - use "cfs_field_relationship_query_args"
+        $post_types = apply_filters( 'cfs_field_relationship_post_types', $post_types );
+
+        $args = array(
+            'post_type' => $post_types,
+            'post_status' => array( 'publish', 'private' ),
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+        );
+
+        $args = apply_filters( 'cfs_field_relationship_query_args', $args, array( 'field' => $field ) );
+        $query = new WP_Query( $args );
+
+        foreach ( $query->posts as $post_id ) {
+            $post = get_post( $post_id );
+            $post_title = ( 'private' == $post->post_status ) ? '(Private) ' . $post->post_title : $post->post_title;
+            $available_posts[] = (object) array(
+                'ID' => $post->ID,
+                'post_type' => $post->post_type,
+                'post_status' => $post->post_status,
+                'post_title' => $post_title,
+            );
         }
 
         if ( !empty( $field->value ) ) {
@@ -77,8 +92,6 @@ class cfs_relationship extends cfs_field
     }
 
 
-
-
     function options_html( $key, $field ) {
 
         $post_types = isset( $field->options['post_types'] ) ? $field->options['post_types'] : null;
@@ -114,8 +127,6 @@ class cfs_relationship extends cfs_field
         </tr>
     <?php
     }
-
-
 
 
     function input_head( $field = null ) {
@@ -220,20 +231,14 @@ class cfs_relationship extends cfs_field
     }
 
 
-
-
     function prepare_value( $value, $field = null ) {
         return $value;
     }
 
 
-
-
     function format_value_for_input( $value, $field = null ) {
         return empty( $value ) ? '' : implode( ',', $value );
     }
-
-
 
 
     function pre_save( $value, $field = null ) {
