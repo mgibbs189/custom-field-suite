@@ -34,6 +34,8 @@ class cfs_relationship extends cfs_field
             'post_status' => array( 'publish', 'private' ),
             'posts_per_page' => -1,
             'fields' => 'ids',
+            'orderby' => 'title',
+            'order' => 'ASC'
         );
 
         $args = apply_filters( 'cfs_field_relationship_query_args', $args, array( 'field' => $field ) );
