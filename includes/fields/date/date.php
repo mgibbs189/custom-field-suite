@@ -32,8 +32,7 @@ class cfs_date extends cfs_field
                 this.each(function() {
                     //$(this).find('input.date').datetime();
                     $(this).find('input.date').datetimepicker({
-						pick12HourFormat: true,
-						format: 'YYYY-MM-DD hh:mm A'
+						format: 'YYYY-MM-DD HH:mm'
                     });
                     $(this).addClass('ready');
                 });
