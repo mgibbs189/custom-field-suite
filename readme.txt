@@ -45,6 +45,9 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.2.1 =
+* Restored $cfs for template parts
+
 = 2.2.0 =
 * WP 3.9 compatibility
 * Converted relationship fields to WP_Query (for more flexibility)

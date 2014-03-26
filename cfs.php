@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: https://uproot.us/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.2.0
+Version: 2.2.1
 Author: Matt Gibbs
 Author URI: https://uproot.us/
 Text Domain: cfs
@@ -25,7 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 class Custom_Field_Suite
 {
-    public $version = '2.2.0';
+    public $version = '2.2.1';
 
 
     /**
@@ -55,6 +55,11 @@ class Custom_Field_Suite
         add_action( 'delete_post',              array( $this, 'delete_post' ) );
         add_action( 'add_meta_boxes',           array( $this, 'add_meta_boxes' ) );
         add_action( 'wp_ajax_cfs_ajax_handler', array( $this, 'ajax_handler' ) );
+
+        // Force the $cfs variable
+        if ( !is_admin() ) {
+            add_action( 'parse_query', array( $this, 'parse_query' ) );
+        }
 
         foreach ( array( 'api', 'upgrade', 'field', 'field_group', 'session', 'form', 'third_party' ) as $f ) {
             include( $this->dir . "/includes/$f.php" );
@@ -480,6 +485,15 @@ class Custom_Field_Suite
             }
             exit;
         }
+    }
+
+
+    /**
+     * Make sure that $cfs exists for template parts
+     * @since 1.8.8
+     */
+    function parse_query( $wp_query ) {
+        $wp_query->query_vars['cfs'] = $this;
     }
 }
 
