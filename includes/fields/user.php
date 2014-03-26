@@ -3,34 +3,27 @@
 class cfs_user extends cfs_field
 {
 
-    function __construct($parent)
-    {
+    function __construct( $parent ) {
         $this->name = 'user';
-        $this->label = __('User', 'cfs');
+        $this->label = __( 'User', 'cfs' );
         $this->parent = $parent;
     }
 
 
-
-
-    function html($field)
-    {
+    function html( $field ) {
         global $wpdb;
 
         $selected_users = array();
         $available_users = array();
 
-        $results = $wpdb->get_results("SELECT ID, user_login FROM $wpdb->users ORDER BY user_login");
-        foreach ($results as $result)
-        {
+        $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users ORDER BY user_login" );
+        foreach ( $results as $result ) {
             $available_users[] = $result;
         }
 
-        if (!empty($field->value))
-        {
-            $results = $wpdb->get_results("SELECT ID, user_login FROM $wpdb->users WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)");
-            foreach ($results as $result)
-            {
+        if ( !empty( $field->value ) ) {
+            $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)" );
+            foreach ( $results as $result ) {
                 $selected_users[$result->ID] = $result;
             }
         }
@@ -49,14 +42,14 @@ class cfs_user extends cfs_field
         </div>
 
         <div class="available_posts post_list">
-        <?php foreach ($available_users as $user) : ?>
-            <?php $class = (isset($selected_users[$user->ID])) ? ' class="used"' : ''; ?>
+        <?php foreach ( $available_users as $user ) : ?>
+            <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? ' class="used"' : ''; ?>
             <div rel="<?php echo $user->ID; ?>"<?php echo $class; ?>><?php echo $user->user_login; ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
-        <?php foreach ($selected_users as $user) : ?>
+        <?php foreach ( $selected_users as $user ) : ?>
             <div rel="<?php echo $user->ID; ?>"><span class="remove"></span><?php echo $user->user_login; ?></div>
         <?php endforeach; ?>
         </div>
@@ -66,10 +59,7 @@ class cfs_user extends cfs_field
     }
 
 
-
-
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
     ?>
         <script>
         (function($) {
@@ -150,35 +140,24 @@ class cfs_user extends cfs_field
     }
 
 
-
-
-    function prepare_value($value, $field = null)
-    {
+    function prepare_value( $value, $field = null ) {
         return $value;
     }
 
 
-
-
-    function format_value_for_input($value, $field = null)
-    {
-        return empty($value) ? '' : implode(',', $value);
+    function format_value_for_input( $value, $field = null ) {
+        return empty( $value ) ? '' : implode( ',', $value );
     }
 
 
-
-
-    function pre_save($value, $field = null)
-    {
-        if (!empty($value))
-        {
+    function pre_save( $value, $field = null ) {
+        if ( !empty( $value ) ) {
             // Inside a loop, the value is $value[0]
             $value = (array) $value;
 
             // The raw input saves a comma-separated string
-            if (false !== strpos($value[0], ','))
-            {
-                return explode(',', $value[0]);
+            if ( false !== strpos( $value[0], ',' ) ) {
+                return explode( ',', $value[0] );
             }
 
             return $value;

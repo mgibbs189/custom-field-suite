@@ -124,7 +124,6 @@ class cfs_wysiwyg extends cfs_field
                     wpautop = tinyMCE.settings.wpautop;
 
                     tinyMCE.settings.wpautop = false;
-                    tinyMCE.settings.theme_advanced_buttons2 += ',code';
                     tinyMCE.execCommand('mceAddEditor', false, input_id);
                     tinyMCE.settings.wpautop = wpautop;
                 });

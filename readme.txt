@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
 Donate link: https://uproot.us/
-Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, upload
-Requires at least: 3.9
+Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, repeater, upload
+Requires at least: 3.8
 Tested up to: 3.9
 Stable tag: trunk
 License: GPL2
@@ -23,7 +23,7 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 = Getting Started =
-[See the CFS overview page →](https://uproot.us/projects/cfs/)
+[See the CFS overview page →](https://uproot.us/)
 
 = Documentation =
 [View the documentation →](https://uproot.us/projects/cfs/documentation/)
@@ -44,6 +44,13 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.2.0 =
+* WP 3.9 compatibility
+* Converted relationship fields to WP_Query (for more flexibility)
+* Added `cfs_field_relationship_query_args` filter
+* Updated translations
+* Code cleanup
 
 = 2.1.1 =
 * Added animated scroll to validation errors (props @joshlevinson)

@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-02-19 19:57-0500\n"
-"PO-Revision-Date: 2014-02-19 19:57-0500\n"
+"POT-Creation-Date: 2014-03-25 20:10-0500\n"
+"PO-Revision-Date: 2014-03-25 20:10-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,110 +16,110 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:89 cfs.php:361
+#: cfs.php:81 cfs.php:351
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:82
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:91
+#: cfs.php:83
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:92
+#: cfs.php:84
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:93
+#: cfs.php:85
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:86
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:95
+#: cfs.php:87
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:96
+#: cfs.php:88
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:97
+#: cfs.php:89
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:98
+#: cfs.php:90
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:131
+#: cfs.php:122
 msgid "Title"
 msgstr ""
 
-#: cfs.php:132
+#: cfs.php:123
 msgid "Placement"
 msgstr ""
 
-#: cfs.php:150 includes/fields/relationship.php:91
+#: cfs.php:139 includes/fields/relationship.php:107
 #: templates/meta_box_rules.php:120
 msgid "Post Types"
 msgstr ""
 
-#: cfs.php:151 templates/meta_box_rules.php:152
+#: cfs.php:140 templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr ""
 
-#: cfs.php:152
+#: cfs.php:141
 msgid "Post IDs"
 msgstr ""
 
-#: cfs.php:153
+#: cfs.php:142
 msgid "Term IDs"
 msgstr ""
 
-#: cfs.php:154 templates/meta_box_rules.php:240
+#: cfs.php:143 templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr ""
 
-#: cfs.php:350
+#: cfs.php:340
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:351
+#: cfs.php:341
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:352
+#: cfs.php:342
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:362 templates/page_tools.php:74
+#: cfs.php:352 templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:363 templates/page_addons.php:64
+#: cfs.php:353 templates/page_addons.php:64
 msgid "Add-ons"
 msgstr ""
 
-#: includes/field.php:20 includes/fields/text.php:9
+#: includes/field.php:20 includes/fields/text.php:8
 msgid "Text"
 msgstr ""
 
 #: includes/field.php:53 includes/fields/file.php:88
-#: includes/fields/select.php:134 includes/fields/text.php:35
+#: includes/fields/select.php:134 includes/fields/text.php:31
 #: includes/fields/textarea.php:66 includes/fields/true_false.php:49
-#: includes/fields/wysiwyg.php:70
+#: includes/fields/wysiwyg.php:61
 msgid "Validation"
 msgstr ""
 
 #: includes/field.php:62 includes/fields/file.php:97
-#: includes/fields/select.php:143 includes/fields/text.php:44
+#: includes/fields/select.php:143 includes/fields/text.php:40
 #: includes/fields/textarea.php:75 includes/fields/true_false.php:58
-#: includes/fields/wysiwyg.php:79
+#: includes/fields/wysiwyg.php:70
 msgid "This is a required field"
 msgstr ""
 
@@ -205,11 +205,11 @@ msgstr ""
 msgid "Relationship"
 msgstr ""
 
-#: includes/fields/relationship.php:92
+#: includes/fields/relationship.php:108
 msgid "Limit posts to the following types"
 msgstr ""
 
-#: includes/fields/relationship.php:107
+#: includes/fields/relationship.php:123
 msgid "Limits"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgstr ""
 msgid "This is a multi-select field"
 msgstr ""
 
-#: includes/fields/text.php:21 includes/fields/textarea.php:31
+#: includes/fields/text.php:17 includes/fields/textarea.php:31
 msgid "Default Value"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
-#: includes/fields/textarea.php:45 includes/fields/wysiwyg.php:49
+#: includes/fields/textarea.php:45 includes/fields/wysiwyg.php:40
 msgid "Formatting"
 msgstr ""
 
@@ -265,19 +265,19 @@ msgstr ""
 msgid "The text beside the checkbox"
 msgstr ""
 
-#: includes/fields/user.php:9
+#: includes/fields/user.php:8
 msgid "User"
 msgstr ""
 
-#: includes/fields/wysiwyg.php:14
+#: includes/fields/wysiwyg.php:11
 msgid "Wysiwyg Editor"
 msgstr ""
 
-#: includes/fields/wysiwyg.php:58
+#: includes/fields/wysiwyg.php:49
 msgid "Default"
 msgstr ""
 
-#: includes/fields/wysiwyg.php:59
+#: includes/fields/wysiwyg.php:50
 msgid "None (bypass filters)"
 msgstr ""
 
@@ -287,26 +287,6 @@ msgstr ""
 
 #: includes/fields/date/date.php:9
 msgid "Date"
-msgstr ""
-
-#: templates/admin_footer.php:41
-msgid "Custom Field Suite"
-msgstr ""
-
-#: templates/admin_footer.php:43
-msgid "Homepage"
-msgstr ""
-
-#: templates/admin_footer.php:44
-msgid "Documentation"
-msgstr ""
-
-#: templates/admin_footer.php:45
-msgid "Forums"
-msgstr ""
-
-#: templates/admin_footer.php:46
-msgid "Write a review"
 msgstr ""
 
 #: templates/admin_head.php:26
