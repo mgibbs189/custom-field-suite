@@ -31,8 +31,16 @@ class cfs_date extends cfs_field
             $.fn.init_date = function() {
                 this.each(function() {
                     //$(this).find('input.date').datetime();
-                    $(this).find('input.date').datetimepicker({
-						format: 'YYYY-MM-DD HH:mm'
+                    var input = $("<input>", {class: "displayDate", type: "text"});
+                    var format = "YYYY-MM-DD h:mm A"
+                    var formattedValue = moment.unix($(this).find('input.date').val()).format(format);
+                    $(this).append(input);
+                    $('.displayDate').val(formattedValue);
+                    $(this).find('input.displayDate').datetimepicker({
+						format: format
+                    });
+                    $(this).find('input.displayDate').on("dp.change",function (e) {
+                        $('input.date').val(moment($(this).val()).format("X"));
                     });
                     $(this).addClass('ready');
                 });

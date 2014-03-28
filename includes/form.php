@@ -304,7 +304,7 @@ CFS['loop_buffer'] = [];
 
                 if ( isset( $field->options['required'] ) && 0 < (int) $field->options['required'] ) {
                     if ( 'date' == $field->type ) {
-                        $validator = 'valid_date';
+                        //$validator = 'valid_date';
                     }
                     elseif ( 'color' == $field->type ) {
                         $validator = 'valid_color';
