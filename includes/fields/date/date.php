@@ -40,7 +40,7 @@ class cfs_date extends cfs_field
 						format: format
                     });
                     $(this).find('input.displayDate').on("dp.change",function (e) {
-                        $('input.date').val(moment($(this).val()).format("YYYY-MM-DD[T]HH:MM:SS"));
+                        $('input.date').val(moment($(this).val()).format("YYYY-MM-DD[T]HH:mm:SS"));
                     });
                     $(this).addClass('ready');
                 });
