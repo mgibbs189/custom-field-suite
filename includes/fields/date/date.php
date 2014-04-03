@@ -33,8 +33,14 @@ class cfs_date extends cfs_field
                     //$(this).find('input.date').datetime();
                     var input = $("<input>", {class: "displayDate", type: "text"});
                     var format = "YYYY-MM-DD h:mm A"
-                    var formattedValue = moment($(this).find('input.date').val()).format(format);
+                    var currentVal = $(this).find('input.date').val();
+                    if(moment(currentVal).isValid()) {
+                        var formattedValue = moment($(this).find('input.date').val()).format(format);
+                    } else {
+                        var formattedValue = moment().format(format);
+                    }
                     $(this).append(input);
+                    //Give the new display field the formatted value from the hidden field
                     $('.displayDate').val(formattedValue);
                     $(this).find('input.displayDate').datetimepicker({
 						format: format
