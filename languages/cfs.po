@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-03-25 20:10-0500\n"
-"PO-Revision-Date: 2014-03-25 20:10-0500\n"
+"POT-Creation-Date: 2014-04-03 23:52-0500\n"
+"PO-Revision-Date: 2014-04-03 23:52-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,92 +16,92 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:81 cfs.php:351
+#: cfs.php:86 cfs.php:356
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:82
+#: cfs.php:87
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:83
+#: cfs.php:88
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:84
+#: cfs.php:89
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:85
+#: cfs.php:90
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:86
+#: cfs.php:91
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:87
+#: cfs.php:92
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:88
+#: cfs.php:93
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:89
+#: cfs.php:94
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:95
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:122
+#: cfs.php:127
 msgid "Title"
 msgstr ""
 
-#: cfs.php:123
+#: cfs.php:128
 msgid "Placement"
 msgstr ""
 
-#: cfs.php:139 includes/fields/relationship.php:107
+#: cfs.php:144 includes/fields/relationship.php:107
 #: templates/meta_box_rules.php:120
 msgid "Post Types"
 msgstr ""
 
-#: cfs.php:140 templates/meta_box_rules.php:152
+#: cfs.php:145 templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr ""
 
-#: cfs.php:141
+#: cfs.php:146
 msgid "Post IDs"
 msgstr ""
 
-#: cfs.php:142
+#: cfs.php:147
 msgid "Term IDs"
 msgstr ""
 
-#: cfs.php:143 templates/meta_box_rules.php:240
+#: cfs.php:148 templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr ""
 
-#: cfs.php:340
+#: cfs.php:345
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:341
+#: cfs.php:346
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:342
+#: cfs.php:347
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:352 templates/page_tools.php:74
+#: cfs.php:357 templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:353 templates/page_addons.php:64
+#: cfs.php:358 templates/page_addons.php:64
 msgid "Add-ons"
 msgstr ""
 
