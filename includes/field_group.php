@@ -5,19 +5,14 @@ class cfs_field_group
     public $parent;
 
 
-
-
     /**
      * Constructor
      * @param object $parent 
      * @since 1.8.5
      */
-    public function __construct($parent)
-    {
+    public function __construct( $parent ) {
         $this->parent = $parent;
     }
-
-
 
 
     /**
@@ -26,26 +21,23 @@ class cfs_field_group
      * @return string The response message
      * @since 1.8.5
      */
-    public function import($options)
-    {
+    public function import( $options ) {
         global $wpdb;
 
-        if (!empty($options['import_code']))
-        {
+        if ( !empty( $options['import_code'] ) ) {
             // Collect stats
             $stats = array();
 
             // Get all existing field group names
-            $existing_groups = $wpdb->get_col("SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'");
+            $existing_groups = $wpdb->get_col( "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'" );
 
             // Loop through field groups
-            foreach ($options['import_code'] as $group_id => $group)
-            {
+            foreach ( $options['import_code'] as $group_id => $group ) {
+
                 // Make sure this field group doesn't exist
-                if (!in_array($group['post_name'], $existing_groups))
-                {
+                if ( !in_array( $group['post_name'], $existing_groups ) ) {
                     // Insert new post
-                    $post_id = wp_insert_post(array(
+                    $post_id = wp_insert_post( array(
                         'post_title' => $group['post_title'],
                         'post_name' => $group['post_name'],
                         'post_type' => 'cfs',
@@ -55,55 +47,48 @@ class cfs_field_group
                         'post_excerpt' => '',
                         'to_ping' => '',
                         'pinged' => '',
-                    ));
+                    ) );
 
                     // Generate new field IDs
                     $field_id_mapping = array();
-                    $next_field_id = (int) get_option('cfs_next_field_id');
-                    foreach ($group['cfs_fields'] as $key => $data)
-                    {
+                    $next_field_id = (int) get_option( 'cfs_next_field_id' );
+                    foreach ($group['cfs_fields'] as $key => $data) {
+
                         $id = $group['cfs_fields'][$key]['id'];
                         $parent_id = $group['cfs_fields'][$key]['parent_id'];
                         $field_id_mapping[$id] = $next_field_id;
                         $group['cfs_fields'][$key]['id'] = $next_field_id;
-                        if (0 < (int) $parent_id)
-                        {
+                        if ( 0 < (int) $parent_id ) {
                             $group['cfs_fields'][$key]['parent_id'] = $field_id_mapping[$parent_id];
                         }
                         $next_field_id++;
                     }
 
-                    update_option('cfs_next_field_id', $next_field_id);
-                    update_post_meta($post_id, 'cfs_fields', $group['cfs_fields']);
-                    update_post_meta($post_id, 'cfs_rules', $group['cfs_rules']);
-                    update_post_meta($post_id, 'cfs_extras', $group['cfs_extras']);
+                    update_option( 'cfs_next_field_id', $next_field_id );
+                    update_post_meta( $post_id, 'cfs_fields', $group['cfs_fields'] );
+                    update_post_meta( $post_id, 'cfs_rules', $group['cfs_rules'] );
+                    update_post_meta( $post_id, 'cfs_extras', $group['cfs_extras'] );
 
                     $stats['imported'][] = $group['post_title'];
                 }
-                else
-                {
+                else {
                     $stats['skipped'][] = $group['post_title'];
                 }
             }
 
             $return = '';
-            if (!empty($stats['imported']))
-            {
-                $return .= '<div>' . __('Imported', 'cfs') . ': ' . implode(', ', $stats['imported']) . '</div>';
+            if ( !empty( $stats['imported'] ) ) {
+                $return .= '<div>' . __( 'Imported', 'cfs' ) . ': ' . implode( ', ', $stats['imported'] ) . '</div>';
             }
-            if (!empty($stats['skipped']))
-            {
-                $return .= '<div>' . __('Skipped', 'cfs') . ': ' . implode(', ', $stats['skipped']) . '</div>';
+            if ( !empty( $stats['skipped'] ) ) {
+                $return .= '<div>' . __( 'Skipped', 'cfs' ) . ': ' . implode( ', ', $stats['skipped'] ) . '</div>';
             }
             return $return;
         }
-        else
-        {
-            return '<div>' . __('Nothing to import', 'cfs') . '</div>';
+        else {
+            return '<div>' . __( 'Nothing to import', 'cfs' ) . '</div>';
         }
     }
-
-
 
 
     /**
@@ -112,31 +97,28 @@ class cfs_field_group
      * @return array An array of field group data
      * @since 1.8.5
      */
-    public function export($options)
-    {
+    public function export( $options ) {
         global $wpdb;
 
         $post_ids = array();
         $field_groups = array();
-        foreach ($options['field_groups'] as $post_id)
-        {
+        foreach ( $options['field_groups'] as $post_id ) {
             $post_ids[] = (int) $post_id;
         }
-        $post_ids = implode(',', $post_ids);
+        $post_ids = implode( ',', $post_ids );
 
-        $post_data = $wpdb->get_results("SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)");
-        foreach ($post_data as $row)
-        {
+        $post_data = $wpdb->get_results( "SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)" );
+
+        foreach ( $post_data as $row ) {
             $field_groups[$row->ID] = array(
                 'post_title' => $row->post_title,
                 'post_name' => $row->post_name,
             );
         }
 
-        $meta_data = $wpdb->get_results("SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)");
-        foreach ($meta_data as $row)
-        {
-            $value = unserialize($row->meta_value);
+        $meta_data = $wpdb->get_results( "SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)" );
+        foreach ( $meta_data as $row ) {
+            $value = unserialize( $row->meta_value );
             $field_groups[$row->post_id][$row->meta_key] = $value;
         }
 
@@ -144,15 +126,12 @@ class cfs_field_group
     }
 
 
-
-
     /**
      * Save field group settings
      * @param array $params 
      * @since 1.8.0
      */
-    function save($params = array())
-    {
+    function save( $params = array() ) {
         global $wpdb;
 
         $post_id = $params['post_id'];
@@ -164,42 +143,39 @@ class cfs_field_group
         $weight = 0;
         $prev_fields = array();
         $current_field_ids = array();
-        $next_field_id = (int) get_option('cfs_next_field_id');
-        $existing_fields = get_post_meta($post_id, 'cfs_fields', true);
+        $next_field_id = (int) get_option( 'cfs_next_field_id' );
+        $existing_fields = get_post_meta( $post_id, 'cfs_fields', true );
 
-        if (!empty($existing_fields))
-        {
-            foreach ($existing_fields as $item)
-            {
+        if ( !empty( $existing_fields ) ) {
+            foreach ( $existing_fields as $item ) {
                 $prev_fields[$item['id']] = $item['name'];
             }
         }
 
         $new_fields = array();
 
-        foreach ($params['fields'] as $key => $field)
-        {
+        foreach ( $params['fields'] as $key => $field ) {
+
             // Sanitize the field
             $field = stripslashes_deep($field);
 
             // Allow for field customizations
-            $field = $this->parent->fields[$field['type']]->pre_save_field($field);
+            $field = $this->parent->fields[$field['type']]->pre_save_field( $field );
 
             // Set the parent ID
-            $field['parent_id'] = empty($field['parent_id']) ? 0 : (int) $field['parent_id'];
+            $field['parent_id'] = empty( $field['parent_id'] ) ? 0 : (int) $field['parent_id'];
 
             // Save empty array for fields without options
-            $field['options'] = empty($field['options']) ? array() : $field['options'];
+            $field['options'] = empty( $field['options'] ) ? array() : $field['options'];
 
             // Use an existing ID if available
-            if (0 < (int) $field['id'])
-            {
+            if ( 0 < (int) $field['id'] ) {
+
                 // We use this variable to check for deleted fields
                 $current_field_ids[] = $field['id'];
 
                 // Rename the postmeta key if necessary
-                if ($field['name'] != $prev_fields[$field['id']])
-                {
+                if ( $field['name'] != $prev_fields[$field['id']] ) {
                     $wpdb->query(
                         $wpdb->prepare("
                             UPDATE {$wpdb->postmeta} m
@@ -211,8 +187,7 @@ class cfs_field_group
                     );
                 }
             }
-            else
-            {
+            else {
                 $field['id'] = $next_field_id;
                 $next_field_id++;
             }
@@ -234,17 +209,16 @@ class cfs_field_group
         }
 
         // Save the fields
-        update_post_meta($post_id, 'cfs_fields', $new_fields);
+        update_post_meta( $post_id, 'cfs_fields', $new_fields );
 
         // Update the field ID counter
-        update_option('cfs_next_field_id', $next_field_id);
+        update_option( 'cfs_next_field_id', $next_field_id );
 
         // Remove values for deleted fields
-        $deleted_field_ids = array_diff(array_keys($prev_fields), $current_field_ids);
+        $deleted_field_ids = array_diff( array_keys( $prev_fields ), $current_field_ids );
 
-        if (0 < count($deleted_field_ids))
-        {
-            $deleted_field_ids = implode(',', $deleted_field_ids);
+        if ( 0 < count( $deleted_field_ids ) ) {
+            $deleted_field_ids = implode( ',', $deleted_field_ids );
             $wpdb->query("
                 DELETE v, m
                 FROM {$wpdb->prefix}cfs_values v
@@ -258,16 +232,14 @@ class cfs_field_group
         ---------------------------------------------------------------------------------------------*/
 
         $data = array();
-        $rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
+        $rule_types = array( 'post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates' );
 
-        foreach ($rule_types as $type)
-        {
-            if (!empty($params['rules'][$type]))
-            {
+        foreach ( $rule_types as $type ) {
+            if ( !empty( $params['rules'][$type] ) ) {
+
                 // Break apart the autocomplete string
-                if ('post_ids' == $type)
-                {
-                    $params['rules'][$type] = explode(',', $params['rules'][$type]);
+                if ( 'post_ids' == $type ) {
+                    $params['rules'][$type] = explode( ',', $params['rules'][$type] );
                 }
 
                 $data[$type] = array(
@@ -277,12 +249,12 @@ class cfs_field_group
             }
         }
 
-        update_post_meta($post_id, 'cfs_rules', $data);
+        update_post_meta( $post_id, 'cfs_rules', $data );
 
         /*---------------------------------------------------------------------------------------------
             Save extras
         ---------------------------------------------------------------------------------------------*/
 
-        update_post_meta($post_id, 'cfs_extras', $params['extras']);
+        update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
     }
 }
