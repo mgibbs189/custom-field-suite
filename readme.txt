@@ -45,6 +45,11 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.2.2 =
+* Added Russian translation
+* Added Italian translation
+* Code cleanup
+
 = 2.2.1 =
 * Restored $cfs for template parts
 
