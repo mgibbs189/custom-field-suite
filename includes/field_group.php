@@ -258,14 +258,14 @@ class cfs_field_group
         ---------------------------------------------------------------------------------------------*/
 
         $data = array();
-        $rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
+        $rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates', 'shortcodes');
 
         foreach ($rule_types as $type)
         {
             if (!empty($params['rules'][$type]))
             {
                 // Break apart the autocomplete string
-                if ('post_ids' == $type)
+                if ('post_ids' == $type || 'shortcodes' == $type)
                 {
                     $params['rules'][$type] = explode(',', $params['rules'][$type]);
                 }

@@ -570,7 +570,8 @@ class cfs_api
                 'user_roles' => $current_user->roles,
                 'term_ids' => array(),
                 'post_ids' => array(),
-                'page_templates' => array()
+                'page_templates' => array(),
+                'shortcodes' => array()
             ), $rule_types
         );
 
@@ -594,6 +595,8 @@ class cfs_api
             unset($rule_types['user_roles']);
         }
 
+        global $post;
+
         foreach ( $results as $result ) {
             $fail = false;
             $rules = unserialize( $result->rules );
@@ -616,8 +619,27 @@ class cfs_api
                     if ( ( $in_array && '!=' == $operator[0] ) || ( !$in_array && '==' == $operator[0] ) ) {
                         $fail = true;
                     }
+
+                    if ( 'shortcodes' == $rule_type ) {
+                        $contains_shortcode = array();
+                        $fail = false;
+                        if( is_array( $rules['shortcodes']['values'] ) ){
+                            foreach ($rules['shortcodes']['values'] as $shortcode) {
+                                if( has_shortcode( $post->post_content, $shortcode ) ){
+                                    $contains_shortcode[] = true;
+                                }
+                                else{
+                                    $contains_shortcode[] = false;
+                                }
+                            }
+                        }
+                        if( ( $operator[0] == '==' && !in_array( true, $contains_shortcode ) ) || ( $operator[0] == '!=' && in_array( true, $contains_shortcode ) ) ){
+                            $fail = true;
+                        }
+                    }
                 }
             }
+            
 
             if ( !$fail ) {
                 $temp[] = array(

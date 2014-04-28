@@ -18,6 +18,16 @@ foreach ($rule_types as $type)
     }
 }
 
+//shortcodes
+global $shortcode_tags;
+$shortcodes = '';
+$c = count($shortcode_tags);
+foreach ($shortcode_tags as $key => $shortcode_tag) {
+    $shortcodes .= $key;
+    if($i < $c) $shortcodes .= ',';
+}
+$selected_shortcodes = implode(',', $rules['shortcodes']['values']);
+
 // Post types
 $post_types = array();
 $types = get_post_types();
@@ -80,6 +90,13 @@ foreach ($templates as $template_name => $filename)
     $(function() {
         $('.select2').select2({
             placeholder: '<?php _e('Leave blank to skip this rule', 'cfs'); ?>'
+        });
+
+        $('.select2-custom').each(function(){
+            $(this).select2({
+                placeholder: '<?php _e('Leave blank to skip this rule', 'cfs'); ?>',
+                tags: $(this).data('tags').split(',')
+            });
         });
 
         $('.select2-ajax').select2({
@@ -265,6 +282,30 @@ foreach ($templates as $template_name => $filename)
                     'value' => $rules['page_templates']['values'],
                 ));
             ?>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label><?php _e('Shortcodes', 'cfs'); ?></label>
+        </td>
+        <td style="width:80px; vertical-align:top">
+            <?php
+                $this->create_field(array(
+                    'type' => 'select',
+                    'input_name' => "cfs[rules][operator][shortcodes]",
+                    'options' => array(
+                        'choices' => array(
+                            '==' => __('has', 'cfs'),
+                            '!=' => __('does not have', 'cfs'),
+                        ),
+                        'force_single' => true,
+                    ),
+                    'value' => $rules['shortcodes']['operator'],
+                ));
+            ?>
+        </td>
+        <td>
+            <input type="hidden" name="cfs[rules][shortcodes]" data-tags="<?php echo $shortcodes; ?>" class="select2-custom" value="<?php echo $selected_shortcodes; ?>" style="width:99.95%" />
         </td>
     </tr>
 </table>
