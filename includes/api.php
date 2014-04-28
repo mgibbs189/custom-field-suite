@@ -616,13 +616,12 @@ class cfs_api
                     $operator = (array) $rules[$rule_type]['operator'];
                     $in_array = ( 0 < count( array_intersect( (array) $value, $rules[$rule_type]['values'] ) ) );
 
-                    if ( ( $in_array && '!=' == $operator[0] ) || ( !$in_array && '==' == $operator[0] ) ) {
+                    if ( $rule_type != 'shortcodes' && ( ( $in_array && '!=' == $operator[0] ) || ( !$in_array && '==' == $operator[0] ) ) ) {
                         $fail = true;
                     }
 
                     if ( 'shortcodes' == $rule_type ) {
                         $contains_shortcode = array();
-                        $fail = false;
                         if( is_array( $rules['shortcodes']['values'] ) ){
                             foreach ($rules['shortcodes']['values'] as $shortcode) {
                                 if( has_shortcode( $post->post_content, $shortcode ) ){
