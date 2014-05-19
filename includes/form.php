@@ -275,6 +275,15 @@ CFS['loop_buffer'] = [];
     <?php
         }
 
+        // Detect tabs
+        $tabs = array();
+        $is_first_tab = true;
+        foreach ( $input_fields as $key => $field ) {
+            if ( 'tab' == $field->type ) {
+                $tabs[] = $field;
+            }
+        }
+
         // Add any necessary head scripts
         foreach ( $input_fields as $key => $field ) {
             // Exclude fields 
@@ -285,6 +294,16 @@ CFS['loop_buffer'] = [];
             // Skip missing field types
             if ( !isset( $this->parent->fields[$field->type] ) ) {
                 continue;
+            }
+
+            // Output tabs
+            if ( 'tab' == $field->type && $is_first_tab && ! empty( $tabs ) ) {
+                echo '<div class="cfs-tabs">';
+                foreach ( $tabs as $key => $tab ) {
+                    echo '<div class="cfs-tab" rel="' . $tab->name . '">' . $tab->label . '</div>';
+                }
+                echo '</div>';
+                $is_first_tab = false;
             }
 
             if ( !isset( $this->used_types[$field->type] ) ) {
@@ -313,6 +332,16 @@ CFS['loop_buffer'] = [];
                         $validator = 'required';
                     }
                 }
+
+                // Tab handling
+                if ( 'tab' == $field->type ) {
+                    // Close the previous tab
+                    if ( $field->name != $tabs[0]->name ) {
+                        echo '</div>';
+                    }
+                    echo '<div class="cfs-tab-content cfs-tab-content-' . $field->name . '">';
+                }
+                else {
     ?>
 
         <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>" data-validator="<?php echo $validator; ?>">
@@ -346,7 +375,13 @@ CFS['loop_buffer'] = [];
         </div>
 
     <?php
+                }
             }
+        }
+
+        // Make sure to close tabs
+        if ( !empty( $tabs ) ) {
+            echo '</div>';
         }
     ?>
 

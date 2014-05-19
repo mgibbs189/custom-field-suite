@@ -7,7 +7,7 @@ class cfs_ajax
      * @param array $options 
      * @return string A JSON results object
      */
-    public function search_posts($options) {
+    public function search_posts( $options ) {
         global $wpdb;
 
         $sql = $wpdb->prepare("

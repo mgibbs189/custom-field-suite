@@ -177,6 +177,7 @@ class Custom_Field_Suite
             'user'              => $this->dir . '/includes/fields/user.php',
             'file'              => $this->dir . '/includes/fields/file.php',
             'loop'              => $this->dir . '/includes/fields/loop.php',
+            'tab'               => $this->dir . '/includes/fields/tab.php',
         );
 
         // support custom field types
