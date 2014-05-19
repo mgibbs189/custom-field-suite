@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-04-03 23:52-0500\n"
-"PO-Revision-Date: 2014-04-03 23:52-0500\n"
+"POT-Creation-Date: 2014-05-19 15:12-0500\n"
+"PO-Revision-Date: 2014-05-19 15:12-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:86 cfs.php:356
+#: cfs.php:86 cfs.php:357
 msgid "Field Groups"
 msgstr ""
 
@@ -85,23 +85,23 @@ msgstr ""
 msgid "Page Templates"
 msgstr ""
 
-#: cfs.php:345
+#: cfs.php:346
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:346
+#: cfs.php:347
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:347
+#: cfs.php:348
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:357 templates/page_tools.php:74
+#: cfs.php:358 templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:358 templates/page_addons.php:64
+#: cfs.php:359 templates/page_addons.php:64
 msgid "Add-ons"
 msgstr ""
 
@@ -123,15 +123,15 @@ msgstr ""
 msgid "This is a required field"
 msgstr ""
 
-#: includes/field_group.php:92
+#: includes/field_group.php:81
 msgid "Imported"
 msgstr ""
 
-#: includes/field_group.php:96
+#: includes/field_group.php:84
 msgid "Skipped"
 msgstr ""
 
-#: includes/field_group.php:102
+#: includes/field_group.php:89
 msgid "Nothing to import"
 msgstr ""
 
@@ -231,6 +231,10 @@ msgstr ""
 
 #: includes/fields/select.php:127
 msgid "This is a multi-select field"
+msgstr ""
+
+#: includes/fields/tab.php:8
+msgid "Tab"
 msgstr ""
 
 #: includes/fields/text.php:17 includes/fields/textarea.php:31
