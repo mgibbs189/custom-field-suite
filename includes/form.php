@@ -297,7 +297,7 @@ CFS['loop_buffer'] = [];
             }
 
             // Output tabs
-            if ( 'tab' == $field->type && $is_first_tab && ! empty( $tabs ) ) {
+            if ( 'tab' == $field->type && $is_first_tab ) {
                 echo '<div class="cfs-tabs">';
                 foreach ( $tabs as $key => $tab ) {
                     echo '<div class="cfs-tab" rel="' . $tab->name . '">' . $tab->label . '</div>';
