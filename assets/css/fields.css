@@ -294,3 +294,27 @@ span.checkbox.active {
 /*---------------------------------------------------------------------------------------------
     mp6
 ---------------------------------------------------------------------------------------------*/
+
+body.mp6 .field_meta td.field_order {
+	background:#fcfcfc;
+	position:relative;
+}
+
+body.mp6 .field_meta td.field_order:after {
+	display: block;
+	color:#adadad;
+	content:'\f333';
+
+	/* dashicons */
+	font-size: 20px;
+	font-family: dashicons;
+	width: 100%;
+	height: 20px;
+	line-height: 1;
+	font-weight: 400;
+	text-decoration: inherit;
+	vertical-align: top;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-mos-osx-font-smoothing: grayscale;
+}
