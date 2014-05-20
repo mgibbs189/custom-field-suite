@@ -281,7 +281,7 @@
 .cfs-tabs {
     display: block;
     border-bottom: 1px solid #ccc;
-    margin: 20px 0;
+    margin: 20px 0 5px;
 }
 
 .cfs-tab {
@@ -305,4 +305,181 @@
 
 .cfs-tab-content.active {
     display: block;
+}
+
+/*---------------------------------------------------------------------------------------------
+    mp6
+---------------------------------------------------------------------------------------------*/
+
+body.mp6 .cfs_input .field label {
+	padding-bottom:0.4em;
+}
+
+body.mp6 .cfs_input .field p.notes {
+	margin-bottom:1em;
+	font-size:0.9em;
+}
+
+body.mp6 .cfs_input .field[data-type='loop'] p.notes {
+	margin-bottom:1.4em;
+}
+
+body.mp6 .cfs_input select {
+	line-height:1;
+	height:auto;
+}
+
+body.mp6 .cfs-tab {
+	-webkit-border-radius: 1px 1px 0 0;
+	border-radius: 1px 1px 0 0;
+}
+
+body.mp6 .cfs_input .cfs_loop_toggle,
+body.mp6 .cfs_input .cfs_toggle_field,
+body.mp6 .cfs_input .cfs_delete_field,
+body.mp6 .cfs_relationship .selected_posts div span.remove,
+body.mp6 .cfs_user .selected_posts div span.remove,
+body.mp6 .cfs_relationship .cfs_filter_help,
+body.mp6 .cfs_user .cfs_filter_help{
+	background:transparent;
+	position:relative;
+}
+
+body.mp6 .cfs_input .cfs_delete_field,
+body.mp6 .cfs_relationship .selected_posts div span.remove,
+body.mp6 .cfs_user .selected_posts div span.remove {
+	width: 20px;
+}
+
+body.mp6 .cfs_input .cfs_toggle_field {
+	margin-right: 4px;
+	top:-1px;
+}
+
+body.mp6 .cfs_input .cfs_loop_toggle:before,
+body.mp6 .cfs_input .cfs_toggle_field:before,
+body.mp6 .cfs_input .cfs_delete_field:before,
+body.mp6 .cfs_loop .cfs_loop_head:before,
+body.mp6 .cfs_relationship .selected_posts div span.remove:before,
+body.mp6 .cfs_user .selected_posts div span.remove:before,
+body.mp6 .cfs_user .selected_posts div span.remove:before,
+body.mp6 .cfs_relationship .cfs_filter_help:before,
+body.mp6 .cfs_user .cfs_filter_help:before,
+body.mp6 .cfs_relationship .post_list.available_posts > div:after,
+body.mp6 .cfs_user .post_list.available_posts > div:after {
+	display: block;
+	position:absolute;
+	color:#adadad;
+
+	/* dashicons */
+	font-size: 20px;
+	font-family: dashicons;
+	width: 20px;
+	height: 20px;
+	line-height: 1;
+	font-weight: 400;
+	text-decoration: inherit;
+	vertical-align: top;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-mos-osx-font-smoothing: grayscale;
+}
+
+body.mp6 .cfs_input .cfs_loop_toggle:before {
+	content: '\f111';
+}
+
+body.mp6 .cfs_input .cfs_toggle_field:before {
+	content: '\f140';
+}
+
+body.mp6 .cfs_input .cfs_delete_field:before,
+body.mp6 .cfs_relationship .selected_posts div span.remove:before,
+body.mp6 .cfs_user .selected_posts div span.remove:before {
+	content: '\f335';
+	font-size:22px;
+	top:-1px;
+}
+
+body.mp6 .cfs_relationship .cfs_filter_help:before,
+body.mp6 .cfs_user .cfs_filter_help:before {
+	content: '\f348';
+}
+
+body.mp6 .cfs_loop .cfs_loop_body > label:first-of-type {
+	padding-top:0;
+}
+
+body.mp6 .cfs_loop .cfs_loop_body > .field {
+	padding:0 0 10px;
+}
+
+body.mp6 .cfs_loop .loop_wrapper {
+	-webkit-border-radius: 1px 1px 1px 1px;
+	border-radius: 1px 1px 1px 1px;
+}
+
+body.mp6 .cfs_loop .cfs_loop_head {
+	position:relative;
+	padding-left:30px;
+	background:#f5f5f5;
+}
+
+body.mp6 .cfs_loop .cfs_loop_head:before {
+	padding: 4px 0;
+	display: block;
+	position:absolute;
+	left:5px;
+	top:0;
+	color:#adadad;
+	content: '\f333';
+}
+
+body.mp6 .cfs_loop .cfs_loop_body.open {
+	background:#fbfbfb;
+	border-top:1px solid #dfdfdf;
+}
+
+body.mp6 .cfs_relationship .post_list,
+body.mp6 .cfs_user .post_list {
+	background:#f5f5f5;
+	overflow:hidden;
+	border:1px solid #dfdfdf;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	height:190px;
+	width:49.5%;
+	float:left;
+	-webkit-border-radius: 1px 1px 1px 1px;
+	border-radius: 1px 1px 1px 1px;
+}
+
+body.mp6 .cfs_relationship .post_list.available_posts,
+body.mp6 .cfs_user .post_list.available_posts {
+
+}
+
+body.mp6 .cfs_relationship .post_list.selected_posts,
+body.mp6 .cfs_user .post_list.selected_posts {
+	float:right;
+}
+
+body.mp6 .cfs_relationship .post_list.available_posts > div,
+body.mp6 .cfs_user .post_list.available_posts > div {
+	position:relative;
+	padding-right:3em;
+}
+
+body.mp6 .cfs_relationship .post_list.available_posts > div:after,
+body.mp6 .cfs_user .post_list.available_posts > div:after {
+	position:absolute;
+	right:1px;
+	top:4px;
+	content: '\f139';
+	font-size:19px;
+}
+
+body.mp6 .cfs_relationship .filter_posts,
+body.mp6 .cfs_user .filter_posts {
+	margin-bottom:10px;
 }
