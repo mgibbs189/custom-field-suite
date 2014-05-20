@@ -13,15 +13,6 @@ class cfs_file extends cfs_field
         $this->name = 'file';
         $this->label = __('File Upload', 'cfs');
         $this->parent = $parent;
-        $this->new_media = version_compare(get_bloginfo('version'), '3.5', '>=');
-
-        // These hooks are required for WP < 3.5
-        // https://github.com/thomasgriffin/New-Media-Image-Uploader
-        if (!$this->new_media)
-        {
-            add_action('admin_head-media-upload-popup', array($this, 'popup_head'));
-            add_filter('media_send_to_editor', array($this, 'media_send_to_editor'), 20, 3);
-        }
     }
 
 
@@ -193,25 +184,11 @@ class cfs_file extends cfs_field
     function input_head($field = null)
     {
         global $post;
-
-        if ($this->new_media)
-        {
-            wp_enqueue_media();
-        }
+        wp_enqueue_media();
     ?>
         <script>
         (function($) {
             $(function() {
-
-            <?php if (!$this->new_media) : ?>
-
-                $(document).on('click', '.cfs_input .media.button.add', function() {
-                    window.cfs_div = $(this);
-                    tb_show('<?php _e('Attach file', 'cfs'); ?>', 'media-upload.php?post_id=<?php echo $post->ID; ?>&cfs_file=1&TB_iframe=1&width=640&height=480');
-                    return false;
-                });
-
-            <?php else : ?>
 
                 var cfs_media_frame;
 
@@ -248,8 +225,6 @@ class cfs_file extends cfs_field
                     cfs_media_frame.open();
                     cfs_media_frame.content.mode('upload');
                 });
-
-            <?php endif; ?>
 
                 $(document).on('click', '.cfs_input .media.button.remove', function() {
                     $(this).siblings('.file_url').html('');
