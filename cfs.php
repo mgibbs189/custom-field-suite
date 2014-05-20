@@ -154,7 +154,8 @@ class Custom_Field_Suite
 
             foreach ( $results as $criteria => $values ) {
                 $label = $labels[$criteria];
-                echo "<div>$label " . $values['operator'] . ' ' . implode(', ', $values['values']) . '</div>';
+                $operator = ( '==' == $values['operator'] ) ? '=' : '!=';
+                echo "<div>$label " . $operator . ' [' . implode(' or ', $values['values']) . ']</div>';
             }
         }
     }
