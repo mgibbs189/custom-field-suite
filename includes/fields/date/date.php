@@ -1,4 +1,11 @@
 <?php
+function datepicker_dequeue_script() {
+
+        wp_dequeue_style('timely-bootstrap');
+        wp_dequeue_style('timely-bootstrap-datepicker');
+        wp_dequeue_style('ai1ec_datepicker');
+}
+add_action( 'admin_enqueue_scripts', 'datepicker_dequeue_script', 999 );
 
 class cfs_date extends cfs_field
 {
@@ -17,7 +24,8 @@ class cfs_date extends cfs_field
     {
         $this->load_assets();
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/datepicker.css" />
+	    <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/bootstrap-datetimepicker.min.css" />
         <script>
         (function($) {
             $(function() {
@@ -29,11 +37,24 @@ class cfs_date extends cfs_field
 
             $.fn.init_date = function() {
                 this.each(function() {
+                    $(this).find('input.date').hide()
                     //$(this).find('input.date').datetime();
-                    $(this).find('input.date').datepicker({
-                        format: 'yyyy-mm-dd',
-                        autoclose: true,
-                        clearBtn: true
+                    var input = $("<input>", {class: "displayDate", type: "text"});
+                    var format = "YYYY-MM-DD h:mm A"
+                    var currentVal = $(this).find('input.date').val();
+                    if(moment(currentVal).isValid()) {
+                        var formattedValue = moment($(this).find('input.date').val()).format(format);
+                    } else {
+                        var formattedValue = moment().format(format);
+                    }
+                    $(this).append(input);
+                    //Give the new display field the formatted value from the hidden field
+                    $('.displayDate').val(formattedValue);
+                    $(this).find('input.displayDate').datetimepicker({
+						format: format
+                    });
+                    $(this).find('input.displayDate').on("dp.change",function (e) {
+                        $(this).prev().val(moment($(this).val()).format("YYYY-MM-DD[T]HH:mm:SS"));
                     });
                     $(this).addClass('ready');
                 });
@@ -43,12 +64,16 @@ class cfs_date extends cfs_field
     <?php
     }
 
-
-
-
     function load_assets()
     {
-        wp_register_script('bootstrap-datepicker', $this->parent->url . '/includes/fields/date/bootstrap-datepicker.js', array('jquery'));
+       
+
+        wp_register_script('bootstrap', $this->parent->url . '/includes/fields/date/bootstrap/js/bootstrap.min.js', array('jquery'));
+        wp_enqueue_script('bootstrap');
+        wp_register_script('moment', $this->parent->url . '/includes/fields/date/moment.min.js', array('jquery'));
+        wp_enqueue_script('moment');
+        wp_register_script('bootstrap-datepicker', $this->parent->url . '/includes/fields/date/bootstrap-datetimepicker.min.js', array('jquery'));
         wp_enqueue_script('bootstrap-datepicker');
+
     }
 }

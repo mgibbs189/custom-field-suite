@@ -93,8 +93,18 @@
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_input .cfs_date input.date {
+    display: none;
+}
+
+.cfs_input .cfs_date input.displayDate {
     width: 160px;
     background: #fff url(../images/icon-calendar.png) 98% 2px no-repeat;
+}
+#normal-sortables .cfs_input .cfs_date input.displayDate {
+	width: 250px;
+}
+#side-sortables .cfs_input .cfs_date input.displayDate {
+	width: 100%;
 }
 
 /*---------------------------------------------------------------------------------------------

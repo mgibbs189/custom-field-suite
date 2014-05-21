@@ -6,13 +6,7 @@ jQuery(function($) {
                 return ('' != val && null != val);
             }
         },
-        'valid_date': {
-            'error': 'Please enter a valid date (YYYY-MM-DD HH:MM)',
-            'validate': function(val) {
-                var regex = /^\d{4}-\d{2}-\d{2}/;
-                return regex.test(val);
-            }
-        },
+
         'valid_color': {
             'error': 'Please enter a valid color HEX (#ff0000)',
             'validate': function(val) {
