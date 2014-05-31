@@ -443,20 +443,14 @@ body.mp6 .cfs_loop .cfs_loop_body.open {
 body.mp6 .cfs_relationship .post_list,
 body.mp6 .cfs_user .post_list {
 	background:#f5f5f5;
-	overflow:hidden;
 	border:1px solid #dfdfdf;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	height:190px;
-	width:49.5%;
+	width:49%;
 	float:left;
 	-webkit-border-radius: 1px 1px 1px 1px;
 	border-radius: 1px 1px 1px 1px;
-}
-
-body.mp6 .cfs_relationship .post_list.available_posts,
-body.mp6 .cfs_user .post_list.available_posts {
-
 }
 
 body.mp6 .cfs_relationship .post_list.selected_posts,
