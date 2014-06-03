@@ -10,26 +10,27 @@ class cfs_wysiwyg extends cfs_field
         $this->name = 'wysiwyg';
         $this->label = __( 'Wysiwyg Editor', 'cfs' );
         $this->parent = $parent;
-
-        // wp_editor() won't work for dynamic-generated wysiwygs
-        add_filter( 'wp_default_editor', array( $this, 'wp_default_editor' ) );
-
-        // force HTML mode for main content editor
-        add_action( 'tiny_mce_before_init', array( $this, 'editor_pre_init' ) );
     }
 
 
     function html( $field ) {
-    ?>
-        <div class="wp-editor-wrap">
-            <div class="wp-media-buttons">
-                <?php do_action( 'media_buttons' ); ?>
-            </div>
-            <div class="wp-editor-container">
-                <textarea name="<?php echo $field->input_name; ?>" class="wp-editor-area <?php echo $field->input_class; ?>" rows="4"><?php echo $field->value; ?></textarea>
-            </div>
-        </div>
-    <?php
+        $field_id =  str_replace(array("[", "]", "(", ")"), "",$field->input_name );
+     wp_editor(html_entity_decode(stripcslashes($field->value)), 'editor'.$field_id, array(
+            'wpautop'           => true,
+            'media_buttons'     => true,
+            'default_editor'    => '',
+            'drag_drop_upload'  => false,
+            'textarea_name'     => $field->input_name,
+            'textarea_rows'     => 20,
+            'tabindex'          => '',
+            'tabfocus_elements' => ':prev,:next',
+            'editor_css'        => '',
+            'editor_class'      => $field->input_class,
+            'teeny'             => false,
+            'dfw'               => false,
+            'tinymce'           => true,
+            'quicktags'         => true
+        ) );
     }
 
 
@@ -86,70 +87,8 @@ class cfs_wysiwyg extends cfs_field
                 wp_editor( '', 'cfswysi' );
                 echo '</div>';
             }
-    ?>
-        <script>
-        (function($) {
-
-            var wpautop;
-            var wysiwyg_count = 0;
-
-            $(function() {
-                $(document).on('cfs/ready', '.cfs_add_field', function() {
-                    $('.cfs_wysiwyg:not(.ready)').init_wysiwyg();
-                });
-                $('.cfs_wysiwyg').init_wysiwyg();
-
-                // set the active editor
-                $(document).on('click', 'a.add_media', function() {
-                    var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
-                    wpActiveEditor = editor_id;
-                });
-            });
-
-            $.fn.init_wysiwyg = function() {
-                this.each(function() {
-                    $(this).addClass('ready');
-
-                    // generate css id
-                    wysiwyg_count = wysiwyg_count + 1;
-                    var input_id = 'cfs_wysiwyg_' + wysiwyg_count;
-
-                    // set the wysiwyg css id
-                    $(this).find('.wysiwyg').attr('id', input_id);
-
-                    // WP 3.5+
-                    $(this).find('a.add_media').attr('data-editor', input_id);
-
-                    // create wysiwyg
-                    wpautop = tinyMCE.settings.wpautop;
-
-                    tinyMCE.settings.wpautop = false;
-                    tinyMCE.execCommand('mceAddEditor', false, input_id);
-                    tinyMCE.settings.wpautop = wpautop;
-                });
-            };
-
-            $(document).on('cfs/sortable_start', function(event, ui) {
-                tinyMCE.settings.wpautop = false;
-                $(ui).find('.wysiwyg').each(function() {
-                    tinyMCE.execCommand('mceRemoveEditor', false, $(this).attr('id'));
-                });
-            });
-
-            $(document).on('cfs/sortable_stop', function(event, ui) {
-                $(ui).find('.wysiwyg').each(function() {
-                    tinyMCE.execCommand('mceAddEditor', false, $(this).attr('id'));
-                });
-                tinyMCE.settings.wpautop = wpautop;
-            });
-        })(jQuery);
-        </script>
-    <?php
         }
     }
-
-
-
 
     function wp_default_editor( $default ) {
         $this->wp_default_editor = $default;
