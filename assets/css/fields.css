@@ -318,3 +318,7 @@ body.mp6 .field_meta td.field_order:after {
 	-webkit-font-smoothing: antialiased;
 	-mos-osx-font-smoothing: grayscale;
 }
+
+body.mp6 .form_open .field_meta td.field_order:after {
+	color:#fff;
+}
