@@ -3,7 +3,7 @@
 class cfs_date extends cfs_field
 {
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'date';
         $this->label = __( 'Date', 'cfs' );
     }

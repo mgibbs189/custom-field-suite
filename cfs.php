@@ -78,13 +78,13 @@ class Custom_Field_Suite
             include( CFS_DIR . "/includes/$f.php" );
         }
 
-        $upgrade = new cfs_upgrade( $this->version );
+        $upgrade = new cfs_upgrade();
 
         // load classes
-        $this->api = new cfs_api($this);
-        $this->form = new cfs_form($this);
-        $this->field_group = new cfs_field_group($this);
-        $this->third_party = new cfs_third_party($this);
+        $this->api = new cfs_api();
+        $this->form = new cfs_form();
+        $this->field_group = new cfs_field_group();
+        $this->third_party = new cfs_third_party();
         $this->fields = $this->get_field_types();
 
         register_post_type( 'cfs', array(
@@ -203,7 +203,7 @@ class Custom_Field_Suite
                 include_once( $path );
             }
 
-            $field_types[ $type ] = new $class_name( $this );
+            $field_types[ $type ] = new $class_name();
         }
 
         return $field_types;
@@ -351,13 +351,12 @@ class Custom_Field_Suite
      * @param int $post_id 
      * @since 1.0.0
      */
-    function save_post( $post_id )
-    {
-        if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+    function save_post( $post_id ) {
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
             return;
         }
 
-        if ( !isset( $_POST['cfs']['save'] ) ) {
+        if ( ! isset( $_POST['cfs']['save'] ) ) {
             return;
         }
 

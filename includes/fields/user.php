@@ -3,7 +3,7 @@
 class cfs_user extends cfs_field
 {
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'user';
         $this->label = __( 'User', 'cfs' );
     }

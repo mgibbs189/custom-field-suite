@@ -3,7 +3,7 @@
 class cfs_tab extends cfs_field
 {
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'tab';
         $this->label = __( 'Tab', 'cfs' );
     }

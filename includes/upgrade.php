@@ -5,9 +5,9 @@ class cfs_upgrade
     public $version;
     public $last_version;
 
-    public function __construct($version)
+    public function __construct()
     {
-        $this->version = $version;
+        $this->version = CFS_VERSION;
         $this->last_version = get_option('cfs_version');
 
         if (version_compare($this->last_version, $this->version, '<'))

@@ -2,8 +2,6 @@
 
 class cfs_third_party
 {
-    public $parent;
-
 
     public function __construct() {
 

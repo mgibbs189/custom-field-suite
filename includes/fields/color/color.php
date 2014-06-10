@@ -3,7 +3,7 @@
 class cfs_color extends cfs_field
 {
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'color';
         $this->label = __( 'Color', 'cfs' );
     }

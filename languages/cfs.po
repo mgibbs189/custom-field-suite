@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-05-19 15:12-0500\n"
-"PO-Revision-Date: 2014-05-19 15:12-0500\n"
+"POT-Creation-Date: 2014-06-09 20:18-0500\n"
+"PO-Revision-Date: 2014-06-09 20:18-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,126 +16,126 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:86 cfs.php:357
+#: cfs.php:99 cfs.php:343
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:87
+#: cfs.php:100
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:88
+#: cfs.php:101
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:89
+#: cfs.php:102
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:90
+#: cfs.php:103
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:91
+#: cfs.php:104
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:92
+#: cfs.php:105
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:93
+#: cfs.php:106
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:94
+#: cfs.php:107
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:95
+#: cfs.php:108
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:127
+#: cfs.php:140
 msgid "Title"
 msgstr ""
 
-#: cfs.php:128
+#: cfs.php:141
 msgid "Placement"
 msgstr ""
 
-#: cfs.php:144 includes/fields/relationship.php:107
+#: cfs.php:157 includes/fields/relationship.php:106
 #: templates/meta_box_rules.php:120
 msgid "Post Types"
 msgstr ""
 
-#: cfs.php:145 templates/meta_box_rules.php:152
+#: cfs.php:158 templates/meta_box_rules.php:152
 msgid "User Roles"
 msgstr ""
 
-#: cfs.php:146
+#: cfs.php:159
 msgid "Post IDs"
 msgstr ""
 
-#: cfs.php:147
+#: cfs.php:160
 msgid "Term IDs"
 msgstr ""
 
-#: cfs.php:148 templates/meta_box_rules.php:240
+#: cfs.php:161 templates/meta_box_rules.php:240
 msgid "Page Templates"
 msgstr ""
 
-#: cfs.php:346
+#: cfs.php:332
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:347
+#: cfs.php:333
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:348
+#: cfs.php:334
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:358 templates/page_tools.php:74
+#: cfs.php:344 templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:359 templates/page_addons.php:64
+#: cfs.php:345 templates/page_addons.php:64
 msgid "Add-ons"
 msgstr ""
 
-#: includes/field.php:20 includes/fields/text.php:8
+#: includes/field.php:16 includes/fields/text.php:8
 msgid "Text"
 msgstr ""
 
-#: includes/field.php:53 includes/fields/file.php:88
-#: includes/fields/select.php:134 includes/fields/text.php:31
-#: includes/fields/textarea.php:66 includes/fields/true_false.php:49
-#: includes/fields/wysiwyg.php:61
+#: includes/field.php:42 includes/fields/file.php:78
+#: includes/fields/select.php:133 includes/fields/text.php:30
+#: includes/fields/textarea.php:65 includes/fields/true_false.php:48
+#: includes/fields/wysiwyg.php:60
 msgid "Validation"
 msgstr ""
 
-#: includes/field.php:62 includes/fields/file.php:97
-#: includes/fields/select.php:143 includes/fields/text.php:40
-#: includes/fields/textarea.php:75 includes/fields/true_false.php:58
-#: includes/fields/wysiwyg.php:70
+#: includes/field.php:51 includes/fields/file.php:87
+#: includes/fields/select.php:142 includes/fields/text.php:39
+#: includes/fields/textarea.php:74 includes/fields/true_false.php:57
+#: includes/fields/wysiwyg.php:69
 msgid "This is a required field"
 msgstr ""
 
-#: includes/field_group.php:81
+#: includes/field_group.php:69
 msgid "Imported"
 msgstr ""
 
-#: includes/field_group.php:84
+#: includes/field_group.php:72
 msgid "Skipped"
 msgstr ""
 
-#: includes/field_group.php:89
+#: includes/field_group.php:77
 msgid "Nothing to import"
 msgstr ""
 
-#: includes/form.php:201
+#: includes/form.php:194
 msgid "Submit"
 msgstr ""
 
@@ -143,61 +143,57 @@ msgstr ""
 msgid "File Upload"
 msgstr ""
 
-#: includes/fields/file.php:53
+#: includes/fields/file.php:43
 msgid "Add File"
 msgstr ""
 
-#: includes/fields/file.php:54
+#: includes/fields/file.php:44
 msgid "Remove"
 msgstr ""
 
-#: includes/fields/file.php:67
+#: includes/fields/file.php:57
 msgid "Return Value"
 msgstr ""
 
-#: includes/fields/file.php:76
+#: includes/fields/file.php:66
 msgid "File URL"
 msgstr ""
 
-#: includes/fields/file.php:77
+#: includes/fields/file.php:67
 msgid "Attachment ID"
 msgstr ""
 
-#: includes/fields/file.php:137
+#: includes/fields/file.php:127
 msgid "Use This File"
-msgstr ""
-
-#: includes/fields/file.php:210
-msgid "Attach file"
 msgstr ""
 
 #: includes/fields/loop.php:9
 msgid "Loop"
 msgstr ""
 
-#: includes/fields/loop.php:42
+#: includes/fields/loop.php:41
 msgid "Row Display"
 msgstr ""
 
-#: includes/fields/loop.php:51
+#: includes/fields/loop.php:50
 msgid "Show the values by default"
 msgstr ""
 
-#: includes/fields/loop.php:58
+#: includes/fields/loop.php:57
 msgid "Row Label"
 msgstr ""
 
-#: includes/fields/loop.php:65 includes/fields/loop.php:98
-#: includes/fields/loop.php:205
+#: includes/fields/loop.php:64 includes/fields/loop.php:97
+#: includes/fields/loop.php:204
 msgid "Loop Row"
 msgstr ""
 
-#: includes/fields/loop.php:72
+#: includes/fields/loop.php:71
 msgid "Button Label"
 msgstr ""
 
-#: includes/fields/loop.php:79 includes/fields/loop.php:125
-#: includes/fields/loop.php:206
+#: includes/fields/loop.php:78 includes/fields/loop.php:124
+#: includes/fields/loop.php:205
 msgid "Add Row"
 msgstr ""
 
@@ -205,11 +201,11 @@ msgstr ""
 msgid "Relationship"
 msgstr ""
 
-#: includes/fields/relationship.php:108
+#: includes/fields/relationship.php:107
 msgid "Limit posts to the following types"
 msgstr ""
 
-#: includes/fields/relationship.php:123
+#: includes/fields/relationship.php:122
 msgid "Limits"
 msgstr ""
 
@@ -217,19 +213,19 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: includes/fields/select.php:103
+#: includes/fields/select.php:102
 msgid "Choices"
 msgstr ""
 
-#: includes/fields/select.php:104
+#: includes/fields/select.php:103
 msgid "Enter one choice per line"
 msgstr ""
 
-#: includes/fields/select.php:118
+#: includes/fields/select.php:117
 msgid "Multi-select?"
 msgstr ""
 
-#: includes/fields/select.php:127
+#: includes/fields/select.php:126
 msgid "This is a multi-select field"
 msgstr ""
 
@@ -237,7 +233,7 @@ msgstr ""
 msgid "Tab"
 msgstr ""
 
-#: includes/fields/text.php:17 includes/fields/textarea.php:31
+#: includes/fields/text.php:16 includes/fields/textarea.php:30
 msgid "Default Value"
 msgstr ""
 
@@ -245,15 +241,15 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
-#: includes/fields/textarea.php:45 includes/fields/wysiwyg.php:40
+#: includes/fields/textarea.php:44 includes/fields/wysiwyg.php:39
 msgid "Formatting"
 msgstr ""
 
-#: includes/fields/textarea.php:54
+#: includes/fields/textarea.php:53
 msgid "None"
 msgstr ""
 
-#: includes/fields/textarea.php:55
+#: includes/fields/textarea.php:54
 msgid "Convert newlines to <br />"
 msgstr ""
 
@@ -261,11 +257,11 @@ msgstr ""
 msgid "True / False"
 msgstr ""
 
-#: includes/fields/true_false.php:34
+#: includes/fields/true_false.php:33
 msgid "Message"
 msgstr ""
 
-#: includes/fields/true_false.php:35
+#: includes/fields/true_false.php:34
 msgid "The text beside the checkbox"
 msgstr ""
 
@@ -277,23 +273,23 @@ msgstr ""
 msgid "Wysiwyg Editor"
 msgstr ""
 
-#: includes/fields/wysiwyg.php:49
+#: includes/fields/wysiwyg.php:48
 msgid "Default"
 msgstr ""
 
-#: includes/fields/wysiwyg.php:50
+#: includes/fields/wysiwyg.php:49
 msgid "None (bypass filters)"
 msgstr ""
 
-#: includes/fields/color/color.php:9
+#: includes/fields/color/color.php:8
 msgid "Color"
 msgstr ""
 
-#: includes/fields/date/date.php:9
+#: includes/fields/date/date.php:8
 msgid "Date"
 msgstr ""
 
-#: templates/admin_head.php:26
+#: templates/admin_head.php:24
 msgid "New Field"
 msgstr ""
 
