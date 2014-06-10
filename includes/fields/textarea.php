@@ -3,11 +3,10 @@
 class cfs_textarea extends cfs_field
 {
 
-    function __construct($parent)
+    function __construct()
     {
         $this->name = 'textarea';
         $this->label = __('Textarea', 'cfs');
-        $this->parent = $parent;
     }
 
 
@@ -32,7 +31,7 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][default_value]",
                         'value' => $this->get_option($field, 'default_value'),
@@ -46,7 +45,7 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
                         'options' => array(
@@ -67,7 +66,7 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',

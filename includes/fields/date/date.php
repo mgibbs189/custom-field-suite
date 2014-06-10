@@ -3,21 +3,16 @@
 class cfs_date extends cfs_field
 {
 
-    function __construct($parent)
-    {
+    function __construct( $parent ) {
         $this->name = 'date';
-        $this->label = __('Date', 'cfs');
-        $this->parent = $parent;
+        $this->label = __( 'Date', 'cfs' );
     }
 
 
-
-
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
         $this->load_assets();
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/date/datepicker.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/includes/fields/date/datepicker.css" />
         <script>
         (function($) {
             $(function() {
@@ -44,11 +39,8 @@ class cfs_date extends cfs_field
     }
 
 
-
-
-    function load_assets()
-    {
-        wp_register_script('bootstrap-datepicker', $this->parent->url . '/includes/fields/date/bootstrap-datepicker.js', array('jquery'));
-        wp_enqueue_script('bootstrap-datepicker');
+    function load_assets() {
+        wp_register_script( 'bootstrap-datepicker', CFS_URL . '/includes/fields/date/bootstrap-datepicker.js', array( 'jquery' ) );
+        wp_enqueue_script( 'bootstrap-datepicker' );
     }
 }

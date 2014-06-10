@@ -2,18 +2,6 @@
 
 class cfs_field_group
 {
-    public $parent;
-
-
-    /**
-     * Constructor
-     * @param object $parent 
-     * @since 1.8.5
-     */
-    public function __construct( $parent ) {
-        $this->parent = $parent;
-    }
-
 
     /**
      * Import field groups
@@ -32,7 +20,7 @@ class cfs_field_group
             $existing_groups = $wpdb->get_col( "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'cfs'" );
 
             // Loop through field groups
-            foreach ( $options['import_code'] as $group_id => $group ) {
+            foreach ( $options['import_code'] as $group ) {
 
                 // Make sure this field group doesn't exist
                 if ( !in_array( $group['post_name'], $existing_groups ) ) {
@@ -122,6 +110,13 @@ class cfs_field_group
             $field_groups[$row->post_id][$row->meta_key] = $value;
         }
 
+        // Strip out the field group keys
+        $temp = array();
+        foreach ( $field_groups as $field_group ) {
+            $temp[] = $field_group;
+        }
+        $field_groups = $temp;
+
         return $field_groups;
     }
 
@@ -160,7 +155,7 @@ class cfs_field_group
             $field = stripslashes_deep($field);
 
             // Allow for field customizations
-            $field = $this->parent->fields[$field['type']]->pre_save_field( $field );
+            $field = CFS()->fields[$field['type']]->pre_save_field( $field );
 
             // Set the parent ID
             $field['parent_id'] = empty( $field['parent_id'] ) ? 0 : (int) $field['parent_id'];

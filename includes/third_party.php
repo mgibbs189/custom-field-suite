@@ -4,12 +4,8 @@ class cfs_third_party
 {
     public $parent;
 
-    /**
-     * Constructor
-     * @param object $parent 
-     */
-    public function __construct( $parent ) {
-        $this->parent = $parent;
+
+    public function __construct() {
 
         // Post Type Switcher - http://wordpress.org/plugins/post-type-switcher/
         add_filter( 'pts_post_type_filter', array( $this, 'pts_post_type_filter' ) );
@@ -51,7 +47,7 @@ class cfs_third_party
             if ( isset( $meta_value['gforms'] ) ) {
                 if ( $form_id == $meta_value['gforms']['form_id'] ) {
                     $fields = array();
-                    $all_fields = $this->parent->api->find_input_fields( array( 'post_id' => $result->post_id ) );
+                    $all_fields = CFS()->api->find_input_fields( array( 'post_id' => $result->post_id ) );
                     foreach ( $all_fields as $field ) {
                         $fields[$field['label']] = $field['name'];
                     }
@@ -113,7 +109,7 @@ class cfs_third_party
             }
 
             // save data
-            $this->parent->save( $field_data, $post_data );
+            CFS()->save( $field_data, $post_data );
         }
     }
 
@@ -130,10 +126,10 @@ class cfs_third_party
      * @since 1.6.8
      */
     function wpml_handler( $master_id, $lang, $post_data, $duplicate_id ) {
-        $field_data = $this->parent->get( false, $master_id, array( 'format' => 'raw' ) );
+        $field_data = CFS()->get( false, $master_id, array( 'format' => 'raw' ) );
 
         if ( !empty( $field_data ) ) {
-            $this->parent->save( $field_data, array( 'ID' => $duplicate_id ) );
+            CFS()->save( $field_data, array( 'ID' => $duplicate_id ) );
         }
     }
 

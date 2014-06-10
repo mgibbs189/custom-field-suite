@@ -2,18 +2,7 @@
 
 class cfs_api
 {
-    public $parent;
     public $cache;
-
-
-    /**
-     * Constructor
-     * @param object $parent
-     * @since 1.0.0
-     */
-    public function __construct( $parent ) {
-        $this->parent = $parent;
-    }
 
 
     /**
@@ -182,13 +171,13 @@ class cfs_api
      * @since 1.0.0
      */
     private function apply_value_filters( $field, $value, $options ) {
-        $value = $this->parent->fields[$field->type]->prepare_value( $value, $field );
+        $value = CFS()->fields[$field->type]->prepare_value( $value, $field );
 
         if ('api' == $options['format']) {
-            $value = $this->parent->fields[$field->type]->format_value_for_api( $value, $field );
+            $value = CFS()->fields[$field->type]->format_value_for_api( $value, $field );
         }
         elseif ( 'input' == $options['format'] ) {
-            $value = $this->parent->fields[$field->type]->format_value_for_input( $value, $field );
+            $value = CFS()->fields[$field->type]->format_value_for_input( $value, $field );
         }
 
         return $value;
@@ -721,7 +710,7 @@ class cfs_api
             $values = isset( $field_array['value'] ) ? $field_array['value'] : $field_array;
 
             // Trigger the pre_save hook
-            $values = $this->parent->fields[$field_type]->pre_save( $values, $params['all_fields'][$field_id] );
+            $values = CFS()->fields[$field_type]->pre_save( $values, $params['all_fields'][$field_id] );
 
             $sub_weight = 0;
 

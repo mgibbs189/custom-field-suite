@@ -3,22 +3,17 @@
 class cfs_color extends cfs_field
 {
 
-    function __construct($parent)
-    {
+    function __construct( $parent ) {
         $this->name = 'color';
-        $this->label = __('Color', 'cfs');
-        $this->parent = $parent;
+        $this->label = __( 'Color', 'cfs' );
     }
 
 
-
-
-    function input_head($field = null)
-    {
-        wp_register_script('miniColors', $this->parent->url . '/includes/fields/color/jquery.miniColors.min.js');
-        wp_enqueue_script('miniColors');
+    function input_head( $field = null ) {
+        wp_register_script( 'miniColors', CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' );
+        wp_enqueue_script( 'miniColors' );
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->parent->url; ?>/includes/fields/color/color.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/includes/fields/color/color.css" />
         <script>
         (function($) {
             $(document).on('focus', '.cfs_color input.color', function() {

@@ -4,9 +4,6 @@ class cfs_field
 {
     public $name;
     public $label;
-    public $parent;
-
-
 
 
     /**
@@ -14,14 +11,10 @@ class cfs_field
      * @param object $parent 
      * @since 1.0.5
      */
-    function __construct($parent)
-    {
+    function __construct() {
         $this->name = 'text';
-        $this->label = __('Text', 'cfs');
-        $this->parent = $parent;
+        $this->label = __( 'Text', 'cfs' );
     }
-
-
 
 
     /**
@@ -29,14 +22,11 @@ class cfs_field
      * @param object $field 
      * @since 1.0.5
      */
-    function html($field)
-    {
+    function html( $field ) {
     ?>
         <input type="text" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
     <?php
     }
-
-
 
 
     /**
@@ -45,21 +35,20 @@ class cfs_field
      * @param object $field 
      * @since 1.0.5
      */
-    function options_html($key, $field)
-    {
+    function options_html( $key, $field ) {
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Validation', 'cfs'); ?></label>
+                <label><?php _e( 'Validation', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'required'),
-                        'options' => array('message' => __('This is a required field', 'cfs')),
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
                     ));
                 ?>
             </td>
@@ -68,19 +57,14 @@ class cfs_field
     }
 
 
-
-
     /**
      * Add necessary field scripts or CSS (triggered once per pageload)
      * @param mixed $field The field object (optional)
      * @since 1.0.5
      */
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
 
     }
-
-
 
 
     /**
@@ -95,12 +79,9 @@ class cfs_field
      * @return mixed The field value
      * @since 1.6.9
      */
-    function prepare_value($value, $field = null)
-    {
+    function prepare_value( $value, $field = null ) {
         return $value[0];
     }
-
-
 
 
     /**
@@ -110,12 +91,9 @@ class cfs_field
      * @return mixed
      * @since 1.0.5
      */
-    function format_value_for_api($value, $field = null)
-    {
+    function format_value_for_api( $value, $field = null ) {
         return $value;
     }
-
-
 
 
     /**
@@ -125,12 +103,9 @@ class cfs_field
      * @return mixed
      * @since 1.0.5
      */
-    function format_value_for_input($value, $field = null)
-    {
+    function format_value_for_input( $value, $field = null ) {
         return $value;
     }
-
-
 
 
     /**
@@ -140,12 +115,9 @@ class cfs_field
      * @return mixed
      * @since 1.4.2
      */
-    function pre_save($value, $field = null)
-    {
+    function pre_save( $value, $field = null ) {
         return $value;
     }
-
-
 
 
     /**
@@ -154,12 +126,9 @@ class cfs_field
      * @return object
      * @since 1.6.8
      */
-    function pre_save_field($field)
-    {
+    function pre_save_field( $field ) {
         return $field;
     }
-
-
 
 
     /**
@@ -170,15 +139,12 @@ class cfs_field
      * @return mixed
      * @since 1.4.3
      */
-    function get_option($field, $option_name, $default_value = '')
-    {
-        if (isset($field->options[$option_name]))
-        {
-            if (is_string($field->options[$option_name]))
-            {
-                return esc_attr($field->options[$option_name]);
+    function get_option( $field, $option_name, $default_value = '' ) {
+        if ( isset( $field->options[ $option_name ] ) ) {
+            if ( is_string( $field->options[ $option_name ] ) ) {
+                return esc_attr( $field->options[ $option_name ] );
             }
-            return $field->options[$option_name];
+            return $field->options[ $option_name ];
         }
         return $default_value;
     }

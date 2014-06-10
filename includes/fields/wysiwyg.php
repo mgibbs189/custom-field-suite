@@ -6,10 +6,9 @@ class cfs_wysiwyg extends cfs_field
     public $wp_default_editor;
 
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'wysiwyg';
         $this->label = __( 'Wysiwyg Editor', 'cfs' );
-        $this->parent = $parent;
 
         // wp_editor() won't work for dynamic-generated wysiwygs
         add_filter( 'wp_default_editor', array( $this, 'wp_default_editor' ) );
@@ -41,7 +40,7 @@ class cfs_wysiwyg extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field( array(
+                    CFS()->create_field( array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
                         'options' => array(
@@ -62,7 +61,7 @@ class cfs_wysiwyg extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field( array(
+                    CFS()->create_field( array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',

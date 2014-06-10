@@ -22,12 +22,10 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * Includes client-side field validation
 * This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
-= Getting Started =
-[See the CFS overview page →](https://uproot.us/)
-
-= Documentation =
-[View the documentation →](https://uproot.us/projects/cfs/documentation/)
-[GitHub](https://github.com/mgibbs189/custom-field-suite)
+= Important Links =
+[Homepage →](http://customfieldsuite.com/)
+[Documentation →](http://customfieldsuite.com/projects/cfs/documentation/)
+[Github →](https://github.com/mgibbs189/custom-field-suite)
 
 == Installation ==
 
@@ -41,6 +39,11 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.3.1 =
+* Refreshed field design (props @jchristopher)
+* Removed deprecated WP 3.5 code (file upload field)
+* Minor tweaks to the output of Exports
 
 = 2.3.0 =
 * Added Tab field type

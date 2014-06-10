@@ -8,11 +8,10 @@ class cfs_file extends cfs_field
 
 
 
-    function __construct($parent)
+    function __construct()
     {
         $this->name = 'file';
         $this->label = __('File Upload', 'cfs');
-        $this->parent = $parent;
     }
 
 
@@ -59,7 +58,7 @@ class cfs_file extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][return_value]",
                         'options' => array(
@@ -80,7 +79,7 @@ class cfs_file extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',

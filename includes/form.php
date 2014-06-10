@@ -2,19 +2,12 @@
 
 class cfs_form
 {
-    public $parent;
     public $used_types;
     public $assets_loaded;
     public $session;
 
 
-    /**
-     * Constructor
-     * @param object $parent 
-     * @since 1.8.5
-     */
-    public function __construct( $parent ) {
-        $this->parent = $parent;
+    public function __construct() {
         $this->used_types = array();
         $this->assets_loaded = false;
 
@@ -102,7 +95,7 @@ class cfs_form
                 do_action( 'cfs_pre_save_input', $hook_params );
 
                 // Save the input values
-                $hook_params['post_data']['ID'] = $this->parent->save(
+                $hook_params['post_data']['ID'] = CFS()->save(
                     $field_data,
                     $post_data,
                     $options
@@ -145,10 +138,10 @@ class cfs_form
 
         wp_enqueue_script( 'jquery-ui-core');
         wp_enqueue_script( 'jquery-ui-sortable');
-        wp_enqueue_script( 'cfs-validation', $this->parent->url . '/assets/js/validation.js', array( 'jquery' ) );
-        wp_enqueue_script( 'tiptip', $this->parent->url . '/assets/js/tipTip/jquery.tipTip.js', array( 'jquery' ) );
-        wp_enqueue_style( 'tiptip', $this->parent->url . '/assets/js/tipTip/tipTip.css' );
-        wp_enqueue_style( 'cfs-input', $this->parent->url . '/assets/css/input.css' );
+        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', array( 'jquery' ) );
+        wp_enqueue_script( 'tiptip', CFS_URL . '/assets/js/tipTip/jquery.tipTip.js', array( 'jquery' ) );
+        wp_enqueue_style( 'tiptip', CFS_URL . '/assets/js/tipTip/tipTip.css' );
+        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css' );
     }
 
 
@@ -212,7 +205,7 @@ CFS['loop_buffer'] = [];
         }
 
         if ( empty( $params['field_groups'] ) ) {
-            $field_groups = $this->parent->api->get_matching_groups( $post_id, true );
+            $field_groups = CFS()->api->get_matching_groups( $post_id, true );
             $field_groups = array_keys( $field_groups );
         }
         else {
@@ -220,7 +213,7 @@ CFS['loop_buffer'] = [];
         }
 
         if ( !empty( $field_groups ) ) {
-            $input_fields = $this->parent->api->get_input_fields( array( 'group_id' => $field_groups ) );
+            $input_fields = CFS()->api->get_input_fields( array( 'group_id' => $field_groups ) );
         }
 
         // Hook to allow for overridden field settings
@@ -229,7 +222,7 @@ CFS['loop_buffer'] = [];
         // The SESSION should contain all applicable field group IDs. Since add_meta_box only
         // passes 1 field group at a time, we use $cfs->group_ids from admin_head.php
         // to store all group IDs needed for the SESSION.
-        $all_group_ids = ( false === $params['front_end'] ) ? $this->parent->group_ids : $field_groups;
+        $all_group_ids = ( false === $params['front_end'] ) ? CFS()->group_ids : $field_groups;
 
         $session_data = array(
             'post_id'               => $post_id,
@@ -292,7 +285,7 @@ CFS['loop_buffer'] = [];
             }
 
             // Skip missing field types
-            if ( !isset( $this->parent->fields[$field->type] ) ) {
+            if ( !isset( CFS()->fields[$field->type] ) ) {
                 continue;
             }
 
@@ -307,7 +300,7 @@ CFS['loop_buffer'] = [];
             }
 
             if ( !isset( $this->used_types[$field->type] ) ) {
-                $this->parent->fields[$field->type]->input_head( $field );
+                CFS()->fields[$field->type]->input_head( $field );
                 $this->used_types[$field->type] = true;
             }
 
@@ -360,7 +353,7 @@ CFS['loop_buffer'] = [];
             <div class="cfs_<?php echo $field->type; ?>">
 
     <?php
-                $this->parent->create_field(array(
+                CFS()->create_field(array(
                     'id'            => $field->id,
                     'group_id'      => $field->group_id,
                     'type'          => $field->type,

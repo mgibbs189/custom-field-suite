@@ -1,11 +1,11 @@
 <?php
 function cfs_load_addons() {
-    if (false === ($cache = get_transient('cfs_addons'))) {
-        $feed = wp_remote_get('https://uproot.us/add-ons/', array('sslverify' => false));
-        if (!is_wp_error($feed)) {
-            if (isset($feed['body']) && 0 < strlen($feed['body'])) {
-                $cache = wp_remote_retrieve_body($feed);
-                set_transient('cfs_addons', $cache, 3600);
+    if ( false === ( $cache = get_transient( 'cfs_addons' ) ) ) {
+        $feed = wp_remote_get( 'http://customfieldsuite.com/add-ons/' );
+        if ( ! is_wp_error( $feed ) ) {
+            if ( isset( $feed['body'] ) && 0 < strlen( $feed['body'] ) ) {
+                $cache = wp_remote_retrieve_body( $feed );
+                set_transient( 'cfs_addons', $cache, 3600 );
             }
         }
     }
@@ -13,12 +13,12 @@ function cfs_load_addons() {
 }
 
 $json = cfs_load_addons();
-$json = json_decode($json);
+$json = json_decode( $json );
 ?>
 
 <style type="text/css">
 #icon-edit {
-  background: url(<?php echo $this->url; ?>/assets/images/logo.png) no-repeat;
+  background: url(<?php echo CFS_URL; ?>/assets/images/logo.png) no-repeat;
 }
 
 .addon {
@@ -62,7 +62,7 @@ $json = json_decode($json);
 
 <div class="wrap">
     <h2><?php _e( 'Add-ons', 'cfs' ); ?></h2>
-    <?php foreach ($json as $addon) : ?>
+    <?php foreach ( $json as $addon ) : ?>
     <div class="addon">
         <div class="addon-container">
             <div class="addon-thumbnail">

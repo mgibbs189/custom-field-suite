@@ -3,10 +3,9 @@
 class cfs_relationship extends cfs_field
 {
 
-    function __construct( $parent ) {
+    function __construct() {
         $this->name = 'relationship';
         $this->label = __( 'Relationship', 'cfs' );
-        $this->parent = $parent;
     }
 
 
@@ -109,7 +108,7 @@ class cfs_relationship extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field( array(
+                    CFS()->create_field( array(
                         'type'          => 'select',
                         'input_name'    => "cfs[fields][$key][options][post_types]",
                         'options'       => array( 'multiple' => '1', 'choices' => $choices ),

@@ -3,11 +3,10 @@
 class cfs_true_false extends cfs_field
 {
 
-    function __construct($parent)
+    function __construct()
     {
         $this->name = 'true_false';
         $this->label = __('True / False', 'cfs');
-        $this->parent = $parent;
     }
 
 
@@ -36,7 +35,7 @@ class cfs_true_false extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][message]",
                         'value' => $this->get_option($field, 'message'),
@@ -50,7 +49,7 @@ class cfs_true_false extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',

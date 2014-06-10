@@ -3,11 +3,10 @@
 class cfs_loop extends cfs_field
 {
 
-    function __construct($parent)
+    function __construct()
     {
         $this->name = 'loop';
         $this->label = __('Loop', 'cfs');
-        $this->parent = $parent;
         $this->values = array();
     }
 
@@ -22,7 +21,7 @@ class cfs_loop extends cfs_field
     {
         global $post;
 
-        $this->values = $this->parent->api->get_fields($post->ID, array('format' => 'input'));
+        $this->values = CFS()->api->get_fields($post->ID, array('format' => 'input'));
         $this->recursive_clone($field->group_id, $field->id);
         $this->recursive_html($field->group_id, $field->id);
     }
@@ -43,7 +42,7 @@ class cfs_loop extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][row_display]",
                         'input_class' => 'true_false',
@@ -59,7 +58,7 @@ class cfs_loop extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][row_label]",
                         'value' => $this->get_option($field, 'row_label', __('Loop Row', 'cfs')),
@@ -73,7 +72,7 @@ class cfs_loop extends cfs_field
             </td>
             <td>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][button_label]",
                         'value' => $this->get_option($field, 'button_label', __('Add Row', 'cfs')),
@@ -94,11 +93,11 @@ class cfs_loop extends cfs_field
     function recursive_clone($group_id, $field_id)
     {
         $loop_field_ids = array();
-        $loop_field = $this->parent->api->get_input_fields(array('field_id' => $field_id));
+        $loop_field = CFS()->api->get_input_fields(array('field_id' => $field_id));
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
 
         // Get the sub-fields
-        $results = $this->parent->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
+        $results = CFS()->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
 
         ob_start();
     ?>
@@ -126,7 +125,7 @@ class cfs_loop extends cfs_field
                     </div>
                 <?php else : ?>
                 <?php
-                    $this->parent->create_field(array(
+                    CFS()->create_field(array(
                         'type' => $field->type,
                         'input_name' => "cfs[input][clone][$field->id][value][]",
                         'input_class' => $field->type,
@@ -195,12 +194,12 @@ class cfs_loop extends cfs_field
 
     function recursive_html($group_id, $field_id, $parent_tag = '', $parent_weight = 0)
     {
-        $results = $this->parent->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
+        $results = CFS()->api->get_input_fields(array('group_id' => $group_id, 'parent_id' => $field_id));
         $parent_tag = empty($parent_tag) ? "[$field_id]" : $parent_tag;
         eval("\$values = isset(\$this->values{$parent_tag}) ? \$this->values{$parent_tag} : false;");
 
         // Get field options
-        $loop_field = $this->parent->api->get_input_fields(array('field_id' => $field_id));
+        $loop_field = CFS()->api->get_input_fields(array('field_id' => $field_id));
         $row_display = $this->get_option($loop_field[$field_id], 'row_display', 0);
         $row_label = $this->get_option($loop_field[$field_id], 'row_label', __('Loop Row', 'cfs'));
         $button_label = $this->get_option($loop_field[$field_id], 'button_label', __('Add Row', 'cfs'));
@@ -245,7 +244,7 @@ class cfs_loop extends cfs_field
                         $args['value'] = $field->options['default_value'];
                     }
 
-                    $this->parent->create_field( $args );
+                    CFS()->create_field( $args );
                 ?>
                 <?php endif; ?>
                 </div>
