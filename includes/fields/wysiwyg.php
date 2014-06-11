@@ -14,8 +14,9 @@ class cfs_wysiwyg extends cfs_field
 
 
     function html( $field ) {
-        $field_id =  str_replace(array("[", "]", "(", ")"), "",$field->input_name );
-     wp_editor(html_entity_decode(stripcslashes($field->value)), 'editor'.$field_id, array(
+        $this->field_name = $field->input_name;
+        $this->field_id =  'editor'.str_replace(array("[", "]", "(", ")"), "",$field->input_name );
+     wp_editor(html_entity_decode(stripcslashes($field->value)), $this->field_id, array(
             'wpautop'           => true,
             'media_buttons'     => true,
             'default_editor'    => '',
@@ -88,6 +89,65 @@ class cfs_wysiwyg extends cfs_field
                 echo '</div>';
             }
         }
+            ?>
+             <script>
+            (function($) {
+                $(function() {
+                    $(document).on('cfs/ready', '.cfs_add_field', function() {
+                        $('.cfs_wysiwyg').init_wysiwyg();
+                    });
+
+                    // set the active editor
+                    $(document).on('click', 'a.add_media', function() {
+                        var editor_id = $(this).closest('.wp-editor-wrap').find('.wp-editor-area').attr('id');
+                        wpActiveEditor = editor_id;
+                    });
+                });
+
+                $.fn.init_wysiwyg = function() {
+                    // Get the id of the newly cloned textarea
+                    var textarea_id = $('.loop_wrapper.cloned').find('textarea').attr('id');
+
+                    // Create wysiwyg
+                    // Deactivate wpautop
+                    wpautop = tinyMCE.settings.wpautop;
+                    tinyMCE.settings.wpautop = false;
+
+                    // Initiate quicktags
+                    tinyMCEPreInit.qtInit = $.extend(true,tinyMCEPreInit.qtInit,tinyMCEPreInit.qtInit[textarea_id] = {} );
+                    quicktags( {
+                        id: textarea_id,
+                        buttons: "strong,em,link,block,del,ins,img,ul,ol,li,code,more,close"
+                    });
+                    // Make quicktags show the default buttons by adding a custom p button (wired but works)
+                    QTags.addButton( 'eg_paragraph', 'p', '<p>', '</p>', 'p', 'Paragraph tag', 1 );
+
+                    // Instantiate an editor
+                    tinyMCE.execCommand('mceAddEditor', false, textarea_id);
+
+                    // Reactivate wpautop
+                    tinyMCE.settings.wpautop = wpautop;
+                };
+
+                $(document).on('cfs/sortable_start', function(event, ui) {
+                    tinyMCE.settings.wpautop = false;
+                    $(ui).find('.wysiwyg').each(function() {
+                        tinyMCE.execCommand('mceRemoveEditor', false, $(this).attr('id'));
+                    });
+                });
+
+                $(document).on('cfs/sortable_stop', function(event, ui) {
+                    $(ui).find('.wysiwyg').each(function() {
+                        tinyMCE.execCommand('mceAddEditor', false, $(this).attr('id'));
+                    });
+                    tinyMCE.settings.wpautop = wpautop;
+                });
+            })(jQuery);
+             </script>
+        <?php
+
+
+
     }
 
     function wp_default_editor( $default ) {

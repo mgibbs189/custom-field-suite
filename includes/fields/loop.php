@@ -275,10 +275,20 @@ class cfs_loop extends cfs_field
         (function($) {
             $(function() {
                 $(document).on('click', '.cfs_add_field', function() {
+                    // Remove previous cloned class
+                    $('.cloned').removeClass('cloned');
+
                     var num_rows = $(this).attr('data-rows');
                     var loop_tag = $(this).attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
+
+                    html = html
+                    // Add the loop ID, num_rows to the classes and id
+                    .replace(/\inputclone/g, 'inputclone'+loop_id + num_rows)
+                    // Add temporarily the class .cloned to the loop_wrapper to be able to find the new id from the wysiwyg field
+                    .replace(/\loop_wrapper/g, 'loop_wrapper cloned');
+
                     $(this).attr('data-rows', parseInt(num_rows)+1);
                     $(this).closest('.table_footer').before(html);
                     $(this).trigger('cfs/ready');
