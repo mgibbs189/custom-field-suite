@@ -40,6 +40,13 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.3.2 =
+* Code refactoring
+* Corrected Add-ons page with new URL
+* Use `CFS()` instead of `$cfs` for future API usage
+* Changed CFS->form init priority to 100 (for better compatibility)
+* Fixed relationship fields not being scrollable (props @jchristopher)
+
 = 2.3.1 =
 * Refreshed field design (props @jchristopher)
 * Removed deprecated WP 3.5 code (file upload field)
