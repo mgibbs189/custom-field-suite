@@ -8,5 +8,5 @@
 </script>
 
 <div id="attribution" class="hidden">
-    <li> | <a href="https://uproot.us/" target="_blank">Custom Field Suite <span class="count">(v<?php echo $this->version; ?>)</span></a></li>
+    <li> | <a href="http://customfieldsuite.com/" target="_blank">Custom Field Suite <span class="count">(v<?php echo CFS_VERSION; ?>)</span></a></li>
 </div>

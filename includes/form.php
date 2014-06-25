@@ -11,7 +11,7 @@ class cfs_form
         $this->used_types = array();
         $this->assets_loaded = false;
 
-        add_action( 'cfs_init', array( $this, 'init' ) );
+        add_action( 'init', array( $this, 'init' ), 100 );
         add_action( 'admin_head', array( $this, 'head_scripts' ) );
         add_action( 'admin_print_footer_scripts', array( $this, 'footer_scripts' ) );
     }

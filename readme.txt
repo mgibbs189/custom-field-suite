@@ -1,6 +1,6 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
-Donate link: https://uproot.us/
+Donate link: http://customfieldsuite.com/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, repeater, upload
 Requires at least: 3.8
 Tested up to: 3.9.1

@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://customfieldsuite.com/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.3.1
+Version: 2.3.2
 Author: Matt Gibbs
 Author URI: http://customfieldsuite.com/
 License: GPLv2
@@ -25,7 +25,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.3.1' );
+        define( 'CFS_VERSION', '2.3.2' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( 'custom-field-suite' ) );
 
@@ -72,7 +72,12 @@ class Custom_Field_Suite
         add_action( 'delete_post',              array( $this, 'delete_post' ) );
         add_action( 'add_meta_boxes',           array( $this, 'add_meta_boxes' ) );
         add_action( 'wp_ajax_cfs_ajax_handler', array( $this, 'ajax_handler' ) );
-	    add_filter( 'admin_body_class',         array( $this, 'add_body_class' ) );
+        add_filter( 'admin_body_class',         array( $this, 'add_body_class' ) );
+
+        // Force the $cfs variable
+        if ( ! is_admin() ) {
+            add_action( 'parse_query', array( $this, 'parse_query' ) );
+        }
 
         foreach ( array( 'api', 'upgrade', 'field', 'field_group', 'session', 'form', 'third_party' ) as $f ) {
             include( CFS_DIR . "/includes/$f.php" );
@@ -126,49 +131,6 @@ class Custom_Field_Suite
         }
         else {
             load_plugin_textdomain( 'cfs', false, 'custom-field-suite/languages' );
-        }
-    }
-
-
-    /**
-     * Customize table columns on the Field Groups listing page
-     * @since 1.0.0
-     */
-    function cfs_columns() {
-        return array(
-            'cb'            => '<input type="checkbox" />',
-            'title'         => __( 'Title', 'cfs' ),
-            'placement'     => __( 'Placement', 'cfs' ),
-        );
-    }
-
-
-    /**
-     * Populate the "Placement" column on the Field Groups listing page
-     * @param string $column_name 
-     * @param int $post_id 
-     * @since 1.9.5
-     */
-    function cfs_column_content( $column_name, $post_id ) {
-        if ( 'placement' == $column_name ) {
-            global $wpdb;
-
-            $labels = array(
-                'post_types'        => __( 'Post Types', 'cfs' ),
-                'user_roles'        => __( 'User Roles', 'cfs' ),
-                'post_ids'          => __( 'Post IDs', 'cfs' ),
-                'term_ids'          => __( 'Term IDs', 'cfs' ),
-                'page_templates'    => __( 'Page Templates', 'cfs' )
-            );
-
-            $results = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1" );
-            $results = unserialize( $results );
-
-            foreach ( $results as $criteria => $values ) {
-                $label = $labels[$criteria];
-                $operator = ( '==' == $values['operator'] ) ? '=' : '!=';
-                echo "<div>$label " . $operator . ' [' . implode(' or ', $values['values']) . ']</div>';
-            }
         }
     }
 
@@ -474,22 +436,74 @@ class Custom_Field_Suite
     }
 
 
-	/**
-	 * Add a class of 'mp6' if WordPress 3.8-alpha or higher, allowing us to help the UI better match the WordPress admin
-	 * Reference: http://make.wordpress.org/ui/2013/11/19/targeting-the-new-dashboard-design-in-a-post-mp6-world/
-	 *
-	 * @param $classes
-	 *
-	 * @return array|string
-	 */
-	function add_body_class( $classes ) {
-		if ( version_compare( get_bloginfo( 'version' ), '3.8', '>' ) ) {
+    /**
+     * Customize table columns on the Field Groups listing page
+     * @since 1.0.0
+     */
+    function cfs_columns() {
+        return array(
+            'cb'            => '<input type="checkbox" />',
+            'title'         => __( 'Title', 'cfs' ),
+            'placement'     => __( 'Placement', 'cfs' ),
+        );
+    }
+
+
+    /**
+     * Populate the "Placement" column on the Field Groups listing page
+     * @param string $column_name 
+     * @param int $post_id 
+     * @since 1.9.5
+     */
+    function cfs_column_content( $column_name, $post_id ) {
+        if ( 'placement' == $column_name ) {
+            global $wpdb;
+
+            $labels = array(
+                'post_types'        => __( 'Post Types', 'cfs' ),
+                'user_roles'        => __( 'User Roles', 'cfs' ),
+                'post_ids'          => __( 'Post IDs', 'cfs' ),
+                'term_ids'          => __( 'Term IDs', 'cfs' ),
+                'page_templates'    => __( 'Page Templates', 'cfs' )
+            );
+
+            $results = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1" );
+            $results = unserialize( $results );
+
+            foreach ( $results as $criteria => $values ) {
+                $label = $labels[$criteria];
+                $operator = ( '==' == $values['operator'] ) ? '=' : '!=';
+                echo "<div>$label " . $operator . ' [' . implode(' or ', $values['values']) . ']</div>';
+            }
+        }
+    }
+
+
+    /**
+     * Make sure that $cfs exists for template parts
+     * @since 1.8.8
+     */
+    function parse_query( $wp_query ) {
+        $wp_query->query_vars['cfs'] = $this;
+    }
+
+
+    /**
+     * Add a class of 'mp6' if WordPress 3.8-alpha or higher, allowing us to help the UI better match the WordPress admin
+     * Reference: http://make.wordpress.org/ui/2013/11/19/targeting-the-new-dashboard-design-in-a-post-mp6-world/
+     *
+     * @param $classes
+     *
+     * @return array|string
+     */
+    function add_body_class( $classes ) {
+        if ( version_compare( get_bloginfo( 'version' ), '3.8', '>' ) ) {
             if ( false === strpos( $classes, 'mp6' ) ) {
                 $classes .= ' mp6';
             }
-		}
-		return $classes;
-	}
+        }
+        return $classes;
+    }
 }
 
 
