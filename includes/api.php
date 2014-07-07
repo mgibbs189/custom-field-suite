@@ -9,7 +9,7 @@ class cfs_api
      * Get a field value
      * @param string $field_name
      * @param mixed $post_id The post ID (false for the current post ID)
-     * @param array $options 
+     * @param array $options
      * @return mixed The field value
      * @since 1.0.0
      */
@@ -34,7 +34,7 @@ class cfs_api
     /**
      * Get all field values for a specific post
      * @param mixed $post_id The post ID (false for the current post ID)
-     * @param array $options 
+     * @param array $options
      * @return array An associative array of field values
      * @since 1.0.0
      */
@@ -164,9 +164,9 @@ class cfs_api
 
     /**
      * Format a field value
-     * @param object $field 
-     * @param mixed $value 
-     * @param array $options 
+     * @param object $field
+     * @param mixed $value
+     * @param array $options
      * @return mixed
      * @since 1.0.0
      */
@@ -186,8 +186,8 @@ class cfs_api
 
     /**
      * Get referenced field values (using relationship fields)
-     * @param int $post_id 
-     * @param array $options 
+     * @param int $post_id
+     * @param array $options
      * @return array
      * @since 1.4.4
      */
@@ -276,7 +276,7 @@ class cfs_api
 
     /**
      * Get input fields and their values
-     * @param array $params 
+     * @param array $params
      * @return array
      * @since 1.0.0
      */
@@ -318,7 +318,7 @@ class cfs_api
 
     /**
      * Find input fields
-     * @param array $params 
+     * @param array $params
      * @return array
      * @since 1.8.4
      */
@@ -413,7 +413,7 @@ class cfs_api
     /**
      * Determine which field groups to use for the current post
      * @param int|array $params Post ID or an array of rules to match
-     * @param boolean $skip_roles 
+     * @param boolean $skip_roles
      * @return array
      * @since 1.0.0
      */
@@ -452,6 +452,24 @@ class cfs_api
                 }
             }
 
+            if ( !isset( $rule_types[ 'post_formats' ] ) ) {
+                $rule_types[ 'post_formats' ] = array();
+
+                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                    $post_format = get_post_format( $pid );
+
+                    // 'Standard' post format || no format === false
+                    // but we want a string
+                    if ( $post_format === false ) {
+                        $post_format = 'standard';
+                    }
+
+                    if ( !in_array( $post_format, $rule_types[ 'post_formats' ] ) ) {
+                        $rule_types[ 'post_formats' ][] = $post_format;
+                    }
+                }
+            }
+
             if ( !isset( $rule_types[ 'page_templates' ] ) ) {
                 $rule_types[ 'page_templates' ] = array();
 
@@ -469,6 +487,7 @@ class cfs_api
         $rule_types = array_merge(
             array(
                 'post_types'        => array(),
+                'post_formats'      => array(),
                 'user_roles'        => $current_user->roles,
                 'term_ids'          => array(),
                 'post_ids'          => array(),
@@ -529,7 +548,7 @@ class cfs_api
                 );
             }
         }
-        
+
         $matches = array();
 
         // Sort the field groups
@@ -547,9 +566,9 @@ class cfs_api
 
     /**
      * Save field values
-     * @param array $field_data 
-     * @param array $post_data 
-     * @param array $options 
+     * @param array $field_data
+     * @param array $post_data
+     * @param array $options
      * @return int The post ID
      * @since 1.1.3
      */
@@ -684,7 +703,7 @@ class cfs_api
 
     /**
      * Extends save_fields method to support loop fields
-     * @param array $params 
+     * @param array $params
      * @since 1.5.0
      */
     private function save_fields_recursive( $params ) {

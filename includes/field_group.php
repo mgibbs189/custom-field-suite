@@ -5,7 +5,7 @@ class cfs_field_group
 
     /**
      * Import field groups
-     * @param array $options 
+     * @param array $options
      * @return string The response message
      * @since 1.8.5
      */
@@ -81,7 +81,7 @@ class cfs_field_group
 
     /**
      * Export field groups
-     * @param array $options 
+     * @param array $options
      * @return array An array of field group data
      * @since 1.8.5
      */
@@ -123,7 +123,7 @@ class cfs_field_group
 
     /**
      * Save field group settings
-     * @param array $params 
+     * @param array $params
      * @since 1.8.0
      */
     function save( $params = array() ) {
@@ -227,7 +227,7 @@ class cfs_field_group
         ---------------------------------------------------------------------------------------------*/
 
         $data = array();
-        $rule_types = array( 'post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates' );
+        $rule_types = array( 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates' );
 
         foreach ( $rule_types as $type ) {
             if ( !empty( $params['rules'][$type] ) ) {
