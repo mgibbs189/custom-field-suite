@@ -437,47 +437,44 @@ class cfs_api
         }
 
         // Detect post_types / page_templates if they weren't sent
-        if ( !empty( $rule_types[ 'post_ids' ] ) ) {
-            $rule_types[ 'post_ids' ] = array_map( 'absint', (array) $rule_types[ 'post_ids' ] );
+        if ( ! empty( $rule_types[ 'post_ids' ] ) ) {
+            $rule_types['post_ids'] = array_map( 'absint', (array) $rule_types['post_ids'] );
 
-            if ( !isset( $rule_types[ 'post_types' ] ) ) {
-                $rule_types[ 'post_types' ] = array();
+            if ( ! isset( $rule_types[ 'post_types' ] ) ) {
+                $rule_types['post_types'] = array();
 
-                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                foreach ( $rule_types['post_ids'] as $pid ) {
                     $post_type = get_post_type( $pid );
 
-                    if ( !in_array( $post_type, $rule_types[ 'post_types' ] ) ) {
-                        $rule_types[ 'post_types' ][] = $post_type;
+                    if ( ! in_array( $post_type, $rule_types['post_types'] ) ) {
+                        $rule_types['post_types'][] = $post_type;
                     }
                 }
             }
 
-            if ( !isset( $rule_types[ 'post_formats' ] ) ) {
-                $rule_types[ 'post_formats' ] = array();
+            if ( ! isset( $rule_types['post_formats'] ) ) {
+                $rule_types['post_formats'] = array();
 
-                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                foreach ( $rule_types['post_ids'] as $pid ) {
                     $post_format = get_post_format( $pid );
 
-                    // 'Standard' post format || no format === false
-                    // but we want a string
-                    if ( $post_format === false ) {
-                        $post_format = 'standard';
-                    }
+                    // Prevent post_format = false
+                    $post_format = ( false === $post_format ) ? 'standard' : $post_format;
 
-                    if ( !in_array( $post_format, $rule_types[ 'post_formats' ] ) ) {
-                        $rule_types[ 'post_formats' ][] = $post_format;
+                    if ( ! in_array( $post_format, $rule_types['post_formats'] ) ) {
+                        $rule_types['post_formats'][] = $post_format;
                     }
                 }
             }
 
-            if ( !isset( $rule_types[ 'page_templates' ] ) ) {
-                $rule_types[ 'page_templates' ] = array();
+            if ( ! isset( $rule_types['page_templates'] ) ) {
+                $rule_types['page_templates'] = array();
 
-                foreach ( $rule_types[ 'post_ids' ] as $pid ) {
+                foreach ( $rule_types['post_ids'] as $pid ) {
                     $page_template = get_post_meta( $pid, '_wp_page_template', true );
 
-                    if ( !empty( $page_template ) && !in_array( $page_template, $rule_types[ 'page_templates' ] ) ) {
-                        $rule_types[ 'page_templates' ][] = $page_template;
+                    if ( ! empty( $page_template ) && ! in_array( $page_template, $rule_types['page_templates'] ) ) {
+                        $rule_types['page_templates'][] = $page_template;
                     }
                 }
             }
@@ -496,7 +493,7 @@ class cfs_api
         );
 
         // Cache the query (get rules)
-        if ( !isset($this->cache['cfs_options'] ) ) {
+        if ( ! isset($this->cache['cfs_options'] ) ) {
             $sql = "
             SELECT p.ID, p.post_title, m.meta_value AS rules, m2.meta_value AS extras
             FROM $wpdb->posts p
@@ -521,7 +518,7 @@ class cfs_api
             $extras = unserialize( $result->extras );
 
             foreach ( $rule_types as $rule_type => $value ) {
-                if ( !empty( $rules[ $rule_type ] ) ) {
+                if ( ! empty( $rules[ $rule_type ] ) ) {
                     // Only lookup a post's term IDs if the rule exists
                     if ( 'term_ids' == $rule_type ) {
                         $sql = "
