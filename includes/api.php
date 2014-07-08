@@ -381,7 +381,7 @@ class cfs_api
 
     /**
      * MySQL "ORDER BY" for PHP associative arrays
-     * @link http://php.net/manual/en/function.array-multisort.php#100534
+     * @link https://gist.github.com/mgibbs189/4634604
      * @return array
      * @since 1.8.4
      */
@@ -389,24 +389,25 @@ class cfs_api
         $args = func_get_args();
         $data = array_shift( $args );
 
-        if ( !is_array( $data ) ) {
-            return false;
+        if ( ! is_array( $data ) ) {
+            return array();
         }
 
         $multisort_params = array();
         foreach ( $args as $n => $field ) {
             if ( is_string( $field ) ) {
-                ${"tmp_$n"} = array();
-                foreach ( $data as $key => $row ) {
-                    ${"tmp_$n"}[$key] = $row[$field];
+                $tmp = array();
+                foreach ( $data as $row ) {
+                    $tmp[] = $row[ $field ];
                 }
-                $multisort_params[$n] = &${"tmp_$n"};
+                $args[ $n ] = $tmp;
             }
+            $multisort_params[] = &$args[ $n ];
         }
 
         $multisort_params[] = &$data;
         call_user_func_array( 'array_multisort', $multisort_params );
-        return array_pop( $multisort_params );
+        return end( $multisort_params );
     }
 
 
