@@ -8,7 +8,7 @@ $not_equals_text = __('is not', 'cfs');
 $rules = get_post_meta($post->ID, 'cfs_rules', true);
 
 // Populate rules if empty
-$rule_types = array('post_types', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
+$rule_types = array('post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates');
 
 foreach ($rule_types as $type)
 {
@@ -26,6 +26,21 @@ foreach ($types as $post_type)
     if (!in_array($post_type, array('cfs', 'attachment', 'revision', 'nav_menu_item')))
     {
         $post_types[$post_type] = $post_type;
+    }
+}
+
+// Post formats
+$post_formats = array();
+if ( current_theme_supports( 'post-formats' ) )
+{
+    $post_formats = array( 'standard' => 'Standard' );
+    $post_formats_slugs = get_theme_support( 'post-formats' );
+    if ( is_array( $post_formats_slugs[0] ) )
+    {
+        foreach( $post_formats_slugs[0] as $post_format )
+        {
+            $post_formats[$post_format] = get_post_format_string( $post_format );
+        }
     }
 }
 
@@ -147,6 +162,40 @@ foreach ($templates as $template_name => $filename)
             ?>
         </td>
     </tr>
+    <?php if ( current_theme_supports( 'post-formats' ) && count( $post_formats ) ) : ?>
+        <tr>
+            <td class="label">
+                <label><?php _e('Post Formats', 'cfs'); ?></label>
+            </td>
+            <td style="width:80px; vertical-align:top">
+                <?php
+                $this->create_field(array(
+                        'type' => 'select',
+                        'input_name' => "cfs[rules][operator][post_formats]",
+                        'options' => array(
+                            'choices' => array(
+                                '==' => $equals_text,
+                                '!=' => $not_equals_text,
+                            ),
+                            'force_single' => true,
+                        ),
+                        'value' => $rules['post_formats']['operator'],
+                    ));
+                ?>
+            </td>
+            <td>
+                <?php
+                $this->create_field(array(
+                        'type' => 'select',
+                        'input_class' => 'select2',
+                        'input_name' => "cfs[rules][post_formats]",
+                        'options' => array('multiple' => '1', 'choices' => $post_formats),
+                        'value' => $rules['post_formats']['values'],
+                    ));
+                ?>
+            </td>
+        </tr>
+    <?php endif; ?>
     <tr>
         <td class="label">
             <label><?php _e('User Roles', 'cfs'); ?></label>
