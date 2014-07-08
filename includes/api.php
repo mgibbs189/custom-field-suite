@@ -21,13 +21,13 @@ class cfs_api
         $post_id = empty( $post_id ) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
-        if ( !isset( $this->cache[$post_id][$options['format']][$field_name] ) ) {
+        if ( ! isset( $this->cache[ $post_id ][ $options['format'] ][ $field_name ] ) ) {
             $fields = $this->get_fields( $post_id, $options );
 
-            return isset( $fields[$field_name] ) ? $fields[$field_name] : null;
+            return isset( $fields[ $field_name ] ) ? $fields[ $field_name ] : null;
         }
 
-        return $this->cache[$post_id][$options['format']][$field_name];
+        return $this->cache[ $post_id ][ $options['format'] ][ $field_name ];
     }
 
 
@@ -46,8 +46,8 @@ class cfs_api
         $post_id = empty( $post_id ) ? $post->ID : (int) $post_id;
 
         // Return cached results
-        if ( isset( $this->cache[$post_id][$options['format']] ) ) {
-            return $this->cache[$post_id][$options['format']];
+        if ( isset( $this->cache[ $post_id ][ $options['format'] ] ) ) {
+            return $this->cache[ $post_id ][ $options['format'] ];
         }
 
         $fields = array();
@@ -56,14 +56,14 @@ class cfs_api
         // Get all field groups for this post
         $group_ids = $this->get_matching_groups( $post_id, true );
 
-        if ( !empty( $group_ids ) ) {
+        if ( ! empty( $group_ids ) ) {
             $results = $this->find_input_fields( array( 'post_id' => array_keys( $group_ids ) ) );
             foreach ( $results as $result ) {
                 $result = (object) $result;
                 $fields[$result->id] = $result;
             }
 
-            if ( !empty( $fields ) ) {
+            if ( ! empty( $fields ) ) {
                 // Make sure we're using active field groups
                 $field_ids = implode( ',', array_keys( $fields ) );
 
@@ -86,7 +86,7 @@ class cfs_api
                     $field = $fields[$result->field_id];
                     $current_item = "{$result->hierarchy}.{$result->weight}.{$result->field_id}";
 
-                    if ( !empty( $result->hierarchy ) ) {
+                    if ( ! empty( $result->hierarchy ) ) {
                         // Format for API (field names)
                         if ( 'api' == $options['format'] || 'raw' == $options['format'] ) {
                             $tmp = explode( ':', $result->hierarchy );
@@ -440,7 +440,7 @@ class cfs_api
         if ( ! empty( $rule_types[ 'post_ids' ] ) ) {
             $rule_types['post_ids'] = array_map( 'absint', (array) $rule_types['post_ids'] );
 
-            if ( ! isset( $rule_types[ 'post_types' ] ) ) {
+            if ( ! isset( $rule_types['post_types'] ) ) {
                 $rule_types['post_types'] = array();
 
                 foreach ( $rule_types['post_ids'] as $pid ) {
@@ -519,6 +519,7 @@ class cfs_api
 
             foreach ( $rule_types as $rule_type => $value ) {
                 if ( ! empty( $rules[ $rule_type ] ) ) {
+
                     // Only lookup a post's term IDs if the rule exists
                     if ( 'term_ids' == $rule_type ) {
                         $sql = "
@@ -531,7 +532,7 @@ class cfs_api
                     $operator = (array) $rules[$rule_type]['operator'];
                     $in_array = ( 0 < count( array_intersect( (array) $value, $rules[$rule_type]['values'] ) ) );
 
-                    if ( ( $in_array && '!=' == $operator[0] ) || ( !$in_array && '==' == $operator[0] ) ) {
+                    if ( ( $in_array && '!=' == $operator[0] ) || ( ! $in_array && '==' == $operator[0] ) ) {
                         $fail = true;
                     }
                 }
@@ -552,7 +553,7 @@ class cfs_api
         if ( !empty( $temp ) ) {
             $temp = $this->array_orderby( $temp, 'order' );
             foreach ( $temp as $values ) {
-                $matches[$values['post_id']] = $values['post_title'];
+                $matches[ $values['post_id'] ] = $values['post_title'];
             }
         }
 
@@ -623,14 +624,14 @@ class cfs_api
             $results = $this->find_input_fields( array( 'post_id' => $group_ids ) );
             foreach ( $results as $result ) {
                 // Store all the field objects for the current field group(s)
-                $fields[$result['id']] = (object) $result;
+                $fields[ $result['id'] ] = (object) $result;
 
                 // Store lookup values for the recursion
-                $field_id_lookup[$result['parent_id'] . ':' . $result['name']] = $result['id'];
+                $field_id_lookup[ $result['parent_id'] . ':' . $result['name'] ] = $result['id'];
 
                 // Store parent fields separately
                 if ( 0 == (int) $result['parent_id'] ) {
-                    $parent_fields[$result['name']] = $result['id'];
+                    $parent_fields[ $result['name'] ] = $result['id'];
                 }
             }
         }
