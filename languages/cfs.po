@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-06-09 20:18-0500\n"
-"PO-Revision-Date: 2014-06-09 20:18-0500\n"
+"POT-Creation-Date: 2014-07-08 11:34-0500\n"
+"PO-Revision-Date: 2014-07-08 11:34-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,93 +16,93 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: cfs.php:99 cfs.php:343
+#: cfs.php:104 cfs.php:305
 msgid "Field Groups"
 msgstr ""
 
-#: cfs.php:100
+#: cfs.php:105
 msgid "Field Group"
 msgstr ""
 
-#: cfs.php:101
+#: cfs.php:106
 msgid "Add New"
 msgstr ""
 
-#: cfs.php:102
+#: cfs.php:107
 msgid "Add New Field Group"
 msgstr ""
 
-#: cfs.php:103
+#: cfs.php:108
 msgid "Edit Field Group"
 msgstr ""
 
-#: cfs.php:104
+#: cfs.php:109
 msgid "New Field Group"
 msgstr ""
 
-#: cfs.php:105
+#: cfs.php:110
 msgid "View Field Group"
 msgstr ""
 
-#: cfs.php:106
+#: cfs.php:111
 msgid "Search Field Groups"
 msgstr ""
 
-#: cfs.php:107
+#: cfs.php:112
 msgid "No Field Groups found"
 msgstr ""
 
-#: cfs.php:108
+#: cfs.php:113
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: cfs.php:140
-msgid "Title"
-msgstr ""
-
-#: cfs.php:141
-msgid "Placement"
-msgstr ""
-
-#: cfs.php:157 includes/fields/relationship.php:106
-#: templates/meta_box_rules.php:120
-msgid "Post Types"
-msgstr ""
-
-#: cfs.php:158 templates/meta_box_rules.php:152
-msgid "User Roles"
-msgstr ""
-
-#: cfs.php:159
-msgid "Post IDs"
-msgstr ""
-
-#: cfs.php:160
-msgid "Term IDs"
-msgstr ""
-
-#: cfs.php:161 templates/meta_box_rules.php:240
-msgid "Page Templates"
-msgstr ""
-
-#: cfs.php:332
+#: cfs.php:294
 msgid "Fields"
 msgstr ""
 
-#: cfs.php:333
+#: cfs.php:295
 msgid "Placement Rules"
 msgstr ""
 
-#: cfs.php:334
+#: cfs.php:296
 msgid "Extras"
 msgstr ""
 
-#: cfs.php:344 templates/page_tools.php:74
+#: cfs.php:306 templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: cfs.php:345 templates/page_addons.php:64
+#: cfs.php:307 templates/page_addons.php:64
 msgid "Add-ons"
+msgstr ""
+
+#: cfs.php:446
+msgid "Title"
+msgstr ""
+
+#: cfs.php:447
+msgid "Placement"
+msgstr ""
+
+#: cfs.php:463 includes/fields/relationship.php:106
+#: templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr ""
+
+#: cfs.php:464 templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr ""
+
+#: cfs.php:465
+msgid "Post IDs"
+msgstr ""
+
+#: cfs.php:466
+msgid "Term IDs"
+msgstr ""
+
+#: cfs.php:467 templates/meta_box_rules.php:289
+msgid "Page Templates"
 msgstr ""
 
 #: includes/field.php:16 includes/fields/text.php:8
@@ -388,15 +388,19 @@ msgstr ""
 msgid "is not"
 msgstr ""
 
-#: templates/meta_box_rules.php:82 templates/meta_box_rules.php:87
+#: templates/meta_box_rules.php:97 templates/meta_box_rules.php:102
 msgid "Leave blank to skip this rule"
 msgstr ""
 
-#: templates/meta_box_rules.php:184
+#: templates/meta_box_rules.php:168
+msgid "Post Formats"
+msgstr ""
+
+#: templates/meta_box_rules.php:233
 msgid "Posts"
 msgstr ""
 
-#: templates/meta_box_rules.php:208
+#: templates/meta_box_rules.php:257
 msgid "Taxonomy Terms"
 msgstr ""
 

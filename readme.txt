@@ -18,7 +18,6 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * Each field group has a "Placement Rules" area, where you define which edit screens to appear on
 * Loop fields are repeatable containers for other fields. For example, place a `File Upload` field into a loop to create a gallery!
 * Create your own field types using the `cfs_field_types` hook
-* CFS works well with Gravity Forms, and can save GF entries as post items
 * Includes client-side field validation
 * This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
@@ -39,6 +38,12 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.3.3 =
+* Added Hi-res select2 images
+* Added Post Format placement rule (props @jchristopher)
+* Fixed array_orderby method for PHP 5.3
+* Updated translations
 
 = 2.3.2 =
 * Code refactoring
