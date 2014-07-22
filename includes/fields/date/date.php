@@ -27,6 +27,7 @@ class cfs_date extends cfs_field
                     //$(this).find('input.date').datetime();
                     $(this).find('input.date').datepicker({
                         format: 'yyyy-mm-dd',
+                        todayHighlight: true,
                         autoclose: true,
                         clearBtn: true
                     });
