@@ -120,7 +120,9 @@ class cfs_wysiwyg extends cfs_field
                     $(this).find('a.add_media').attr('data-editor', input_id);
 
                     // add the "code" button
-                    tinyMCE.settings.toolbar2 += ',code';
+                    if (tinyMCE.settings.toolbar2.indexOf('code') < 0) {
+                        tinyMCE.settings.toolbar2 += ',code';
+                    }
 
                     // create wysiwyg
                     wpautop = tinyMCE.settings.wpautop;
