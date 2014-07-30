@@ -13,6 +13,9 @@ class cfs_wysiwyg extends cfs_field
         // wp_editor() won't work for dynamic-generated wysiwygs
         add_filter( 'wp_default_editor', array( $this, 'wp_default_editor' ) );
 
+        // add the "code" button (WP 3.9+)
+        add_filter( 'mce_external_plugins', array( $this, 'mce_external_plugins' ), 20 );
+
         // force HTML mode for main content editor
         add_action( 'tiny_mce_before_init', array( $this, 'editor_pre_init' ) );
     }
@@ -79,11 +82,10 @@ class cfs_wysiwyg extends cfs_field
 
         // make sure the user has WYSIWYG enabled
         if ( 'true' == get_user_meta( get_current_user_id(), 'rich_editing', true ) ) {
-            if ( !is_admin() ) {
-                // load TinyMCE for front-end forms
-                echo '<div class="hidden">';
-                wp_editor( '', 'cfswysi' );
-                echo '</div>';
+            if ( ! is_admin() ) {
+    ?>
+        <div class="hidden"><?php wp_editor( '', 'cfswysi' ); ?></div>
+    <?php
             }
     ?>
         <script>
@@ -115,9 +117,10 @@ class cfs_wysiwyg extends cfs_field
 
                     // set the wysiwyg css id
                     $(this).find('.wysiwyg').attr('id', input_id);
-
-                    // WP 3.5+
                     $(this).find('a.add_media').attr('data-editor', input_id);
+
+                    // add the "code" button
+                    tinyMCE.settings.toolbar2 += ',code';
 
                     // create wysiwyg
                     wpautop = tinyMCE.settings.wpautop;
@@ -148,6 +151,12 @@ class cfs_wysiwyg extends cfs_field
     }
 
 
+    function mce_external_plugins( $plugins ) {
+        if ( version_compare( get_bloginfo( 'version' ), '3.9', '>=' ) ) {
+            $plugins['code'] = CFS_URL . '/assets/js/tinymce/code.min.js';
+        }
+        return $plugins;
+    }
 
 
     function wp_default_editor( $default ) {
