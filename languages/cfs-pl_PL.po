@@ -4,165 +4,391 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 07:52+0100\n"
-"PO-Revision-Date: 2012-09-04 08:03+0100\n"
-"Last-Translator: Bartosz Arendt <info@digitalfactory.pl>\n"
+"POT-Creation-Date: 2014-07-31 08:10-0500\n"
+"PO-Revision-Date: 2014-07-31 08:10-0500\n"
+"Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: Digital Factory <info@digitalfactory.pl>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: POLAND\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:336
-msgid "Fields"
-msgstr "Pola"
-
-#: ../cfs.php:337
-msgid "Placement Rules"
-msgstr "Opcje wyświetlania"
-
-#: ../cfs.php:338
-msgid "Extras"
-msgstr "Dodatki"
-
-#: ../cfs.php:353
-#: ../includes/actions/init.php:13
+#: ../cfs.php:104 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Grupy pól"
 
-#: ../cfs.php:354
-msgid "Tools"
-msgstr "Narzędzia"
-
-#: ../cfs.php:592
-msgid "Imported"
-msgstr "Zaimportowane"
-
-#: ../cfs.php:596
-msgid "Skipped"
-msgstr "Pominięto"
-
-#: ../cfs.php:601
-msgid "Nothing to import"
-msgstr "Nic do zaimportowania"
-
-#: ../cfs.php:676
-msgid "No field groups selected"
-msgstr "Nie wybrano grup pól"
-
-#: ../includes/actions/admin_footer.php:63
-msgid "Custom Field Suite"
-msgstr "Własne pola"
-
-#: ../includes/actions/admin_footer.php:67
-msgid "Changelog"
-msgstr "Dziennik zmian"
-
-#: ../includes/actions/admin_footer.php:68
-msgid "User Guide"
-msgstr "Podręcznik użytkownika"
-
-#: ../includes/actions/admin_footer.php:69
-msgid "Website"
-msgstr "Strona www"
-
-#: ../includes/actions/init.php:14
+#: ../cfs.php:105
 msgid "Field Group"
 msgstr "Grupa pól"
 
-#: ../includes/actions/init.php:15
+#: ../cfs.php:106
 msgid "Add New"
 msgstr "Dodaj nową"
 
-#: ../includes/actions/init.php:16
+#: ../cfs.php:107
 msgid "Add New Field Group"
 msgstr "Dodaj nową grupę pól"
 
-#: ../includes/actions/init.php:17
+#: ../cfs.php:108
 msgid "Edit Field Group"
 msgstr "Edytuj grupę pól"
 
-#: ../includes/actions/init.php:18
+#: ../cfs.php:109
 msgid "New Field Group"
 msgstr "Nowa grupa pól"
 
-#: ../includes/actions/init.php:19
+#: ../cfs.php:110
 msgid "View Field Group"
 msgstr "Zobacz grupę pól"
 
-#: ../includes/actions/init.php:20
+#: ../cfs.php:111
 msgid "Search Field Groups"
 msgstr "Szukaj grup pól"
 
-#: ../includes/actions/init.php:21
+#: ../cfs.php:112
 msgid "No Field Groups found"
 msgstr "Nie znaleziono grup pól"
 
-#: ../includes/actions/init.php:22
+#: ../cfs.php:113
 msgid "No Field Groups found in Trash"
 msgstr "Nie znaleziono grup pól w koszu"
 
-#: ../includes/actions/init.php:49
+#: ../cfs.php:294
+msgid "Fields"
+msgstr "Pola"
+
+#: ../cfs.php:295
+msgid "Placement Rules"
+msgstr "Opcje wyświetlania"
+
+#: ../cfs.php:296
+msgid "Extras"
+msgstr "Dodatki"
+
+#: ../cfs.php:306 ../templates/page_tools.php:74
+msgid "Tools"
+msgstr "Narzędzia"
+
+#: ../cfs.php:307 ../templates/page_addons.php:64
+msgid "Add-ons"
+msgstr ""
+
+#: ../cfs.php:446
 msgid "Title"
 msgstr "Tutuł"
+
+#: ../cfs.php:447
+#, fuzzy
+msgid "Placement"
+msgstr "Opcje wyświetlania"
+
+#: ../cfs.php:463 ../includes/fields/relationship.php:106
+#: ../templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr "Typy wpisów"
+
+#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr "Role użytkowników"
+
+#: ../cfs.php:465
+#, fuzzy
+msgid "Post IDs"
+msgstr "Wpisy"
+
+#: ../cfs.php:466
+msgid "Term IDs"
+msgstr ""
+
+#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+msgid "Page Templates"
+msgstr ""
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Tekst"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:78
+#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
+#: ../includes/fields/wysiwyg.php:63
+msgid "Validation"
+msgstr ""
+
+#: ../includes/field.php:51 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
+#: ../includes/fields/wysiwyg.php:72
+#, fuzzy
+msgid "This is a required field"
+msgstr "To jest pole wieokrotnego wyboru"
+
+#: ../includes/field_group.php:69
+msgid "Imported"
+msgstr "Zaimportowane"
+
+#: ../includes/field_group.php:72
+msgid "Skipped"
+msgstr "Pominięto"
+
+#: ../includes/field_group.php:77
+msgid "Nothing to import"
+msgstr "Nic do zaimportowania"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr ""
+
+#: ../includes/fields/file.php:14
+msgid "File Upload"
+msgstr "Plik"
+
+#: ../includes/fields/file.php:43
+msgid "Add File"
+msgstr "Dodaj plik"
+
+#: ../includes/fields/file.php:44
+msgid "Remove"
+msgstr "Usuń"
+
+#: ../includes/fields/file.php:57
+msgid "Return Value"
+msgstr "Zwraca wartość"
+
+#: ../includes/fields/file.php:66
+msgid "File URL"
+msgstr "Adres URL pliku"
+
+#: ../includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "ID załącznika"
+
+#: ../includes/fields/file.php:127
+msgid "Use This File"
+msgstr "Użyj tego pliku"
+
+#: ../includes/fields/loop.php:9
+msgid "Loop"
+msgstr "Pętla"
+
+#: ../includes/fields/loop.php:41
+msgid "Row Display"
+msgstr "Wyświetlanie rzędu"
+
+#: ../includes/fields/loop.php:50
+msgid "Show the values by default"
+msgstr "Pokaż wartości domyślnie"
+
+#: ../includes/fields/loop.php:57
+#, fuzzy
+msgid "Row Label"
+msgstr "Etykieta"
+
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
+#: ../includes/fields/loop.php:204
+msgid "Loop Row"
+msgstr "Kolejny rząd"
+
+#: ../includes/fields/loop.php:71
+msgid "Button Label"
+msgstr "Etykieta przycisku"
+
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
+#: ../includes/fields/loop.php:205
+msgid "Add Row"
+msgstr "Dodaj rząd"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Relacja"
+
+#: ../includes/fields/relationship.php:107
+msgid "Limit posts to the following types"
+msgstr "Ogranicz wpisy do następujących typów"
+
+#: ../includes/fields/relationship.php:122
+msgid "Limits"
+msgstr ""
+
+#: ../includes/fields/select.php:9
+msgid "Select"
+msgstr "Wybierz"
+
+#: ../includes/fields/select.php:102
+msgid "Choices"
+msgstr "Opcje wyboru"
+
+#: ../includes/fields/select.php:103
+msgid "Enter one choice per line"
+msgstr "Każdą opcję wpisz w oddzielnym rzędzie"
+
+#: ../includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr ""
+
+#: ../includes/fields/select.php:126
+#, fuzzy
+msgid "This is a multi-select field"
+msgstr "To jest pole wieokrotnego wyboru"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr ""
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+msgid "Default Value"
+msgstr "Wartość domyśłna"
+
+#: ../includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "Obszar tekstowy"
+
+#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+msgid "Formatting"
+msgstr "Formatowanie"
+
+#: ../includes/fields/textarea.php:53
+msgid "None"
+msgstr "Brak"
+
+#: ../includes/fields/textarea.php:54
+#, fuzzy
+msgid "Convert newlines to <br />"
+msgstr "Konwertuj nowe linie na"
+
+#: ../includes/fields/true_false.php:9
+msgid "True / False"
+msgstr "Prawda / Fałsz"
+
+#: ../includes/fields/true_false.php:33
+msgid "Message"
+msgstr "Treść"
+
+#: ../includes/fields/true_false.php:34
+msgid "The text beside the checkbox"
+msgstr "Tekst przy polu wyboru"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Użytkownik"
+
+#: ../includes/fields/wysiwyg.php:11
+msgid "Wysiwyg Editor"
+msgstr "Edytor WYSIWYG"
+
+#: ../includes/fields/wysiwyg.php:51
+msgid "Default"
+msgstr "Domyślne"
+
+#: ../includes/fields/wysiwyg.php:52
+msgid "None (bypass filters)"
+msgstr "Brak (przechwyć filtry)"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr ""
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Data"
+
+#: ../templates/admin_head.php:24
+#, fuzzy
+msgid "New Field"
+msgstr "Dodaj nowe pole"
 
 #: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Etykieta"
 
-#: ../templates/field_html.php:31
-msgid "The field name that editors will see"
+#: ../templates/field_html.php:32
+#, fuzzy
+msgid "The field label that editors will see."
 msgstr "Nazwa pola, którą zobaczy użytkownik"
 
-#: ../templates/field_html.php:37
+#: ../templates/field_html.php:39
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../templates/field_html.php:38
-msgid "Only lowercase letters and underscores"
-msgstr "Dozwolone są tylko małe litery"
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
 
-#: ../templates/field_html.php:43
+#: ../templates/field_html.php:49
 msgid "Field Type"
 msgstr "Rodzaj pola"
 
-#: ../templates/field_html.php:61
+#: ../templates/field_html.php:67
 msgid "Notes"
 msgstr "Instrukcje"
 
-#: ../templates/field_html.php:62
-msgid "Tips for editors when entering field data"
+#: ../templates/field_html.php:69
+#, fuzzy
+msgid "Notes for editors during data entry"
 msgstr "Instrukcje dla użytkowników przy wprowadzaniu danych"
 
-#: ../templates/field_html.php:74
+#: ../templates/field_html.php:82
 msgid "Close"
 msgstr "Zamknij"
 
-#: ../templates/field_html.php:75
+#: ../templates/field_html.php:83
 msgid "or"
 msgstr "lub"
 
-#: ../templates/field_html.php:75
+#: ../templates/field_html.php:83
 msgid "delete"
 msgstr "usuń"
 
-#: ../templates/meta_box_extras.php:39
-msgid "Content Editor"
-msgstr "Edytor treści"
+#: ../templates/meta_box_extras.php:42
+msgid "Order"
+msgstr ""
 
-#: ../templates/meta_box_extras.php:48
+#: ../templates/meta_box_extras.php:44
+msgid "The field group with the lowest order will appear first."
+msgstr ""
+
+#: ../templates/meta_box_extras.php:54
+msgid "Position"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:57
+msgid "Normal"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:58
+msgid "Side"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:63
+msgid "Display Settings"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr "Ukryj edytor treści"
 
-#: ../templates/meta_box_extras.php:55
-msgid "Gravity Forms Integration"
+#: ../templates/meta_box_extras.php:81
+#, fuzzy
+msgid "Gravity Forms"
 msgstr "Integracja z Gravity Forms"
 
-#: ../templates/meta_box_fields.php:59
+#: ../templates/meta_box_extras.php:101
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+#, php-format
+msgid "Please install %s to use this feature."
+msgstr ""
+
+#: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr "Dodaj nowe pole"
 
@@ -174,220 +400,140 @@ msgstr "jest równe"
 msgid "is not"
 msgstr "nie jest równe"
 
-#: ../templates/meta_box_rules.php:70
-msgid "Select some options"
-msgstr "Wybierz opcje"
+#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+msgid "Leave blank to skip this rule"
+msgstr ""
 
-#: ../templates/meta_box_rules.php:79
-msgid "Post Types"
-msgstr "Typy wpisów"
+#: ../templates/meta_box_rules.php:168
+msgid "Post Formats"
+msgstr ""
 
-#: ../templates/meta_box_rules.php:105
-msgid "User Roles"
-msgstr "Role użytkowników"
-
-#: ../templates/meta_box_rules.php:131
+#: ../templates/meta_box_rules.php:233
 msgid "Posts"
 msgstr "Wpisy"
 
-#: ../templates/meta_box_rules.php:157
+#: ../templates/meta_box_rules.php:257
 msgid "Taxonomy Terms"
 msgstr "Terminy"
 
-#: ../templates/page_import.php:82
-msgid "Custom Field Import"
-msgstr "Import własnych pól"
+#: ../templates/page_addons.php:80
+msgid "Learn more"
+msgstr ""
 
-#: ../templates/page_import.php:86
-msgid "Import Successful"
-msgstr "Importowanie zakończone powodzeniem"
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
+msgid "Export"
+msgstr ""
 
-#: ../templates/page_import.php:90
-msgid "This tool will scan your existing custom fields, mapping values into Custom Field Suite."
-msgstr "To narzędzie przeskanuje istenijące własne pola i przypisze wartości do wtyczki Własne pola."
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
+#, fuzzy
+msgid "Import"
+msgstr "Zaimportowane"
 
-#: ../templates/page_import.php:91
-msgid "Select the field groups to populate:"
-msgstr "Wybierz grupy pól:"
+#: ../templates/page_tools.php:79
+msgid "Debug"
+msgstr ""
 
-#: ../templates/page_import.php:116
-msgid "Import Field Data"
-msgstr "Importuj dane z pól"
+#: ../templates/page_tools.php:80
+msgid "Reset"
+msgstr ""
 
-#: ../templates/page_sync.php:82
-msgid "Custom Field Sync"
-msgstr "Synchronizacja własnych pól"
+#: ../templates/page_tools.php:88
+msgid "Which field groups would you like to export?"
+msgstr ""
 
-#: ../templates/page_sync.php:86
-msgid "Sync Successful"
-msgstr "Synchronizacja zakończona"
+#: ../templates/page_tools.php:117
+msgid "Paste the import code below."
+msgstr ""
 
-#: ../templates/page_sync.php:90
-msgid "This tool will scan your existing custom fields, mapping any applicable values into Custom Field Suite."
-msgstr "To narzędzie przeskanuje istenijące włąsne pola i przypisze wartości do wtyczki Własne pola."
+#: ../templates/page_tools.php:138
+msgid "Debug information"
+msgstr ""
 
-#: ../templates/page_sync.php:115
-msgid "Synchronize"
-msgstr "Synchronizacja"
+#: ../templates/page_tools.php:163
+msgid "Reset and deactivate."
+msgstr ""
 
-#: ../includes/fields/field.php:21
-#: ../includes/fields/text.php:9
-msgid "Text"
-msgstr "Tekst"
+#: ../templates/page_tools.php:164
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr ""
 
-#: ../includes/fields/file.php:9
-msgid "File Upload"
-msgstr "Plik"
+#: ../templates/page_tools.php:165
+msgid "Delete everything"
+msgstr ""
 
-#: ../includes/fields/file.php:44
-msgid "Add File"
-msgstr "Dodaj plik"
+#~ msgid "No field groups selected"
+#~ msgstr "Nie wybrano grup pól"
 
-#: ../includes/fields/file.php:45
-msgid "Remove"
-msgstr "Usuń"
+#~ msgid "Custom Field Suite"
+#~ msgstr "Własne pola"
 
-#: ../includes/fields/file.php:52
-msgid "File URL"
-msgstr "Adres URL pliku"
+#~ msgid "Changelog"
+#~ msgstr "Dziennik zmian"
 
-#: ../includes/fields/file.php:53
-msgid "Attachment ID"
-msgstr "ID załącznika"
+#~ msgid "User Guide"
+#~ msgstr "Podręcznik użytkownika"
 
-#: ../includes/fields/file.php:57
-msgid "Return Value"
-msgstr "Zwraca wartość"
+#~ msgid "Website"
+#~ msgstr "Strona www"
 
-#: ../includes/fields/file.php:97
-msgid "Use This File"
-msgstr "Użyj tego pliku"
+#~ msgid "Only lowercase letters and underscores"
+#~ msgstr "Dozwolone są tylko małe litery"
 
-#: ../includes/fields/loop.php:9
-msgid "Loop"
-msgstr "Pętla"
+#~ msgid "Content Editor"
+#~ msgstr "Edytor treści"
 
-#: ../includes/fields/loop.php:33
-msgid "Closed"
-msgstr "Zamknięte"
+#~ msgid "Select some options"
+#~ msgstr "Wybierz opcje"
 
-#: ../includes/fields/loop.php:34
-msgid "Open"
-msgstr "Otwórz"
+#~ msgid "Custom Field Import"
+#~ msgstr "Import własnych pól"
 
-#: ../includes/fields/loop.php:38
-msgid "Row Display"
-msgstr "Wyświetlanie rzędu"
+#~ msgid "Import Successful"
+#~ msgstr "Importowanie zakończone powodzeniem"
 
-#: ../includes/fields/loop.php:47
-msgid "Show the values by default"
-msgstr "Pokaż wartości domyślnie"
+#~ msgid ""
+#~ "This tool will scan your existing custom fields, mapping values into "
+#~ "Custom Field Suite."
+#~ msgstr ""
+#~ "To narzędzie przeskanuje istenijące własne pola i przypisze wartości do "
+#~ "wtyczki Własne pola."
 
-#: ../includes/fields/loop.php:55
-msgid "Button Label"
-msgstr "Etykieta przycisku"
+#~ msgid "Select the field groups to populate:"
+#~ msgstr "Wybierz grupy pól:"
 
-#: ../includes/fields/loop.php:56
-msgid "Default: Add Row"
-msgstr "Domyśłnie: Dodaj rząd"
+#~ msgid "Import Field Data"
+#~ msgstr "Importuj dane z pól"
 
-#: ../includes/fields/loop.php:65
-#: ../includes/fields/loop.php:100
-#: ../includes/fields/loop.php:144
-msgid "Add Row"
-msgstr "Dodaj rząd"
+#~ msgid "Custom Field Sync"
+#~ msgstr "Synchronizacja własnych pól"
 
-#: ../includes/fields/loop.php:86
-#: ../includes/fields/loop.php:158
-msgid "Loop Row"
-msgstr "Kolejny rząd"
+#~ msgid "Sync Successful"
+#~ msgstr "Synchronizacja zakończona"
 
-#: ../includes/fields/loop.php:87
-#: ../includes/fields/loop.php:159
-msgid "click to toggle, drag to re-order"
-msgstr "kliknij aby otworzyć/zamknąć, przeciągnij aby zmienić kolejność"
+#~ msgid ""
+#~ "This tool will scan your existing custom fields, mapping any applicable "
+#~ "values into Custom Field Suite."
+#~ msgstr ""
+#~ "To narzędzie przeskanuje istenijące włąsne pola i przypisze wartości do "
+#~ "wtyczki Własne pola."
 
-#: ../includes/fields/relationship.php:9
-msgid "Relationship"
-msgstr "Relacja"
+#~ msgid "Synchronize"
+#~ msgstr "Synchronizacja"
 
-#: ../includes/fields/relationship.php:91
-msgid "Limit posts to the following types"
-msgstr "Ogranicz wpisy do następujących typów"
+#~ msgid "Closed"
+#~ msgstr "Zamknięte"
 
-#: ../includes/fields/select.php:9
-msgid "Select"
-msgstr "Wybierz"
+#~ msgid "Open"
+#~ msgstr "Otwórz"
 
-#: ../includes/fields/select.php:100
-msgid "Choices"
-msgstr "Opcje wyboru"
+#~ msgid "Default: Add Row"
+#~ msgstr "Domyśłnie: Dodaj rząd"
 
-#: ../includes/fields/select.php:101
-msgid "Enter one choice per line"
-msgstr "Każdą opcję wpisz w oddzielnym rzędzie"
+#~ msgid "click to toggle, drag to re-order"
+#~ msgstr "kliknij aby otworzyć/zamknąć, przeciągnij aby zmienić kolejność"
 
-#: ../includes/fields/select.php:116
-msgid "Select multiple values?"
-msgstr "Możłiwość wybrania wielu opcji?"
-
-#: ../includes/fields/select.php:125
-msgid "This a multi-select field"
-msgstr "To jest pole wieokrotnego wyboru"
-
-#: ../includes/fields/text.php:18
-#: ../includes/fields/textarea.php:27
-msgid "Default Value"
-msgstr "Wartość domyśłna"
-
-#: ../includes/fields/textarea.php:9
-msgid "Textarea"
-msgstr "Obszar tekstowy"
-
-#: ../includes/fields/textarea.php:22
-msgid "None"
-msgstr "Brak"
-
-#: ../includes/fields/textarea.php:23
-msgid "Convert newlines to"
-msgstr "Konwertuj nowe linie na"
-
-#: ../includes/fields/textarea.php:42
-#: ../includes/fields/wysiwyg.php:29
-msgid "Formatting"
-msgstr "Formatowanie"
-
-#: ../includes/fields/true_false.php:9
-msgid "True / False"
-msgstr "Prawda / Fałsz"
-
-#: ../includes/fields/true_false.php:28
-msgid "Message"
-msgstr "Treść"
-
-#: ../includes/fields/true_false.php:29
-msgid "The text beside the checkbox"
-msgstr "Tekst przy polu wyboru"
-
-#: ../includes/fields/user.php:9
-msgid "User"
-msgstr "Użytkownik"
-
-#: ../includes/fields/wysiwyg.php:9
-msgid "Wysiwyg Editor"
-msgstr "Edytor WYSIWYG"
-
-#: ../includes/fields/wysiwyg.php:24
-msgid "Default"
-msgstr "Domyślne"
-
-#: ../includes/fields/wysiwyg.php:25
-msgid "None (bypass filters)"
-msgstr "Brak (przechwyć filtry)"
-
-#: ../includes/fields/date/date.php:9
-msgid "Date"
-msgstr "Data"
+#~ msgid "Select multiple values?"
+#~ msgstr "Możłiwość wybrania wielu opcji?"
 
 #~ msgid "Read the user guide"
 #~ msgstr "Czytaj instrukcję"

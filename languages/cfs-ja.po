@@ -4,470 +4,478 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Karin Suzakura\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2013-05-30 12:09-0500\n"
-"PO-Revision-Date: 2013-06-07 09:22+0900\n"
-"Last-Translator: Karin Suzakura <suzakura@yumeneko.pmfan.jp>\n"
+"POT-Creation-Date: 2014-07-31 08:10-0500\n"
+"PO-Revision-Date: 2014-07-31 08:10-0500\n"
+"Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Japanese\n"
-"X-Poedit-Country: JAPAN\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: cfs.php:95
-#: cfs.php:410
+#: ../cfs.php:104 ../cfs.php:305
 msgid "Field Groups"
 msgstr "フィールドグループ"
 
-#: cfs.php:96
+#: ../cfs.php:105
 msgid "Field Group"
 msgstr "フィールドグループ"
 
-#: cfs.php:97
+#: ../cfs.php:106
 msgid "Add New"
 msgstr "新規作成"
 
-#: cfs.php:98
+#: ../cfs.php:107
 msgid "Add New Field Group"
 msgstr "フィールドグループを追加"
 
-#: cfs.php:99
+#: ../cfs.php:108
 msgid "Edit Field Group"
 msgstr "フィールドグループの編集"
 
-#: cfs.php:100
+#: ../cfs.php:109
 msgid "New Field Group"
 msgstr "新しいフィールドグループ"
 
-#: cfs.php:101
+#: ../cfs.php:110
 msgid "View Field Group"
 msgstr "フィールドグループを見る"
 
-#: cfs.php:102
+#: ../cfs.php:111
 msgid "Search Field Groups"
 msgstr "フィールドグループを検索"
 
-#: cfs.php:103
+#: ../cfs.php:112
 msgid "No Field Groups found"
 msgstr "フィールドグループは見つかりませんでした"
 
-#: cfs.php:104
+#: ../cfs.php:113
 msgid "No Field Groups found in Trash"
 msgstr "ゴミ箱にフィールドグループは見つかりませんでした"
 
-#: cfs.php:135
-msgid "Title"
-msgstr "タイトル"
-
-#: cfs.php:136
-msgid "Placement"
-msgstr "配置"
-
-#: cfs.php:156
-#: templates/meta_box_rules.php:120
-#: includes/fields/relationship.php:95
-msgid "Post Types"
-msgstr "投稿タイプ"
-
-#: cfs.php:157
-#: templates/meta_box_rules.php:152
-msgid "User Roles"
-msgstr "ユーザー権限グループ"
-
-#: cfs.php:158
-msgid "Post IDs"
-msgstr "投稿ID"
-
-#: cfs.php:159
-msgid "Term IDs"
-msgstr "分類ID"
-
-#: cfs.php:160
-#: templates/meta_box_rules.php:240
-msgid "Page Templates"
-msgstr "固定ページテンプレート"
-
-#: cfs.php:396
+#: ../cfs.php:294
 msgid "Fields"
 msgstr "フィールド"
 
-#: cfs.php:397
+#: ../cfs.php:295
 msgid "Placement Rules"
 msgstr "配置ルール"
 
-#: cfs.php:398
+#: ../cfs.php:296
 msgid "Extras"
 msgstr "エクストラ"
 
-#: cfs.php:411
+#: ../cfs.php:306 ../templates/page_tools.php:74
 msgid "Tools"
 msgstr "ツール"
 
-#: cfs.php:412
+#: ../cfs.php:307 ../templates/page_addons.php:64
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: templates/admin_footer.php:67
-msgid "Custom Field Suite"
-msgstr "Custom Field Suite"
+#: ../cfs.php:446
+msgid "Title"
+msgstr "タイトル"
 
-#: templates/admin_footer.php:71
-msgid "Documentation"
-msgstr "ドキュメント"
+#: ../cfs.php:447
+msgid "Placement"
+msgstr "配置"
 
-#: templates/admin_footer.php:72
-msgid "Support"
-msgstr "サポート"
+#: ../cfs.php:463 ../includes/fields/relationship.php:106
+#: ../templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr "投稿タイプ"
 
-#: templates/admin_footer.php:73
-msgid "Credits"
-msgstr "クレジット"
+#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr "ユーザー権限グループ"
 
-#: templates/admin_footer.php:78
-msgid "Rate CFS on WordPress.org"
-msgstr "WordPress.orgのプラグインページを表示"
+#: ../cfs.php:465
+msgid "Post IDs"
+msgstr "投稿ID"
 
-#: templates/field_html.php:30
+#: ../cfs.php:466
+msgid "Term IDs"
+msgstr "分類ID"
+
+#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+msgid "Page Templates"
+msgstr "固定ページテンプレート"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "単一行テキスト"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:78
+#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
+#: ../includes/fields/wysiwyg.php:63
+msgid "Validation"
+msgstr "バリデーション"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
+#: ../includes/fields/wysiwyg.php:72
+msgid "This is a required field"
+msgstr "入力必須フィールド"
+
+#: ../includes/field_group.php:69
+msgid "Imported"
+msgstr "インポート完了しました"
+
+#: ../includes/field_group.php:72
+msgid "Skipped"
+msgstr "スキップしました"
+
+#: ../includes/field_group.php:77
+msgid "Nothing to import"
+msgstr "インポートできるデータがありません"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "送信"
+
+#: ../includes/fields/file.php:14
+msgid "File Upload"
+msgstr "ファイルのアップロード"
+
+#: ../includes/fields/file.php:43
+msgid "Add File"
+msgstr "ファイルを追加"
+
+#: ../includes/fields/file.php:44
+msgid "Remove"
+msgstr "削除"
+
+#: ../includes/fields/file.php:57
+msgid "Return Value"
+msgstr "返り値"
+
+#: ../includes/fields/file.php:66
+msgid "File URL"
+msgstr "ファイルURL"
+
+#: ../includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "添付ファイルID"
+
+#: ../includes/fields/file.php:127
+msgid "Use This File"
+msgstr "このファイルを使用"
+
+#: ../includes/fields/loop.php:9
+msgid "Loop"
+msgstr "ループ（複製フィールド）"
+
+#: ../includes/fields/loop.php:41
+msgid "Row Display"
+msgstr "行表示"
+
+#: ../includes/fields/loop.php:50
+msgid "Show the values by default"
+msgstr "デフォルト値を表示"
+
+#: ../includes/fields/loop.php:57
+msgid "Row Label"
+msgstr "行ラベル"
+
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
+#: ../includes/fields/loop.php:204
+msgid "Loop Row"
+msgstr "ループ行"
+
+#: ../includes/fields/loop.php:71
+msgid "Button Label"
+msgstr "ボタンラベル"
+
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
+#: ../includes/fields/loop.php:205
+msgid "Add Row"
+msgstr "追加"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "関連ポスト選択"
+
+#: ../includes/fields/relationship.php:107
+msgid "Limit posts to the following types"
+msgstr "表示される投稿タイプを限定"
+
+#: ../includes/fields/relationship.php:122
+msgid "Limits"
+msgstr ""
+
+#: ../includes/fields/select.php:9
+msgid "Select"
+msgstr "セレクト（ドロップダウンリスト）"
+
+#: ../includes/fields/select.php:102
+msgid "Choices"
+msgstr "選択肢"
+
+#: ../includes/fields/select.php:103
+msgid "Enter one choice per line"
+msgstr "選択肢を1行ずつ入力"
+
+#: ../includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr "複数選択"
+
+#: ../includes/fields/select.php:126
+msgid "This is a multi-select field"
+msgstr "複数選択を可能にする"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr ""
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+msgid "Default Value"
+msgstr "デフォルト値"
+
+#: ../includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "テキストエリア"
+
+#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+msgid "Formatting"
+msgstr "フォーマット"
+
+#: ../includes/fields/textarea.php:53
+msgid "None"
+msgstr "改行変換なし"
+
+#: ../includes/fields/textarea.php:54
+msgid "Convert newlines to <br />"
+msgstr "改行を<br />に変換"
+
+#: ../includes/fields/true_false.php:9
+msgid "True / False"
+msgstr "真/偽（簡易チェックボックス）"
+
+#: ../includes/fields/true_false.php:33
+msgid "Message"
+msgstr "メッセージ"
+
+#: ../includes/fields/true_false.php:34
+msgid "The text beside the checkbox"
+msgstr "チェックボックスに表示するテキスト"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "ユーザー"
+
+#: ../includes/fields/wysiwyg.php:11
+msgid "Wysiwyg Editor"
+msgstr "リッチエディタ"
+
+#: ../includes/fields/wysiwyg.php:51
+msgid "Default"
+msgstr "デフォルト"
+
+#: ../includes/fields/wysiwyg.php:52
+msgid "None (bypass filters)"
+msgstr "フィルターなし"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "カラーピッカー"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "日付フォーマット"
+
+#: ../templates/admin_head.php:24
+#, fuzzy
+msgid "New Field"
+msgstr "新規フィールドを追加"
+
+#: ../templates/field_html.php:30
 msgid "Label"
 msgstr "ラベル"
 
-#: templates/field_html.php:32
+#: ../templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "投稿編集画面で表示されるラベル"
 
-#: templates/field_html.php:39
+#: ../templates/field_html.php:39
 msgid "Name"
 msgstr "名前"
 
-#: templates/field_html.php:42
-msgid "The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores."
-msgstr "get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記述"
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記述"
 
-#: templates/field_html.php:49
+#: ../templates/field_html.php:49
 msgid "Field Type"
 msgstr "フィールドタイプ"
 
-#: templates/field_html.php:67
+#: ../templates/field_html.php:67
 msgid "Notes"
 msgstr "概要"
 
-#: templates/field_html.php:69
+#: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "データ入力時の説明や覚え書きなどを記述"
 
-#: templates/field_html.php:82
+#: ../templates/field_html.php:82
 msgid "Close"
 msgstr "閉じる"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "or"
 msgstr "または"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "delete"
 msgstr "削除"
 
-#: templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:42
 msgid "Order"
 msgstr "順序"
 
-#: templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 
-#: templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:54
 msgid "Position"
 msgstr "位置"
 
-#: templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:57
+msgid "Normal"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:58
+msgid "Side"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:63
 msgid "Display Settings"
 msgstr "表示設定"
 
-#: templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr "コンテンツエディタを隠す"
 
-#: templates/meta_box_extras.php:81
+#: ../templates/meta_box_extras.php:81
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: templates/meta_box_extras.php:101
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "Gravity FormとCFSのフィールドのラベルは正確に一致する必要があります！"
 
-#: templates/meta_box_extras.php:106
+#: ../templates/meta_box_extras.php:106
 #, php-format
 msgid "Please install %s to use this feature."
 msgstr "この機能を使用するには %s をインストールして下さい"
 
-#: templates/meta_box_fields.php:66
+#: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
 msgstr "新規フィールドを追加"
 
-#: templates/meta_box_rules.php:5
+#: ../templates/meta_box_rules.php:5
 msgid "equals"
 msgstr "等しい"
 
-#: templates/meta_box_rules.php:6
+#: ../templates/meta_box_rules.php:6
 msgid "is not"
 msgstr "等しくない"
 
-#: templates/meta_box_rules.php:82
-#: templates/meta_box_rules.php:87
+#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
 msgid "Leave blank to skip this rule"
 msgstr "このルールをスキップするには空白のままにしておいてください"
 
-#: templates/meta_box_rules.php:184
+#: ../templates/meta_box_rules.php:168
+#, fuzzy
+msgid "Post Formats"
+msgstr "投稿ID"
+
+#: ../templates/meta_box_rules.php:233
 msgid "Posts"
 msgstr "投稿"
 
-#: templates/meta_box_rules.php:208
+#: ../templates/meta_box_rules.php:257
 msgid "Taxonomy Terms"
 msgstr "分類"
 
-#: templates/page_tools.php:78
-#: templates/page_tools.php:101
+#: ../templates/page_addons.php:80
+msgid "Learn more"
+msgstr ""
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
 msgid "Export"
 msgstr "エクスポート"
 
-#: templates/page_tools.php:79
-#: templates/page_tools.php:126
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
 msgid "Import"
 msgstr "インポート"
 
-#: templates/page_tools.php:80
+#: ../templates/page_tools.php:79
 msgid "Debug"
 msgstr "デバッグ"
 
-#: templates/page_tools.php:81
+#: ../templates/page_tools.php:80
 msgid "Reset"
 msgstr "リセット"
 
-#: templates/page_tools.php:89
+#: ../templates/page_tools.php:88
 msgid "Which field groups would you like to export?"
 msgstr "どのグループフィールドをエクスポートしますか？"
 
-#: templates/page_tools.php:118
+#: ../templates/page_tools.php:117
 msgid "Paste the import code below."
 msgstr "下のテキストエリアにインポートコードを貼り付けてください"
 
-#: templates/page_tools.php:139
+#: ../templates/page_tools.php:138
 msgid "Debug information"
 msgstr "デバッグ情報"
 
-#: templates/page_tools.php:164
+#: ../templates/page_tools.php:163
 msgid "Reset and deactivate."
 msgstr "リセット＆プラグイン無効化"
 
-#: templates/page_tools.php:165
+#: ../templates/page_tools.php:164
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "CFSデータを削除し、プラグインを無効化します"
 
-#: templates/page_tools.php:166
+#: ../templates/page_tools.php:165
 msgid "Delete everything"
 msgstr "全てを削除"
 
-#: includes/field.php:20
-#: includes/fields/text.php:9
-msgid "Text"
-msgstr "単一行テキスト"
+#~ msgid "Custom Field Suite"
+#~ msgstr "Custom Field Suite"
 
-#: includes/field.php:53
-#: includes/fields/file.php:88
-#: includes/fields/select.php:134
-#: includes/fields/text.php:35
-#: includes/fields/textarea.php:66
-#: includes/fields/true_false.php:49
-msgid "Validation"
-msgstr "バリデーション"
+#~ msgid "Documentation"
+#~ msgstr "ドキュメント"
 
-#: includes/field.php:62
-#: includes/fields/file.php:97
-#: includes/fields/select.php:143
-#: includes/fields/text.php:44
-#: includes/fields/textarea.php:75
-#: includes/fields/true_false.php:58
-msgid "This is a required field"
-msgstr "入力必須フィールド"
+#~ msgid "Support"
+#~ msgstr "サポート"
 
-#: includes/field_group.php:92
-msgid "Imported"
-msgstr "インポート完了しました"
+#~ msgid "Credits"
+#~ msgstr "クレジット"
 
-#: includes/field_group.php:96
-msgid "Skipped"
-msgstr "スキップしました"
+#~ msgid "Rate CFS on WordPress.org"
+#~ msgstr "WordPress.orgのプラグインページを表示"
 
-#: includes/field_group.php:102
-msgid "Nothing to import"
-msgstr "インポートできるデータがありません"
+#~ msgid "Post Title"
+#~ msgstr "投稿タイトル"
 
-#: includes/form.php:219
-msgid "Submit"
-msgstr "送信"
+#~ msgid "Post Content"
+#~ msgstr "投稿本文"
 
-#: includes/form.php:279
-msgid "Post Title"
-msgstr "投稿タイトル"
-
-#: includes/form.php:291
-msgid "Post Content"
-msgstr "投稿本文"
-
-#: includes/fields/file.php:14
-msgid "File Upload"
-msgstr "ファイルのアップロード"
-
-#: includes/fields/file.php:53
-msgid "Add File"
-msgstr "ファイルを追加"
-
-#: includes/fields/file.php:54
-msgid "Remove"
-msgstr "削除"
-
-#: includes/fields/file.php:67
-msgid "Return Value"
-msgstr "返り値"
-
-#: includes/fields/file.php:76
-msgid "File URL"
-msgstr "ファイルURL"
-
-#: includes/fields/file.php:77
-msgid "Attachment ID"
-msgstr "添付ファイルID"
-
-#: includes/fields/file.php:137
-msgid "Use This File"
-msgstr "このファイルを使用"
-
-#: includes/fields/file.php:210
-msgid "Attach file"
-msgstr "添付ファイル"
-
-#: includes/fields/loop.php:9
-msgid "Loop"
-msgstr "ループ（複製フィールド）"
-
-#: includes/fields/loop.php:42
-msgid "Row Display"
-msgstr "行表示"
-
-#: includes/fields/loop.php:51
-msgid "Show the values by default"
-msgstr "デフォルト値を表示"
-
-#: includes/fields/loop.php:58
-msgid "Row Label"
-msgstr "行ラベル"
-
-#: includes/fields/loop.php:65
-#: includes/fields/loop.php:98
-#: includes/fields/loop.php:205
-msgid "Loop Row"
-msgstr "ループ行"
-
-#: includes/fields/loop.php:72
-msgid "Button Label"
-msgstr "ボタンラベル"
-
-#: includes/fields/loop.php:79
-#: includes/fields/loop.php:125
-#: includes/fields/loop.php:206
-msgid "Add Row"
-msgstr "追加"
-
-#: includes/fields/relationship.php:9
-msgid "Relationship"
-msgstr "関連ポスト選択"
-
-#: includes/fields/relationship.php:96
-msgid "Limit posts to the following types"
-msgstr "表示される投稿タイプを限定"
-
-#: includes/fields/relationship.php:111
-msgid "Limits"
-msgstr ""
-
-#: includes/fields/select.php:9
-msgid "Select"
-msgstr "セレクト（ドロップダウンリスト）"
-
-#: includes/fields/select.php:103
-msgid "Choices"
-msgstr "選択肢"
-
-#: includes/fields/select.php:104
-msgid "Enter one choice per line"
-msgstr "選択肢を1行ずつ入力"
-
-#: includes/fields/select.php:118
-msgid "Multi-select?"
-msgstr "複数選択"
-
-#: includes/fields/select.php:127
-msgid "This is a multi-select field"
-msgstr "複数選択を可能にする"
-
-#: includes/fields/text.php:21
-#: includes/fields/textarea.php:31
-msgid "Default Value"
-msgstr "デフォルト値"
-
-#: includes/fields/textarea.php:9
-msgid "Textarea"
-msgstr "テキストエリア"
-
-#: includes/fields/textarea.php:45
-#: includes/fields/wysiwyg.php:49
-msgid "Formatting"
-msgstr "フォーマット"
-
-#: includes/fields/textarea.php:54
-msgid "None"
-msgstr "改行変換なし"
-
-#: includes/fields/textarea.php:55
-msgid "Convert newlines to <br />"
-msgstr "改行を<br />に変換"
-
-#: includes/fields/true_false.php:9
-msgid "True / False"
-msgstr "真/偽（簡易チェックボックス）"
-
-#: includes/fields/true_false.php:34
-msgid "Message"
-msgstr "メッセージ"
-
-#: includes/fields/true_false.php:35
-msgid "The text beside the checkbox"
-msgstr "チェックボックスに表示するテキスト"
-
-#: includes/fields/user.php:9
-msgid "User"
-msgstr "ユーザー"
-
-#: includes/fields/wysiwyg.php:14
-msgid "Wysiwyg Editor"
-msgstr "リッチエディタ"
-
-#: includes/fields/wysiwyg.php:58
-msgid "Default"
-msgstr "デフォルト"
-
-#: includes/fields/wysiwyg.php:59
-msgid "None (bypass filters)"
-msgstr "フィルターなし"
-
-#: includes/fields/color/color.php:9
-msgid "Color"
-msgstr "カラーピッカー"
-
-#: includes/fields/date/date.php:9
-msgid "Date"
-msgstr "日付フォーマット"
+#~ msgid "Attach file"
+#~ msgstr "添付ファイル"
 
 #~ msgid "Donate"
 #~ msgstr "寄付"

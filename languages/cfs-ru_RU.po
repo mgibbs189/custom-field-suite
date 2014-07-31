@@ -1,111 +1,312 @@
 # This file is distributed under the same license as the Custom Field Suite package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-01-31 11:26+0700\n"
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2014-07-31 08:08-0500\n"
+"PO-Revision-Date: 2014-07-31 08:08-0500\n"
+"Last-Translator: FacetWP <hello@uproot.us>\n"
+"Language-Team: Glebcha <glebcha@gmail.com>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.6.3\n"
-"Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: \n"
-"Last-Translator: Glebcha <glebcha@gmail.com>\n"
-"Language-Team: Glebcha <glebcha@gmail.com>\n"
-"Language: ru_RU\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: cfs.php:104 cfs.php:410
+#: ../cfs.php:104 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Группы полей"
 
-#: cfs.php:105
+#: ../cfs.php:105
 msgid "Field Group"
 msgstr "Группа полей"
 
-#: cfs.php:106
+#: ../cfs.php:106
 msgid "Add New"
 msgstr "Добавить"
 
-#: cfs.php:107
+#: ../cfs.php:107
 msgid "Add New Field Group"
 msgstr "Добавить группу полей"
 
-#: cfs.php:108
+#: ../cfs.php:108
 msgid "Edit Field Group"
 msgstr "Редактировать группу полей"
 
-#: cfs.php:109
+#: ../cfs.php:109
 msgid "New Field Group"
 msgstr "Новая"
 
-#: cfs.php:110
+#: ../cfs.php:110
 msgid "View Field Group"
 msgstr "Показать"
 
-#: cfs.php:111
+#: ../cfs.php:111
 msgid "Search Field Groups"
 msgstr "Поиск"
 
-#: cfs.php:112
+#: ../cfs.php:112
 msgid "No Field Groups found"
 msgstr "Ничего не найдено"
 
-#: cfs.php:113
+#: ../cfs.php:113
 msgid "No Field Groups found in Trash"
 msgstr "В корзине ничего не найдено"
 
-#: cfs.php:135
-msgid "Title"
-msgstr "Заголовок"
-
-#: cfs.php:396
+#: ../cfs.php:294
 msgid "Fields"
 msgstr "Поля"
 
-#: cfs.php:397
+#: ../cfs.php:295
 msgid "Placement Rules"
 msgstr "Правила размещения"
 
-#: cfs.php:398
+#: ../cfs.php:296
 msgid "Extras"
 msgstr "Дополнительно"
 
-#: cfs.php:411 templates/page_tools.php:75
+#: ../cfs.php:306 ../templates/page_tools.php:74
 msgid "Tools"
 msgstr "Инструменты"
 
-#: includes/field_group.php:92
+#: ../cfs.php:307 ../templates/page_addons.php:64
+msgid "Add-ons"
+msgstr "Дополнения"
+
+#: ../cfs.php:446
+msgid "Title"
+msgstr "Заголовок"
+
+#: ../cfs.php:447
+msgid "Placement"
+msgstr "Расположение"
+
+#: ../cfs.php:463 ../includes/fields/relationship.php:106
+#: ../templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr "Типы записей"
+
+#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr "Роли пользователей"
+
+#: ../cfs.php:465
+msgid "Post IDs"
+msgstr "Идентификаторы записей"
+
+#: ../cfs.php:466
+msgid "Term IDs"
+msgstr ""
+
+#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+msgid "Page Templates"
+msgstr "Шаблоны страниц"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Текст"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:78
+#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
+#: ../includes/fields/wysiwyg.php:63
+msgid "Validation"
+msgstr "Валидация"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
+#: ../includes/fields/wysiwyg.php:72
+msgid "This is a required field"
+msgstr "Обязательное поле"
+
+#: ../includes/field_group.php:69
 msgid "Imported"
 msgstr "Импорт"
 
-#: includes/field_group.php:96
+#: ../includes/field_group.php:72
 msgid "Skipped"
 msgstr "Пропущено"
 
-#: includes/field_group.php:102
+#: ../includes/field_group.php:77
 msgid "Nothing to import"
 msgstr "Нет объектов для импорта"
 
-#: cfs.php:0 templates/admin_footer.php:41
-msgid "Custom Field Suite"
-msgstr "Кастомные поля"
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Отправить"
 
-#: templates/admin_footer.php:43
-msgid "Homepage"
-msgstr "Домашняя страница"
+#: ../includes/fields/file.php:14
+msgid "File Upload"
+msgstr "Загрузить файл"
 
-#: templates/field_html.php:30
+#: ../includes/fields/file.php:43
+msgid "Add File"
+msgstr "Добавить файл"
+
+#: ../includes/fields/file.php:44
+msgid "Remove"
+msgstr "Удалить"
+
+#: ../includes/fields/file.php:57
+msgid "Return Value"
+msgstr "Возвращаемое значение"
+
+#: ../includes/fields/file.php:66
+msgid "File URL"
+msgstr "Путь к файлу"
+
+#: ../includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "Идентификатор вложения"
+
+#: ../includes/fields/file.php:127
+msgid "Use This File"
+msgstr "Использовать файл"
+
+#: ../includes/fields/loop.php:9
+msgid "Loop"
+msgstr "Цикл"
+
+#: ../includes/fields/loop.php:41
+msgid "Row Display"
+msgstr "Отображение блока"
+
+#: ../includes/fields/loop.php:50
+msgid "Show the values by default"
+msgstr "Значения по-умолчанию"
+
+#: ../includes/fields/loop.php:57
+msgid "Row Label"
+msgstr "Название блока"
+
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
+#: ../includes/fields/loop.php:204
+msgid "Loop Row"
+msgstr "Цикл блока"
+
+#: ../includes/fields/loop.php:71
+msgid "Button Label"
+msgstr "Название кнопки"
+
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
+#: ../includes/fields/loop.php:205
+msgid "Add Row"
+msgstr "Добавить блок"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Связь"
+
+#: ../includes/fields/relationship.php:107
+msgid "Limit posts to the following types"
+msgstr "Ограничить записи следующим типом"
+
+#: ../includes/fields/relationship.php:122
+msgid "Limits"
+msgstr "Ограничения"
+
+#: ../includes/fields/select.php:9
+msgid "Select"
+msgstr "Выбрать"
+
+#: ../includes/fields/select.php:102
+msgid "Choices"
+msgstr "Предпочтения"
+
+#: ../includes/fields/select.php:103
+msgid "Enter one choice per line"
+msgstr "Одно предпочтение в строке"
+
+#: ../includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr "Множественный выбор?"
+
+#: ../includes/fields/select.php:126
+msgid "This is a multi-select field"
+msgstr "Поле множественного выбора"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr ""
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+msgid "Default Value"
+msgstr "Значение по-умолчанию"
+
+#: ../includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "Текстовое поле"
+
+#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+msgid "Formatting"
+msgstr "Форматирование"
+
+#: ../includes/fields/textarea.php:53
+msgid "None"
+msgstr "Нет"
+
+#: ../includes/fields/textarea.php:54
+msgid "Convert newlines to <br />"
+msgstr "Преобразовать разрыв строки в <br />"
+
+#: ../includes/fields/true_false.php:9
+msgid "True / False"
+msgstr ""
+
+#: ../includes/fields/true_false.php:33
+msgid "Message"
+msgstr "Сообщение"
+
+#: ../includes/fields/true_false.php:34
+msgid "The text beside the checkbox"
+msgstr "Текст рядом с чекбоксом"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Пользователь"
+
+#: ../includes/fields/wysiwyg.php:11
+msgid "Wysiwyg Editor"
+msgstr "Визуальный редактор"
+
+#: ../includes/fields/wysiwyg.php:51
+msgid "Default"
+msgstr "По-умолчанию"
+
+#: ../includes/fields/wysiwyg.php:52
+msgid "None (bypass filters)"
+msgstr "Нет (игнорировать фильтры)"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Цвет"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Дата"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Новое поле"
+
+#: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Название"
 
-#: templates/field_html.php:32
+#: ../templates/field_html.php:32
 msgid "The field label that editors will see."
 msgstr "Название поля, отображаемое редактору"
 
-#: templates/field_html.php:39
+#: ../templates/field_html.php:39
 msgid "Name"
 msgstr "Имя"
 
-#: templates/field_html.php:42
+#: ../templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
@@ -113,377 +314,164 @@ msgstr ""
 "Название поля передается в функцию get() для получения значения. Используйте "
 "только буквы, числа и нижнее подчеркивание."
 
-#: templates/field_html.php:49
+#: ../templates/field_html.php:49
 msgid "Field Type"
 msgstr "Тип поля"
 
-#: templates/field_html.php:67
+#: ../templates/field_html.php:67
 msgid "Notes"
 msgstr "Примечание"
 
-#: templates/field_html.php:69
+#: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
 msgstr "Примечание для редактора во время ввода данных"
 
-#: templates/field_html.php:82
+#: ../templates/field_html.php:82
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "or"
 msgstr "или"
 
-#: templates/field_html.php:83
+#: ../templates/field_html.php:83
 msgid "delete"
 msgstr "удалить"
 
-#: templates/meta_box_extras.php:73
-msgid "Hide the content editor"
-msgstr "Спрятать редактор"
-
-#: templates/meta_box_fields.php:66
-msgid "Add New Field"
-msgstr "Добавить поле"
-
-#: templates/meta_box_rules.php:5
-msgid "equals"
-msgstr "равно"
-
-#: templates/meta_box_rules.php:6
-msgid "is not"
-msgstr "не является"
-
-#: templates/meta_box_rules.php:82 templates/meta_box_rules.php:87
-msgid "Leave blank to skip this rule"
-msgstr "Оставьте пустым, чтобы пропустить условие"
-
-#: cfs.php:156 includes/fields/relationship.php:95
-#: templates/meta_box_rules.php:120
-msgid "Post Types"
-msgstr "Типы записей"
-
-#: cfs.php:157 templates/meta_box_rules.php:152
-msgid "User Roles"
-msgstr "Роли пользователей"
-
-#: templates/meta_box_rules.php:184
-msgid "Posts"
-msgstr "Записи"
-
-#: templates/meta_box_rules.php:208
-msgid "Taxonomy Terms"
-msgstr "Правила таксономии"
-
-#: templates/page_tools.php:78 templates/page_tools.php:101
-msgid "Export"
-msgstr "Экспорт"
-
-#: templates/page_tools.php:79 templates/page_tools.php:126
-msgid "Import"
-msgstr "Импорт"
-
-#: templates/page_tools.php:80
-msgid "Debug"
-msgstr "Отладка"
-
-#: templates/page_tools.php:89
-msgid "Which field groups would you like to export?"
-msgstr "Какие группы полей импортировать?"
-
-#: includes/field.php:20 includes/fields/text.php:9
-msgid "Text"
-msgstr "Текст"
-
-#: includes/field.php:53 includes/fields/file.php:88
-#: includes/fields/select.php:134 includes/fields/text.php:35
-#: includes/fields/textarea.php:66 includes/fields/true_false.php:49
-msgid "Validation"
-msgstr "Валидация"
-
-#: includes/field.php:62 includes/fields/file.php:97
-#: includes/fields/select.php:143 includes/fields/text.php:44
-#: includes/fields/textarea.php:75 includes/fields/true_false.php:58
-msgid "This is a required field"
-msgstr "Обязательное поле"
-
-#: includes/fields/color/color.php:9
-msgid "Color"
-msgstr "Цвет"
-
-#: includes/fields/date/date.php:9
-msgid "Date"
-msgstr "Дата"
-
-#: includes/fields/file.php:14
-msgid "File Upload"
-msgstr "Загрузить файл"
-
-#: includes/fields/file.php:53
-msgid "Add File"
-msgstr "Добавить файл"
-
-#: includes/fields/file.php:54
-msgid "Remove"
-msgstr "Удалить"
-
-#: includes/fields/file.php:67
-msgid "Return Value"
-msgstr "Возвращаемое значение"
-
-#: includes/fields/file.php:76
-msgid "File URL"
-msgstr "Путь к файлу"
-
-#: includes/fields/file.php:77
-msgid "Attachment ID"
-msgstr "Идентификатор вложения"
-
-#: includes/fields/file.php:137
-msgid "Use This File"
-msgstr "Использовать файл"
-
-#: includes/fields/file.php:210
-msgid "Attach file"
-msgstr "Прикрепить файл"
-
-#: includes/fields/loop.php:9
-msgid "Loop"
-msgstr "Цикл"
-
-#: includes/fields/loop.php:42
-msgid "Row Display"
-msgstr "Отображение блока"
-
-#: includes/fields/loop.php:51
-msgid "Show the values by default"
-msgstr "Значения по-умолчанию"
-
-#: includes/fields/loop.php:58
-msgid "Row Label"
-msgstr "Название блока"
-
-#: includes/fields/loop.php:65 includes/fields/loop.php:98
-#: includes/fields/loop.php:205
-msgid "Loop Row"
-msgstr "Цикл блока"
-
-#: includes/fields/loop.php:72
-msgid "Button Label"
-msgstr "Название кнопки"
-
-#: includes/fields/loop.php:79 includes/fields/loop.php:125
-#: includes/fields/loop.php:206
-msgid "Add Row"
-msgstr "Добавить блок"
-
-#: includes/fields/relationship.php:9
-msgid "Relationship"
-msgstr "Связь"
-
-#: includes/fields/relationship.php:96
-msgid "Limit posts to the following types"
-msgstr "Ограничить записи следующим типом"
-
-#: includes/fields/select.php:9
-msgid "Select"
-msgstr "Выбрать"
-
-#: includes/fields/select.php:103
-msgid "Choices"
-msgstr "Предпочтения"
-
-#: includes/fields/select.php:104
-msgid "Enter one choice per line"
-msgstr "Одно предпочтение в строке"
-
-#: includes/fields/select.php:118
-msgid "Multi-select?"
-msgstr "Множественный выбор?"
-
-#: includes/fields/select.php:127
-msgid "This is a multi-select field"
-msgstr "Поле множественного выбора"
-
-#: includes/fields/text.php:21 includes/fields/textarea.php:31
-msgid "Default Value"
-msgstr "Значение по-умолчанию"
-
-#: includes/fields/textarea.php:9
-msgid "Textarea"
-msgstr "Текстовое поле"
-
-#: includes/fields/textarea.php:45 includes/fields/wysiwyg.php:49
-msgid "Formatting"
-msgstr "Форматирование"
-
-#: includes/fields/textarea.php:54
-msgid "None"
-msgstr "Нет"
-
-#: includes/fields/textarea.php:55
-msgid "Convert newlines to <br />"
-msgstr "Преобразовать разрыв строки в <br />"
-
-#: includes/fields/true_false.php:9
-msgid "True / False"
-msgstr ""
-
-#: includes/fields/true_false.php:34
-msgid "Message"
-msgstr "Сообщение"
-
-#: includes/fields/true_false.php:35
-msgid "The text beside the checkbox"
-msgstr "Текст рядом с чекбоксом"
-
-#: includes/fields/user.php:9
-msgid "User"
-msgstr "Пользователь"
-
-#: includes/fields/wysiwyg.php:14
-msgid "Wysiwyg Editor"
-msgstr "Визуальный редактор"
-
-#: includes/fields/wysiwyg.php:58
-msgid "Default"
-msgstr "По-умолчанию"
-
-#: includes/fields/wysiwyg.php:59
-msgid "None (bypass filters)"
-msgstr "Нет (игнорировать фильтры)"
-
-#: cfs.php:136
-msgid "Placement"
-msgstr "Расположение"
-
-#: cfs.php:158
-msgid "Post IDs"
-msgstr "Идентификаторы записей"
-
-#: cfs.php:159
-msgid "Term IDs"
-msgstr ""
-
-#: cfs.php:160 templates/meta_box_rules.php:240
-msgid "Page Templates"
-msgstr "Шаблоны страниц"
-
-#: cfs.php:412 templates/page_addons.php:65
-msgid "Add-ons"
-msgstr "Дополнения"
-
-#: includes/form.php:219
-msgid "Submit"
-msgstr "Отправить"
-
-#: includes/form.php:279
-msgid "Post Title"
-msgstr "Заголовок записи"
-
-#: includes/form.php:291
-msgid "Post Content"
-msgstr "Содержимое записи"
-
-#: includes/fields/relationship.php:111
-msgid "Limits"
-msgstr "Ограничения"
-
-#: templates/admin_footer.php:44
-msgid "Documentation"
-msgstr "Документация"
-
-#: templates/admin_footer.php:45
-msgid "Forums"
-msgstr "Фоурм"
-
-#: templates/admin_footer.php:46
-msgid "Write a review"
-msgstr "Написать отзыв"
-
-#: templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:42
 msgid "Order"
 msgstr "Порядок"
 
-#: templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
 msgstr "Группа полей с низшим порядковым номером отобразится первой."
 
-#: templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:54
 msgid "Position"
 msgstr "Расположение"
 
-#: templates/meta_box_extras.php:63
-msgid "Display Settings"
-msgstr "Настройки отображения"
-
-#: templates/meta_box_extras.php:81
-msgid "Gravity Forms"
-msgstr ""
-
-#: templates/meta_box_extras.php:101
-msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
-
-#: templates/meta_box_extras.php:106
-msgid "Please install %s to use this feature."
-msgstr ""
-
-#: templates/page_tools.php:81
-msgid "Reset"
-msgstr "Сбросить"
-
-#: templates/page_tools.php:118
-msgid "Paste the import code below."
-msgstr "Вставьте код импорта"
-
-#: templates/page_tools.php:139
-msgid "Debug information"
-msgstr "Отладочная информация"
-
-#: templates/page_tools.php:164
-msgid "Reset and deactivate."
-msgstr "Сбросить и деактивировать."
-
-#: templates/page_tools.php:165
-msgid "This will delete all CFS data and deactivate the plugin."
-msgstr "Это действие удалит все данные форм и деактивирует плагин."
-
-#: templates/page_tools.php:166
-msgid "Delete everything"
-msgstr "Удалить все"
-
-#: cfs.php:0
-msgid "https://uproot.us/"
-msgstr ""
-
-#: cfs.php:0
-msgid "Visually add custom fields to your WordPress edit pages."
-msgstr ""
-
-#: cfs.php:0
-msgid "Matt Gibbs"
-msgstr ""
-
-#: cfs.php:0
-msgid "1.9.9"
-msgstr ""
-
-#: templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:57
 msgid "Normal"
 msgstr "Обычно"
 
-#: templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:58
 msgid "Side"
 msgstr "Сбоку"
 
-#: templates/page_addons.php:81
+#: ../templates/meta_box_extras.php:63
+msgid "Display Settings"
+msgstr "Настройки отображения"
+
+#: ../templates/meta_box_extras.php:73
+msgid "Hide the content editor"
+msgstr "Спрятать редактор"
+
+#: ../templates/meta_box_extras.php:81
+msgid "Gravity Forms"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:101
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr ""
+
+#: ../templates/meta_box_extras.php:106
+#, php-format
+msgid "Please install %s to use this feature."
+msgstr ""
+
+#: ../templates/meta_box_fields.php:66
+msgid "Add New Field"
+msgstr "Добавить поле"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "равно"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "не является"
+
+#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+msgid "Leave blank to skip this rule"
+msgstr "Оставьте пустым, чтобы пропустить условие"
+
+#: ../templates/meta_box_rules.php:168
+#, fuzzy
+msgid "Post Formats"
+msgstr "Идентификаторы записей"
+
+#: ../templates/meta_box_rules.php:233
+msgid "Posts"
+msgstr "Записи"
+
+#: ../templates/meta_box_rules.php:257
+msgid "Taxonomy Terms"
+msgstr "Правила таксономии"
+
+#: ../templates/page_addons.php:80
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: templates/admin_head.php:26
-msgid "New Field"
-msgstr "Новое поле"
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
+msgid "Export"
+msgstr "Экспорт"
 
-#: includes/form.php:344
-msgid "Toggle row visibility"
-msgstr ""
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
+msgid "Import"
+msgstr "Импорт"
+
+#: ../templates/page_tools.php:79
+msgid "Debug"
+msgstr "Отладка"
+
+#: ../templates/page_tools.php:80
+msgid "Reset"
+msgstr "Сбросить"
+
+#: ../templates/page_tools.php:88
+msgid "Which field groups would you like to export?"
+msgstr "Какие группы полей импортировать?"
+
+#: ../templates/page_tools.php:117
+msgid "Paste the import code below."
+msgstr "Вставьте код импорта"
+
+#: ../templates/page_tools.php:138
+msgid "Debug information"
+msgstr "Отладочная информация"
+
+#: ../templates/page_tools.php:163
+msgid "Reset and deactivate."
+msgstr "Сбросить и деактивировать."
+
+#: ../templates/page_tools.php:164
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr "Это действие удалит все данные форм и деактивирует плагин."
+
+#: ../templates/page_tools.php:165
+msgid "Delete everything"
+msgstr "Удалить все"
+
+#~ msgid "Custom Field Suite"
+#~ msgstr "Кастомные поля"
+
+#~ msgid "Homepage"
+#~ msgstr "Домашняя страница"
+
+#~ msgid "Attach file"
+#~ msgstr "Прикрепить файл"
+
+#~ msgid "Post Title"
+#~ msgstr "Заголовок записи"
+
+#~ msgid "Post Content"
+#~ msgstr "Содержимое записи"
+
+#~ msgid "Documentation"
+#~ msgstr "Документация"
+
+#~ msgid "Forums"
+#~ msgstr "Фоурм"
+
+#~ msgid "Write a review"
+#~ msgstr "Написать отзыв"
