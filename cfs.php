@@ -464,16 +464,17 @@ class Custom_Field_Suite
                 'user_roles'        => __( 'User Roles', 'cfs' ),
                 'post_ids'          => __( 'Post IDs', 'cfs' ),
                 'term_ids'          => __( 'Term IDs', 'cfs' ),
-                'page_templates'    => __( 'Page Templates', 'cfs' )
+                'page_templates'    => __( 'Page Templates', 'cfs' ),
+                'post_formats'      => __( 'Post Formats', 'cfs' )
             );
 
             $results = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = '$post_id' AND meta_key = 'cfs_rules' LIMIT 1" );
             $results = unserialize( $results );
 
             foreach ( $results as $criteria => $values ) {
-                $label = $labels[$criteria];
+                $label = $labels[ $criteria ];
                 $operator = ( '==' == $values['operator'] ) ? '=' : '!=';
-                echo "<div>$label " . $operator . ' [' . implode(' or ', $values['values']) . ']</div>';
+                echo "<div>$label " . $operator . ' [' . implode( ' or ', $values['values'] ) . ']</div>';
             }
         }
     }
