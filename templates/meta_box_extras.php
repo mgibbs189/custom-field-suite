@@ -46,7 +46,7 @@ if ($is_gf_active)
             </label>
         </td>
         <td style="vertical-align:top">
-            <input type="text" name="cfs[extras][order]" value="<?php echo $extras['order']; ?>" />
+            <input type="text" name="cfs[extras][order]" value="<?php echo $extras['order']; ?>" style="width:80px" />
         </td>
     </tr>
     <tr>
@@ -54,8 +54,8 @@ if ($is_gf_active)
             <label><?php _e('Position', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
-            <div><input type="radio" name="cfs[extras][context]" value="normal"<?php echo ($extras['context'] == 'normal') ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'cfs' ); ?></div>
-            <div><input type="radio" name="cfs[extras][context]" value="side"<?php echo ($extras['context'] == 'side') ? ' checked' : ''; ?> /> <?php _e( 'Side', 'cfs' ); ?></div>
+            <input type="radio" name="cfs[extras][context]" value="normal"<?php echo ($extras['context'] == 'normal') ? ' checked' : ''; ?> /> <?php _e( 'Normal', 'cfs' ); ?> &nbsp; &nbsp;
+            <input type="radio" name="cfs[extras][context]" value="side"<?php echo ($extras['context'] == 'side') ? ' checked' : ''; ?> /> <?php _e( 'Side', 'cfs' ); ?>
         </td>
     </tr>
     <tr>
@@ -76,13 +76,14 @@ if ($is_gf_active)
             </div>
         </td>
     </tr>
+
+    <?php if ( $is_gf_active ) : ?>
+
     <tr>
         <td class="label">
             <label><?php _e('Gravity Forms', 'cfs'); ?></label>
         </td>
         <td style="vertical-align:top">
-            <?php if ($is_gf_active) : ?>
-
             <select name="cfs[extras][gforms][form_id]">
                 <option value="">-- Gravity Form --</option>
                 <?php foreach ($gf_forms as $gf_form) : ?>
@@ -99,13 +100,9 @@ if ($is_gf_active)
                 <?php endforeach; ?>
             </select>
             <p><?php _e('Your Gravity Form and CFS field labels must match exactly', 'cfs'); ?></p>
-
-            <?php else : ?>
-
-            <?php $gf_url = '<a href="https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=198410" target="_blank">Gravity Forms</a>'; ?>
-            <div><?php printf(__('Please install %s to use this feature.', 'cfs'), $gf_url); ?></div>
-
-            <?php endif; ?>
         </td>
     </tr>
+
+    <?php endif; ?>
+
 </table>
