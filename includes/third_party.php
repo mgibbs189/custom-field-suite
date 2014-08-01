@@ -138,7 +138,7 @@ class cfs_third_party
      * @return array
      * @since 1.8.1
      */
-    function pts_post_type_filter($args) {
+    function pts_post_type_filter( $args ) {
         global $current_screen;
 
         if ( 'cfs' == $current_screen->id ) {
@@ -160,9 +160,9 @@ class cfs_third_party
 
         $field_data = $cfs->get( false, $post->ID, array( 'format' => 'raw' ) );
         
-        if (is_array($field_data)) {
-            foreach($field_data as $key => $value) {
-                delete_post_meta($new_post_id, $key, $value);
+        if ( is_array( $field_data ) ) {
+            foreach ( $field_data as $key => $value ) {
+                delete_post_meta( $new_post_id, $key, $value );
             }
         }
         
