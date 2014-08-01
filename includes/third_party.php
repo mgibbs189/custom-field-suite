@@ -15,8 +15,8 @@ class cfs_third_party
         add_action( 'icl_make_duplicate', array( $this, 'wpml_handler' ), 10, 4 );
 
         // Duplicate Post - http://wordpress.org/plugins/duplicate-post/
-        add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 10, 2 );
-        add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 10, 2 );
+        add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 20, 2 );
+        add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 20, 2 );
     }
 
 
@@ -159,6 +159,13 @@ class cfs_third_party
         global $cfs;
 
         $field_data = $cfs->get( false, $post->ID, array( 'format' => 'raw' ) );
+        
+        if (is_array($field_data)) {
+            foreach($field_data as $key => $value) {
+                delete_post_meta($new_post_id, $key, $value);
+            }
+        }
+        
         $post_data = array( 'ID' => $new_post_id );
         $cfs->save( $field_data, $post_data );
     }
