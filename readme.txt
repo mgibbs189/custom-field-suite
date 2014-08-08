@@ -22,9 +22,20 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 * This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 = Important Links =
-[Homepage →](http://customfieldsuite.com/)
-[Documentation →](http://customfieldsuite.com/projects/cfs/documentation/)
-[Github →](https://github.com/mgibbs189/custom-field-suite)
+* [Homepage →](http://customfieldsuite.com/)
+* [Documentation →](http://customfieldsuite.com/projects/cfs/documentation/)
+* [Github →](https://github.com/mgibbs189/custom-field-suite)
+
+= Translations =
+* German (de_DE) - thanks to [David Decker](http://deckerweb.de/)
+* Spanish (es_ES) - thanks to [Andrew Kurtis](http://www.webhostinghub.com/)
+* Persian (fa_IR) - thanks to Vahid Masoomi
+* French (fr_FR) - thanks to Jean-Christophe Brebion
+* Hungarian (hu_HU)
+* Italian (it_IT)
+* Japanese (ja) - thanks to Karin Suzakura
+* Polish (pl_PL) - thanks to [Digital Factory](digitalfactory.pl)
+* Russian (ru_RU) - thanks to Glebcha
 
 == Installation ==
 
