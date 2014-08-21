@@ -3,7 +3,7 @@ Contributors: mgibbs189
 Donate link: http://customfieldsuite.com/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, repeater, upload
 Requires at least: 3.8
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: trunk
 License: GPL2
 
@@ -49,6 +49,15 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.3.6 =
+* Added Spanish translation (props Andrew Curtis)
+* Updated translations
+* Upgraded select2 to 3.5.1
+* Hide Gravity Forms options when disabled
+* Fixed label for "Post Formats"
+* Fixed issue with Duplicate Posts plugin (props hissy)
+* Added `cfs_disable_admin` to optionally hide group creation screens
 
 = 2.3.5 =
 * Fixed WYSIWYG "code" button from showing repeatedly
