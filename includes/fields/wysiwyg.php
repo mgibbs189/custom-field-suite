@@ -92,6 +92,7 @@ class cfs_wysiwyg extends cfs_field
         (function($) {
 
             var wpautop;
+            var resize;
             var wysiwyg_count = 0;
 
             $(function() {
@@ -126,15 +127,19 @@ class cfs_wysiwyg extends cfs_field
 
                     // create wysiwyg
                     wpautop = tinyMCE.settings.wpautop;
+                    resize = tinyMCE.settings.resize;
 
                     tinyMCE.settings.wpautop = false;
+                    tinyMCE.settings.resize = 'vertical';
                     tinyMCE.execCommand('mceAddEditor', false, input_id);
                     tinyMCE.settings.wpautop = wpautop;
+                    tinyMCE.settings.resize = resize;
                 });
             };
 
             $(document).on('cfs/sortable_start', function(event, ui) {
                 tinyMCE.settings.wpautop = false;
+                tinyMCE.settings.resize = 'vertical';
                 $(ui).find('.wysiwyg').each(function() {
                     tinyMCE.execCommand('mceRemoveEditor', false, $(this).attr('id'));
                 });
@@ -145,6 +150,7 @@ class cfs_wysiwyg extends cfs_field
                     tinyMCE.execCommand('mceAddEditor', false, $(this).attr('id'));
                 });
                 tinyMCE.settings.wpautop = wpautop;
+                tinyMCE.settings.resize = resize;
             });
         })(jQuery);
         </script>
