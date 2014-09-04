@@ -433,6 +433,7 @@ body.mp6 .cfs_loop .cfs_loop_head:before {
 	top:0;
 	color:#adadad;
 	content: '\f333';
+	cursor: move;
 }
 
 body.mp6 .cfs_loop .cfs_loop_body.open {
