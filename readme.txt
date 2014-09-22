@@ -50,6 +50,11 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.3.7 =
+* WYWISYG resize support
+* Fixed WYSIWYG issue with all editors in text mode (props @sc0ttkclark)
+* Fixed issue with partially-saved field groups
+
 = 2.3.6 =
 * Added Spanish translation (props Andrew Curtis)
 * Updated translations
