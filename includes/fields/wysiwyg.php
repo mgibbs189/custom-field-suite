@@ -121,9 +121,9 @@ class cfs_wysiwyg extends cfs_field
                     $(this).find('a.add_media').attr('data-editor', input_id);
                     
                     // if all editors on page are in 'text' tab, tinyMCE.settings will not be set
-                    if ( 'undefined' == typeof tinyMCE.settings ) {,
+                    if ('undefined' == typeof tinyMCE.settings) {
                         // let's pull from tinyMCEPreInit for main content area (if it's set)
-                        if ( 'undefined' != typeof tinyMCEPreInit && 'undefined' != typeof tinyMCEPreInit.mceInit.content ) {
+                        if ('undefined' != typeof tinyMCEPreInit && 'undefined' != typeof tinyMCEPreInit.mceInit.content) {
                             tinyMCE.settings = tinyMCEPreInit.mceInit.content;
                         }
                         // otherwise, setup basic settings object

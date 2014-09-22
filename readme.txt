@@ -5,7 +5,7 @@ Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relat
 Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: trunk
-License: GPL2
+License: GPLv2
 
 Custom Field Suite (CFS) is a lightweight custom fields plugin
 
