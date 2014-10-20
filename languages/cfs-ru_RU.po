@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-07-31 08:08-0500\n"
-"PO-Revision-Date: 2014-07-31 08:08-0500\n"
+"POT-Creation-Date: 2014-10-20 09:38-0500\n"
+"PO-Revision-Date: 2014-10-20 09:38-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: Glebcha <glebcha@gmail.com>\n"
 "Language: ru_RU\n"
@@ -11,61 +11,61 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:104 ../cfs.php:305
+#: ../cfs.php:103 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Группы полей"
 
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Field Group"
 msgstr "Группа полей"
 
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New"
 msgstr "Добавить"
 
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Add New Field Group"
 msgstr "Добавить группу полей"
 
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "Edit Field Group"
 msgstr "Редактировать группу полей"
 
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "New Field Group"
 msgstr "Новая"
 
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "View Field Group"
 msgstr "Показать"
 
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "Search Field Groups"
 msgstr "Поиск"
 
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found"
 msgstr "Ничего не найдено"
 
-#: ../cfs.php:113
+#: ../cfs.php:112
 msgid "No Field Groups found in Trash"
 msgstr "В корзине ничего не найдено"
 
-#: ../cfs.php:294
+#: ../cfs.php:293
 msgid "Fields"
 msgstr "Поля"
 
-#: ../cfs.php:295
+#: ../cfs.php:294
 msgid "Placement Rules"
 msgstr "Правила размещения"
 
-#: ../cfs.php:296
+#: ../cfs.php:295
 msgid "Extras"
 msgstr "Дополнительно"
 
@@ -73,38 +73,43 @@ msgstr "Дополнительно"
 msgid "Tools"
 msgstr "Инструменты"
 
-#: ../cfs.php:307 ../templates/page_addons.php:64
+#: ../cfs.php:307 ../templates/page_addons.php:65
 msgid "Add-ons"
 msgstr "Дополнения"
 
-#: ../cfs.php:446
+#: ../cfs.php:447
 msgid "Title"
 msgstr "Заголовок"
 
-#: ../cfs.php:447
+#: ../cfs.php:448
 msgid "Placement"
 msgstr "Расположение"
 
-#: ../cfs.php:463 ../includes/fields/relationship.php:106
+#: ../cfs.php:464 ../includes/fields/relationship.php:106
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "Типы записей"
 
-#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+#: ../cfs.php:465 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "Роли пользователей"
 
-#: ../cfs.php:465
+#: ../cfs.php:466
 msgid "Post IDs"
 msgstr "Идентификаторы записей"
 
-#: ../cfs.php:466
+#: ../cfs.php:467
 msgid "Term IDs"
 msgstr ""
 
-#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+#: ../cfs.php:468 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "Шаблоны страниц"
+
+#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#, fuzzy
+msgid "Post Formats"
+msgstr "Идентификаторы записей"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -136,9 +141,13 @@ msgstr "Пропущено"
 msgid "Nothing to import"
 msgstr "Нет объектов для импорта"
 
-#: ../includes/form.php:194
-msgid "Submit"
-msgstr "Отправить"
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Цвет"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Дата"
 
 #: ../includes/fields/file.php:14
 msgid "File Upload"
@@ -282,13 +291,9 @@ msgstr "По-умолчанию"
 msgid "None (bypass filters)"
 msgstr "Нет (игнорировать фильтры)"
 
-#: ../includes/fields/color/color.php:8
-msgid "Color"
-msgstr "Цвет"
-
-#: ../includes/fields/date/date.php:8
-msgid "Date"
-msgstr "Дата"
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Отправить"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
@@ -366,17 +371,12 @@ msgstr "Настройки отображения"
 msgid "Hide the content editor"
 msgstr "Спрятать редактор"
 
-#: ../templates/meta_box_extras.php:81
+#: ../templates/meta_box_extras.php:84
 msgid "Gravity Forms"
 msgstr ""
 
-#: ../templates/meta_box_extras.php:101
+#: ../templates/meta_box_extras.php:102
 msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
-
-#: ../templates/meta_box_extras.php:106
-#, php-format
-msgid "Please install %s to use this feature."
 msgstr ""
 
 #: ../templates/meta_box_fields.php:66
@@ -395,11 +395,6 @@ msgstr "не является"
 msgid "Leave blank to skip this rule"
 msgstr "Оставьте пустым, чтобы пропустить условие"
 
-#: ../templates/meta_box_rules.php:168
-#, fuzzy
-msgid "Post Formats"
-msgstr "Идентификаторы записей"
-
 #: ../templates/meta_box_rules.php:233
 msgid "Posts"
 msgstr "Записи"
@@ -408,49 +403,47 @@ msgstr "Записи"
 msgid "Taxonomy Terms"
 msgstr "Правила таксономии"
 
-#: ../templates/page_addons.php:80
+#: ../templates/page_addons.php:81
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
 msgid "Export"
 msgstr "Экспорт"
 
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
 msgid "Import"
 msgstr "Импорт"
 
 #: ../templates/page_tools.php:79
-msgid "Debug"
-msgstr "Отладка"
-
-#: ../templates/page_tools.php:80
 msgid "Reset"
 msgstr "Сбросить"
 
-#: ../templates/page_tools.php:88
+#: ../templates/page_tools.php:87
 msgid "Which field groups would you like to export?"
 msgstr "Какие группы полей импортировать?"
 
-#: ../templates/page_tools.php:117
+#: ../templates/page_tools.php:116
 msgid "Paste the import code below."
 msgstr "Вставьте код импорта"
 
-#: ../templates/page_tools.php:138
-msgid "Debug information"
-msgstr "Отладочная информация"
-
-#: ../templates/page_tools.php:163
+#: ../templates/page_tools.php:137
 msgid "Reset and deactivate."
 msgstr "Сбросить и деактивировать."
 
-#: ../templates/page_tools.php:164
+#: ../templates/page_tools.php:138
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "Это действие удалит все данные форм и деактивирует плагин."
 
-#: ../templates/page_tools.php:165
+#: ../templates/page_tools.php:139
 msgid "Delete everything"
 msgstr "Удалить все"
+
+#~ msgid "Debug"
+#~ msgstr "Отладка"
+
+#~ msgid "Debug information"
+#~ msgstr "Отладочная информация"
 
 #~ msgid "Custom Field Suite"
 #~ msgstr "Кастомные поля"

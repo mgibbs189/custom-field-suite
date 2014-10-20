@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2014-07-31 08:11-0500\n"
-"PO-Revision-Date: 2014-07-31 08:11-0500\n"
+"POT-Creation-Date: 2014-10-20 09:37-0500\n"
+"PO-Revision-Date: 2014-10-20 09:37-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Textdomain-Support: yes\n"
@@ -25,67 +25,67 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 # @ cfs
-#: ../cfs.php:104 ../cfs.php:305
+#: ../cfs.php:103 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Campo Gruppi"
 
 # @ cfs
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Field Group"
 msgstr "Campo Gruppo"
 
 # @ cfs
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New"
 msgstr "Aggiungi NUovo"
 
 # @ cfs
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Add New Field Group"
 msgstr "Aggiungi Nuovo Campo Gruppo"
 
 # @ cfs
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "Edit Field Group"
 msgstr "Modifica Campo Guppo"
 
 # @ cfs
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "New Field Group"
 msgstr "Novo Campo Gruppo"
 
 # @ cfs
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "View Field Group"
 msgstr "Visualizza Campo Gruppo"
 
 # @ cfs
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "Search Field Groups"
 msgstr "Cerca Campo Gruppo"
 
 # @ cfs
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found"
 msgstr "Nessun Campo Gruppo Trovato"
 
 # @ cfs
-#: ../cfs.php:113
+#: ../cfs.php:112
 msgid "No Field Groups found in Trash"
 msgstr "Nessun Campo Gruppi trovato nel cestino"
 
 # @ cfs
-#: ../cfs.php:294
+#: ../cfs.php:293
 msgid "Fields"
 msgstr "Campi"
 
 # @ cfs
-#: ../cfs.php:295
+#: ../cfs.php:294
 msgid "Placement Rules"
 msgstr "Regole di posizionamento"
 
 # @ cfs
-#: ../cfs.php:296
+#: ../cfs.php:295
 msgid "Extras"
 msgstr "Extra"
 
@@ -95,45 +95,51 @@ msgid "Tools"
 msgstr "Strumenti"
 
 # @ cfs
-#: ../cfs.php:307 ../templates/page_addons.php:64
+#: ../cfs.php:307 ../templates/page_addons.php:65
 msgid "Add-ons"
 msgstr "Add-ons"
 
 # @ cfs
-#: ../cfs.php:446
+#: ../cfs.php:447
 msgid "Title"
 msgstr "Titolo"
 
 # @ cfs
-#: ../cfs.php:447
+#: ../cfs.php:448
 msgid "Placement"
 msgstr "Posizionamento"
 
 # @ cfs
-#: ../cfs.php:463 ../includes/fields/relationship.php:106
+#: ../cfs.php:464 ../includes/fields/relationship.php:106
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "Tipo Post"
 
 # @ cfs
-#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+#: ../cfs.php:465 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "Regoe Uente"
 
 # @ cfs
-#: ../cfs.php:465
+#: ../cfs.php:466
 msgid "Post IDs"
 msgstr "ID Post"
 
 # @ cfs
-#: ../cfs.php:466
+#: ../cfs.php:467
 msgid "Term IDs"
 msgstr "ID Termine"
 
 # @ cfs
-#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+#: ../cfs.php:468 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "Template Pagina"
+
+# @ cfs
+#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#, fuzzy
+msgid "Post Formats"
+msgstr "ID Post"
 
 # @ cfs
 #: ../includes/field.php:16 ../includes/fields/text.php:8
@@ -172,9 +178,14 @@ msgid "Nothing to import"
 msgstr "Niente da importare"
 
 # @ cfs
-#: ../includes/form.php:194
-msgid "Submit"
-msgstr "Invia"
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Colore"
+
+# @ cfs
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Data"
 
 # @ cfs
 #: ../includes/fields/file.php:14
@@ -353,14 +364,9 @@ msgid "None (bypass filters)"
 msgstr "Nessuno (filtri di esclusione)"
 
 # @ cfs
-#: ../includes/fields/color/color.php:8
-msgid "Color"
-msgstr "Colore"
-
-# @ cfs
-#: ../includes/fields/date/date.php:8
-msgid "Date"
-msgstr "Data"
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Invia"
 
 # @ cfs
 #: ../templates/admin_head.php:24
@@ -457,22 +463,16 @@ msgid "Hide the content editor"
 msgstr "Nascondi l'editor di contenuti"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:81
+#: ../templates/meta_box_extras.php:84
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:101
+#: ../templates/meta_box_extras.php:102
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 "Le tue forme di Gravity Forma e l'etichette di CFS devono corrispondere "
 "esattamente"
-
-# @ cfs
-#: ../templates/meta_box_extras.php:106
-#, php-format
-msgid "Please install %s to use this feature."
-msgstr "Per favore installa %s per utilizzare questa funzione."
 
 # @ cfs
 #: ../templates/meta_box_fields.php:66
@@ -495,12 +495,6 @@ msgid "Leave blank to skip this rule"
 msgstr "Lascia bianco per saltare questa regola"
 
 # @ cfs
-#: ../templates/meta_box_rules.php:168
-#, fuzzy
-msgid "Post Formats"
-msgstr "ID Post"
-
-# @ cfs
 #: ../templates/meta_box_rules.php:233
 msgid "Posts"
 msgstr "Post"
@@ -511,56 +505,58 @@ msgid "Taxonomy Terms"
 msgstr "Termini Tassonomia"
 
 # @ cfs
-#: ../templates/page_addons.php:80
+#: ../templates/page_addons.php:81
 msgid "Learn more"
 msgstr "Per saperne di più"
 
 # @ cfs
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
 msgid "Export"
 msgstr "Esporta"
 
 # @ cfs
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
 msgid "Import"
 msgstr "Importa"
 
 # @ cfs
 #: ../templates/page_tools.php:79
-msgid "Debug"
-msgstr "Debug"
-
-# @ cfs
-#: ../templates/page_tools.php:80
 msgid "Reset"
 msgstr "Resetta"
 
 # @ cfs
-#: ../templates/page_tools.php:88
+#: ../templates/page_tools.php:87
 msgid "Which field groups would you like to export?"
 msgstr "Quali gruppi campo vorresti esportare?"
 
 # @ cfs
-#: ../templates/page_tools.php:117
+#: ../templates/page_tools.php:116
 msgid "Paste the import code below."
 msgstr "Incollare il codice di importazione di seguito."
 
 # @ cfs
-#: ../templates/page_tools.php:138
-msgid "Debug information"
-msgstr "Informazioni Debug"
-
-# @ cfs
-#: ../templates/page_tools.php:163
+#: ../templates/page_tools.php:137
 msgid "Reset and deactivate."
 msgstr "Resetta e disattiva."
 
 # @ cfs
-#: ../templates/page_tools.php:164
+#: ../templates/page_tools.php:138
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "Questo cancellerà tutti i dati CFS e disattiverà il plugin."
 
 # @ cfs
-#: ../templates/page_tools.php:165
+#: ../templates/page_tools.php:139
 msgid "Delete everything"
 msgstr "Cancella tutto"
+
+# @ cfs
+#~ msgid "Please install %s to use this feature."
+#~ msgstr "Per favore installa %s per utilizzare questa funzione."
+
+# @ cfs
+#~ msgid "Debug"
+#~ msgstr "Debug"
+
+# @ cfs
+#~ msgid "Debug information"
+#~ msgstr "Informazioni Debug"

@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-08-21 08:34-0500\n"
-"PO-Revision-Date: 2014-08-21 08:34-0500\n"
+"POT-Creation-Date: 2014-10-20 09:37-0500\n"
+"PO-Revision-Date: 2014-10-20 09:37-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -11,101 +11,101 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:104 ../cfs.php:306
+#: ../cfs.php:103 ../cfs.php:305
 msgid "Field Groups"
 msgstr ""
 
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Field Group"
 msgstr ""
 
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New"
 msgstr ""
 
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Add New Field Group"
 msgstr ""
 
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "Edit Field Group"
 msgstr ""
 
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "New Field Group"
 msgstr ""
 
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "View Field Group"
 msgstr ""
 
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "Search Field Groups"
 msgstr ""
 
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found"
 msgstr ""
 
-#: ../cfs.php:113
+#: ../cfs.php:112
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: ../cfs.php:294
+#: ../cfs.php:293
 msgid "Fields"
 msgstr ""
 
-#: ../cfs.php:295
+#: ../cfs.php:294
 msgid "Placement Rules"
 msgstr ""
 
-#: ../cfs.php:296
+#: ../cfs.php:295
 msgid "Extras"
 msgstr ""
 
-#: ../cfs.php:307 ../templates/page_tools.php:74
+#: ../cfs.php:306 ../templates/page_tools.php:74
 msgid "Tools"
 msgstr ""
 
-#: ../cfs.php:308 ../templates/page_addons.php:64
+#: ../cfs.php:307 ../templates/page_addons.php:65
 msgid "Add-ons"
 msgstr ""
 
-#: ../cfs.php:448
+#: ../cfs.php:447
 msgid "Title"
 msgstr ""
 
-#: ../cfs.php:449
+#: ../cfs.php:448
 msgid "Placement"
 msgstr ""
 
-#: ../cfs.php:465 ../includes/fields/relationship.php:106
+#: ../cfs.php:464 ../includes/fields/relationship.php:106
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr ""
 
-#: ../cfs.php:466 ../templates/meta_box_rules.php:201
+#: ../cfs.php:465 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr ""
 
-#: ../cfs.php:467
+#: ../cfs.php:466
 msgid "Post IDs"
 msgstr ""
 
-#: ../cfs.php:468
+#: ../cfs.php:467
 msgid "Term IDs"
 msgstr ""
 
-#: ../cfs.php:469 ../templates/meta_box_rules.php:289
+#: ../cfs.php:468 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr ""
 
-#: ../cfs.php:470 ../templates/meta_box_rules.php:168
+#: ../cfs.php:469 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr ""
 
@@ -139,8 +139,12 @@ msgstr ""
 msgid "Nothing to import"
 msgstr ""
 
-#: ../includes/form.php:194
-msgid "Submit"
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr ""
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
 msgstr ""
 
 #: ../includes/fields/file.php:14
@@ -285,12 +289,8 @@ msgstr ""
 msgid "None (bypass filters)"
 msgstr ""
 
-#: ../includes/fields/color/color.php:8
-msgid "Color"
-msgstr ""
-
-#: ../includes/fields/date/date.php:8
-msgid "Date"
+#: ../includes/form.php:194
+msgid "Submit"
 msgstr ""
 
 #: ../templates/admin_head.php:24
@@ -399,46 +399,38 @@ msgstr ""
 msgid "Taxonomy Terms"
 msgstr ""
 
-#: ../templates/page_addons.php:80
+#: ../templates/page_addons.php:81
 msgid "Learn more"
 msgstr ""
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:100
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
 msgid "Export"
 msgstr ""
 
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:125
+#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
 msgid "Import"
 msgstr ""
 
 #: ../templates/page_tools.php:79
-msgid "Debug"
-msgstr ""
-
-#: ../templates/page_tools.php:80
 msgid "Reset"
 msgstr ""
 
-#: ../templates/page_tools.php:88
+#: ../templates/page_tools.php:87
 msgid "Which field groups would you like to export?"
 msgstr ""
 
-#: ../templates/page_tools.php:117
+#: ../templates/page_tools.php:116
 msgid "Paste the import code below."
 msgstr ""
 
-#: ../templates/page_tools.php:138
-msgid "Debug information"
-msgstr ""
-
-#: ../templates/page_tools.php:163
+#: ../templates/page_tools.php:137
 msgid "Reset and deactivate."
 msgstr ""
 
-#: ../templates/page_tools.php:164
+#: ../templates/page_tools.php:138
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 
-#: ../templates/page_tools.php:165
+#: ../templates/page_tools.php:139
 msgid "Delete everything"
 msgstr ""
