@@ -220,7 +220,7 @@ CFS['loop_buffer'] = [];
         $input_fields = apply_filters( 'cfs_pre_render_fields', $input_fields, $params );
 
         // The SESSION should contain all applicable field group IDs. Since add_meta_box only
-        // passes 1 field group at a time, we use $cfs->group_ids from admin_head.php
+        // passes 1 field group at a time, we use CFS()->group_ids from admin_head.php
         // to store all group IDs needed for the SESSION.
         $all_group_ids = ( false === $params['front_end'] ) ? CFS()->group_ids : $field_groups;
 

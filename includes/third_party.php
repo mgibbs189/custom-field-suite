@@ -156,9 +156,7 @@ class cfs_third_party
      * @since 2.0.0
      */
     function duplicate_post($new_post_id, $post) {
-        global $cfs;
-
-        $field_data = $cfs->get( false, $post->ID, array( 'format' => 'raw' ) );
+        $field_data = CFS()->get( false, $post->ID, array( 'format' => 'raw' ) );
         
         if ( is_array( $field_data ) ) {
             foreach ( $field_data as $key => $value ) {
@@ -167,6 +165,6 @@ class cfs_third_party
         }
         
         $post_data = array( 'ID' => $new_post_id );
-        $cfs->save( $field_data, $post_data );
+        CFS()->save( $field_data, $post_data );
     }
 }
