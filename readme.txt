@@ -1,7 +1,7 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
 Donate link: http://customfieldsuite.com/
-Tags: custom fields, fields, forms, meta, postmeta, metabox, cck, wysiwyg, relationship, repeater, upload
+Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: trunk
@@ -49,6 +49,12 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.3.8 =
+* Fixed validation issue with WYSIWYG fields
+* Increased toggle speed when viewing admin fields
+* Cleanup of Tools and Add-ons pages
+* Updated translations
 
 = 2.3.7 =
 * WYWISYG resize support
