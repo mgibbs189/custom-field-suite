@@ -59,7 +59,7 @@ class cfs_user extends cfs_field
 
 
     function options_html( $key, $field ) {
-	?>
+    ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
                 <label><?php _e( 'Limits', 'cfs' ); ?></label>
@@ -69,8 +69,8 @@ class cfs_user extends cfs_field
                 <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_max]" value="<?php echo $this->get_option( $field, 'limit_max' ); ?>" placeholder="max" style="width:60px" />
             </td>
         </tr>
-	<?php
-	}
+    <?php
+    }
 
 
     function input_head( $field = null ) {
