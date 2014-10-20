@@ -76,7 +76,6 @@ $results = $wpdb->get_results($sql);
     <h3 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
         <a class="nav-tab" rel="import"><?php _e('Import', 'cfs'); ?></a>
-        <a class="nav-tab" rel="debug"><?php _e('Debug', 'cfs'); ?></a>
         <a class="nav-tab" rel="reset"><?php _e('Reset', 'cfs'); ?></a>
     </h3>
 
@@ -85,12 +84,11 @@ $results = $wpdb->get_results($sql);
         <!-- Export -->
 
         <div class="tab-content export active">
-            <h2><?php _e('Which field groups would you like to export?', 'cfs'); ?></h2>
             <table>
                 <tr>
                     <td style="width:300px; vertical-align:top">
                         <div>
-                            <select id="export-field-groups" style="width:300px; height:200px" multiple="multiple">
+                            <select id="export-field-groups" style="width:300px; height:120px" multiple="multiple">
                                 <?php foreach ($results as $result) : ?>
                                 <option value="<?php echo $result->ID; ?>"><?php echo $result->post_title; ?></option>
                                 <?php endforeach; ?>
@@ -103,7 +101,7 @@ $results = $wpdb->get_results($sql);
                     <td style="width:300px; vertical-align:top">
                         <div id="export-area" style="display:none">
                             <div>
-                                <textarea id="export-output" style="width:98%; height:200px"></textarea>
+                                <textarea id="export-output" style="width:98%; height:120px"></textarea>
                             </div>
                         </div>
                     </td>
@@ -114,47 +112,9 @@ $results = $wpdb->get_results($sql);
         <!-- Import -->
 
         <div class="tab-content import">
-            <h2><?php _e('Paste the import code below.', 'cfs'); ?></h2>
-            <table>
-                <tr>
-                    <td style="width:300px; vertical-align:top">
-                        <div>
-                            <textarea id="import-code" style="width:98%; height:200px"></textarea>
-                        </div>
-                        <div>
-                            <input type="button" id="button-import" class="button" value="<?php _e('Import', 'cfs'); ?>" />
-                        </div>
-                    </td>
-                    <td style="width:300px; vertical-align:top">
-                        <div id="import-message"></div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Debug Information -->
-
-        <div class="tab-content debug">
-            <h2><?php _e('Debug information', 'cfs'); ?></h2>
-<?php
-global $wp_version;
-
-echo '<textarea style="width:600px; height:200px">';
-echo 'WordPress ' . $wp_version . "\n";
-echo 'PHP ' . phpversion() . "\n";
-echo $_SERVER['SERVER_SOFTWARE'] . "\n";
-echo $_SERVER['HTTP_USER_AGENT'] . "\n";
-echo "\n--- Active Plugins ---\n";
-
-$all_plugins = get_plugins();
-foreach ($all_plugins as $plugin_file => $plugin_data) {
-    if (is_plugin_active($plugin_file)) {
-        echo $plugin_data['Name'] . ' ' . $plugin_data['Version'] . "\n";
-    }
-}
-
-echo '</textarea>';
-?>
+            <textarea id="import-code" style="width:100%; height:120px" placeholder="Paste the import code here"></textarea>
+            <div><input type="button" id="button-import" class="button" value="<?php _e('Import', 'cfs'); ?>" /></div>
+            <div id="import-message"></div>
         </div>
 
         <!-- Reset -->

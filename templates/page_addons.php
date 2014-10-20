@@ -37,6 +37,7 @@ $json = json_decode( $json );
   padding: 10px 0;
   background: #fcfcfc;
   border-bottom: 1px solid #e1e1e1;
+  height: 128px;
 }
 
 .addon-main {
