@@ -393,6 +393,10 @@ body.mp6 .cfs_input .cfs_toggle_field:before {
 	content: '\f140';
 }
 
+body.mp6 .cfs_input .open .cfs_toggle_field:before {
+	content: '\f142';
+}
+
 body.mp6 .cfs_input .cfs_delete_field:before,
 body.mp6 .cfs_relationship .selected_posts div span.remove:before,
 body.mp6 .cfs_user .selected_posts div span.remove:before {

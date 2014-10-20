@@ -102,7 +102,7 @@ class cfs_loop extends cfs_field
         ob_start();
     ?>
         <div class="loop_wrapper">
-            <div class="cfs_loop_head">
+            <div class="cfs_loop_head open">
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($row_label); ?></span>
@@ -213,7 +213,7 @@ class cfs_loop extends cfs_field
                 $row_offset = max($i, $row_offset);
     ?>
         <div class="loop_wrapper">
-            <div class="cfs_loop_head">
+            <div class="cfs_loop_head<?php echo $css_class; ?>">
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
                 <span class="label"><?php echo esc_attr($this->dynamic_label($row_label, $results, $values[$i])); ?>&nbsp;</span>
@@ -291,12 +291,14 @@ class cfs_loop extends cfs_field
                 });
 
                 $(document).on('click', '.cfs_loop_head', function() {
+                    $(this).toggleClass('open');
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
                 });
 
                 // Hide or show all rows
                 // The HTML is located in includes/form.php
                 $(document).on('click', '.cfs_loop_toggle', function() {
+                    $(this).closest('.field').find('.cfs_loop_head').toggleClass('open');
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
                 });
 
