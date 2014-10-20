@@ -61,6 +61,7 @@ jQuery(function($) {
             return el.find('input.user').val();
         },
         'wysiwyg': function(el) {
+            tinyMCE.triggerSave();
             return el.find('textarea').val();
         }
     };
