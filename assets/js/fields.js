@@ -75,7 +75,7 @@
         $(document).on('click', '.cfs_edit_field', function() {
             var field = $(this).closest('.field');
             field.toggleClass('form_open');
-            field.find('.field_form').slideToggle();
+            field.find('.field_form').slideToggle('fast');
         });
 
         // Add or replace field_type options
