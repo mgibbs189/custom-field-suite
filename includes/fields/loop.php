@@ -174,10 +174,33 @@ class cfs_loop extends cfs_field
 
             foreach ($matches[2] as $field_name)
             {
+	            // facilitate more advanced label customization by allowing the definition
+	            // of a filter by appending ':my_hook_name' to the dynamic field name
+	            //     {my_field:my_custom_hook_to_filter_the_row_label}
+	            if ( false !== strpos( $field_name, ':' ) )
+	            {
+					$field_reference = explode( ':', $field_name );
+		            $field_name = $field_reference[0];
+		            $field_hook = $field_reference[1];
+	            }
+
                 $field_id = isset($all_fields[$field_name]) ? $all_fields[$field_name] : false;
                 if (isset($values[$field_id]))
                 {
-                    $row_label = str_replace('{' . $field_name . '}', $values[$field_id], $row_label);
+	                if ( ! empty( $field_hook ) )
+	                {
+		                // allow developer to use their custom hook
+		                $value = apply_filters( $field_hook, $values[$field_id] );
+
+		                // we modified $field_name for our purpose, but need to put it back for replacement
+		                $field_name = $field_name . ':' . $field_hook;
+	                }
+	                else
+	                {
+		                $value = $values[$field_id];
+	                }
+
+                    $row_label = str_replace('{' . $field_name . '}', $value, $row_label);
                 }
             }
         }
