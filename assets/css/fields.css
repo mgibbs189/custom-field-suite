@@ -94,7 +94,30 @@
 .field_meta td.field_order {
     width: 48px;
     cursor: move;
-    background: url(../images/icon-drag.png) 10px 8px no-repeat;
+	position:relative;
+}
+
+.field_meta td.field_order:after {
+	display: block;
+	color:#adadad;
+	content:'\f333';
+
+	/* dashicons */
+	font-size: 20px;
+	font-family: dashicons;
+	width: 100%;
+	height: 20px;
+	line-height: 1;
+	font-weight: 400;
+	text-decoration: inherit;
+	vertical-align: top;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-mos-osx-font-smoothing: grayscale;
+}
+
+.form_open .field_meta td.field_order:after {
+	color:#fff;
 }
 
 .field_meta td.field_name {
@@ -288,37 +311,4 @@ span.checkbox.active {
 #submitdiv #minor-publishing-actions,
 #submitdiv #misc-publishing-actions {
     display: none;
-}
-
-
-/*---------------------------------------------------------------------------------------------
-    mp6
----------------------------------------------------------------------------------------------*/
-
-body.mp6 .field_meta td.field_order {
-	background:#fff;
-	position:relative;
-}
-
-body.mp6 .field_meta td.field_order:after {
-	display: block;
-	color:#adadad;
-	content:'\f333';
-
-	/* dashicons */
-	font-size: 20px;
-	font-family: dashicons;
-	width: 100%;
-	height: 20px;
-	line-height: 1;
-	font-weight: 400;
-	text-decoration: inherit;
-	vertical-align: top;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	-mos-osx-font-smoothing: grayscale;
-}
-
-body.mp6 .form_open .field_meta td.field_order:after {
-	color:#fff;
 }

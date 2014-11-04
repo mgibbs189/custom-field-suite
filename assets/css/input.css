@@ -25,15 +25,15 @@
 
 .cfs_input .field label {
     font-weight: bold;
-    padding: 0 0 10px 0;
+    padding: 0 0 0.4em 0;
     cursor: default;
     display: block;
 }
 
 .cfs_input .field p.notes {
-    margin: 0 0 6px 0;
-    font-size: 11px;
+    margin: 0 0 1em 0;
     color: #999;
+    font-size:0.9em;
 }
 
 .cfs_input.no_box {
@@ -65,6 +65,11 @@
 /*---------------------------------------------------------------------------------------------
     Select
 ---------------------------------------------------------------------------------------------*/
+
+.cfs_select select {
+    line-height:1;
+    height:auto;
+}
 
 .cfs_select select.multiple {
     height: 100px !important;
@@ -145,10 +150,15 @@
 .cfs_relationship .post_list,
 .cfs_user .post_list {
     float: left;
-    width: 50%;
-    background: #fff;
-    height: 125px;
     overflow-y: scroll;
+    background:#f5f5f5;
+    border:1px solid #dfdfdf;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    height:190px;
+    width:49%;
+    -webkit-border-radius: 1px 1px 1px 1px;
+    border-radius: 1px 1px 1px 1px;
 }
 
 .cfs_relationship .post_list div,
@@ -156,6 +166,21 @@
     padding: 4px 6px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+}
+
+.cfs_relationship .post_list.available_posts > div,
+.cfs_user .post_list.available_posts > div {
+    position:relative;
+    padding-right:3em;
+}
+
+body.mp6 .cfs_relationship .post_list.available_posts > div:after,
+body.mp6 .cfs_user .post_list.available_posts > div:after {
+    position:absolute;
+    right:1px;
+    top:4px;
+    content: '\f139';
+    font-size:19px;
 }
 
 .cfs_relationship .post_list div:last-child,
@@ -183,13 +208,12 @@
     float: right;
     width: 16px;
     height: 16px;
-    background: url(../images/button_remove.png) no-repeat;
     cursor: pointer;
 }
 
 .cfs_relationship .filter_posts,
 .cfs_user .filter_posts {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .cfs_input .field .cfs_relationship .cfs_filter_input,
@@ -203,9 +227,14 @@
     width: 16px;
     height: 16px;
     margin-top: 4px;
-    background: url(../images/icon-help.png) no-repeat;
     vertical-align: top;
 }
+
+.cfs_relationship .cfs_filter_help:before,
+.cfs_user .cfs_filter_help:before {
+    content: '\f348';
+}
+
 
 /*---------------------------------------------------------------------------------------------
     Loop
@@ -215,15 +244,22 @@
     float: right;
     width: 16px;
     height: 16px;
-    background: url(../images/button_remove.png) no-repeat;
 }
 
 .cfs_toggle_field {
     float: right;
     width: 16px;
     height: 16px;
-    margin-right: 10px;
-    background: url(../images/button_minimize.png) 0px 8px no-repeat;
+    margin-right: 4px;
+    top:-1px;
+}
+
+.cfs_toggle_field:before {
+    content: '\f140';
+}
+
+.open .cfs_toggle_field:before {
+    content: '\f142';
 }
 
 .cfs_input .cfs_loop label {
@@ -242,26 +278,41 @@
     cursor: pointer;
     display: inline-block;
     margin-right: 6px;
-    background: url(../images/icon-toggle.png) no-repeat;
+}
+
+.cfs_input .cfs_loop_toggle:before {
+    content: '\f111';
 }
 
 .cfs_loop .loop_wrapper {
     border: 1px solid #dfdfdf;
-    border-radius: 3px;
+    border-radius: 1px;
     margin-bottom: 10px;
 }
 
 .cfs_loop .cfs_loop_head {
-    background-color: #F1F1F1;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#F9F9F9),to(#ECECEC));
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 5px 5px 30px;
+    position:relative;
+    background:#f5f5f5;
+}
+
+.cfs_loop .cfs_loop_head:before {
+    padding: 4px 0;
+    display: block;
+    position:absolute;
+    left:5px;
+    top:0;
+    color:#adadad;
+    content: '\f333';
+    cursor: move;
 }
 
 .cfs_loop .notes {
     font-size: 11px;
     font-style: italic;
     color: #999;
+    margin-bottom:1.4em;
 }
 
 .cfs_loop .cfs_loop_body {
@@ -272,6 +323,16 @@
 
 .cfs_loop .cfs_loop_body.open {
     display: block;
+    background:#fbfbfb;
+    border-top:1px solid #dfdfdf;
+}
+
+.cfs_loop .cfs_loop_body > label:first-of-type {
+    padding-top:0;
+}
+
+.cfs_loop .cfs_loop_body > .field {
+    padding:0 0 10px;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -292,6 +353,7 @@
     border: 1px solid #ccc;
     background-color: #f5f5f5;
     cursor: pointer;
+    border-radius: 1px 1px 0 0;
 }
 
 .cfs-tab.active {
@@ -311,29 +373,6 @@
     mp6
 ---------------------------------------------------------------------------------------------*/
 
-body.mp6 .cfs_input .field label {
-	padding-bottom:0.4em;
-}
-
-body.mp6 .cfs_input .field p.notes {
-	margin-bottom:1em;
-	font-size:0.9em;
-}
-
-body.mp6 .cfs_input .field[data-type='loop'] p.notes {
-	margin-bottom:1.4em;
-}
-
-body.mp6 .cfs_input select {
-	line-height:1;
-	height:auto;
-}
-
-body.mp6 .cfs-tab {
-	-webkit-border-radius: 1px 1px 0 0;
-	border-radius: 1px 1px 0 0;
-}
-
 body.mp6 .cfs_input .cfs_loop_toggle,
 body.mp6 .cfs_input .cfs_toggle_field,
 body.mp6 .cfs_input .cfs_delete_field,
@@ -349,11 +388,6 @@ body.mp6 .cfs_input .cfs_delete_field,
 body.mp6 .cfs_relationship .selected_posts div span.remove,
 body.mp6 .cfs_user .selected_posts div span.remove {
 	width: 20px;
-}
-
-body.mp6 .cfs_input .cfs_toggle_field {
-	margin-right: 4px;
-	top:-1px;
 }
 
 body.mp6 .cfs_input .cfs_loop_toggle:before,
@@ -385,100 +419,15 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 	-mos-osx-font-smoothing: grayscale;
 }
 
-body.mp6 .cfs_input .cfs_loop_toggle:before {
-	content: '\f111';
-}
-
-body.mp6 .cfs_input .cfs_toggle_field:before {
-	content: '\f140';
-}
-
-body.mp6 .cfs_input .open .cfs_toggle_field:before {
-	content: '\f142';
-}
-
-body.mp6 .cfs_input .cfs_delete_field:before,
-body.mp6 .cfs_relationship .selected_posts div span.remove:before,
-body.mp6 .cfs_user .selected_posts div span.remove:before {
+.cfs_input .cfs_delete_field:before,
+.cfs_relationship .selected_posts div span.remove:before,
+.cfs_user .selected_posts div span.remove:before {
 	content: '\f335';
 	font-size:22px;
 	top:-1px;
 }
 
-body.mp6 .cfs_relationship .cfs_filter_help:before,
-body.mp6 .cfs_user .cfs_filter_help:before {
-	content: '\f348';
-}
-
-body.mp6 .cfs_loop .cfs_loop_body > label:first-of-type {
-	padding-top:0;
-}
-
-body.mp6 .cfs_loop .cfs_loop_body > .field {
-	padding:0 0 10px;
-}
-
-body.mp6 .cfs_loop .loop_wrapper {
-	-webkit-border-radius: 1px 1px 1px 1px;
-	border-radius: 1px 1px 1px 1px;
-}
-
-body.mp6 .cfs_loop .cfs_loop_head {
-	position:relative;
-	padding-left:30px;
-	background:#f5f5f5;
-}
-
-body.mp6 .cfs_loop .cfs_loop_head:before {
-	padding: 4px 0;
-	display: block;
-	position:absolute;
-	left:5px;
-	top:0;
-	color:#adadad;
-	content: '\f333';
-	cursor: move;
-}
-
-body.mp6 .cfs_loop .cfs_loop_body.open {
-	background:#fbfbfb;
-	border-top:1px solid #dfdfdf;
-}
-
-body.mp6 .cfs_relationship .post_list,
-body.mp6 .cfs_user .post_list {
-	background:#f5f5f5;
-	border:1px solid #dfdfdf;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	height:190px;
-	width:49%;
-	float:left;
-	-webkit-border-radius: 1px 1px 1px 1px;
-	border-radius: 1px 1px 1px 1px;
-}
-
 body.mp6 .cfs_relationship .post_list.selected_posts,
 body.mp6 .cfs_user .post_list.selected_posts {
 	float:right;
-}
-
-body.mp6 .cfs_relationship .post_list.available_posts > div,
-body.mp6 .cfs_user .post_list.available_posts > div {
-	position:relative;
-	padding-right:3em;
-}
-
-body.mp6 .cfs_relationship .post_list.available_posts > div:after,
-body.mp6 .cfs_user .post_list.available_posts > div:after {
-	position:absolute;
-	right:1px;
-	top:4px;
-	content: '\f139';
-	font-size:19px;
-}
-
-body.mp6 .cfs_relationship .filter_posts,
-body.mp6 .cfs_user .filter_posts {
-	margin-bottom:10px;
 }
