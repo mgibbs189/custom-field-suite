@@ -99,8 +99,9 @@
 
 .cfs_input .cfs_date input.date {
     width: 160px;
-    background: #fff url(../images/icon-calendar.png) 98% 2px no-repeat;
+    background: #fff url(../images/icon-calendar.png) right 4px center no-repeat;
 }
+
 
 /*---------------------------------------------------------------------------------------------
     Color
