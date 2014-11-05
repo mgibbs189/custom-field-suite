@@ -10,7 +10,7 @@
 }
 
 .cfs_tooltip:after {
-	content: "\f223";
+    content: "\f223";
 }
 
 .cfs_tooltip .tooltip_inner {
@@ -46,7 +46,7 @@
 }
 
 #cfs_fields .fields .button-secondary.cfs_edit_field {
-	vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 #cfs_fields .fields li {
@@ -62,7 +62,7 @@
 }
 
 #cfs_fields .field.form_open {
-	border-bottom: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
 }
 
 #cfs_fields .field.form_open .field_meta td {
@@ -100,15 +100,15 @@
 .field_meta td.field_order {
     width: 48px;
     cursor: move;
-	position: relative;
+    position: relative;
 }
 
 .field_meta td.field_order:after {
-	content: '\f333';
+    content: '\f333';
 }
 
 .form_open .field_meta td.field_order:after {
-	color: #fff;
+    color: #fff;
 }
 
 .field_meta td.field_name {
@@ -252,7 +252,7 @@ span.cfs_delete_field:hover {
 #cfs_rules table td.label label,
 #cfs_extras table td.label label {
     color: #333;
-	line-height: 1.5em;
+    line-height: 1.5em;
 }
 
 #cfs_rules table td.label p.description,
@@ -312,19 +312,19 @@ span.checkbox.active {
 
 .field_meta td.field_order:after,
 .cfs_tooltip:after {
-	display: block;
-	color: #adadad;
+    display: block;
+    color: #adadad;
 
-	/* dashicons */
-	font-size: 20px;
-	font-family: dashicons;
-	width: 100%;
-	height: 20px;
-	line-height: 1;
-	font-weight: 400;
-	text-decoration: inherit;
-	vertical-align: top;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	-mos-osx-font-smoothing: grayscale;
+    /* dashicons */
+    font-size: 20px;
+    font-family: dashicons;
+    width: 100%;
+    height: 20px;
+    line-height: 1;
+    font-weight: 400;
+    text-decoration: inherit;
+    vertical-align: top;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -mos-osx-font-smoothing: grayscale;
 }

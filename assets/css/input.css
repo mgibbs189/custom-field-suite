@@ -164,7 +164,7 @@
 
 .cfs_relationship .post_list.selected_posts,
 .cfs_user .post_list.selected_posts {
-	float: right;
+    float: right;
 }
 
 .cfs_relationship .post_list div,
@@ -225,7 +225,7 @@
 .cfs_input .field .cfs_relationship .cfs_filter_input,
 .cfs_input .field .cfs_user .cfs_filter_input{
     width: 220px;
-	margin: 0;
+    margin: 0;
 }
 
 .cfs_relationship .cfs_filter_help,
@@ -387,7 +387,7 @@
 .cfs_user .selected_posts div span.remove,
 .cfs_relationship .cfs_filter_help,
 .cfs_user .cfs_filter_help{
-	position: relative;
+    position: relative;
 }
 
 .cfs_input .cfs_loop_toggle:before,
@@ -401,28 +401,28 @@
 .cfs_user .cfs_filter_help:before,
 .cfs_relationship .post_list.available_posts > div:after,
 .cfs_user .post_list.available_posts > div:after {
-	display: block;
-	position: absolute;
-	color: #adadad;
+    display: block;
+    position: absolute;
+    color: #adadad;
 
-	/* dashicons */
-	font-size: 20px;
-	font-family: dashicons;
-	width: 20px;
-	height: 20px;
-	line-height: 1;
-	font-weight: 400;
-	text-decoration: inherit;
-	vertical-align: top;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	-mos-osx-font-smoothing: grayscale;
+    /* dashicons */
+    font-size: 20px;
+    font-family: dashicons;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    font-weight: 400;
+    text-decoration: inherit;
+    vertical-align: top;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -mos-osx-font-smoothing: grayscale;
 }
 
 .cfs_input .cfs_delete_field:before,
 .cfs_relationship .selected_posts div span.remove:before,
 .cfs_user .selected_posts div span.remove:before {
-	content: '\f335';
-	font-size: 22px;
-	top: -2px;
+    content: '\f335';
+    font-size: 22px;
+    top: -2px;
 }
