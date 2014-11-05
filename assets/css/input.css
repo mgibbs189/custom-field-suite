@@ -103,7 +103,7 @@
 }
 
 /*---------------------------------------------------------------------------------------------
-    Date
+    Color
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_input .cfs_color input.color {
@@ -151,14 +151,19 @@
 .cfs_user .post_list {
     float: left;
     overflow-y: scroll;
-    background:#f5f5f5;
-    border:1px solid #dfdfdf;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    height:190px;
-    width:49%;
+    background: #f5f5f5;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 205px;
+    width: 49%;
     -webkit-border-radius: 1px 1px 1px 1px;
     border-radius: 1px 1px 1px 1px;
+}
+
+.cfs_relationship .post_list.selected_posts,
+.cfs_user .post_list.selected_posts {
+	float: right;
 }
 
 .cfs_relationship .post_list div,
@@ -170,17 +175,17 @@
 
 .cfs_relationship .post_list.available_posts > div,
 .cfs_user .post_list.available_posts > div {
-    position:relative;
-    padding-right:3em;
+    position: relative;
+    padding-right: 3em;
 }
 
-body.mp6 .cfs_relationship .post_list.available_posts > div:after,
-body.mp6 .cfs_user .post_list.available_posts > div:after {
-    position:absolute;
-    right:1px;
-    top:4px;
+.cfs_relationship .post_list.available_posts > div:after,
+.cfs_user .post_list.available_posts > div:after {
+    position: absolute;
+    right: 1px;
+    top: 3px;
     content: '\f139';
-    font-size:19px;
+    font-size: 19px;
 }
 
 .cfs_relationship .post_list div:last-child,
@@ -206,7 +211,7 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 .cfs_relationship .selected_posts div span.remove,
 .cfs_user .selected_posts div span.remove {
     float: right;
-    width: 16px;
+    width: 20px;
     height: 16px;
     cursor: pointer;
 }
@@ -219,13 +224,14 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 .cfs_input .field .cfs_relationship .cfs_filter_input,
 .cfs_input .field .cfs_user .cfs_filter_input{
     width: 220px;
+	margin: 0;
 }
 
 .cfs_relationship .cfs_filter_help,
 .cfs_user .cfs_filter_help {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     margin-top: 4px;
     vertical-align: top;
 }
@@ -242,7 +248,7 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 
 .cfs_delete_field {
     float: right;
-    width: 16px;
+    width: 20px;
     height: 16px;
 }
 
@@ -293,17 +299,17 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 .cfs_loop .cfs_loop_head {
     cursor: pointer;
     padding: 5px 5px 5px 30px;
-    position:relative;
-    background:#f5f5f5;
+    position: relative;
+    background: #f5f5f5;
 }
 
 .cfs_loop .cfs_loop_head:before {
     padding: 4px 0;
     display: block;
-    position:absolute;
-    left:5px;
-    top:0;
-    color:#adadad;
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: #adadad;
     content: '\f333';
     cursor: move;
 }
@@ -312,7 +318,7 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
     font-size: 11px;
     font-style: italic;
     color: #999;
-    margin-bottom:1.4em;
+    margin-bottom: 1.4em;
 }
 
 .cfs_loop .cfs_loop_body {
@@ -323,16 +329,16 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 
 .cfs_loop .cfs_loop_body.open {
     display: block;
-    background:#fbfbfb;
-    border-top:1px solid #dfdfdf;
+    background: #fbfbfb;
+    border-top: 1px solid #dfdfdf;
 }
 
 .cfs_loop .cfs_loop_body > label:first-of-type {
-    padding-top:0;
+    padding-top: 0;
 }
 
 .cfs_loop .cfs_loop_body > .field {
-    padding:0 0 10px;
+    padding: 0 0 10px;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -370,40 +376,33 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 }
 
 /*---------------------------------------------------------------------------------------------
-    mp6
+    Icons
 ---------------------------------------------------------------------------------------------*/
 
-body.mp6 .cfs_input .cfs_loop_toggle,
-body.mp6 .cfs_input .cfs_toggle_field,
-body.mp6 .cfs_input .cfs_delete_field,
-body.mp6 .cfs_relationship .selected_posts div span.remove,
-body.mp6 .cfs_user .selected_posts div span.remove,
-body.mp6 .cfs_relationship .cfs_filter_help,
-body.mp6 .cfs_user .cfs_filter_help{
-	background:transparent;
-	position:relative;
+.cfs_input .cfs_loop_toggle,
+.cfs_input .cfs_toggle_field,
+.cfs_input .cfs_delete_field,
+.cfs_relationship .selected_posts div span.remove,
+.cfs_user .selected_posts div span.remove,
+.cfs_relationship .cfs_filter_help,
+.cfs_user .cfs_filter_help{
+	position: relative;
 }
 
-body.mp6 .cfs_input .cfs_delete_field,
-body.mp6 .cfs_relationship .selected_posts div span.remove,
-body.mp6 .cfs_user .selected_posts div span.remove {
-	width: 20px;
-}
-
-body.mp6 .cfs_input .cfs_loop_toggle:before,
-body.mp6 .cfs_input .cfs_toggle_field:before,
-body.mp6 .cfs_input .cfs_delete_field:before,
-body.mp6 .cfs_loop .cfs_loop_head:before,
-body.mp6 .cfs_relationship .selected_posts div span.remove:before,
-body.mp6 .cfs_user .selected_posts div span.remove:before,
-body.mp6 .cfs_user .selected_posts div span.remove:before,
-body.mp6 .cfs_relationship .cfs_filter_help:before,
-body.mp6 .cfs_user .cfs_filter_help:before,
-body.mp6 .cfs_relationship .post_list.available_posts > div:after,
-body.mp6 .cfs_user .post_list.available_posts > div:after {
+.cfs_input .cfs_loop_toggle:before,
+.cfs_input .cfs_toggle_field:before,
+.cfs_input .cfs_delete_field:before,
+.cfs_loop .cfs_loop_head:before,
+.cfs_relationship .selected_posts div span.remove:before,
+.cfs_user .selected_posts div span.remove:before,
+.cfs_user .selected_posts div span.remove:before,
+.cfs_relationship .cfs_filter_help:before,
+.cfs_user .cfs_filter_help:before,
+.cfs_relationship .post_list.available_posts > div:after,
+.cfs_user .post_list.available_posts > div:after {
 	display: block;
-	position:absolute;
-	color:#adadad;
+	position: absolute;
+	color: #adadad;
 
 	/* dashicons */
 	font-size: 20px;
@@ -423,11 +422,6 @@ body.mp6 .cfs_user .post_list.available_posts > div:after {
 .cfs_relationship .selected_posts div span.remove:before,
 .cfs_user .selected_posts div span.remove:before {
 	content: '\f335';
-	font-size:22px;
-	top:-1px;
-}
-
-body.mp6 .cfs_relationship .post_list.selected_posts,
-body.mp6 .cfs_user .post_list.selected_posts {
-	float:right;
+	font-size: 22px;
+	top: -2px;
 }
