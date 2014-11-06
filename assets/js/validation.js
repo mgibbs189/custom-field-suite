@@ -65,11 +65,12 @@ jQuery(function($) {
             return el.find('textarea').val();
         },
         'loop': function(el) {
-	        var reviews = new Array();
-	        return el.find('.loop_wrapper').each(function(){
-	        reviews.push(jQuery(this));
-	        }).toArray().join(', ');
-	    },
+            var rows = [];
+            el.find('.loop_wrapper').each(function(index) {
+                rows.push(index);
+            });
+            return rows.join(',');
+        }
     };
 
     CFS.is_draft = false;
