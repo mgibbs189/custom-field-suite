@@ -50,6 +50,14 @@ Custom Field Suite (CFS) is a lightweight custom fields plugin
 
 == Changelog ==
 
+= 2.3.9 =
+* Design refresh and cleanup (props @chrisvanpatten)
+* New: user field min/max validation (props @chrisvanpatten)
+* New: loop field min/max validation (props @christopherdro)
+* Improved Add-ons screen (includes new "Synchronize" add-on)
+* Replaced tooltip library
+* Updated translations
+
 = 2.3.8 =
 * Fixed validation issue with WYSIWYG fields
 * Increased toggle speed when viewing admin fields
