@@ -29,12 +29,12 @@ class cfs_relationship extends cfs_field
         $post_types = apply_filters( 'cfs_field_relationship_post_types', $post_types );
 
         $args = array(
-            'post_type' => $post_types,
-            'post_status' => array( 'publish', 'private' ),
-            'posts_per_page' => -1,
-            'fields' => 'ids',
-            'orderby' => 'title',
-            'order' => 'ASC'
+            'post_type'         => $post_types,
+            'post_status'       => array( 'publish', 'private' ),
+            'posts_per_page'    => -1,
+            'fields'            => 'ids',
+            'orderby'           => 'title',
+            'order'             => 'ASC'
         );
 
         $args = apply_filters( 'cfs_field_relationship_query_args', $args, array( 'field' => $field ) );
@@ -44,41 +44,29 @@ class cfs_relationship extends cfs_field
             $post = get_post( $post_id );
             $post_title = ( 'private' == $post->post_status ) ? '(Private) ' . $post->post_title : $post->post_title;
             $available_posts[] = (object) array(
-                'ID' => $post->ID,
-                'post_type' => $post->post_type,
-                'post_status' => $post->post_status,
-                'post_title' => $post_title,
+                'ID'            => $post->ID,
+                'post_type'     => $post->post_type,
+                'post_status'   => $post->post_status,
+                'post_title'    => $post_title,
             );
         }
 
         if ( !empty( $field->value ) ) {
             $results = $wpdb->get_results( "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)" );
             foreach ( $results as $result ) {
-                $result->post_title = ('private' == $result->post_status) ? '(Private) ' . $result->post_title : $result->post_title;
-                $selected_posts[$result->ID] = $result;
+                $result->post_title = ( 'private' == $result->post_status ) ? '(Private) ' . $result->post_title : $result->post_title;
+                $selected_posts[ $result->ID ] = $result;
             }
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" />
-            <div class="cfs_filter_help">
-                <div class="cfs_tooltip hidden">
-                    <ul>
-                        <li style="font-size:15px; font-weight:bold">Sample queries</li>
-                        <li>"foobar" (find posts containing "foobar")</li>
-                        <li>"type:page" (find pages)</li>
-                        <li>"type:page foobar" (find pages containing "foobar")</li>
-                        <li>"type:page,post foobar" (find posts or pages with "foobar")</li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="Search posts" />
         </div>
 
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $post ) : ?>
-            <?php $class = ( isset( $selected_posts[$post->ID] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $post->ID; ?>" post_type="<?php echo $post->post_type; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo $post->post_title; ?></div>
+            <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? ' class="used"' : ''; ?>
+            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo $post->post_title; ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -94,9 +82,6 @@ class cfs_relationship extends cfs_field
 
 
     function options_html( $key, $field ) {
-
-        $post_types = isset( $field->options['post_types'] ) ? $field->options['post_types'] : null;
-
         $args = array( 'exclude_from_search' => false );
         $choices = apply_filters( 'cfs_field_relationship_post_types', get_post_types( $args ) );
 
@@ -154,12 +139,6 @@ class cfs_relationship extends cfs_field
                     var $this = $(this);
                     $this.addClass('ready');
 
-                    // tooltip
-                    $this.find('.cfs_filter_help').tipTip({
-                        maxWidth: '400px',
-                        content: $this.find('.cfs_tooltip').html()
-                    });
-
                     // sortable
                     $this.find('.selected_posts').sortable({
                         axis: 'y',
@@ -192,30 +171,9 @@ class cfs_relationship extends cfs_field
                     // filter posts
                     $this.find('.cfs_filter_input').live('keyup', function() {
                         var input = $(this).val();
-                        var output = { types: [], keywords: [] };
-                        var pieces = output.keywords = input.split(' ');
                         var parent = $(this).closest('.field');
-                        for (i in pieces) {
-                            var piece = pieces[i];
-                            if ('type:' == piece.substr(0, 5)) {
-                                output.types = piece.substr(5);
-                                if (output.types.indexOf(',') !== -1) {
-                                    output.types = output.types.split(',');
-                                }
-                                else {
-                                    output.types = [output.types];
-                                }
-                                output.keywords.splice(i, 1);
-                            }
-                        }
-                        output.keywords = output.keywords.join(' ');
-                        var regex = new RegExp(output.keywords, 'i');
+                        var regex = new RegExp(input, 'i');
                         parent.find('.available_posts div:not(.used)').each(function() {
-                            var post_type = $(this).attr('post_type');
-                            if (output.types.length > 0 && $.inArray(post_type, output.types)) {
-                                $(this).addClass('hidden');
-                                return;
-                            }
                             if (-1 < $(this).html().search(regex)) {
                                 $(this).removeClass('hidden');
                             }

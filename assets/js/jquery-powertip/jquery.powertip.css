@@ -1,9 +1,5 @@
 /* Tooltips */
 
-.tooltip_inner {
-    display: none;
-}
-
 #powerTip a {
     color: #bbb;
 }

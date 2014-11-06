@@ -28,16 +28,7 @@ class cfs_user extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" />
-            <div class="cfs_filter_help">
-                <div class="cfs_help_text hidden">
-                    <ul>
-                        <li style="font-size:15px; font-weight:bold">Sample queries</li>
-                        <li>"foobar" (find usernames containing "foobar")</li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="Search posts" />
         </div>
 
         <div class="available_posts post_list">
@@ -96,12 +87,6 @@ class cfs_user extends cfs_field
                 this.each(function() {
                     var $this = $(this);
                     $this.addClass('ready');
-
-                    // tooltip
-                    $this.find('.cfs_filter_help').tipTip({
-                        maxWidth: '400px',
-                        content: $this.find('.cfs_help_text').html()
-                    });
 
                     // sortable
                     $this.find('.selected_posts').sortable({
