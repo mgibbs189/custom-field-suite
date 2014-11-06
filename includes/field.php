@@ -44,11 +44,11 @@ class cfs_field
             <td>
                 <?php
                     CFS()->create_field( array(
-                        'type' => 'true_false',
-                        'input_name' => "cfs[fields][$key][options][required]",
-                        'input_class' => 'true_false',
-                        'value' => $this->get_option( $field, 'required' ),
-                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
+                        'type'          => 'true_false',
+                        'input_name'    => "cfs[fields][$key][options][required]",
+                        'input_class'   => 'true_false',
+                        'value'         => $this->get_option( $field, 'required' ),
+                        'options'       => array( 'message' => __( 'This is a required field', 'cfs' ) ),
                     ));
                 ?>
             </td>
