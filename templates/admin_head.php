@@ -40,10 +40,10 @@ CFS['options_html'] = <?php echo json_encode($options_html); ?>;
 </script>
 <script src="<?php echo CFS_URL; ?>/assets/js/fields.js"></script>
 <script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
-<script src="<?php echo CFS_URL; ?>/assets/js/tipTip/jquery.tipTip.js"></script>
+<script src="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/css/fields.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/tipTip/tipTip.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.css" />
 
 <?php
 }
