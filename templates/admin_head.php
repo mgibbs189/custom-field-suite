@@ -18,13 +18,13 @@ if ( 'cfs' == $screen->post_type ) {
 
     // Build clone HTML
     $field = (object) array(
-        'id' => 0,
-        'parent_id' => 0,
-        'name' => 'new_field',
-        'label' => __( 'New Field', 'cfs' ),
-        'type' => 'text',
-        'notes' => '',
-        'weight' => 'clone',
+        'id'            => 0,
+        'parent_id'     => 0,
+        'name'          => 'new_field',
+        'label'         => __( 'New Field', 'cfs' ),
+        'type'          => 'text',
+        'notes'         => '',
+        'weight'        => 'clone',
     );
 
     ob_start();
