@@ -63,7 +63,13 @@ jQuery(function($) {
         'wysiwyg': function(el) {
             tinyMCE.triggerSave();
             return el.find('textarea').val();
-        }
+        },
+        'loop': function(el) {
+	        var reviews = new Array();
+	        return el.find('.loop_wrapper').each(function(){
+	        reviews.push(jQuery(this));
+	        }).toArray().join(', ');
+	    },
     };
 
     CFS.is_draft = false;
