@@ -138,10 +138,10 @@ class cfs_form
 
         wp_enqueue_script( 'jquery-ui-core');
         wp_enqueue_script( 'jquery-ui-sortable');
-        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', array( 'jquery' ) );
-        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', array( 'jquery' ) );
-        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css' );
-        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css' );
+        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', array( 'jquery' ), CFS_VERSION );
+        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', array( 'jquery' ), CFS_VERSION );
+        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', array(), CFS_VERSION );
+        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', array(), CFS_VERSION );
     }
 
 
