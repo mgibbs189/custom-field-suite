@@ -244,6 +244,7 @@ class cfs_field_group
             }
         }
 
+        $data = apply_filters( 'cfs_save_field_group_rules', $data, $post_id );
         update_post_meta( $post_id, 'cfs_rules', $data );
 
         /*---------------------------------------------------------------------------------------------
