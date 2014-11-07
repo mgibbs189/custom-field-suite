@@ -34,13 +34,13 @@ class cfs_user extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
             <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $user->ID; ?>"<?php echo $class; ?>><?php echo $user->user_login; ?></div>
+            <div rel="<?php echo $user->ID; ?>"<?php echo $class; ?>><?php echo apply_filters( 'cfs_user_display', $user->user_login, $user->ID ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_users as $user ) : ?>
-            <div rel="<?php echo $user->ID; ?>"><span class="remove"></span><?php echo $user->user_login; ?></div>
+            <div rel="<?php echo $user->ID; ?>"><span class="remove"></span><?php echo apply_filters( 'cfs_user_display', $user->user_login, $user->ID ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>

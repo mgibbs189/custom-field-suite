@@ -66,13 +66,13 @@ class cfs_relationship extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $post ) : ?>
             <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo $post->post_title; ?></div>
+            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_posts as $post ) : ?>
-            <div rel="<?php echo $post->ID; ?>"><span class="remove"></span><?php echo $post->post_title; ?></div>
+            <div rel="<?php echo $post->ID; ?>"><span class="remove"></span><?php echo apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
