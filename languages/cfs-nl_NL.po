@@ -1,0 +1,431 @@
+# This file is distributed under the same license as the Custom Field Suite package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2014-11-06 11:04-0500\n"
+"PO-Revision-Date: 2015-01-15 11:45+0100\n"
+"Last-Translator: Wim Verhoogt <webmaster@verbant.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../cfs.php:102 ../cfs.php:304
+msgid "Field Groups"
+msgstr "Veldgroepen"
+
+#: ../cfs.php:103
+msgid "Field Group"
+msgstr "Veldgroep"
+
+#: ../cfs.php:104
+msgid "Add New"
+msgstr "Voeg nieuwe toe"
+
+#: ../cfs.php:105
+msgid "Add New Field Group"
+msgstr "Voeg nieuwe veldgroep toe "
+
+#: ../cfs.php:106
+msgid "Edit Field Group"
+msgstr "Wijzig veldgroep"
+
+#: ../cfs.php:107
+msgid "New Field Group"
+msgstr "Nieuwe veldgroep"
+
+#: ../cfs.php:108
+msgid "View Field Group"
+msgstr "Bekijk veldgroep"
+
+#: ../cfs.php:109
+msgid "Search Field Groups"
+msgstr "Zoek veldgroepen"
+
+#: ../cfs.php:110
+msgid "No Field Groups found"
+msgstr "Geen veldgroepen gevonden"
+
+#: ../cfs.php:111
+msgid "No Field Groups found in Trash"
+msgstr "Geen veldgroepen gevonden in prullenbak"
+
+#: ../cfs.php:292
+msgid "Fields"
+msgstr "Velden"
+
+#: ../cfs.php:293
+msgid "Placement Rules"
+msgstr "Plaatsingsregels"
+
+#: ../cfs.php:294
+msgid "Extras"
+msgstr "Extra's"
+
+#: ../cfs.php:305 ../templates/page_addons.php:61
+msgid "Add-ons"
+msgstr "Add-ons"
+
+#: ../cfs.php:306 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Gereedschappen"
+
+#: ../cfs.php:446
+msgid "Title"
+msgstr "Titel"
+
+#: ../cfs.php:447
+msgid "Placement"
+msgstr "Plaatsing"
+
+#: ../cfs.php:463 ../includes/fields/relationship.php:91
+#: ../templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr "Post typen"
+
+#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr "Gebruikersrollen"
+
+#: ../cfs.php:465
+msgid "Post IDs"
+msgstr "Post IDs"
+
+#: ../cfs.php:466
+msgid "Term IDs"
+msgstr "Term ID's"
+
+#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+msgid "Page Templates"
+msgstr "Page sjablonen"
+
+#: ../cfs.php:468 ../templates/meta_box_rules.php:168
+msgid "Post Formats"
+msgstr "Post formaten"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Tekst"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:78
+#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
+#: ../includes/fields/wysiwyg.php:63
+msgid "Validation"
+msgstr "Validatie"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
+#: ../includes/fields/wysiwyg.php:72
+msgid "This is a required field"
+msgstr "Dit is een verplicht veld"
+
+#: ../includes/field_group.php:69
+msgid "Imported"
+msgstr "Geïmporteerd"
+
+#: ../includes/field_group.php:72
+msgid "Skipped"
+msgstr "Overgeslagen"
+
+#: ../includes/field_group.php:77
+msgid "Nothing to import"
+msgstr "Niets te importeren"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Kleur"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Datum"
+
+#: ../includes/fields/file.php:14
+msgid "File Upload"
+msgstr "Bestandsupload"
+
+#: ../includes/fields/file.php:43
+msgid "Add File"
+msgstr "Voeg bestand toe"
+
+#: ../includes/fields/file.php:44
+msgid "Remove"
+msgstr "Verwijder"
+
+#: ../includes/fields/file.php:57
+msgid "Return Value"
+msgstr "Retourwaarde"
+
+#: ../includes/fields/file.php:66
+msgid "File URL"
+msgstr "Bestand URL"
+
+#: ../includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "Attachment ID"
+
+#: ../includes/fields/file.php:127
+msgid "Use This File"
+msgstr "Gebruik dit bestand"
+
+#: ../includes/fields/loop.php:9
+msgid "Loop"
+msgstr "Lus"
+
+#: ../includes/fields/loop.php:41
+msgid "Row Display"
+msgstr "Rij weergave"
+
+#: ../includes/fields/loop.php:50
+msgid "Show the values by default"
+msgstr "Toon de waarden bij verstek"
+
+#: ../includes/fields/loop.php:57
+msgid "Row Label"
+msgstr "Rij label"
+
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:215
+msgid "Loop Row"
+msgstr "Lusrij"
+
+#: ../includes/fields/loop.php:71
+msgid "Button Label"
+msgstr "Knop label"
+
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:216
+msgid "Add Row"
+msgstr "Voeg rij toe"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Limieten"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Relatie"
+
+#: ../includes/fields/relationship.php:92
+msgid "Limit posts to the following types"
+msgstr "Beperk posts tot de volgende typen"
+
+#: ../includes/fields/select.php:9
+msgid "Select"
+msgstr "Selecteer"
+
+#: ../includes/fields/select.php:102
+msgid "Choices"
+msgstr "Keuzes"
+
+#: ../includes/fields/select.php:103
+msgid "Enter one choice per line"
+msgstr "Voer één keuze per regel in"
+
+#: ../includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr "Meervoudig selecteerbaar?"
+
+#: ../includes/fields/select.php:126
+msgid "This is a multi-select field"
+msgstr "Dit is een meervoudig selecteerbaar veld"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Tab"
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+msgid "Default Value"
+msgstr "Verstekwaarde"
+
+#: ../includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "Tekst gebied"
+
+#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+msgid "Formatting"
+msgstr "Formattering"
+
+#: ../includes/fields/textarea.php:53
+msgid "None"
+msgstr "Geen"
+
+#: ../includes/fields/textarea.php:54
+msgid "Convert newlines to <br />"
+msgstr "Verander regeleindes naar <br />"
+
+#: ../includes/fields/true_false.php:9
+msgid "True / False"
+msgstr "Waar / Onwaar"
+
+#: ../includes/fields/true_false.php:33
+msgid "Message"
+msgstr "Bericht"
+
+#: ../includes/fields/true_false.php:34
+msgid "The text beside the checkbox"
+msgstr "De tekst naast de checkbox"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Gebruiker"
+
+#: ../includes/fields/wysiwyg.php:11
+msgid "Wysiwyg Editor"
+msgstr "Wysiwyg Editor"
+
+#: ../includes/fields/wysiwyg.php:51
+msgid "Default"
+msgstr "Verstek"
+
+#: ../includes/fields/wysiwyg.php:52
+msgid "None (bypass filters)"
+msgstr "Geen (sla filters over)"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Dien in"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Nieuw veld"
+
+#: ../templates/field_html.php:30
+msgid "Label"
+msgstr "Label"
+
+#: ../templates/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "Het veldlabel dat editors zullen zien."
+
+#: ../templates/field_html.php:39
+msgid "Name"
+msgstr "Naam"
+
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"De veldnaam wordt doorgegeven naar get() om waarden op te halen. Gebruik "
+"alleen kleinte letters, en liggende streepjes."
+
+#: ../templates/field_html.php:49
+msgid "Field Type"
+msgstr "Veldtype"
+
+#: ../templates/field_html.php:67
+msgid "Notes"
+msgstr "Notities"
+
+#: ../templates/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Notities voor editors tijdens gegevensinvoer"
+
+#: ../templates/field_html.php:82
+msgid "Close"
+msgstr "Sluit"
+
+#: ../templates/field_html.php:83
+msgid "or"
+msgstr "of"
+
+#: ../templates/field_html.php:83
+msgid "delete"
+msgstr "Verwijder"
+
+#: ../templates/meta_box_extras.php:42
+msgid "Order"
+msgstr "Volgorde"
+
+#: ../templates/meta_box_extras.php:44
+msgid "The field group with the lowest order will appear first."
+msgstr "De veldgroep met de laagste volgorde zal als eerste verschijnen."
+
+#: ../templates/meta_box_extras.php:54
+msgid "Position"
+msgstr "Positie"
+
+#: ../templates/meta_box_extras.php:57
+msgid "Normal"
+msgstr "Normaal"
+
+#: ../templates/meta_box_extras.php:58
+msgid "Side"
+msgstr "Zijde"
+
+#: ../templates/meta_box_extras.php:63
+msgid "Display Settings"
+msgstr "Weergave instellingen"
+
+#: ../templates/meta_box_extras.php:73
+msgid "Hide the content editor"
+msgstr "Verberg de inhoudseditor"
+
+#: ../templates/meta_box_extras.php:84
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: ../templates/meta_box_extras.php:102
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr "Uw Gravity Forms en CFS veldlabels moeten precies overeenkomen"
+
+#: ../templates/meta_box_fields.php:66
+msgid "Add New Field"
+msgstr "Voeg nieuw veld toe"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "is gelijk aan"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "is niet"
+
+#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+msgid "Leave blank to skip this rule"
+msgstr "Laat leeg om deze regel over te slaan"
+
+#: ../templates/meta_box_rules.php:233
+msgid "Posts"
+msgstr "Posts"
+
+#: ../templates/meta_box_rules.php:257
+msgid "Taxonomy Terms"
+msgstr "Taxonomie termen"
+
+#: ../templates/page_addons.php:77
+msgid "Learn more"
+msgstr "Lees er meer over"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Export"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "Import"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Herstel"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Herstel en deactiveer"
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr "Dit zal alle CFS gegevens verwijderen en de plug-in deactiveren."
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Verwijder alles"
