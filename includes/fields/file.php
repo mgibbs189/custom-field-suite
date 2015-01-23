@@ -185,6 +185,19 @@ class cfs_file extends cfs_field
         global $post;
         wp_enqueue_media();
     ?>
+        <style>
+        .cfs_media_frame .media-frame-menu {
+            display: none;
+        }
+        
+        .cfs_media_frame .media-frame-title,
+        .cfs_media_frame .media-frame-router,
+        .cfs_media_frame .media-frame-content,
+        .cfs_media_frame .media-frame-toolbar {
+            left: 0;
+        }
+        </style>
+
         <script>
         (function($) {
             $(function() {
@@ -200,10 +213,12 @@ class cfs_file extends cfs_field
                     }
 
                     cfs_media_frame = wp.media.frames.cfs_media_frame = wp.media({
+                        className: 'media-frame cfs_media_frame',
+                        frame: 'post',
                         multiple: false
                     });
 
-                    cfs_media_frame.on('select', function() {
+                    cfs_media_frame.on('insert', function() {
                         var attachment = cfs_media_frame.state().get('selection').first().toJSON();
                         if ('image' == attachment.type && 'undefined' != typeof attachment.sizes) {
                             file_url = attachment.sizes.full.url;
