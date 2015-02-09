@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://customfieldsuite.com/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.3.11
+Version: 2.3.12
 Author: Matt Gibbs
 Author URI: http://customfieldsuite.com/
 Text Domain: cfs
@@ -24,7 +24,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.3.11' );
+        define( 'CFS_VERSION', '2.3.12' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( 'custom-field-suite' ) );
 
@@ -77,7 +77,7 @@ class Custom_Field_Suite
             add_action( 'parse_query', array( $this, 'parse_query' ) );
         }
 
-        foreach ( array( 'api', 'upgrade', 'field', 'field_group', 'session', 'form', 'third_party' ) as $f ) {
+        foreach ( array( 'api', 'upgrade', 'field', 'field_group', 'session', 'form', 'third_party', 'revisions' ) as $f ) {
             include( CFS_DIR . "/includes/$f.php" );
         }
 
@@ -144,6 +144,7 @@ class Custom_Field_Suite
             'text'          => CFS_DIR . '/includes/fields/text.php',
             'textarea'      => CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => CFS_DIR . '/includes/fields/wysiwyg.php',
+            'hyperlink'     => CFS_DIR . '/includes/fields/hyperlink.php',
             'date'          => CFS_DIR . '/includes/fields/date/date.php',
             'color'         => CFS_DIR . '/includes/fields/color/color.php',
             'true_false'    => CFS_DIR . '/includes/fields/true_false.php',
@@ -159,7 +160,7 @@ class Custom_Field_Suite
             $class_name = 'cfs_' . $type;
 
             // allow for multiple classes per file
-            if ( !class_exists( $class_name ) ) {
+            if ( ! class_exists( $class_name ) ) {
                 include_once( $path );
             }
 

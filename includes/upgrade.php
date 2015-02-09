@@ -242,11 +242,15 @@ class cfs_upgrade
             }
         }
 
+        // Disable add-ons (they're now in core)
         if ( version_compare( $this->last_version, '2.3.12', '<' ) ) {
             require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
             deactivate_plugins( 'cfs-hyperlink/index.php' );
             deactivate_plugins( 'cfs-hyperlink-master/index.php' );
+
+            deactivate_plugins( 'cfs-revisions/index.php' );
+            deactivate_plugins( 'cfs-revisions-master/index.php' );
         }
     }
 }
