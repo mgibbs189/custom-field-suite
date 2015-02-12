@@ -53,6 +53,11 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.4 =
+* Added Hyperlink field type (previously an add-on)
+* Added Revision support, just use `DEFINE( 'CFS_REVISIONS', true );`
+* Added license.txt (props @chrisvanpatten)
+
 = 2.3.11 =
 * Appended CFS version number to assets, to flush caches (props @chrisvanpatten)
 * Added Dutch translations (props @wverhoogt)
