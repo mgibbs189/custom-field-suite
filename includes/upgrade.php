@@ -243,7 +243,7 @@ class cfs_upgrade
         }
 
         // Disable add-ons (they're now in core)
-        if ( version_compare( $this->last_version, '2.3.12', '<' ) ) {
+        if ( version_compare( $this->last_version, '2.4', '<' ) ) {
             require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
             deactivate_plugins( 'cfs-hyperlink/index.php' );

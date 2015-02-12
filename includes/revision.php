@@ -1,10 +1,10 @@
 <?php
 
 if ( defined( 'CFS_REVISIONS' ) && CFS_REVISIONS ) {
-    new cfs_revisions();
+    new cfs_revision();
 }
 
-class cfs_revisions
+class cfs_revision
 {
 
     function __construct() {
