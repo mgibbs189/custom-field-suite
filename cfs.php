@@ -405,7 +405,9 @@ class Custom_Field_Suite
      * @since 1.7.5
      */
     function ajax_handler() {
-        global $wpdb;
+        if ( ! current_user_can( 'manage_options' ) ) {
+            exit;
+        }
 
         $ajax_method = isset( $_POST['action_type'] ) ? $_POST['action_type'] : false;
 
@@ -423,15 +425,14 @@ class Custom_Field_Suite
                 echo json_encode( $this->field_group->export( $_POST ) );
             }
             elseif ('reset' == $ajax_method) {
-                if ( current_user_can( 'manage_options' ) ) {
-                    $ajax->reset();
-                    deactivate_plugins( plugin_basename( __FILE__ ) );
-                    echo admin_url( 'plugins.php' );
-                }
+                $ajax->reset();
+                deactivate_plugins( plugin_basename( __FILE__ ) );
+                echo admin_url( 'plugins.php' );
             }
             elseif ( method_exists( $ajax, $ajax_method ) ) {
                 echo $ajax->$ajax_method( $_POST );
             }
+
             exit;
         }
     }
