@@ -3,7 +3,7 @@ Contributors: mgibbs189
 Donate link: http://customfieldsuite.com/
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 3.8
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2
 
@@ -52,6 +52,9 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.4.1 =
+* Security fix: ensure that only admins can import field groups (props James Golovich)
 
 = 2.4 =
 * Added Hyperlink field type (previously an add-on)
