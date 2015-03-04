@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-20 09:38-0500\n"
-"PO-Revision-Date: 2014-10-20 09:38-0500\n"
+"POT-Creation-Date: 2015-03-03 23:02-0500\n"
+"PO-Revision-Date: 2015-03-03 23:02-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: hu_HU\n"
@@ -19,52 +19,52 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 # @ cfs
-#: ../cfs.php:103 ../cfs.php:305
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Mezőcsoportok"
 
 # @ cfs
-#: ../cfs.php:104
+#: ../cfs.php:103
 msgid "Field Group"
 msgstr "Mezőcsoport"
 
 # @ cfs
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Add New"
 msgstr "Új hozzáadása"
 
 # @ cfs
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New Field Group"
 msgstr "Új mezőcsoport hozzáadása"
 
 # @ cfs
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Edit Field Group"
 msgstr "Mezőcsoport szerkesztése"
 
 # @ cfs
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "New Field Group"
 msgstr "Új mezőcsoport"
 
 # @ cfs
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "View Field Group"
 msgstr "Mezőcsoport megtekintése"
 
 # @ cfs
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "Search Field Groups"
 msgstr "Mezőcsoportok keresése"
 
 # @ cfs
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "No Field Groups found"
 msgstr "Nem találhatók mezőcsoportok"
 
 # @ cfs
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found in Trash"
 msgstr "Nincsenek mezőcsoportok a kukában"
 
@@ -83,54 +83,54 @@ msgstr "Elhelyezési szabályok"
 msgid "Extras"
 msgstr "Extrák"
 
-# @ cfs
-#: ../cfs.php:306 ../templates/page_tools.php:74
-msgid "Tools"
-msgstr "Eszközök"
-
-#: ../cfs.php:307 ../templates/page_addons.php:65
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr ""
 
 # @ cfs
-#: ../cfs.php:447
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Eszközök"
+
+# @ cfs
+#: ../cfs.php:448
 msgid "Title"
 msgstr "Cím"
 
 # @ cfs
-#: ../cfs.php:448
+#: ../cfs.php:449
 #, fuzzy
 msgid "Placement"
 msgstr "Elhelyezési szabályok"
 
 # @ cfs
-#: ../cfs.php:464 ../includes/fields/relationship.php:106
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "Bejegyzéstípusok"
 
 # @ cfs
-#: ../cfs.php:465 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "Felhasználói szintek"
 
 # @ cfs
-#: ../cfs.php:466
+#: ../cfs.php:467
 #, fuzzy
 msgid "Post IDs"
 msgstr "Bejegyzések"
 
-#: ../cfs.php:467
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr ""
 
 # @ cfs
-#: ../cfs.php:468 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 #, fuzzy
 msgid "Page Templates"
 msgstr "Oldalsablon"
 
-#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr ""
 
@@ -214,6 +214,22 @@ msgstr "Csatolmány ID"
 msgid "Use This File"
 msgstr "Fájl használata"
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 # @ cfs
 #: ../includes/fields/loop.php:9
 msgid "Loop"
@@ -235,8 +251,8 @@ msgid "Row Label"
 msgstr "Sor címkéje"
 
 # @ cfs
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
-#: ../includes/fields/loop.php:204
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr "Hurok sor"
 
@@ -246,10 +262,15 @@ msgid "Button Label"
 msgstr "Gomb címkéje"
 
 # @ cfs
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
-#: ../includes/fields/loop.php:205
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr "Sor hozzáadása"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr ""
 
 # @ cfs
 #: ../includes/fields/relationship.php:8
@@ -257,13 +278,9 @@ msgid "Relationship"
 msgstr "Viszony"
 
 # @ cfs
-#: ../includes/fields/relationship.php:107
+#: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
 msgstr "Bejegyzések szűkítése a következő típusokra"
-
-#: ../includes/fields/relationship.php:122
-msgid "Limits"
-msgstr ""
 
 # @ cfs
 #: ../includes/fields/select.php:9
@@ -356,6 +373,12 @@ msgstr "Nincs (szűrő mellőzése)"
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr ""
+
+# @ cfs
+#: ../includes/revision.php:26
+#, fuzzy
+msgid "Post Meta"
+msgstr "Bejegyzéstípusok"
 
 # @ cfs
 #: ../templates/admin_head.php:24
@@ -485,42 +508,37 @@ msgstr "Bejegyzések"
 msgid "Taxonomy Terms"
 msgstr "Taxonómiai feltételek"
 
-#: ../templates/page_addons.php:81
+#: ../templates/page_addons.php:77
 msgid "Learn more"
 msgstr ""
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "Exportálás"
 
 # @ cfs
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "Importálás"
 
-#: ../templates/page_tools.php:79
+#: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr ""
 
-#: ../templates/page_tools.php:87
-msgid "Which field groups would you like to export?"
-msgstr "Melyik mezőcsoportokat szeretné exportálni?"
-
-#: ../templates/page_tools.php:116
-msgid "Paste the import code below."
-msgstr ""
-
-#: ../templates/page_tools.php:137
+#: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr ""
 
-#: ../templates/page_tools.php:138
+#: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 
-#: ../templates/page_tools.php:139
+#: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr ""
+
+#~ msgid "Which field groups would you like to export?"
+#~ msgstr "Melyik mezőcsoportokat szeretné exportálni?"
 
 #, fuzzy
 #~ msgid "Please install %s to use this feature."

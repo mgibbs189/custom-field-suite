@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Karin Suzakura\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2014-10-20 09:37-0500\n"
-"PO-Revision-Date: 2014-10-20 09:37-0500\n"
+"POT-Creation-Date: 2015-03-03 23:03-0500\n"
+"PO-Revision-Date: 2015-03-03 23:03-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -18,43 +18,43 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:103 ../cfs.php:305
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr "フィールドグループ"
 
-#: ../cfs.php:104
+#: ../cfs.php:103
 msgid "Field Group"
 msgstr "フィールドグループ"
 
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Add New"
 msgstr "新規作成"
 
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New Field Group"
 msgstr "フィールドグループを追加"
 
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Edit Field Group"
 msgstr "フィールドグループの編集"
 
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "New Field Group"
 msgstr "新しいフィールドグループ"
 
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "View Field Group"
 msgstr "フィールドグループを見る"
 
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "Search Field Groups"
 msgstr "フィールドグループを検索"
 
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "No Field Groups found"
 msgstr "フィールドグループは見つかりませんでした"
 
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found in Trash"
 msgstr "ゴミ箱にフィールドグループは見つかりませんでした"
 
@@ -70,44 +70,44 @@ msgstr "配置ルール"
 msgid "Extras"
 msgstr "エクストラ"
 
-#: ../cfs.php:306 ../templates/page_tools.php:74
-msgid "Tools"
-msgstr "ツール"
-
-#: ../cfs.php:307 ../templates/page_addons.php:65
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: ../cfs.php:447
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "ツール"
+
+#: ../cfs.php:448
 msgid "Title"
 msgstr "タイトル"
 
-#: ../cfs.php:448
+#: ../cfs.php:449
 msgid "Placement"
 msgstr "配置"
 
-#: ../cfs.php:464 ../includes/fields/relationship.php:106
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "投稿タイプ"
 
-#: ../cfs.php:465 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "ユーザー権限グループ"
 
-#: ../cfs.php:466
+#: ../cfs.php:467
 msgid "Post IDs"
 msgstr "投稿ID"
 
-#: ../cfs.php:467
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr "分類ID"
 
-#: ../cfs.php:468 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "固定ページテンプレート"
 
-#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 #, fuzzy
 msgid "Post Formats"
 msgstr "投稿ID"
@@ -178,6 +178,22 @@ msgstr "添付ファイルID"
 msgid "Use This File"
 msgstr "このファイルを使用"
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 #: ../includes/fields/loop.php:9
 msgid "Loop"
 msgstr "ループ（複製フィールド）"
@@ -194,8 +210,8 @@ msgstr "デフォルト値を表示"
 msgid "Row Label"
 msgstr "行ラベル"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
-#: ../includes/fields/loop.php:204
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr "ループ行"
 
@@ -203,22 +219,23 @@ msgstr "ループ行"
 msgid "Button Label"
 msgstr "ボタンラベル"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
-#: ../includes/fields/loop.php:205
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr "追加"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr ""
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "関連ポスト選択"
 
-#: ../includes/fields/relationship.php:107
+#: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
 msgstr "表示される投稿タイプを限定"
-
-#: ../includes/fields/relationship.php:122
-msgid "Limits"
-msgstr ""
 
 #: ../includes/fields/select.php:9
 msgid "Select"
@@ -295,6 +312,11 @@ msgstr "フィルターなし"
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr "送信"
+
+#: ../includes/revision.php:26
+#, fuzzy
+msgid "Post Meta"
+msgstr "投稿本文"
 
 #: ../templates/admin_head.php:24
 #, fuzzy
@@ -404,41 +426,39 @@ msgstr "投稿"
 msgid "Taxonomy Terms"
 msgstr "分類"
 
-#: ../templates/page_addons.php:81
+#: ../templates/page_addons.php:77
 msgid "Learn more"
 msgstr ""
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "エクスポート"
 
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "インポート"
 
-#: ../templates/page_tools.php:79
+#: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "リセット"
 
-#: ../templates/page_tools.php:87
-msgid "Which field groups would you like to export?"
-msgstr "どのグループフィールドをエクスポートしますか？"
-
-#: ../templates/page_tools.php:116
-msgid "Paste the import code below."
-msgstr "下のテキストエリアにインポートコードを貼り付けてください"
-
-#: ../templates/page_tools.php:137
+#: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr "リセット＆プラグイン無効化"
 
-#: ../templates/page_tools.php:138
+#: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "CFSデータを削除し、プラグインを無効化します"
 
-#: ../templates/page_tools.php:139
+#: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "全てを削除"
+
+#~ msgid "Which field groups would you like to export?"
+#~ msgstr "どのグループフィールドをエクスポートしますか？"
+
+#~ msgid "Paste the import code below."
+#~ msgstr "下のテキストエリアにインポートコードを貼り付けてください"
 
 #~ msgid "Please install %s to use this feature."
 #~ msgstr "この機能を使用するには %s をインストールして下さい"
@@ -466,9 +486,6 @@ msgstr "全てを削除"
 
 #~ msgid "Post Title"
 #~ msgstr "投稿タイトル"
-
-#~ msgid "Post Content"
-#~ msgstr "投稿本文"
 
 #~ msgid "Attach file"
 #~ msgstr "添付ファイル"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2014-10-20 09:37-0500\n"
-"PO-Revision-Date: 2014-10-20 09:37-0500\n"
+"POT-Creation-Date: 2015-03-03 23:03-0500\n"
+"PO-Revision-Date: 2015-03-03 23:03-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
 "Language: fr\n"
@@ -19,43 +19,43 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:103 ../cfs.php:305
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr "CFS"
 
-#: ../cfs.php:104
+#: ../cfs.php:103
 msgid "Field Group"
 msgstr "Groupe de champs"
 
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Add New"
 msgstr "Ajouter un nouveau"
 
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New Field Group"
 msgstr "Ajouter un nouveau groupe de champs"
 
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Edit Field Group"
 msgstr "Modifier le groupe de champs"
 
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "New Field Group"
 msgstr "Nouveau groupe de champs"
 
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "View Field Group"
 msgstr "Voir le groupe de champs"
 
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "Search Field Groups"
 msgstr "Recherche d'un groupe de champs"
 
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "No Field Groups found"
 msgstr "Aucun groupe de champs trouvé"
 
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found in Trash"
 msgstr "Aucun groupe de champs trouvé dans la corbeille"
 
@@ -71,44 +71,44 @@ msgstr "Règles d'affichage"
 msgid "Extras"
 msgstr "Extras"
 
-#: ../cfs.php:306 ../templates/page_tools.php:74
-msgid "Tools"
-msgstr "Outils"
-
-#: ../cfs.php:307 ../templates/page_addons.php:65
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr "Add-ons"
 
-#: ../cfs.php:447
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Outils"
+
+#: ../cfs.php:448
 msgid "Title"
 msgstr "Titre"
 
-#: ../cfs.php:448
+#: ../cfs.php:449
 msgid "Placement"
 msgstr "Affichage"
 
-#: ../cfs.php:464 ../includes/fields/relationship.php:106
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "Types de contenu"
 
-#: ../cfs.php:465 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "Rôles utilisateur"
 
-#: ../cfs.php:466
+#: ../cfs.php:467
 msgid "Post IDs"
 msgstr "IDs des articles"
 
-#: ../cfs.php:467
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr "IDs des termes"
 
-#: ../cfs.php:468 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "Modèles de page"
 
-#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr "Formats d'article"
 
@@ -178,6 +178,22 @@ msgstr "ID du fichier attaché"
 msgid "Use This File"
 msgstr "Utiliser ce fichier"
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 #: ../includes/fields/loop.php:9
 msgid "Loop"
 msgstr "Boucle"
@@ -194,8 +210,8 @@ msgstr "Afficher les valeurs par défaut"
 msgid "Row Label"
 msgstr "Intitulé de la rangée"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
-#: ../includes/fields/loop.php:204
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr "Rangée sans nom"
 
@@ -203,22 +219,23 @@ msgstr "Rangée sans nom"
 msgid "Button Label"
 msgstr "Intitulé du bouton"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
-#: ../includes/fields/loop.php:205
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr "Ajouter une rangée"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Limites"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "Relation"
 
-#: ../includes/fields/relationship.php:107
+#: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
 msgstr "Limiter les articles aux types suivants"
-
-#: ../includes/fields/relationship.php:122
-msgid "Limits"
-msgstr "Limites"
 
 #: ../includes/fields/select.php:9
 msgid "Select"
@@ -295,6 +312,11 @@ msgstr "Aucun (ignorer les filtres)"
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr "Soumettre"
+
+#: ../includes/revision.php:26
+#, fuzzy
+msgid "Post Meta"
+msgstr "Types de contenu"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
@@ -408,42 +430,40 @@ msgstr "Articles"
 msgid "Taxonomy Terms"
 msgstr "Termes de taxonomie"
 
-#: ../templates/page_addons.php:81
+#: ../templates/page_addons.php:77
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "Exporter"
 
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "Importer"
 
-#: ../templates/page_tools.php:79
+#: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "Remettre à zéro"
 
-#: ../templates/page_tools.php:87
-msgid "Which field groups would you like to export?"
-msgstr "Quels groupes de champs souhaitez-vous exporter?"
-
-#: ../templates/page_tools.php:116
-msgid "Paste the import code below."
-msgstr "Veuillez coller le code d'import ci-dessous."
-
-#: ../templates/page_tools.php:137
+#: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr "Remettre à zéro et désactiver."
 
-#: ../templates/page_tools.php:138
+#: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 "Toutes les données de CFS seront supprimées et le plugin sera désactivé."
 
-#: ../templates/page_tools.php:139
+#: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Supprimer tout"
+
+#~ msgid "Which field groups would you like to export?"
+#~ msgstr "Quels groupes de champs souhaitez-vous exporter?"
+
+#~ msgid "Paste the import code below."
+#~ msgstr "Veuillez coller le code d'import ci-dessous."
 
 #~ msgid "Please install %s to use this feature."
 #~ msgstr "Veuillez installer %s pour utiliser cette fonctionnalité"

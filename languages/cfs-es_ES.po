@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2014-10-20 09:37-0500\n"
-"PO-Revision-Date: 2014-10-20 09:37-0500\n"
+"POT-Creation-Date: 2015-03-03 23:03-0500\n"
+"PO-Revision-Date: 2015-03-03 23:03-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: DECKERWEB -- http://deckerweb.de/kontakt/\n"
 "Language: es\n"
@@ -25,52 +25,52 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 # @ cfs
-#: ../cfs.php:103 ../cfs.php:305
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr "Grupos de Campo"
 
 # @ cfs
-#: ../cfs.php:104
+#: ../cfs.php:103
 msgid "Field Group"
 msgstr "Grupo de Campo"
 
 # @ cfs
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Add New"
 msgstr "Añadir nuevo"
 
 # @ cfs
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New Field Group"
 msgstr "Agregar nuevo Grupo de Campo"
 
 # @ cfs
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Edit Field Group"
 msgstr "Editar Grupo de Campo"
 
 # @ cfs
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "New Field Group"
 msgstr "Nuevo Grupo de Campo"
 
 # @ cfs
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "View Field Group"
 msgstr "Ver campo Grupo"
 
 # @ cfs
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "Search Field Groups"
 msgstr "Buscar Grupos de Campo"
 
 # @ cfs
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "No Field Groups found"
 msgstr "No hay Grupos de Campos"
 
 # @ cfs
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found in Trash"
 msgstr "No se encontraron grupos de campos en la basura"
 
@@ -90,53 +90,53 @@ msgid "Extras"
 msgstr "Extras"
 
 # @ cfs
-#: ../cfs.php:306 ../templates/page_tools.php:74
-msgid "Tools"
-msgstr "Herramientas"
-
-# @ cfs
-#: ../cfs.php:307 ../templates/page_addons.php:65
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr "Añadidos"
 
 # @ cfs
-#: ../cfs.php:447
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Herramientas"
+
+# @ cfs
+#: ../cfs.php:448
 msgid "Title"
 msgstr "Título"
 
 # @ cfs
-#: ../cfs.php:448
+#: ../cfs.php:449
 msgid "Placement"
 msgstr "Colocación"
 
 # @ cfs
-#: ../cfs.php:464 ../includes/fields/relationship.php:106
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "Tipos de Publicación"
 
 # @ cfs
-#: ../cfs.php:465 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "Roles de usuario"
 
 # @ cfs
-#: ../cfs.php:466
+#: ../cfs.php:467
 msgid "Post IDs"
 msgstr "IDs de Publicaciones"
 
 # @ cfs
-#: ../cfs.php:467
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr "IDs de Término"
 
 # @ cfs
-#: ../cfs.php:468 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "Plantillas de Página"
 
 # @ cfs
-#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr "Formatos de entrada"
 
@@ -221,6 +221,22 @@ msgstr "ID del adjunto"
 msgid "Use This File"
 msgstr "Usar este archivo"
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 # @ cfs
 #: ../includes/fields/loop.php:9
 msgid "Loop"
@@ -242,8 +258,8 @@ msgid "Row Label"
 msgstr "Etiqueta de Filas"
 
 # @ cfs
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
-#: ../includes/fields/loop.php:204
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr "Bucle de filas"
 
@@ -253,10 +269,16 @@ msgid "Button Label"
 msgstr "Etiqueta de Botón"
 
 # @ cfs
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
-#: ../includes/fields/loop.php:205
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr "Añadir Fila"
+
+# @ cfs
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Límites"
 
 # @ cfs
 #: ../includes/fields/relationship.php:8
@@ -264,14 +286,9 @@ msgid "Relationship"
 msgstr "Relación"
 
 # @ cfs
-#: ../includes/fields/relationship.php:107
+#: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
 msgstr "Limitar mensajes a los siguientes tipos"
-
-# @ cfs
-#: ../includes/fields/relationship.php:122
-msgid "Limits"
-msgstr "Límites"
 
 # @ cfs
 #: ../includes/fields/select.php:9
@@ -366,6 +383,12 @@ msgstr "Ninguno ( filtros de derivación)"
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr "Enviar"
+
+# @ cfs
+#: ../includes/revision.php:26
+#, fuzzy
+msgid "Post Meta"
+msgstr "Tipos de Publicación"
 
 # @ cfs
 #: ../templates/admin_head.php:24
@@ -504,49 +527,47 @@ msgid "Taxonomy Terms"
 msgstr "Términos Taxonomía"
 
 # @ cfs
-#: ../templates/page_addons.php:81
+#: ../templates/page_addons.php:77
 msgid "Learn more"
 msgstr "Saber más"
 
 # @ cfs
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "Exportar"
 
 # @ cfs
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "Importar"
 
 # @ cfs
-#: ../templates/page_tools.php:79
+#: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "Restablecer"
 
 # @ cfs
-#: ../templates/page_tools.php:87
-msgid "Which field groups would you like to export?"
-msgstr "¿Qué grupos de campo le gustaría exportar?"
-
-# @ cfs
-#: ../templates/page_tools.php:116
-msgid "Paste the import code below."
-msgstr "Pegue el código de importación por debajo."
-
-# @ cfs
-#: ../templates/page_tools.php:137
+#: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr "Resetear y desactivar."
 
 # @ cfs
-#: ../templates/page_tools.php:138
+#: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr "Esto borrará todos los datos del CFS y desactivará el plugin."
 
 # @ cfs
-#: ../templates/page_tools.php:139
+#: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Eliminar todo"
+
+# @ cfs
+#~ msgid "Which field groups would you like to export?"
+#~ msgstr "¿Qué grupos de campo le gustaría exportar?"
+
+# @ cfs
+#~ msgid "Paste the import code below."
+#~ msgstr "Pegue el código de importación por debajo."
 
 # @ cfs
 #~ msgid "Please install %s to use this feature."

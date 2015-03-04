@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2014-11-06 11:04-0500\n"
-"PO-Revision-Date: 2014-11-06 11:04-0500\n"
+"POT-Creation-Date: 2015-03-03 23:02-0500\n"
+"PO-Revision-Date: 2015-03-03 23:02-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:102 ../cfs.php:304
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr ""
 
@@ -56,56 +56,56 @@ msgstr ""
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: ../cfs.php:292
+#: ../cfs.php:293
 msgid "Fields"
 msgstr ""
 
-#: ../cfs.php:293
+#: ../cfs.php:294
 msgid "Placement Rules"
 msgstr ""
 
-#: ../cfs.php:294
+#: ../cfs.php:295
 msgid "Extras"
 msgstr ""
 
-#: ../cfs.php:305 ../templates/page_addons.php:61
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr ""
 
-#: ../cfs.php:306 ../templates/page_tools.php:73
+#: ../cfs.php:307 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr ""
 
-#: ../cfs.php:446
+#: ../cfs.php:448
 msgid "Title"
 msgstr ""
 
-#: ../cfs.php:447
+#: ../cfs.php:449
 msgid "Placement"
 msgstr ""
 
-#: ../cfs.php:463 ../includes/fields/relationship.php:91
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr ""
 
-#: ../cfs.php:464 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr ""
 
-#: ../cfs.php:465
+#: ../cfs.php:467
 msgid "Post IDs"
 msgstr ""
 
-#: ../cfs.php:466
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr ""
 
-#: ../cfs.php:467 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr ""
 
-#: ../cfs.php:468 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr ""
 
@@ -175,6 +175,22 @@ msgstr ""
 msgid "Use This File"
 msgstr ""
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 #: ../includes/fields/loop.php:9
 msgid "Loop"
 msgstr ""
@@ -192,7 +208,7 @@ msgid "Row Label"
 msgstr ""
 
 #: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
-#: ../includes/fields/loop.php:215
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr ""
 
@@ -201,7 +217,7 @@ msgid "Button Label"
 msgstr ""
 
 #: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
-#: ../includes/fields/loop.php:216
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr ""
 
@@ -292,6 +308,10 @@ msgstr ""
 
 #: ../includes/form.php:194
 msgid "Submit"
+msgstr ""
+
+#: ../includes/revision.php:26
+msgid "Post Meta"
 msgstr ""
 
 #: ../templates/admin_head.php:24

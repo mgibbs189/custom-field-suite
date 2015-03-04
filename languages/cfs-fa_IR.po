@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2014-10-20 09:38-0500\n"
-"PO-Revision-Date: 2014-10-20 09:38-0500\n"
+"POT-Creation-Date: 2015-03-03 23:02-0500\n"
+"PO-Revision-Date: 2015-03-03 23:02-0500\n"
 "Last-Translator: FacetWP <hello@uproot.us>\n"
 "Language-Team: www.ZooZ.ir <masoomi.vahid@gmail.com>\n"
 "Language: fa_IR\n"
@@ -18,43 +18,43 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:103 ../cfs.php:305
+#: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
 msgstr "گروه فیلدها"
 
-#: ../cfs.php:104
+#: ../cfs.php:103
 msgid "Field Group"
 msgstr "گروه فیلد"
 
-#: ../cfs.php:105
+#: ../cfs.php:104
 msgid "Add New"
 msgstr "افزودن"
 
-#: ../cfs.php:106
+#: ../cfs.php:105
 msgid "Add New Field Group"
 msgstr "افزودن گروه فیلد جدید"
 
-#: ../cfs.php:107
+#: ../cfs.php:106
 msgid "Edit Field Group"
 msgstr "ویرایش گروه فیلد"
 
-#: ../cfs.php:108
+#: ../cfs.php:107
 msgid "New Field Group"
 msgstr "فیلد گروه جدید"
 
-#: ../cfs.php:109
+#: ../cfs.php:108
 msgid "View Field Group"
 msgstr "مشاهده  گروه فیلد"
 
-#: ../cfs.php:110
+#: ../cfs.php:109
 msgid "Search Field Groups"
 msgstr "جستجوی گروه فیلد"
 
-#: ../cfs.php:111
+#: ../cfs.php:110
 msgid "No Field Groups found"
 msgstr "هیچ گروه فیلدی یافت نشد"
 
-#: ../cfs.php:112
+#: ../cfs.php:111
 msgid "No Field Groups found in Trash"
 msgstr "هیچ گروه فیلدی در سطل بازیافت یافت نشد"
 
@@ -70,47 +70,47 @@ msgstr "شروط جاگذاری"
 msgid "Extras"
 msgstr "اضافات"
 
-#: ../cfs.php:306 ../templates/page_tools.php:74
-msgid "Tools"
-msgstr "ابزارها"
-
-#: ../cfs.php:307 ../templates/page_addons.php:65
+#: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
 msgstr "اضافات"
 
-#: ../cfs.php:447
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "ابزارها"
+
+#: ../cfs.php:448
 msgid "Title"
 msgstr "عنوان"
 
-#: ../cfs.php:448
+#: ../cfs.php:449
 #, fuzzy
 msgid "Placement"
 msgstr "شروط جاگذاری"
 
-#: ../cfs.php:464 ../includes/fields/relationship.php:106
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
 msgstr "نوع نوشته"
 
-#: ../cfs.php:465 ../templates/meta_box_rules.php:201
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
 msgstr "مجوز کاربری"
 
-#: ../cfs.php:466
+#: ../cfs.php:467
 #, fuzzy
 msgid "Post IDs"
 msgstr "نوشته ها"
 
-#: ../cfs.php:467
+#: ../cfs.php:468
 msgid "Term IDs"
 msgstr ""
 
-#: ../cfs.php:468 ../templates/meta_box_rules.php:289
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
 #, fuzzy
 msgid "Page Templates"
 msgstr "قالب برگه"
 
-#: ../cfs.php:469 ../templates/meta_box_rules.php:168
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
 msgstr ""
 
@@ -180,6 +180,22 @@ msgstr "آی دی فایل پیوستی"
 msgid "Use This File"
 msgstr "استفاده از این فایل"
 
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr ""
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr ""
+
 #: ../includes/fields/loop.php:9
 msgid "Loop"
 msgstr "حلقه"
@@ -196,8 +212,8 @@ msgstr "نمایش مقادیر پیشفرض"
 msgid "Row Label"
 msgstr "برچسب ردیف"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:97
-#: ../includes/fields/loop.php:204
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
 msgid "Loop Row"
 msgstr "ردیف حلقه"
 
@@ -205,22 +221,23 @@ msgstr "ردیف حلقه"
 msgid "Button Label"
 msgstr "برچسب دکمه"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:124
-#: ../includes/fields/loop.php:205
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
 msgid "Add Row"
 msgstr "افزودن ردیف"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr ""
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
 msgstr "ارتباط"
 
-#: ../includes/fields/relationship.php:107
+#: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
 msgstr "محدودسازی نوشته ها به این نوع"
-
-#: ../includes/fields/relationship.php:122
-msgid "Limits"
-msgstr ""
 
 #: ../includes/fields/select.php:9
 msgid "Select"
@@ -297,6 +314,11 @@ msgstr "هیچ (bypass filters)"
 #: ../includes/form.php:194
 msgid "Submit"
 msgstr "ارسال"
+
+#: ../includes/revision.php:26
+#, fuzzy
+msgid "Post Meta"
+msgstr "محتوای نوشته"
 
 #: ../templates/admin_head.php:24
 #, fuzzy
@@ -409,43 +431,41 @@ msgstr "نوشته ها"
 msgid "Taxonomy Terms"
 msgstr "قوانین طبقه بندی"
 
-#: ../templates/page_addons.php:81
+#: ../templates/page_addons.php:77
 msgid "Learn more"
 msgstr ""
 
-#: ../templates/page_tools.php:77 ../templates/page_tools.php:99
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
 msgstr "دریافت خروجی"
 
-#: ../templates/page_tools.php:78 ../templates/page_tools.php:124
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
 msgstr "وارد کردن"
 
-#: ../templates/page_tools.php:79
+#: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: ../templates/page_tools.php:87
-msgid "Which field groups would you like to export?"
-msgstr "مایلید از کدام گروه فیلد خروجی تهیه کنید؟"
-
-#: ../templates/page_tools.php:116
-msgid "Paste the import code below."
-msgstr "کد خروجی را اینجا وارد کنید."
-
-#: ../templates/page_tools.php:137
+#: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
 msgstr "بازنشانی و غیرفعال سازی."
 
-#: ../templates/page_tools.php:138
+#: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
 msgstr ""
 "با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می "
 "شود."
 
-#: ../templates/page_tools.php:139
+#: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "حذف و غیرفعال سازی"
+
+#~ msgid "Which field groups would you like to export?"
+#~ msgstr "مایلید از کدام گروه فیلد خروجی تهیه کنید؟"
+
+#~ msgid "Paste the import code below."
+#~ msgstr "کد خروجی را اینجا وارد کنید."
 
 #, fuzzy
 #~ msgid "Please install %s to use this feature."
@@ -477,9 +497,6 @@ msgstr "حذف و غیرفعال سازی"
 
 #~ msgid "Post Title"
 #~ msgstr "عنوان نوشته"
-
-#~ msgid "Post Content"
-#~ msgstr "محتوای نوشته"
 
 #~ msgid "Attach file"
 #~ msgstr "پیوست فایل"
