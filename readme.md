@@ -1,8 +1,9 @@
 # [Custom Field Suite](http://customfieldsuite.com/)
 
-[![Wordpress](https://img.shields.io/wordpress/plugin/dt/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
-[![Wordpress](https://img.shields.io/wordpress/v/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
-[![Wordpress rating](https://img.shields.io/wordpress/plugin/r/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
+[![](https://img.shields.io/gratipay/mgibbs189.svg)](https://gratipay.com/mgibbs189/)
+[![](https://img.shields.io/wordpress/plugin/dt/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
+[![](https://img.shields.io/wordpress/v/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
+[![](https://img.shields.io/wordpress/plugin/r/custom-field-suite.svg)](https://wordpress.org/plugins/custom-field-suite/)
 
 ### A lightweight custom fields plugin for WordPress
 
