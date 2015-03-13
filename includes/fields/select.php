@@ -130,6 +130,22 @@ class cfs_select extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e('Select2', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][select2]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'select2'),
+                        'options' => array('message' => __('Render this field with Select2', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e('Validation', 'cfs'); ?></label>
             </td>
             <td>
