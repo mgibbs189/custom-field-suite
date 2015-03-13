@@ -36,7 +36,7 @@ class cfs_select extends cfs_field
             $field->input_class = '';
         }
 
-		// Select2
+        // Select2
         if (isset($field->options['select2']) && '1' == $field->options['select2'])
         {
             if (empty($field->input_class))
@@ -47,7 +47,7 @@ class cfs_select extends cfs_field
             {
                 $field->input_class .= ' select2';
             }
-		}
+        }
 
         // Select boxes should return arrays (unless "force_single" is true)
         if ('[]' != substr($field->input_name, -2) && empty($field->options['force_single']))
@@ -71,12 +71,12 @@ class cfs_select extends cfs_field
     function input_head($field = null)
     {
     ?>
-		<script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css" />
+        <script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css" />
         <script>
         (function($) {
             $(function() {
-				$('.select2').select2();
+                $('.select2').select2();
 
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_select:not(.ready)').init_select();
