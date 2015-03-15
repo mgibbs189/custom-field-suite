@@ -173,7 +173,7 @@ class Custom_Field_Suite
 
     /**
      * Generate input field HTML
-     * @param object $field 
+     * @param object $field
      * @since 1.0.0
      */
     function create_field( $field ) {
@@ -192,9 +192,9 @@ class Custom_Field_Suite
 
     /**
      * Retrieve custom field values
-     * @param mixed $field_name 
-     * @param mixed $post_id 
-     * @param array $options 
+     * @param mixed $field_name
+     * @param mixed $post_id
+     * @param array $options
      * @return mixed
      * @since 1.0.0
      */
@@ -209,8 +209,8 @@ class Custom_Field_Suite
 
     /**
      * Get custom field properties (label, name, settings, etc.)
-     * @param mixed $field_name 
-     * @param mixed $post_id 
+     * @param mixed $field_name
+     * @param mixed $post_id
      * @return array
      * @since 1.8.3
      */
@@ -221,8 +221,8 @@ class Custom_Field_Suite
 
     /**
      * Retrieve reverse-related values (using the relationship field type)
-     * @param int $post_id 
-     * @param array $options 
+     * @param int $post_id
+     * @param array $options
      * @return array
      * @since 1.4.4
      */
@@ -233,9 +233,9 @@ class Custom_Field_Suite
 
     /**
      * Save field values (and post data)
-     * @param array $field_data 
-     * @param array $post_data 
-     * @param array $options 
+     * @param array $field_data
+     * @param array $post_data
+     * @param array $options
      * @return int The post ID
      * @since 1.1.4
      */
@@ -246,7 +246,7 @@ class Custom_Field_Suite
 
     /**
      * Display a front-end form
-     * @param array $params 
+     * @param array $params
      * @return string The form HTML
      * @since 1.8.5
      */
@@ -302,7 +302,7 @@ class Custom_Field_Suite
      */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_object_page( __( 'Field Groups', 'cfs' ), __( 'Field Groups', 'cfs' ), 'manage_options', 'edit.php?post_type=cfs', null, CFS_URL . '/assets/images/logo-small.png' );
+            add_object_page( __( 'Field Groups', 'cfs' ), __( 'Field Groups', 'cfs' ), 'manage_options', 'edit.php?post_type=cfs', null, 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48ZyBmaWxsPSIjOTk5Ij48cGF0aCBkPSJNMjIyLjIgMTAuOGMtMTIuNyAzLTI2IDYuOC0zOCAxMi4ydjg5LjhjMCA5LjctOCAxNy41LTE3LjUgMTcuNWgtLjhjLTkuOCAwLTE3LjYtNy44LTE3LjYtMTcuNVY0NGMtNDMuOCAzMi41LTc0IDczLjMtNzYuMiAxMzJsLTMwIDMuNWMtNCAzLjMtNS44IDMxLjYtNC40IDM2LjYgMCAwIC44IDIuNSAyIDQuNyAxLjMgMi4yIDMgNSA1LjggOEM1MSAyMzUgNzEgMjQyLjUgODUuMiAyNDkuNGMyOC42IDE0IDc4LjYgMjYuNiAxNjkgMjYuNiA5MC4yIDAgMTQxLjItMTIuNyAxNzAuNi0yNi4zIDE0LjctNi44IDMxLjItMTQgMzctMjAgNS43LTUuOCA4LjQtMTIgOC40LTEyIDItNS40LjUtMzQuMy00LTM3LjhsLTI5LTQuNGMtMi01Ny43LTMxLTk4LTczLjctMTMwLjZ2NjcuOGMwIDkuNy03LjcgMTcuNS0xNy40IDE3LjVoLS43Yy05LjcgMC0xNy40LTcuOC0xNy40LTE3LjVWMjMuNWMtMTIuMy01LjUtMjYuNS0xMC0zOC4yLTEyLjYtMTcuNS00LjItNTQuMi0zLjUtNjcuNi0uMnoiLz48cGF0aCBkPSJNNDU5LjQgMjYxYy0xNi44IDE1LTM5IDIzLjgtNjAuNCAzMC05IDIuMy0xOCA0LjItMjcgNiAwIDguNi0xIDE3LjMtMy4yIDI2LTE1LjIgNjIuMy03OCAxMDAuNS0xNDAuMiA4NS4zLTUyLjMtMTIuNy04Ny43LTU5LTg4LjYtMTEwLjUtMjQuNS00LjQtNDguMy0xMS41LTcwLTI0LTYtMy41LTEyLjMtNy43LTE3LjgtMTIuNS0xLjQgMS42LTIuNCAzLjUtMyA1LjUtMi4yIDktMy41IDE4LjItMy42IDI3LjZ2Mi42YzAgNS43LjUgMTEuNCAxLjQgMTcgLjUgMy41IDEgNi42IDIgOS43IDEuMyA2IDcgMTAuNyAxMy4yIDExaDIyLjRjNC40LjYgNy44IDMuNyA5IDcuNiAzLjcgMTMgOSAyNS4zIDE1LjQgMzYuNy0uNC0uNi0uOC0xLjMtMS0yIDEuOCAzLjcgMS42IDguMy0xIDExLjdsLTEgLjgtMTMgMTMtMS43IDJjLTQuMiA0LjMtNSAxMS42LTIgMTcgNC44IDggMTAuNSAxNS4zIDE3IDIybC4yLjIgMS43IDEuN2M0IDQgOC40IDcuNyAxMyAxMSAyLjggMiA1LjUgNCA4IDUuNiA1LjQgMy4yIDEyLjggMi40IDE3LjMtMS44LjYtLjUgMS4yLTEgMi0yIDMtMi44IDEzLjItMTMgMTMuMi0xM2wuOC0uN2MzLjUtMi43IDgtMyAxMS43LTEtMS0uNS0yLTEtMy0xLjcgMTEuOCA2LjggMjQuNCAxMi4zIDM3LjcgMTYgMy44IDEuMyA3IDQuNyA3LjQgOVY0ODljLjIgNiA0LjggMTIgMTAuOCAxMy40IDkgMi4yIDE4LjIgMy41IDI3LjYgMy42aDIuNmM1LjcgMCAxMS40LS41IDE3LTEuNCAzLjQtLjUgNi42LTEgOS42LTIgNi0xLjMgMTAuOC03IDExLTEzLjJWNDY3Yy43LTQuNCAzLjgtNy44IDcuNy05IDEyLjMtMy41IDI0LTguMyAzNC44LTE0LjMgMy42LTIgOC4yLTEuNyAxMS42IDFsMSAuNyAxMyAxMyAxLjcgMS44YzQuNSA0LjMgMTEuOCA1IDE3IDIgOC00LjggMTUuNS0xMC40IDIyLjMtMTdsMS44LTEuOGM0LTQgNy43LTguNCAxMS0xMyAyLTIuOCA0LTUuNSA1LjUtOC4yIDMuMi01LjIgMi41LTEyLjYtMS43LTE3LS41LS43LTEuMi0xLjMtMi0yLjJsLTEzLTEzLS43LTFjLTMtMy4zLTMtOC0xLTExLjUgNi0xMSAxMS0yMi43IDE0LjQtMzUgMS4yLTMuOCA0LjYtNi44IDktNy4zaDIxLjljNi4yIDAgMTItNC44IDEzLjUtMTAuNyAyLjMtOSAzLjUtMTguMyAzLjYtMjcuN1YyOTRjMC01LjctLjUtMTEuMy0xLjMtMTctLjQtMy40LTEtNi42LTItOS42LS41LTIuNS0xLjgtNC44LTMuNi02LjZ6Ii8+PC9nPjwvc3ZnPg==' );
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Add-ons', 'cfs' ), __( 'Add-ons', 'cfs' ), 'manage_options', 'cfs-addons', array( $this, 'page_addons' ) );
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
         }
@@ -311,7 +311,7 @@ class Custom_Field_Suite
 
     /**
      * save_post
-     * @param int $post_id 
+     * @param int $post_id
      * @since 1.0.0
      */
     function save_post( $post_id ) {
@@ -344,7 +344,7 @@ class Custom_Field_Suite
 
     /**
      * delete_post
-     * @param int $post_id 
+     * @param int $post_id
      * @return boolean
      * @since 1.0.0
      */
@@ -362,8 +362,8 @@ class Custom_Field_Suite
 
     /**
      * meta_box
-     * @param object $post 
-     * @param array $metabox 
+     * @param object $post
+     * @param array $metabox
      * @since 1.0.0
      */
     function meta_box( $post, $metabox ) {
@@ -374,7 +374,7 @@ class Custom_Field_Suite
 
     /**
      * field_html
-     * @param object $field 
+     * @param object $field
      * @since 1.0.3
      */
     function field_html( $field ) {
@@ -453,8 +453,8 @@ class Custom_Field_Suite
 
     /**
      * Populate the "Placement" column on the Field Groups listing page
-     * @param string $column_name 
-     * @param int $post_id 
+     * @param string $column_name
+     * @param int $post_id
      * @since 1.9.5
      */
     function cfs_column_content( $column_name, $post_id ) {
