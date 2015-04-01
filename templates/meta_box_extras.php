@@ -27,6 +27,11 @@ if (!isset($extras['context'])) {
     $extras['context'] = 'normal';
 }
 
+$is_gf_active = is_plugin_active('gravityforms/gravityforms.php');
+
+if ( $is_gf_active ) {
+    $gf_forms = $wpdb->get_results( "SELECT id, title FROM {$wpdb->prefix}rg_form WHERE is_active = 1 ORDER BY title" );
+}
 ?>
 
 <table>
@@ -70,4 +75,33 @@ if (!isset($extras['context'])) {
             </div>
         </td>
     </tr>
+
+    <?php if ( $is_gf_active ) : ?>
+
+    <tr>
+        <td class="label">
+            <label><?php _e('Gravity Forms', 'cfs'); ?></label>
+        </td>
+        <td style="vertical-align:top">
+            <select name="cfs[extras][gforms][form_id]">
+                <option value="">-- Gravity Form --</option>
+                <?php foreach ($gf_forms as $gf_form) : ?>
+                <?php $selected = ($gf_form->id == $extras['gforms']['form_id']) ? ' selected' : ''; ?>
+                <option value="<?php echo $gf_form->id; ?>"<?php echo $selected; ?>><?php echo $gf_form->title; ?> (ID#<?php echo $gf_form->id; ?>)</option>
+                <?php endforeach; ?>
+            </select>
+
+            <select name="cfs[extras][gforms][post_type]">
+                <option value="">-- Post Type --</option>
+                <?php foreach ($post_types as $post_type) : ?>
+                <?php $selected = ($post_type == $extras['gforms']['post_type']) ? ' selected' : ''; ?>
+                <option value="<?php echo $post_type; ?>"<?php echo $selected; ?>><?php echo $post_type; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <p><?php _e('Your Gravity Form and CFS field labels must match exactly', 'cfs'); ?></p>
+        </td>
+    </tr>
+
+    <?php endif; ?>
+
 </table>
