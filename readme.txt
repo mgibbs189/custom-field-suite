@@ -52,6 +52,9 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+= 2.4.2 =
+* New CFS logo (props @chrisvanpatten)
+* Added composer.json file
 
 = 2.4.1 =
 * Security fix: ensure that only admins can import field groups (props James Golovich)
