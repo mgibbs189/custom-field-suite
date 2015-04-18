@@ -10,16 +10,13 @@ class cfs_color extends cfs_field
 
 
     function input_head( $field = null ) {
-        wp_register_script( 'miniColors', CFS_URL . '/includes/fields/color/jquery.miniColors.min.js' );
-        wp_enqueue_script( 'miniColors' );
+        wp_enqueue_style( 'wp-color-picker' ); 
+        wp_enqueue_script( 'wp-color-picker' );
     ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/includes/fields/color/color.css" />
         <script>
         (function($) {
-            $(document).on('focus', '.cfs_color input.color', function() {
-                if (!$(this).hasClass('ready')) {
-                    $(this).addClass('ready').miniColors({ letterCase: 'lowercase' });
-                }
+            $(function() {
+                $('.cfs_color input.color').wpColorPicker();
             });
         })(jQuery);
         </script>
