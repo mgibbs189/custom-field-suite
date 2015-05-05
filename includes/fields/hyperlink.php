@@ -91,6 +91,11 @@ class cfs_hyperlink extends cfs_field
         $text   = isset( $value['text'] ) ? $value['text'] : $value['url'];
         $target = isset( $value['target'] ) ? $value['target'] : '';
         $format = $this->get_option( $field, 'format', 'html' );
+        
+        // target="none" (sometimes?) opens a new tab
+        if ( 'none' == $target ) {
+            $target = '';
+        }
 
         // Return an HTML string
         if ( 'html' == $format ) {
