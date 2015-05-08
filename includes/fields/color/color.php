@@ -18,8 +18,12 @@ class cfs_color extends cfs_field
         (function($) {
             $(document).on('focus', '.cfs_color input.color', function() {
                 if (!$(this).hasClass('ready')) {
-                    $(this).addClass('ready').miniColors({ letterCase: 'lowercase' });
+                    $(this).addClass('ready').minicolors();
                 }
+            });
+
+            $(function() {
+                $('.cfs_color input.color').addClass('ready').minicolors();
             });
         })(jQuery);
         </script>
