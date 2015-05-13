@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-03-03 23:03-0500\n"
-"Last-Translator: FacetWP <hello@uproot.us>\n"
+"PO-Revision-Date: 2015-05-13 16:35-0500\n"
+"Last-Translator: FacetWP <hello@facetwp.com>\n"
 "Language-Team: Digital Factory <info@digitalfactory.pl>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -72,7 +72,7 @@ msgstr "Dodatki"
 
 #: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
-msgstr ""
+msgstr "Dodatki"
 
 #: ../cfs.php:307 ../templates/page_tools.php:73
 msgid "Tools"
@@ -83,9 +83,8 @@ msgid "Title"
 msgstr "Tutuł"
 
 #: ../cfs.php:449
-#, fuzzy
 msgid "Placement"
-msgstr "Opcje wyświetlania"
+msgstr "Umieszczenie doglebowe nawozów"
 
 #: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
@@ -97,21 +96,20 @@ msgid "User Roles"
 msgstr "Role użytkowników"
 
 #: ../cfs.php:467
-#, fuzzy
 msgid "Post IDs"
-msgstr "Wpisy"
+msgstr "Po ID"
 
 #: ../cfs.php:468
 msgid "Term IDs"
-msgstr ""
+msgstr "Terminu, identyfikatory"
 
 #: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
-msgstr ""
+msgstr "Szablony stron"
 
 #: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
-msgstr ""
+msgstr "Formaty Pocztowe"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -122,15 +120,14 @@ msgstr "Tekst"
 #: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
 #: ../includes/fields/wysiwyg.php:63
 msgid "Validation"
-msgstr ""
+msgstr "Weryfikacja"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:87
 #: ../includes/fields/select.php:142 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
 #: ../includes/fields/wysiwyg.php:72
-#, fuzzy
 msgid "This is a required field"
-msgstr "To jest pole wieokrotnego wyboru"
+msgstr "To pole jest wymagane"
 
 #: ../includes/field_group.php:69
 msgid "Imported"
@@ -146,7 +143,7 @@ msgstr "Nic do zaimportowania"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr ""
+msgstr "Kolor"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
@@ -182,19 +179,19 @@ msgstr "Użyj tego pliku"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr ""
+msgstr "Hiperłącze"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr ""
+msgstr "Format wyjściowy"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr ""
+msgstr "PHP tablicy"
 
 #: ../includes/fields/loop.php:9
 msgid "Loop"
@@ -209,9 +206,8 @@ msgid "Show the values by default"
 msgstr "Pokaż wartości domyślnie"
 
 #: ../includes/fields/loop.php:57
-#, fuzzy
 msgid "Row Label"
-msgstr "Etykieta"
+msgstr "Etykiety wierszy"
 
 #: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
 #: ../includes/fields/loop.php:223
@@ -230,7 +226,7 @@ msgstr "Dodaj rząd"
 #: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr ""
+msgstr "Limity"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -254,16 +250,15 @@ msgstr "Każdą opcję wpisz w oddzielnym rzędzie"
 
 #: ../includes/fields/select.php:117
 msgid "Multi-select?"
-msgstr ""
+msgstr "Wielokrotne wybieranie"
 
 #: ../includes/fields/select.php:126
-#, fuzzy
 msgid "This is a multi-select field"
-msgstr "To jest pole wieokrotnego wyboru"
+msgstr "To jest pole wielokrotnego wyboru"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr ""
+msgstr "Zakładka"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
 msgid "Default Value"
@@ -282,9 +277,8 @@ msgid "None"
 msgstr "Brak"
 
 #: ../includes/fields/textarea.php:54
-#, fuzzy
 msgid "Convert newlines to <br />"
-msgstr "Konwertuj nowe linie na"
+msgstr "Nowe linie do konwersji<br>"
 
 #: ../includes/fields/true_false.php:9
 msgid "True / False"
@@ -316,26 +310,23 @@ msgstr "Brak (przechwyć filtry)"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr ""
+msgstr "Wyślij"
 
 #: ../includes/revision.php:26
-#, fuzzy
 msgid "Post Meta"
-msgstr "Typy wpisów"
+msgstr "Metadane postów"
 
 #: ../templates/admin_head.php:24
-#, fuzzy
 msgid "New Field"
-msgstr "Dodaj nowe pole"
+msgstr "Nowe Pole"
 
 #: ../templates/field_html.php:30
 msgid "Label"
 msgstr "Etykieta"
 
 #: ../templates/field_html.php:32
-#, fuzzy
 msgid "The field label that editors will see."
-msgstr "Nazwa pola, którą zobaczy użytkownik"
+msgstr "Etykiety pola, że Redakcja będzie widać."
 
 #: ../templates/field_html.php:39
 msgid "Name"
@@ -346,6 +337,8 @@ msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
 msgstr ""
+"Nazwa pola jest przekazywana do get() aby pobrać wartości. Używać tylko "
+"małe litery, cyfry i znaki podkreślenia."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -356,9 +349,8 @@ msgid "Notes"
 msgstr "Instrukcje"
 
 #: ../templates/field_html.php:69
-#, fuzzy
 msgid "Notes for editors during data entry"
-msgstr "Instrukcje dla użytkowników przy wprowadzaniu danych"
+msgstr "Uwagi dla redaktorów podczas wprowadzania danych"
 
 #: ../templates/field_html.php:82
 msgid "Close"
@@ -374,40 +366,39 @@ msgstr "usuń"
 
 #: ../templates/meta_box_extras.php:42
 msgid "Order"
-msgstr ""
+msgstr "Zamówienie"
 
 #: ../templates/meta_box_extras.php:44
 msgid "The field group with the lowest order will appear first."
-msgstr ""
+msgstr "Pole grupy z najniższą kolejność pojawi się pierwszy."
 
 #: ../templates/meta_box_extras.php:54
 msgid "Position"
-msgstr ""
+msgstr "Pozycja"
 
 #: ../templates/meta_box_extras.php:57
 msgid "Normal"
-msgstr ""
+msgstr "Zwykły"
 
 #: ../templates/meta_box_extras.php:58
 msgid "Side"
-msgstr ""
+msgstr "Boczny"
 
 #: ../templates/meta_box_extras.php:63
 msgid "Display Settings"
-msgstr ""
+msgstr "Ustawienia wyświetlania"
 
 #: ../templates/meta_box_extras.php:73
 msgid "Hide the content editor"
 msgstr "Ukryj edytor treści"
 
 #: ../templates/meta_box_extras.php:84
-#, fuzzy
 msgid "Gravity Forms"
-msgstr "Integracja z Gravity Forms"
+msgstr "Gravity Forms"
 
 #: ../templates/meta_box_extras.php:102
 msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
+msgstr "Etykiety pola formularza grawitacji i CFS musi odpowiadać dokładnie"
 
 #: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
@@ -423,7 +414,7 @@ msgstr "nie jest równe"
 
 #: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
 msgid "Leave blank to skip this rule"
-msgstr ""
+msgstr "Pozostaw puste, aby pominąć tę regułę"
 
 #: ../templates/meta_box_rules.php:233
 msgid "Posts"
@@ -435,32 +426,31 @@ msgstr "Terminy"
 
 #: ../templates/page_addons.php:77
 msgid "Learn more"
-msgstr ""
+msgstr "Dowiedz się wiecej"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr ""
+msgstr "Eksportuj"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
-#, fuzzy
 msgid "Import"
-msgstr "Zaimportowane"
+msgstr "Importuj"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr ""
+msgstr "Badanie i wyłączyć."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr ""
+msgstr "To usunie wszystkie dane CFS i wyłączyć plugin."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr ""
+msgstr "Usuń wszystko"
 
 #~ msgid "No field groups selected"
 #~ msgstr "Nie wybrano grup pól"

@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-04-01 15:18+0100\n"
-"Last-Translator: Jean-Christophe Brebion <pro@jcbrebion.com>\n"
+"POT-Creation-Date: 2015-05-13 16:24-0500\n"
+"PO-Revision-Date: 2015-05-13 16:24-0500\n"
+"Last-Translator: FacetWP <hello@facetwp.com>\n"
 "Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -366,40 +366,40 @@ msgstr "ou"
 msgid "delete"
 msgstr "supprimer"
 
-#: ../templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:41
 msgid "Order"
 msgstr "Ordre"
 
-#: ../templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 "Le groupe de champ possédant l'ordre le plus faible sera affiché en premier."
 
-#: ../templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:53
 msgid "Position"
 msgstr "Position"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:56
 msgid "Normal"
 msgstr "Normal"
 
-#: ../templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:57
 msgid "Side"
 msgstr "Sur le côté"
 
-#: ../templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
 msgstr "Paramètres d'affichage"
 
-#: ../templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
 msgstr "Masquer l'éditeur visuel (WYSIWYG)"
 
-#: ../templates/meta_box_extras.php:84
+#: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: ../templates/meta_box_extras.php:102
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
 "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "

@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-03-03 23:03-0500\n"
-"Last-Translator: FacetWP <hello@uproot.us>\n"
+"POT-Creation-Date: 2015-05-13 16:28-0500\n"
+"PO-Revision-Date: 2015-05-13 16:30-0500\n"
+"Last-Translator: FacetWP <hello@facetwp.com>\n"
 "Language-Team: DECKERWEB -- http://deckerweb.de/kontakt/\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
@@ -27,42 +27,42 @@ msgstr ""
 # @ cfs
 #: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
-msgstr "Feldgruppen"
+msgstr "Feld-Gruppen"
 
 # @ cfs
 #: ../cfs.php:103
 msgid "Field Group"
-msgstr "Feldgruppe"
+msgstr "Feld-Gruppe"
 
 # @ cfs
 #: ../cfs.php:104
 msgid "Add New"
-msgstr "Erstellen"
+msgstr "Neu hinzufügen"
 
 # @ cfs
 #: ../cfs.php:105
 msgid "Add New Field Group"
-msgstr "Neue Feldgruppe hinzufügen"
+msgstr "Neue Feld-Gruppe erstellen"
 
 # @ cfs
 #: ../cfs.php:106
 msgid "Edit Field Group"
-msgstr "Feldgruppe bearbeiten"
+msgstr "Feld-Gruppe bearbeiten"
 
 # @ cfs
 #: ../cfs.php:107
 msgid "New Field Group"
-msgstr "Neue Feldgruppe"
+msgstr "Neue Feld-Gruppe"
 
 # @ cfs
 #: ../cfs.php:108
 msgid "View Field Group"
-msgstr "Feldgruppe anzeigen"
+msgstr "Feld-Gruppe anzeigen"
 
 # @ cfs
 #: ../cfs.php:109
 msgid "Search Field Groups"
-msgstr "Feldgruppen suchen"
+msgstr "Feld-Gruppen suchen"
 
 # @ cfs
 #: ../cfs.php:110
@@ -137,9 +137,8 @@ msgstr "Seitenvorlagen (Templates)"
 
 # @ cfs
 #: ../cfs.php:470 ../templates/meta_box_rules.php:168
-#, fuzzy
 msgid "Post Formats"
-msgstr "Beitrags-IDs"
+msgstr "Post Formats"
 
 # @ cfs
 #: ../includes/field.php:16 ../includes/fields/text.php:8
@@ -224,19 +223,19 @@ msgstr "Diese Datei verwenden"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr ""
+msgstr "Hyperlink"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr ""
+msgstr "Ausgabeformat"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr ""
+msgstr "PHP-Array"
 
 # @ cfs
 #: ../includes/fields/loop.php:9
@@ -318,7 +317,7 @@ msgstr "Dieses Feld erlaubt es, mehrere Werte auszuwählen"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr ""
+msgstr "Registerkarten"
 
 # @ cfs
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
@@ -387,9 +386,8 @@ msgstr "Absenden"
 
 # @ cfs
 #: ../includes/revision.php:26
-#, fuzzy
 msgid "Post Meta"
-msgstr "Inhaltstyp"
+msgstr "Meta-Daten des Beitrags"
 
 # @ cfs
 #: ../templates/admin_head.php:24
@@ -414,11 +412,11 @@ msgstr "Name"
 # @ cfs
 #: ../templates/field_html.php:42
 msgid ""
-"The field name is passed into get() to retrieve values. Use only lowercase "
-"letters, numbers, and underscores."
+"The field name is passed into get() to retrieve values. Use only lowercase letters, "
+"numbers, and underscores."
 msgstr ""
-"Der Feldname wird in <code>get()</code> übergeben, um Werte abzurufen. "
-"Verwenden Sie nur Kleinbuchstaben, Zahlen und Unterstriche."
+"Der Feldname wird in <code>get()</code> übergeben, um Werte abzurufen. Verwenden Sie nur "
+"Kleinbuchstaben, Zahlen und Unterstriche."
 
 # @ cfs
 #: ../templates/field_html.php:49
@@ -451,53 +449,51 @@ msgid "delete"
 msgstr "löschen"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:41
 msgid "Order"
 msgstr "Reihenfolge"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
-msgstr ""
-"Die Feldgruppe mit der niedrigsten Reihenfolge (Ziffer) wird zuerst "
-"erscheinen."
+msgstr "Die Feldgruppe mit der niedrigsten Reihenfolge (Ziffer) wird zuerst erscheinen."
 
 # @ cfs
-#: ../templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:53
 msgid "Position"
 msgstr "Position"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:56
 msgid "Normal"
 msgstr "Normal (Hauptposition)"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:57
 msgid "Side"
 msgstr "Seitenleiste (Links)"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
 msgstr "Anzeigeeinstellungen"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
 msgstr "Den Inhalte-Editor ausblenden"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:84
+#: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
 msgstr "Gravity Forms Formulare"
 
 # @ cfs
-#: ../templates/meta_box_extras.php:102
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr ""
-"Ihre Beschriftungen (Labels) des Gravity Forms Formulars und der Felder von "
-"Custom Field Suite (CFS) müssen exakt übereinstimmen."
+"Ihre Beschriftungen (Labels) des Gravity Forms Formulars und der Felder von Custom Field "
+"Suite (CFS) müssen exakt übereinstimmen."
 
 # @ cfs
 #: ../templates/meta_box_fields.php:66
@@ -574,8 +570,7 @@ msgstr "Alles löschen"
 
 # @ cfs
 #~ msgid "Please install %s to use this feature."
-#~ msgstr ""
-#~ "Bitte installieren Sie zuerst %s, um diese Funktion verwenden zu können."
+#~ msgstr "Bitte installieren Sie zuerst %s, um diese Funktion verwenden zu können."
 
 # @ cfs
 #~ msgid "Debug"

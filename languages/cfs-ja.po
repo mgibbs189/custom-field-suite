@@ -4,16 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Karin Suzakura\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-03-03 23:03-0500\n"
-"Last-Translator: FacetWP <hello@uproot.us>\n"
+"POT-Creation-Date: 2015-05-13 16:26-0500\n"
+"PO-Revision-Date: 2015-05-13 16:27-0500\n"
+"Last-Translator: FacetWP <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -108,9 +108,8 @@ msgid "Page Templates"
 msgstr "固定ページテンプレート"
 
 #: ../cfs.php:470 ../templates/meta_box_rules.php:168
-#, fuzzy
 msgid "Post Formats"
-msgstr "投稿ID"
+msgstr "記事のフォーマット"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -180,19 +179,19 @@ msgstr "このファイルを使用"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr ""
+msgstr "ハイパーリンク"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr ""
+msgstr "出力フォーマット"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr ""
+msgstr "ＨＴＭＬ"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr ""
+msgstr "PHP の配列"
 
 #: ../includes/fields/loop.php:9
 msgid "Loop"
@@ -227,7 +226,7 @@ msgstr "追加"
 #: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr ""
+msgstr "指値"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
@@ -259,7 +258,7 @@ msgstr "複数選択を可能にする"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr ""
+msgstr "タブ"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
 msgid "Default Value"
@@ -314,14 +313,12 @@ msgid "Submit"
 msgstr "送信"
 
 #: ../includes/revision.php:26
-#, fuzzy
 msgid "Post Meta"
-msgstr "投稿本文"
+msgstr "ポストメタ"
 
 #: ../templates/admin_head.php:24
-#, fuzzy
 msgid "New Field"
-msgstr "新規フィールドを追加"
+msgstr "新規フィールド"
 
 #: ../templates/field_html.php:30
 msgid "Label"
@@ -340,7 +337,8 @@ msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
 msgstr ""
-"get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記述"
+"get() メソッドでの引数に使用されるので、半角英数字・アンダースコアのみで記"
+"述"
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -366,41 +364,42 @@ msgstr "または"
 msgid "delete"
 msgstr "削除"
 
-#: ../templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:41
 msgid "Order"
 msgstr "順序"
 
-#: ../templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
-msgstr ""
+msgstr "最も低い順序のフィールド グループが最初に表示されます。"
 
-#: ../templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:53
 msgid "Position"
 msgstr "位置"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:56
 msgid "Normal"
-msgstr ""
+msgstr "通常"
 
-#: ../templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:57
 msgid "Side"
-msgstr ""
+msgstr "サイド"
 
-#: ../templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
 msgstr "表示設定"
 
-#: ../templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
 msgstr "コンテンツエディタを隠す"
 
-#: ../templates/meta_box_extras.php:84
+#: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: ../templates/meta_box_extras.php:102
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr "Gravity FormとCFSのフィールドのラベルは正確に一致する必要があります！"
+msgstr ""
+"Gravity FormとCFSのフィールドのラベルは正確に一致する必要があります！"
 
 #: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
@@ -428,7 +427,7 @@ msgstr "分類"
 
 #: ../templates/page_addons.php:77
 msgid "Learn more"
-msgstr ""
+msgstr "詳細について"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"

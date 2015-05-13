@@ -2,16 +2,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-03-03 23:03-0500\n"
-"Last-Translator: FacetWP <hello@uproot.us>\n"
+"POT-Creation-Date: 2015-05-13 16:27-0500\n"
+"PO-Revision-Date: 2015-05-13 16:28-0500\n"
+"Last-Translator: FacetWP <hello@facetwp.com>\n"
 "Language-Team: Glebcha <glebcha@gmail.com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
-msgstr "Группы полей"
+msgstr "Группа полей"
 
 #: ../cfs.php:103
 msgid "Field Group"
@@ -100,16 +100,15 @@ msgstr "Идентификаторы записей"
 
 #: ../cfs.php:468
 msgid "Term IDs"
-msgstr ""
+msgstr "Термин идентификаторы"
 
 #: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
 msgstr "Шаблоны страниц"
 
 #: ../cfs.php:470 ../templates/meta_box_rules.php:168
-#, fuzzy
 msgid "Post Formats"
-msgstr "Идентификаторы записей"
+msgstr "Форматы записей"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
@@ -179,19 +178,19 @@ msgstr "Использовать файл"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr ""
+msgstr "Гиперссылка"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr ""
+msgstr "Выходной формат"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr ""
+msgstr "Массив PHP"
 
 #: ../includes/fields/loop.php:9
 msgid "Loop"
@@ -258,7 +257,7 @@ msgstr "Поле множественного выбора"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr ""
+msgstr "Вкладка"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
 msgid "Default Value"
@@ -282,7 +281,7 @@ msgstr "Преобразовать разрыв строки в <br />"
 
 #: ../includes/fields/true_false.php:9
 msgid "True / False"
-msgstr ""
+msgstr "True / False"
 
 #: ../includes/fields/true_false.php:33
 msgid "Message"
@@ -313,9 +312,8 @@ msgid "Submit"
 msgstr "Отправить"
 
 #: ../includes/revision.php:26
-#, fuzzy
 msgid "Post Meta"
-msgstr "Содержимое записи"
+msgstr "Публикация мета"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
@@ -365,41 +363,41 @@ msgstr "или"
 msgid "delete"
 msgstr "удалить"
 
-#: ../templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:41
 msgid "Order"
 msgstr "Порядок"
 
-#: ../templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
 msgstr "Группа полей с низшим порядковым номером отобразится первой."
 
-#: ../templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:53
 msgid "Position"
 msgstr "Расположение"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:56
 msgid "Normal"
 msgstr "Обычно"
 
-#: ../templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:57
 msgid "Side"
 msgstr "Сбоку"
 
-#: ../templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
 msgstr "Настройки отображения"
 
-#: ../templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
 msgstr "Спрятать редактор"
 
-#: ../templates/meta_box_extras.php:84
+#: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
-msgstr ""
+msgstr "Gravity Forms"
 
-#: ../templates/meta_box_extras.php:102
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
+msgstr "Ваши формы тяжести и CFS меток полей должны точно совпадать"
 
 #: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
