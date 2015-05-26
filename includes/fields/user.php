@@ -28,7 +28,7 @@ class cfs_user extends cfs_field
         }
     ?>
         <div class="filter_posts">
-            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="Search users" />
+            <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search users', 'cfs' ); ?>" />
         </div>
 
         <div class="available_posts post_list">

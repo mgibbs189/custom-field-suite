@@ -20,15 +20,15 @@ class cfs_hyperlink extends cfs_field
     ?>
         <div class="cfs-hyperlink" style="overflow:hidden;">
             <div class="cfs-hyperlink-url" style="width:39%;float:left;">
-                <div>URL</div>
+                <div><?php _e( 'URL', 'cfs' ); ?></div>
                 <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[url]" class="link-url" value="<?php echo esc_url( $field->value['url'] ); ?>" placeholder="http://" />
             </div>
             <div class="cfs-hyperlink-text" style="width:39%;float:left;margin-left:1%;">
-                <div>Link Text</div>
+                <div><?php _e( 'Link Text', 'cfs' ); ?></div>
                 <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>[text]" class="link-text" value="<?php echo esc_attr( $field->value['text'] ); ?>" />
             </div>
             <div class="cfs-hyperlink-target" style="width:19%;float:left;margin-left:1%;">
-                <div>Link Target</div>
+                <div><?php _e( 'Link Target', 'cfs' ); ?></div>
                 <select class="link-target widefat" name="<?php echo esc_attr( $field->input_name ); ?>[target]">
                     <option value="none" <?php selected( 'none', esc_attr( $field->value['target'] ) ); ?>>None</option>
                     <option value="_blank" <?php selected( '_blank', esc_attr( $field->value['target'] ) ); ?>>_blank</option>
