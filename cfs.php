@@ -46,7 +46,9 @@ class Custom_Field_Suite
     function init() {
 
         // i18n
-        $this->load_textdomain();
+        if ( is_admin() ) {
+            $this->load_textdomain();
+        }
 
         add_action( 'admin_head',               array( $this, 'admin_head' ) );
         add_action( 'admin_footer',             array( $this, 'admin_footer' ) );
