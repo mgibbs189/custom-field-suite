@@ -1,189 +1,188 @@
-# Copyright (C) 2013 
-# This file is distributed under the same license as the  package.
+# This file is distributed under the same license as the Custom Field Suite package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-06-26 09:05-0500\n"
-"PO-Revision-Date: 2015-06-26 09:06-0500\n"
-"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
-"Language-Team: www.ZooZ.ir <masoomi.vahid@gmail.com>\n"
-"Language: fa_IR\n"
+"POT-Creation-Date: 2015-05-13 16:24-0500\n"
+"PO-Revision-Date: 2015-06-16 17:27+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../cfs.php:102 ../cfs.php:305
 msgid "Field Groups"
-msgstr "گروه های فلید"
+msgstr "Grups de Camps"
 
 #: ../cfs.php:103
 msgid "Field Group"
-msgstr "ویرایش گروه فیلد"
+msgstr "Grup de Camps"
 
 #: ../cfs.php:104
 msgid "Add New"
-msgstr "اضافه کنید"
+msgstr "Afegir nou"
 
 #: ../cfs.php:105
 msgid "Add New Field Group"
-msgstr "افزودن گروه رشته تازه"
+msgstr "Afegeix nou Grup de Camps"
 
 #: ../cfs.php:106
 msgid "Edit Field Group"
-msgstr "ویرایش گروه فیلد"
+msgstr "Editar Grup de Camps"
 
 #: ../cfs.php:107
 msgid "New Field Group"
-msgstr "فیلد گروه جدید"
+msgstr "Nou Grup de Camps"
 
 #: ../cfs.php:108
 msgid "View Field Group"
-msgstr "مشاهده  گروه فیلد"
+msgstr "Veure Grup de Camps"
 
 #: ../cfs.php:109
 msgid "Search Field Groups"
-msgstr "جستجوی گروه فیلد"
+msgstr "Cercar Grups de Camps"
 
 #: ../cfs.php:110
 msgid "No Field Groups found"
-msgstr "هیچ گروه فیلدی یافت نشد"
+msgstr "No s'han trobat Grups de Camps"
 
 #: ../cfs.php:111
 msgid "No Field Groups found in Trash"
-msgstr "هیچ گروه فیلدی در سطل بازیافت یافت نشد"
+msgstr "No s'han trobat Grups a la Paperera"
 
 #: ../cfs.php:293
 msgid "Fields"
-msgstr "فیلدها"
+msgstr "Camps"
 
 #: ../cfs.php:294
 msgid "Placement Rules"
-msgstr "شروط جاگذاری"
+msgstr "Regles de col·locació"
 
 #: ../cfs.php:295
 msgid "Extras"
-msgstr "اضافات"
+msgstr "Extras"
 
 #: ../cfs.php:306 ../templates/page_addons.php:61
 msgid "Add-ons"
-msgstr "اضافات"
+msgstr "Add-ons"
 
 #: ../cfs.php:307 ../templates/page_tools.php:73
 msgid "Tools"
-msgstr "ابزارها"
+msgstr "Eines"
 
 #: ../cfs.php:448
 msgid "Title"
-msgstr "عنوان"
+msgstr "Títol"
 
 #: ../cfs.php:449
 msgid "Placement"
-msgstr "محل قرارگیری"
+msgstr "Col·locació"
 
 #: ../cfs.php:465 ../includes/fields/relationship.php:91
 #: ../templates/meta_box_rules.php:135
 msgid "Post Types"
-msgstr "نوع نوشته"
+msgstr "Tipus de Post"
 
 #: ../cfs.php:466 ../templates/meta_box_rules.php:201
 msgid "User Roles"
-msgstr "مجوز کاربری"
+msgstr "Rols d'usuari"
 
 #: ../cfs.php:467
 msgid "Post IDs"
-msgstr "شناسه نوشته ها"
+msgstr "IDs de Posts"
 
 #: ../cfs.php:468
 msgid "Term IDs"
-msgstr "شناسه مدت"
+msgstr "ID's de Termes"
 
 #: ../cfs.php:469 ../templates/meta_box_rules.php:289
 msgid "Page Templates"
-msgstr "قالب های برگه"
+msgstr "Plantilles de Pàgina"
 
 #: ../cfs.php:470 ../templates/meta_box_rules.php:168
 msgid "Post Formats"
-msgstr "نوع نوشته"
+msgstr "Formats de Post"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
-msgstr "متن"
+msgstr "Text"
 
 #: ../includes/field.php:42 ../includes/fields/file.php:78
 #: ../includes/fields/select.php:133 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
 #: ../includes/fields/wysiwyg.php:63
 msgid "Validation"
-msgstr "مجوز"
+msgstr "Validació"
 
 #: ../includes/field.php:51 ../includes/fields/file.php:87
 #: ../includes/fields/select.php:142 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
 #: ../includes/fields/wysiwyg.php:72
 msgid "This is a required field"
-msgstr "تکمیل این فیلد اجباری است"
+msgstr "Aquest és un camp requerit"
 
 #: ../includes/field_group.php:69
 msgid "Imported"
-msgstr "وارد شد"
+msgstr "Importat"
 
 #: ../includes/field_group.php:72
 msgid "Skipped"
-msgstr "رد شده"
+msgstr "Omitides"
 
 #: ../includes/field_group.php:77
 msgid "Nothing to import"
-msgstr "چیزی برای وارد کردن وجود ندارد"
+msgstr "Res per importar"
 
 #: ../includes/fields/color/color.php:8
 msgid "Color"
-msgstr "رنگ"
+msgstr "Color"
 
 #: ../includes/fields/date/date.php:8
 msgid "Date"
-msgstr "تاریخ"
+msgstr "Data"
 
 #: ../includes/fields/file.php:14
 msgid "File Upload"
-msgstr "آپلود فایل"
+msgstr "Pujar Arxiu"
 
 #: ../includes/fields/file.php:43
 msgid "Add File"
-msgstr "افزودن فایل"
+msgstr "Afegir Arxiu"
 
 #: ../includes/fields/file.php:44
 msgid "Remove"
-msgstr "حذف"
+msgstr "Treure"
 
 #: ../includes/fields/file.php:57
 msgid "Return Value"
-msgstr "مقدار برگشت"
+msgstr "Valor de Retorn"
 
 #: ../includes/fields/file.php:66
 msgid "File URL"
-msgstr "آدرس فایل"
+msgstr "URL de l'arxiu"
 
 #: ../includes/fields/file.php:67
 msgid "Attachment ID"
-msgstr "آی دی فایل پیوستی"
+msgstr "ID del Adjunt"
 
 #: ../includes/fields/file.php:127
 msgid "Use This File"
-msgstr "استفاده از این فایل"
+msgstr "Utilitzeu aquest fitxer"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
-msgstr "ابرپیوند"
+msgstr "Hiperenllaç"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
-msgstr "قالب خروجی"
+msgstr "Format de sortida"
 
 #: ../includes/fields/hyperlink.php:57
 msgid "HTML"
@@ -191,307 +190,263 @@ msgstr "HTML"
 
 #: ../includes/fields/hyperlink.php:58
 msgid "PHP Array"
-msgstr "آرایه پی اچ پی"
+msgstr "Array de PHP"
 
 #: ../includes/fields/loop.php:9
 msgid "Loop"
-msgstr "حلقه"
+msgstr "Bucle (Loop)"
 
 #: ../includes/fields/loop.php:41
 msgid "Row Display"
-msgstr "نمایش ردیف"
+msgstr "Pantalla per files"
 
 #: ../includes/fields/loop.php:50
 msgid "Show the values by default"
-msgstr "نمایش مقادیر پیشفرض"
+msgstr "Mostrar valors per defecte"
 
 #: ../includes/fields/loop.php:57
 msgid "Row Label"
-msgstr "برچسب ردیف"
+msgstr "Etiqueta de Fila"
 
 #: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
 #: ../includes/fields/loop.php:223
 msgid "Loop Row"
-msgstr "ردیف حلقه"
+msgstr "Fila de Bucle (Loop)"
 
 #: ../includes/fields/loop.php:71
 msgid "Button Label"
-msgstr "برچسب دکمه"
+msgstr "Etiqueta de Botó"
 
 #: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
 #: ../includes/fields/loop.php:224
 msgid "Add Row"
-msgstr "افزودن ردیف"
+msgstr "AfegirFila"
 
 #: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
 #: ../includes/fields/user.php:56
 msgid "Limits"
-msgstr "محدودیت ها"
+msgstr "Límits"
 
 #: ../includes/fields/relationship.php:8
 msgid "Relationship"
-msgstr "ارتباط"
+msgstr "Relació"
 
 #: ../includes/fields/relationship.php:92
 msgid "Limit posts to the following types"
-msgstr "محدودسازی نوشته ها به این نوع"
+msgstr "Limitar posts als següents tipus"
 
 #: ../includes/fields/select.php:9
 msgid "Select"
-msgstr "انتخاب"
+msgstr "Seleccionar"
 
 #: ../includes/fields/select.php:102
 msgid "Choices"
-msgstr "انتخاب"
+msgstr "Opcions"
 
 #: ../includes/fields/select.php:103
 msgid "Enter one choice per line"
-msgstr "هر انتخاب در هر سطر"
+msgstr "Introduïu una opció per línia"
 
 #: ../includes/fields/select.php:117
 msgid "Multi-select?"
-msgstr "چند انتخابی؟"
+msgstr "Selecció múltiple?"
 
 #: ../includes/fields/select.php:126
 msgid "This is a multi-select field"
-msgstr "این یک فیلت چند انتخابی است"
+msgstr "Aquest és un camp de selecció múltiple"
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
-msgstr "زبانه"
+msgstr "Pestanya"
 
 #: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
 msgid "Default Value"
-msgstr "مقدار پیشفرض"
+msgstr "Valor per Defecte"
 
 #: ../includes/fields/textarea.php:9
 msgid "Textarea"
-msgstr "جعبه متن"
+msgstr "Textarea"
 
 #: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
 msgid "Formatting"
-msgstr "فرمت"
+msgstr "Formateig"
 
 #: ../includes/fields/textarea.php:53
 msgid "None"
-msgstr "هیچ"
+msgstr "Cap"
 
 #: ../includes/fields/textarea.php:54
 msgid "Convert newlines to <br />"
-msgstr "تبدیل نیوزلاین به <br />"
+msgstr "Convertir salts de línia a <br />"
 
 #: ../includes/fields/true_false.php:9
 msgid "True / False"
-msgstr "صحیح/غلط"
+msgstr "Verdader / Fals"
 
 #: ../includes/fields/true_false.php:33
 msgid "Message"
-msgstr "پیغام"
+msgstr "Missatge"
 
 #: ../includes/fields/true_false.php:34
 msgid "The text beside the checkbox"
-msgstr "متن کنار جعبه علامت زن"
+msgstr "El text al costat de la casella"
 
 #: ../includes/fields/user.php:8
 msgid "User"
-msgstr "کاربر"
+msgstr "Usuari"
 
 #: ../includes/fields/wysiwyg.php:11
 msgid "Wysiwyg Editor"
-msgstr "ویرایشگر Wysiwyg"
+msgstr "Editor Wysiwyg"
 
 #: ../includes/fields/wysiwyg.php:51
 msgid "Default"
-msgstr "پیشفرض"
+msgstr "Per defecte"
 
 #: ../includes/fields/wysiwyg.php:52
 msgid "None (bypass filters)"
-msgstr "هیچ (bypass filters)"
+msgstr "Cap (bypass els filtres)"
 
 #: ../includes/form.php:194
 msgid "Submit"
-msgstr "ارسال"
+msgstr "Enviar"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "اطلاعات نوشته"
+msgstr "Meta del Post"
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
-msgstr "رشته (فیلد) جدید"
+msgstr "Nou Camp"
 
 #: ../templates/field_html.php:30
 msgid "Label"
-msgstr "برچسب"
+msgstr "Etiqueta"
 
 #: ../templates/field_html.php:32
 msgid "The field label that editors will see."
-msgstr "برچسبی که نویسنده آن را می بیند"
+msgstr "L'etiqueta de camp que veuran els editors."
 
 #: ../templates/field_html.php:39
 msgid "Name"
-msgstr "نام"
+msgstr "Nom"
 
 #: ../templates/field_html.php:42
 msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
 msgstr ""
-"نام فیلد توسط فرمان get() جهت بازیابی مقادیر ارسال می شود. لطفا فقط از حروف "
-"کوچک، اعداد و علائم تاکیدی استفاده کنید."
+"El nom del camp es passa a get() per recuperar els valors. Utilitzeu només "
+"lletres minúscules, nombres i guions baixos."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
-msgstr "نوع فیلد"
+msgstr "Tipus de Camp"
 
 #: ../templates/field_html.php:67
 msgid "Notes"
-msgstr "تذکر"
+msgstr "Notes"
 
 #: ../templates/field_html.php:69
 msgid "Notes for editors during data entry"
-msgstr "تذکری برای نویسنده"
+msgstr "Notes per als editors durant l'entrada de dades"
 
 #: ../templates/field_html.php:82
 msgid "Close"
-msgstr "بستن"
+msgstr "Tancar"
 
 #: ../templates/field_html.php:83
 msgid "or"
-msgstr "یا"
+msgstr "o"
 
 #: ../templates/field_html.php:83
 msgid "delete"
-msgstr "حذف"
+msgstr "esborrar"
 
 #: ../templates/meta_box_extras.php:41
 msgid "Order"
-msgstr "سفارش"
+msgstr "Ordre"
 
 #: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
-msgstr "گروه میدان با پایین ترین مرتبه اول ظاهر خواهد شد."
+msgstr "El grup de camps amb l'ordre més baix apareixerà primer."
 
 #: ../templates/meta_box_extras.php:53
 msgid "Position"
-msgstr "موقعیت"
+msgstr "Posició"
 
 #: ../templates/meta_box_extras.php:56
 msgid "Normal"
-msgstr "معمولی"
+msgstr "Normal"
 
 #: ../templates/meta_box_extras.php:57
 msgid "Side"
-msgstr "سیده"
+msgstr "Costat"
 
 #: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
-msgstr "نمایش تنظیمات"
+msgstr "Configuració de Visualització"
 
 #: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
-msgstr "مخفی سازی محتوای ویرایشگر"
+msgstr "Amagar l'editor de continguts"
 
 #: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
-msgstr "فرم Gravity"
+msgstr "Gravity Forms"
 
 #: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
-"برچسبهای Gravity Form و گروه فیلدهای شما باید دقیقا با یکدیگر مطابقت داشته "
-"باشند."
+msgstr "Gravity Form i etiquetes de camps de CFS han de coincidir exactament"
 
 #: ../templates/meta_box_fields.php:66
 msgid "Add New Field"
-msgstr "افزودن فیلد جدید"
+msgstr "Afegir Nou Camp"
 
 #: ../templates/meta_box_rules.php:5
 msgid "equals"
-msgstr "برابر با"
+msgstr "és igual a"
 
 #: ../templates/meta_box_rules.php:6
 msgid "is not"
-msgstr "نباشد"
+msgstr "no és"
 
 #: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
 msgid "Leave blank to skip this rule"
-msgstr "درصورتی که مایل به انتخاب این شرط نیستید، خالی رها کنید."
+msgstr "Deixar en blanc per saltar-se aquesta regla"
 
 #: ../templates/meta_box_rules.php:233
 msgid "Posts"
-msgstr "نوشته ها"
+msgstr "Posts"
 
 #: ../templates/meta_box_rules.php:257
 msgid "Taxonomy Terms"
-msgstr "قوانین طبقه بندی"
+msgstr "Termes de Taxonomía"
 
 #: ../templates/page_addons.php:77
 msgid "Learn more"
-msgstr "توضیحات بیشتر"
+msgstr "Saber més"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
-msgstr "دریافت خروجی"
+msgstr "Exportar"
 
 #: ../templates/page_tools.php:77 ../templates/page_tools.php:115
 msgid "Import"
-msgstr "وارد کردن"
+msgstr "Importar"
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
-msgstr "بازنشانی"
+msgstr "Restablir"
 
 #: ../templates/page_tools.php:122
 msgid "Reset and deactivate."
-msgstr "بازنشانی و غیرفعال سازی."
+msgstr "Restablir y desactivar."
 
 #: ../templates/page_tools.php:123
 msgid "This will delete all CFS data and deactivate the plugin."
-msgstr ""
-"با انتخاب گزینه زیر، تمام اطلاعات افزونه گروه فیلد حذف و افزونه غیرفعال می "
-"شود."
+msgstr "Això eliminarà totes les dades de CFS i desactivarà el plugin."
 
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
-msgstr "حذف و غیرفعال سازی"
-
-#~ msgid "Which field groups would you like to export?"
-#~ msgstr "مایلید از کدام گروه فیلد خروجی تهیه کنید؟"
-
-#~ msgid "Paste the import code below."
-#~ msgstr "کد خروجی را اینجا وارد کنید."
-
-#, fuzzy
-#~ msgid "Please install %s to use this feature."
-#~ msgstr "را نصب کنید تا بتوانید از این قابلیت استفاده کنید"
-
-#~ msgid "Debug"
-#~ msgstr "اشکال زدایی"
-
-#~ msgid "Debug information"
-#~ msgstr "اطلاعات اشکال زدایی"
-
-#~ msgid "Custom Field Suite"
-#~ msgstr "فیلد سفارشی"
-
-#~ msgid "Documentation"
-#~ msgstr "اسناد"
-
-#~ msgid "Donate"
-#~ msgstr "کمک مالی"
-
-#~ msgid "Changelog"
-#~ msgstr "تغییرات"
-
-#~ msgid "Review CFS on WordPress.org"
-#~ msgstr "صفحه افزونه در وردپرس"
-
-#~ msgid "Please install"
-#~ msgstr "لطفا"
-
-#~ msgid "Post Title"
-#~ msgstr "عنوان نوشته"
-
-#~ msgid "Attach file"
-#~ msgstr "پیوست فایل"
+msgstr "Eliminar tot"

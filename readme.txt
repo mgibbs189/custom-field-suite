@@ -37,6 +37,7 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Japanese (ja) - thanks to Karin Suzakura
 * Polish (pl_PL) - thanks to [Digital Factory](digitalfactory.pl)
 * Russian (ru_RU) - thanks to Glebcha
+* Catalan (ca) - thanks to Luis Bordas
 
 == Installation ==
 
@@ -50,6 +51,11 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.4.4 =
+* Added Catalan translation (props Luis Bordas)
+* Updated translations
+
 = 2.4.3 =
 * Prevent hyperlink field with target="none" from opening new tab (props @jchristopher)
 * Enable media filtering of file fields (props @camiloclc)

@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://customfieldsuite.com/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.4.3
+Version: 2.4.4
 Author: Matt Gibbs
 Author URI: http://customfieldsuite.com/
 Text Domain: cfs
@@ -24,7 +24,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.4.3' );
+        define( 'CFS_VERSION', '2.4.4' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( 'custom-field-suite' ) );
 
@@ -40,22 +40,6 @@ class Custom_Field_Suite
             self::$instance = new Custom_Field_Suite;
         }
         return self::$instance;
-    }
-
-
-    /**
-     * Prevent cloning
-     */
-    function __clone() {
-
-    }
-
-
-    /**
-     * Prevent unserializing
-     */
-    function __wakeup() {
-
     }
 
 

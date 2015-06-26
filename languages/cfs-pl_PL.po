@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 23:03-0500\n"
-"PO-Revision-Date: 2015-05-13 16:35-0500\n"
-"Last-Translator: FacetWP <hello@facetwp.com>\n"
+"POT-Creation-Date: 2015-06-26 09:05-0500\n"
+"PO-Revision-Date: 2015-06-26 09:05-0500\n"
+"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Digital Factory <info@digitalfactory.pl>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -337,8 +337,8 @@ msgid ""
 "The field name is passed into get() to retrieve values. Use only lowercase "
 "letters, numbers, and underscores."
 msgstr ""
-"Nazwa pola jest przekazywana do get() aby pobrać wartości. Używać tylko "
-"małe litery, cyfry i znaki podkreślenia."
+"Nazwa pola jest przekazywana do get() aby pobrać wartości. Używać tylko małe "
+"litery, cyfry i znaki podkreślenia."
 
 #: ../templates/field_html.php:49
 msgid "Field Type"
@@ -364,39 +364,39 @@ msgstr "lub"
 msgid "delete"
 msgstr "usuń"
 
-#: ../templates/meta_box_extras.php:42
+#: ../templates/meta_box_extras.php:41
 msgid "Order"
 msgstr "Zamówienie"
 
-#: ../templates/meta_box_extras.php:44
+#: ../templates/meta_box_extras.php:43
 msgid "The field group with the lowest order will appear first."
 msgstr "Pole grupy z najniższą kolejność pojawi się pierwszy."
 
-#: ../templates/meta_box_extras.php:54
+#: ../templates/meta_box_extras.php:53
 msgid "Position"
 msgstr "Pozycja"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:56
 msgid "Normal"
 msgstr "Zwykły"
 
-#: ../templates/meta_box_extras.php:58
+#: ../templates/meta_box_extras.php:57
 msgid "Side"
 msgstr "Boczny"
 
-#: ../templates/meta_box_extras.php:63
+#: ../templates/meta_box_extras.php:62
 msgid "Display Settings"
 msgstr "Ustawienia wyświetlania"
 
-#: ../templates/meta_box_extras.php:73
+#: ../templates/meta_box_extras.php:72
 msgid "Hide the content editor"
 msgstr "Ukryj edytor treści"
 
-#: ../templates/meta_box_extras.php:84
+#: ../templates/meta_box_extras.php:83
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: ../templates/meta_box_extras.php:102
+#: ../templates/meta_box_extras.php:101
 msgid "Your Gravity Form and CFS field labels must match exactly"
 msgstr "Etykiety pola formularza grawitacji i CFS musi odpowiadać dokładnie"
 
