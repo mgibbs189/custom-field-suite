@@ -652,7 +652,9 @@ class cfs_api
             FROM {$wpdb->prefix}cfs_values v
             LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
             WHERE v.post_id = '$post_id' AND (v.field_id IN ($field_ids) OR v.base_field_id IN ($field_ids))";
-            $wpdb->query( $sql );
+
+            if ( ! empty( $field_ids ) )
+                $wpdb->query( $sql );
         }
         elseif ( 'input' == $options['format'] ) {
             // If saving raw input, delete existing postdata
@@ -669,7 +671,9 @@ class cfs_api
                 FROM {$wpdb->prefix}cfs_values v
                 LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
                 WHERE v.post_id = '$post_id' AND v.field_id IN ($field_ids)";
-                $wpdb->query( $sql );
+
+                if ( ! empty( $field_ids ) )
+                    $wpdb->query( $sql );
             }
         }
 
