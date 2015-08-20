@@ -45,13 +45,11 @@ class Custom_Field_Suite
 
     function init() {
 
-        // i18n
         if ( is_admin() ) {
             $this->load_textdomain();
         }
 
         add_action( 'admin_head',               array( $this, 'admin_head' ) );
-        add_action( 'admin_footer',             array( $this, 'admin_footer' ) );
         add_action( 'admin_menu',               array( $this, 'admin_menu' ) );
         add_action( 'save_post',                array( $this, 'save_post' ) );
         add_action( 'delete_post',              array( $this, 'delete_post' ) );
@@ -67,19 +65,24 @@ class Custom_Field_Suite
             include( CFS_DIR . "/includes/$f.php" );
         }
 
-        $upgrade = new cfs_upgrade();
-
-        // load classes
-        $this->api = new cfs_api();
-        $this->form = new cfs_form();
-        $this->field_group = new cfs_field_group();
-        $this->third_party = new cfs_third_party();
+        $this->register_post_type();
         $this->fields = $this->get_field_types();
 
+        // customize the table header
+        add_filter( 'manage_cfs_posts_columns', array( $this, 'cfs_columns' ) );
+        add_action( 'manage_cfs_posts_custom_column', array( $this, 'cfs_column_content' ), 10, 2 );
+
+        do_action( 'cfs_init' );
+    }
+
+
+    /**
+     * Register the field group post type
+     */
+    function register_post_type() {
         register_post_type( 'cfs', array(
             'public'            => false,
             'show_ui'           => true,
-            'show_in_menu'      => false,
             'capability_type'   => 'page',
             'hierarchical'      => false,
             'supports'          => array( 'title' ),
@@ -87,7 +90,7 @@ class Custom_Field_Suite
             'labels'            => array(
                 'name'                  => __( 'Field Groups', 'cfs' ),
                 'singular_name'         => __( 'Field Group', 'cfs' ),
-                'add_new'               => __( 'Add New', 'cfs' ),
+                'all_items'             => __( 'All Field Groups', 'cfs' ),
                 'add_new_item'          => __( 'Add New Field Group', 'cfs' ),
                 'edit_item'             => __( 'Edit Field Group', 'cfs' ),
                 'new_item'              => __( 'New Field Group', 'cfs' ),
@@ -97,12 +100,6 @@ class Custom_Field_Suite
                 'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'cfs' ),
             ),
         ));
-
-        // customize the table header
-        add_filter( 'manage_cfs_posts_columns', array( $this, 'cfs_columns' ) );
-        add_action( 'manage_cfs_posts_custom_column', array( $this, 'cfs_column_content' ), 10, 2 );
-
-        do_action( 'cfs_init' );
     }
 
 
@@ -177,12 +174,7 @@ class Custom_Field_Suite
 
 
     /**
-     * Retrieve custom field values
-     * @param mixed $field_name
-     * @param mixed $post_id
-     * @param array $options
-     * @return mixed
-     * @since 1.0.0
+     * Abstractions
      */
     function get( $field_name = false, $post_id = false, $options = array() ) {
         if ( false !== $field_name ) {
@@ -193,54 +185,24 @@ class Custom_Field_Suite
     }
 
 
-    /**
-     * Get custom field properties (label, name, settings, etc.)
-     * @param mixed $field_name
-     * @param mixed $post_id
-     * @return array
-     * @since 1.8.3
-     */
     function get_field_info( $field_name = false, $post_id = false ) {
         return $this->api->get_field_info( $field_name, $post_id );
     }
 
 
-    /**
-     * Retrieve reverse-related values (using the relationship field type)
-     * @param int $post_id
-     * @param array $options
-     * @return array
-     * @since 1.4.4
-     */
     function get_reverse_related( $post_id, $options = array() ) {
         return $this->api->get_reverse_related( $post_id, $options );
     }
 
 
-    /**
-     * Save field values (and post data)
-     * @param array $field_data
-     * @param array $post_data
-     * @param array $options
-     * @return int The post ID
-     * @since 1.1.4
-     */
     function save( $field_data = array(), $post_data = array(), $options = array() ) {
         return $this->api->save_fields( $field_data, $post_data, $options );
     }
 
 
-    /**
-     * Display a front-end form
-     * @param array $params
-     * @return string The form HTML
-     * @since 1.8.5
-     */
     function form( $params = array() ) {
         ob_start();
-
         $this->form->render( $params );
-
         return ob_get_clean();
     }
 
@@ -254,19 +216,6 @@ class Custom_Field_Suite
 
         if ( is_object( $screen ) && 'post' == $screen->base ) {
             include( CFS_DIR . '/templates/admin_head.php' );
-        }
-    }
-
-
-    /**
-     * admin_footer
-     * @since 1.0.0
-     */
-    function admin_footer() {
-        $screen = get_current_screen();
-
-        if ( 'edit' == $screen->base && 'cfs' == $screen->post_type ) {
-            include( CFS_DIR . '/templates/admin_footer.php' );
         }
     }
 
@@ -288,7 +237,6 @@ class Custom_Field_Suite
      */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_object_page( __( 'Field Groups', 'cfs' ), __( 'Field Groups', 'cfs' ), 'manage_options', 'edit.php?post_type=cfs', null, 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48ZyBmaWxsPSIjOTk5Ij48cGF0aCBkPSJNMjIyLjIgMTAuOGMtMTIuNyAzLTI2IDYuOC0zOCAxMi4ydjg5LjhjMCA5LjctOCAxNy41LTE3LjUgMTcuNWgtLjhjLTkuOCAwLTE3LjYtNy44LTE3LjYtMTcuNVY0NGMtNDMuOCAzMi41LTc0IDczLjMtNzYuMiAxMzJsLTMwIDMuNWMtNCAzLjMtNS44IDMxLjYtNC40IDM2LjYgMCAwIC44IDIuNSAyIDQuNyAxLjMgMi4yIDMgNSA1LjggOEM1MSAyMzUgNzEgMjQyLjUgODUuMiAyNDkuNGMyOC42IDE0IDc4LjYgMjYuNiAxNjkgMjYuNiA5MC4yIDAgMTQxLjItMTIuNyAxNzAuNi0yNi4zIDE0LjctNi44IDMxLjItMTQgMzctMjAgNS43LTUuOCA4LjQtMTIgOC40LTEyIDItNS40LjUtMzQuMy00LTM3LjhsLTI5LTQuNGMtMi01Ny43LTMxLTk4LTczLjctMTMwLjZ2NjcuOGMwIDkuNy03LjcgMTcuNS0xNy40IDE3LjVoLS43Yy05LjcgMC0xNy40LTcuOC0xNy40LTE3LjVWMjMuNWMtMTIuMy01LjUtMjYuNS0xMC0zOC4yLTEyLjYtMTcuNS00LjItNTQuMi0zLjUtNjcuNi0uMnoiLz48cGF0aCBkPSJNNDU5LjQgMjYxYy0xNi44IDE1LTM5IDIzLjgtNjAuNCAzMC05IDIuMy0xOCA0LjItMjcgNiAwIDguNi0xIDE3LjMtMy4yIDI2LTE1LjIgNjIuMy03OCAxMDAuNS0xNDAuMiA4NS4zLTUyLjMtMTIuNy04Ny43LTU5LTg4LjYtMTEwLjUtMjQuNS00LjQtNDguMy0xMS41LTcwLTI0LTYtMy41LTEyLjMtNy43LTE3LjgtMTIuNS0xLjQgMS42LTIuNCAzLjUtMyA1LjUtMi4yIDktMy41IDE4LjItMy42IDI3LjZ2Mi42YzAgNS43LjUgMTEuNCAxLjQgMTcgLjUgMy41IDEgNi42IDIgOS43IDEuMyA2IDcgMTAuNyAxMy4yIDExaDIyLjRjNC40LjYgNy44IDMuNyA5IDcuNiAzLjcgMTMgOSAyNS4zIDE1LjQgMzYuNy0uNC0uNi0uOC0xLjMtMS0yIDEuOCAzLjcgMS42IDguMy0xIDExLjdsLTEgLjgtMTMgMTMtMS43IDJjLTQuMiA0LjMtNSAxMS42LTIgMTcgNC44IDggMTAuNSAxNS4zIDE3IDIybC4yLjIgMS43IDEuN2M0IDQgOC40IDcuNyAxMyAxMSAyLjggMiA1LjUgNCA4IDUuNiA1LjQgMy4yIDEyLjggMi40IDE3LjMtMS44LjYtLjUgMS4yLTEgMi0yIDMtMi44IDEzLjItMTMgMTMuMi0xM2wuOC0uN2MzLjUtMi43IDgtMyAxMS43LTEtMS0uNS0yLTEtMy0xLjcgMTEuOCA2LjggMjQuNCAxMi4zIDM3LjcgMTYgMy44IDEuMyA3IDQuNyA3LjQgOVY0ODljLjIgNiA0LjggMTIgMTAuOCAxMy40IDkgMi4yIDE4LjIgMy41IDI3LjYgMy42aDIuNmM1LjcgMCAxMS40LS41IDE3LTEuNCAzLjQtLjUgNi42LTEgOS42LTIgNi0xLjMgMTAuOC03IDExLTEzLjJWNDY3Yy43LTQuNCAzLjgtNy44IDcuNy05IDEyLjMtMy41IDI0LTguMyAzNC44LTE0LjMgMy42LTIgOC4yLTEuNyAxMS42IDFsMSAuNyAxMyAxMyAxLjcgMS44YzQuNSA0LjMgMTEuOCA1IDE3IDIgOC00LjggMTUuNS0xMC40IDIyLjMtMTdsMS44LTEuOGM0LTQgNy43LTguNCAxMS0xMyAyLTIuOCA0LTUuNSA1LjUtOC4yIDMuMi01LjIgMi41LTEyLjYtMS43LTE3LS41LS43LTEuMi0xLjMtMi0yLjJsLTEzLTEzLS43LTFjLTMtMy4zLTMtOC0xLTExLjUgNi0xMSAxMS0yMi43IDE0LjQtMzUgMS4yLTMuOCA0LjYtNi44IDktNy4zaDIxLjljNi4yIDAgMTItNC44IDEzLjUtMTAuNyAyLjMtOSAzLjUtMTguMyAzLjYtMjcuN1YyOTRjMC01LjctLjUtMTEuMy0xLjMtMTctLjQtMy40LTEtNi42LTItOS42LS41LTIuNS0xLjgtNC44LTMuNi02LjZ6Ii8+PC9nPjwvc3ZnPg==' );
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Add-ons', 'cfs' ), __( 'Add-ons', 'cfs' ), 'manage_options', 'cfs-addons', array( $this, 'page_addons' ) );
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
         }
@@ -478,13 +426,9 @@ class Custom_Field_Suite
 }
 
 
-// Backwards-compatibility
-$cfs = CFS();
-
-
-/**
- * Allow direct access to CFS classes
- */
 function CFS() {
     return Custom_Field_Suite::instance();
 }
+
+
+$cfs = CFS();

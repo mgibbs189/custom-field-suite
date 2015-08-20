@@ -795,3 +795,5 @@ class cfs_api
         }
     }
 }
+
+CFS()->api = new cfs_api();

@@ -254,3 +254,5 @@ class cfs_field_group
         update_post_meta( $post_id, 'cfs_extras', $params['extras'] );
     }
 }
+
+CFS()->field_group = new cfs_field_group();

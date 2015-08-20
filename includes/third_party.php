@@ -168,3 +168,5 @@ class cfs_third_party
         CFS()->save( $field_data, $post_data );
     }
 }
+
+CFS()->third_party = new cfs_third_party();

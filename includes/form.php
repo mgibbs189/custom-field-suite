@@ -391,3 +391,5 @@ CFS['loop_buffer'] = [];
         endif;
     }
 }
+
+CFS()->form = new cfs_form();
