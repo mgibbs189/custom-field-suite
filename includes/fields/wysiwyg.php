@@ -175,7 +175,12 @@ class cfs_wysiwyg extends cfs_field
 
 
     function format_value_for_input( $value, $field = null ) {
-        return format_for_editor( $value );
+        if ( version_compare( get_bloginfo( 'version' ), '4.3', '>=' ) ) {
+            return format_for_editor( $value );
+        }
+        else {
+            return wp_richedit_pre( $value );
+        }
     }
 
 
