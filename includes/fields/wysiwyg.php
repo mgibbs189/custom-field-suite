@@ -199,7 +199,7 @@ class cfs_wysiwyg extends cfs_field
 
 
     function format_value_for_input( $value, $field = null ) {
-        return wp_richedit_pre( $value );
+        return format_for_editor( $value );
     }
 
 
