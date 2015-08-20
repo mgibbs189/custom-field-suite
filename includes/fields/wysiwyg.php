@@ -3,21 +3,12 @@
 class cfs_wysiwyg extends cfs_field
 {
 
-    public $wp_default_editor;
-
-
     function __construct() {
         $this->name = 'wysiwyg';
         $this->label = __( 'Wysiwyg Editor', 'cfs' );
 
-        // wp_editor() won't work for dynamic-generated wysiwygs
-        add_filter( 'wp_default_editor', array( $this, 'wp_default_editor' ) );
-
-        // add the "code" button (WP 3.9+)
+        // add the "code" button
         add_filter( 'mce_external_plugins', array( $this, 'mce_external_plugins' ), 20 );
-
-        // force HTML mode for main content editor
-        add_action( 'tiny_mce_before_init', array( $this, 'editor_pre_init' ) );
     }
 
 
@@ -180,21 +171,6 @@ class cfs_wysiwyg extends cfs_field
             $plugins['code'] = CFS_URL . '/assets/js/tinymce/code.min.js';
         }
         return $plugins;
-    }
-
-
-    function wp_default_editor( $default ) {
-        $this->wp_default_editor = $default;
-        return 'tinymce'; // html or tinymce
-    }
-
-
-    function editor_pre_init( $settings ) {
-        if ( 'html' == $this->wp_default_editor ) {
-            $settings['oninit'] = "function() { switchEditors.go('content', 'html'); }";
-        }
-
-        return $settings;
     }
 
 
