@@ -52,6 +52,12 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.4.5 =
+* Fix: WP 4.3 `wp_richedit_pre` deprecated notice (props @jchristopher)
+* Fix: MySQL error when field IDs is empty (props @hubeRsen)
+* Fix: CFS no longer forces editor into "Visual" mode
+* Bumped minimum version to WP 4.0
+
 = 2.4.4 =
 * Added Catalan translation (props Luis Bordas)
 * Updated translations
