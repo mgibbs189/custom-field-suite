@@ -1,0 +1,468 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2015-03-03 23:02-0500\n"
+"PO-Revision-Date: 2015-03-24 08:43+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: ../cfs.php:102 ../cfs.php:305
+msgid "Field Groups"
+msgstr "Özel Alanlar"
+
+#: ../cfs.php:103
+msgid "Field Group"
+msgstr "Özel Alan"
+
+#: ../cfs.php:104
+msgid "Add New"
+msgstr "Yeni Özel Alan Ekle"
+
+#: ../cfs.php:105
+msgid "Add New Field Group"
+msgstr "Yeni Özel Alan Grup Ekle"
+
+#: ../cfs.php:106
+msgid "Edit Field Group"
+msgstr "Özel Alan Düzenleme"
+
+#: ../cfs.php:107
+msgid "New Field Group"
+msgstr "Yeni Özel Alan Grup Ekle"
+
+#: ../cfs.php:108
+msgid "View Field Group"
+msgstr "Yeni Özel Alan Grup Ekle"
+
+#: ../cfs.php:109
+msgid "Search Field Groups"
+msgstr "Özel Alanlar Ara"
+
+#: ../cfs.php:110
+msgid "No Field Groups found"
+msgstr "Herhangi bir özel alan bulunmamaktadır."
+
+#: ../cfs.php:111
+msgid "No Field Groups found in Trash"
+msgstr "Çöp kutusunda özel alan bulunmamaktadır."
+
+#: ../cfs.php:293
+msgid "Fields"
+msgstr "Alanlar"
+
+#: ../cfs.php:294
+msgid "Placement Rules"
+msgstr "Alan Atamaları"
+
+#: ../cfs.php:295
+msgid "Extras"
+msgstr "Ekstralar"
+
+#: ../cfs.php:306 ../templates/page_addons.php:61
+msgid "Add-ons"
+msgstr "Eklentiler"
+
+#: ../cfs.php:307 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Araçlar"
+
+#: ../cfs.php:448
+msgid "Title"
+msgstr "Başlık"
+
+#: ../cfs.php:449
+msgid "Placement"
+msgstr "Atama"
+
+#: ../cfs.php:465 ../includes/fields/relationship.php:91
+#: ../templates/meta_box_rules.php:135
+msgid "Post Types"
+msgstr "Yazı Formatı"
+
+#: ../cfs.php:466 ../templates/meta_box_rules.php:201
+msgid "User Roles"
+msgstr "Kullanıcı Rolü"
+
+#: ../cfs.php:467
+msgid "Post IDs"
+msgstr "Yazı IDs"
+
+#: ../cfs.php:468
+msgid "Term IDs"
+msgstr "Yazı IDs"
+
+#: ../cfs.php:469 ../templates/meta_box_rules.php:289
+msgid "Page Templates"
+msgstr "Sayfa Teması"
+
+#: ../cfs.php:470 ../templates/meta_box_rules.php:168
+msgid "Post Formats"
+msgstr "Yazı Tipi"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Metin"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:78
+#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
+#: ../includes/fields/wysiwyg.php:63
+msgid "Validation"
+msgstr "Doğrulama"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
+#: ../includes/fields/wysiwyg.php:72
+msgid "This is a required field"
+msgstr "Bu alanı zorunlu yap"
+
+#: ../includes/field_group.php:69
+msgid "Imported"
+msgstr "İçe Aktar"
+
+#: ../includes/field_group.php:72
+msgid "Skipped"
+msgstr "Atlanan"
+
+#: ../includes/field_group.php:77
+msgid "Nothing to import"
+msgstr "Hiçbir şey alınamadı"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Renk"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Tarih"
+
+#: ../includes/fields/file.php:14
+msgid "File Upload"
+msgstr "Dosya Yükle"
+
+#: ../includes/fields/file.php:43
+msgid "Add File"
+msgstr "Dosya Ekle"
+
+#: ../includes/fields/file.php:44
+msgid "Remove"
+msgstr "Sil"
+
+#: ../includes/fields/file.php:57
+msgid "Return Value"
+msgstr "Dönüş Değeri"
+
+#: ../includes/fields/file.php:66
+msgid "File URL"
+msgstr "Dosya URL"
+
+#: ../includes/fields/file.php:67
+msgid "Attachment ID"
+msgstr "Dosya ID"
+
+#: ../includes/fields/file.php:127
+msgid "Use This File"
+msgstr "Dosyayı Kullan"
+
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr "Bağlantı"
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr "Çıktı biçimi"
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr "HTML"
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr "PHP Dizi"
+
+#: ../includes/fields/loop.php:9
+msgid "Loop"
+msgstr "Döngü"
+
+#: ../includes/fields/loop.php:41
+msgid "Row Display"
+msgstr "Döngü Çıktısı"
+
+#: ../includes/fields/loop.php:50
+msgid "Show the values by default"
+msgstr "Varsayılan değeri göster"
+
+#: ../includes/fields/loop.php:57
+msgid "Row Label"
+msgstr "Dizi Etiket"
+
+#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
+#: ../includes/fields/loop.php:223
+msgid "Loop Row"
+msgstr "Satır döngüsü"
+
+#: ../includes/fields/loop.php:71
+msgid "Button Label"
+msgstr "Buton İsmi"
+
+#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
+#: ../includes/fields/loop.php:224
+msgid "Add Row"
+msgstr "Yeni Ekle"
+
+#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Limitler"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "İlişkilendirme"
+
+#: ../includes/fields/relationship.php:92
+msgid "Limit posts to the following types"
+msgstr "Yazı karakteri sınırlama"
+
+#: ../includes/fields/select.php:9
+msgid "Select"
+msgstr "Seçici"
+
+#: ../includes/fields/select.php:102
+msgid "Choices"
+msgstr "Seçimler"
+
+#: ../includes/fields/select.php:103
+msgid "Enter one choice per line"
+msgstr "Her satıra 1 tane ekle"
+
+#: ../includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr "Çoklu Seçim?"
+
+#: ../includes/fields/select.php:126
+msgid "This is a multi-select field"
+msgstr "Bu alanı zorunlu yap"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Sekme"
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+msgid "Default Value"
+msgstr "Standart"
+
+#: ../includes/fields/textarea.php:9
+msgid "Textarea"
+msgstr "Geniş Metin (textarea)"
+
+#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+msgid "Formatting"
+msgstr "Biçimlendirme"
+
+#: ../includes/fields/textarea.php:53
+msgid "None"
+msgstr "Hiçbiri"
+
+#: ../includes/fields/textarea.php:54
+msgid "Convert newlines to <br />"
+msgstr "Satır başı karakteri <br />"
+
+#: ../includes/fields/true_false.php:9
+msgid "True / False"
+msgstr "Aktif / Pasif"
+
+#: ../includes/fields/true_false.php:33
+msgid "Message"
+msgstr "Mesaj"
+
+#: ../includes/fields/true_false.php:34
+msgid "The text beside the checkbox"
+msgstr "Onay kutusu metni"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Kullanıcı"
+
+#: ../includes/fields/wysiwyg.php:11
+msgid "Wysiwyg Editor"
+msgstr "Gelişmiş Editör"
+
+#: ../includes/fields/wysiwyg.php:51
+msgid "Default"
+msgstr "Standart"
+
+#: ../includes/fields/wysiwyg.php:52
+msgid "None (bypass filters)"
+msgstr "Hiçbiri (filtre)"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Gönder"
+
+#: ../includes/revision.php:26
+msgid "Post Meta"
+msgstr "Yazı Bilgisi"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Yeni Alan: "
+
+#: ../templates/field_html.php:30
+msgid "Label"
+msgstr "Alan'ın Adı:"
+
+#: ../templates/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "Editörde görünecek isim"
+
+#: ../templates/field_html.php:39
+msgid "Name"
+msgstr "İsim (kodu)"
+
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr "Kod kısmında kullanılacak"
+
+#: ../templates/field_html.php:49
+msgid "Field Type"
+msgstr "Alan Tipi"
+
+#: ../templates/field_html.php:67
+msgid "Notes"
+msgstr "Notlar"
+
+#: ../templates/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "İçerik girişi için editör notu"
+
+#: ../templates/field_html.php:82
+msgid "Close"
+msgstr "Çıkış"
+
+#: ../templates/field_html.php:83
+msgid "or"
+msgstr "veya"
+
+#: ../templates/field_html.php:83
+msgid "delete"
+msgstr "sil"
+
+#: ../templates/meta_box_extras.php:42
+msgid "Order"
+msgstr "Sıralama"
+
+#: ../templates/meta_box_extras.php:44
+msgid "The field group with the lowest order will appear first."
+msgstr "En düşük alan grup ilk görünecektir."
+
+#: ../templates/meta_box_extras.php:54
+msgid "Position"
+msgstr "Pozisyonu"
+
+#: ../templates/meta_box_extras.php:57
+msgid "Normal"
+msgstr "Normal"
+
+#: ../templates/meta_box_extras.php:58
+msgid "Side"
+msgstr "Yan Menüde"
+
+#: ../templates/meta_box_extras.php:63
+msgid "Display Settings"
+msgstr "Ekran Ayarları"
+
+#: ../templates/meta_box_extras.php:73
+msgid "Hide the content editor"
+msgstr "İçerik editörünü gizle"
+
+#: ../templates/meta_box_extras.php:84
+msgid "Gravity Forms"
+msgstr "Form Alanı"
+
+#: ../templates/meta_box_extras.php:102
+msgid "Your Gravity Form and CFS field labels must match exactly"
+msgstr ""
+"Kullanmış olduğunuz iletişim formu (Gravity) ile CFS alan etiketleri tam "
+"olarak eşleşmelidir"
+
+#: ../templates/meta_box_fields.php:66
+msgid "Add New Field"
+msgstr "Yeni Alan Ekle"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "eşittir"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "eğiş değil"
+
+#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+msgid "Leave blank to skip this rule"
+msgstr "Bu kuralı atlamak için boş bırakın"
+
+#: ../templates/meta_box_rules.php:233
+msgid "Posts"
+msgstr "Yazılar"
+
+#: ../templates/meta_box_rules.php:257
+msgid "Taxonomy Terms"
+msgstr "Kategori Rolü"
+
+#: ../templates/page_addons.php:77
+msgid "Learn more"
+msgstr "Daha fazla bilgi"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "İçe Aktar"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Sıfırla ve devre dışı bırak."
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr "Eklentiyi kaldırırken bütün verileri sil"
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Her şeyi sil"
+
+#~ msgid "Attach file"
+#~ msgstr "Dosya"
+
+#~ msgid "Custom Field Suite"
+#~ msgstr "Özel Alanlar"
+
+#~ msgid "Documentation"
+#~ msgstr "Dökümantasyon"
+
+#~ msgid "Homepage"
+#~ msgstr "Anasayfa"
+
+#~ msgid "Please install %s to use this feature."
+#~ msgstr "Gravity Özelliğini aktif edin."
+
+#~ msgid "Post Content"
+#~ msgstr "Yazı İçeriği"
+
+#~ msgid "Post Title"
+#~ msgstr "Yazı Başlığı"
