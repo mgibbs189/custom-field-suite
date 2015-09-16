@@ -150,15 +150,15 @@ class cfs_select extends cfs_field
 
 
 
-    function format_value_for_api($value, $field = null)
-    {
+    function format_value_for_api( $value, $field = null ) {
         $value_array = array();
         $choices = $field->options['choices'];
 
         // Return an associative array (value, label)
-        foreach ($value as $val)
-        {
-            $value_array[$val] = isset($choices[$val]) ? $choices[$val] : $val;
+        if ( is_array( $value ) ) {
+            foreach ( $value as $val ) {
+                $value_array[ $val ] = isset( $choices[ $val ] ) ? $choices[ $val ] : $val;
+            }
         }
 
         return $value_array;
