@@ -56,7 +56,7 @@ if ( ! isset( $extras['context'] ) ) {
         <td style="vertical-align:top">
             <div>
                 <?php
-                    $this->create_field(array(
+                    CFS()->create_field(array(
                         'type'          => 'true_false',
                         'input_name'    => "cfs[extras][hide_editor]",
                         'input_class'   => 'true_false',

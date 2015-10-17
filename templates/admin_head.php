@@ -7,9 +7,9 @@ global $post;
 ---------------------------------------------------------------------------------------------*/
 
 if ( 'cfs' == $screen->post_type ) {
-    foreach ( $this->fields as $field_name => $field_data ) {
+    foreach ( CFS()->fields as $field_name => $field_data ) {
         ob_start();
-        $this->fields[ $field_name ]->options_html( 'clone', $field_data );
+        CFS()->fields[ $field_name ]->options_html( 'clone', $field_data );
         $options_html[ $field_name ] = ob_get_clean();
     }
 
@@ -28,15 +28,15 @@ if ( 'cfs' == $screen->post_type ) {
     );
 
     ob_start();
-    $this->field_html( $field );
+    CFS()->field_html( $field );
     $field_clone = ob_get_clean();
 ?>
 
 <script>
 var CFS = CFS || {};
 CFS['field_index'] = <?php echo $field_count; ?>;
-CFS['field_clone'] = <?php echo json_encode($field_clone); ?>;
-CFS['options_html'] = <?php echo json_encode($options_html); ?>;
+CFS['field_clone'] = <?php echo json_encode( $field_clone ); ?>;
+CFS['options_html'] = <?php echo json_encode( $options_html ); ?>;
 </script>
 <script src="<?php echo CFS_URL; ?>/assets/js/fields.js"></script>
 <script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
@@ -54,12 +54,12 @@ CFS['options_html'] = <?php echo json_encode($options_html); ?>;
 
 else {
     $hide_editor = false;
-    $field_groups = $this->api->get_matching_groups( $post->ID );
+    $field_groups = CFS()->api->get_matching_groups( $post->ID );
 
     if ( ! empty( $field_groups ) ) {
 
         // Store field group IDs as an array for front-end forms
-        $this->group_ids = array_keys( $field_groups );
+        CFS()->group_ids = array_keys( $field_groups );
 
         // Support for multiple metaboxes
         foreach ( $field_groups as $group_id => $title ) {

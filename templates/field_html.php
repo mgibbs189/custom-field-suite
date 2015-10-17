@@ -27,28 +27,28 @@
                             <tr>
                                 <td class="field_label">
                                     <label>
-                                        <?php _e('Label', 'cfs'); ?>
+                                        <?php _e( 'Label', 'cfs' ); ?>
                                         <div class="cfs_tooltip">
-                                            <div class="tooltip_inner"><?php _e('The field label that editors will see.', 'cfs'); ?></div>
+                                            <div class="tooltip_inner"><?php _e( 'The field label that editors will see.', 'cfs' ); ?></div>
                                         </div>
                                     </label>
-                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][label]" value="<?php echo empty($field->id) ? '' : esc_attr($field->label); ?>" />
+                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
                                 </td>
                                 <td class="field_name">
                                     <label>
-                                        <?php _e('Name', 'cfs'); ?>
+                                        <?php _e( 'Name', 'cfs' ); ?>
                                         <div class="cfs_tooltip">
                                             <div class="tooltip_inner">
-                                                <?php _e('The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'cfs'); ?>
+                                                <?php _e( 'The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'cfs' ); ?>
                                             </div>
                                         </div>
                                     </label>
-                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][name]" value="<?php echo empty($field->id) ? '' : esc_attr($field->name); ?>" />
+                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][name]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->name ); ?>" />
                                 </td>
                                 <td class="field_type">
-                                    <label><?php _e('Field Type', 'cfs'); ?></label>
+                                    <label><?php _e( 'Field Type', 'cfs' ); ?></label>
                                     <select name="cfs[fields][<?php echo $field->weight; ?>][type]">
-                                        <?php foreach ($this->fields as $type) : ?>
+                                        <?php foreach ( CFS()->fields as $type ) : ?>
                                         <?php $selected = ($type->name == $field->type) ? ' selected' : ''; ?>
                                         <option value="<?php echo $type->name; ?>"<?php echo $selected; ?>><?php echo $type->label; ?></option>
                                         <?php endforeach; ?>
@@ -59,19 +59,19 @@
                     </td>
                 </tr>
 
-                <?php $this->fields[$field->type]->options_html($field->weight, $field); ?>
+                <?php CFS()->fields[ $field->type ]->options_html( $field->weight, $field ); ?>
 
                 <tr class="field_notes">
                     <td class="label">
                         <label>
                             <?php _e( 'Notes', 'cfs' ); ?>
                             <div class="cfs_tooltip">
-                                <div class="tooltip_inner"><?php _e('Notes for editors during data entry', 'cfs'); ?></div>
+                                <div class="tooltip_inner"><?php _e( 'Notes for editors during data entry', 'cfs' ); ?></div>
                             </div>
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][notes]" value="<?php echo esc_attr($field->notes); ?>" />
+                        <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][notes]" value="<?php echo esc_attr( $field->notes ); ?>" />
                     </td>
                 </tr>
                 <tr class="field_actions">

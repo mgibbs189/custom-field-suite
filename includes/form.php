@@ -2,6 +2,7 @@
 
 class cfs_form
 {
+
     public $used_types;
     public $assets_loaded;
     public $session;
@@ -38,7 +39,7 @@ class cfs_form
                 $session = $this->session->get();
 
                 if ( empty( $session ) ) {
-                    die('Your session has expired.');
+                    die( 'Your session has expired.' );
                 }
 
                 $field_data = isset( $_POST['cfs']['input'] ) ? $_POST['cfs']['input'] : array();
@@ -136,8 +137,8 @@ class cfs_form
         add_action( 'wp_head', array( $this, 'head_scripts' ) );
         add_action( 'wp_footer', array( $this, 'footer_scripts' ), 25 );
 
-        wp_enqueue_script( 'jquery-ui-core');
-        wp_enqueue_script( 'jquery-ui-sortable');
+        wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', array( 'jquery' ), CFS_VERSION );
         wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', array( 'jquery' ), CFS_VERSION );
         wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', array(), CFS_VERSION );
@@ -251,7 +252,7 @@ CFS['loop_buffer'] = [];
 
         <div class="field" data-validator="required">
             <label><?php echo $params['post_title']; ?></label>
-            <input type="text" name="cfs[post_title]" value="<?php echo empty($post_id) ? '' : esc_attr($post->post_title); ?>" />
+            <input type="text" name="cfs[post_title]" value="<?php echo empty( $post_id ) ? '' : esc_attr( $post->post_title ); ?>" />
         </div>
 
     <?php
@@ -262,7 +263,7 @@ CFS['loop_buffer'] = [];
 
         <div class="field">
             <label><?php echo $params['post_content']; ?></label>
-            <textarea name="cfs[post_content]"><?php echo empty($post_id) ? '' : esc_textarea($post->post_content); ?></textarea>
+            <textarea name="cfs[post_content]"><?php echo empty( $post_id ) ? '' : esc_textarea( $post->post_content ); ?></textarea>
         </div>
 
     <?php
@@ -299,9 +300,9 @@ CFS['loop_buffer'] = [];
                 $is_first_tab = false;
             }
 
-            if ( !isset( $this->used_types[$field->type] ) ) {
-                CFS()->fields[$field->type]->input_head( $field );
-                $this->used_types[$field->type] = true;
+            if ( ! isset( $this->used_types[ $field->type ] ) ) {
+                CFS()->fields[ $field->type ]->input_head( $field );
+                $this->used_types[ $field->type ] = true;
             }
 
             // Ignore sub-fields
@@ -373,17 +374,17 @@ CFS['loop_buffer'] = [];
         }
 
         // Make sure to close tabs
-        if ( !empty( $tabs ) ) {
+        if ( ! empty( $tabs ) ) {
             echo '</div>';
         }
     ?>
 
-        <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce('cfs_save_input'); ?>" />
+        <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce( 'cfs_save_input' ); ?>" />
         <input type="hidden" name="cfs[session_id]" value="<?php echo $this->session->session_id; ?>" />
 
         <?php if ( false !== $params['front_end'] ) : ?>
 
-        <input type="submit" value="<?php echo esc_attr($params['submit_label']); ?>" />
+        <input type="submit" value="<?php echo esc_attr( $params['submit_label'] ); ?>" />
     </form>
 </div>
 

@@ -31,7 +31,7 @@ class cfs_third_party
     function wpml_handler( $master_id, $lang, $post_data, $duplicate_id ) {
         $field_data = CFS()->get( false, $master_id, array( 'format' => 'raw' ) );
 
-        if ( !empty( $field_data ) ) {
+        if ( ! empty( $field_data ) ) {
             CFS()->save( $field_data, array( 'ID' => $duplicate_id ) );
         }
     }
@@ -74,4 +74,4 @@ class cfs_third_party
     }
 }
 
-CFS()->third_party = new cfs_third_party();
+new cfs_third_party();
