@@ -2,13 +2,54 @@
 
 class cfs_field_group
 {
+    public $cache;
 
-    /**
-     * Import field groups
-     * @param array $options
-     * @return string The response message
-     * @since 1.8.5
-     */
+
+    /*
+    ================================================================
+        Load all field groups
+    ================================================================
+    */
+    public function load_field_groups() {
+        global $wpdb;
+
+        if ( isset( $this->cache['field_groups'] ) ) {
+            return $this->cache['field_groups'];
+        }
+
+        $sql = "
+        SELECT p.ID, p.post_title,
+            m1.meta_value as fields,
+            m2.meta_value AS rules,
+            m3.meta_value AS extras
+        FROM $wpdb->posts p
+        INNER JOIN $wpdb->postmeta m1 ON m1.post_id = p.ID AND m1.meta_key = 'cfs_fields'
+        INNER JOIN $wpdb->postmeta m2 ON m2.post_id = p.ID AND m2.meta_key = 'cfs_rules'
+        INNER JOIN $wpdb->postmeta m3 ON m3.post_id = p.ID AND m3.meta_key = 'cfs_extras'
+        WHERE p.post_status = 'publish'";
+        $results = $wpdb->get_results( $sql );
+
+        $output = array();
+        foreach ( $results as $result ) {
+            $output[ $result->ID ] = array(
+                'title'     => $result->post_title,
+                'fields'    => unserialize( $result->fields ),
+                'rules'     => unserialize( $result->rules ),
+                'extras'    => unserialize( $result->extras )
+            );
+        }
+
+        $this->cache['field_groups'] = $output;
+
+        return $output;
+    }
+
+
+    /*
+    ================================================================
+        Import field groups
+    ================================================================
+    */
     public function import( $options ) {
         global $wpdb;
 
@@ -23,7 +64,8 @@ class cfs_field_group
             foreach ( $options['import_code'] as $group ) {
 
                 // Make sure this field group doesn't exist
-                if ( !in_array( $group['post_name'], $existing_groups ) ) {
+                if ( ! in_array( $group['post_name'], $existing_groups ) ) {
+
                     // Insert new post
                     $post_id = wp_insert_post( array(
                         'post_title' => $group['post_title'],
@@ -40,14 +82,14 @@ class cfs_field_group
                     // Generate new field IDs
                     $field_id_mapping = array();
                     $next_field_id = (int) get_option( 'cfs_next_field_id' );
-                    foreach ($group['cfs_fields'] as $key => $data) {
+                    foreach ( $group['cfs_fields'] as $key => $data ) {
 
-                        $id = $group['cfs_fields'][$key]['id'];
-                        $parent_id = $group['cfs_fields'][$key]['parent_id'];
-                        $field_id_mapping[$id] = $next_field_id;
-                        $group['cfs_fields'][$key]['id'] = $next_field_id;
+                        $id = $group['cfs_fields'][ $key ]['id'];
+                        $parent_id = $group['cfs_fields'][ $key ]['parent_id'];
+                        $field_id_mapping[ $id ] = $next_field_id;
+                        $group['cfs_fields'][ $key ]['id'] = $next_field_id;
                         if ( 0 < (int) $parent_id ) {
-                            $group['cfs_fields'][$key]['parent_id'] = $field_id_mapping[$parent_id];
+                            $group['cfs_fields'][ $key ]['parent_id'] = $field_id_mapping[ $parent_id ];
                         }
                         $next_field_id++;
                     }
@@ -79,12 +121,11 @@ class cfs_field_group
     }
 
 
-    /**
-     * Export field groups
-     * @param array $options
-     * @return array An array of field group data
-     * @since 1.8.5
-     */
+    /*
+    ================================================================
+        Export field groups
+    ================================================================
+    */
     public function export( $options ) {
         global $wpdb;
 
@@ -93,12 +134,12 @@ class cfs_field_group
         foreach ( $options['field_groups'] as $post_id ) {
             $post_ids[] = (int) $post_id;
         }
-        $post_ids = implode( ',', $post_ids );
 
+        $post_ids = implode( ',', $post_ids );
         $post_data = $wpdb->get_results( "SELECT ID, post_title, post_name FROM {$wpdb->posts} WHERE post_type = 'cfs' AND ID IN ($post_ids)" );
 
         foreach ( $post_data as $row ) {
-            $field_groups[$row->ID] = array(
+            $field_groups[ $row->ID ] = array(
                 'post_title' => $row->post_title,
                 'post_name' => $row->post_name,
             );
@@ -107,7 +148,7 @@ class cfs_field_group
         $meta_data = $wpdb->get_results( "SELECT * FROM {$wpdb->postmeta} WHERE meta_key LIKE 'cfs_%' AND post_id IN ($post_ids)" );
         foreach ( $meta_data as $row ) {
             $value = unserialize( $row->meta_value );
-            $field_groups[$row->post_id][$row->meta_key] = $value;
+            $field_groups[ $row->post_id ][ $row->meta_key ] = $value;
         }
 
         // Strip out the field group keys
@@ -124,7 +165,6 @@ class cfs_field_group
     /**
      * Save field group settings
      * @param array $params
-     * @since 1.8.0
      */
     function save( $params = array() ) {
         global $wpdb;
@@ -143,7 +183,7 @@ class cfs_field_group
 
         if ( !empty( $existing_fields ) ) {
             foreach ( $existing_fields as $item ) {
-                $prev_fields[$item['id']] = $item['name'];
+                $prev_fields[ $item['id'] ] = $item['name'];
             }
         }
 
@@ -152,10 +192,10 @@ class cfs_field_group
         foreach ( $params['fields'] as $key => $field ) {
 
             // Sanitize the field
-            $field = stripslashes_deep($field);
+            $field = stripslashes_deep( $field );
 
             // Allow for field customizations
-            $field = CFS()->fields[$field['type']]->pre_save_field( $field );
+            $field = CFS()->fields[ $field['type'] ]->pre_save_field( $field );
 
             // Set the parent ID
             $field['parent_id'] = empty( $field['parent_id'] ) ? 0 : (int) $field['parent_id'];
@@ -170,7 +210,7 @@ class cfs_field_group
                 $current_field_ids[] = $field['id'];
 
                 // Rename the postmeta key if necessary
-                if ( $field['name'] != $prev_fields[$field['id']] ) {
+                if ( $field['name'] != $prev_fields[ $field['id'] ] ) {
                     $wpdb->query(
                         $wpdb->prepare("
                             UPDATE {$wpdb->postmeta} m
@@ -188,14 +228,14 @@ class cfs_field_group
             }
 
             $data = array(
-                'id' => $field['id'],
-                'name' => $field['name'],
-                'label' => $field['label'],
-                'type' => $field['type'],
-                'notes' => $field['notes'],
-                'parent_id' => $field['parent_id'],
-                'weight' => $weight,
-                'options' => $field['options'],
+                'id'            => $field['id'],
+                'name'          => $field['name'],
+                'label'         => $field['label'],
+                'type'          => $field['type'],
+                'notes'         => $field['notes'],
+                'parent_id'     => $field['parent_id'],
+                'weight'        => $weight,
+                'options'       => $field['options'],
             );
 
             $new_fields[] = $data;
@@ -230,16 +270,16 @@ class cfs_field_group
         $rule_types = array( 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates' );
 
         foreach ( $rule_types as $type ) {
-            if ( !empty( $params['rules'][$type] ) ) {
+            if ( ! empty( $params['rules'][ $type ] ) ) {
 
                 // Break apart the autocomplete string
                 if ( 'post_ids' == $type ) {
-                    $params['rules'][$type] = explode( ',', $params['rules'][$type] );
+                    $params['rules'][ $type ] = explode( ',', $params['rules'][ $type ] );
                 }
 
-                $data[$type] = array(
-                    'operator' => $params['rules']['operator'][$type],
-                    'values' => $params['rules'][$type],
+                $data[ $type ] = array(
+                    'operator' => $params['rules']['operator'][ $type ],
+                    'values' => $params['rules'][ $type ],
                 );
             }
         }
