@@ -51,6 +51,7 @@ class cfs_init
             'capability_type'   => 'page',
             'hierarchical'      => false,
             'supports'          => array( 'title' ),
+            'menu_icon'         => 'dashicons-carrot',
             'query_var'         => false,
             'labels'            => array(
                 'name'                  => __( 'Field Groups', 'cfs' ),
