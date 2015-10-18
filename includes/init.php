@@ -140,6 +140,10 @@ class cfs_init
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
         }
+
+        // Remove the "Add New" menu link
+        global $submenu;
+        unset( $submenu['edit.php?post_type=cfs'][10] );
     }
 
 
