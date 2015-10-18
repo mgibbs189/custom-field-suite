@@ -3,6 +3,7 @@
 class cfs_api
 {
     public $cache;
+    public $saved_fields;
 
 
     /*
@@ -123,7 +124,7 @@ class cfs_api
                             $hierarchy = $field->id;
                         }
 
-                        $field_data[$hierarchy][] = $result->meta_value;
+                        $field_data[ $hierarchy ][] = $result->meta_value;
                     }
 
                     // Assemble the values
@@ -163,7 +164,7 @@ class cfs_api
 
         $output = array();
 
-        if ( !empty( $group_ids ) ) {
+        if ( ! empty( $group_ids ) ) {
             $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
             foreach ( $results as $result ) {
                 if ( $result['name'] == $field_name ) {
@@ -247,6 +248,9 @@ class cfs_api
         );
         $options = array_merge( $defaults, $options );
 
+        // Log saved fields
+        $this->saved_fields = array();
+
         // create post if the ID is missing
         if ( empty( $post_data['ID'] ) ) {
             $post_defaults = array(
@@ -275,6 +279,7 @@ class cfs_api
             $group_ids = $options['field_groups'];
         }
         elseif ( 'api' == $options['format'] ) {
+
             // For revisions, get the parent post's field groups
             if ( wp_is_post_revision( $post_id ) ) {
                 $revision_id = wp_is_post_revision( $post_id );
@@ -287,10 +292,11 @@ class cfs_api
             $group_ids = array_keys( $group_ids );
         }
 
-        if ( !empty( $group_ids ) ) {
+        if ( ! empty( $group_ids ) ) {
             $parent_fields = array();
             $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
             foreach ( $results as $result ) {
+
                 // Store all the field objects for the current field group(s)
                 $fields[ $result['id'] ] = (object) $result;
 
@@ -309,7 +315,9 @@ class cfs_api
             $field_ids = array();
 
             foreach ( $field_data as $field_name => $junk ) {
-                $field_ids[] = (int) $parent_fields[ $field_name ];
+                if ( isset( $parent_fields[ $field_name ] ) ) {
+                    $field_ids[] = (int) $parent_fields[ $field_name ];
+                }
             }
 
             $field_ids = implode( ',', $field_ids );
@@ -320,14 +328,15 @@ class cfs_api
             LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
             WHERE v.post_id = '$post_id' AND (v.field_id IN ($field_ids) OR v.base_field_id IN ($field_ids))";
 
-            if ( ! empty( $field_ids ) )
+            if ( ! empty( $field_ids ) ) {
                 $wpdb->query( $sql );
+            }
         }
         elseif ( 'input' == $options['format'] ) {
 
             // If saving raw input, delete existing postdata
             $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
-            if ( !empty( $results ) ) {
+            if ( ! empty( $results ) ) {
                 $field_ids = array();
                 foreach ( $results as $result ) {
                     $field_ids[] = $result['id'];
@@ -340,8 +349,9 @@ class cfs_api
                 LEFT JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
                 WHERE v.post_id = '$post_id' AND v.field_id IN ($field_ids)";
 
-                if ( ! empty( $field_ids ) )
+                if ( ! empty( $field_ids ) ) {
                     $wpdb->query( $sql );
+                }
             }
         }
 
@@ -385,11 +395,17 @@ class cfs_api
         $field_array = (array) $params['field_array'];
 
         if ( 0 == $params['depth'] % 2 ) {
+
             // If not raw input, then field_id is actually the field name, and
             // we need to lookup the ID from the "field_id_lookup" array
             if ( 'input' != $params['format'] ) {
                 $field_name = $field_id;
                 $field_id = (int) $params['field_id_lookup'][ $params['parent_id'] . ':' . $field_name ];
+            }
+
+            // Exit if the field is missing
+            if ( ! isset( $params['all_fields'][ $field_id ] ) ) {
+                return;
             }
 
             $field_type = $params['all_fields'][ $field_id ]->type;
@@ -432,6 +448,9 @@ class cfs_api
 
                 $wpdb->insert( $wpdb->prefix . 'cfs_values', $data );
                 $sub_weight++;
+
+                // Update log
+                $this->saved_fields[ $field_id ] = true;
             }
         }
         // Keep recursing
@@ -532,7 +551,7 @@ class cfs_api
 
     /*
     ================================================================
-        Get input fields and their values
+        Get input fields / values for a specific post ID
     ================================================================
     */
     public function get_input_fields( $params = array() ) {
