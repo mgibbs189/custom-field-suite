@@ -19,7 +19,7 @@ class cfs_text extends cfs_field
                 <?php
                     CFS()->create_field( array(
                         'type' => 'text',
-                        'input_name' => "cfs[fields][ $key ][options][default_value]",
+                        'input_name' => "cfs[fields][$key][options][default_value]",
                         'value' => $this->get_option( $field, 'default_value' ),
                     ));
                 ?>
@@ -33,7 +33,7 @@ class cfs_text extends cfs_field
                 <?php
                     CFS()->create_field( array(
                         'type' => 'true_false',
-                        'input_name' => "cfs[fields][ $key ][options][required]",
+                        'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
                         'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),

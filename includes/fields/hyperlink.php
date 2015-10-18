@@ -59,7 +59,7 @@ class cfs_hyperlink extends cfs_field
                             ),
                             'force_single' => true,
                         ),
-                        'value' => $this->get_option($field, 'format', 'html'),
+                        'value' => $this->get_option( $field, 'format', 'html' ),
                     ));
                 ?>
             </td>

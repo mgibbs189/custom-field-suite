@@ -181,7 +181,7 @@ class cfs_field_group
         $next_field_id = (int) get_option( 'cfs_next_field_id' );
         $existing_fields = get_post_meta( $post_id, 'cfs_fields', true );
 
-        if ( !empty( $existing_fields ) ) {
+        if ( ! empty( $existing_fields ) ) {
             foreach ( $existing_fields as $item ) {
                 $prev_fields[ $item['id'] ] = $item['name'];
             }
