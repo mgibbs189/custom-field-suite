@@ -67,7 +67,7 @@ class Custom_Field_Suite
 
 
     function find_fields( $params = array() ) {
-        return CFS()->api->find_fields( $params );
+        return CFS()->api->find_input_fields( $params );
     }
 
 

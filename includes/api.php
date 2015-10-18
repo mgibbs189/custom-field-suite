@@ -466,133 +466,14 @@ class cfs_api
 
     /*
     ================================================================
-        Get fields properties
-        @param array $params Accept post_id, field_group_id, or parent_field_id
-        @return Flattened array of matching fields
-    ================================================================
-    */
-    public function find_fields( $params ) {
-
-        $defaults = array(
-            'post_id' => false,
-            'group_id' => false,
-            'parent_field_id' => false,
-        );
-        $params = array_merge( $defaults, $params );
-
-        // All field groups (incl. fields)
-        $field_groups = CFS()->field_group->load_field_groups();
-
-        // Exclude field groups not attached to the current post
-        if ( false !== $params['post_id'] ) {
-            $post_id = (int) $params['post_id'];
-            $matching_group_ids = array_keys( $this->get_matching_groups( $post_id, true ) );
-            foreach ( $field_groups as $group_id => $group ) {
-                if ( ! in_array( $group_id, $matching_group_ids ) ) {
-                    unset( $field_groups[ $group_id ] );
-                }
-            }
-        }
-
-        // Exclude field groups
-        if ( false !== $params['group_id'] ) {
-            $matching_group_ids = (array) $params['group_id'];
-            foreach ( $field_groups as $group_id => $group ) {
-                if ( ! in_array( $group_id, $matching_group_ids ) ) {
-                    unset( $field_groups[ $group_id ] );
-                }
-            }
-        }
-
-        // Match parent_field_id
-        if ( false !== $params['parent_field_id'] ) {
-            $matching_field_ids = array();
-            $fields = $this->find_input_fields( array( 'parent_id' => $params['parent_field_id'] ) );
-            foreach ( $fields as $field ) {
-                $matching_field_ids[ $field['id'] ] = true;
-            }
-
-            $matching_field_ids = array_keys( $matching_field_ids );
-            foreach ( $field_groups as $group_id => $group ) {
-                foreach ( $group['fields'] as $key => $field ) {
-
-                    // Remove non-matching fields
-                    if ( ! in_array( $field['id'], $matching_field_ids ) ) {
-                        unset( $field_groups[ $group_id ]['fields'][ $key ] );
-                    }
-                }
-
-                // Reset array keys
-                $field_groups[ $group_id ]['fields'] = array_values(
-                    $field_groups[ $group_id ]['fields']
-                );
-            }
-        }
-
-        $output = array();
-
-        // Return an array of fields
-        foreach ( $field_groups as $group_id => $group ) {
-            foreach ( $group['fields'] as $the_field ) {
-                $the_field['field_group'] = array(
-                    'id' => $group_id,
-                    'title' => $group['title']
-                );
-                $output[] = $the_field;
-            }
-        }
-
-        return $output;
-    }
-
-
-    /*
-    ================================================================
-        Get input fields and their values
-    ================================================================
-    */
-    public function get_input_fields( $params ) {
-        global $post, $wpdb;
-
-        $defaults = array(
-            'group_id'      => false,
-            'field_id'      => false,
-            'parent_id'     => false,
-        );
-        $params = array_merge( $defaults, $params );
-
-        $values = $this->get_fields( $post->ID, array( 'format' => 'input' ) );
-
-        $results = $this->find_input_fields( $params );
-
-        $fields = array();
-
-        foreach ( $results as $field ) {
-            $field = (object) $field;
-
-            // If no field value exists, set it to NULL
-            $field->value = isset( $values[ $field->id ] ) ? $values[ $field->id ] : null;
-
-            if ( ! isset( $field->value ) && isset( $field->options['default_value'] ) ) {
-                $field->value = $field->options['default_value'];
-            }
-
-            $fields[ $field->id ] = $field;
-        }
-
-        return apply_filters( 'cfs_get_input_fields', $fields, $params );
-    }
-
-
-    /*
-    ================================================================
         Find input fields
     ================================================================
     */
-    public function find_input_fields( $params ) {
+    public function find_input_fields( $params = array() ) {
         global $wpdb;
 
         $defaults = array(
+            'post_id'       => false, // a single post ID
             'group_id'      => array(),
             'field_id'      => array(),
             'field_type'    => array(),
@@ -608,14 +489,23 @@ class cfs_api
 
         foreach ( $field_groups as $group_id => $group ) {
 
-            foreach ( $group['fields'] as $field ) {
+            // Exclude by group ID
+            if ( ! empty( $params['group_id'] ) && ! in_array( $group_id, (array) $params['group_id'] ) ) {
+                continue;
+            }
 
-                // Add the group ID
-                $field['group_id'] = $group_id;
-
-                if ( ! empty( $params['group_id'] ) && ! in_array( $field['group_id'], (array) $params['group_id'] ) ) {
+            // Exclude by group ID (groups attached to a specific post)
+            if ( ! empty( $params['post_id'] ) ) {
+                $post_id = (int) $params['post_id'];
+                $matching_group_ids = array_keys( $this->get_matching_groups( $post_id, true ) );
+                if ( ! in_array( $group_id, $matching_group_ids ) ) {
                     continue;
                 }
+            }
+
+            foreach ( $group['fields'] as $field ) {
+
+                // Other exclusions
                 if ( ! empty( $params['field_id'] ) && ! in_array( $field['id'], (array) $params['field_id'] ) ) {
                     continue;
                 }
@@ -629,11 +519,45 @@ class cfs_api
                     continue;
                 }
 
+                // Attach the group ID
+                $field['group_id'] = $group_id;
+
                 $output[] = $field;
             }
         }
 
         return $output;
+    }
+
+
+    /*
+    ================================================================
+        Get input fields and their values
+    ================================================================
+    */
+    public function get_input_fields( $params = array() ) {
+        global $post, $wpdb;
+
+        $fields = $this->find_input_fields( $params );
+
+        $values = $this->get_fields( $post->ID, array( 'format' => 'input' ) );
+
+        $output = array();
+
+        foreach ( $fields as $field ) {
+            $field = (object) $field;
+
+            // If no field value exists, set it to NULL
+            $field->value = isset( $values[ $field->id ] ) ? $values[ $field->id ] : null;
+
+            if ( ! isset( $field->value ) && isset( $field->options['default_value'] ) ) {
+                $field->value = $field->options['default_value'];
+            }
+
+            $output[ $field->id ] = $field;
+        }
+
+        return apply_filters( 'cfs_get_input_fields', $output, $params );
     }
 
 
