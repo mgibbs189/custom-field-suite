@@ -6,86 +6,75 @@ class cfs_file extends cfs_field
     public $new_media;
 
 
-
-
-    function __construct()
-    {
+    function __construct() {
         $this->name = 'file';
-        $this->label = __('File Upload', 'cfs');
+        $this->label = __( 'File Upload', 'cfs' );
     }
 
 
-
-
-    function html($field)
-    {
+    function html( $field ) {
         $file_url = $field->value;
 
-        if (ctype_digit($field->value))
-        {
-            if (wp_attachment_is_image($field->value))
-            {
-                $file_url = wp_get_attachment_image_src($field->value);
+        if ( ctype_digit( $field->value ) ) {
+            if ( wp_attachment_is_image( $field->value ) ) {
+                $file_url = wp_get_attachment_image_src( $field->value );
                 $file_url = '<img src="' . $file_url[0] . '" />';
             }
             else
             {
-                $file_url = wp_get_attachment_url($field->value);
-                $filename = substr($file_url, strrpos($file_url, '/') + 1);
+                $file_url = wp_get_attachment_url( $field->value );
+                $filename = substr( $file_url, strrpos( $file_url, '/' ) + 1 );
                 $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
             }
         }
 
         // CSS logic for "Add" / "Remove" buttons
-        $css = empty($field->value) ? array('', ' hidden') : array(' hidden', '');
+        $css = empty( $field->value ) ? array( '', ' hidden' ) : array( ' hidden', '' );
     ?>
         <span class="file_url"><?php echo $file_url; ?></span>
-        <input type="button" class="media button add<?php echo $css[0]; ?>" value="<?php _e('Add File', 'cfs'); ?>" />
-        <input type="button" class="media button remove<?php echo $css[1]; ?>" value="<?php _e('Remove', 'cfs'); ?>" />
+        <input type="button" class="media button add<?php echo $css[0]; ?>" value="<?php _e( 'Add File', 'cfs' ); ?>" />
+        <input type="button" class="media button remove<?php echo $css[1]; ?>" value="<?php _e( 'Remove', 'cfs' ); ?>" />
         <input type="hidden" name="<?php echo $field->input_name; ?>" class="file_value" value="<?php echo $field->value; ?>" />
     <?php
     }
 
 
-
-
-    function options_html($key, $field)
-    {
+    function options_html( $key, $field ) {
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Return Value', 'cfs'); ?></label>
+                <label><?php _e( 'Return Value', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][return_value]",
                         'options' => array(
                             'choices' => array(
-                                'url' => __('File URL', 'cfs'),
-                                'id' => __('Attachment ID', 'cfs')
+                                'url' => __( 'File URL', 'cfs' ),
+                                'id' => __( 'Attachment ID', 'cfs' )
                             ),
                             'force_single' => true,
                         ),
-                        'value' => $this->get_option($field, 'return_value', 'url'),
-                    ));
+                        'value' => $this->get_option( $field, 'return_value', 'url' ),
+                    ) );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Validation', 'cfs'); ?></label>
+                <label><?php _e( 'Validation', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'required'),
-                        'options' => array('message' => __('This is a required field', 'cfs')),
-                    ));
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
+                    ) );
                 ?>
             </td>
         </tr>
@@ -93,19 +82,16 @@ class cfs_file extends cfs_field
     }
 
 
-
-
     /**
      * @deprecated for WP < 3.5
      */
-    function popup_head()
-    {
+    function popup_head() {
+
         // Don't interfere with the default Media popup
-        if (isset($_GET['cfs_file']))
-        {
+        if ( isset( $_GET['cfs_file'] ) ) {
             // Ensure that "Insert into Post" appears
-            $post_type = get_post_type($_GET['post_id']);
-            add_post_type_support($post_type, 'editor');
+            $post_type = get_post_type( $_GET['post_id'] );
+            add_post_type_support( $post_type, 'editor' );
     ?>
         <script>
         (function($) {
@@ -124,7 +110,7 @@ class cfs_file extends cfs_field
                     $this.find('tr.url').hide();
                     $this.find('tr.align').hide();
                     $this.find('tr.image-size').hide();
-                    $this.find('tr.submit input.button').val('<?php _e('Use This File', 'cfs'); ?>');
+                    $this.find('tr.submit input.button').val('<?php _e( 'Use This File', 'cfs' ); ?>');
                 }).trigger('DOMNodeInserted');
             });
         })(jQuery);
@@ -134,29 +120,22 @@ class cfs_file extends cfs_field
     }
 
 
-
-
     /**
      * @deprecated for WP < 3.5
      */
-    function media_send_to_editor($html, $id, $attachment)
-    {
-        if (isset($_POST['_wp_http_referer']))
-        {
-            parse_str($_POST['_wp_http_referer'], $postdata);
+    function media_send_to_editor( $html, $id, $attachment ) {
+        if ( isset( $_POST['_wp_http_referer'] ) ) {
+            parse_str( $_POST['_wp_http_referer'], $postdata );
         }
 
-        if (isset($postdata['cfs_file']))
-        {
-            if (wp_attachment_is_image($id))
-            {
-                $file_url = wp_get_attachment_image_src($id);
+        if ( isset( $postdata['cfs_file'] ) ) {
+            if ( wp_attachment_is_image( $id ) ) {
+                $file_url = wp_get_attachment_image_src( $id );
                 $file_url = '<img src="' . $file_url[0] . '" />';
             }
-            else
-            {
-                $file_url = wp_get_attachment_url($id);
-                $filename = substr($file_url, strrpos($file_url, '/') + 1);
+            else {
+                $file_url = wp_get_attachment_url( $id );
+                $filename = substr( $file_url, strrpos( $file_url, '/' ) + 1 );
                 $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
             }
     ?>
@@ -171,17 +150,13 @@ class cfs_file extends cfs_field
     <?php
             exit;
         }
-        else
-        {
+        else {
             return $html;
         }
     }
 
 
-
-
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
         global $post;
         wp_enqueue_media();
     ?>
@@ -253,14 +228,10 @@ class cfs_file extends cfs_field
     }
 
 
-
-
-    function format_value_for_api($value, $field = null)
-    {
-        if (ctype_digit($value))
-        {
-            $return_value = $this->get_option($field, 'return_value', 'url');
-            return ('id' == $return_value) ? (int) $value : wp_get_attachment_url($value);
+    function format_value_for_api( $value, $field = null ) {
+        if ( ctype_digit( $value ) ) {
+            $return_value = $this->get_option( $field, 'return_value', 'url' );
+            return ( 'id' == $return_value ) ? (int) $value : wp_get_attachment_url( $value );
         }
         return $value;
     }

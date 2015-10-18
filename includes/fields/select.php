@@ -3,60 +3,48 @@
 class cfs_select extends cfs_field
 {
 
-    function __construct()
-    {
+    function __construct() {
         $this->name = 'select';
-        $this->label = __('Select', 'cfs');
+        $this->label = __( 'Select', 'cfs' );
     }
 
 
-
-
-    function html($field)
-    {
+    function html( $field ) {
         $multiple = '';
 
         // Multi-select
-        if (isset($field->options['multiple']) && '1' == $field->options['multiple'])
-        {
+        if ( isset( $field->options['multiple'] ) && '1' == $field->options['multiple'] ) {
             $multiple = ' multiple';
 
-            if (empty($field->input_class))
-            {
+            if ( empty( $field->input_class ) ) {
                 $field->input_class = 'multiple';
             }
-            else
-            {
+            else {
                 $field->input_class .= ' multiple';
             }
         }
         // Single-select
-        elseif (!isset($field->input_class))
-        {
+        elseif ( ! isset( $field->input_class ) ) {
             $field->input_class = '';
         }
 
         // Select boxes should return arrays (unless "force_single" is true)
-        if ('[]' != substr($field->input_name, -2) && empty($field->options['force_single']))
-        {
+        if ( '[]' != substr( $field->input_name, -2 ) && empty( $field->options['force_single'] ) ) {
             $field->input_name .= '[]';
         }
     ?>
         <select name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>"<?php echo $multiple; ?>>
-        <?php foreach ($field->options['choices'] as $val => $label) : ?>
-            <?php $val = ('{empty}' == $val) ? '' : $val; ?>
-            <?php $selected = in_array($val, (array) $field->value) ? ' selected' : ''; ?>
-            <option value="<?php echo esc_attr($val); ?>"<?php echo $selected; ?>><?php echo esc_attr($label); ?></option>
+        <?php foreach ( $field->options['choices'] as $val => $label ) : ?>
+            <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
+            <?php $selected = in_array( $val, (array) $field->value ) ? ' selected' : ''; ?>
+            <option value="<?php echo esc_attr( $val ); ?>"<?php echo $selected; ?>><?php echo esc_attr( $label ); ?></option>
         <?php endforeach; ?>
         </select>
     <?php
     }
 
 
-
-
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
     ?>
         <script>
         (function($) {
@@ -79,75 +67,69 @@ class cfs_select extends cfs_field
     }
 
 
+    function options_html( $key, $field ) {
 
-
-    function options_html($key, $field)
-    {
         // Convert choices to textarea-friendly format
-        if (isset($field->options['choices']) && is_array($field->options['choices']))
-        {
-            foreach ($field->options['choices'] as $choice_key => $choice_val)
-            {
-                $field->options['choices'][$choice_key] = "$choice_key : $choice_val";
+        if ( isset( $field->options['choices'] ) && is_array( $field->options['choices'] ) ) {
+            foreach ( $field->options['choices'] as $choice_key => $choice_val ) {
+                $field->options['choices'][ $choice_key ] = "$choice_key : $choice_val";
             }
-            $field->options['choices'] = implode("\n", $field->options['choices']);
+
+            $field->options['choices'] = implode( "\n", $field->options['choices'] );
         }
-        else
-        {
+        else {
             $field->options['choices'] = '';
         }
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Choices', 'cfs'); ?></label>
-                <p class="description"><?php _e('Enter one choice per line', 'cfs'); ?></p>
+                <label><?php _e( 'Choices', 'cfs' ); ?></label>
+                <p class="description"><?php _e( 'Enter one choice per line', 'cfs' ); ?></p>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][choices]",
-                        'value' => $this->get_option($field, 'choices'),
-                    ));
+                        'value' => $this->get_option( $field, 'choices' ),
+                    ) );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Multi-select?', 'cfs'); ?></label>
+                <label><?php _e( 'Multi-select?', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][multiple]",
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'multiple'),
-                        'options' => array('message' => __('This is a multi-select field', 'cfs')),
-                    ));
+                        'value' => $this->get_option( $field, 'multiple' ),
+                        'options' => array( 'message' => __( 'This is a multi-select field', 'cfs' ) ),
+                    ) );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Validation', 'cfs'); ?></label>
+                <label><?php _e( 'Validation', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'required'),
-                        'options' => array('message' => __('This is a required field', 'cfs')),
-                    ));
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
+                    ) );
                 ?>
             </td>
         </tr>
     <?php
     }
-
-
 
 
     function format_value_for_api( $value, $field = null ) {
@@ -165,39 +147,29 @@ class cfs_select extends cfs_field
     }
 
 
-
-
-    function prepare_value($value, $field = null)
-    {
+    function prepare_value( $value, $field = null ) {
         return $value;
     }
 
 
-
-
-    function pre_save_field($field)
-    {
+    function pre_save_field( $field ) {
         $new_choices = array();
-        $choices = trim($field['options']['choices']);
+        $choices = trim( $field['options']['choices'] );
 
-        if (!empty($choices))
-        {
-            $choices = str_replace("\r\n", "\n", $choices);
-            $choices = str_replace("\r", "\n", $choices);
-            $choices = (false !== strpos($choices, "\n")) ? explode("\n", $choices) : (array) $choices;
+        if ( ! empty( $choices ) ) {
+            $choices = str_replace( "\r\n", "\n", $choices );
+            $choices = str_replace( "\r", "\n", $choices );
+            $choices = ( false !== strpos( $choices, "\n" ) ) ? explode( "\n", $choices ) : (array) $choices;
 
-            foreach ($choices as $choice)
-            {
-                $choice = trim($choice);
-                if (false !== ($pos = strpos($choice, ' : ')))
-                {
-                    $array_key = substr($choice, 0, $pos);
-                    $array_value = substr($choice, $pos + 3);
-                    $new_choices[$array_key] = $array_value;
+            foreach ( $choices as $choice ) {
+                $choice = trim( $choice );
+                if ( false !== ( $pos = strpos( $choice, ' : ' ) ) ) {
+                    $array_key = substr( $choice, 0, $pos );
+                    $array_value = substr( $choice, $pos + 3 );
+                    $new_choices[ $array_key ] = $array_value;
                 }
-                else
-                {
-                    $new_choices[$choice] = $choice;
+                else {
+                    $new_choices[ $choice ] = $choice;
                 }
             }
         }

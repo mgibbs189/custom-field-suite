@@ -198,7 +198,8 @@ class cfs_relationship extends cfs_field
 
 
     function pre_save( $value, $field = null ) {
-        if ( !empty( $value ) ) {
+        if ( ! empty( $value ) ) {
+
             // Inside a loop, the value is $value[0]
             $value = (array) $value;
 

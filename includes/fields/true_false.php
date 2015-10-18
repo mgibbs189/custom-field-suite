@@ -3,8 +3,7 @@
 class cfs_true_false extends cfs_field
 {
 
-    function __construct()
-    {
+    function __construct() {
         $this->name = 'true_false';
         $this->label = __('True / False', 'cfs');
     }
@@ -12,9 +11,8 @@ class cfs_true_false extends cfs_field
 
 
 
-    function html($field)
-    {
-        $field->value = (0 < (int) $field->value) ? 1 : 0;
+    function html( $field ) {
+        $field->value = ( 0 < (int) $field->value ) ? 1 : 0;
     ?>
         <span class="checkbox<?php echo $field->value ? ' active' : ''; ?>"></span>
         <span><?php echo $field->options['message']; ?></span>
@@ -25,27 +23,26 @@ class cfs_true_false extends cfs_field
 
 
 
-    function options_html($key, $field)
-    {
+    function options_html( $key, $field ) {
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Message', 'cfs'); ?></label>
-                <p class="description"><?php _e('The text beside the checkbox', 'cfs'); ?></p>
+                <label><?php _e( 'Message', 'cfs' ); ?></label>
+                <p class="description"><?php _e( 'The text beside the checkbox', 'cfs' ); ?></p>
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( array(
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][message]",
-                        'value' => $this->get_option($field, 'message'),
-                    ));
+                        'value' => $this->get_option( $field, 'message' ),
+                    ) );
                 ?>
             </td>
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e('Validation', 'cfs'); ?></label>
+                <label><?php _e( 'Validation', 'cfs' ); ?></label>
             </td>
             <td>
                 <?php
@@ -53,8 +50,8 @@ class cfs_true_false extends cfs_field
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
-                        'value' => $this->get_option($field, 'required'),
-                        'options' => array('message' => __('This is a required field', 'cfs')),
+                        'value' => $this->get_option( $field, 'required' ),
+                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
                     ));
                 ?>
             </td>
@@ -65,8 +62,7 @@ class cfs_true_false extends cfs_field
 
 
 
-    function input_head($field = null)
-    {
+    function input_head( $field = null ) {
     ?>
         <script>
         (function($) {
@@ -99,8 +95,7 @@ class cfs_true_false extends cfs_field
 
 
 
-    function format_value_for_api($value, $field = null)
-    {
-        return (0 < (int) $value) ? 1 : 0;
+    function format_value_for_api( $value, $field = null ) {
+        return ( 0 < (int) $value ) ? 1 : 0;
     }
 }
