@@ -144,16 +144,16 @@ class cfs_wysiwyg extends cfs_field
                 });
             };
 
-            $(document).on('cfs/sortable_start', function(event, ui) {
+            $('.meta-box-sortables, .cfs_loop').on('sortstart', function(event, ui) {
                 tinyMCE.settings.wpautop = false;
                 tinyMCE.settings.resize = 'vertical';
-                $(ui).find('.wysiwyg').each(function() {
+                $(this).find('.wysiwyg').each(function() {
                     tinyMCE.execCommand('mceRemoveEditor', false, $(this).attr('id'));
                 });
             });
 
-            $(document).on('cfs/sortable_stop', function(event, ui) {
-                $(ui).find('.wysiwyg').each(function() {
+            $('.meta-box-sortables, .cfs_loop').on('sortstop', function(event, ui) {
+                $(this).find('.wysiwyg').each(function() {
                     tinyMCE.execCommand('mceAddEditor', false, $(this).attr('id'));
                 });
                 tinyMCE.settings.wpautop = wpautop;

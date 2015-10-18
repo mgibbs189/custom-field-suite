@@ -307,12 +307,6 @@ class cfs_loop extends cfs_field
                     containment: 'parent',
                     items: '.loop_wrapper',
                     handle: '.cfs_loop_head',
-                    start: function(event, ui) {
-                        $(document).trigger('cfs/sortable_start', ui.item);
-                    },
-                    stop: function(event, ui) {
-                        $(document).trigger('cfs/sortable_stop', ui.item);
-                    },
                     update: function(event, ui) {
 
                         // To re-order field names:
