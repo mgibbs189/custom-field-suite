@@ -138,7 +138,6 @@ class cfs_init
      */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'edit.php?post_type=cfs', __( 'Add-ons', 'cfs' ), __( 'Add-ons', 'cfs' ), 'manage_options', 'cfs-addons', array( $this, 'page_addons' ) );
             add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
         }
     }
@@ -173,15 +172,6 @@ class cfs_init
      */
     function page_tools() {
         include( CFS_DIR . '/templates/page_tools.php' );
-    }
-
-
-    /**
-     * page_addons
-     * @since 1.8.0
-     */
-    function page_addons() {
-        include( CFS_DIR . '/templates/page_addons.php' );
     }
 
 
