@@ -3,9 +3,6 @@
 class cfs_file extends cfs_field
 {
 
-    public $new_media;
-
-
     function __construct() {
         $this->name = 'file';
         $this->label = __( 'File Upload', 'cfs' );
@@ -79,80 +76,6 @@ class cfs_file extends cfs_field
             </td>
         </tr>
     <?php
-    }
-
-
-    /**
-     * @deprecated for WP < 3.5
-     */
-    function popup_head() {
-
-        // Don't interfere with the default Media popup
-        if ( isset( $_GET['cfs_file'] ) ) {
-            // Ensure that "Insert into Post" appears
-            $post_type = get_post_type( $_GET['post_id'] );
-            add_post_type_support( $post_type, 'editor' );
-    ?>
-        <script>
-        (function($) {
-            $(function() {
-                $('form#filter').each(function() {
-                    $(this).append('<input type="hidden" name="cfs_file" value="1" />');
-                });
-
-                // Hide the "From URL" tab
-                $('#media-upload-header li#tab-type_url').hide();
-
-                $('#media-items').bind('DOMNodeInserted', function() {
-                    var $this = $(this);
-                    $this.find('tr.image_alt').hide();
-                    $this.find('tr.post_excerpt').hide();
-                    $this.find('tr.url').hide();
-                    $this.find('tr.align').hide();
-                    $this.find('tr.image-size').hide();
-                    $this.find('tr.submit input.button').val('<?php _e( 'Use This File', 'cfs' ); ?>');
-                }).trigger('DOMNodeInserted');
-            });
-        })(jQuery);
-        </script>
-    <?php
-        }
-    }
-
-
-    /**
-     * @deprecated for WP < 3.5
-     */
-    function media_send_to_editor( $html, $id, $attachment ) {
-        if ( isset( $_POST['_wp_http_referer'] ) ) {
-            parse_str( $_POST['_wp_http_referer'], $postdata );
-        }
-
-        if ( isset( $postdata['cfs_file'] ) ) {
-            if ( wp_attachment_is_image( $id ) ) {
-                $file_url = wp_get_attachment_image_src( $id );
-                $file_url = '<img src="' . $file_url[0] . '" />';
-            }
-            else {
-                $file_url = wp_get_attachment_url( $id );
-                $filename = substr( $file_url, strrpos( $file_url, '/' ) + 1 );
-                $file_url = '<a href="'. $file_url .'" target="_blank">'. $filename .'</a>';
-            }
-    ?>
-        <script>
-        self.parent.cfs_div.hide();
-        self.parent.cfs_div.siblings('.media.button.remove').show();
-        self.parent.cfs_div.siblings('.file_url').html('<?php echo $file_url; ?>');
-        self.parent.cfs_div.siblings('.file_value').val('<?php echo $id; ?>');
-        self.parent.cfs_div = null;
-        self.parent.tb_remove();
-        </script>
-    <?php
-            exit;
-        }
-        else {
-            return $html;
-        }
     }
 
 
