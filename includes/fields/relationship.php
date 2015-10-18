@@ -25,9 +25,6 @@ class cfs_relationship extends cfs_field
             $post_types = get_post_types( array( 'exclude_from_search' => true ) );
         }
 
-        // Deprecated - use "cfs_field_relationship_query_args"
-        $post_types = apply_filters( 'cfs_field_relationship_post_types', $post_types );
-
         $args = array(
             'post_type'         => $post_types,
             'post_status'       => array( 'publish', 'private' ),
