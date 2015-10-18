@@ -127,7 +127,7 @@ class cfs_api
                     }
 
                     // Assemble the values
-                    if ( $current_item != $prev_item && '' != $prev_item ) { // call apply_value_filters on previous field
+                    if ( $current_item != $prev_item && '' != $prev_item ) { // call assemble_value_array on previous field
                         $this->assemble_value_array( $field_data, $prev_hierarchy, $fields[ $prev_field_id ], false, $options );
                     }
 
@@ -250,7 +250,7 @@ class cfs_api
         // create post if the ID is missing
         if ( empty( $post_data['ID'] ) ) {
             $post_defaults = array(
-                'post_title'                => 'Untitled',
+                'post_title'                => 'My CFS post',
                 'post_content'              => '',
                 'post_content_filtered'     => '',
                 'post_excerpt'              => '',
@@ -309,7 +309,7 @@ class cfs_api
             $field_ids = array();
 
             foreach ( $field_data as $field_name => $junk ) {
-                $field_ids[] = (int) $parent_fields[$field_name];
+                $field_ids[] = (int) $parent_fields[ $field_name ];
             }
 
             $field_ids = implode( ',', $field_ids );
@@ -705,39 +705,27 @@ class cfs_api
         Replace a value within a multidimensional array
     ================================================================
     */
-    private function assemble_value_array( &$field_data, $hierarchy, $field, $value = false, $options = false ) {
-        $data = &$field_data;
+    private function assemble_value_array( &$field_data, $hierarchy, $field, $field_value = false, $options = false ) {
+        $value = &$field_data;
 
         foreach ( explode( ':', $hierarchy ) as $i ) {
-            $data = &$data[ $i ];
+            $value = &$value[ $i ];
         }
 
-        if ( false !== $value ) {
-            $data = (array) $data;
-            $data[] = $value;
+        if ( false !== $field_value ) {
+            $value = (array) $value;
+            $value[] = $field_value;
         }
         else {
-            $data = $this->apply_value_filters( $field, $data, $options );
+            $value = CFS()->fields[ $field->type ]->prepare_value( $value, $field );
+
+            if ( 'api' == $options['format'] ) {
+                $value = CFS()->fields[ $field->type ]->format_value_for_api( $value, $field );
+            }
+            elseif ( 'input' == $options['format'] ) {
+                $value = CFS()->fields[ $field->type ]->format_value_for_input( $value, $field );
+            }
         }
-    }
-
-
-    /*
-    ================================================================
-        Format a field value
-    ================================================================
-    */
-    private function apply_value_filters( $field, $value, $options ) {
-        $value = CFS()->fields[ $field->type ]->prepare_value( $value, $field );
-
-        if ('api' == $options['format']) {
-            $value = CFS()->fields[ $field->type ]->format_value_for_api( $value, $field );
-        }
-        elseif ( 'input' == $options['format'] ) {
-            $value = CFS()->fields[ $field->type ]->format_value_for_input( $value, $field );
-        }
-
-        return $value;
     }
 
 
