@@ -2,140 +2,47 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-06-26 09:05-0500\n"
-"PO-Revision-Date: 2015-08-21 23:54+0800\n"
-"Last-Translator: iblackly <iblackly@139.com>\n"
+"POT-Creation-Date: 2015-10-18 14:54-0400\n"
+"PO-Revision-Date: 2015-10-18 14:54-0400\n"
+"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../cfs.php:102 ../cfs.php:305
-msgid "Field Groups"
-msgstr "字段组"
-
-#: ../cfs.php:103
-msgid "Field Group"
-msgstr "字段组"
-
-#: ../cfs.php:104
-msgid "Add New"
-msgstr "新建"
-
-#: ../cfs.php:105
-msgid "Add New Field Group"
-msgstr "添加新字段组"
-
-#: ../cfs.php:106
-msgid "Edit Field Group"
-msgstr "编辑字段组"
-
-#: ../cfs.php:107
-msgid "New Field Group"
-msgstr "新字段组"
-
-#: ../cfs.php:108
-msgid "View Field Group"
-msgstr "查看字段组"
-
-#: ../cfs.php:109
-msgid "Search Field Groups"
-msgstr "搜索字段组"
-
-#: ../cfs.php:110
-msgid "No Field Groups found"
-msgstr "暂无字段组"
-
-#: ../cfs.php:111
-msgid "No Field Groups found in Trash"
-msgstr "回收站内没有字段组"
-
-#: ../cfs.php:293
-msgid "Fields"
-msgstr "字段"
-
-#: ../cfs.php:294
-msgid "Placement Rules"
-msgstr "布局规则"
-
-#: ../cfs.php:295
-msgid "Extras"
-msgstr "额外选项"
-
-#: ../cfs.php:306 ../templates/page_addons.php:61
-msgid "Add-ons"
-msgstr "附加组件"
-
-#: ../cfs.php:307 ../templates/page_tools.php:73
-msgid "Tools"
-msgstr "工具"
-
-#: ../cfs.php:448
-msgid "Title"
-msgstr "标题"
-
-#: ../cfs.php:449
-msgid "Placement"
-msgstr "放置"
-
-#: ../cfs.php:465 ../includes/fields/relationship.php:91
-#: ../templates/meta_box_rules.php:135
-msgid "Post Types"
-msgstr "文章类型"
-
-#: ../cfs.php:466 ../templates/meta_box_rules.php:201
-msgid "User Roles"
-msgstr "用户角色"
-
-#: ../cfs.php:467
-msgid "Post IDs"
-msgstr "文章 ID"
-
-#: ../cfs.php:468
-msgid "Term IDs"
-msgstr "Term IDs"
-
-#: ../cfs.php:469 ../templates/meta_box_rules.php:289
-msgid "Page Templates"
-msgstr "页面模版"
-
-#: ../cfs.php:470 ../templates/meta_box_rules.php:168
-msgid "Post Formats"
-msgstr "文章格式"
 
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "文本"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:78
-#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
-#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
-#: ../includes/fields/wysiwyg.php:63
+#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "验证"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:87
-#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
-#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
-#: ../includes/fields/wysiwyg.php:72
+#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "必选"
 
-#: ../includes/field_group.php:69
+#: ../includes/field_group.php:111
 msgid "Imported"
 msgstr "导入"
 
-#: ../includes/field_group.php:72
+#: ../includes/field_group.php:114
 msgid "Skipped"
 msgstr "跳过"
 
-#: ../includes/field_group.php:77
+#: ../includes/field_group.php:119
 msgid "Nothing to import"
 msgstr "无法导入"
 
@@ -147,37 +54,49 @@ msgstr "颜色"
 msgid "Date"
 msgstr "日期"
 
-#: ../includes/fields/file.php:14
+#: ../includes/fields/file.php:11
 msgid "File Upload"
 msgstr "上传文件"
 
-#: ../includes/fields/file.php:43
+#: ../includes/fields/file.php:35
 msgid "Add File"
 msgstr "添加文件"
 
-#: ../includes/fields/file.php:44
+#: ../includes/fields/file.php:36
 msgid "Remove"
 msgstr "删除"
 
-#: ../includes/fields/file.php:57
+#: ../includes/fields/file.php:46
 msgid "Return Value"
 msgstr "返回值"
 
-#: ../includes/fields/file.php:66
+#: ../includes/fields/file.php:55
 msgid "File URL"
 msgstr "文件链接"
 
-#: ../includes/fields/file.php:67
+#: ../includes/fields/file.php:56
 msgid "Attachment ID"
 msgstr "附件 ID"
 
-#: ../includes/fields/file.php:127
+#: ../includes/fields/file.php:113
 msgid "Use This File"
 msgstr "使用此文件"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
 msgstr "超链接"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "链接"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "链接文字"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "链路目标"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
@@ -191,37 +110,37 @@ msgstr "HTML"
 msgid "PHP Array"
 msgstr "PHP Array"
 
-#: ../includes/fields/loop.php:9
+#: ../includes/fields/loop.php:8
 msgid "Loop"
 msgstr "循环"
 
-#: ../includes/fields/loop.php:41
+#: ../includes/fields/loop.php:34
 msgid "Row Display"
 msgstr "Row Display"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:43
 msgid "Show the values by default"
 msgstr "默认显示值"
 
-#: ../includes/fields/loop.php:57
+#: ../includes/fields/loop.php:50
 msgid "Row Label"
 msgstr "Row Label"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
-#: ../includes/fields/loop.php:223
+#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
+#: ../includes/fields/loop.php:206
 msgid "Loop Row"
 msgstr "Loop Row"
 
-#: ../includes/fields/loop.php:71
+#: ../includes/fields/loop.php:64
 msgid "Button Label"
 msgstr "按钮标签"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
-#: ../includes/fields/loop.php:224
+#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
+#: ../includes/fields/loop.php:207
 msgid "Add Row"
 msgstr "Add Row"
 
-#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "限制"
@@ -230,27 +149,35 @@ msgstr "限制"
 msgid "Relationship"
 msgstr "关联"
 
-#: ../includes/fields/relationship.php:92
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "搜索文章..."
+
+#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+msgid "Post Types"
+msgstr "文章类型"
+
+#: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
 msgstr "限制帖子类型"
 
-#: ../includes/fields/select.php:9
+#: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "选项"
 
-#: ../includes/fields/select.php:102
+#: ../includes/fields/select.php:86
 msgid "Choices"
 msgstr "选项"
 
-#: ../includes/fields/select.php:103
+#: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
 msgstr "每行输入一个选项"
 
-#: ../includes/fields/select.php:117
+#: ../includes/fields/select.php:101
 msgid "Multi-select?"
 msgstr "多重选择吗?"
 
-#: ../includes/fields/select.php:126
+#: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
 msgstr "这是一个多项选择的字段"
 
@@ -258,35 +185,35 @@ msgstr "这是一个多项选择的字段"
 msgid "Tab"
 msgstr "选项卡"
 
-#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "默认值"
 
-#: ../includes/fields/textarea.php:9
+#: ../includes/fields/textarea.php:8
 msgid "Textarea"
 msgstr "文本输入区"
 
-#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
 msgstr "格式化"
 
-#: ../includes/fields/textarea.php:53
+#: ../includes/fields/textarea.php:46
 msgid "None"
 msgstr "无"
 
-#: ../includes/fields/textarea.php:54
+#: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
 msgstr "转换换行符 <br />"
 
-#: ../includes/fields/true_false.php:9
+#: ../includes/fields/true_false.php:8
 msgid "True / False"
 msgstr "真 / 假"
 
-#: ../includes/fields/true_false.php:33
+#: ../includes/fields/true_false.php:30
 msgid "Message"
 msgstr "消息"
 
-#: ../includes/fields/true_false.php:34
+#: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
 msgstr "复选框描述文字"
 
@@ -294,21 +221,85 @@ msgstr "复选框描述文字"
 msgid "User"
 msgstr "用户"
 
-#: ../includes/fields/wysiwyg.php:11
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "搜索用户..."
+
+#: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
 msgstr "所见即所得编辑器"
 
-#: ../includes/fields/wysiwyg.php:51
+#: ../includes/fields/wysiwyg.php:42
 msgid "Default"
 msgstr "默认"
 
-#: ../includes/fields/wysiwyg.php:52
+#: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
 msgstr "无 (绕过过滤器)"
 
-#: ../includes/form.php:194
+#: ../includes/form.php:195
 msgid "Submit"
 msgstr "提交"
+
+#: ../includes/init.php:56
+msgid "Field Groups"
+msgstr "字段组"
+
+#: ../includes/init.php:57
+msgid "Field Group"
+msgstr "字段组"
+
+#: ../includes/init.php:58
+msgid "All Field Groups"
+msgstr "字段组"
+
+#: ../includes/init.php:59
+msgid "Add New Field Group"
+msgstr "添加新字段组"
+
+#: ../includes/init.php:60
+msgid "Edit Field Group"
+msgstr "编辑字段组"
+
+#: ../includes/init.php:61
+msgid "New Field Group"
+msgstr "新字段组"
+
+#: ../includes/init.php:62
+msgid "View Field Group"
+msgstr "查看字段组"
+
+#: ../includes/init.php:63
+msgid "Search Field Groups"
+msgstr "搜索字段组"
+
+#: ../includes/init.php:64
+msgid "No Field Groups found"
+msgstr "暂无字段组"
+
+#: ../includes/init.php:65
+msgid "No Field Groups found in Trash"
+msgstr "回收站内没有字段组"
+
+#: ../includes/init.php:141 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "工具"
+
+#: ../includes/init.php:151
+msgid "Fields"
+msgstr "字段"
+
+#: ../includes/init.php:152
+msgid "Placement Rules"
+msgstr "布局规则"
+
+#: ../includes/init.php:153
+msgid "Extras"
+msgstr "额外选项"
+
+#: ../includes/init.php:274
+msgid "Title"
+msgstr "标题"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -360,43 +351,35 @@ msgstr "或"
 msgid "delete"
 msgstr "删除"
 
-#: ../templates/meta_box_extras.php:41
+#: ../templates/meta_box_extras.php:33
 msgid "Order"
 msgstr "排序"
 
-#: ../templates/meta_box_extras.php:43
+#: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
 msgstr "数字最小的字段组将出现在第一位."
 
-#: ../templates/meta_box_extras.php:53
+#: ../templates/meta_box_extras.php:45
 msgid "Position"
 msgstr "位置"
 
-#: ../templates/meta_box_extras.php:56
+#: ../templates/meta_box_extras.php:48
 msgid "Normal"
 msgstr "正常"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:49
 msgid "Side"
 msgstr "边侧栏"
 
-#: ../templates/meta_box_extras.php:62
+#: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
 msgstr "显示设置"
 
-#: ../templates/meta_box_extras.php:72
+#: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
 msgstr "隐藏内容编辑器"
 
-#: ../templates/meta_box_extras.php:83
-msgid "Gravity Forms"
-msgstr "重力形态"
-
-#: ../templates/meta_box_extras.php:101
-msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr "Your Gravity Form and CFS field labels must match exactly"
-
-#: ../templates/meta_box_fields.php:66
+#: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "添加新字段"
 
@@ -408,21 +391,29 @@ msgstr "等于"
 msgid "is not"
 msgstr "不等于"
 
-#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
 msgid "Leave blank to skip this rule"
 msgstr "留空则跳过规则"
 
-#: ../templates/meta_box_rules.php:233
+#: ../templates/meta_box_rules.php:167
+msgid "Post Formats"
+msgstr "文章格式"
+
+#: ../templates/meta_box_rules.php:200
+msgid "User Roles"
+msgstr "用户角色"
+
+#: ../templates/meta_box_rules.php:232
 msgid "Posts"
 msgstr "文章"
 
-#: ../templates/meta_box_rules.php:257
+#: ../templates/meta_box_rules.php:256
 msgid "Taxonomy Terms"
 msgstr "菜单类型"
 
-#: ../templates/page_addons.php:77
-msgid "Learn more"
-msgstr "了解更多"
+#: ../templates/meta_box_rules.php:288
+msgid "Page Templates"
+msgstr "页面模版"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -447,3 +438,27 @@ msgstr "删除CFS所有数据,并停用插件."
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "删除一切"
+
+#~ msgid "Add New"
+#~ msgstr "新建"
+
+#~ msgid "Add-ons"
+#~ msgstr "附加组件"
+
+#~ msgid "Placement"
+#~ msgstr "放置"
+
+#~ msgid "Post IDs"
+#~ msgstr "文章 ID"
+
+#~ msgid "Term IDs"
+#~ msgstr "Term IDs"
+
+#~ msgid "Gravity Forms"
+#~ msgstr "重力形态"
+
+#~ msgid "Your Gravity Form and CFS field labels must match exactly"
+#~ msgstr "Your Gravity Form and CFS field labels must match exactly"
+
+#~ msgid "Learn more"
+#~ msgstr "了解更多"

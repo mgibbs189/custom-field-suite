@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-06-26 09:05-0500\n"
-"PO-Revision-Date: 2015-06-26 09:05-0500\n"
+"POT-Creation-Date: 2015-10-18 14:54-0400\n"
+"PO-Revision-Date: 2015-10-18 14:55-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Glebcha <glebcha@gmail.com>\n"
 "Language: ru_RU\n"
@@ -11,132 +11,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:102 ../cfs.php:305
-msgid "Field Groups"
-msgstr "Группа полей"
-
-#: ../cfs.php:103
-msgid "Field Group"
-msgstr "Группа полей"
-
-#: ../cfs.php:104
-msgid "Add New"
-msgstr "Добавить"
-
-#: ../cfs.php:105
-msgid "Add New Field Group"
-msgstr "Добавить группу полей"
-
-#: ../cfs.php:106
-msgid "Edit Field Group"
-msgstr "Редактировать группу полей"
-
-#: ../cfs.php:107
-msgid "New Field Group"
-msgstr "Новая"
-
-#: ../cfs.php:108
-msgid "View Field Group"
-msgstr "Показать"
-
-#: ../cfs.php:109
-msgid "Search Field Groups"
-msgstr "Поиск"
-
-#: ../cfs.php:110
-msgid "No Field Groups found"
-msgstr "Ничего не найдено"
-
-#: ../cfs.php:111
-msgid "No Field Groups found in Trash"
-msgstr "В корзине ничего не найдено"
-
-#: ../cfs.php:293
-msgid "Fields"
-msgstr "Поля"
-
-#: ../cfs.php:294
-msgid "Placement Rules"
-msgstr "Правила размещения"
-
-#: ../cfs.php:295
-msgid "Extras"
-msgstr "Дополнительно"
-
-#: ../cfs.php:306 ../templates/page_addons.php:61
-msgid "Add-ons"
-msgstr "Дополнения"
-
-#: ../cfs.php:307 ../templates/page_tools.php:73
-msgid "Tools"
-msgstr "Инструменты"
-
-#: ../cfs.php:448
-msgid "Title"
-msgstr "Заголовок"
-
-#: ../cfs.php:449
-msgid "Placement"
-msgstr "Расположение"
-
-#: ../cfs.php:465 ../includes/fields/relationship.php:91
-#: ../templates/meta_box_rules.php:135
-msgid "Post Types"
-msgstr "Типы записей"
-
-#: ../cfs.php:466 ../templates/meta_box_rules.php:201
-msgid "User Roles"
-msgstr "Роли пользователей"
-
-#: ../cfs.php:467
-msgid "Post IDs"
-msgstr "Идентификаторы записей"
-
-#: ../cfs.php:468
-msgid "Term IDs"
-msgstr "Термин идентификаторы"
-
-#: ../cfs.php:469 ../templates/meta_box_rules.php:289
-msgid "Page Templates"
-msgstr "Шаблоны страниц"
-
-#: ../cfs.php:470 ../templates/meta_box_rules.php:168
-msgid "Post Formats"
-msgstr "Форматы записей"
-
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "Текст"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:78
-#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
-#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
-#: ../includes/fields/wysiwyg.php:63
+#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Валидация"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:87
-#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
-#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
-#: ../includes/fields/wysiwyg.php:72
+#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Обязательное поле"
 
-#: ../includes/field_group.php:69
+#: ../includes/field_group.php:111
 msgid "Imported"
 msgstr "Импорт"
 
-#: ../includes/field_group.php:72
+#: ../includes/field_group.php:114
 msgid "Skipped"
 msgstr "Пропущено"
 
-#: ../includes/field_group.php:77
+#: ../includes/field_group.php:119
 msgid "Nothing to import"
 msgstr "Нет объектов для импорта"
 
@@ -148,37 +55,49 @@ msgstr "Цвет"
 msgid "Date"
 msgstr "Дата"
 
-#: ../includes/fields/file.php:14
+#: ../includes/fields/file.php:11
 msgid "File Upload"
 msgstr "Загрузить файл"
 
-#: ../includes/fields/file.php:43
+#: ../includes/fields/file.php:35
 msgid "Add File"
 msgstr "Добавить файл"
 
-#: ../includes/fields/file.php:44
+#: ../includes/fields/file.php:36
 msgid "Remove"
 msgstr "Удалить"
 
-#: ../includes/fields/file.php:57
+#: ../includes/fields/file.php:46
 msgid "Return Value"
 msgstr "Возвращаемое значение"
 
-#: ../includes/fields/file.php:66
+#: ../includes/fields/file.php:55
 msgid "File URL"
 msgstr "Путь к файлу"
 
-#: ../includes/fields/file.php:67
+#: ../includes/fields/file.php:56
 msgid "Attachment ID"
 msgstr "Идентификатор вложения"
 
-#: ../includes/fields/file.php:127
+#: ../includes/fields/file.php:113
 msgid "Use This File"
 msgstr "Использовать файл"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
 msgstr "Гиперссылка"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "URL"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "Текст ссылки"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "Цель ссылки"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
@@ -192,37 +111,37 @@ msgstr "HTML"
 msgid "PHP Array"
 msgstr "Массив PHP"
 
-#: ../includes/fields/loop.php:9
+#: ../includes/fields/loop.php:8
 msgid "Loop"
 msgstr "Цикл"
 
-#: ../includes/fields/loop.php:41
+#: ../includes/fields/loop.php:34
 msgid "Row Display"
 msgstr "Отображение блока"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:43
 msgid "Show the values by default"
 msgstr "Значения по-умолчанию"
 
-#: ../includes/fields/loop.php:57
+#: ../includes/fields/loop.php:50
 msgid "Row Label"
 msgstr "Название блока"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
-#: ../includes/fields/loop.php:223
+#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
+#: ../includes/fields/loop.php:206
 msgid "Loop Row"
 msgstr "Цикл блока"
 
-#: ../includes/fields/loop.php:71
+#: ../includes/fields/loop.php:64
 msgid "Button Label"
 msgstr "Название кнопки"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
-#: ../includes/fields/loop.php:224
+#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
+#: ../includes/fields/loop.php:207
 msgid "Add Row"
 msgstr "Добавить блок"
 
-#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Ограничения"
@@ -231,27 +150,35 @@ msgstr "Ограничения"
 msgid "Relationship"
 msgstr "Связь"
 
-#: ../includes/fields/relationship.php:92
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "Поиск сообщений…"
+
+#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+msgid "Post Types"
+msgstr "Типы записей"
+
+#: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
 msgstr "Ограничить записи следующим типом"
 
-#: ../includes/fields/select.php:9
+#: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Выбрать"
 
-#: ../includes/fields/select.php:102
+#: ../includes/fields/select.php:86
 msgid "Choices"
 msgstr "Предпочтения"
 
-#: ../includes/fields/select.php:103
+#: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
 msgstr "Одно предпочтение в строке"
 
-#: ../includes/fields/select.php:117
+#: ../includes/fields/select.php:101
 msgid "Multi-select?"
 msgstr "Множественный выбор?"
 
-#: ../includes/fields/select.php:126
+#: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
 msgstr "Поле множественного выбора"
 
@@ -259,35 +186,35 @@ msgstr "Поле множественного выбора"
 msgid "Tab"
 msgstr "Вкладка"
 
-#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Значение по-умолчанию"
 
-#: ../includes/fields/textarea.php:9
+#: ../includes/fields/textarea.php:8
 msgid "Textarea"
 msgstr "Текстовое поле"
 
-#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
 msgstr "Форматирование"
 
-#: ../includes/fields/textarea.php:53
+#: ../includes/fields/textarea.php:46
 msgid "None"
 msgstr "Нет"
 
-#: ../includes/fields/textarea.php:54
+#: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
 msgstr "Преобразовать разрыв строки в <br />"
 
-#: ../includes/fields/true_false.php:9
+#: ../includes/fields/true_false.php:8
 msgid "True / False"
 msgstr "True / False"
 
-#: ../includes/fields/true_false.php:33
+#: ../includes/fields/true_false.php:30
 msgid "Message"
 msgstr "Сообщение"
 
-#: ../includes/fields/true_false.php:34
+#: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
 msgstr "Текст рядом с чекбоксом"
 
@@ -295,21 +222,85 @@ msgstr "Текст рядом с чекбоксом"
 msgid "User"
 msgstr "Пользователь"
 
-#: ../includes/fields/wysiwyg.php:11
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "Поиск пользователей…"
+
+#: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
 msgstr "Визуальный редактор"
 
-#: ../includes/fields/wysiwyg.php:51
+#: ../includes/fields/wysiwyg.php:42
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: ../includes/fields/wysiwyg.php:52
+#: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
 msgstr "Нет (игнорировать фильтры)"
 
-#: ../includes/form.php:194
+#: ../includes/form.php:195
 msgid "Submit"
 msgstr "Отправить"
+
+#: ../includes/init.php:56
+msgid "Field Groups"
+msgstr "Группа полей"
+
+#: ../includes/init.php:57
+msgid "Field Group"
+msgstr "Группа полей"
+
+#: ../includes/init.php:58
+msgid "All Field Groups"
+msgstr "Группы полей"
+
+#: ../includes/init.php:59
+msgid "Add New Field Group"
+msgstr "Добавить группу полей"
+
+#: ../includes/init.php:60
+msgid "Edit Field Group"
+msgstr "Редактировать группу полей"
+
+#: ../includes/init.php:61
+msgid "New Field Group"
+msgstr "Новая"
+
+#: ../includes/init.php:62
+msgid "View Field Group"
+msgstr "Показать"
+
+#: ../includes/init.php:63
+msgid "Search Field Groups"
+msgstr "Поиск"
+
+#: ../includes/init.php:64
+msgid "No Field Groups found"
+msgstr "Ничего не найдено"
+
+#: ../includes/init.php:65
+msgid "No Field Groups found in Trash"
+msgstr "В корзине ничего не найдено"
+
+#: ../includes/init.php:141 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Инструменты"
+
+#: ../includes/init.php:151
+msgid "Fields"
+msgstr "Поля"
+
+#: ../includes/init.php:152
+msgid "Placement Rules"
+msgstr "Правила размещения"
+
+#: ../includes/init.php:153
+msgid "Extras"
+msgstr "Дополнительно"
+
+#: ../includes/init.php:274
+msgid "Title"
+msgstr "Заголовок"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -363,43 +354,35 @@ msgstr "или"
 msgid "delete"
 msgstr "удалить"
 
-#: ../templates/meta_box_extras.php:41
+#: ../templates/meta_box_extras.php:33
 msgid "Order"
 msgstr "Порядок"
 
-#: ../templates/meta_box_extras.php:43
+#: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
 msgstr "Группа полей с низшим порядковым номером отобразится первой."
 
-#: ../templates/meta_box_extras.php:53
+#: ../templates/meta_box_extras.php:45
 msgid "Position"
 msgstr "Расположение"
 
-#: ../templates/meta_box_extras.php:56
+#: ../templates/meta_box_extras.php:48
 msgid "Normal"
 msgstr "Обычно"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:49
 msgid "Side"
 msgstr "Сбоку"
 
-#: ../templates/meta_box_extras.php:62
+#: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
 msgstr "Настройки отображения"
 
-#: ../templates/meta_box_extras.php:72
+#: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
 msgstr "Спрятать редактор"
 
-#: ../templates/meta_box_extras.php:83
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
-#: ../templates/meta_box_extras.php:101
-msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr "Ваши формы тяжести и CFS меток полей должны точно совпадать"
-
-#: ../templates/meta_box_fields.php:66
+#: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Добавить поле"
 
@@ -411,21 +394,29 @@ msgstr "равно"
 msgid "is not"
 msgstr "не является"
 
-#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
 msgid "Leave blank to skip this rule"
 msgstr "Оставьте пустым, чтобы пропустить условие"
 
-#: ../templates/meta_box_rules.php:233
+#: ../templates/meta_box_rules.php:167
+msgid "Post Formats"
+msgstr "Форматы записей"
+
+#: ../templates/meta_box_rules.php:200
+msgid "User Roles"
+msgstr "Роли пользователей"
+
+#: ../templates/meta_box_rules.php:232
 msgid "Posts"
 msgstr "Записи"
 
-#: ../templates/meta_box_rules.php:257
+#: ../templates/meta_box_rules.php:256
 msgid "Taxonomy Terms"
 msgstr "Правила таксономии"
 
-#: ../templates/page_addons.php:77
-msgid "Learn more"
-msgstr "Узнать больше"
+#: ../templates/meta_box_rules.php:288
+msgid "Page Templates"
+msgstr "Шаблоны страниц"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -450,6 +441,30 @@ msgstr "Это действие удалит все данные форм и д�
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Удалить все"
+
+#~ msgid "Add New"
+#~ msgstr "Добавить"
+
+#~ msgid "Add-ons"
+#~ msgstr "Дополнения"
+
+#~ msgid "Placement"
+#~ msgstr "Расположение"
+
+#~ msgid "Post IDs"
+#~ msgstr "Идентификаторы записей"
+
+#~ msgid "Term IDs"
+#~ msgstr "Термин идентификаторы"
+
+#~ msgid "Gravity Forms"
+#~ msgstr "Gravity Forms"
+
+#~ msgid "Your Gravity Form and CFS field labels must match exactly"
+#~ msgstr "Ваши формы тяжести и CFS меток полей должны точно совпадать"
+
+#~ msgid "Learn more"
+#~ msgstr "Узнать больше"
 
 #~ msgid "Which field groups would you like to export?"
 #~ msgstr "Какие группы полей импортировать?"

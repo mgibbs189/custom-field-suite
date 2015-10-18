@@ -4,141 +4,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-06-26 09:05-0500\n"
-"PO-Revision-Date: 2015-06-26 09:05-0500\n"
+"POT-Creation-Date: 2015-10-18 15:00-0400\n"
+"PO-Revision-Date: 2015-10-18 15:00-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cfs.php:102 ../cfs.php:305
-msgid "Field Groups"
-msgstr "CFS"
-
-#: ../cfs.php:103
-msgid "Field Group"
-msgstr "Groupe de champs"
-
-#: ../cfs.php:104
-msgid "Add New"
-msgstr "Ajouter un nouveau"
-
-#: ../cfs.php:105
-msgid "Add New Field Group"
-msgstr "Ajouter un nouveau groupe de champs"
-
-#: ../cfs.php:106
-msgid "Edit Field Group"
-msgstr "Modifier le groupe de champs"
-
-#: ../cfs.php:107
-msgid "New Field Group"
-msgstr "Nouveau groupe de champs"
-
-#: ../cfs.php:108
-msgid "View Field Group"
-msgstr "Voir le groupe de champs"
-
-#: ../cfs.php:109
-msgid "Search Field Groups"
-msgstr "Recherche d'un groupe de champs"
-
-#: ../cfs.php:110
-msgid "No Field Groups found"
-msgstr "Aucun groupe de champs trouvé"
-
-#: ../cfs.php:111
-msgid "No Field Groups found in Trash"
-msgstr "Aucun groupe de champs trouvé dans la corbeille"
-
-#: ../cfs.php:293
-msgid "Fields"
-msgstr "Champs"
-
-#: ../cfs.php:294
-msgid "Placement Rules"
-msgstr "Règles d'affichage"
-
-#: ../cfs.php:295
-msgid "Extras"
-msgstr "Extras"
-
-#: ../cfs.php:306 ../templates/page_addons.php:61
-msgid "Add-ons"
-msgstr "Add-ons"
-
-#: ../cfs.php:307 ../templates/page_tools.php:73
-msgid "Tools"
-msgstr "Outils"
-
-#: ../cfs.php:448
-msgid "Title"
-msgstr "Titre"
-
-#: ../cfs.php:449
-msgid "Placement"
-msgstr "Affichage"
-
-#: ../cfs.php:465 ../includes/fields/relationship.php:91
-#: ../templates/meta_box_rules.php:135
-msgid "Post Types"
-msgstr "Types de contenu"
-
-#: ../cfs.php:466 ../templates/meta_box_rules.php:201
-msgid "User Roles"
-msgstr "Rôles utilisateur"
-
-#: ../cfs.php:467
-msgid "Post IDs"
-msgstr "IDs des articles"
-
-#: ../cfs.php:468
-msgid "Term IDs"
-msgstr "IDs des termes"
-
-#: ../cfs.php:469 ../templates/meta_box_rules.php:289
-msgid "Page Templates"
-msgstr "Modèles de page"
-
-#: ../cfs.php:470 ../templates/meta_box_rules.php:168
-msgid "Post Formats"
-msgstr "Formats d'article"
-
 #: ../includes/field.php:16 ../includes/fields/text.php:8
 msgid "Text"
 msgstr "Texte"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:78
-#: ../includes/fields/select.php:133 ../includes/fields/text.php:30
-#: ../includes/fields/textarea.php:65 ../includes/fields/true_false.php:48
-#: ../includes/fields/wysiwyg.php:63
+#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Validation"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:87
-#: ../includes/fields/select.php:142 ../includes/fields/text.php:39
-#: ../includes/fields/textarea.php:74 ../includes/fields/true_false.php:57
-#: ../includes/fields/wysiwyg.php:72
+#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Ce champ est obligatoire"
 
-#: ../includes/field_group.php:69
+#: ../includes/field_group.php:111
 msgid "Imported"
 msgstr "Importé"
 
-#: ../includes/field_group.php:72
+#: ../includes/field_group.php:114
 msgid "Skipped"
 msgstr "Ignoré"
 
-#: ../includes/field_group.php:77
+#: ../includes/field_group.php:119
 msgid "Nothing to import"
 msgstr "Rien à importer"
 
@@ -150,37 +57,49 @@ msgstr "Couleur"
 msgid "Date"
 msgstr "Date"
 
-#: ../includes/fields/file.php:14
+#: ../includes/fields/file.php:11
 msgid "File Upload"
 msgstr "Fichier"
 
-#: ../includes/fields/file.php:43
+#: ../includes/fields/file.php:35
 msgid "Add File"
 msgstr "Ajouter un fichier"
 
-#: ../includes/fields/file.php:44
+#: ../includes/fields/file.php:36
 msgid "Remove"
 msgstr "Retirer"
 
-#: ../includes/fields/file.php:57
+#: ../includes/fields/file.php:46
 msgid "Return Value"
 msgstr "Valeur de retour"
 
-#: ../includes/fields/file.php:66
+#: ../includes/fields/file.php:55
 msgid "File URL"
 msgstr "URL du fichier"
 
-#: ../includes/fields/file.php:67
+#: ../includes/fields/file.php:56
 msgid "Attachment ID"
 msgstr "ID du fichier attaché"
 
-#: ../includes/fields/file.php:127
+#: ../includes/fields/file.php:113
 msgid "Use This File"
 msgstr "Utiliser ce fichier"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
 msgstr "Lien hypertexte"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "URL"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "Texte du lien"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "Cible du lien"
 
 #: ../includes/fields/hyperlink.php:48
 msgid "Output format"
@@ -194,37 +113,37 @@ msgstr "HTML"
 msgid "PHP Array"
 msgstr "Tableau PHP"
 
-#: ../includes/fields/loop.php:9
+#: ../includes/fields/loop.php:8
 msgid "Loop"
 msgstr "Boucle"
 
-#: ../includes/fields/loop.php:41
+#: ../includes/fields/loop.php:34
 msgid "Row Display"
 msgstr "Affichage de la rangée"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:43
 msgid "Show the values by default"
 msgstr "Afficher les valeurs par défaut"
 
-#: ../includes/fields/loop.php:57
+#: ../includes/fields/loop.php:50
 msgid "Row Label"
 msgstr "Intitulé de la rangée"
 
-#: ../includes/fields/loop.php:64 ../includes/fields/loop.php:108
-#: ../includes/fields/loop.php:223
+#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
+#: ../includes/fields/loop.php:206
 msgid "Loop Row"
 msgstr "Rangée sans nom"
 
-#: ../includes/fields/loop.php:71
+#: ../includes/fields/loop.php:64
 msgid "Button Label"
 msgstr "Intitulé du bouton"
 
-#: ../includes/fields/loop.php:78 ../includes/fields/loop.php:135
-#: ../includes/fields/loop.php:224
+#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
+#: ../includes/fields/loop.php:207
 msgid "Add Row"
 msgstr "Ajouter une rangée"
 
-#: ../includes/fields/loop.php:86 ../includes/fields/relationship.php:107
+#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limites"
@@ -233,27 +152,35 @@ msgstr "Limites"
 msgid "Relationship"
 msgstr "Relation"
 
-#: ../includes/fields/relationship.php:92
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "Recherche Articles"
+
+#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+msgid "Post Types"
+msgstr "Types de contenu"
+
+#: ../includes/fields/relationship.php:89
 msgid "Limit posts to the following types"
 msgstr "Limiter les articles aux types suivants"
 
-#: ../includes/fields/select.php:9
+#: ../includes/fields/select.php:8
 msgid "Select"
 msgstr "Liste déroulante"
 
-#: ../includes/fields/select.php:102
+#: ../includes/fields/select.php:86
 msgid "Choices"
 msgstr "Choix"
 
-#: ../includes/fields/select.php:103
+#: ../includes/fields/select.php:87
 msgid "Enter one choice per line"
 msgstr "Veuillez entrer un choix par ligne"
 
-#: ../includes/fields/select.php:117
+#: ../includes/fields/select.php:101
 msgid "Multi-select?"
 msgstr "Sélection multiple?"
 
-#: ../includes/fields/select.php:126
+#: ../includes/fields/select.php:110
 msgid "This is a multi-select field"
 msgstr "Ceci est un champ de sélection multiple."
 
@@ -261,35 +188,35 @@ msgstr "Ceci est un champ de sélection multiple."
 msgid "Tab"
 msgstr "Onglet"
 
-#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:30
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
 msgid "Default Value"
 msgstr "Valeur par défaut"
 
-#: ../includes/fields/textarea.php:9
+#: ../includes/fields/textarea.php:8
 msgid "Textarea"
 msgstr "Zone de texte"
 
-#: ../includes/fields/textarea.php:44 ../includes/fields/wysiwyg.php:42
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
 msgid "Formatting"
 msgstr "Formatage"
 
-#: ../includes/fields/textarea.php:53
+#: ../includes/fields/textarea.php:46
 msgid "None"
 msgstr "Aucun"
 
-#: ../includes/fields/textarea.php:54
+#: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
 msgstr "Convertir les sauts de ligne en <br />"
 
-#: ../includes/fields/true_false.php:9
+#: ../includes/fields/true_false.php:8
 msgid "True / False"
 msgstr "Vrai / Faux"
 
-#: ../includes/fields/true_false.php:33
+#: ../includes/fields/true_false.php:30
 msgid "Message"
 msgstr "Message"
 
-#: ../includes/fields/true_false.php:34
+#: ../includes/fields/true_false.php:31
 msgid "The text beside the checkbox"
 msgstr "Texte associé à la case à cocher"
 
@@ -297,21 +224,85 @@ msgstr "Texte associé à la case à cocher"
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../includes/fields/wysiwyg.php:11
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "Rechercher les utilisateurs"
+
+#: ../includes/fields/wysiwyg.php:8
 msgid "Wysiwyg Editor"
 msgstr "Éditeur WYSIWYG"
 
-#: ../includes/fields/wysiwyg.php:51
+#: ../includes/fields/wysiwyg.php:42
 msgid "Default"
 msgstr "Défault"
 
-#: ../includes/fields/wysiwyg.php:52
+#: ../includes/fields/wysiwyg.php:43
 msgid "None (bypass filters)"
 msgstr "Aucun (ignorer les filtres)"
 
-#: ../includes/form.php:194
+#: ../includes/form.php:195
 msgid "Submit"
 msgstr "Soumettre"
+
+#: ../includes/init.php:56
+msgid "Field Groups"
+msgstr "CFS"
+
+#: ../includes/init.php:57
+msgid "Field Group"
+msgstr "Groupe de champs"
+
+#: ../includes/init.php:58
+msgid "All Field Groups"
+msgstr "Tous les groupes de champs"
+
+#: ../includes/init.php:59
+msgid "Add New Field Group"
+msgstr "Ajouter un nouveau groupe de champs"
+
+#: ../includes/init.php:60
+msgid "Edit Field Group"
+msgstr "Modifier le groupe de champs"
+
+#: ../includes/init.php:61
+msgid "New Field Group"
+msgstr "Nouveau groupe de champs"
+
+#: ../includes/init.php:62
+msgid "View Field Group"
+msgstr "Voir le groupe de champs"
+
+#: ../includes/init.php:63
+msgid "Search Field Groups"
+msgstr "Recherche d'un groupe de champs"
+
+#: ../includes/init.php:64
+msgid "No Field Groups found"
+msgstr "Aucun groupe de champs trouvé"
+
+#: ../includes/init.php:65
+msgid "No Field Groups found in Trash"
+msgstr "Aucun groupe de champs trouvé dans la corbeille"
+
+#: ../includes/init.php:141 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Outils"
+
+#: ../includes/init.php:151
+msgid "Fields"
+msgstr "Champs"
+
+#: ../includes/init.php:152
+msgid "Placement Rules"
+msgstr "Règles d'affichage"
+
+#: ../includes/init.php:153
+msgid "Extras"
+msgstr "Extras"
+
+#: ../includes/init.php:274
+msgid "Title"
+msgstr "Titre"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -366,46 +357,36 @@ msgstr "ou"
 msgid "delete"
 msgstr "supprimer"
 
-#: ../templates/meta_box_extras.php:41
+#: ../templates/meta_box_extras.php:33
 msgid "Order"
 msgstr "Ordre"
 
-#: ../templates/meta_box_extras.php:43
+#: ../templates/meta_box_extras.php:35
 msgid "The field group with the lowest order will appear first."
 msgstr ""
 "Le groupe de champ possédant l'ordre le plus faible sera affiché en premier."
 
-#: ../templates/meta_box_extras.php:53
+#: ../templates/meta_box_extras.php:45
 msgid "Position"
 msgstr "Position"
 
-#: ../templates/meta_box_extras.php:56
+#: ../templates/meta_box_extras.php:48
 msgid "Normal"
 msgstr "Normal"
 
-#: ../templates/meta_box_extras.php:57
+#: ../templates/meta_box_extras.php:49
 msgid "Side"
 msgstr "Sur le côté"
 
-#: ../templates/meta_box_extras.php:62
+#: ../templates/meta_box_extras.php:54
 msgid "Display Settings"
 msgstr "Paramètres d'affichage"
 
-#: ../templates/meta_box_extras.php:72
+#: ../templates/meta_box_extras.php:64
 msgid "Hide the content editor"
 msgstr "Masquer l'éditeur visuel (WYSIWYG)"
 
-#: ../templates/meta_box_extras.php:83
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
-#: ../templates/meta_box_extras.php:101
-msgid "Your Gravity Form and CFS field labels must match exactly"
-msgstr ""
-"Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
-"parfaitement"
-
-#: ../templates/meta_box_fields.php:66
+#: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
 msgstr "Ajouter un nouveau champ"
 
@@ -417,21 +398,29 @@ msgstr "est"
 msgid "is not"
 msgstr "n'est pas"
 
-#: ../templates/meta_box_rules.php:97 ../templates/meta_box_rules.php:102
+#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
 msgid "Leave blank to skip this rule"
 msgstr "Laisser vide pour ignorer cette règle"
 
-#: ../templates/meta_box_rules.php:233
+#: ../templates/meta_box_rules.php:167
+msgid "Post Formats"
+msgstr "Formats d'article"
+
+#: ../templates/meta_box_rules.php:200
+msgid "User Roles"
+msgstr "Rôles utilisateur"
+
+#: ../templates/meta_box_rules.php:232
 msgid "Posts"
 msgstr "Articles"
 
-#: ../templates/meta_box_rules.php:257
+#: ../templates/meta_box_rules.php:256
 msgid "Taxonomy Terms"
 msgstr "Termes de taxonomie"
 
-#: ../templates/page_addons.php:77
-msgid "Learn more"
-msgstr "En savoir plus"
+#: ../templates/meta_box_rules.php:288
+msgid "Page Templates"
+msgstr "Modèles de page"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -457,6 +446,32 @@ msgstr ""
 #: ../templates/page_tools.php:124
 msgid "Delete everything"
 msgstr "Supprimer tout"
+
+#~ msgid "Add New"
+#~ msgstr "Ajouter un nouveau"
+
+#~ msgid "Add-ons"
+#~ msgstr "Add-ons"
+
+#~ msgid "Placement"
+#~ msgstr "Affichage"
+
+#~ msgid "Post IDs"
+#~ msgstr "IDs des articles"
+
+#~ msgid "Term IDs"
+#~ msgstr "IDs des termes"
+
+#~ msgid "Gravity Forms"
+#~ msgstr "Gravity Forms"
+
+#~ msgid "Your Gravity Form and CFS field labels must match exactly"
+#~ msgstr ""
+#~ "Les champs de Gravity Forms et Custom Field Suite doivent correspondre "
+#~ "parfaitement"
+
+#~ msgid "Learn more"
+#~ msgstr "En savoir plus"
 
 #~ msgid "Which field groups would you like to export?"
 #~ msgstr "Quels groupes de champs souhaitez-vous exporter?"
