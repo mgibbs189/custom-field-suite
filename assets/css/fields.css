@@ -37,7 +37,7 @@
 
 #cfs_fields .fields {
     margin: 0;
-    background: #21759B;
+    background: #0073aa;
 }
 
 #cfs_fields .fields a.cfs_edit_field {
@@ -66,7 +66,7 @@
 }
 
 #cfs_fields .field.form_open .field_meta td {
-    background-color: #21759B;
+    background-color: #0073aa;
     color: #fff;
 }
 
