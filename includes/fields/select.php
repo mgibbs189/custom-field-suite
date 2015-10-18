@@ -36,6 +36,19 @@ class cfs_select extends cfs_field
             $field->input_class = '';
         }
 
+        // Select2
+        if (isset($field->options['select2']) && '1' == $field->options['select2'])
+        {
+            if (empty($field->input_class))
+            {
+                $field->input_class = 'select2';
+            }
+            else
+            {
+                $field->input_class .= ' select2';
+            }
+        }
+
         // Select boxes should return arrays (unless "force_single" is true)
         if ('[]' != substr($field->input_name, -2) && empty($field->options['force_single']))
         {
@@ -58,9 +71,13 @@ class cfs_select extends cfs_field
     function input_head($field = null)
     {
     ?>
+        <script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css" />
         <script>
         (function($) {
             $(function() {
+                $('.select2').select2();
+
                 $(document).on('cfs/ready', '.cfs_add_field', function() {
                     $('.cfs_select:not(.ready)').init_select();
                 });
@@ -124,6 +141,22 @@ class cfs_select extends cfs_field
                         'input_class' => 'true_false',
                         'value' => $this->get_option($field, 'multiple'),
                         'options' => array('message' => __('This is a multi-select field', 'cfs')),
+                    ));
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label><?php _e('Select2', 'cfs'); ?></label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field(array(
+                        'type' => 'true_false',
+                        'input_name' => "cfs[fields][$key][options][select2]",
+                        'input_class' => 'true_false',
+                        'value' => $this->get_option($field, 'select2'),
+                        'options' => array('message' => __('Render this field with Select2', 'cfs')),
                     ));
                 ?>
             </td>
