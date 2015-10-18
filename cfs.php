@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://customfieldsuite.com/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.4.5
+Version: 2.5b1
 Author: Matt Gibbs
 Author URI: http://customfieldsuite.com/
 Text Domain: cfs
@@ -23,7 +23,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.4.5' );
+        define( 'CFS_VERSION', '2.5b1' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( 'custom-field-suite' ) );
 
@@ -47,11 +47,7 @@ class Custom_Field_Suite
      * Public API methods
      */
     function get( $field_name = false, $post_id = false, $options = array() ) {
-        if ( false !== $field_name ) {
-            return CFS()->api->get_field( $field_name, $post_id, $options );
-        }
-
-        return CFS()->api->get_fields( $post_id, $options );
+        return CFS()->api->get( $field_name, $post_id, $options );
     }
 
 
@@ -70,13 +66,8 @@ class Custom_Field_Suite
     }
 
 
-    /* Work in progress */
-    function find_fields( $params ) {
-        $defaults = array(
-            'post_id',
-            'field_group_id',
-            'field_group_name',
-        );
+    function find_fields( $params = array() ) {
+        return CFS()->api->find_fields( $params );
     }
 
 
@@ -88,9 +79,7 @@ class Custom_Field_Suite
 
 
     /**
-     * field_html
-     * @param object $field
-     * @since 1.0.3
+     * Render a field's admin settings HTML
      */
     function field_html( $field ) {
         include( CFS_DIR . '/templates/field_html.php' );
@@ -98,7 +87,7 @@ class Custom_Field_Suite
 
 
     /**
-     * Abstractions
+     * Trigger the field type "html" method
      */
     function create_field( $field ) {
         $defaults = array(
