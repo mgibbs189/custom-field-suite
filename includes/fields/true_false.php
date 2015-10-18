@@ -80,7 +80,6 @@ class cfs_true_false extends cfs_field
 
                     // handle click
                     $this.find('span.checkbox').on('click', function() {
-                    //$this.find('span.checkbox').live('click', function() {
                         var val = $(this).hasClass('active') ? 0 : 1;
                         $(this).siblings('.true_false').val(val);
                         $(this).toggleClass('active');

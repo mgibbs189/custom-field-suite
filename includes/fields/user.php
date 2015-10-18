@@ -98,7 +98,7 @@ class cfs_user extends cfs_field
                     });
 
                     // add selected post
-                    $this.find('.available_posts div').live('click', function() {
+                    $this.find('.available_posts div').on('click', function() {
                         var parent = $(this).closest('.field');
                         var post_id = $(this).attr('rel');
                         var html = $(this).html();
@@ -108,7 +108,7 @@ class cfs_user extends cfs_field
                     });
 
                     // remove selected post
-                    $this.find('.selected_posts span.remove').live('click', function() {
+                    $this.find('.selected_posts span.remove').on('click', function() {
                         var div = $(this).parent();
                         var parent = div.closest('.field');
                         var post_id = div.attr('rel');
@@ -118,7 +118,7 @@ class cfs_user extends cfs_field
                     });
 
                     // filter posts
-                    $this.find('.cfs_filter_input').live('keyup', function() {
+                    $this.find('.cfs_filter_input').on('keyup', function() {
                         var input = $(this).val();
                         var parent = $(this).closest('.field');
                         var regex = new RegExp(input, 'i');
