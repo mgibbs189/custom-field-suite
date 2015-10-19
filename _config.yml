@@ -1,5 +1,5 @@
 name: Custom Field Suite
 
-markdown: kramdown
+markdown: redcarpet
 
 highlighter: pygments
