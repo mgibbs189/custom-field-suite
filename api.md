@@ -4,12 +4,14 @@ title: API
 ---
 
 ## CFS()->get()
-```php
+
+{% highlight php %}
 CFS()->get( $field_name, $post_id, $options );
-```
+{% endhighlight %}
 
 Examples:
-```php
+
+{% highlight php %}
 // Output a field value
 echo CFS()->get( 'first_name' );
 
@@ -31,15 +33,17 @@ $loop = CFS()->get( 'gallery' );
 foreach ( $loop as $row ) {
     echo $row['gallery_title']; // the "gallery_title" sub-field
 }
-```
+{% endhighlight %}
 
 ## CFS()->get_field_info()
-```php
+
+{% highlight php %}
 CFS()->get_field_info( $field_name, $post_id );
-```
+{% endhighlight %}
 
 Examples:
-```php
+
+{% highlight php %}
 // Get a field label
 $props = CFS()->get_field_info( 'first_name' );
 echo $props['label'];
@@ -60,7 +64,7 @@ $choices = $props['options']['choices']; // an array of choices
 foreach ( $choices as $value => $label ) {
     echo '<div>' . $value . ' = ' . $label . '</div>';
 }
-```
+{% endhighlight %}
 
 ## CFS()->find_field()
 
