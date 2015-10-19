@@ -9,8 +9,8 @@ title: API
 <?php CFS()->get( $field_name, $post_id, $options ); ?>
 {% endhighlight %}
 
-| Parameter  | Required  | Type  | Notes  |
-|---|---|---|---|
+| Parameter | Required | Type | Notes |
+|-----------|----------|------|-------|
 | $field_name  | N  | mixed  | Enter a field name, or FALSE to get all fields  |
 | $post_id  | N   | mixed  | Enter a post ID, or FALSE to use the current post ID  |
 | $options  | N  | array  | `$options['format']` can be 'api', 'input', or 'raw'  |
@@ -50,6 +50,11 @@ foreach ( $loop as $row ) {
 <?php CFS()->get_field_info( $field_name, $post_id ); ?>
 {% endhighlight %}
 
+| Parameter | Required | Type | Notes |
+|-----------|----------|------|-------|
+| $field_name | N | mixed | Enter a field name, or FALSE for all fields |
+| $post_id | N | Enter a post ID, or FALSE to use the current post ID |
+
 Examples:
 
 {% highlight php %}
@@ -83,8 +88,8 @@ foreach ( $choices as $value => $label ) {
 <?php CFS()->find_fields( $params ); ?>
 {% endhighlight %}
 
-| Parameter  | Required  | Type  | Notes  |
-|---|---|---|---|
+| Parameter | Required | Type | Notes |
+|-----------|----------|------|-------|
 | $params['post_id'] | N | mixed | A post ID to filter matches |
 | $params['group_id'] | N | mixed | (int) group ID, or (array) group IDs |
 | $params['field_id'] | N | mixed | (int) field ID, or (array) field IDs |
@@ -103,6 +108,7 @@ $fields = CFS()->find_fields( array( 'group_id' => 123 ) );
 
 // Find all fields with a specific field type
 $fields = CFS()->find_fields( array( 'field_type' => 'relationship' ) );
+
 
 // Find all text or textarea fields within a specific field group
 $fields = CFS()->find_fields( array(
