@@ -12,7 +12,7 @@ title: save
 | Parameter | Required | Type | Notes |
 |-----------|----------|------|-------|
 | field_data  | Y | array | An associative array of field data |
-| $post_id  | Y | array | An associative array of post data. To update an existing post, set $post_data['ID']. |
+| $post_data  | Y | array | An associative array of post data. To update an existing post, set `$post_data['ID']` |
 
 $post_data can include other post attributes, such as:
 
