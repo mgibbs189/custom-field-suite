@@ -51,19 +51,21 @@ foreach ( $wp_roles->roles as $key => $role ) {
 
 // Post IDs
 $post_ids = array();
-$rules_post_ids = '';
+$json_posts = array();
+
 if ( ! empty( $rules['post_ids']['values'] ) ) {
-    $rules_post_ids = implode( ',', $rules['post_ids']['values'] );
+    $post_in = implode( ',', $rules['post_ids']['values'] );
 
     $sql = "
     SELECT ID, post_type, post_title
     FROM $wpdb->posts
-    WHERE ID IN ($rules_post_ids)
+    WHERE ID IN ($post_in)
     ORDER BY post_type, post_title";
     $results = $wpdb->get_results( $sql );
 
     foreach ( $results as $result ) {
-        $post_ids[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $result->post_title" );
+        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $result->post_title" );
+        $post_ids[] = $result->ID;
     }
 }
 
@@ -73,7 +75,7 @@ SELECT t.term_id, t.name, tt.taxonomy
 FROM $wpdb->terms t
 INNER JOIN $wpdb->term_taxonomy tt ON tt.term_id = t.term_id AND tt.taxonomy != 'post_tag'
 ORDER BY tt.parent, tt.taxonomy, t.name";
-$results = $wpdb->get_results($sql);
+$results = $wpdb->get_results( $sql );
 
 foreach ( $results as $result ) {
     $term_ids[ $result->term_id ] = "($result->taxonomy) $result->name";
@@ -117,7 +119,7 @@ foreach ( $templates as $template_name => $filename ) {
             },
             initSelection: function(element, callback) {
                 var data = [];
-                var post_ids = <?php echo json_encode( $post_ids ); ?>;
+                var post_ids = <?php echo json_encode( $json_posts ); ?>;
                 $(post_ids).each(function(idx, val) {
                     data.push({ id: val.id, text: val.text });
                 });
@@ -151,13 +153,13 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td>
             <?php
-                CFS()->create_field(array(
+                CFS()->create_field( array(
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_types]",
                     'options' => array( 'multiple' => '1', 'choices' => $post_types ),
                     'value' => $rules['post_types']['values'],
-                ));
+                ) );
             ?>
         </td>
     </tr>
@@ -248,7 +250,7 @@ foreach ( $templates as $template_name => $filename ) {
             ?>
         </td>
         <td>
-            <input type="hidden" name="cfs[rules][post_ids]" class="select2-ajax" value="<?php echo $rules_post_ids; ?>" style="width:99.95%" />
+            <input type="hidden" name="cfs[rules][post_ids]" class="select2-ajax" value="<?php echo implode( ',', $post_ids ); ?>" style="width:99.95%" />
         </td>
     </tr>
     <tr>
