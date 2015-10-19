@@ -18,3 +18,7 @@ In order to display custom field values, you’ll need to add code to your templ
 {% highlight php %}
 <?php echo CFS()->get( 'first_name' ); ?>
 {% endhighlight %}
+
+## Screenshots
+
+<img src="http://i.imgur.com/JH4ke1C.png" width="600" alt="field group" />
