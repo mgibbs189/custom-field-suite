@@ -24,7 +24,7 @@ CFS also supports the creation of custom field types by using the `cfs_field_typ
 This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 = Important Links =
-* [Documentation →](http://customfieldsuite.com/projects/cfs/documentation/)
+* [Documentation →](http://docs.customfieldsuite.com)
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 = Translations =
