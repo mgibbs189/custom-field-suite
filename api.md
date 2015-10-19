@@ -53,7 +53,7 @@ foreach ( $loop as $row ) {
 | Parameter | Required | Type | Notes |
 |-----------|----------|------|-------|
 | $field_name | N | mixed | Enter a field name, or FALSE for all fields |
-| $post_id | N | Enter a post ID, or FALSE to use the current post ID |
+| $post_id | N | mixed | Enter a post ID, or FALSE to use the current post ID |
 
 Examples:
 
