@@ -33,7 +33,8 @@ $field_data = CFS()->get( false, 42, array( 'format' => 'raw' ) );
 // Get values from within a loop
 $loop = CFS()->get( 'gallery' );
 foreach ( $loop as $row ) {
-    echo $row['gallery_title']; // the "gallery_title" sub-field
+    echo $row['gallery_title'];
+    echo $row['gallery_image'];
 }
 {% endhighlight %}
 
