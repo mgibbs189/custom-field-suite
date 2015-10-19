@@ -1,6 +1,6 @@
 ---
 layout: default
-title: find_fields()
+title: find_fields
 ---
 
 ## Find fields based on group ID, post ID, etc.
@@ -18,23 +18,28 @@ title: find_fields()
 | $params['field_name'] | N | mixed | (string) field name, or (array) field names |
 | $params['parent_id'] | N | mixed | (int) parent ID, or (array) parent IDs |
 
-Examples:
+### Examples
+
+Find all fields within a specific field group (ID = 123)
 
 {% highlight php %}
 <?php
-
-// Find all fields within a specific field group (ID = 123)
 $fields = CFS()->find_fields( array( 'group_id' => 123 ) );
+{% endhighlight %}
 
+Find all fields with a specific field type
 
-// Find all fields with a specific field type
+{% highlight php %}
+<?php
 $fields = CFS()->find_fields( array( 'field_type' => 'relationship' ) );
+{% endhighlight %}
 
+Find all text or textarea fields within a specific field group
 
-// Find all text or textarea fields within a specific field group
+{% highlight php %}
+<?php
 $fields = CFS()->find_fields( array(
   'field_type' => array( 'text', 'textarea' ),
   'group_id' => 123,
 ) );
-
 {% endhighlight %}
