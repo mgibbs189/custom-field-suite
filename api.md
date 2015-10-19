@@ -112,8 +112,6 @@ $fields = CFS()->find_fields( array(
 
 {% endhighlight %}
 
-## CFS()->get_reverse_related()
+## Get reverse-related posts
 
-## CFS()->save()
-
-## CFS()->form()
+## Save field values
