@@ -14,13 +14,14 @@ class cfs_init
             $this->load_textdomain();
         }
 
-        add_action( 'admin_head',                   array( $this, 'admin_head' ) );
-        add_action( 'admin_menu',                   array( $this, 'admin_menu' ) );
-        add_action( 'save_post',                    array( $this, 'save_post' ) );
-        add_action( 'delete_post',                  array( $this, 'delete_post' ) );
-        add_action( 'add_meta_boxes',               array( $this, 'add_meta_boxes' ) );
-        add_action( 'wp_ajax_cfs_ajax_handler',     array( $this, 'ajax_handler' ) );
-        add_filter( 'manage_cfs_posts_columns',     array( $this, 'cfs_columns' ) );
+        add_action( 'admin_head',                       array( $this, 'admin_head' ) );
+        add_action( 'admin_menu',                       array( $this, 'admin_menu' ) );
+        add_action( 'save_post',                        array( $this, 'save_post' ) );
+        add_action( 'delete_post',                      array( $this, 'delete_post' ) );
+        add_action( 'add_meta_boxes',                   array( $this, 'add_meta_boxes' ) );
+        add_action( 'wp_ajax_cfs_ajax_handler',         array( $this, 'ajax_handler' ) );
+        add_filter( 'manage_cfs_posts_columns',         array( $this, 'cfs_columns' ) );
+        add_action( 'manage_cfs_posts_custom_column',   array( $this, 'cfs_column_content' ), 10, 2 );
 
 
         include( CFS_DIR . '/includes/api.php' );
@@ -84,7 +85,6 @@ class cfs_init
 
     /**
      * Register field types
-     * @since 1.0.0
      */
     function get_field_types() {
 
@@ -122,7 +122,6 @@ class cfs_init
 
     /**
      * admin_head
-     * @since 1.0.0
      */
     function admin_head() {
         $screen = get_current_screen();
@@ -135,7 +134,6 @@ class cfs_init
 
     /**
      * admin_menu
-     * @since 1.0.0
      */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
@@ -150,7 +148,6 @@ class cfs_init
 
     /**
      * add_meta_boxes
-     * @since 1.0.0
      */
     function add_meta_boxes() {
         add_meta_box( 'cfs_fields', __('Fields', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'fields' ) );
@@ -163,7 +160,6 @@ class cfs_init
      * meta_box
      * @param object $post
      * @param array $metabox
-     * @since 1.0.0
      */
     function meta_box( $post, $metabox ) {
         $box = $metabox['args']['box'];
@@ -173,7 +169,6 @@ class cfs_init
 
     /**
      * page_tools
-     * @since 1.6.3
      */
     function page_tools() {
         include( CFS_DIR . '/templates/page_tools.php' );
@@ -182,8 +177,6 @@ class cfs_init
 
     /**
      * save_post
-     * @param int $post_id
-     * @since 1.0.0
      */
     function save_post( $post_id ) {
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -215,9 +208,7 @@ class cfs_init
 
     /**
      * delete_post
-     * @param int $post_id
      * @return boolean
-     * @since 1.0.0
      */
     function delete_post( $post_id ) {
         global $wpdb;
@@ -233,7 +224,6 @@ class cfs_init
 
     /**
      * ajax_handler
-     * @since 1.7.5
      */
     function ajax_handler() {
         if ( ! current_user_can( 'manage_options' ) ) {
@@ -270,14 +260,53 @@ class cfs_init
 
 
     /**
-     * Customize table columns on the Field Groups listing page
-     * @since 1.0.0
+     * Customize table columns on the Field Group listing
      */
     function cfs_columns() {
         return array(
             'cb'            => '<input type="checkbox" />',
-            'title'         => __( 'Title', 'cfs' )
+            'title'         => __( 'Title', 'cfs' ),
+            'placement'     => __( 'Placement', 'cfs' ),
         );
+    }
+
+
+    /**
+     * Populate the "Placement" column on the Field Group listing
+     */
+    function cfs_column_content( $column_name, $post_id ) {
+        if ( 'placement' == $column_name ) {
+            global $wpdb;
+
+            $labels = array(
+                'post_types'        => __( 'Post Types', 'cfs' ),
+                'user_roles'        => __( 'User Roles', 'cfs' ),
+                'post_ids'          => __( 'Posts', 'cfs' ),
+                'term_ids'          => __( 'Term IDs', 'cfs' ),
+                'page_templates'    => __( 'Page Templates', 'cfs' ),
+                'post_formats'      => __( 'Post Formats', 'cfs' )
+            );
+
+            $field_groups = CFS()->field_group->load_field_groups();
+            $rules = $field_groups[ $post_id ]['rules'];
+
+            foreach ( $rules as $criteria => $data ) {
+                $label = $labels[ $criteria ];
+                $values = $data['values'];
+                $operator = ( '==' == $data['operator'] ) ? '=' : '!=';
+
+                // Get post titles
+                if ( 'post_ids' == $criteria ) {
+                    $temp = array();
+                    foreach ( $values as $val ) {
+                        $temp[] = get_the_title( (int) $val );
+                    }
+                    $values = $temp;
+                }
+
+                echo "<div><strong>$label</strong> " . $operator . ' ' . implode( ', ', $values ) . '</div>';
+            }
+        }
     }
 }
 
