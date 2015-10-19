@@ -32,11 +32,6 @@ $related_ids = CFS()->get_reverse_related( $post->ID, array(
     'field_name' => 'related_events',
     'post_type' => 'news'
 ) );
-
-// Loop through the array, outputting each ID
-foreach ( $related_ids as $news_id ) {
-    echo $news_id;
-}
 {% endhighlight %}
 
 Retrieve items from a specific post type
