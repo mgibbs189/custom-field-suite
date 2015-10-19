@@ -1,6 +1,6 @@
 ---
 layout: default
-title: get()
+title: get
 ---
 
 ## Get field values
