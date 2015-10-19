@@ -15,28 +15,40 @@ title: get()
 | $post_id  | N   | mixed  | Enter a post ID, or FALSE to use the current post ID  |
 | $options  | N  | array  | `$options['format']` can be 'api', 'input', or 'raw'  |
 
-Examples:
+### Examples
+
+Output a field value
 
 {% highlight php %}
 <?php
+echo CFS()->get( 'first_name' ); ?>
+{% endhighlight %}
 
-// Output a field value
-echo CFS()->get( 'first_name' );
+Store all field values for the current post
 
-
-// Store all field values for the current post
+{% highlight php %}
+<?php
 $fields = CFS()->get();
+{% endhighlight %}
 
+Output a field from a specific post ID
 
-// Output a field from a specific post ID
+{% highlight php %}
+<?php
 echo CFS()->get( 'first_name', 678 );
+{% endhighlight %}
 
+Retrieve the raw, unformatted values for post with ID = 42
 
-// Retrieve the raw, unformatted values for post with ID = 42
+{% highlight php %}
+<?php
 $field_data = CFS()->get( false, 42, array( 'format' => 'raw' ) );
+{% endhighlight %}
 
+Get values from within a loop
 
-// Get values from within a loop
+{% highlight php %}
+<?php
 $loop = CFS()->get( 'gallery' );
 foreach ( $loop as $row ) {
     echo $row['gallery_title'];
