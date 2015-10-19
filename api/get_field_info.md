@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API
+title: get_field_info()
 ---
 
 ## Get field properties
