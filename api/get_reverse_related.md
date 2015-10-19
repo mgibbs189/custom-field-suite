@@ -28,7 +28,10 @@ News items have a "related_events" relationship field. To display related news o
 {% highlight php %}
 <?php
 // This will return an array of news IDs
-$related_ids = CFS()->get_reverse_related( $post->ID, array( 'field_name' => 'related_events' ) );
+$related_ids = CFS()->get_reverse_related( $post->ID, array(
+    'field_name' => 'related_events',
+    'post_type' => 'news'
+) );
 
 // Loop through the array, outputting each ID
 foreach ( $related_ids as $news_id ) {
