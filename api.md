@@ -6,7 +6,7 @@ title: API
 ## CFS()->get()
 
 {% highlight php %}
-CFS()->get( $field_name, $post_id, $options );
+<?php CFS()->get( $field_name, $post_id, $options ); ?>
 {% endhighlight %}
 
 Examples:
