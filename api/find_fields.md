@@ -20,7 +20,7 @@ title: find_fields
 
 ### Examples
 
-Find all fields within a specific field group (ID = 123)
+Find all fields within a specific field group
 
 {% highlight php %}
 <?php
