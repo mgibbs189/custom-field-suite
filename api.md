@@ -3,7 +3,7 @@ layout: default
 title: API
 ---
 
-## CFS()->get()
+## Get field values
 
 {% highlight php %}
 <?php CFS()->get( $field_name, $post_id, $options ); ?>
@@ -12,6 +12,8 @@ title: API
 Examples:
 
 {% highlight php %}
+<?php
+
 // Output a field value
 echo CFS()->get( 'first_name' );
 
@@ -35,15 +37,17 @@ foreach ( $loop as $row ) {
 }
 {% endhighlight %}
 
-## CFS()->get_field_info()
+## Get field properties
 
 {% highlight php %}
-CFS()->get_field_info( $field_name, $post_id );
+<?php CFS()->get_field_info( $field_name, $post_id ); ?>
 {% endhighlight %}
 
 Examples:
 
 {% highlight php %}
+<?php
+
 // Get a field label
 $props = CFS()->get_field_info( 'first_name' );
 echo $props['label'];
@@ -66,7 +70,7 @@ foreach ( $choices as $value => $label ) {
 }
 {% endhighlight %}
 
-## CFS()->find_field()
+## Find fields based on group ID, post ID, etc.
 
 ## CFS()->get_reverse_related()
 
