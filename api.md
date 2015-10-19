@@ -9,6 +9,12 @@ title: API
 <?php CFS()->get( $field_name, $post_id, $options ); ?>
 {% endhighlight %}
 
+| Parameter  | Required  | Type  | Notes  |
+|---|---|---|---|
+| $field_name  | N  | mixed  | Enter a field name, or FALSE to get all fields  |
+| $post_id  | N   | mixed  | Enter a post ID, or FALSE to use the current post ID  |
+| $options  | N  | array  | `$options['format']` can be 'api', 'input', or 'raw'  |
+
 Examples:
 
 {% highlight php %}
