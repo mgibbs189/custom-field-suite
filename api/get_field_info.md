@@ -39,7 +39,7 @@ Get all field properties (as an associative array)
 $props = CFS()->get_field_info();
 {% endhighlight %}
 
-Output all select field choices
+Output all choices for a select field
 
 {% highlight php %}
 <?php
