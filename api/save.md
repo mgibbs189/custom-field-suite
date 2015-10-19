@@ -14,7 +14,7 @@ title: save
 | field_data  | Y | array | An associative array of field data |
 | $post_data  | Y | array | An associative array of post data. To update an existing post, set `$post_data['ID']` |
 
-$post_data can include other post attributes, such as:
+`$post_data` can include other post attributes, such as:
 
 {% highlight php %}
 $post_data['post_title']
