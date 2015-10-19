@@ -28,16 +28,18 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 = Translations =
+* Catalan (ca) - thanks to Luis Bordas
+* Chinese (zh_CN) - thanks to iblackly
 * Dutch (nl_NL) - thanks to [wverhoogt](https://github.com/wverhoogt)
-* German (de_DE) - thanks to [David Decker](http://deckerweb.de/)
-* Spanish (es_ES) - thanks to [Andrew Kurtis](http://www.webhostinghub.com/)
-* Persian (fa_IR) - thanks to Vahid Masoomi
 * French (fr_FR) - thanks to Jean-Christophe Brebion
+* German (de_DE) - thanks to [David Decker](http://deckerweb.de/)
 * Italian (it_IT)
 * Japanese (ja) - thanks to Karin Suzakura
+* Persian (fa_IR) - thanks to Vahid Masoomi
 * Polish (pl_PL) - thanks to [Digital Factory](digitalfactory.pl)
 * Russian (ru_RU) - thanks to Glebcha
-* Catalan (ca) - thanks to Luis Bordas
+* Spanish (es_ES) - thanks to [Andrew Kurtis](http://www.webhostinghub.com/)
+* Turkish (tr_TR) - thanks to Ertuğrul
 
 == Installation ==
 
@@ -51,6 +53,22 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5 =
+* New: [find_fields API method](http://docs.customfieldsuite.com/api/find_fields.html)
+* New: `CFS()->field_group->load_field_groups()` method
+* New: Turkish transation (props Ertuğrul)
+* New: Chinese translation (props iblackly)
+* Improved: [documentation overhaul](http://docs.customfieldsuite.com)
+* Improved: major code cleanup and refactoring
+* Improved: efficiency improvements for internal API methods
+* Improved: removed deprecated (< 3.5) code from File field type
+* Improved: now using a built-in WP dashicon
+* Changed: removed obsolete Gravity Forms integration
+* Changed: removed `cfs_relationship_post_types` filter (use `cfs_field_relationship_query_args` instead)
+* Changed: removed add-ons screen (for now)
+* Fix: CFS()->save gracefully handles missing fields (no errors)
+* Updated translations
 
 = 2.4.5 =
 * Fix: WP 4.3 `wp_richedit_pre` deprecated notice (props @jchristopher)
