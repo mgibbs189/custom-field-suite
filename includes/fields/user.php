@@ -81,6 +81,41 @@ class cfs_user extends cfs_field
                     $('.cfs_user:not(.ready)').init_user();
                 });
                 $('.cfs_user').init_user();
+
+                // add selected post
+                $(document).on('click', '.cfs_user .available_posts div', function() {
+                    var parent = $(this).closest('.field');
+                    var post_id = $(this).attr('rel');
+                    var html = $(this).html();
+                    $(this).addClass('used');
+                    parent.find('.selected_posts').append('<div rel="'+post_id+'"><span class="remove"></span>'+html+'</div>');
+                    update_user_values(parent);
+                });
+
+                // remove selected post
+                $(document).on('click', '.cfs_user .selected_posts .remove', function() {
+                    var div = $(this).parent();
+                    var parent = div.closest('.field');
+                    var post_id = div.attr('rel');
+                    parent.find('.available_posts div[rel='+post_id+']').removeClass('used');
+                    div.remove();
+                    update_user_values(parent);
+                });
+
+                // filter posts
+                $(document).on('keyup', '.cfs_user .cfs_filter_input', function() {
+                    var input = $(this).val();
+                    var parent = $(this).closest('.field');
+                    var regex = new RegExp(input, 'i');
+                    parent.find('.available_posts div:not(.used)').each(function() {
+                        if (-1 < $(this).html().search(regex)) {
+                            $(this).removeClass('hidden');
+                        }
+                        else {
+                            $(this).addClass('hidden');
+                        }
+                    });
+                });
             });
 
             $.fn.init_user = function() {
@@ -95,41 +130,6 @@ class cfs_user extends cfs_field
                             var parent = $(this).closest('.field');
                             update_user_values(parent);
                         }
-                    });
-
-                    // add selected post
-                    $this.find('.available_posts div').on('click', function() {
-                        var parent = $(this).closest('.field');
-                        var post_id = $(this).attr('rel');
-                        var html = $(this).html();
-                        $(this).addClass('used');
-                        parent.find('.selected_posts').append('<div rel="'+post_id+'"><span class="remove"></span>'+html+'</div>');
-                        update_user_values(parent);
-                    });
-
-                    // remove selected post
-                    $this.find('.selected_posts span.remove').on('click', function() {
-                        var div = $(this).parent();
-                        var parent = div.closest('.field');
-                        var post_id = div.attr('rel');
-                        parent.find('.available_posts div[rel='+post_id+']').removeClass('used');
-                        div.remove();
-                        update_user_values(parent);
-                    });
-
-                    // filter posts
-                    $this.find('.cfs_filter_input').on('keyup', function() {
-                        var input = $(this).val();
-                        var parent = $(this).closest('.field');
-                        var regex = new RegExp(input, 'i');
-                        parent.find('.available_posts div:not(.used)').each(function() {
-                            if (-1 < $(this).html().search(regex)) {
-                                $(this).removeClass('hidden');
-                            }
-                            else {
-                                $(this).addClass('hidden');
-                            }
-                        });
                     });
                 });
             }
