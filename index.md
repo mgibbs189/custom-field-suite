@@ -3,6 +3,10 @@ layout: default
 title: Getting Started
 ---
 
+<img src="https://img.shields.io/wordpress/plugin/dt/custom-field-suite.svg" />
+<img src="https://img.shields.io/wordpress/v/custom-field-suite.svg" />
+<img src="https://img.shields.io/wordpress/plugin/r/custom-field-suite.svg" />
+
 ## 1. Create a Field Group
 
 Begin by creating a Field Group. A Field Group is a bundle of one or more custom fields. We can manage the fields within each Field Group. Each Field Group also has a Placement Rules box - here you specify where the Field Group should appear.
