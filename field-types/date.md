@@ -3,7 +3,7 @@ layout: default
 title: Date field
 ---
 
-## Text
+## Date
 
 Generates a single-line text field with a built-in datepicker widget
 
