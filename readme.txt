@@ -6,20 +6,21 @@ Tested up to: 4.3.1
 Stable tag: trunk
 License: GPLv2
 
-Custom Field Suite (CFS) allows you to attach custom fields to posts types.
+A custom fields management UI
 
 == Description ==
 
-= Custom Field Suite (CFS) allows you to attach custom fields to posts types. =
+= Custom Field Suite (CFS) is a visual custom fields management plugin. =
 
-CFS lets you visually create an manage custom fields. You first create a Field Group, which contains one or more custom fields.
-You're able to easily add custom fields through the admin UI. There's over 12 field types to choose from, include text, date,
-wysiwyg, file upload, relationship, user, loop (repeatable fields), etc.
+CFS includes over 12 field types, include text, date, wysiwyg, file upload, relationship, user, and loop (repeatable fields). With CFS, creating and managing custom fields is easy, thanks to our clean and intuitive admin UI.
 
-After you've set up your field group, you simply set where the fields appear using the Placement Rules box. You can attach custom fields to
-entire post types, specific post items, pages using a specific template, etc.
+It also features an [elegant, lightweight API](http://docs.customfieldsuite.com/api.html) for loading (and saving) field values.
 
-CFS also supports the creation of custom field types by using the `cfs_field_types` filter.
+= Setting it up =
+* Browse to the "Field Groups" admin menu
+* Create a Field Group, containing one or more custom fields
+* Choose where the Field Group should appear, using Placement Rules (see screenshots)
+* Use the [get](http://docs.customfieldsuite.com/api/get.html) method in your template files to display custom fields
 
 This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
