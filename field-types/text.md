@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Text field
+title: Text
 ---
 
-## Text
+## {{ page.title }}
 
 Generates a single-line text field
 
