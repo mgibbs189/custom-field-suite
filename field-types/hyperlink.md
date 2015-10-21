@@ -15,7 +15,7 @@ Generates a URL and Label input field
 
 ### Return Value
 
-(string | array) An HTML hyperlink, or an array of PHP input values
+(string or array) An HTML hyperlink, or an array of PHP input values
 
 ### Template Usage
 
