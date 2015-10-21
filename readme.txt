@@ -68,6 +68,8 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Changed: removed obsolete Gravity Forms integration
 * Changed: removed `cfs_relationship_post_types` filter (use `cfs_field_relationship_query_args` instead)
 * Changed: removed add-ons screen (for now)
+* Changed: toggle icon for loop fields
+* Fix: field validation for loop sub-fields
 * Fix: CFS()->save gracefully handles missing fields (no errors)
 * Fix: Remove non-existing post IDs from "Posts" placement rule
 * Updated translations
