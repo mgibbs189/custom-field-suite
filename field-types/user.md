@@ -1,9 +1,9 @@
 ---
 layout: default
-title: User field
+title: User
 ---
 
-## User
+## {{ page.title }}
 
 Generates a widget for selecting users. It includes drag-n-drop ordering capabilities.
 
