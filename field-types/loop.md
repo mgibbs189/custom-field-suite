@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Loop field
+title: Loop
 ---
 
-## Loop
+## {{ page.title }}
 
 A loop field lets you create repeatable fields. E.g. a file upload field could be placed into a loop to create a gallery.
 
