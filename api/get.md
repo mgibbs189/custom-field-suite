@@ -21,7 +21,7 @@ Output a field value
 
 {% highlight php %}
 <?php
-echo CFS()->get( 'first_name' ); ?>
+echo CFS()->get( 'first_name' );
 {% endhighlight %}
 
 Store all field values for the current post
