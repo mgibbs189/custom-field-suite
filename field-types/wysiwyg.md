@@ -3,7 +3,7 @@ layout: default
 title: WYSIWYG field
 ---
 
-## Text
+## WYSIWYG
 
 Generates a visual editor field
 
