@@ -332,7 +332,7 @@ class cfs_init
      * @deprecated 2.5
      */
     function parse_query( $wp_query ) {
-        $wp_query->query_vars['cfs'] = $this;
+        $wp_query->query_vars['cfs'] = CFS();
     }
 }
 
