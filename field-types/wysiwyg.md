@@ -1,9 +1,9 @@
 ---
 layout: default
-title: WYSIWYG field
+title: WYSIWYG
 ---
 
-## WYSIWYG
+## {{ page.title }}
 
 Generates a visual editor field
 
