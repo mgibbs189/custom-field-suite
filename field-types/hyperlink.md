@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Hyperlink field
+title: Hyperlink
 ---
 
-## Hyperlink
+## {{ page.title }}
 
 Generates a URL and Label input field
 
