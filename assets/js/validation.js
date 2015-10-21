@@ -85,21 +85,22 @@
             if (false === CFS.is_draft) {
                 var passthru = true;
 
-                $('.cfs_input .field').each(function() {
-                    var $this = $(this);
+                // handle each validator field
+                $.each(CFS.field_rules, function(field_name, obj) {
+                    $('.cfs_input .field-' + field_name).each(function() {
+                        var $this = $(this);
 
-                    // reset error styling
-                    $this.find('.error').hide();
+                        // reset error styling
+                        $this.find('.error').hide();
 
-                    var type = $this.attr('data-type');
-                    var validator = $this.attr('data-validator');
-                    validator = ('undefined' != typeof validator) ? validator.split('|')[0] : '';
-
-                    // a validator is specified
-                    if ('' != validator) {
+                        var type = obj.type;
+                        var validator = obj.rule.split('|')[0];
 
                         // the validator exists
                         if ('object' == typeof CFS.validators[validator]) {
+
+                            // set the DOM attribute
+                            $this.attr('data-validator', obj.rule);
 
                             // figure out the field value
                             if ('function' == typeof CFS.get_field_value[type]) {
@@ -131,7 +132,7 @@
                                 }, 500);
                             }
                         }
-                    }
+                    });
                 });
 
                 if (!passthru) {

@@ -10,10 +10,11 @@ class cfs_loop extends cfs_field
     }
 
 
-    /*---------------------------------------------------------------------------------------------
+    /*
+    ================================================================
         html
-    ---------------------------------------------------------------------------------------------*/
-
+    ================================================================
+    */
     function html( $field ) {
         global $post;
 
@@ -23,10 +24,11 @@ class cfs_loop extends cfs_field
     }
 
 
-    /*---------------------------------------------------------------------------------------------
+    /*
+    ================================================================
         options_html
-    ---------------------------------------------------------------------------------------------*/
-
+    ================================================================
+    */
     function options_html( $key, $field ) {
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -88,17 +90,28 @@ class cfs_loop extends cfs_field
     }
 
 
-    /*---------------------------------------------------------------------------------------------
+    /*
+    ================================================================
         recursive_clone
-    ---------------------------------------------------------------------------------------------*/
-
+    ================================================================
+    */
     function recursive_clone( $group_id, $field_id ) {
         $loop_field_ids = array();
-        $loop_field = CFS()->api->get_input_fields( array( 'field_id' => $field_id ) );
-        $row_label = $this->dynamic_label( $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) ) );
 
-        // Get the sub-fields
-        $results = CFS()->api->get_input_fields( array( 'group_id' => $group_id, 'parent_id' => $field_id ) );
+        // Get loop field
+        $loop_field = CFS()->api->get_input_fields( array(
+            'field_id' => $field_id
+        ) );
+
+        // Get sub-fields
+        $results = CFS()->api->get_input_fields( array(
+            'group_id' => $group_id,
+            'parent_id' => $field_id
+        ) );
+
+        $row_label = $this->dynamic_label(
+            $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) )
+        );
 
         ob_start();
     ?>
@@ -116,7 +129,7 @@ class cfs_loop extends cfs_field
                 <p class="notes"><?php echo $field->notes; ?></p>
                 <?php endif; ?>
 
-                <div class="field cfs_<?php echo $field->type; ?>">
+                <div class="field field-<?php echo $field->name; ?> cfs_<?php echo $field->type; ?>">
                 <?php
                 if ( 'loop' == $field->type ) :
                     $loop_field_ids[] = $field->id;
@@ -154,54 +167,29 @@ class cfs_loop extends cfs_field
     }
 
 
-    /*---------------------------------------------------------------------------------------------
-        dynamic_label
-    ---------------------------------------------------------------------------------------------*/
-
-    function dynamic_label( $row_label, $fields = array(), $values = array() ) {
-        preg_match_all( "/({(.*?)})/", $row_label, $matches );
-
-        if ( ! empty( $matches ) ) {
-
-            // Get all field names and IDs
-            $all_fields = array();
-            foreach ( $fields as $field ) {
-                $all_fields[ $field->name ] = (int) $field->id;
-            }
-
-            foreach ( $matches[2] as $token ) {
-
-                //check for fallback
-                $tmp = explode( ':', $token );
-                $field_name = $tmp[0];
-                $fallback = isset( $tmp[1] ) ? $tmp[1] : false;
-                $field_id = isset( $all_fields[ $field_name ] ) ? $all_fields[ $field_name ] : false;
-
-                if ( isset( $values[ $field_id ] ) ) {
-                    $row_label = str_replace( '{' . $token . '}', $values[ $field_id ], $row_label );
-                }
-                elseif ( false !== $fallback ) {
-                     $row_label = str_replace( '{' . $token . '}', $fallback, $row_label );
-                }
-            }
-        }
-
-        return $row_label;
-    }
-
-
-    /*---------------------------------------------------------------------------------------------
+    /*
+    ================================================================
         recursive_html
-    ---------------------------------------------------------------------------------------------*/
+    ================================================================
+    */
+    function recursive_html( $group_id, $field_id, $parent_tag = '', $parent_weight = 0 ) {
 
-    function recursive_html( $group_id, $field_id, $parent_tag = '', $parent_weight = 0 )
-    {
-        $results = CFS()->api->get_input_fields( array( 'group_id' => $group_id, 'parent_id' => $field_id ) );
+        // Get loop field
+        $loop_field = CFS()->api->get_input_fields( array(
+            'field_id' => $field_id
+        ) );
+
+        // Get sub-fields
+        $results = CFS()->api->get_input_fields( array(
+            'group_id' => $group_id,
+            'parent_id' => $field_id
+        ) );
+
+        // Dynamically build the $values array
         $parent_tag = empty( $parent_tag ) ? "[$field_id]" : $parent_tag;
         eval( "\$values = isset(\$this->values{$parent_tag} ) ? \$this->values{$parent_tag} : false;" );
 
-        // Get field options
-        $loop_field = CFS()->api->get_input_fields( array( 'field_id' => $field_id ) );
+        // Row options
         $row_display = $this->get_option( $loop_field[ $field_id ], 'row_display', 0 );
         $row_label = $this->get_option( $loop_field[ $field_id ], 'row_label', __( 'Loop Row', 'cfs' ) );
         $button_label = $this->get_option( $loop_field[ $field_id ], 'button_label', __( 'Add Row', 'cfs' ) );
@@ -228,7 +216,7 @@ class cfs_loop extends cfs_field
                 <p class="notes"><?php echo $field->notes; ?></p>
                 <?php endif; ?>
 
-                <div class="field cfs_<?php echo $field->type; ?>">
+                <div class="field field-<?php echo $field->name; ?> cfs_<?php echo $field->type; ?>">
                 <?php if ( 'loop' == $field->type ) : ?>
                     <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i ); ?>
                 <?php else : ?>
@@ -338,6 +326,48 @@ class cfs_loop extends cfs_field
     }
 
 
+    /*
+    ================================================================
+        dynamic_label
+    ================================================================
+    */
+    function dynamic_label( $row_label, $fields = array(), $values = array() ) {
+        preg_match_all( "/({(.*?)})/", $row_label, $matches );
+
+        if ( ! empty( $matches ) ) {
+
+            // Get all field names and IDs
+            $all_fields = array();
+            foreach ( $fields as $field ) {
+                $all_fields[ $field->name ] = (int) $field->id;
+            }
+
+            foreach ( $matches[2] as $token ) {
+
+                // Check for fallback
+                $tmp = explode( ':', $token );
+                $field_name = $tmp[0];
+                $fallback = isset( $tmp[1] ) ? $tmp[1] : false;
+                $field_id = isset( $all_fields[ $field_name ] ) ? $all_fields[ $field_name ] : false;
+
+                if ( isset( $values[ $field_id ] ) ) {
+                    $row_label = str_replace( '{' . $token . '}', $values[ $field_id ], $row_label );
+                }
+                elseif ( false !== $fallback ) {
+                     $row_label = str_replace( '{' . $token . '}', $fallback, $row_label );
+                }
+            }
+        }
+
+        return $row_label;
+    }
+
+
+    /*
+    ================================================================
+        prepare_value
+    ================================================================
+    */
     function prepare_value( $value, $field = null ) {
         return $value;
     }
