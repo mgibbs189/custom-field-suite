@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Relationship field
+title: Relationship
 ---
 
-## Relationship
+## {{ page.title }}
 
 Generates a widget for selecting other post type items. It includes drag-n-drop ordering capabilities.
 
