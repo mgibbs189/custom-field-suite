@@ -1,9 +1,9 @@
 ---
 layout: default
-title: File Upload field
+title: File Upload
 ---
 
-## File Upload
+## {{ page.title }}
 
 Generates a file upload field, using the native WordPress uploader
 
