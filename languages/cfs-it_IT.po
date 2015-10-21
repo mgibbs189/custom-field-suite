@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2015-10-18 14:59-0400\n"
-"PO-Revision-Date: 2015-10-18 15:00-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -30,7 +30,7 @@ msgid "Text"
 msgstr "Testo"
 
 # @ cfs
-#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
@@ -38,7 +38,7 @@ msgid "Validation"
 msgstr "Validazione"
 
 # @ cfs
-#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
@@ -46,17 +46,17 @@ msgid "This is a required field"
 msgstr "Questo è un campo obbligatorio"
 
 # @ cfs
-#: ../includes/field_group.php:111
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "Importato"
 
 # @ cfs
-#: ../includes/field_group.php:114
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "Ignorato"
 
 # @ cfs
-#: ../includes/field_group.php:119
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Niente da importare"
 
@@ -71,39 +71,34 @@ msgid "Date"
 msgstr "Data"
 
 # @ cfs
-#: ../includes/fields/file.php:11
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Carica File"
 
 # @ cfs
-#: ../includes/fields/file.php:35
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "Aggiungi File"
 
 # @ cfs
-#: ../includes/fields/file.php:36
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "Rimuovi"
 
 # @ cfs
-#: ../includes/fields/file.php:46
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Valore di ritorno"
 
 # @ cfs
-#: ../includes/fields/file.php:55
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "URL File"
 
 # @ cfs
-#: ../includes/fields/file.php:56
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "ID allegato"
-
-# @ cfs
-#: ../includes/fields/file.php:113
-msgid "Use This File"
-msgstr "Usa questo File"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -139,39 +134,39 @@ msgid "Loop"
 msgstr "Loop"
 
 # @ cfs
-#: ../includes/fields/loop.php:34
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Visualizza Riga"
 
 # @ cfs
-#: ../includes/fields/loop.php:43
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Mostra i valori di default"
 
 # @ cfs
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Etichetta Riga"
 
 # @ cfs
-#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
-#: ../includes/fields/loop.php:206
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Riga Loop"
 
 # @ cfs
-#: ../includes/fields/loop.php:64
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Etihetta Bottone"
 
 # @ cfs
-#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
-#: ../includes/fields/loop.php:207
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Aggiungi Riga"
 
 # @ cfs
-#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limiti"
@@ -186,7 +181,8 @@ msgid "Search posts"
 msgstr "Cerca posts:"
 
 # @ cfs
-#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Tipo Post"
 
@@ -289,83 +285,113 @@ msgid "None (bypass filters)"
 msgstr "Nessuno (filtri di esclusione)"
 
 # @ cfs
-#: ../includes/form.php:195
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "Invia"
 
 # @ cfs
-#: ../includes/init.php:56
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "Gruppi di Campi"
 
 # @ cfs
-#: ../includes/init.php:57
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "Gruppo campi"
 
-#: ../includes/init.php:58
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "Tutti i gruppi di campi"
 
 # @ cfs
-#: ../includes/init.php:59
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Aggiungi un gruppo di campi"
 
 # @ cfs
-#: ../includes/init.php:60
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Modifica gruppo Campo"
 
 # @ cfs
-#: ../includes/init.php:61
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "Nuovo gruppo campo Utente"
 
 # @ cfs
-#: ../includes/init.php:62
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "Visualizza Campo Gruppo"
 
 # @ cfs
-#: ../includes/init.php:63
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Cerca Campo Gruppo"
 
 # @ cfs
-#: ../includes/init.php:64
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "Nessun Campo Gruppo Trovato"
 
 # @ cfs
-#: ../includes/init.php:65
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "Nessun Campo Gruppi trovato nel cestino"
 
 # @ cfs
-#: ../includes/init.php:141 ../templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Strumenti"
 
 # @ cfs
-#: ../includes/init.php:151
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "Campi"
 
 # @ cfs
-#: ../includes/init.php:152
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "Regole di posizionamento"
 
 # @ cfs
-#: ../includes/init.php:153
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "Extra"
 
 # @ cfs
-#: ../includes/init.php:274
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "Titolo"
+
+# @ cfs
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Posizionamento"
+
+# @ cfs
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Regoe Uente"
+
+# @ cfs
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Post"
+
+# @ cfs
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "ID Termine"
+
+# @ cfs
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Template Pagina"
+
+# @ cfs
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Post Formats"
 
 # @ cfs
 #: ../includes/revision.php:26
@@ -482,34 +508,14 @@ msgid "is not"
 msgstr "non è"
 
 # @ cfs
-#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Lascia bianco per saltare questa regola"
 
 # @ cfs
-#: ../templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "Post Formats"
-
-# @ cfs
-#: ../templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "Regoe Uente"
-
-# @ cfs
-#: ../templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "Post"
-
-# @ cfs
-#: ../templates/meta_box_rules.php:256
+#: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "Termini Tassonomia"
-
-# @ cfs
-#: ../templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "Template Pagina"
 
 # @ cfs
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
@@ -542,6 +548,10 @@ msgid "Delete everything"
 msgstr "Cancella tutto"
 
 # @ cfs
+#~ msgid "Use This File"
+#~ msgstr "Usa questo File"
+
+# @ cfs
 #~ msgid "Add New"
 #~ msgstr "Aggiungi Nuovo"
 
@@ -550,16 +560,8 @@ msgstr "Cancella tutto"
 #~ msgstr "Add-ons"
 
 # @ cfs
-#~ msgid "Placement"
-#~ msgstr "Posizionamento"
-
-# @ cfs
 #~ msgid "Post IDs"
 #~ msgstr "ID Post"
-
-# @ cfs
-#~ msgid "Term IDs"
-#~ msgstr "ID Termine"
 
 # @ cfs
 #~ msgid "Gravity Forms"

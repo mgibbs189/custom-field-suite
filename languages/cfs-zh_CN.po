@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-10-18 14:54-0400\n"
-"PO-Revision-Date: 2015-10-18 14:54-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -20,29 +20,29 @@ msgstr ""
 msgid "Text"
 msgstr "文本"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "验证"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "必选"
 
-#: ../includes/field_group.php:111
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "导入"
 
-#: ../includes/field_group.php:114
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "跳过"
 
-#: ../includes/field_group.php:119
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "无法导入"
 
@@ -54,33 +54,29 @@ msgstr "颜色"
 msgid "Date"
 msgstr "日期"
 
-#: ../includes/fields/file.php:11
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "上传文件"
 
-#: ../includes/fields/file.php:35
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "添加文件"
 
-#: ../includes/fields/file.php:36
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "删除"
 
-#: ../includes/fields/file.php:46
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "返回值"
 
-#: ../includes/fields/file.php:55
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "文件链接"
 
-#: ../includes/fields/file.php:56
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "附件 ID"
-
-#: ../includes/fields/file.php:113
-msgid "Use This File"
-msgstr "使用此文件"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -114,33 +110,33 @@ msgstr "PHP Array"
 msgid "Loop"
 msgstr "循环"
 
-#: ../includes/fields/loop.php:34
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Row Display"
 
-#: ../includes/fields/loop.php:43
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "默认显示值"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Row Label"
 
-#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
-#: ../includes/fields/loop.php:206
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Loop Row"
 
-#: ../includes/fields/loop.php:64
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "按钮标签"
 
-#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
-#: ../includes/fields/loop.php:207
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Add Row"
 
-#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "限制"
@@ -153,7 +149,8 @@ msgstr "关联"
 msgid "Search posts"
 msgstr "搜索文章..."
 
-#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "文章类型"
 
@@ -237,69 +234,93 @@ msgstr "默认"
 msgid "None (bypass filters)"
 msgstr "无 (绕过过滤器)"
 
-#: ../includes/form.php:195
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "提交"
 
-#: ../includes/init.php:56
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "字段组"
 
-#: ../includes/init.php:57
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "字段组"
 
-#: ../includes/init.php:58
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "字段组"
 
-#: ../includes/init.php:59
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "添加新字段组"
 
-#: ../includes/init.php:60
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "编辑字段组"
 
-#: ../includes/init.php:61
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "新字段组"
 
-#: ../includes/init.php:62
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "查看字段组"
 
-#: ../includes/init.php:63
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "搜索字段组"
 
-#: ../includes/init.php:64
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "暂无字段组"
 
-#: ../includes/init.php:65
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "回收站内没有字段组"
 
-#: ../includes/init.php:141 ../templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "工具"
 
-#: ../includes/init.php:151
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "字段"
 
-#: ../includes/init.php:152
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "布局规则"
 
-#: ../includes/init.php:153
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "额外选项"
 
-#: ../includes/init.php:274
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "标题"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "放置"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "用户角色"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "文章"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "Term IDs"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "页面模版"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "文章格式"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -391,29 +412,13 @@ msgstr "等于"
 msgid "is not"
 msgstr "不等于"
 
-#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "留空则跳过规则"
 
-#: ../templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "文章格式"
-
-#: ../templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "用户角色"
-
-#: ../templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "文章"
-
-#: ../templates/meta_box_rules.php:256
+#: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "菜单类型"
-
-#: ../templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "页面模版"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -439,20 +444,17 @@ msgstr "删除CFS所有数据,并停用插件."
 msgid "Delete everything"
 msgstr "删除一切"
 
+#~ msgid "Use This File"
+#~ msgstr "使用此文件"
+
 #~ msgid "Add New"
 #~ msgstr "新建"
 
 #~ msgid "Add-ons"
 #~ msgstr "附加组件"
 
-#~ msgid "Placement"
-#~ msgstr "放置"
-
 #~ msgid "Post IDs"
 #~ msgstr "文章 ID"
-
-#~ msgid "Term IDs"
-#~ msgstr "Term IDs"
 
 #~ msgid "Gravity Forms"
 #~ msgstr "重力形态"

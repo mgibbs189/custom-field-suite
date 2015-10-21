@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-10-18 15:00-0400\n"
-"PO-Revision-Date: 2015-10-18 15:00-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Jean-Christophe BREBION <pro@jcbrebion.com>\n"
 "Language: fr\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "Text"
 msgstr "Texte"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Validation"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Ce champ est obligatoire"
 
-#: ../includes/field_group.php:111
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "Importé"
 
-#: ../includes/field_group.php:114
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "Ignoré"
 
-#: ../includes/field_group.php:119
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Rien à importer"
 
@@ -57,33 +57,29 @@ msgstr "Couleur"
 msgid "Date"
 msgstr "Date"
 
-#: ../includes/fields/file.php:11
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Fichier"
 
-#: ../includes/fields/file.php:35
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "Ajouter un fichier"
 
-#: ../includes/fields/file.php:36
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "Retirer"
 
-#: ../includes/fields/file.php:46
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Valeur de retour"
 
-#: ../includes/fields/file.php:55
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "URL du fichier"
 
-#: ../includes/fields/file.php:56
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "ID du fichier attaché"
-
-#: ../includes/fields/file.php:113
-msgid "Use This File"
-msgstr "Utiliser ce fichier"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -117,33 +113,33 @@ msgstr "Tableau PHP"
 msgid "Loop"
 msgstr "Boucle"
 
-#: ../includes/fields/loop.php:34
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Affichage de la rangée"
 
-#: ../includes/fields/loop.php:43
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Afficher les valeurs par défaut"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Intitulé de la rangée"
 
-#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
-#: ../includes/fields/loop.php:206
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Rangée sans nom"
 
-#: ../includes/fields/loop.php:64
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Intitulé du bouton"
 
-#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
-#: ../includes/fields/loop.php:207
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Ajouter une rangée"
 
-#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limites"
@@ -156,7 +152,8 @@ msgstr "Relation"
 msgid "Search posts"
 msgstr "Recherche Articles"
 
-#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Types de contenu"
 
@@ -240,69 +237,93 @@ msgstr "Défault"
 msgid "None (bypass filters)"
 msgstr "Aucun (ignorer les filtres)"
 
-#: ../includes/form.php:195
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "Soumettre"
 
-#: ../includes/init.php:56
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "CFS"
 
-#: ../includes/init.php:57
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "Groupe de champs"
 
-#: ../includes/init.php:58
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "Tous les groupes de champs"
 
-#: ../includes/init.php:59
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Ajouter un nouveau groupe de champs"
 
-#: ../includes/init.php:60
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Modifier le groupe de champs"
 
-#: ../includes/init.php:61
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "Nouveau groupe de champs"
 
-#: ../includes/init.php:62
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "Voir le groupe de champs"
 
-#: ../includes/init.php:63
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Recherche d'un groupe de champs"
 
-#: ../includes/init.php:64
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "Aucun groupe de champs trouvé"
 
-#: ../includes/init.php:65
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "Aucun groupe de champs trouvé dans la corbeille"
 
-#: ../includes/init.php:141 ../templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Outils"
 
-#: ../includes/init.php:151
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "Champs"
 
-#: ../includes/init.php:152
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "Règles d'affichage"
 
-#: ../includes/init.php:153
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "Extras"
 
-#: ../includes/init.php:274
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "Titre"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Affichage"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Rôles utilisateur"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Articles"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "IDs des termes"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Modèles de page"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Formats d'article"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -398,29 +419,13 @@ msgstr "est"
 msgid "is not"
 msgstr "n'est pas"
 
-#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Laisser vide pour ignorer cette règle"
 
-#: ../templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "Formats d'article"
-
-#: ../templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "Rôles utilisateur"
-
-#: ../templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "Articles"
-
-#: ../templates/meta_box_rules.php:256
+#: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "Termes de taxonomie"
-
-#: ../templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "Modèles de page"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -447,20 +452,17 @@ msgstr ""
 msgid "Delete everything"
 msgstr "Supprimer tout"
 
+#~ msgid "Use This File"
+#~ msgstr "Utiliser ce fichier"
+
 #~ msgid "Add New"
 #~ msgstr "Ajouter un nouveau"
 
 #~ msgid "Add-ons"
 #~ msgstr "Add-ons"
 
-#~ msgid "Placement"
-#~ msgstr "Affichage"
-
 #~ msgid "Post IDs"
 #~ msgstr "IDs des articles"
-
-#~ msgid "Term IDs"
-#~ msgstr "IDs des termes"
 
 #~ msgid "Gravity Forms"
 #~ msgstr "Gravity Forms"

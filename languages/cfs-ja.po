@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Karin Suzakura\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-field-suite\n"
-"POT-Creation-Date: 2015-10-18 14:58-0400\n"
-"PO-Revision-Date: 2015-10-18 14:59-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -22,29 +22,29 @@ msgstr ""
 msgid "Text"
 msgstr "単一行テキスト"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "バリデーション"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "入力必須フィールド"
 
-#: ../includes/field_group.php:111
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "インポート完了しました"
 
-#: ../includes/field_group.php:114
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "スキップしました"
 
-#: ../includes/field_group.php:119
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "インポートできるデータがありません"
 
@@ -56,33 +56,29 @@ msgstr "カラーピッカー"
 msgid "Date"
 msgstr "日付フォーマット"
 
-#: ../includes/fields/file.php:11
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "ファイルのアップロード"
 
-#: ../includes/fields/file.php:35
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "ファイルを追加"
 
-#: ../includes/fields/file.php:36
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "削除"
 
-#: ../includes/fields/file.php:46
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "返り値"
 
-#: ../includes/fields/file.php:55
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "ファイルURL"
 
-#: ../includes/fields/file.php:56
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "添付ファイルID"
-
-#: ../includes/fields/file.php:113
-msgid "Use This File"
-msgstr "このファイルを使用"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -116,33 +112,33 @@ msgstr "PHP の配列"
 msgid "Loop"
 msgstr "ループ（複製フィールド）"
 
-#: ../includes/fields/loop.php:34
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "行表示"
 
-#: ../includes/fields/loop.php:43
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "デフォルト値を表示"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "行ラベル"
 
-#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
-#: ../includes/fields/loop.php:206
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "ループ行"
 
-#: ../includes/fields/loop.php:64
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "ボタンラベル"
 
-#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
-#: ../includes/fields/loop.php:207
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "追加"
 
-#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "指値"
@@ -155,7 +151,8 @@ msgstr "関連ポスト選択"
 msgid "Search posts"
 msgstr "検索投稿…"
 
-#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "投稿タイプ"
 
@@ -239,69 +236,93 @@ msgstr "デフォルト"
 msgid "None (bypass filters)"
 msgstr "フィルターなし"
 
-#: ../includes/form.php:195
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "送信"
 
-#: ../includes/init.php:56
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "フィールドグループ"
 
-#: ../includes/init.php:57
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "フィールドグループ"
 
-#: ../includes/init.php:58
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "フィールドのすべてのグループ"
 
-#: ../includes/init.php:59
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "フィールドグループを追加"
 
-#: ../includes/init.php:60
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "フィールドグループの編集"
 
-#: ../includes/init.php:61
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "新しいフィールドグループ"
 
-#: ../includes/init.php:62
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "フィールドグループを見る"
 
-#: ../includes/init.php:63
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "フィールドグループを検索"
 
-#: ../includes/init.php:64
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "フィールドグループは見つかりませんでした"
 
-#: ../includes/init.php:65
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "ゴミ箱にフィールドグループは見つかりませんでした"
 
-#: ../includes/init.php:141 ../templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "ツール"
 
-#: ../includes/init.php:151
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "フィールド"
 
-#: ../includes/init.php:152
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "配置ルール"
 
-#: ../includes/init.php:153
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "エクストラ"
 
-#: ../includes/init.php:274
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "タイトル"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "配置"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "ユーザー権限グループ"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "投稿"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "分類ID"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "固定ページテンプレート"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "記事のフォーマット"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -395,29 +416,13 @@ msgstr "等しい"
 msgid "is not"
 msgstr "等しくない"
 
-#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "このルールをスキップするには空白のままにしておいてください"
 
-#: ../templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "記事のフォーマット"
-
-#: ../templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "ユーザー権限グループ"
-
-#: ../templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "投稿"
-
-#: ../templates/meta_box_rules.php:256
+#: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "分類"
-
-#: ../templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "固定ページテンプレート"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -443,20 +448,17 @@ msgstr "CFSデータを削除し、プラグインを無効化します"
 msgid "Delete everything"
 msgstr "全てを削除"
 
+#~ msgid "Use This File"
+#~ msgstr "このファイルを使用"
+
 #~ msgid "Add New"
 #~ msgstr "新規作成"
 
 #~ msgid "Add-ons"
 #~ msgstr "アドオン"
 
-#~ msgid "Placement"
-#~ msgstr "配置"
-
 #~ msgid "Post IDs"
 #~ msgstr "投稿ID"
-
-#~ msgid "Term IDs"
-#~ msgstr "分類ID"
 
 #~ msgid "Gravity Forms"
 #~ msgstr "Gravity Forms"

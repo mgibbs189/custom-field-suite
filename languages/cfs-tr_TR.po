@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-10-18 14:58-0400\n"
-"PO-Revision-Date: 2015-10-18 14:58-0400\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2015-10-20 22:30-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: tr_TR\n"
@@ -19,29 +19,29 @@ msgstr ""
 msgid "Text"
 msgstr "Metin"
 
-#: includes/field.php:42 includes/fields/file.php:67
+#: includes/field.php:42 includes/fields/file.php:64
 #: includes/fields/select.php:117 includes/fields/text.php:30
 #: includes/fields/textarea.php:58 includes/fields/true_false.php:45
 #: includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Doğrulama"
 
-#: includes/field.php:51 includes/fields/file.php:76
+#: includes/field.php:51 includes/fields/file.php:73
 #: includes/fields/select.php:126 includes/fields/text.php:39
 #: includes/fields/textarea.php:67 includes/fields/true_false.php:54
 #: includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Bu alanı zorunlu yap"
 
-#: includes/field_group.php:111
+#: includes/field_group.php:112
 msgid "Imported"
 msgstr "İçe Aktar"
 
-#: includes/field_group.php:114
+#: includes/field_group.php:115
 msgid "Skipped"
 msgstr "Atlanan"
 
-#: includes/field_group.php:119
+#: includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Hiçbir şey alınamadı"
 
@@ -53,33 +53,29 @@ msgstr "Renk"
 msgid "Date"
 msgstr "Tarih"
 
-#: includes/fields/file.php:11
+#: includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Dosya Yükle"
 
-#: includes/fields/file.php:35
+#: includes/fields/file.php:32
 msgid "Add File"
 msgstr "Dosya Ekle"
 
-#: includes/fields/file.php:36
+#: includes/fields/file.php:33
 msgid "Remove"
 msgstr "Sil"
 
-#: includes/fields/file.php:46
+#: includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Dönüş Değeri"
 
-#: includes/fields/file.php:55
+#: includes/fields/file.php:52
 msgid "File URL"
 msgstr "Dosya URL"
 
-#: includes/fields/file.php:56
+#: includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "Dosya ID"
-
-#: includes/fields/file.php:113
-msgid "Use This File"
-msgstr "Dosyayı Kullan"
 
 #: includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -113,33 +109,33 @@ msgstr "PHP Dizi"
 msgid "Loop"
 msgstr "Döngü"
 
-#: includes/fields/loop.php:34
+#: includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Döngü Çıktısı"
 
-#: includes/fields/loop.php:43
+#: includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Varsayılan değeri göster"
 
-#: includes/fields/loop.php:50
+#: includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Dizi Etiket"
 
-#: includes/fields/loop.php:57 includes/fields/loop.php:98
-#: includes/fields/loop.php:206
+#: includes/fields/loop.php:59 includes/fields/loop.php:113
+#: includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Satır döngüsü"
 
-#: includes/fields/loop.php:64
+#: includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Buton İsmi"
 
-#: includes/fields/loop.php:71 includes/fields/loop.php:125
-#: includes/fields/loop.php:207
+#: includes/fields/loop.php:73 includes/fields/loop.php:138
+#: includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "Yeni Ekle"
 
-#: includes/fields/loop.php:79 includes/fields/relationship.php:104
+#: includes/fields/loop.php:81 includes/fields/relationship.php:104
 #: includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limitler"
@@ -152,7 +148,8 @@ msgstr "İlişkilendirme"
 msgid "Search posts"
 msgstr "Arama"
 
-#: includes/fields/relationship.php:88 templates/meta_box_rules.php:134
+#: includes/fields/relationship.php:88 includes/init.php:282
+#: templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Yazı Formatı"
 
@@ -236,69 +233,93 @@ msgstr "Standart"
 msgid "None (bypass filters)"
 msgstr "Hiçbiri (filtre)"
 
-#: includes/form.php:195
+#: includes/form.php:194
 msgid "Submit"
 msgstr "Gönder"
 
-#: includes/init.php:56
+#: includes/init.php:58
 msgid "Field Groups"
 msgstr "Özel Alanlar"
 
-#: includes/init.php:57
+#: includes/init.php:59
 msgid "Field Group"
 msgstr "Özel Alan"
 
-#: includes/init.php:58
+#: includes/init.php:60
 msgid "All Field Groups"
 msgstr "Tüm alan grupları"
 
-#: includes/init.php:59
+#: includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:60
+#: includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Özel Alan Düzenleme"
 
-#: includes/init.php:61
+#: includes/init.php:63
 msgid "New Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:62
+#: includes/init.php:64
 msgid "View Field Group"
 msgstr "Yeni Özel Alan Grup Ekle"
 
-#: includes/init.php:63
+#: includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Özel Alanlar Ara"
 
-#: includes/init.php:64
+#: includes/init.php:66
 msgid "No Field Groups found"
 msgstr "Herhangi bir özel alan bulunmamaktadır."
 
-#: includes/init.php:65
+#: includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "Çöp kutusunda özel alan bulunmamaktadır."
 
-#: includes/init.php:141 templates/page_tools.php:73
+#: includes/init.php:140 templates/page_tools.php:73
 msgid "Tools"
 msgstr "Araçlar"
 
-#: includes/init.php:151
+#: includes/init.php:153
 msgid "Fields"
 msgstr "Alanlar"
 
-#: includes/init.php:152
+#: includes/init.php:154
 msgid "Placement Rules"
 msgstr "Alan Atamaları"
 
-#: includes/init.php:153
+#: includes/init.php:155
 msgid "Extras"
 msgstr "Ekstralar"
 
-#: includes/init.php:274
+#: includes/init.php:268
 msgid "Title"
 msgstr "Başlık"
+
+#: includes/init.php:269
+msgid "Placement"
+msgstr "Atama"
+
+#: includes/init.php:283 templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Kullanıcı Rolü"
+
+#: includes/init.php:284 templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Yazılar"
+
+#: includes/init.php:285
+msgid "Term IDs"
+msgstr "Yazı IDs"
+
+#: includes/init.php:286 templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Sayfa Teması"
+
+#: includes/init.php:287 templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Yazı Tipi"
 
 #: includes/revision.php:26
 msgid "Post Meta"
@@ -390,29 +411,13 @@ msgstr "eşittir"
 msgid "is not"
 msgstr "eğiş değil"
 
-#: templates/meta_box_rules.php:96 templates/meta_box_rules.php:101
+#: templates/meta_box_rules.php:98 templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Bu kuralı atlamak için boş bırakın"
 
-#: templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "Yazı Tipi"
-
-#: templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "Kullanıcı Rolü"
-
-#: templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "Yazılar"
-
-#: templates/meta_box_rules.php:256
+#: templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "Kategori Rolü"
-
-#: templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "Sayfa Teması"
 
 #: templates/page_tools.php:76 templates/page_tools.php:97
 msgid "Export"
@@ -438,19 +443,16 @@ msgstr "Eklentiyi kaldırırken bütün verileri sil"
 msgid "Delete everything"
 msgstr "Her şeyi sil"
 
+#~ msgid "Use This File"
+#~ msgstr "Dosyayı Kullan"
+
 #~ msgid "Add New"
 #~ msgstr "Yeni Özel Alan Ekle"
 
 #~ msgid "Add-ons"
 #~ msgstr "Eklentiler"
 
-#~ msgid "Placement"
-#~ msgstr "Atama"
-
 #~ msgid "Post IDs"
-#~ msgstr "Yazı IDs"
-
-#~ msgid "Term IDs"
 #~ msgstr "Yazı IDs"
 
 #~ msgid "Gravity Forms"

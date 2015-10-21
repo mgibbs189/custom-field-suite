@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-10-18 15:02-0400\n"
-"PO-Revision-Date: 2015-10-18 15:02-0400\n"
+"POT-Creation-Date: 2015-10-20 22:31-0400\n"
+"PO-Revision-Date: 2015-10-20 22:31-0400\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -21,29 +21,29 @@ msgstr ""
 msgid "Text"
 msgstr "Text"
 
-#: ../includes/field.php:42 ../includes/fields/file.php:67
+#: ../includes/field.php:42 ../includes/fields/file.php:64
 #: ../includes/fields/select.php:117 ../includes/fields/text.php:30
 #: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr "Validació"
 
-#: ../includes/field.php:51 ../includes/fields/file.php:76
+#: ../includes/field.php:51 ../includes/fields/file.php:73
 #: ../includes/fields/select.php:126 ../includes/fields/text.php:39
 #: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr "Aquest és un camp requerit"
 
-#: ../includes/field_group.php:111
+#: ../includes/field_group.php:112
 msgid "Imported"
 msgstr "Importat"
 
-#: ../includes/field_group.php:114
+#: ../includes/field_group.php:115
 msgid "Skipped"
 msgstr "Omitides"
 
-#: ../includes/field_group.php:119
+#: ../includes/field_group.php:120
 msgid "Nothing to import"
 msgstr "Res per importar"
 
@@ -55,33 +55,29 @@ msgstr "Color"
 msgid "Date"
 msgstr "Data"
 
-#: ../includes/fields/file.php:11
+#: ../includes/fields/file.php:8
 msgid "File Upload"
 msgstr "Pujar Arxiu"
 
-#: ../includes/fields/file.php:35
+#: ../includes/fields/file.php:32
 msgid "Add File"
 msgstr "Afegir Arxiu"
 
-#: ../includes/fields/file.php:36
+#: ../includes/fields/file.php:33
 msgid "Remove"
 msgstr "Treure"
 
-#: ../includes/fields/file.php:46
+#: ../includes/fields/file.php:43
 msgid "Return Value"
 msgstr "Valor de Retorn"
 
-#: ../includes/fields/file.php:55
+#: ../includes/fields/file.php:52
 msgid "File URL"
 msgstr "URL de l'arxiu"
 
-#: ../includes/fields/file.php:56
+#: ../includes/fields/file.php:53
 msgid "Attachment ID"
 msgstr "ID del Adjunt"
-
-#: ../includes/fields/file.php:113
-msgid "Use This File"
-msgstr "Utilitzeu aquest fitxer"
 
 #: ../includes/fields/hyperlink.php:9
 msgid "Hyperlink"
@@ -115,33 +111,33 @@ msgstr "Array de PHP"
 msgid "Loop"
 msgstr "Bucle (Loop)"
 
-#: ../includes/fields/loop.php:34
+#: ../includes/fields/loop.php:36
 msgid "Row Display"
 msgstr "Pantalla per files"
 
-#: ../includes/fields/loop.php:43
+#: ../includes/fields/loop.php:45
 msgid "Show the values by default"
 msgstr "Mostrar valors per defecte"
 
-#: ../includes/fields/loop.php:50
+#: ../includes/fields/loop.php:52
 msgid "Row Label"
 msgstr "Etiqueta de Fila"
 
-#: ../includes/fields/loop.php:57 ../includes/fields/loop.php:98
-#: ../includes/fields/loop.php:206
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
 msgid "Loop Row"
 msgstr "Fila de Bucle (Loop)"
 
-#: ../includes/fields/loop.php:64
+#: ../includes/fields/loop.php:66
 msgid "Button Label"
 msgstr "Etiqueta de Botó"
 
-#: ../includes/fields/loop.php:71 ../includes/fields/loop.php:125
-#: ../includes/fields/loop.php:207
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
 msgid "Add Row"
 msgstr "AfegirFila"
 
-#: ../includes/fields/loop.php:79 ../includes/fields/relationship.php:104
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
 #: ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Límits"
@@ -154,7 +150,8 @@ msgstr "Relació"
 msgid "Search posts"
 msgstr "Cercar entrades"
 
-#: ../includes/fields/relationship.php:88 ../templates/meta_box_rules.php:134
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
 msgid "Post Types"
 msgstr "Tipus de Post"
 
@@ -238,69 +235,93 @@ msgstr "Per defecte"
 msgid "None (bypass filters)"
 msgstr "Cap (bypass els filtres)"
 
-#: ../includes/form.php:195
+#: ../includes/form.php:194
 msgid "Submit"
 msgstr "Enviar"
 
-#: ../includes/init.php:56
+#: ../includes/init.php:58
 msgid "Field Groups"
 msgstr "Grups de Camps"
 
-#: ../includes/init.php:57
+#: ../includes/init.php:59
 msgid "Field Group"
 msgstr "Grup de Camps"
 
-#: ../includes/init.php:58
+#: ../includes/init.php:60
 msgid "All Field Groups"
 msgstr "Tots els grups d’àmbit"
 
-#: ../includes/init.php:59
+#: ../includes/init.php:61
 msgid "Add New Field Group"
 msgstr "Afegeix nou Grup de Camps"
 
-#: ../includes/init.php:60
+#: ../includes/init.php:62
 msgid "Edit Field Group"
 msgstr "Editar Grup de Camps"
 
-#: ../includes/init.php:61
+#: ../includes/init.php:63
 msgid "New Field Group"
 msgstr "Nou Grup de Camps"
 
-#: ../includes/init.php:62
+#: ../includes/init.php:64
 msgid "View Field Group"
 msgstr "Veure Grup de Camps"
 
-#: ../includes/init.php:63
+#: ../includes/init.php:65
 msgid "Search Field Groups"
 msgstr "Cercar Grups de Camps"
 
-#: ../includes/init.php:64
+#: ../includes/init.php:66
 msgid "No Field Groups found"
 msgstr "No s'han trobat Grups de Camps"
 
-#: ../includes/init.php:65
+#: ../includes/init.php:67
 msgid "No Field Groups found in Trash"
 msgstr "No s'han trobat Grups a la Paperera"
 
-#: ../includes/init.php:141 ../templates/page_tools.php:73
+#: ../includes/init.php:140 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Eines"
 
-#: ../includes/init.php:151
+#: ../includes/init.php:153
 msgid "Fields"
 msgstr "Camps"
 
-#: ../includes/init.php:152
+#: ../includes/init.php:154
 msgid "Placement Rules"
 msgstr "Regles de col·locació"
 
-#: ../includes/init.php:153
+#: ../includes/init.php:155
 msgid "Extras"
 msgstr "Extras"
 
-#: ../includes/init.php:274
+#: ../includes/init.php:268
 msgid "Title"
 msgstr "Títol"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Col·locació"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Rols d'usuari"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Posts"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "ID's de Termes"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Plantilles de Pàgina"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Formats de Post"
 
 #: ../includes/revision.php:26
 msgid "Post Meta"
@@ -394,29 +415,13 @@ msgstr "és igual a"
 msgid "is not"
 msgstr "no és"
 
-#: ../templates/meta_box_rules.php:96 ../templates/meta_box_rules.php:101
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
 msgid "Leave blank to skip this rule"
 msgstr "Deixar en blanc per saltar-se aquesta regla"
 
-#: ../templates/meta_box_rules.php:167
-msgid "Post Formats"
-msgstr "Formats de Post"
-
-#: ../templates/meta_box_rules.php:200
-msgid "User Roles"
-msgstr "Rols d'usuari"
-
-#: ../templates/meta_box_rules.php:232
-msgid "Posts"
-msgstr "Posts"
-
-#: ../templates/meta_box_rules.php:256
+#: ../templates/meta_box_rules.php:258
 msgid "Taxonomy Terms"
 msgstr "Termes de Taxonomía"
-
-#: ../templates/meta_box_rules.php:288
-msgid "Page Templates"
-msgstr "Plantilles de Pàgina"
 
 #: ../templates/page_tools.php:76 ../templates/page_tools.php:97
 msgid "Export"
@@ -442,20 +447,17 @@ msgstr "Això eliminarà totes les dades de CFS i desactivarà el plugin."
 msgid "Delete everything"
 msgstr "Eliminar tot"
 
+#~ msgid "Use This File"
+#~ msgstr "Utilitzeu aquest fitxer"
+
 #~ msgid "Add New"
 #~ msgstr "Afegir nou"
 
 #~ msgid "Add-ons"
 #~ msgstr "Add-ons"
 
-#~ msgid "Placement"
-#~ msgstr "Col·locació"
-
 #~ msgid "Post IDs"
 #~ msgstr "IDs de Posts"
-
-#~ msgid "Term IDs"
-#~ msgstr "ID's de Termes"
 
 #~ msgid "Gravity Forms"
 #~ msgstr "Gravity Forms"
