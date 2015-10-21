@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Textarea field
+title: Textarea
 ---
 
-## Textarea
+## {{ page.title }}
 
 Generates a multi-line text field
 
