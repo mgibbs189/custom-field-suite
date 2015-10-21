@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Color field
+title: Color
 ---
 
-## Color
+## {page.title}
 
 Generates a single-line text field with a built-in color picker widget
 
