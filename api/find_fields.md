@@ -9,14 +9,19 @@ title: find_fields
 <?php CFS()->find_fields( $params ); ?>
 {% endhighlight %}
 
-| Parameter | Required | Type | Notes |
-|-----------|----------|------|-------|
-| $params['post_id'] | N | mixed | A post ID to filter matches |
-| $params['group_id'] | N | mixed | (int) group ID, or (array) group IDs |
-| $params['field_id'] | N | mixed | (int) field ID, or (array) field IDs |
-| $params['field_type'] | N | mixed | (string) field type, or (array) field types |
-| $params['field_name'] | N | mixed | (string) field name, or (array) field names |
-| $params['parent_id'] | N | mixed | (int) parent ID, or (array) parent IDs |
+`$params` defaults:
+
+{% highlight php %}
+<?php
+$params = array(
+    'post_id' => false, // (int) single post ID
+    'group_id' => array(), // (int) group ID, or (array) group IDs
+    'field_id' => array(), // (int) field ID, or (array) field IDs
+    'field_type' => array(), // (string) field type, or (array) field types
+    'field_name' => array(), // (string) field name, or (array) field names
+    'parent_id' => array() // (int) group ID, or (array) group IDs
+);
+{% endhighlight %}
 
 ### Examples
 
