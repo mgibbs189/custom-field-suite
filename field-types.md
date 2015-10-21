@@ -3,8 +3,6 @@ layout: default
 title: Field Types
 ---
 
-**NOTE:** this is a work in progress.
-
 | Type | Purpose |
 |--------|---------|
 | <a href="/field-types/text.html">Text</a> | Single-line text |
