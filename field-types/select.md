@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Select field
+title: Select
 ---
 
-## Select
+## {{ page.title }}
 
 Generates either a single-select dropdown, or a multi-select input field
 
