@@ -35,7 +35,6 @@ Create a new post
 
 {% highlight php %}
 <?php
-<?php
 echo CFS()->form( array(
     'post_id' => false,
     'post_type' => 'post',
