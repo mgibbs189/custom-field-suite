@@ -15,6 +15,7 @@ class cfs_init
         }
 
         add_action( 'admin_head',                       array( $this, 'admin_head' ) );
+        add_action( 'admin_footer',                     array( $this, 'show_credits' ) );
         add_action( 'admin_menu',                       array( $this, 'admin_menu' ) );
         add_action( 'save_post',                        array( $this, 'save_post' ) );
         add_action( 'delete_post',                      array( $this, 'delete_post' ) );
@@ -128,6 +129,18 @@ class cfs_init
 
         if ( is_object( $screen ) && 'post' == $screen->base ) {
             include( CFS_DIR . '/templates/admin_head.php' );
+        }
+    }
+
+
+    /**
+     * show_credits
+     */
+    function show_credits() {
+        $screen = get_current_screen();
+
+        if ( 'edit' == $screen->base && 'cfs' == $screen->post_type ) {
+            include( CFS_DIR . '/templates/credits.php' );
         }
     }
 

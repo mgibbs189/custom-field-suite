@@ -65,7 +65,7 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Improved: removed deprecated (< 3.5) code from File field type
 * Improved: show post titles instead of IDs for "Placement" admin column
 * Improved: now using a built-in WP dashicon
-* Changed: removed obsolete Gravity Forms integration
+* Changed: removed buggy Gravity Forms integration
 * Changed: removed `cfs_relationship_post_types` filter (use `cfs_field_relationship_query_args` instead)
 * Changed: removed add-ons screen (for now)
 * Changed: toggle icon for loop fields
