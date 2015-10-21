@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Date field
+title: Date
 ---
 
-## Date
+## {{ page.title }}
 
 Generates a single-line text field with a built-in datepicker widget
 
