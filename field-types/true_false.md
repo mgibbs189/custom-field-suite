@@ -1,9 +1,9 @@
 ---
 layout: default
-title: True / False field
+title: True / False
 ---
 
-## True / False
+## {{ page.title }}
 
 Generates a single checkbox, with optional descriptive text beside it
 
