@@ -5,7 +5,7 @@ title: Relationship
 
 ## {{ page.title }}
 
-Generates a widget for selecting other post type items. It includes drag-n-drop ordering capabilities.
+Generates a widget for selecting other posts. It includes drag-n-drop ordering capabilities.
 
 ### Field Options
 
