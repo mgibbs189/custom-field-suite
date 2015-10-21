@@ -54,6 +54,9 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.5.1 =
+* Fix: issue with $cfs variable
+
 = 2.5 =
 * New: [find_fields API method](http://docs.customfieldsuite.com/api/find_fields.html)
 * New: `CFS()->field_group->load_field_groups()` method
@@ -71,6 +74,7 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Changed: toggle icon for loop fields
 * Fix: field validation for loop sub-fields
 * Fix: CFS()->save gracefully handles missing fields (no errors)
+* Fix: wysiwyg fields would break when dragged
 * Fix: Remove non-existing post IDs from "Posts" placement rule
 * Updated translations
 
