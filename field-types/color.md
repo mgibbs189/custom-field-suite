@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Date field
+title: Color field
 ---
 
 ## Text
