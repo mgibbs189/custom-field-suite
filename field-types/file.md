@@ -15,7 +15,7 @@ Generates a file upload field, using the native WordPress uploader
 
 ### Return Value
 
-(string | int) Either the file URL or attachment ID
+(string or int) Either the file URL or attachment ID
 
 ### Template Usage
 
