@@ -3,7 +3,7 @@ layout: default
 title: True / False field
 ---
 
-## Text
+## True / False
 
 Generates a single checkbox, with optional descriptive text beside it
 
