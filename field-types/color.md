@@ -3,7 +3,7 @@ layout: default
 title: Color
 ---
 
-## {page.title}
+## {{ page.title }}
 
 Generates a single-line text field with a built-in color picker widget
 
