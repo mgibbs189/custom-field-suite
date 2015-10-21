@@ -53,7 +53,8 @@ class cfs_field_group
     public function import( $options ) {
         global $wpdb;
 
-        if ( !empty( $options['import_code'] ) ) {
+        if ( ! empty( $options['import_code'] ) ) {
+
             // Collect stats
             $stats = array();
 
@@ -107,10 +108,10 @@ class cfs_field_group
             }
 
             $return = '';
-            if ( !empty( $stats['imported'] ) ) {
+            if ( ! empty( $stats['imported'] ) ) {
                 $return .= '<div>' . __( 'Imported', 'cfs' ) . ': ' . implode( ', ', $stats['imported'] ) . '</div>';
             }
-            if ( !empty( $stats['skipped'] ) ) {
+            if ( ! empty( $stats['skipped'] ) ) {
                 $return .= '<div>' . __( 'Skipped', 'cfs' ) . ': ' . implode( ', ', $stats['skipped'] ) . '</div>';
             }
             return $return;

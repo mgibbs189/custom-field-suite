@@ -16,7 +16,7 @@ class cfs_relationship extends cfs_field
         $available_posts = array();
 
         $post_types = array();
-        if ( !empty( $field->options['post_types'] ) ) {
+        if ( ! empty( $field->options['post_types'] ) ) {
             foreach ( $field->options['post_types'] as $type ) {
                 $post_types[] = $type;
             }
@@ -48,7 +48,7 @@ class cfs_relationship extends cfs_field
             );
         }
 
-        if ( !empty( $field->value ) ) {
+        if ( ! empty( $field->value ) ) {
             $results = $wpdb->get_results( "SELECT ID, post_status, post_title FROM $wpdb->posts WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)" );
             foreach ( $results as $result ) {
                 $result->post_title = ( 'private' == $result->post_status ) ? '(Private) ' . $result->post_title : $result->post_title;

@@ -20,7 +20,7 @@ class cfs_user extends cfs_field
             $available_users[] = $result;
         }
 
-        if ( !empty( $field->value ) ) {
+        if ( ! empty( $field->value ) ) {
             $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users WHERE ID IN ($field->value) ORDER BY FIELD(ID,$field->value)" );
             foreach ( $results as $result ) {
                 $selected_users[ $result->ID ] = $result;

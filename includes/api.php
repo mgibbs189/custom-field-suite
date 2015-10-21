@@ -209,7 +209,8 @@ class cfs_api
         // Limit to specific field types
         $field_type = empty( $field_type ) ? 'relationship' : $field_type;
         $results = $this->find_input_fields( array( 'field_type' => $field_type ) );
-        if ( !empty( $results ) ) {
+
+        if ( ! empty( $results ) ) {
             $field_ids = array();
             foreach ( $results as $result ) {
                 $field_ids[] = $result['id'];

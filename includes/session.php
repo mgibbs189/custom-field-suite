@@ -30,7 +30,7 @@ class cfs_session
         $now = time();
         $output = array();
         $session_data = $wpdb->get_var( "SELECT data FROM {$wpdb->prefix}cfs_sessions WHERE id = '$this->session_id' AND expires > '$now'" );
-        if ( !empty( $session_data ) ) {
+        if ( ! empty( $session_data ) ) {
             $output = unserialize( $session_data );
         }
 
