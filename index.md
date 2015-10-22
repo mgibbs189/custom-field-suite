@@ -4,8 +4,9 @@ title: Getting Started
 ---
 
 <img src="https://img.shields.io/wordpress/plugin/dt/custom-field-suite.svg" />
-<img src="https://img.shields.io/wordpress/v/custom-field-suite.svg" />
 <img src="https://img.shields.io/wordpress/plugin/r/custom-field-suite.svg" />
+
+<a href="https://wordpress.org/plugins/custom-field-suite/" target="_blank">Download from WordPress.org</a>
 
 ## 1. Create a Field Group
 
