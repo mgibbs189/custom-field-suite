@@ -44,8 +44,7 @@ Output all choices for a select field
 {% highlight php %}
 <?php
 $props = CFS()->get_field_info( 'my_select' );
-$choices = $props['options']['choices']; // an array of choices
-foreach ( $choices as $value => $label ) {
+foreach ( $props['options']['choices'] as $value => $label ) {
     echo '<div>' . $value . ' = ' . $label . '</div>';
 }
 {% endhighlight %}
