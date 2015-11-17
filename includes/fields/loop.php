@@ -351,7 +351,14 @@ class cfs_loop extends cfs_field
                 $field_id = isset( $all_fields[ $field_name ] ) ? $all_fields[ $field_name ] : false;
 
                 if ( isset( $values[ $field_id ] ) ) {
-                    $row_label = str_replace( '{' . $token . '}', $values[ $field_id ], $row_label );
+                    if ($field->type == 'select') {
+                        $row_select_key = reset($values[ $field_id ]);
+                        if ( ( isset( $fields[ $field_id ] ) ) ) {
+                            $row_label = $fields[ $field_id ]->options[ 'choices' ][ $row_select_key ];
+                        }
+                    } else {
+                        $row_label = str_replace( '{' . $token . '}', $values[ $field_id ], $row_label );
+                    }
                 }
                 elseif ( false !== $fallback ) {
                      $row_label = str_replace( '{' . $token . '}', $fallback, $row_label );
