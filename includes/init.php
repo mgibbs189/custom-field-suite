@@ -304,7 +304,12 @@ class cfs_init
             );
 
             $field_groups = CFS()->field_group->load_field_groups();
-            $rules = $field_groups[ $post_id ]['rules'];
+
+            // Make sure the field group exists
+            $rules = array();
+            if ( isset( $field_groups[ $post_id ] ) ) {
+                $rules = $field_groups[ $post_id ]['rules'];
+            }
 
             foreach ( $rules as $criteria => $data ) {
                 $label = $labels[ $criteria ];
