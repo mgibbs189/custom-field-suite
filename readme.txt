@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 4.0
-Tested up to: 4.3.1
+Tested up to: 4.4
 Stable tag: trunk
 License: GPLv2
 
@@ -54,6 +54,10 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.2 =
+* New: support for dynamic Loop labels from select field values (props @superbiche)
+* Fix: PHP notice for "Placement" column
 
 = 2.5.1 =
 * Fix: issue with $cfs variable
