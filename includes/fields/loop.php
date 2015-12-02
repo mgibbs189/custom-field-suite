@@ -351,7 +351,7 @@ class cfs_loop extends cfs_field
                 $field_id = isset( $all_fields[ $field_name ] ) ? $all_fields[ $field_name ] : false;
 
                 if ( isset( $values[ $field_id ] ) ) {
-                    if ( 'select' == $field->type ) {
+                    if ( $field_id == $field->id && 'select' == $field->type ) {
                         $select_key = reset( $values[ $field_id ] );
                         if ( isset( $fields[ $field_id ] ) ) {
                             $row_label = $fields[ $field_id ]->options['choices'][ $select_key ];
