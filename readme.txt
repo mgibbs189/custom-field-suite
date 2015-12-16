@@ -55,6 +55,10 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.5.3 =
+* Fix: issues with Loop field "dynamic label" functionality
+* Changed: "Field Groups" menu moved below "Settings" in the admin UI
+
 = 2.5.2 =
 * New: support for dynamic Loop labels from select field values (props @superbiche)
 * Fix: PHP notice for "Placement" column
