@@ -58,6 +58,7 @@ class cfs_init
             'supports'          => array( 'title' ),
             'menu_icon'         => 'dashicons-carrot',
             'query_var'         => false,
+            'menu_position'     => 120,
             'labels'            => array(
                 'name'                  => __( 'Field Groups', 'cfs' ),
                 'singular_name'         => __( 'Field Group', 'cfs' ),
