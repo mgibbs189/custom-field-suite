@@ -312,7 +312,7 @@ span.checkbox.active {
 .field_meta td.field_order:after,
 .cfs_tooltip:after {
     display: block;
-    color: #adadad;
+    color: #aaa;
 
     /* dashicons */
     font-size: 20px;

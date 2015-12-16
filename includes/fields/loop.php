@@ -332,39 +332,40 @@ class cfs_loop extends cfs_field
     ================================================================
     */
     function dynamic_label( $row_label, $fields = array(), $values = array() ) {
-        preg_match_all( "/({(.*?)})/", $row_label, $matches );
 
-        if ( ! empty( $matches ) ) {
+        // Exit stage left
+        if ( '{' != substr( $row_label, 0, 1 ) || '}' != substr( $row_label, -1 ) ) {
+            return $row_label;
+        }
 
-            // Get all field names and IDs
-            $all_fields = array();
-            foreach ( $fields as $field ) {
-                $all_fields[ $field->name ] = (int) $field->id;
+        $field = false;
+        $fallback = false;
+        $field_name = substr( $row_label, 1, -1 );
+
+        // Check for fallback value
+        if ( false !== strpos( $field_name, ':' ) ) {
+            list( $field_name, $fallback ) = explode( ':', $field_name );
+        }
+
+        // Get all field names and IDs
+        foreach ( $fields as $f ) {
+            if ( $field_name == $f->name ) {
+                $field = $f;
+                break;
             }
+        }
 
-            foreach ( $matches[2] as $token ) {
-
-                // Check for fallback
-                $tmp = explode( ':', $token );
-                $field_name = $tmp[0];
-                $fallback = isset( $tmp[1] ) ? $tmp[1] : false;
-                $field_id = isset( $all_fields[ $field_name ] ) ? $all_fields[ $field_name ] : false;
-
-                if ( isset( $values[ $field_id ] ) ) {
-                    if ( 'select' == $field->type ) {
-                        $select_key = reset( $values[ $field_id ] );
-                        if ( isset( $fields[ $field_id ] ) ) {
-                            $row_label = $fields[ $field_id ]->options['choices'][ $select_key ];
-                        }
-                    }
-                    else {
-                        $row_label = str_replace( '{' . $token . '}', $values[ $field_id ], $row_label );
-                    }
-                }
-                elseif ( false !== $fallback ) {
-                     $row_label = str_replace( '{' . $token . '}', $fallback, $row_label );
-                }
+        if ( ! empty( $field ) && isset( $values[ $field->id ] ) ) {
+            if ( 'select' == $field->type ) {
+                $select_key = reset( $values[ $field->id ] );
+                $row_label = $field->options['choices'][ $select_key ];
             }
+            else {
+                $row_label = $values[ $field->id ];
+            }
+        }
+        elseif ( false !== $fallback ) {
+             $row_label = $fallback;
         }
 
         return $row_label;
