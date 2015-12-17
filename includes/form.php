@@ -282,7 +282,10 @@ CFS['loop_buffer'] = [];
             }
         }
         
-        do_action( 'cfs_form_before_fields', $params, $all_group_ids, $input_fields, $this );
+        do_action( 'cfs_form_before_fields', $params, array(
+            'group_ids'     => $all_group_ids,
+            'input_fields'  => $input_fields
+        ) );
 
         // Add any necessary head scripts
         foreach ( $input_fields as $key => $field ) {
@@ -372,7 +375,7 @@ CFS['loop_buffer'] = [];
             <div class="cfs_<?php echo $field->type; ?>">
 
     <?php
-                CFS()->create_field(array(
+                CFS()->create_field( array(
                     'id'            => $field->id,
                     'group_id'      => $field->group_id,
                     'type'          => $field->type,
@@ -396,7 +399,10 @@ CFS['loop_buffer'] = [];
             echo '</div>';
         }
         
-        do_action( 'cfs_form_after_fields', $params, $all_group_ids, $input_fields, $this );
+        do_action( 'cfs_form_after_fields', $params, array(
+            'group_ids'     => $all_group_ids,
+            'input_fields'  => $input_fields
+        ) );
     ?>
 
         <script>CFS['field_rules'] = <?php echo json_encode( CFS()->validators ); ?>;</script>
