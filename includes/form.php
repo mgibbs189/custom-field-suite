@@ -281,6 +281,8 @@ CFS['loop_buffer'] = [];
                 $tabs[] = $field;
             }
         }
+        
+        do_action( 'cfs_form_before_fields', $params, $all_group_ids, $input_fields, $this );
 
         // Add any necessary head scripts
         foreach ( $input_fields as $key => $field ) {
@@ -393,6 +395,8 @@ CFS['loop_buffer'] = [];
         if ( ! empty( $tabs ) ) {
             echo '</div>';
         }
+        
+        do_action( 'cfs_form_after_fields', $params, $all_group_ids, $input_fields, $this );
     ?>
 
         <script>CFS['field_rules'] = <?php echo json_encode( CFS()->validators ); ?>;</script>
