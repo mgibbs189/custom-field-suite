@@ -27,15 +27,18 @@ class cfs_tab extends cfs_field
         <script>
         (function($) {
             $(document).on('click', '.cfs-tab', function() {
-                var tab = $(this).attr('rel');
-                $('.cfs-tab').removeClass('active');
-                $('.cfs-tab-content').removeClass('active');
+                var tab = $(this).attr('rel'),
+                    $context = $(this).parents('.cfs_input');
+                $context.find('.cfs-tab').removeClass('active');
+                $context.find('.cfs-tab-content').removeClass('active');
                 $(this).addClass('active');
-                $('.cfs-tab-content-' + tab).addClass('active');
+                $context.find('.cfs-tab-content-' + tab).addClass('active');
             });
 
             $(function() {
-                $('.cfs-tab:first').click();
+                $('.cfs-tabs').each(function(){
+                    $(this).find('.cfs-tab:first').click();
+                });
             });
         })(jQuery);
         </script>
