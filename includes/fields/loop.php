@@ -373,7 +373,7 @@ class cfs_loop extends cfs_field
 
         /* Extracting all available names */
         $names = array();
-        preg_match_all("/[{][\w]+[}]//", $row_label, $names);
+        preg_match_all("/[{][\w]+[}]/", $row_label, $names);
         if(empty($names[0])) {
             return $row_label;
         }
