@@ -55,6 +55,11 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.5.4 =
+* New: `cfs_form_before_fields` filter
+* New: `cfs_form_after_fields` filter
+* Fix: allow tabs in separate field groups to be active simultaneously
+
 = 2.5.3 =
 * Fix: issues with Loop field "dynamic label" functionality
 * Changed: "Field Groups" menu moved below "Settings" in the admin UI
