@@ -206,7 +206,10 @@ class cfs_loop extends cfs_field
             <div class="cfs_loop_head<?php echo $css_class; ?>">
                 <a class="cfs_delete_field"></a>
                 <a class="cfs_toggle_field"></a>
-                <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
+                <?php
+                    $final_row_label = str_replace("{{#}}", $i + 1, $row_label);
+                ?>
+                <span class="label"><?php echo esc_attr( $this->dynamic_label( $final_row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ( $results as $field ) : ?>
