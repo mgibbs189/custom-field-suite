@@ -174,7 +174,7 @@ CFS['loop_buffer'] = [];
 
     /**
      * Render the HTML input form
-     * @param array $params 
+     * @param array $params
      * @return string form HTML code
      * @since 1.8.5
      */
@@ -281,7 +281,7 @@ CFS['loop_buffer'] = [];
                 $tabs[] = $field;
             }
         }
-        
+
         do_action( 'cfs_form_before_fields', $params, array(
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
@@ -290,7 +290,7 @@ CFS['loop_buffer'] = [];
         // Add any necessary head scripts
         foreach ( $input_fields as $key => $field ) {
 
-            // Exclude fields 
+            // Exclude fields
             if ( in_array( $field->name, (array) $params['excluded_fields'] ) ) {
                 continue;
             }
@@ -398,14 +398,17 @@ CFS['loop_buffer'] = [];
         if ( ! empty( $tabs ) ) {
             echo '</div>';
         }
-        
+
         do_action( 'cfs_form_after_fields', $params, array(
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
         ) );
     ?>
 
-        <script>CFS['field_rules'] = <?php echo json_encode( CFS()->validators ); ?>;</script>
+		<script>
+		if ( typeof CFS['field_rules'] == 'undefined' ) { CFS['field_rules'] = {}; }
+		jQuery.extend( CFS['field_rules'], <?php echo json_encode( CFS()->validators ); ?> );
+		</script>
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce( 'cfs_save_input' ); ?>" />
         <input type="hidden" name="cfs[session_id]" value="<?php echo $this->session->session_id; ?>" />
 
