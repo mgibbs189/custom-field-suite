@@ -48,7 +48,7 @@
         };
 
         // Get the value for non-standard field types
-        CFS.get_field_value = {
+        $.extend(CFS.get_field_value, {
             'textarea': function(el) {
                 return el.find('textarea').val();
             },
@@ -72,7 +72,7 @@
                 });
                 return rows.join(',');
             }
-        };
+        });
 
         CFS.is_draft = false;
         $(document).on('click', '#save-post', function() {
