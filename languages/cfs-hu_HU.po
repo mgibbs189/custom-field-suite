@@ -1,0 +1,447 @@
+# This file is distributed under the same license as the Custom Field Suite package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2016-02-07 10:40+0100\n"
+"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
+"Language-Team: \n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Szöveg"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:64
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
+msgid "Validation"
+msgstr "Ellenőrzés"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:73
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
+msgid "This is a required field"
+msgstr "Mező kitöltése kötelező"
+
+#: ../includes/field_group.php:112
+msgid "Imported"
+msgstr "Importálás"
+
+#: ../includes/field_group.php:115
+msgid "Skipped"
+msgstr "Kihagyott"
+
+#: ../includes/field_group.php:120
+msgid "Nothing to import"
+msgstr "Nincs mit importálni"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Szín"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Dátum"
+
+#: ../includes/fields/file.php:8
+msgid "File Upload"
+msgstr "Fájl feltöltés"
+
+#: ../includes/fields/file.php:32
+msgid "Add File"
+msgstr "Fájl hozzáadása"
+
+#: ../includes/fields/file.php:33
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: ../includes/fields/file.php:43
+msgid "Return Value"
+msgstr "Visszatérési érték"
+
+#: ../includes/fields/file.php:52
+msgid "File URL"
+msgstr "Fájl URL"
+
+#: ../includes/fields/file.php:53
+msgid "Attachment ID"
+msgstr "Csatolmány ID"
+
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr "Hivatkozás"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "URL"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "Link szövege"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "Link címe"
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr "Kimeneti formátum"
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr "HTML"
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr "PHP tömb"
+
+#: ../includes/fields/loop.php:8
+msgid "Loop"
+msgstr "Ismétlő"
+
+#: ../includes/fields/loop.php:36
+msgid "Row Display"
+msgstr "Sorok megjelenítése"
+
+#: ../includes/fields/loop.php:45
+msgid "Show the values by default"
+msgstr "Tartalmak megjelenítése alapértelmezetten"
+
+#: ../includes/fields/loop.php:52
+msgid "Row Label"
+msgstr "Sor felirat"
+
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
+msgid "Loop Row"
+msgstr "Ismétlő sor"
+
+#: ../includes/fields/loop.php:66
+msgid "Button Label"
+msgstr "Gomb felirat"
+
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
+msgid "Add Row"
+msgstr "Sor hozzáadása"
+
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Korlátok"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Kapcsolat"
+
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "Bejegyzések keresése"
+
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
+msgid "Post Types"
+msgstr "Bejegyzés típusok"
+
+#: ../includes/fields/relationship.php:89
+msgid "Limit posts to the following types"
+msgstr "Bejegyzések korlátozása a következő típusokra"
+
+#: ../includes/fields/select.php:8
+msgid "Select"
+msgstr "Kiválasztás"
+
+#: ../includes/fields/select.php:86
+msgid "Choices"
+msgstr "Lehetőségek"
+
+#: ../includes/fields/select.php:87
+msgid "Enter one choice per line"
+msgstr "Egy lehetőség soronként"
+
+#: ../includes/fields/select.php:101
+msgid "Multi-select?"
+msgstr "Többszörös kiválasztás?"
+
+#: ../includes/fields/select.php:110
+msgid "This is a multi-select field"
+msgstr "Több lehetőség is kiválasztható egyszerre"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Fül"
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
+msgid "Default Value"
+msgstr "Alapértelmezett érték"
+
+#: ../includes/fields/textarea.php:8
+msgid "Textarea"
+msgstr "Többsoros szöveg"
+
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
+msgid "Formatting"
+msgstr "Formázás"
+
+#: ../includes/fields/textarea.php:46
+msgid "None"
+msgstr "Nincs"
+
+#: ../includes/fields/textarea.php:47
+msgid "Convert newlines to <br />"
+msgstr "Sortörések átalakítása <br />-re"
+
+#: ../includes/fields/true_false.php:8
+msgid "True / False"
+msgstr "Igaz / Hamis"
+
+#: ../includes/fields/true_false.php:30
+msgid "Message"
+msgstr "Üzenet"
+
+#: ../includes/fields/true_false.php:31
+msgid "The text beside the checkbox"
+msgstr "A jelölőnégyzet melletti szöveg."
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Felhasználó"
+
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "Felhasználók keresése"
+
+#: ../includes/fields/wysiwyg.php:8
+msgid "Wysiwyg Editor"
+msgstr "Formázott szöveg (WYSIWYG)"
+
+#: ../includes/fields/wysiwyg.php:42
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: ../includes/fields/wysiwyg.php:43
+msgid "None (bypass filters)"
+msgstr "Nincs (filterek megkerülése)"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Elküldés"
+
+#: ../includes/init.php:58
+msgid "Field Groups"
+msgstr "Mező csoportok"
+
+#: ../includes/init.php:59
+msgid "Field Group"
+msgstr "Mező csoport"
+
+#: ../includes/init.php:60
+msgid "All Field Groups"
+msgstr "Összes mező csoport"
+
+#: ../includes/init.php:61
+msgid "Add New Field Group"
+msgstr "Új mező csoport hozzáadása"
+
+#: ../includes/init.php:62
+msgid "Edit Field Group"
+msgstr "Mező csoport szerkesztése"
+
+#: ../includes/init.php:63
+msgid "New Field Group"
+msgstr "Új mező csoport"
+
+#: ../includes/init.php:64
+msgid "View Field Group"
+msgstr "Mező csoport megtekintése"
+
+#: ../includes/init.php:65
+msgid "Search Field Groups"
+msgstr "Mező csoportok keresése"
+
+#: ../includes/init.php:66
+msgid "No Field Groups found"
+msgstr "Nem található mező csoport"
+
+#: ../includes/init.php:67
+msgid "No Field Groups found in Trash"
+msgstr "Nem található mező csoport a lomtárban"
+
+#: ../includes/init.php:140 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Eszközök"
+
+#: ../includes/init.php:153
+msgid "Fields"
+msgstr "Mezők"
+
+#: ../includes/init.php:154
+msgid "Placement Rules"
+msgstr "Elhelyezési szabályok"
+
+#: ../includes/init.php:155
+msgid "Extras"
+msgstr "Extrák"
+
+#: ../includes/init.php:268
+msgid "Title"
+msgstr "Cím"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Elhelyezés"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Felhasználói szerepek"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Bejegyzések"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "Kifejezés ID-k"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Oldal sablonok"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Bejegyzés formátumok"
+
+#: ../includes/revision.php:26
+msgid "Post Meta"
+msgstr "Bejegyzés meta"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Új mező"
+
+#: ../templates/field_html.php:30
+msgid "Label"
+msgstr "Felirat"
+
+#: ../templates/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "A mező címkéje, a szerkesztő fogja látni."
+
+#: ../templates/field_html.php:39
+msgid "Name"
+msgstr "Név"
+
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"A mező neve amit a get() függvénynek kell átadni az értékek eléréséhez. "
+"Csak kisbetűk, számok és aláhúzás használható."
+
+#: ../templates/field_html.php:49
+msgid "Field Type"
+msgstr "Mező típusa"
+
+#: ../templates/field_html.php:67
+msgid "Notes"
+msgstr "Jegyzet"
+
+#: ../templates/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Jegyzet a szerkesztőknek adatbevitel közben."
+
+#: ../templates/field_html.php:82
+msgid "Close"
+msgstr "Bezárás"
+
+#: ../templates/field_html.php:83
+msgid "or"
+msgstr "vagy"
+
+#: ../templates/field_html.php:83
+msgid "delete"
+msgstr "törlés"
+
+#: ../templates/meta_box_extras.php:33
+msgid "Order"
+msgstr "Sorrend"
+
+#: ../templates/meta_box_extras.php:35
+msgid "The field group with the lowest order will appear first."
+msgstr "A legalacsonyabb sorrendű mező csoport jelenik meg először."
+
+#: ../templates/meta_box_extras.php:45
+msgid "Position"
+msgstr "Pozíció"
+
+#: ../templates/meta_box_extras.php:48
+msgid "Normal"
+msgstr "Normál"
+
+#: ../templates/meta_box_extras.php:49
+msgid "Side"
+msgstr "Oldalsáv"
+
+#: ../templates/meta_box_extras.php:54
+msgid "Display Settings"
+msgstr "Megjelenítési beállítás"
+
+#: ../templates/meta_box_extras.php:64
+msgid "Hide the content editor"
+msgstr "Tartalom szerkesztő elrejtése"
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Új mező hozzáadása"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "egyenlő"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "nem egyenlő"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "Hagyd üresen a szabály kihagyásához"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "Rendszerezési kifejezések"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Exportálás"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "Importálás"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Visszaállítás és kikapcsolás"
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr "Összes CFS adat törlése és a bővítmény kikapcsolása."
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Minden törlése"
