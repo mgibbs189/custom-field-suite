@@ -48,7 +48,7 @@
         };
 
         // Get the value for non-standard field types
-         CFS.get_field_value = {
+        CFS.get_field_value = {
             'textarea': function(el) {
                 return el.find('textarea').val();
             },
