@@ -81,7 +81,7 @@ class cfs_true_false extends cfs_field
                     $this.addClass('ready');
 
                     // handle click
-                    $this.find('input[type="checkbox"]').on('click', function() {
+                    $this.find('input[type="checkbox"]').on('change click', function() {
                         var val = $(this).prop('checked') ? 1 : 0;
                         $(this).siblings('.true_false').val(val);
                     });
