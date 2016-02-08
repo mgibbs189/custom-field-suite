@@ -405,10 +405,12 @@ CFS['loop_buffer'] = [];
         ) );
     ?>
 
-		<script>
-		if ( typeof CFS['field_rules'] == 'undefined' ) { CFS['field_rules'] = {}; }
-		jQuery.extend( CFS['field_rules'], <?php echo json_encode( CFS()->validators ); ?> );
-		</script>
+        <script>
+        (function($) {
+            CFS.field_rules = CFS.field_rules || {};
+            $.extend( CFS.field_rules, <?php echo json_encode( CFS()->validators ); ?> );
+        })(jQuery);
+        </script>
         <input type="hidden" name="cfs[save]" value="<?php echo wp_create_nonce( 'cfs_save_input' ); ?>" />
         <input type="hidden" name="cfs[session_id]" value="<?php echo $this->session->session_id; ?>" />
 
