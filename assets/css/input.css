@@ -79,18 +79,8 @@
     True / false
 ---------------------------------------------------------------------------------------------*/
 
-.cfs_true_false .checkbox {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    display: inline-block;
-    background: url(../images/checkbox-off.png) no-repeat;
-    vertical-align: bottom;
-    margin-right: 3px;
-}
-
-.cfs_true_false .checkbox.active {
-    background: url(../images/checkbox-on.png) no-repeat;
+.cfs_input .field .cfs_true_false label {
+	font-weight: normal;
 }
 
 /*---------------------------------------------------------------------------------------------
