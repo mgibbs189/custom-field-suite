@@ -8,7 +8,7 @@
 }
 
 .cfs_input .field {
-    padding: 10px;
+    padding: 10px 12px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #dfdfdf;
 }
@@ -313,7 +313,7 @@
 }
 
 .cfs_loop .cfs_loop_body {
-    padding: 10px;
+    padding: 10px 12px;
     background: #f8f8f8;
     display: none;
 }
@@ -345,7 +345,7 @@
 .cfs-tab {
     display: inline-block;
     padding: 5px 15px;
-    margin-left: 10px;
+    margin-left: 12px;
     margin-bottom: -1px;
     border: 1px solid #ccc;
     background-color: #f5f5f5;
@@ -367,7 +367,7 @@
 }
 
 .cfs-tab-notes {
-    padding: 10px;
+    padding: 10px 12px;
 }
 
 /*---------------------------------------------------------------------------------------------
