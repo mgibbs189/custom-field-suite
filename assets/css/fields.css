@@ -89,7 +89,7 @@
 .field_meta table {
     border: 0;
     border-radius: 0;
-	border-spacing: 0;
+    border-spacing: 0;
 }
 
 .field_meta td {
@@ -132,7 +132,7 @@
     width: 100%;
     border: none;
     border-radius: 0;
-	border-spacing: 0;
+    border-spacing: 0;
 }
 
 .field_form td {
@@ -162,7 +162,7 @@
 .field_form tr.field_basics table {
     padding: 10px 12px;
     border-bottom: 1px solid #dfdfdf;
-	border-spacing: 0;
+    border-spacing: 0;
 }
 
 .field_form tr.field_basics td {

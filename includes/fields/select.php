@@ -6,7 +6,7 @@ class cfs_select extends cfs_field
     function __construct() {
         $this->name = 'select';
         $this->label = __( 'Select', 'cfs' );
-		$this->select2_inserted = false;
+        $this->select2_inserted = false;
     }
 
     function html( $field ) {
@@ -29,7 +29,7 @@ class cfs_select extends cfs_field
             $field->input_class = '';
         }
 
-		// Select2
+        // Select2
         if (isset($field->options['select2']) && '1' == $field->options['select2'])
         {
             if (empty($field->input_class))
@@ -41,8 +41,8 @@ class cfs_select extends cfs_field
                 $field->input_class .= ' select2';
             }
 
-			add_action( 'admin_footer', array( $this, 'select2_code' ) );
-		}
+            add_action( 'admin_footer', array( $this, 'select2_code' ) );
+        }
 
         // Select boxes should return arrays (unless "force_single" is true)
         if ( '[]' != substr( $field->input_name, -2 ) && empty( $field->options['force_single'] ) ) {
@@ -59,18 +59,19 @@ class cfs_select extends cfs_field
     <?php
     }
 
-	function select2_code() {
+    function select2_code() {
 
-		// Exit early if the select2 code has already been inserted
-		if ( $this->select2_inserted )
-			return;
+        // Exit early if the select2 code has already been inserted
+        if ( $this->select2_inserted ) {
+            return;
+        }
 
-		echo '<script src="' . CFS_URL . '/assets/js/select2/select2.min.js"></script>';
-		echo '<link rel="stylesheet" type="text/css" href="' . CFS_URL . '/assets/js/select2/select2.css" />';
+        echo '<script src="' . CFS_URL . '/assets/js/select2/select2.min.js"></script>';
+        echo '<link rel="stylesheet" type="text/css" href="' . CFS_URL . '/assets/js/select2/select2.css" />';
 
-		// Don't insert select2 code twice
-		$this->select2_inserted = true;
-	}
+        // Don't insert select2 code twice
+        $this->select2_inserted = true;
+    }
 
     function input_head( $field = null ) {
     ?>
@@ -88,9 +89,9 @@ class cfs_select extends cfs_field
                     var $this = $(this);
                     $this.addClass('ready');
 
-					if ( $this.find( 'select' ).hasClass( 'select2' ) ) {
-						$this.find( 'select' ).select2();
-					}
+                    if ( $this.find( 'select' ).hasClass( 'select2' ) ) {
+                        $this.find( 'select' ).select2();
+                    }
                 });
             }
         })(jQuery);
