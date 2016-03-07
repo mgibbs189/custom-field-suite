@@ -70,7 +70,7 @@ $results = $wpdb->get_results($sql);
 </script>
 
 <div class="wrap">
-    <h2><?php _e( 'Tools', 'cfs' ); ?></h2>
+    <h1><?php _e( 'Tools', 'cfs' ); ?></h1>
 
     <h3 class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" rel="export"><?php _e('Export', 'cfs'); ?></a>
