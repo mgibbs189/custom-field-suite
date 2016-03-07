@@ -27,7 +27,7 @@
 }
 
 #cfs_fields .table_footer {
-    padding: 10px;
+    padding: 10px 12px;
     text-align: right;
 }
 
@@ -89,6 +89,7 @@
 .field_meta table {
     border: 0;
     border-radius: 0;
+	border-spacing: 0;
 }
 
 .field_meta td {
@@ -131,10 +132,11 @@
     width: 100%;
     border: none;
     border-radius: 0;
+	border-spacing: 0;
 }
 
 .field_form td {
-    padding: 10px;
+    padding: 10px 12px;
 }
 
 .field_form td.label {
@@ -158,8 +160,9 @@
 }
 
 .field_form tr.field_basics table {
-    padding: 10px;
+    padding: 10px 12px;
     border-bottom: 1px solid #dfdfdf;
+	border-spacing: 0;
 }
 
 .field_form tr.field_basics td {
@@ -231,7 +234,7 @@ span.cfs_delete_field:hover {
 
 #cfs_rules table td,
 #cfs_extras table td {
-    padding: 10px;
+    padding: 10px 12px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #dfdfdf;
 }

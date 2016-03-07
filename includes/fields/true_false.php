@@ -14,9 +14,11 @@ class cfs_true_false extends cfs_field
     function html( $field ) {
         $field->value = ( 0 < (int) $field->value ) ? 1 : 0;
     ?>
-        <span class="checkbox<?php echo $field->value ? ' active' : ''; ?>"></span>
-        <span><?php echo $field->options['message']; ?></span>
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+		<label>
+			<input type="checkbox" <?php echo $field->value ? ' checked' : ''; ?>>
+			<span><?php echo $field->options['message']; ?></span>
+			<input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+		</label>
     <?php
     }
 
@@ -79,10 +81,9 @@ class cfs_true_false extends cfs_field
                     $this.addClass('ready');
 
                     // handle click
-                    $this.find('span.checkbox').on('click', function() {
-                        var val = $(this).hasClass('active') ? 0 : 1;
+                    $this.find('input[type="checkbox"]').on('change click', function() {
+                        var val = $(this).prop('checked') ? 1 : 0;
                         $(this).siblings('.true_false').val(val);
-                        $(this).toggleClass('active');
                     });
                 });
             }

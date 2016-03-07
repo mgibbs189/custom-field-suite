@@ -354,7 +354,10 @@ CFS['loop_buffer'] = [];
                         echo '</div>';
                     }
                     echo '<div class="cfs-tab-content cfs-tab-content-' . $field->name . '">';
-                    echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
+
+					if ( ! empty( $field->notes ) ) {
+						echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
+					}
                 }
                 else {
     ?>
