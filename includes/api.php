@@ -19,6 +19,16 @@ class cfs_api
         return $this->get_fields( $post_id, $options );
     }
 
+    /*
+    ================================================================
+        Abstraction for save_fields for specific post and field
+    ================================================================
+    */
+    public function set( $post_id, $field_name, $field_value ) {
+        $field_data = $this->get( false, $post_id, array( 'format' => 'raw' ) );
+        $field_data[$field_name] = $field_value;
+        $this->save_fields( $field_data, array( 'ID' => $post_id ) );
+    }
 
     /*
     ================================================================
