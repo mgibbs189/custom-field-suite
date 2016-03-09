@@ -49,7 +49,7 @@ class Custom_Field_Suite
         return CFS()->api->get( $field_name, $post_id, $options );
     }
 
-    function set( $post_id, $field_name, $field_value ) {
+    function set( $field_name, $field_value, $post_id = false ) {
         return CFS()->api->set( $post_id, $field_name, $field_value );
     }
 
