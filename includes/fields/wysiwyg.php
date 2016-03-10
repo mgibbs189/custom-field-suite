@@ -19,7 +19,7 @@ class cfs_wysiwyg extends cfs_field
                 <?php do_action( 'media_buttons' ); ?>
             </div>
             <div class="wp-editor-container">
-                <textarea name="<?php echo $field->input_name; ?>" class="wp-editor-area <?php echo $field->input_class; ?>" rows="4"><?php echo $field->value; ?></textarea>
+                <textarea name="<?php echo $field->input_name; ?>" class="wp-editor-area <?php echo $field->input_class; ?>" style="height:300px"><?php echo $field->value; ?></textarea>
             </div>
         </div>
     <?php
@@ -113,6 +113,7 @@ class cfs_wysiwyg extends cfs_field
                     
                     // if all editors on page are in 'text' tab, tinyMCE.settings will not be set
                     if ('undefined' == typeof tinyMCE.settings) {
+
                         // let's pull from tinyMCEPreInit for main content area (if it's set)
                         if ('undefined' != typeof tinyMCEPreInit && 'undefined' != typeof tinyMCEPreInit.mceInit.content) {
                             tinyMCE.settings = tinyMCEPreInit.mceInit.content;
