@@ -11,35 +11,17 @@ class cfs_select extends cfs_field
 
     function html( $field ) {
         $multiple = '';
+        $field->input_class = empty( $field->input_class ) ? '' : $field->input_class;
 
         // Multi-select
         if ( isset( $field->options['multiple'] ) && '1' == $field->options['multiple'] ) {
             $multiple = ' multiple';
-
-            if ( empty( $field->input_class ) ) {
-                $field->input_class = 'multiple';
-            }
-            else {
-                $field->input_class .= ' multiple';
-            }
-        }
-
-        // Single-select
-        elseif ( ! isset( $field->input_class ) ) {
-            $field->input_class = '';
+            $field->input_class .= ' multiple';
         }
 
         // Select2
-        if (isset($field->options['select2']) && '1' == $field->options['select2'])
-        {
-            if (empty($field->input_class))
-            {
-                $field->input_class = 'select2';
-            }
-            else
-            {
-                $field->input_class .= ' select2';
-            }
+        if ( isset( $field->options['select2'] ) && '1' == $field->options['select2'] ) {
+            $field->input_class .= ' select2';
 
             add_action( 'admin_footer', array( $this, 'select2_code' ) );
         }
@@ -49,7 +31,7 @@ class cfs_select extends cfs_field
             $field->input_name .= '[]';
         }
     ?>
-        <select name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>"<?php echo $multiple; ?>>
+        <select name="<?php echo $field->input_name; ?>" class="<?php echo trim( $field->input_class ); ?>"<?php echo $multiple; ?>>
         <?php foreach ( $field->options['choices'] as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
             <?php $selected = in_array( $val, (array) $field->value ) ? ' selected' : ''; ?>
