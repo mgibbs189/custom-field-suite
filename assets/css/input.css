@@ -246,7 +246,7 @@
     width: 21px;
     height: 18px;
     text-decoration: none;
-	margin-right: -1px;
+    margin-right: -1px;
 }
 
 .cfs_toggle_field {
@@ -282,6 +282,7 @@
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
+    border-radius: 50%;
 }
 
 .cfs_input .cfs_loop_toggle:before {
