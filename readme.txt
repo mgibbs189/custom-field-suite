@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 4.0
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2
 
@@ -54,6 +54,14 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.5 =
+* Tested against WP 4.5
+* Select field type now supports Select2 (props @chrisvanpatten)
+* True / false fields use basic HTML elements (props @chrisvanpatten)
+* Added Hungarian translation (props @ersoma)
+* Upgraded to Select2 3.5.4
+* Minor UX tweaks
 
 = 2.5.4 =
 * New: `cfs_form_before_fields` filter
