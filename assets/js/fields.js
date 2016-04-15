@@ -23,10 +23,9 @@
         init_tooltip();
 
         // Setup checkboxes
-        $(document).on('click', 'span.checkbox', function() {
-            var val = $(this).hasClass('active') ? 0 : 1;
+        $(document).on('change click', 'input[type="checkbox"]', function() {
+            var val = $(this).prop('checked') ? 1 : 0;
             $(this).siblings('input').val(val);
-            $(this).toggleClass('active');
         });
 
         // Drag-and-drop support
