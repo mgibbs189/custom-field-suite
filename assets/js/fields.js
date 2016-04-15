@@ -23,7 +23,7 @@
         init_tooltip();
 
         // Setup checkboxes
-        $(document).on('click', 'input[type="checkbox"]', function() {
+        $(document).on('change click', 'input[type="checkbox"]', function() {
             var val = $(this).prop('checked') ? 1 : 0;
             $(this).siblings('input').val(val);
         });
