@@ -98,6 +98,7 @@ class cfs_init
             'text'          => CFS_DIR . '/includes/fields/text.php',
             'textarea'      => CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => CFS_DIR . '/includes/fields/wysiwyg.php',
+            'image'         => CFS_DIR . '/includes/fields/image/image.php',
             'hyperlink'     => CFS_DIR . '/includes/fields/hyperlink.php',
             'date'          => CFS_DIR . '/includes/fields/date/date.php',
             'color'         => CFS_DIR . '/includes/fields/color/color.php',
