@@ -30,6 +30,11 @@ class cfs_api
 
         $defaults = array( 'format' => 'api' ); // "api", "input", or "raw"
         $options = array_merge( $defaults, $options );
+
+        if ( empty( $post_id ) && empty( $post ) ) {
+            return null;
+        }
+
         $post_id = empty( $post_id ) ? $post->ID : (int) $post_id;
 
         // Trigger get_fields if not in cache
