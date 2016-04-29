@@ -31,6 +31,10 @@ class cfs_form
             return;
         }
 
+        if ( isset( $_POST['wp-preview'] ) && 'dopreview' == $_POST['wp-preview'] ) {
+            return;
+        }
+
         $this->session = new cfs_session();
 
         // Save the form
