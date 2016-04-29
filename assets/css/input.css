@@ -243,20 +243,23 @@
 
 .cfs_delete_field {
     float: right;
-    width: 20px;
-    height: 16px;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
+    margin-right: -1px;
 }
 
 .cfs_toggle_field {
     float: right;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-    top:-1px;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
 }
 
 .cfs_toggle_field:before {
     content: '\f140';
+    position: relative;
+    top: -1px;
 }
 
 .open .cfs_toggle_field:before {
@@ -274,11 +277,12 @@
 
 .cfs_input .cfs_loop_toggle {
     float: right;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     display: inline-block;
-    margin-right: 6px;
+    text-decoration: none;
+    border-radius: 50%;
 }
 
 .cfs_input .cfs_loop_toggle:before {
