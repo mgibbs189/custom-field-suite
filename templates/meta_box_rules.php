@@ -101,7 +101,7 @@ foreach ( $templates as $template_name => $filename ) {
         $('.select2-ajax').select2({
             multiple: true,
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
-            minimumInputLength: 3,
+            minimumInputLength: 2,
             ajax: {
                 url: ajaxurl,
                 type: 'POST',
