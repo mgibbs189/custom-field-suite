@@ -40,6 +40,29 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e( 'File Type', 'cfs' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field( array(
+                        'type' => 'select',
+                        'input_name' => "cfs[fields][$key][options][file_type]",
+                        'options' => array(
+                            'choices' => array(
+                                'file'  => __( 'Any', 'cfs' ),
+                                'image' => __( 'Image', 'cfs' ),
+                                'audio' => __( 'Audio', 'cfs' ),
+                                'video' => __( 'Video', 'cfs' )
+                            ),
+                            'force_single' => true,
+                        ),
+                        'value' => $this->get_option( $field, 'file_type', 'file' ),
+                    ) );
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e( 'Return Value', 'cfs' ); ?></label>
             </td>
             <td>
