@@ -45,13 +45,19 @@ class cfs_tab extends cfs_field
                 makeInactive($context);
                 makeTabActive($(this), $context);
 
-                sessionStorage.setItem('<?=$sessionStoreKey;?>', $(this).attr('rel'));
+                if(typeof(Storage) !== "undefined") {
+                    sessionStorage.setItem('<?=$sessionStoreKey;?>', $(this).attr('rel'));
+                }
             });
 
             $(function() {
+                var lastActiveTabRel = null,
+                    el = [];
 
-                var lastActiveTabRel = sessionStorage.getItem('<?=$sessionStoreKey;?>'),
+                if(typeof(Storage) !== "undefined") {
+                    lastActiveTabRel = sessionStorage.getItem('<?=$sessionStoreKey;?>');
                     el = $('.cfs-tabs [rel="' + lastActiveTabRel +'"]');
+                }
 
                 if (lastActiveTabRel && el.length > 0) {
                     makeTabActive(el, el.parents('.cfs_input'));
