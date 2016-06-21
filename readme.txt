@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 4.0
-Tested up to: 4.5
+Tested up to: 4.5.2
 Stable tag: trunk
 License: GPLv2
 
@@ -54,6 +54,14 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.6 =
+* Improved: loop field accessibility improvements (props @chrisvanpatten)
+* Improved: set default value for Color fields
+* Fix: "Hide the content editor" box (props @jchristopher)
+* Fix: do not save custom fields during Preview
+* Fix: set minimum select2 character limit to 2
+* Fix: ensure that post exists in `get_field` method
 
 = 2.5.5 =
 * Tested against WP 4.5
