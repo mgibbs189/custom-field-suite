@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
 Requires at least: 4.0
-Tested up to: 4.5.2
+Tested up to: 4.6
 Stable tag: trunk
 License: GPLv2
 
@@ -54,6 +54,9 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.6.1 =
+* Tested against WP 4.6
 
 = 2.5.6 =
 * Improved: loop field accessibility improvements (props @chrisvanpatten)
