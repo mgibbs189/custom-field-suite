@@ -304,6 +304,20 @@
     margin-bottom: 10px;
 }
 
+@keyframes highlight {
+	0% {
+		box-shadow: 0 0 3px 1px rgba(255,255,0,0.4);
+	}
+
+	100% {
+		box-shadow: 0 0 3px 1px rgba(255,255,0,0);
+	}
+}
+
+.cfs_loop .loop_wrapper_new {
+	animation: highlight 1s ease-in-out;
+}
+
 .cfs_loop .cfs_loop_head {
     cursor: pointer;
     padding: 5px 5px 5px 30px;
