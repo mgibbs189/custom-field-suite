@@ -269,19 +269,19 @@ class cfs_loop extends cfs_field
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
                     $(this).attr('data-rows', parseInt(num_rows)+1);
-					$(html).insertBefore( $(this).closest('.table_footer') ).addClass('loop_wrapper_new');
+                    $(html).insertBefore( $(this).closest('.table_footer') ).addClass('loop_wrapper_new');
                     $(this).trigger('cfs/ready');
                 });
 
                 $(document).on('click', '.cfs_insert_field', function(event) {
                     event.stopPropagation();
-					var $add_field = $('.cfs_add_field');
+                    var $add_field = $('.cfs_add_field');
                     var num_rows = $add_field.attr('data-rows');
                     var loop_tag = $add_field.attr('data-loop-tag');
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
                     $add_field.attr('data-rows', parseInt(num_rows)+1);
-					$(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
+                    $(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
                     $add_field.trigger('cfs/ready');
                 });
 
