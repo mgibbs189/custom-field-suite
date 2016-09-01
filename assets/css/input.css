@@ -262,6 +262,10 @@
     top: -1px;
 }
 
+.open .cfs_toggle_field:before {
+    content: '\f142';
+}
+
 .cfs_insert_field {
     float: right;
     width: 21px;
