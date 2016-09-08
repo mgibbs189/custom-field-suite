@@ -14,18 +14,18 @@ A custom fields management UI
 
 CFS includes over 12 field types, include text, date, wysiwyg, file upload, relationship, user, and loop (repeatable fields). With CFS, creating and managing custom fields is easy, thanks to our clean and intuitive admin UI.
 
-It also features an [elegant, lightweight API](http://docs.customfieldsuite.com/api.html) for loading (and saving) field values.
+It also features an [elegant, lightweight API](http://customfieldsuite.com/api.html) for loading (and saving) field values.
 
 = Setting it up =
 * Browse to the "Field Groups" admin menu
 * Create a Field Group, containing one or more custom fields
 * Choose where the Field Group should appear, using Placement Rules (see screenshots)
-* Use the [get](http://docs.customfieldsuite.com/api/get.html) method in your template files to display custom fields
+* Use the [get](http://customfieldsuite.com/api/get.html) method in your template files to display custom fields
 
 This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 = Important Links =
-* [Documentation →](http://docs.customfieldsuite.com)
+* [Documentation →](http://customfieldsuite.com)
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 = Translations =
@@ -91,11 +91,11 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Fix: issue with $cfs variable
 
 = 2.5 =
-* New: [find_fields API method](http://docs.customfieldsuite.com/api/find_fields.html)
+* New: [find_fields API method](http://customfieldsuite.com/api/find_fields.html)
 * New: `CFS()->field_group->load_field_groups()` method
 * New: Turkish transation (props Ertuğrul)
 * New: Chinese translation (props iblackly)
-* Improved: [documentation overhaul](http://docs.customfieldsuite.com)
+* Improved: [documentation overhaul](http://customfieldsuite.com)
 * Improved: major code cleanup and refactoring
 * Improved: efficiency improvements for internal API methods
 * Improved: removed deprecated (< 3.5) code from File field type
