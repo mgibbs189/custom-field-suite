@@ -266,6 +266,19 @@
     content: '\f142';
 }
 
+.cfs_insert_field {
+    float: right;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
+}
+
+.loop_wrapper:hover .cfs_insert_field:before {
+    content: '\f132';
+    position: relative;
+    top: 0px;
+}
+
 .cfs_input .cfs_loop label {
     padding: 6px 0 0 0;
 }
@@ -293,6 +306,20 @@
     border: 1px solid #dfdfdf;
     border-radius: 1px;
     margin-bottom: 10px;
+}
+
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 5px 1px rgba(255,255,0,0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 5px 1px rgba(255,255,0,0);
+    }
+}
+
+.cfs_loop .loop_wrapper_new {
+    animation: highlight 1.5s ease-in-out;
 }
 
 .cfs_loop .cfs_loop_head {
@@ -396,6 +423,7 @@
 .cfs_input .cfs_loop_toggle,
 .cfs_input .cfs_toggle_field,
 .cfs_input .cfs_delete_field,
+.cfs_input .cfs_insert_field,
 .cfs_relationship .selected_posts div span.remove,
 .cfs_user .selected_posts div span.remove,
 .cfs_relationship .cfs_filter_help,
@@ -406,6 +434,7 @@
 .cfs_input .cfs_loop_toggle:before,
 .cfs_input .cfs_toggle_field:before,
 .cfs_input .cfs_delete_field:before,
+.cfs_input .cfs_insert_field:before,
 .cfs_loop .cfs_loop_head:before,
 .cfs_relationship .selected_posts div span.remove:before,
 .cfs_user .selected_posts div span.remove:before,
