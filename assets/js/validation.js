@@ -120,6 +120,13 @@
                                     $this.append('<div class="error"></div>');
                                 }
 
+                                // if the error is inside a loop field, open it up
+                                if ($this.parents('.cfs_loop_body').length > 0) {
+                                    $loop = $this.parents('.cfs_loop_body');
+                                    $loop.addClass('open');
+                                    $loop.siblings('.cfs_loop_head').addClass('open');
+                                }
+
                                 // error can be either a string or function
                                 var error_msg = CFS.validators[validator]['error'];
                                 if ('function' == typeof error_msg) {
