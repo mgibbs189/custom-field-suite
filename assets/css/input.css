@@ -52,10 +52,12 @@
 }
 
 .cfs_input .error {
-    padding: 5px;
+    padding: 7px 10px;
     margin: 5px 0;
     background: #ffebe8;
-    border: 1px solid #c00;
+    border: 1px solid #dcc6d7;
+    border-left: 4px solid #dc3232;
+    font-weight: bold;
 }
 
 .hidden {
