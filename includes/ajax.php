@@ -4,14 +4,14 @@ class cfs_ajax
 {
     /**
      * Search posts (in the Placement Rules area)
-     * @param array $options 
+     * @param array $options
      * @return string A JSON results object
      */
     public function search_posts( $options ) {
         global $wpdb;
 
         $sql = $wpdb->prepare("
-        SELECT ID, post_type, post_title
+        SELECT ID, post_type, post_title, post_parent
         FROM $wpdb->posts
         WHERE
             post_status IN ('publish', 'private') AND
@@ -25,9 +25,19 @@ class cfs_ajax
 
         $output = array();
         foreach ( $results as $result ) {
+            $parent = '';
+
+            if (
+                isset( $result->post_parent ) &&
+                absint( $result->post_parent ) > 0 &&
+                $parent = get_post( $result->post_parent )
+            ) {
+                $parent = "$parent->post_title >";
+            }
+
             $output[] = array(
                 'id' => $result->ID,
-                'text' => "($result->post_type) $result->post_title"
+                'text' => "($result->post_type) $parent $result->post_title (#$result->ID)"
             );
         }
         return json_encode( $output );
