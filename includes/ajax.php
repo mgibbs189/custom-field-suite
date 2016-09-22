@@ -32,12 +32,12 @@ class cfs_ajax
                 absint( $result->post_parent ) > 0 &&
                 $parent = get_post( $result->post_parent )
             ) {
-                $parent = "$parent->post_title /";
+                $parent = "$parent->post_title >";
             }
 
             $output[] = array(
                 'id' => $result->ID,
-                'text' => "($result->post_type) $parent $result->post_title"
+                'text' => "($result->post_type) $parent $result->post_title (#$result->ID)"
             );
         }
         return json_encode( $output );

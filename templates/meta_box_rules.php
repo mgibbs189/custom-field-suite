@@ -71,10 +71,10 @@ if ( ! empty( $rules['post_ids']['values'] ) ) {
             absint( $result->post_parent ) > 0 &&
             $parent = get_post( $result->post_parent )
         ) {
-            $parent = "$parent->post_title /";
+            $parent = "$parent->post_title >";
         }
 
-        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title" );
+        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title (#$result->ID)" );
         $post_ids[] = $result->ID;
     }
 }
