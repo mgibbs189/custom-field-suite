@@ -132,11 +132,11 @@
                                 if ('function' == typeof error_msg) {
                                     error_msg = error_msg($this);
                                 }
+
                                 $this.find('.error').html(error_msg);
                                 $this.find('.error').show();
-                                $('html, body').animate({
-                                    scrollTop: $this.find('.error').offset().top
-                                }, 500);
+
+                                $('#cfs-validation-admin-notice').show();
                             }
                         }
                     });
