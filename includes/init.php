@@ -104,6 +104,7 @@ class cfs_init
             'true_false'    => CFS_DIR . '/includes/fields/true_false.php',
             'select'        => CFS_DIR . '/includes/fields/select.php',
             'relationship'  => CFS_DIR . '/includes/fields/relationship.php',
+            'term'          => CFS_DIR . '/includes/fields/term.php',
             'user'          => CFS_DIR . '/includes/fields/user.php',
             'file'          => CFS_DIR . '/includes/fields/file.php',
             'loop'          => CFS_DIR . '/includes/fields/loop.php',
