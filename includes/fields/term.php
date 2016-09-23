@@ -12,8 +12,8 @@ class cfs_term extends cfs_field
     function html( $field ) {
         global $wpdb;
 
-        $selected_terms = array();
-        $available_terms = array();
+        $selected_posts = array();
+        $available_posts = array();
 
         $taxonomies = array();
         if ( ! empty( $field->options['taxonomies'] ) ) {
@@ -22,11 +22,11 @@ class cfs_term extends cfs_field
             }
         }
         else {
-            $post_types = get_taxonomies( array( 'public' => true ) );
+            $taxonomies = get_taxonomies( array( 'public' => true ) );
         }
 
         $args = array(
-            'taxonomy'   => $post_types,
+            'taxonomy'   => $taxonomies,
             'hide_empty' => false,
             'fields'     => 'ids',
             'orderby'    => 'name',
@@ -38,7 +38,7 @@ class cfs_term extends cfs_field
 
         foreach ( $query->terms as $term_id ) {
             $term = get_term( $term_id );
-            $available_terms[] = (object) array(
+            $available_posts[] = (object) array(
                 'term_id'  => $term->term_id,
                 'taxonomy' => $term->taxonomy,
                 'name'     => $term->name,
@@ -48,23 +48,23 @@ class cfs_term extends cfs_field
         if ( ! empty( $field->value ) ) {
             $results = $wpdb->get_results( "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($field->value) ORDER BY FIELD(term_id,$field->value)" );
             foreach ( $results as $result ) {
-                $selected_terms[ $result->term_id ] = $result;
+                $selected_posts[ $result->term_id ] = $result;
             }
         }
     ?>
-        <div class="filter_terms">
+        <div class="filter_posts">
             <input type="text" class="cfs_filter_input" autocomplete="off" placeholder="<?php _e( 'Search terms', 'cfs' ); ?>" />
         </div>
 
-        <div class="available_terms term_list">
-        <?php foreach ( $available_terms as $term ) : ?>
-            <?php $class = ( isset( $selected_terms[ $term->term_id ] ) ) ? ' class="used"' : ''; ?>
+        <div class="available_posts post_list">
+        <?php foreach ( $available_posts as $term ) : ?>
+            <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? ' class="used"' : ''; ?>
             <div rel="<?php echo $term->term_id; ?>"<?php echo $class; ?> title="<?php echo $term->name; ?>"><?php echo apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ); ?></div>
         <?php endforeach; ?>
         </div>
 
-        <div class="selected_terms term_list">
-        <?php foreach ( $selected_terms as $term ) : ?>
+        <div class="selected_posts post_list">
+        <?php foreach ( $selected_posts as $term ) : ?>
             <div rel="<?php echo $term->term_id; ?>"><span class="remove"></span><?php echo apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ); ?></div>
         <?php endforeach; ?>
         </div>
@@ -114,10 +114,10 @@ class cfs_term extends cfs_field
         (function($) {
             update_term_values = function(field) {
                 var term_ids = [];
-                field.find('.selected_terms div').each(function(idx) {
+                field.find('.selected_posts div').each(function(idx) {
                     term_ids[idx] = $(this).attr('rel');
                 });
-                field.find('input.terms').val(term_ids.join(','));
+                field.find('input.term').val(term_ids.join(','));
             }
 
             $(function() {
@@ -127,21 +127,21 @@ class cfs_term extends cfs_field
                 $('.cfs_term').init_term();
 
                 // add selected post
-                $(document).on('click', '.cfs_term .available_terms div', function() {
+                $(document).on('click', '.cfs_term .available_posts div', function() {
                     var parent = $(this).closest('.field');
                     var term_id = $(this).attr('rel');
                     var html = $(this).html();
                     $(this).addClass('used');
-                    parent.find('.selected_terms').append('<div rel="'+term_id+'"><span class="remove"></span>'+html+'</div>');
+                    parent.find('.selected_posts').append('<div rel="'+term_id+'"><span class="remove"></span>'+html+'</div>');
                     update_term_values(parent);
                 });
 
                 // remove selected post
-                $(document).on('click', '.cfs_term .selected_terms .remove', function() {
+                $(document).on('click', '.cfs_term .selected_posts .remove', function() {
                     var div = $(this).parent();
                     var parent = div.closest('.field');
                     var term_id = div.attr('rel');
-                    parent.find('.available_terms div[rel='+post_id+']').removeClass('used');
+                    parent.find('.available_posts div[rel='+post_id+']').removeClass('used');
                     div.remove();
                     update_term_values(parent);
                 });
@@ -151,7 +151,7 @@ class cfs_term extends cfs_field
                     var input = $(this).val();
                     var parent = $(this).closest('.field');
                     var regex = new RegExp(input, 'i');
-                    parent.find('.available_terms div:not(.used)').each(function() {
+                    parent.find('.available_posts div:not(.used)').each(function() {
                         if (-1 < $(this).html().search(regex)) {
                             $(this).removeClass('hidden');
                         }
@@ -168,7 +168,7 @@ class cfs_term extends cfs_field
                     $this.addClass('ready');
 
                     // sortable
-                    $this.find('.selected_terms').sortable({
+                    $this.find('.selected_posts').sortable({
                         axis: 'y',
                         update: function(event, ui) {
                             var parent = $(this).closest('.field');
