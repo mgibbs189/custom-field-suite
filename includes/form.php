@@ -180,7 +180,7 @@ CFS['loop_buffer'] = [];
     /**
      * Add an admin notice to be displayed in the event of
      * validation errors
-     * @since
+     * @since 2.6
      */
     function admin_notice() {
         $screen = get_current_screen();
