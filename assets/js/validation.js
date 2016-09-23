@@ -58,6 +58,9 @@
             'relationship': function(el) {
                 return el.find('input.relationship').val();
             },
+            'term': function(el) {
+                return el.find('input.term').val();
+            },
             'user': function(el) {
                 return el.find('input.user').val();
             },
