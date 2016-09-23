@@ -34,9 +34,18 @@ class cfs_term extends cfs_field
         );
 
         $args = apply_filters( 'cfs_field_term_query_args', $args, array( 'field' => $field ) );
-        $query = new WP_Term_Query( $args );
 
-        foreach ( $query->terms as $term_id ) {
+        // Use older `get_terms` function signature for older versions of WP
+        if ( version_compare( get_bloginfo('version'), '4.5', '<' ) ) {
+            $taxonomy = $args['taxonomy'];
+            unset( $args['taxonomy'] );
+
+            $query = get_terms( $taxonomy, $args );
+        } else {
+            $query = get_terms( $args );
+        }
+
+        foreach ( $query as $term_id ) {
             $term = get_term( $term_id );
             $available_posts[] = (object) array(
                 'term_id'  => $term->term_id,
