@@ -742,6 +742,10 @@ class cfs_api
             $value[] = $field_value;
         }
         else {
+            if ( ! isset( CFS()->fields[ $field->type ] ) ) {
+                return;
+            }
+
             $value = CFS()->fields[ $field->type ]->prepare_value( $value, $field );
 
             if ( 'api' == $options['format'] ) {
