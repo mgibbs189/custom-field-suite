@@ -150,7 +150,7 @@ class cfs_term extends cfs_field
                     var div = $(this).parent();
                     var parent = div.closest('.field');
                     var term_id = div.attr('rel');
-                    parent.find('.available_posts div[rel='+post_id+']').removeClass('used');
+                    parent.find('.available_posts div[rel='+term_id+']').removeClass('used');
                     div.remove();
                     update_term_values(parent);
                 });
