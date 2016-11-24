@@ -30,10 +30,10 @@ class cfs_hyperlink extends cfs_field
             <div class="cfs-hyperlink-target" style="width:19%;float:left;margin-left:1%;">
                 <div><?php _e( 'Link Target', 'cfs' ); ?></div>
                 <select class="link-target widefat" name="<?php echo esc_attr( $field->input_name ); ?>[target]">
-                    <option value="none" <?php selected( 'none', esc_attr( $field->value['target'] ) ); ?>>None</option>
-                    <option value="_blank" <?php selected( '_blank', esc_attr( $field->value['target'] ) ); ?>>_blank</option>
-                    <option value="_self" <?php selected( '_self', esc_attr( $field->value['target'] ) ); ?>>_self</option>
-                    <option value="_top" <?php selected( '_top', esc_attr( $field->value['target'] ) ); ?>>_top</option>
+                    <option value="none" <?php selected( 'none', esc_attr( $field->value['target'] ) ); ?>><?php _e( 'None', 'cfs' ); ?></option>
+                    <option value="_blank" <?php selected( '_blank', esc_attr( $field->value['target'] ) ); ?>><?php _e( '_blank', 'cfs' ); ?></option>
+                    <option value="_self" <?php selected( '_self', esc_attr( $field->value['target'] ) ); ?>><?php _e( '_self', 'cfs' ); ?></option>
+                    <option value="_top" <?php selected( '_top', esc_attr( $field->value['target'] ) ); ?>><?php _e( '_top', 'cfs' ); ?></option>
                 </select>
             </div>
         </div>
