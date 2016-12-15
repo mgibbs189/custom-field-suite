@@ -29,45 +29,70 @@
         });
 
         // Drag-and-drop support
-        $('ul.fields').sortable({
-            items: 'ul, li',
-            connectWith: 'ul.fields',
-            placeholder: 'ui-sortable-placeholder',
-            handle: '.field_order',
-            create: function(event, ui) {
-                // Append <ul> to empty loop fields
-                $('ul.fields li.loop').filter(function(idx) {
-                    return $(this).children('ul').length < 1;
-                }).append('<ul></ul>');
-            },
-            update: function(event, ui) {
-                zebra_stripes();
+        var $fields = $('ul.fields');
 
-                // Use parents() because closest() includes the current element
-                // ui.item is the <li>, and loop fields have <li class="loop">
-                var parent_id = 0;
-                if (0 < ui.item.parents('li.loop').length) {
-                    parent_id = ui.item.parents('li.loop').first().find('.field_id').first().val();
+        function init_sortable() {
+           if ($fields.hasClass('ui-sortable'))
+                $fields.sortable('destroy');
+
+            $fields.sortable({
+                items: 'ul, li',
+                connectWith: 'ul.fields',
+                placeholder: 'ui-sortable-placeholder',
+                handle: '.field_order',
+                create: function(event, ui) {
+                    // Append <ul> to empty loop fields
+                    $('ul.fields li.loop').filter(function(idx) {
+                        return $(this).children('ul').length < 1;
+                    }).append('<ul></ul>');
+                },
+                update: function(event, ui) {
+                    zebra_stripes();
+
+                    // Use parents() because closest() includes the current element
+                    // ui.item is the <li>, and loop fields have <li class="loop">
+                    var parent_id = 0;
+                    if (0 < ui.item.parents('li.loop').length) {
+                        parent_id = ui.item.parents('li.loop').first().find('.field_id').first().val();
+                    }
+                    ui.item.find('.parent_id').first().val(parent_id);
+
+                    /*
+                    var $container = ui.item.closest('.fields');
+                    $container.find('[name^="cfs[fields]"]').each(function() {
+                        console.log($(this).attr('name') + ' = ' + $(this).val());
+                    });
+                    */
                 }
-                ui.item.find('.parent_id').first().val(parent_id);
+            });
+        }
 
-                /*
-                var $container = ui.item.closest('.fields');
-                $container.find('[name^="cfs[fields]"]').each(function() {
-                    console.log($(this).attr('name') + ' = ' + $(this).val());
-                });
-                */
-            }
+        init_sortable();
+
+        // Get starting id
+        var nextFieldId = 0;
+        $.post(ajaxurl, {
+            action: 'cfs_ajax_handler',
+            action_type: 'get_next_field_id'
+        },
+        function(response) {
+            nextFieldId = parseInt(response) - 1
         });
 
         // Add a new field
         $(document).on('click', '.cfs_add_field', function() {
-            var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']');
-            $('.fields').append('<li>' + html + '</li>');
+            var html = CFS.field_clone.replace(/\[clone\]/g, '['+CFS.field_index+']'),
+                $li = $('<li />')
+
+            $('.fields').append($li.html(html));
             $('.fields li:last .field_label a').click();
             $('.fields li:last .field_type select').change();
             CFS.field_index = CFS.field_index + 1;
+
+            $li.find('.field_id').val('f' + (nextFieldId += 1));
+
             init_tooltip();
+            init_sortable();
         });
 
         // Delete a field
@@ -77,9 +102,16 @@
 
         // Pop open the edit fields
         $(document).on('click', '.cfs_edit_field', function() {
-            var field = $(this).closest('.field');
+            var field = $(this).closest('.field'),
+                type = field.find('.field_type select').val();
+
+            field.parent().attr('class', type);
             field.toggleClass('form_open');
             field.find('.field_form').slideToggle('fast');
+
+            if (!field.hasClass('form_open') && type === 'loop') {
+                init_sortable();
+            }
         });
 
         // Add or replace field_type options

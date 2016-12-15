@@ -198,14 +198,27 @@ class cfs_field_group
             // Allow for field customizations
             $field = CFS()->fields[ $field['type'] ]->pre_save_field( $field );
 
+            // Check for the faux ID
+            $fix_fake_id = function($str) {
+                return str_replace('f', null, $str);
+            };
+
+            $is_fake_id = strstr($field['id'], 'f');
+            $is_fake_parent_id = strstr($field['parent_id'], 'f');
+
             // Set the parent ID
-            $field['parent_id'] = empty( $field['parent_id'] ) ? 0 : (int) $field['parent_id'];
+            $field['parent_id'] =
+                empty( $field['parent_id'] ) ? 0
+                : ($is_fake_parent_id
+                    ? $fix_fake_id($field['parent_id'])
+                    : (int) $field['parent_id']
+                );
 
             // Save empty array for fields without options
             $field['options'] = empty( $field['options'] ) ? array() : $field['options'];
 
             // Use an existing ID if available
-            if ( 0 < (int) $field['id'] ) {
+            if ( 0 < (int) $field['id'] && !$is_fake_id ) {
 
                 // We use this variable to check for deleted fields
                 $current_field_ids[] = $field['id'];
@@ -224,7 +237,7 @@ class cfs_field_group
                 }
             }
             else {
-                $field['id'] = $next_field_id;
+                $field['id'] = $is_fake_id ? $fix_fake_id($field['id']) : $next_field_id;
                 $next_field_id++;
             }
 

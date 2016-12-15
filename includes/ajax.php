@@ -69,4 +69,12 @@ class cfs_ajax
         delete_option( 'cfs_version' );
         delete_option( 'cfs_next_field_id' );
     }
+
+
+    /**
+     * Remove all traces of CFS
+     */
+    public function get_next_field_id() {
+        echo get_option( 'cfs_next_field_id' );
+    }
 }
