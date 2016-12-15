@@ -120,7 +120,9 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
-                <span class="label"><?php echo esc_attr( $row_label ); ?></span>
+                <span class="label" data-default="<?php echo esc_attr ( $this->get_option($loop_field[$field_id], 'row_label') ) ?>">
+                    <?php echo esc_attr( $row_label ); ?>
+                </span>
             </div>
             <div class="cfs_loop_body open">
             <?php foreach ( $results as $field ) : ?>
@@ -208,7 +210,9 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
-                <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
+                <span class="label" data-default="<?php echo esc_attr( $row_label ); ?>">
+                    <?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;
+                </span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ( $results as $field ) : ?>
@@ -271,6 +275,7 @@ class cfs_loop extends cfs_field
                     $(this).attr('data-rows', parseInt(num_rows)+1);
                     $(html).insertBefore( $(this).closest('.table_footer') ).addClass('loop_wrapper_new');
                     $(this).trigger('cfs/ready');
+                    $(document).trigger('cfs/label_watch')
                 });
 
                 $(document).on('click', '.cfs_insert_field', function(event) {
@@ -283,6 +288,7 @@ class cfs_loop extends cfs_field
                     $add_field.attr('data-rows', parseInt(num_rows)+1);
                     $(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
                     $add_field.trigger('cfs/ready');
+                    $(document).trigger('cfs/label_watch')
                 });
 
                 $(document).on('click', '.cfs_delete_field', function(event) {
@@ -295,6 +301,7 @@ class cfs_loop extends cfs_field
                 $(document).on('click', '.cfs_loop_head', function() {
                     $(this).toggleClass('open');
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
+                    $(document).trigger('cfs/label_watch')
                 });
 
                 // Hide or show all rows
@@ -302,6 +309,7 @@ class cfs_loop extends cfs_field
                 $(document).on('click', '.cfs_loop_toggle', function() {
                     $(this).closest('.field').find('.cfs_loop_head').toggleClass('open');
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
+                    $(document).trigger('cfs/label_watch')
                 });
 
                 $('.cfs_loop').sortable({
@@ -332,6 +340,19 @@ class cfs_loop extends cfs_field
                             $(this).attr('name', name_attr.join('['));
                         });
                     }
+                });
+
+                // Autotype the {variable} loop labels
+                $(document).on('cfs/label_watch', function() {
+                    $('[data-default^="{"]:not(.listening)').each(function() {
+                        var el = $(this), defValue = el.data('default')
+
+                        el.addClass('listening')
+                        el.parents('.loop_wrapper').on('keyup paste', '.field input', function() {
+                            var val = $(this).val()
+                            el.text(val === '' ? defValue : val)
+                        });
+                    });
                 });
             });
         })(jQuery);
