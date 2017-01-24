@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
-Requires at least: 4.0
-Tested up to: 4.6.1
+Requires at least: 4.2
+Tested up to: 4.7.1
 Stable tag: trunk
 License: GPLv2
 
@@ -55,6 +55,12 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.8 =
+* New: "Page Hierarchy" placement rule
+* New: Term field type
+* Improved: smarter field name generation (supports accent characters)
+* Fix: graceful error handling for fields with unrecognized field types
 
 = 2.5.7 =
 * New: ability to insert loop rows inline (props @chrisvanpatten)
