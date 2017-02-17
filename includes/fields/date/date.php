@@ -13,7 +13,7 @@ class cfs_date extends cfs_field
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
                 <label><?php _e('Output format', 'cfs'); ?></label>
-                <p class="description"><?php _e( 'See momentjs\' docs for valid formats. Default format is YYYY-MM-DD HH:mm', 'cfs' ); ?><br>Doc: <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">Format</a></p>
+                <p class="description"><?php _e( 'Output format for date.', 'cfs' ); ?></p>
             </td>
             <td>
                 <?php
@@ -23,9 +23,14 @@ class cfs_date extends cfs_field
                         'value' => $this->get_option( $field, 'format' ),
                     ));
                 ?>
+                <p class="description">
+					<?php _e( 'If you include time format like "YYYY-MM-DD HH:mm", timepicker feature is enabled. Default format is YYYY-MM-DD', 'cfs' ); ?><br>
+					<?php _e("See momentjs\' docs for valid formats.",'cfs'); ?><br>
+					Doc: <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">Format</a>
+				</p>
             </td>
         </tr>
-         <tr class="field_option field_option_<?php echo $this->name; ?>">
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
                 <label><?php _e( 'Validation', 'cfs' ); ?></label>
             </td>
@@ -53,7 +58,7 @@ class cfs_date extends cfs_field
 
     function html( $field ) {
         $format = $this->get_option( $field, 'format' );
-        if(!$format) $format = 'YYYY-MM-DD HH:mm';
+        if(!$format) $format = 'YYYY-MM-DD';
     ?>
         <input type="text" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
         <script>
