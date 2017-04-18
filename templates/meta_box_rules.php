@@ -93,7 +93,10 @@ foreach ( $results as $result ) {
 
 // Page templates
 $page_templates = array();
-$templates = get_page_templates();
+$templates = array();
+foreach ( get_post_types( array( 'public' => true ) ) as $type ) {
+    $templates = array_merge( $templates, get_page_templates( null, $type ) );
+}
 
 foreach ( $templates as $template_name => $filename ) {
     $page_templates[ $filename ] = $template_name;
