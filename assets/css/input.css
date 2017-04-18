@@ -52,10 +52,12 @@
 }
 
 .cfs_input .error {
-    padding: 5px;
+    padding: 7px 10px;
     margin: 5px 0;
     background: #ffebe8;
-    border: 1px solid #c00;
+    border: 1px solid #dcc6d7;
+    border-left: 4px solid #dc3232;
+    font-weight: bold;
 }
 
 .hidden {
@@ -143,6 +145,7 @@
 ---------------------------------------------------------------------------------------------*/
 
 .cfs_relationship .post_list,
+.cfs_term .post_list,
 .cfs_user .post_list {
     float: left;
     overflow-y: scroll;
@@ -157,11 +160,13 @@
 }
 
 .cfs_relationship .post_list.selected_posts,
+.cfs_term .post_list.selected_posts,
 .cfs_user .post_list.selected_posts {
     float: right;
 }
 
 .cfs_relationship .post_list div,
+.cfs_term .post_list div,
 .cfs_user .post_list div {
     padding: 4px 6px;
     border-bottom: 1px solid #eee;
@@ -169,12 +174,14 @@
 }
 
 .cfs_relationship .post_list.available_posts > div,
+.cfs_term .post_list.available_posts > div,
 .cfs_user .post_list.available_posts > div {
     position: relative;
     padding-right: 3em;
 }
 
 .cfs_relationship .post_list.available_posts > div:after,
+.cfs_term .post_list.available_posts > div:after,
 .cfs_user .post_list.available_posts > div:after {
     position: absolute;
     right: 1px;
@@ -184,26 +191,31 @@
 }
 
 .cfs_relationship .post_list div:last-child,
+.cfs_term .post_list div:last-child,
 .cfs_user .post_list div:last-child {
     border-bottom: none;
 }
 
 .cfs_relationship .post_list div:hover,
+.cfs_term .post_list div:hover,
 .cfs_user .post_list div:hover {
     background: #eee;
 }
 
 .cfs_relationship .available_posts div.used,
+.cfs_term .available_posts div.used,
 .cfs_user .available_posts div.used{
     display: none;
 }
 
 .cfs_relationship .selected_posts div,
+.cfs_term .selected_posts div,
 .cfs_user .selected_posts div {
     cursor: move;
 }
 
 .cfs_relationship .selected_posts div span.remove,
+.cfs_term .selected_posts div span.remove,
 .cfs_user .selected_posts div span.remove {
     float: right;
     width: 20px;
@@ -212,17 +224,20 @@
 }
 
 .cfs_relationship .filter_posts,
+.cfs_term .filter_posts,
 .cfs_user .filter_posts {
     margin-bottom: 10px;
 }
 
 .cfs_input .field .cfs_relationship .cfs_filter_input,
+.cfs_input .field .cfs_term .cfs_filter_input,
 .cfs_input .field .cfs_user .cfs_filter_input{
     width: 220px;
     margin: 0;
 }
 
 .cfs_relationship .cfs_filter_help,
+.cfs_term .cfs_filter_help,
 .cfs_user .cfs_filter_help {
     display: inline-block;
     width: 20px;
@@ -232,6 +247,7 @@
 }
 
 .cfs_relationship .cfs_filter_help:before,
+.cfs_term .cfs_filter_help:before,
 .cfs_user .cfs_filter_help:before {
     content: '\f348';
 }
@@ -243,24 +259,40 @@
 
 .cfs_delete_field {
     float: right;
-    width: 20px;
-    height: 16px;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
+    margin-right: -1px;
 }
 
 .cfs_toggle_field {
     float: right;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-    top:-1px;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
 }
 
 .cfs_toggle_field:before {
     content: '\f140';
+    position: relative;
+    top: -1px;
 }
 
 .open .cfs_toggle_field:before {
     content: '\f142';
+}
+
+.cfs_insert_field {
+    float: right;
+    width: 21px;
+    height: 18px;
+    text-decoration: none;
+}
+
+.loop_wrapper:hover .cfs_insert_field:before {
+    content: '\f132';
+    position: relative;
+    top: 0px;
 }
 
 .cfs_input .cfs_loop label {
@@ -274,11 +306,12 @@
 
 .cfs_input .cfs_loop_toggle {
     float: right;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     display: inline-block;
-    margin-right: 6px;
+    text-decoration: none;
+    border-radius: 50%;
 }
 
 .cfs_input .cfs_loop_toggle:before {
@@ -289,6 +322,20 @@
     border: 1px solid #dfdfdf;
     border-radius: 1px;
     margin-bottom: 10px;
+}
+
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 5px 1px rgba(255,255,0,0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 5px 1px rgba(255,255,0,0);
+    }
+}
+
+.cfs_loop .loop_wrapper_new {
+    animation: highlight 1.5s ease-in-out;
 }
 
 .cfs_loop .cfs_loop_head {
@@ -392,9 +439,12 @@
 .cfs_input .cfs_loop_toggle,
 .cfs_input .cfs_toggle_field,
 .cfs_input .cfs_delete_field,
+.cfs_input .cfs_insert_field,
 .cfs_relationship .selected_posts div span.remove,
+.cfs_term .selected_posts div span.remove,
 .cfs_user .selected_posts div span.remove,
 .cfs_relationship .cfs_filter_help,
+.cfs_term .cfs_filter_help,
 .cfs_user .cfs_filter_help{
     position: relative;
 }
@@ -402,13 +452,16 @@
 .cfs_input .cfs_loop_toggle:before,
 .cfs_input .cfs_toggle_field:before,
 .cfs_input .cfs_delete_field:before,
+.cfs_input .cfs_insert_field:before,
 .cfs_loop .cfs_loop_head:before,
 .cfs_relationship .selected_posts div span.remove:before,
-.cfs_user .selected_posts div span.remove:before,
+.cfs_term .selected_posts div span.remove:before,
 .cfs_user .selected_posts div span.remove:before,
 .cfs_relationship .cfs_filter_help:before,
+.cfs_term .cfs_filter_help:before,
 .cfs_user .cfs_filter_help:before,
 .cfs_relationship .post_list.available_posts > div:after,
+.cfs_term .post_list.available_posts > div:after,
 .cfs_user .post_list.available_posts > div:after {
     display: block;
     position: absolute;
@@ -430,6 +483,7 @@
 
 .cfs_input .cfs_delete_field:before,
 .cfs_relationship .selected_posts div span.remove:before,
+.cfs_term .selected_posts div span.remove:before,
 .cfs_user .selected_posts div span.remove:before {
     content: '\f335';
     font-size: 22px;

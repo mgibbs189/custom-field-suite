@@ -15,6 +15,7 @@ class cfs_form
         add_action( 'init', array( $this, 'init' ), 100 );
         add_action( 'admin_head', array( $this, 'head_scripts' ) );
         add_action( 'admin_print_footer_scripts', array( $this, 'footer_scripts' ) );
+        add_action( 'admin_notices', array( $this, 'admin_notice' ) );
     }
 
 
@@ -28,6 +29,10 @@ class cfs_form
         }
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+            return;
+        }
+
+        if ( isset( $_POST['wp-preview'] ) && 'dopreview' == $_POST['wp-preview'] ) {
             return;
         }
 
@@ -169,6 +174,24 @@ CFS['loop_buffer'] = [];
      */
     function footer_scripts() {
         do_action( 'cfs_custom_validation' );
+    }
+
+
+    /**
+     * Add an admin notice to be displayed in the event of
+     * validation errors
+     * @since 2.6
+     */
+    function admin_notice() {
+        $screen = get_current_screen();
+
+        if ( !isset($screen->base) || $screen->base !== 'post' ) {
+            return;
+        }
+
+        echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
+        echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' );
+        echo '</strong></p></div>';
     }
 
 
@@ -364,7 +387,7 @@ CFS['loop_buffer'] = [];
 
         <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>"">
             <?php if ( 'loop' == $field->type ) : ?>
-            <span class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></span>
+            <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></a>
             <?php endif; ?>
 
             <?php if ( ! empty( $field->label ) ) : ?>

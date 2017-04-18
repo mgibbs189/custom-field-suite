@@ -75,7 +75,7 @@ class cfs_loop extends cfs_field
                 ?>
             </td>
         </tr>
-        
+
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
                 <label><?php _e( 'Limits', 'cfs' ); ?></label>
@@ -85,7 +85,7 @@ class cfs_loop extends cfs_field
                 <input type="text" name="cfs[fields][<?php echo $key; ?>][options][limit_max]" value="<?php echo $this->get_option( $field, 'limit_max' ); ?>" placeholder="max" style="width:60px" />
             </td>
         </tr>
-        
+
     <?php
     }
 
@@ -117,8 +117,9 @@ class cfs_loop extends cfs_field
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head open">
-                <a class="cfs_delete_field"></a>
-                <a class="cfs_toggle_field"></a>
+                <a class="cfs_delete_field" href="javascript:;"></a>
+                <a class="cfs_toggle_field" href="javascript:;"></a>
+                <a class="cfs_insert_field" href="javascript:;"></a>
                 <span class="label"><?php echo esc_attr( $row_label ); ?></span>
             </div>
             <div class="cfs_loop_body open">
@@ -204,8 +205,9 @@ class cfs_loop extends cfs_field
     ?>
         <div class="loop_wrapper">
             <div class="cfs_loop_head<?php echo $css_class; ?>">
-                <a class="cfs_delete_field"></a>
-                <a class="cfs_toggle_field"></a>
+                <a class="cfs_delete_field" href="javascript:;"></a>
+                <a class="cfs_toggle_field" href="javascript:;"></a>
+                <a class="cfs_insert_field" href="javascript:;"></a>
                 <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
@@ -267,8 +269,20 @@ class cfs_loop extends cfs_field
                     var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
                     var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
                     $(this).attr('data-rows', parseInt(num_rows)+1);
-                    $(this).closest('.table_footer').before(html);
+                    $(html).insertBefore( $(this).closest('.table_footer') ).addClass('loop_wrapper_new');
                     $(this).trigger('cfs/ready');
+                });
+
+                $(document).on('click', '.cfs_insert_field', function(event) {
+                    event.stopPropagation();
+                    var $add_field = $('.cfs_add_field');
+                    var num_rows = $add_field.attr('data-rows');
+                    var loop_tag = $add_field.attr('data-loop-tag');
+                    var loop_id = loop_tag.match(/.*\[(.*?)\]/)[1];
+                    var html = CFS.loop_buffer[loop_id].replace(/\[clone\]/g, loop_tag + '[' + num_rows + ']');
+                    $add_field.attr('data-rows', parseInt(num_rows)+1);
+                    $(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
+                    $add_field.trigger('cfs/ready');
                 });
 
                 $(document).on('click', '.cfs_delete_field', function(event) {

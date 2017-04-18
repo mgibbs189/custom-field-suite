@@ -57,14 +57,24 @@ if ( ! empty( $rules['post_ids']['values'] ) ) {
     $post_in = implode( ',', $rules['post_ids']['values'] );
 
     $sql = "
-    SELECT ID, post_type, post_title
+    SELECT ID, post_type, post_title, post_parent
     FROM $wpdb->posts
     WHERE ID IN ($post_in)
     ORDER BY post_type, post_title";
     $results = $wpdb->get_results( $sql );
 
     foreach ( $results as $result ) {
-        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $result->post_title" );
+        $parent = '';
+
+        if (
+            isset( $result->post_parent ) &&
+            absint( $result->post_parent ) > 0 &&
+            $parent = get_post( $result->post_parent )
+        ) {
+            $parent = "$parent->post_title >";
+        }
+
+        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title (#$result->ID)" );
         $post_ids[] = $result->ID;
     }
 }

@@ -40,6 +40,29 @@ class cfs_file extends cfs_field
     ?>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e( 'File Type', 'cfs' ); ?></label>
+            </td>
+            <td>
+                <?php
+                    CFS()->create_field( array(
+                        'type' => 'select',
+                        'input_name' => "cfs[fields][$key][options][file_type]",
+                        'options' => array(
+                            'choices' => array(
+                                'file'  => __( 'Any', 'cfs' ),
+                                'image' => __( 'Image', 'cfs' ),
+                                'audio' => __( 'Audio', 'cfs' ),
+                                'video' => __( 'Video', 'cfs' )
+                            ),
+                            'force_single' => true,
+                        ),
+                        'value' => $this->get_option( $field, 'file_type', 'file' ),
+                    ) );
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e( 'Return Value', 'cfs' ); ?></label>
             </td>
             <td>
@@ -80,18 +103,17 @@ class cfs_file extends cfs_field
 
 
     function input_head( $field = null ) {
-        global $post;
         wp_enqueue_media();
     ?>
         <style>
-        .cfs_media_frame .media-frame-menu {
+        .cfs_frame .media-frame-menu {
             display: none;
         }
         
-        .cfs_media_frame .media-frame-title,
-        .cfs_media_frame .media-frame-router,
-        .cfs_media_frame .media-frame-content,
-        .cfs_media_frame .media-frame-toolbar {
+        .cfs_frame .media-frame-title,
+        .cfs_frame .media-frame-router,
+        .cfs_frame .media-frame-content,
+        .cfs_frame .media-frame-toolbar {
             left: 0;
         }
         </style>
@@ -100,24 +122,27 @@ class cfs_file extends cfs_field
         (function($) {
             $(function() {
 
-                var cfs_media_frame;
+                var cfs_frame;
 
                 $(document).on('click', '.cfs_input .media.button.add', function(e) {
                     $this = $(this);
 
-                    if (cfs_media_frame) {
-                        cfs_media_frame.open();
+                    if (cfs_frame) {
+                        cfs_frame.open();
                         return;
                     }
 
-                    cfs_media_frame = wp.media.frames.cfs_media_frame = wp.media({
-                        className: 'media-frame cfs_media_frame',
+                    cfs_frame = wp.media.frames.cfs_frame = wp.media({
+                        className: 'media-frame cfs_frame',
                         frame: 'post',
-                        multiple: false
+                        multiple: false,
+                        library: {
+                            type: 'image'
+                        }
                     });
 
-                    cfs_media_frame.on('insert', function() {
-                        var attachment = cfs_media_frame.state().get('selection').first().toJSON();
+                    cfs_frame.on('insert', function() {
+                        var attachment = cfs_frame.state().get('selection').first().toJSON();
                         if ('image' == attachment.type && 'undefined' != typeof attachment.sizes) {
                             file_url = attachment.sizes.full.url;
                             if ('undefined' != typeof attachment.sizes.thumbnail) {
@@ -134,8 +159,8 @@ class cfs_file extends cfs_field
                         $this.siblings('.file_url').html(file_url);
                     });
 
-                    cfs_media_frame.open();
-                    cfs_media_frame.content.mode('upload');
+                    cfs_frame.open();
+                    cfs_frame.content.mode('upload');
                 });
 
                 $(document).on('click', '.cfs_input .media.button.remove', function() {
