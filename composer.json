@@ -13,7 +13,6 @@
   "type": "wordpress-plugin",
   "support": {
     "issues": "https://github.com/mgibbs189/custom-field-suite/issues",
-    "wiki": "https://github.com/mgibbs189/custom-field-suite/wiki",
     "source": "https://github.com/mgibbs189/custom-field-suite"
   },
   "require": {
