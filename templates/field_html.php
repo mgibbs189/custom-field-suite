@@ -28,7 +28,7 @@
                                 <td class="field_label">
                                     <label>
                                         <?php _e( 'Label', 'cfs' ); ?>
-                                        <div class="cfs_tooltip">
+                                        <div class="cfs_tooltip">?
                                             <div class="tooltip_inner"><?php _e( 'The field label that editors will see.', 'cfs' ); ?></div>
                                         </div>
                                     </label>
@@ -37,7 +37,7 @@
                                 <td class="field_name">
                                     <label>
                                         <?php _e( 'Name', 'cfs' ); ?>
-                                        <div class="cfs_tooltip">
+                                        <div class="cfs_tooltip">?
                                             <div class="tooltip_inner">
                                                 <?php _e( 'The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'cfs' ); ?>
                                             </div>
@@ -65,7 +65,7 @@
                     <td class="label">
                         <label>
                             <?php _e( 'Notes', 'cfs' ); ?>
-                            <div class="cfs_tooltip">
+                            <div class="cfs_tooltip">?
                                 <div class="tooltip_inner"><?php _e( 'Notes for editors during data entry', 'cfs' ); ?></div>
                             </div>
                         </label>

@@ -31,7 +31,7 @@ if ( ! isset( $extras['context'] ) ) {
         <td class="label">
             <label>
                 <?php _e( 'Order', 'cfs' ); ?>
-                <div class="cfs_tooltip">
+                <div class="cfs_tooltip">?
                     <div class="tooltip_inner"><?php _e( 'The field group with the lowest order will appear first.', 'cfs' ); ?></div>
                 </div>
             </label>
