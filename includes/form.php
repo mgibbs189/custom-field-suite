@@ -15,6 +15,7 @@ class cfs_form
         add_action( 'init', array( $this, 'init' ), 100 );
         add_action( 'admin_head', array( $this, 'head_scripts' ) );
         add_action( 'admin_print_footer_scripts', array( $this, 'footer_scripts' ) );
+        add_action( 'admin_notices', array( $this, 'admin_notice' ) );
     }
 
 
@@ -173,6 +174,24 @@ CFS['loop_buffer'] = [];
      */
     function footer_scripts() {
         do_action( 'cfs_custom_validation' );
+    }
+
+
+    /**
+     * Add an admin notice to be displayed in the event of
+     * validation errors
+     * @since 2.6
+     */
+    function admin_notice() {
+        $screen = get_current_screen();
+
+        if ( !isset($screen->base) || $screen->base !== 'post' ) {
+            return;
+        }
+
+        echo '<div class="notice notice-error" id="cfs-validation-admin-notice" style="display: none;"><p><strong>';
+        echo __( 'One (or more) of your fields had validation errors. More information is available below.', 'cfs' );
+        echo '</strong></p></div>';
     }
 
 
