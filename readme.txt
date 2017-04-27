@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
 Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
-Requires at least: 4.2
-Tested up to: 4.7.1
+Requires at least: 4.4
+Tested up to: 4.7.4
 Stable tag: trunk
 License: GPLv2
 
@@ -55,6 +55,12 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.9 =
+* Ensured WP 4.7.4 compat
+* Improved: Removed ancient code - replace `$cfs` with `CFS()`
+* Improved: Admin UI tweaks
+* Improved: Better validation error handling (props @chrisvanpatten)
 
 = 2.5.8 =
 * New: "Page Hierarchy" placement rule
