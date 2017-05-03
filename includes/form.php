@@ -409,6 +409,7 @@ CFS['loop_buffer'] = [];
                     'input_class'   => $field->type,
                     'options'       => $field->options,
                     'value'         => $field->value,
+                    'notes'         => $field->notes,
                 ) );
     ?>
 
