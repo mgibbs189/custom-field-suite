@@ -339,22 +339,15 @@ class cfs_loop extends cfs_field
     <?php
     }
 
-
     /*
     ================================================================
-        dynamic_label
+        extract_row_label
     ================================================================
     */
-    function dynamic_label( $row_label, $fields = array(), $values = array() ) {
-
-        // Exit stage left
-        if ( '{' != substr( $row_label, 0, 1 ) || '}' != substr( $row_label, -1 ) ) {
-            return $row_label;
-        }
-
+    function extract_row_label($field_name, $fields = array(), $values = array() ) {
+        $row_label = "{{$field_name}}";
         $field = false;
         $fallback = false;
-        $field_name = substr( $row_label, 1, -1 );
 
         // Check for fallback value
         if ( false !== strpos( $field_name, ':' ) ) {
@@ -382,6 +375,31 @@ class cfs_loop extends cfs_field
              $row_label = $fallback;
         }
 
+        return $row_label;
+    }
+
+    /*
+    ================================================================
+        dynamic_label
+    ================================================================
+    */
+    function dynamic_label( $row_label, $fields = array(), $values = array() ) {
+
+        /* Extracting all available names */
+        $names = array();
+        preg_match_all("/[{][\w]+[}]/", $row_label, $names);
+        if(empty($names[0])) {
+            return $row_label;
+        }
+        
+        /* exctract value for every founded name */
+        foreach($names[0] as $placeholder) {
+            $value = $this->extract_row_label(trim($placeholder, '{}'), $fields, $values);
+            
+            // replace placeholder founded name
+            $row_label = str_replace($placeholder, $value, $row_label);
+        }
+        
         return $row_label;
     }
 
