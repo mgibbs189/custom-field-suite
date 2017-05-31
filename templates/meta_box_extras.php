@@ -12,7 +12,7 @@ foreach ( $types as $post_type ) {
     }
 }
 
-$extras = get_post_meta( $post->ID, 'cfs_extras', true );
+$extras = (array) get_post_meta( $post->ID, 'cfs_extras', true );
 
 if ( ! isset( $extras['hide_editor'] ) ) {
     $extras['hide_editor'] = '';
