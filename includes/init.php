@@ -10,7 +10,7 @@ class cfs_init
 
     function init() {
 
-        if ( is_admin() ) {
+        if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
             $this->load_textdomain();
         }
 
@@ -23,10 +23,6 @@ class cfs_init
         add_action( 'wp_ajax_cfs_ajax_handler',         array( $this, 'ajax_handler' ) );
         add_filter( 'manage_cfs_posts_columns',         array( $this, 'cfs_columns' ) );
         add_action( 'manage_cfs_posts_custom_column',   array( $this, 'cfs_column_content' ), 10, 2 );
-
-        if ( ! is_admin() ) {
-            add_action( 'parse_query', array( $this, 'parse_query' ) );
-        }
 
         include( CFS_DIR . '/includes/api.php' );
         include( CFS_DIR . '/includes/upgrade.php' );
@@ -330,16 +326,6 @@ class cfs_init
                 echo "<div><strong>$label</strong> " . $operator . ' ' . implode( ', ', $values ) . '</div>';
             }
         }
-    }
-
-
-    /**
-     * Force the $cfs variable for template parts
-     * @since 1.8.8
-     * @deprecated 2.5
-     */
-    function parse_query( $wp_query ) {
-        $wp_query->query_vars['cfs'] = CFS();
     }
 }
 

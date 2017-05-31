@@ -4,13 +4,15 @@
 
 .cfs_tooltip {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: top;
-}
-
-.cfs_tooltip:after {
-    content: "\f223";
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+    width: 13px;
+    height: 13px;
+    font-size: 11px;
+    text-align: center;
+    margin-left: 4px;
 }
 
 .tooltip_inner {
@@ -313,8 +315,7 @@ span.checkbox.active {
     Icons
 ---------------------------------------------------------------------------------------------*/
 
-.field_meta td.field_order:after,
-.cfs_tooltip:after {
+.field_meta td.field_order:after {
     display: block;
     color: #aaa;
 
