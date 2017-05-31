@@ -4,7 +4,7 @@ global $post, $wpdb, $wp_roles;
 
 $equals_text = __( 'equals', 'cfs' );
 $not_equals_text = __( 'is not', 'cfs' );
-$rules = get_post_meta( $post->ID, 'cfs_rules', true );
+$rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
 
 // Populate rules if empty
 $rule_types = array(
