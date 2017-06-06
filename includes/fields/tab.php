@@ -23,25 +23,52 @@ class cfs_tab extends cfs_field
 
     // Tab handling javascript
     function input_head( $field = null ) {
+        $sessionStoreKey = "wp.plugin.custom-field-suite.group-id.{$field->group_id}";
     ?>
         <script>
         (function($) {
+
+            var makeTabActive = function (tabEl, contextEl) {
+                tabEl.addClass('active');
+                contextEl.find('.cfs-tab-content-' + tabEl.attr('rel')).addClass('active');
+            };
+
+            var makeInactive = function (contextEl) {
+                contextEl.find('.cfs-tab').removeClass('active');
+                contextEl.find('.cfs-tab-content').removeClass('active');
+            };
+
             $(document).on('click', '.cfs-tab', function() {
-                var tab = $(this).attr('rel'),
-                    $context = $(this).parents('.cfs_input');
-                $context.find('.cfs-tab').removeClass('active');
-                $context.find('.cfs-tab-content').removeClass('active');
-                $(this).addClass('active');
-                $context.find('.cfs-tab-content-' + tab).addClass('active');
+
+                var $context = $(this).parents('.cfs_input');
+
+                makeInactive($context);
+                makeTabActive($(this), $context);
+
+                if(typeof(Storage) !== "undefined") {
+                    sessionStorage.setItem('<?=$sessionStoreKey;?>', $(this).attr('rel'));
+                }
             });
 
             $(function() {
-                $('.cfs-tabs').each(function(){
-                    $(this).find('.cfs-tab:first').click();
-                });
+                var lastActiveTabRel = null,
+                    el = [];
+
+                if(typeof(Storage) !== "undefined") {
+                    lastActiveTabRel = sessionStorage.getItem('<?=$sessionStoreKey;?>');
+                    el = $('.cfs-tabs [rel="' + lastActiveTabRel +'"]');
+                }
+
+                if (lastActiveTabRel && el.length > 0) {
+                    makeTabActive(el, el.parents('.cfs_input'));
+                } else {
+                    var firstTab = $('.cfs-tab:first');
+                    makeTabActive(firstTab, firstTab.parents('.cfs_input'));
+                }
+
             });
+
         })(jQuery);
         </script>
     <?php
-    }
 }

@@ -354,35 +354,51 @@ class cfs_loop extends cfs_field
 
         $field = false;
         $fallback = false;
-        $field_name = substr( $row_label, 1, -1 );
+        $format = false;
 
-        // Check for fallback value
-        if ( false !== strpos( $field_name, ':' ) ) {
-            list( $field_name, $fallback ) = explode( ':', $field_name );
-        }
+        $matches = array();
+        $tokens = array();
+        $replacements = array();
 
-        // Get all field names and IDs
-        foreach ( $fields as $f ) {
-            if ( $field_name == $f->name ) {
-                $field = $f;
-                break;
+        // Allow multiple dynamic tokens
+        preg_match_all ('/\{[^{]+\}/', $row_label, $matches, PREG_OFFSET_CAPTURE);
+
+        foreach ($matches[0] as $index => $match) {
+
+            $field_name = substr( $match[0], 1, -1 );
+            // Check for fallback value
+            if ( false !== strpos( $field_name, ':' ) ) {
+                list( $field_name, $fallback ) = explode( ':', $field_name );
+            }
+
+            // Get all field names and IDs
+            foreach ( $fields as $f ) {
+                if ( $field_name == $f->name ) {
+                    $field = $f;
+                    break;
+                }
+            }
+
+            if ( ! empty( $field ) && isset( $values[ $field->id ] ) ) {
+                $tokens[] = $match[0];
+                if ( 'select' == $field->type ) {
+                    $select_key = reset( $values[ $field->id ] );
+                    $replacements[] = $field->options['choices'][ $select_key ];
+                }
+                elseif ( 'date' == $field->type ) {
+                    // If it's a date field, display formated date
+                    $replacements[] = date_i18n( get_option( 'date_format' ), strtotime($values[ $field->id ]) );
+                }
+                else {
+                    $replacements[] = $values[ $field->id ];
+                }
+            }
+            elseif ( false !== $fallback ) {
+                 $replacements[] = $fallback;
             }
         }
 
-        if ( ! empty( $field ) && isset( $values[ $field->id ] ) ) {
-            if ( 'select' == $field->type ) {
-                $select_key = reset( $values[ $field->id ] );
-                $row_label = $field->options['choices'][ $select_key ];
-            }
-            else {
-                $row_label = $values[ $field->id ];
-            }
-        }
-        elseif ( false !== $fallback ) {
-             $row_label = $fallback;
-        }
-
-        return $row_label;
+        return str_replace($tokens, $replacements, $row_label);
     }
 
 
