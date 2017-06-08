@@ -60,7 +60,10 @@ class cfs_third_party
      * @param object $post
      * @since 2.0.0
      */
-    function duplicate_post($new_post_id, $post) {
+    function duplicate_post( $new_post_id, $post ) {
+        // If the old post's ID is present in any group rules, the new ID has to be added also
+        $this->update_rules_with_new_post_id( $post->ID, $new_post_id );
+        
         $field_data = CFS()->get( false, $post->ID, array( 'format' => 'raw' ) );
         
         if ( is_array( $field_data ) && count( $field_data ) !== 0 ) {
@@ -71,6 +74,22 @@ class cfs_third_party
             $post_data = array( 'ID' => $new_post_id );
             CFS()->save( $field_data, $post_data );
         }
+    }
+    
+    
+    private function update_rules_with_new_post_id( $old_post_id, $new_post_id ) {
+        $field_groups = CFS()->field_group->load_field_groups();
+
+        foreach ( $field_groups as $id => $group ) {
+            if ( $group['rules']['post_ids'] && in_array( $old_post_id, $group['rules']['post_ids']['values'] )
+                && "==" === $group['rules']['post_ids']['operator'] ) {
+                $group['rules']['post_ids']['values'][] = (string) $new_post_id;
+                update_post_meta( $id, 'cfs_rules', $group['rules'] );
+            }
+        }
+
+        // Cache has to be cleared after changing group rules
+        unset( CFS()->field_group->cache['field_groups'] );
     }
 
 
