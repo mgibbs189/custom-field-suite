@@ -63,14 +63,43 @@ class cfs_third_party
     function duplicate_post($new_post_id, $post) {
         $field_data = CFS()->get( false, $post->ID, array( 'format' => 'raw' ) );
         
-        if ( is_array( $field_data ) ) {
-            foreach ( $field_data as $key => $value ) {
+        if ( is_array( $field_data ) && count( $field_data ) !== 0 ) {
+            // Delete meta fields belonging to CFS from the new post
+            $this->delete_meta_fields_from_new_post( $field_data, $new_post_id );
+            
+            // Copy CFS fields
+            $post_data = array( 'ID' => $new_post_id );
+            CFS()->save( $field_data, $post_data );
+        }
+    }
+
+
+    /**
+     * Recursively delete meta fields from duplicated post
+     * @param array $field_data
+     * @param int $new_post_id
+     */
+    private function delete_meta_fields_from_new_post( $field_data, $new_post_id ) {
+        foreach ( $field_data as $key => $value ) {
+            if ( ! is_array( $value ) ) { // Simple value
+                delete_post_meta( $new_post_id, $key, $value );
+            }
+            elseif ( isset( $value[0] ) ) { // Indexed array
+                foreach ( $value as $index => $inner_value ) {
+                    if ( ! is_array( $inner_value ) ) {
+                        
+                        // Simple value inside an indexed array (select, relationship, term, user)
+                        delete_post_meta( $new_post_id, $key, $inner_value );
+                    } else {
+                        
+                        // Array inside an indexed array - loop iteration
+                        $this->delete_meta_fields_from_new_post( $inner_value, $new_post_id );
+                    }
+                }
+            } else { // Assotiative array - hyperlink field
                 delete_post_meta( $new_post_id, $key, $value );
             }
         }
-        
-        $post_data = array( 'ID' => $new_post_id );
-        CFS()->save( $field_data, $post_data );
     }
 }
 
