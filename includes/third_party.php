@@ -14,6 +14,9 @@ class cfs_third_party
         // Duplicate Post - http://wordpress.org/plugins/duplicate-post/
         add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 20, 2 );
         add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 20, 2 );
+        
+        // Polylang - https://wordpress.org/plugins/polylang/
+        add_filter( 'pll_copy_post_metas', array( $this, 'polylang' ), 10, 4 );
     }
 
 
@@ -77,6 +80,34 @@ class cfs_third_party
     }
     
     
+    function polylang( $keys, $sync, $from, $to ) {
+        global $polylang;
+        
+        // Have to respect polylang sync options
+        if ( ! $sync || in_array( 'post_meta', $polylang->options['sync'] ) ) {
+            // If the old post's ID is present in any groups' rules, the new ID has to be added also
+            $this->update_rules_with_new_post_id( $post->ID, $new_post_id );
+            
+            $field_data = CFS()->get( false, $from, array( 'format' => 'raw' ) );
+            
+            if ( is_array( $field_data ) && count( $field_data ) !== 0 ) {
+                // Delete meta fields belonging to CFS from the new post
+                // Also get all their names
+                $cfs_meta_keys = $this->delete_meta_fields_from_new_post( $field_data, $to );
+                
+                // Filter those names out of the array passed from polylang
+                $keys = array_diff( $keys, $cfs_meta_keys );
+                
+                // Copy CFS fields
+                $post_data = array( 'ID' => $to );
+                CFS()->save( $field_data, $post_data );
+            }
+        }
+        
+        return $keys;
+    }
+
+    
     private function update_rules_with_new_post_id( $old_post_id, $new_post_id ) {
         $field_groups = CFS()->field_group->load_field_groups();
 
@@ -99,9 +130,12 @@ class cfs_third_party
      * @param int $new_post_id
      */
     private function delete_meta_fields_from_new_post( $field_data, $new_post_id ) {
+        $meta_keys = array();
+        
         foreach ( $field_data as $key => $value ) {
             if ( ! is_array( $value ) ) { // Simple value
                 delete_post_meta( $new_post_id, $key, $value );
+                $meta_keys[] = $key;
             }
             elseif ( isset( $value[0] ) ) { // Indexed array
                 foreach ( $value as $index => $inner_value ) {
@@ -109,16 +143,20 @@ class cfs_third_party
                         
                         // Simple value inside an indexed array (select, relationship, term, user)
                         delete_post_meta( $new_post_id, $key, $inner_value );
+                        $meta_keys[] = $key;
                     } else {
                         
                         // Array inside an indexed array - loop iteration
-                        $this->delete_meta_fields_from_new_post( $inner_value, $new_post_id );
+                        $inner_meta_keys = $this->delete_meta_fields_from_new_post( $inner_value, $new_post_id );
+                        $meta_keys = array_merge( $meta_keys, $inner_meta_keys );
                     }
                 }
             } else { // Assotiative array - hyperlink field
                 delete_post_meta( $new_post_id, $key, $value );
+                $meta_keys[] = $key;
             }
         }
+        return $meta_keys;
     }
 }
 
