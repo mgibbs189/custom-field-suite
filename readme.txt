@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
-Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
+Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.4
-Tested up to: 4.7.4
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2
 
