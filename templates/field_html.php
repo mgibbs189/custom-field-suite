@@ -71,7 +71,7 @@
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][notes]" value="<?php echo esc_attr( $field->notes ); ?>" />
+                        <textarea name="cfs[fields][<?php echo $field->weight; ?>][notes]"><?php echo esc_textarea( $field->notes ); ?></textarea>
                     </td>
                 </tr>
                 <tr class="field_actions">
