@@ -56,6 +56,10 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 
 == Changelog ==
 
+= 2.5.10 =
+* Improved: notes field is now multi-line
+* Fix: ensure that $rules and $extras are arrays
+
 = 2.5.9 =
 * Ensured WP 4.7.4 compat
 * Improved: Removed ancient code - replace `$cfs` with `CFS()`
