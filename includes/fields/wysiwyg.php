@@ -129,8 +129,10 @@ class cfs_wysiwyg extends cfs_field
                     }
                     
                     // add the "code" button
-                    if ( tinyMCE.settings.toolbar2.indexOf('code') < 0) {
-                        tinyMCE.settings.toolbar2 += ',code';
+                    if ('undefined' !== typeof tinyMCE.settings.toolbar2) {
+                        if (tinyMCE.settings.toolbar2.indexOf('code') < 0) {
+                            tinyMCE.settings.toolbar2 += ',code';
+                        }
                     }
 
                     // create wysiwyg
