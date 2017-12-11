@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.4
-Tested up to: 4.9
+Tested up to: 4.9.1
 Stable tag: trunk
 License: GPLv2
 
@@ -55,6 +55,9 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.12 =
+* Fix: WP 4.9+ TinyMCE javascript issue
 
 = 2.5.11 =
 * Tested against WP 4.9
