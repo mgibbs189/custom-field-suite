@@ -61,7 +61,7 @@
 
                 <?php CFS()->fields[ $field->type ]->options_html( $field->weight, $field ); ?>
 
-                <?php do_action( 'cfs_after_field_html', $field->weight, $field ); ?>
+                <?php do_action( 'cfs_after_field_html', CFS()->fields[ $field->type ], $field->weight, $field ); ?>
 
                 <tr class="field_notes">
                     <td class="label">
