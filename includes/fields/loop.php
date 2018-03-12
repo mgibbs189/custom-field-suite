@@ -49,7 +49,12 @@ class cfs_loop extends cfs_field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
-                <label><?php _e( 'Row Label', 'cfs' ); ?></label>
+                <label>
+                    <?php _e( 'Row Label', 'cfs' ); ?>
+                    <div class="cfs_tooltip">?
+                        <div class="tooltip_inner"><?php _e( 'Use {field_name} for replacements.', 'cfs' ); ?></div>
+                    </div>
+                </label>
             </td>
             <td>
                 <?php
@@ -120,7 +125,9 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
-                <span class="label"><?php echo esc_attr( $row_label ); ?></span>
+                <span class="label" data-dynamic-label="<?php echo esc_attr( $this->get_option( $loop_field[ $field_id ], 'row_label' ) ); ?>">
+                    <?php echo esc_attr( $row_label ); ?>
+                </span>
             </div>
             <div class="cfs_loop_body open">
             <?php foreach ( $results as $field ) : ?>
@@ -208,7 +215,9 @@ class cfs_loop extends cfs_field
                 <a class="cfs_delete_field" href="javascript:;"></a>
                 <a class="cfs_toggle_field" href="javascript:;"></a>
                 <a class="cfs_insert_field" href="javascript:;"></a>
-                <span class="label"><?php echo esc_attr( $this->dynamic_label( $row_label, $results, $values[ $i ] ) ); ?>&nbsp;</span>
+                <span class="label" data-dynamic-label="<?php echo esc_attr( $this->get_option( $loop_field[ $field_id ], 'row_label' ) ); ?>">
+                    <?php echo esc_attr( $row_label ); ?>
+                </span>
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ( $results as $field ) : ?>
@@ -271,6 +280,7 @@ class cfs_loop extends cfs_field
                     $(this).attr('data-rows', parseInt(num_rows)+1);
                     $(html).insertBefore( $(this).closest('.table_footer') ).addClass('loop_wrapper_new');
                     $(this).trigger('cfs/ready');
+                    $(document).trigger('cfs/label_watch');
                 });
 
                 $(document).on('click', '.cfs_insert_field', function(event) {
@@ -283,6 +293,7 @@ class cfs_loop extends cfs_field
                     $add_field.attr('data-rows', parseInt(num_rows)+1);
                     $(html).insertAfter( $(this).closest('.loop_wrapper') ).addClass('loop_wrapper_new');
                     $add_field.trigger('cfs/ready');
+                    $(document).trigger('cfs/label_watch');
                 });
 
                 $(document).on('click', '.cfs_delete_field', function(event) {
@@ -295,6 +306,7 @@ class cfs_loop extends cfs_field
                 $(document).on('click', '.cfs_loop_head', function() {
                     $(this).toggleClass('open');
                     $(this).siblings('.cfs_loop_body').toggleClass('open');
+                    $(document).trigger('cfs/label_watch');
                 });
 
                 // Hide or show all rows
@@ -302,6 +314,7 @@ class cfs_loop extends cfs_field
                 $(document).on('click', '.cfs_loop_toggle', function() {
                     $(this).closest('.field').find('.cfs_loop_head').toggleClass('open');
                     $(this).closest('.field').find('.cfs_loop_body').toggleClass('open');
+                    $(document).trigger('cfs/label_watch');
                 });
 
                 $('.cfs_loop').sortable({
@@ -333,6 +346,48 @@ class cfs_loop extends cfs_field
                         });
                     }
                 });
+
+
+                // Update the row label based on the related fields.
+                function update_loop_label( $loop_row_label ) {
+                    var fields = $loop_row_label.data( 'fields' ),
+                        dynamic_label = $loop_row_label.data( 'dynamic-label' );
+
+                    $loop_row_label.text( dynamic_label.replace(
+                        /{(.*?)}/g,
+                        function( match, contents, offset, input_string ) {
+                            var value = fields[ contents ].val() || null;
+                            return ( value ) ? value : match;
+                        }
+                    ) );
+                }
+                $(document).on('cfs/label_watch', function() {
+                    $('[data-dynamic-label^="{"]:not(.listening)').each(function() {
+                        var $label = $(this),
+                            dynamic_label = $label.data( 'dynamic-label' ),
+                            field_names = dynamic_label.match( /{(.*?)}/g ),
+                            $loop_wrapper = $label.closest( '.loop_wrapper' );
+
+                        if ( field_names ) {
+                            var fields = {},
+                                $field_div;
+                            $.each( field_names, function ( i, field_name ) {
+                                field_name = field_name.replace( /\{|\}/g, '' );
+                                $field_div = $loop_wrapper.find( '.cfs_loop_body > .field-' + field_name );
+                                fields[ field_name ] = $field_div.find( 'input, select' );
+                            } );
+                            $label.data( 'fields', fields );
+                            $.each( fields, function( i, $field ) {
+                                $field.on( 'keyup paste change', function() {
+                                    update_loop_label( $label );
+                                } ).trigger('change');
+                            } );
+                        }
+
+                        $label.addClass('listening');
+                    });
+                });
+                $(document).trigger('cfs/label_watch');
             });
         })(jQuery);
         </script>
