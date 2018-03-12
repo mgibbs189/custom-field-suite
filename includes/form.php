@@ -148,6 +148,14 @@ class cfs_form
         wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', array( 'jquery' ), CFS_VERSION );
         wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', array(), CFS_VERSION );
         wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', array(), CFS_VERSION );
+
+        wp_localize_script( 'cfs-validation', 'cfs_i18n', array(
+            'enter_value' => __( 'Please enter a value', 'cfs' ),
+            'enter_valid_date' => __( 'Please enter a valid date (YYYY-MM-DD HH:MM)', 'cfs' ),
+            'enter_valid_color' => __( 'Please enter a valid color HEX (#ff0000)', 'cfs' ),
+            'enter_limit_exact' => __( 'Please select %s item(s)', 'cfs' ),
+            'enter_limit_range' => __( 'Please select between %1$s and %2$s items', 'cfs' ),
+        ) );
     }
 
 

@@ -286,7 +286,7 @@ class cfs_loop extends cfs_field
                 });
 
                 $(document).on('click', '.cfs_delete_field', function(event) {
-                    if (confirm('Remove this row?')) {
+                    if (confirm( '<?php echo esc_js( __( 'Remove this row?', 'cfs' ) ); ?>' )) {
                         $(this).closest('.loop_wrapper').remove();
                     }
                     event.stopPropagation();

@@ -2,20 +2,20 @@
     $(function() {
         CFS.validators = {
             'required': {
-                'error': 'Please enter a value',
+                'error': cfs_i18n.enter_value,
                 'validate': function(val) {
                     return ('' != val && null != val);
                 }
             },
             'valid_date': {
-                'error': 'Please enter a valid date (YYYY-MM-DD HH:MM)',
+                'error': cfs_i18n.enter_valid_date,
                 'validate': function(val) {
                     var regex = /^\d{4}-\d{2}-\d{2}/;
                     return regex.test(val);
                 }
             },
             'valid_color': {
-                'error': 'Please enter a valid color HEX (#ff0000)',
+                'error': cfs_i18n.enter_valid_color,
                 'validate': function(val) {
                     var regex = /^#[0-9a-zA-Z]{3,}$/;
                     return regex.test(val);
@@ -25,10 +25,10 @@
                 'error': function(el) {
                     var limits = el.attr('data-validator').split('|')[1].split(',');
                     if (limits[0] == limits[1]) {
-                        return 'Please select ' + limits[0] + ' item(s)';
+                        return cfs_i18n.enter_limit_exact.replace( '%s', limits[0] );
                     }
                     else {
-                        return 'Please select between ' + limits[0] + ' and ' + limits[1] + ' items';
+                        return cfs_i18n.enter_limit_range.replace( '%1$s', limits[0] ).replace( '%2$s', limits[1] );
                     }
                 },
                 'validate': function(val, el) {
