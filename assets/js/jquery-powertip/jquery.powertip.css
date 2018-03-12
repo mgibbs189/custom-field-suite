@@ -1,5 +1,3 @@
-/* Tooltips */
-
 #powerTip a {
     color: #bbb;
 }
@@ -13,18 +11,10 @@
     display: none;
     padding: 10px;
     position: absolute;
-    z-index: 1000;
-    max-width: 400px;
+    white-space: nowrap;
+    z-index: 2147483647;
 }
-
 #powerTip:before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: -10px;
-    border-bottom: 5px solid transparent;
-    border-top: 5px solid transparent;
-    margin-top: -5px;
-    border-right: 10px solid #333;
-    border-right: 10px solid rgba(0, 0, 0, 0.8);
 }

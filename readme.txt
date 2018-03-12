@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
-Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
+Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.4
-Tested up to: 4.7.4
+Tested up to: 4.9.1
 Stable tag: trunk
 License: GPLv2
 
@@ -55,6 +55,17 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.12 =
+* Fix: WP 4.9+ TinyMCE javascript issue
+
+= 2.5.11 =
+* Tested against WP 4.9
+* Updated jquery-powertip library
+
+= 2.5.10 =
+* Improved: notes field is now multi-line
+* Fix: ensure that $rules and $extras are arrays
 
 = 2.5.9 =
 * Ensured WP 4.7.4 compat
@@ -129,31 +140,3 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 * Fix: wysiwyg fields would break when dragged
 * Fix: Remove non-existing post IDs from "Posts" placement rule
 * Updated translations
-
-= 2.4.5 =
-* Fix: WP 4.3 `wp_richedit_pre` deprecated notice (props @jchristopher)
-* Fix: MySQL error when field IDs is empty (props @hubeRsen)
-* Fix: CFS no longer forces editor into "Visual" mode
-* Bumped minimum version to WP 4.0
-
-= 2.4.4 =
-* Added Catalan translation (props Luis Bordas)
-* Updated translations
-
-= 2.4.3 =
-* Prevent hyperlink field with target="none" from opening new tab (props @jchristopher)
-* Enable media filtering of file fields (props @camiloclc)
-* Updated jQuery minicolors to fix deselect issue
-* Updated translations (props @jcbrebion)
-
-= 2.4.2 =
-* New CFS logo (props @chrisvanpatten)
-* Added composer.json file
-
-= 2.4.1 =
-* Security fix: ensure that only admins can import field groups (props James Golovich)
-
-= 2.4 =
-* Added Hyperlink field type (previously an add-on)
-* Added Revision support, just use `DEFINE( 'CFS_REVISIONS', true );`
-* Added license.txt (props @chrisvanpatten)
