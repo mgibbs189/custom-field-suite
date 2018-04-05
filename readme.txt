@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.7
-Tested up to: 4.9.4
+Tested up to: 4.9.5
 Stable tag: trunk
 License: GPLv2
 
@@ -15,8 +15,24 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 = Things to know =
 * We do not provide support.
 * This is a free plugin. We're not selling anything.
-* CFS includes 12 [field types](http://customfieldsuite.com/field-types.html). There are no plans to add more.
+* CFS includes 14 [field types](http://customfieldsuite.com/field-types.html). There are no plans to add more.
 * If you want all the bells-and-whistles, use ACF.
+
+= Field types =
+* Text
+* Textarea
+* WYSIWYG
+* Date
+* Color
+* True / False
+* Select
+* File Upload
+* Relationship
+* Term
+* User
+* Loop (repeatable fields)
+* Hyperlink
+* Tab (group fields)
 
 = Usage =
 * Browse to the "Field Groups" admin menu
