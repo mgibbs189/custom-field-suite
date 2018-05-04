@@ -56,7 +56,7 @@ class cfs_api
     public function get_fields( $post_id, $options ) {
         global $post, $wpdb;
 
-        $defaults = array( 'format' => 'api' ); // "api", "input", or "raw"
+        $defaults = array( 'format' => 'api', 'sorting' => false ); // format: "api", "input", or "raw", sorting: true|false
         $options = array_merge( $defaults, $options );
         $post_id = empty( $post_id ) ? $post->ID : (int) $post_id;
 
@@ -88,7 +88,15 @@ class cfs_api
                 FROM {$wpdb->prefix}cfs_values v
                 INNER JOIN {$wpdb->postmeta} m ON m.meta_id = v.meta_id
                 WHERE v.field_id IN ($field_ids) AND v.post_id IN ($post_id)
-                ORDER BY v.depth, FIELD(v.field_id, $field_ids), v.weight, v.sub_weight";
+                ";
+
+                if ($options['sorting']) {
+                    // Sort by order of CSF-Items on the page in the Wordpress Backend
+                    $sql .= "ORDER BY v.depth                               , v.weight, v.sub_weight";
+                } else {
+                    // Default sorting
+                    $sql .= "ORDER BY v.depth, FIELD(v.field_id, $field_ids), v.weight, v.sub_weight";
+                }
 
                 $results = $wpdb->get_results( $sql );
                 $num_rows = $wpdb->num_rows;
