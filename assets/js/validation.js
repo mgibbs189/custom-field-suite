@@ -70,7 +70,7 @@
             },
             'loop': function(el) {
                 var rows = [];
-                el.find('.loop_wrapper').each(function(index) {
+                el.find('> .cfs_loop > .loop_wrapper').each(function(index) {
                     rows.push(index);
                 });
                 return rows.join(',');
