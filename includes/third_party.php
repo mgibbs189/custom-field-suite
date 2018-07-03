@@ -12,8 +12,8 @@ class cfs_third_party
         add_action( 'icl_make_duplicate', array( $this, 'wpml_handler' ), 10, 4 );
 
         // Duplicate Post - http://wordpress.org/plugins/duplicate-post/
-        add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 20, 2 );
-        add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 20, 2 );
+        add_action( 'dp_duplicate_post', array( $this, 'duplicate_post' ), 100, 2 );
+        add_action( 'dp_duplicate_page', array( $this, 'duplicate_post' ), 100, 2 );
     }
 
 
