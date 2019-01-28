@@ -154,7 +154,7 @@ class cfs_loop extends cfs_field
             </div>
         </div>
     <?php
-        $buffer = ob_get_clean();
+        $buffer = mb_convert_encoding( ob_get_clean(), 'UTF-8', 'UTF-8' );
     ?>
 
         <script>
