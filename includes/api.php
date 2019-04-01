@@ -131,7 +131,8 @@ class cfs_api
 
                         if ( is_array( $field_data[ $hierarchy ] ) ) {
                             $field_data[ $hierarchy ][] = $result->meta_value;
-                        } else {
+                        }
+                        else {
                             $field_data[ $hierarchy ] = [ $result->meta_value ];
                         }
                     }
