@@ -130,7 +130,7 @@ class cfs_api
                         }
 
                         if ( ! isset( $field_data[ $hierarchy ] ) ) {
-                            $field_data[ $hierarchy ] = [];
+                            $field_data[ $hierarchy ] = array();
                         }
 
                         $field_data[ $hierarchy ][] = $result->meta_value;
