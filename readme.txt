@@ -46,6 +46,9 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 
 == Changelog ==
 
+= 2.5.14 =
+* Fix: PHP notice introduced in 2.5.13
+
 = 2.5.13 =
 * New: ability to filter IDs before deleting associated meta (props @chrisvanpatten)
 * Fix: nested loops count validation (props @felipeelia)
