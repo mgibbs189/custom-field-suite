@@ -30,6 +30,10 @@ if ( 'cfs' == $screen->post_type ) {
     ob_start();
     CFS()->field_html( $field );
     $field_clone = ob_get_clean();
+
+    // The plugin version number, which is added to the URL from scripts 
+    // as a query string for cache busting purposes
+    $cfs_version = CFS_VERSION;
 ?>
 
 <script>
@@ -38,12 +42,12 @@ CFS['field_index'] = <?php echo $field_count; ?>;
 CFS['field_clone'] = <?php echo json_encode( $field_clone ); ?>;
 CFS['options_html'] = <?php echo json_encode( $options_html ); ?>;
 </script>
-<script src="<?php echo CFS_URL; ?>/assets/js/fields.js"></script>
-<script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js"></script>
-<script src="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/css/fields.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.css" />
+<script src="<?php echo CFS_URL; ?>/assets/js/fields.js?ver=<?php echo $cfs_version; ?>"></script>
+<script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js?ver=<?php echo $cfs_version; ?>"></script>
+<script src="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.min.js?ver=<?php echo $cfs_version; ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/css/fields.css?ver=<?php echo $cfs_version; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/select2/select2.css?ver=<?php echo $cfs_version; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo CFS_URL; ?>/assets/js/jquery-powertip/jquery.powertip.css?ver=<?php echo $cfs_version; ?>" />
 
 <?php
 }
