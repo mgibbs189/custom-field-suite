@@ -15,6 +15,7 @@ class cfs_init
         }
 
         add_action( 'admin_head',                       array( $this, 'admin_head' ) );
+        add_action( 'admin_head',                       array( $this, 'custom_color_scheme') );
         add_action( 'admin_footer',                     array( $this, 'show_credits' ) );
         add_action( 'admin_menu',                       array( $this, 'admin_menu' ) );
         add_action( 'save_post',                        array( $this, 'save_post' ) );
@@ -327,6 +328,71 @@ class cfs_init
             }
         }
     }
+
+    /**
+     * Gets the admin color scheme
+     */
+	function admin_color_scheme() {
+
+        global $_wp_admin_css_colors;
+        
+		$user_admin_color_scheme = get_user_option( 'admin_color' );
+        $colors_obj              = $_wp_admin_css_colors[ $user_admin_color_scheme ];
+        
+        return $colors_obj;
+        
+    }
+
+    /**
+     * Customize admin panel ui elements
+     */
+    function custom_color_scheme(){
+
+        $plugin_url = CFS_URL;
+
+        // colors obj
+        $color_scheme = $this->admin_color_scheme();
+
+        // colors array
+        $colors = $color_scheme->colors;
+
+        // icon colors array
+        $icon_colors = $color_scheme->icon_colors;
+
+    ?>
+        <style>
+        #cfs_fields .fields,
+        #cfs_fields .field.form_open .field_meta td {
+            background-color: <?php echo $colors[2]; ?>;
+        }
+
+        #cfs_fields .ui-sortable-placeholder {
+            background-color: <?php echo $colors[3]; ?>;
+        }
+
+        #cfs_rules .select2-search-choice {
+            background-image:none !important;
+            background-color: <?php echo $colors[2]; ?> !important;
+            border-color: <?php echo $colors[2]; ?>;
+            color: #fff;
+            box-shadow: none;
+            text-shadow: 0 -1px 1px rgba(0,0,0,0.1),
+                        1px 0 1px rgba(0,0,0,0.1),
+                        0 1px 1px rgba(0,0,0,0.1),
+                        -1px 0 1px rgba(0,0,0,0.1);
+        }
+
+        #cfs_rules .select2-search-choice-close {
+            background: url('<?php echo $plugin_url; ?>/assets/images/cfs_custom_select2.png') right top no-repeat;
+        }
+
+        .post-type-cfs .select2-results .select2-highlighted {
+            background: <?php echo $colors[2]; ?>;
+        }
+        </style>
+    <?php
+    }
+
 }
 
 new cfs_init();

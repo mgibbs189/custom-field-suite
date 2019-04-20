@@ -105,13 +105,19 @@ foreach ( $templates as $template_name => $filename ) {
 (function($) {
     $(function() {
         $('.select2').select2({
-            placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>'
+            placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
+            formatNoMatches: '<?php _e( 'No matches found', 'cfs' ); ?>'
         });
+
+        var minChar = 2;
 
         $('.select2-ajax').select2({
             multiple: true,
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
             minimumInputLength: 2,
+            formatInputTooShort: "<?php _e( 'Please enter', 'cfs' ); ?> " + 
+                                    minChar + " <?php _e( 'or more', 'cfs' ); ?> " + 
+                                    (1==minChar?"<?php _e( 'character', 'cfs' ); ?>":"<?php _e( 'characters', 'cfs' ); ?>"),
             ajax: {
                 url: ajaxurl,
                 type: 'POST',
@@ -145,7 +151,7 @@ foreach ( $templates as $template_name => $filename ) {
         <td class="label">
             <label><?php _e( 'Post Types', 'cfs' ); ?></label>
         </td>
-        <td style="width:80px; vertical-align:top">
+        <td style="width:80px; vertical-align:middle">
             <?php
                 CFS()->create_field( array(
                     'type' => 'select',
@@ -178,7 +184,7 @@ foreach ( $templates as $template_name => $filename ) {
             <td class="label">
                 <label><?php _e( 'Post Formats', 'cfs' ); ?></label>
             </td>
-            <td style="width:80px; vertical-align:top">
+            <td style="width:80px; vertical-align:middle">
                 <?php
                 CFS()->create_field( array(
                         'type' => 'select',
@@ -211,7 +217,7 @@ foreach ( $templates as $template_name => $filename ) {
         <td class="label">
             <label><?php _e( 'User Roles', 'cfs' ); ?></label>
         </td>
-        <td style="width:80px; vertical-align:top">
+        <td style="width:80px; vertical-align:middle">
             <?php
                 CFS()->create_field( array(
                     'type' => 'select',
@@ -243,7 +249,7 @@ foreach ( $templates as $template_name => $filename ) {
         <td class="label">
             <label><?php _e('Posts', 'cfs'); ?></label>
         </td>
-        <td style="width:80px; vertical-align:top">
+        <td style="width:80px; vertical-align:middle">
             <?php
                 CFS()->create_field( array(
                     'type' => 'select',
@@ -267,7 +273,7 @@ foreach ( $templates as $template_name => $filename ) {
         <td class="label">
             <label><?php _e( 'Taxonomy Terms', 'cfs' ); ?></label>
         </td>
-        <td style="width:80px; vertical-align:top">
+        <td style="width:80px; vertical-align:middle">
             <?php
                 CFS()->create_field( array(
                     'type' => 'select',
@@ -299,7 +305,7 @@ foreach ( $templates as $template_name => $filename ) {
         <td class="label">
             <label><?php _e( 'Page Templates', 'cfs' ); ?></label>
         </td>
-        <td style="width:80px; vertical-align:top">
+        <td style="width:80px; vertical-align:middle">
             <?php
                 CFS()->create_field( array(
                     'type' => 'select',

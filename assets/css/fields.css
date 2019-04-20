@@ -68,13 +68,13 @@
     border-bottom: 1px solid #dfdfdf;
     font-size: 12px;
     margin-left:0px;
-    color:#ccc;
+    color:#ddd;
 
 }
 
 #cfs_fields .fields li.loop ul li.drop-here span {
     padding:7px;
-    border: 1px dashed #ccc;
+    border: 1px dashed #ddd;
     display: block;
     position: relative;
 }
@@ -98,6 +98,28 @@
 
 #cfs_rules .select2 {
     width: 99.95%;
+}
+
+#cfs_rules .select2-container-multi .select2-choices {
+    border: 1px solid #ddd;
+}
+
+#cfs_rules select {
+    padding: 2px !important;
+    line-height: 30px !important;
+    height: 30px !important;
+}
+
+.post-type-cfs .select2-drop-active {
+    border-color:#eee !important;
+}
+
+.post-type-cfs .select2-results {
+    color: #333;
+}
+
+.post-type-cfs .select2-results .select2-highlighted {
+    color: #fff;
 }
 
 /*---------------------------------------------------------------------------------------------
@@ -175,7 +197,7 @@
 
 .field_form span.required {
     margin-right: 5px;
-    color: red;
+    color: #a00;
 }
 
 .field_form tr.field_basics table {
@@ -226,12 +248,12 @@
 span.cfs_delete_field {
     text-decoration: underline;
     cursor: pointer;
-    color: red;
+    color: #a00;
 }
 
 span.cfs_delete_field:hover {
     text-decoration: none;
-    background: red;
+    background: #dc3232;
     color: #fff;
 }
 
