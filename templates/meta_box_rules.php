@@ -115,9 +115,7 @@ foreach ( $templates as $template_name => $filename ) {
             multiple: true,
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
             minimumInputLength: 2,
-            formatInputTooShort: "<?php _e( 'Please enter', 'cfs' ); ?> " + 
-                                    minChar + " <?php _e( 'or more', 'cfs' ); ?> " + 
-                                    (1==minChar?"<?php _e( 'character', 'cfs' ); ?>":"<?php _e( 'characters', 'cfs' ); ?>"),
+            formatInputTooShort: "<?php _e( 'Please type', 'cfs' ); ?> " + minChar + " <?php _e( 'or more characters', 'cfs' ); ?> ",
             ajax: {
                 url: ajaxurl,
                 type: 'POST',
