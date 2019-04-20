@@ -63,6 +63,22 @@
     min-height: 10px;
 }
 
+#cfs_fields .fields li.loop ul li.drop-here {
+    padding:10px;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 12px;
+    margin-left:0px;
+    color:#ccc;
+
+}
+
+#cfs_fields .fields li.loop ul li.drop-here span {
+    padding:7px;
+    border: 1px dashed #ccc;
+    display: block;
+    position: relative;
+}
+
 #cfs_fields .field.form_open {
     border-bottom: 1px solid #DFDFDF;
 }
@@ -199,7 +215,7 @@
 }
 
 .ui-sortable-placeholder {
-    height: 5px;
+    height: 37px;
     background-color: orange;
 }
 

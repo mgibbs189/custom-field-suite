@@ -31,9 +31,33 @@
             $(this).siblings('input').val(val);
         });
 
+        var dropHereTxt = 'Drag and drop fields here...',
+            dropHereTag = '<li class="drop-here"><span>' + dropHereTxt + '</span></li>';
+
+        var showDropHere = function(){
+
+            $('ul.fields li.loop').each(function(){
+            
+                var liLength = $(this).find('li').length,
+                    dropHere = $(this).find('.drop-here');
+
+                if( liLength >= 1 ){
+                    dropHere.remove();
+
+                } else {
+                    if( !dropHere.length > 0){
+                        $(this).find('ul').append(dropHereTag);
+                    }
+                }
+
+            });
+            
+
+        }
+        
         // Drag-and-drop support
         $('ul.fields').sortable({
-            items: 'ul, li',
+            items: 'ul,li',
             connectWith: 'ul.fields',
             placeholder: 'ui-sortable-placeholder',
             handle: '.field_order',
@@ -41,7 +65,7 @@
                 // Append <ul> to empty loop fields
                 $('ul.fields li.loop').filter(function(idx) {
                     return $(this).children('ul').length < 1;
-                }).append('<ul></ul>');
+                }).append('<ul>' + dropHereTag + '</ul>');
             },
             update: function(event, ui) {
                 zebra_stripes();
@@ -54,13 +78,18 @@
                 }
                 ui.item.find('.parent_id').first().val(parent_id);
 
+                showDropHere();
+                
                 /*
                 var $container = ui.item.closest('.fields');
                 $container.find('[name^="cfs[fields]"]').each(function() {
                     console.log($(this).attr('name') + ' = ' + $(this).val());
                 });
                 */
-            }
+            },
+            change: function(event, ui) {
+                showDropHere();
+            },
         });
 
         // Add a new field
