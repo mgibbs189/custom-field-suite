@@ -111,7 +111,7 @@ $results = $wpdb->get_results($sql);
         <!-- Import -->
 
         <div class="tab-content import">
-            <textarea id="import-code" style="width:100%; height:120px" placeholder="Paste the import code here"></textarea>
+            <textarea id="import-code" style="width:100%; height:120px" placeholder="<?php esc_html_e('Paste the import code here', 'cfs'); ?>"></textarea>
             <div><input type="button" id="button-import" class="button" value="<?php _e('Import', 'cfs'); ?>" /></div>
             <div id="import-message"></div>
         </div>

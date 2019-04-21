@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
-"POT-Creation-Date: 2015-10-20 22:30-0400\n"
-"PO-Revision-Date: 2015-10-20 22:30-0400\n"
+"POT-Creation-Date: 2019-04-21 16:41-0300\n"
+"PO-Revision-Date: 2019-04-21 16:41-0300\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -11,8 +11,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -20,16 +20,16 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: ../includes/field.php:42 ../includes/fields/file.php:64
-#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
-#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/field.php:42 ../includes/fields/file.php:87
+#: ../includes/fields/select.php:148 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:47
 #: ../includes/fields/wysiwyg.php:54
 msgid "Validation"
 msgstr ""
 
-#: ../includes/field.php:51 ../includes/fields/file.php:73
-#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
-#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/field.php:51 ../includes/fields/file.php:96
+#: ../includes/fields/select.php:157 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:56
 #: ../includes/fields/wysiwyg.php:63
 msgid "This is a required field"
 msgstr ""
@@ -50,6 +50,11 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
+#: ../includes/fields/color/color.php:16 ../includes/fields/text.php:16
+#: ../includes/fields/textarea.php:23
+msgid "Default Value"
+msgstr ""
+
 #: ../includes/fields/date/date.php:8
 msgid "Date"
 msgstr ""
@@ -67,14 +72,34 @@ msgid "Remove"
 msgstr ""
 
 #: ../includes/fields/file.php:43
-msgid "Return Value"
+msgid "File Type"
 msgstr ""
 
 #: ../includes/fields/file.php:52
-msgid "File URL"
+msgid "Any"
 msgstr ""
 
 #: ../includes/fields/file.php:53
+msgid "Image"
+msgstr ""
+
+#: ../includes/fields/file.php:54
+msgid "Audio"
+msgstr ""
+
+#: ../includes/fields/file.php:55
+msgid "Video"
+msgstr ""
+
+#: ../includes/fields/file.php:66
+msgid "Return Value"
+msgstr ""
+
+#: ../includes/fields/file.php:75
+msgid "File URL"
+msgstr ""
+
+#: ../includes/fields/file.php:76
 msgid "Attachment ID"
 msgstr ""
 
@@ -123,7 +148,7 @@ msgid "Row Label"
 msgstr ""
 
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
-#: ../includes/fields/loop.php:194
+#: ../includes/fields/loop.php:195
 msgid "Loop Row"
 msgstr ""
 
@@ -131,14 +156,18 @@ msgstr ""
 msgid "Button Label"
 msgstr ""
 
-#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
-#: ../includes/fields/loop.php:195
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:139
+#: ../includes/fields/loop.php:196
 msgid "Add Row"
 msgstr ""
 
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
-#: ../includes/fields/user.php:56
+#: ../includes/fields/term.php:109 ../includes/fields/user.php:56
 msgid "Limits"
+msgstr ""
+
+#: ../includes/fields/loop.php:289
+msgid "Remove this row?"
 msgstr ""
 
 #: ../includes/fields/relationship.php:8
@@ -149,8 +178,8 @@ msgstr ""
 msgid "Search posts"
 msgstr ""
 
-#: ../includes/fields/relationship.php:88 ../includes/init.php:282
-#: ../templates/meta_box_rules.php:136
+#: ../includes/fields/relationship.php:88 ../includes/init.php:297
+#: ../templates/meta_box_rules.php:150
 msgid "Post Types"
 msgstr ""
 
@@ -162,28 +191,48 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: ../includes/fields/select.php:86
+#: ../includes/fields/select.php:101
 msgid "Choices"
 msgstr ""
 
-#: ../includes/fields/select.php:87
+#: ../includes/fields/select.php:102
 msgid "Enter one choice per line"
 msgstr ""
 
-#: ../includes/fields/select.php:101
+#: ../includes/fields/select.php:116
 msgid "Multi-select?"
 msgstr ""
 
-#: ../includes/fields/select.php:110
+#: ../includes/fields/select.php:125
 msgid "This is a multi-select field"
+msgstr ""
+
+#: ../includes/fields/select.php:132
+msgid "Select2"
+msgstr ""
+
+#: ../includes/fields/select.php:141
+msgid "Render this field with Select2"
 msgstr ""
 
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr ""
 
-#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
-msgid "Default Value"
+#: ../includes/fields/term.php:8
+msgid "Term"
+msgstr ""
+
+#: ../includes/fields/term.php:65
+msgid "Search terms"
+msgstr ""
+
+#: ../includes/fields/term.php:93
+msgid "Taxonomies"
+msgstr ""
+
+#: ../includes/fields/term.php:94
+msgid "Limit terms to the following taxonomies"
 msgstr ""
 
 #: ../includes/fields/textarea.php:8
@@ -206,11 +255,11 @@ msgstr ""
 msgid "True / False"
 msgstr ""
 
-#: ../includes/fields/true_false.php:30
+#: ../includes/fields/true_false.php:32
 msgid "Message"
 msgstr ""
 
-#: ../includes/fields/true_false.php:31
+#: ../includes/fields/true_false.php:33
 msgid "The text beside the checkbox"
 msgstr ""
 
@@ -234,91 +283,101 @@ msgstr ""
 msgid "None (bypass filters)"
 msgstr ""
 
-#: ../includes/form.php:194
+#: ../includes/form.php:193
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+
+#: ../includes/form.php:217
 msgid "Submit"
 msgstr ""
 
-#: ../includes/init.php:58
-msgid "Field Groups"
-msgstr ""
-
-#: ../includes/init.php:59
-msgid "Field Group"
+#: ../includes/form.php:390
+msgid "Toggle row visibility"
 msgstr ""
 
 #: ../includes/init.php:60
-msgid "All Field Groups"
+msgid "Field Groups"
 msgstr ""
 
 #: ../includes/init.php:61
-msgid "Add New Field Group"
+msgid "Field Group"
 msgstr ""
 
 #: ../includes/init.php:62
-msgid "Edit Field Group"
+msgid "All Field Groups"
 msgstr ""
 
 #: ../includes/init.php:63
-msgid "New Field Group"
+msgid "Add New Field Group"
 msgstr ""
 
 #: ../includes/init.php:64
-msgid "View Field Group"
+msgid "Edit Field Group"
 msgstr ""
 
 #: ../includes/init.php:65
-msgid "Search Field Groups"
+msgid "New Field Group"
 msgstr ""
 
 #: ../includes/init.php:66
-msgid "No Field Groups found"
+msgid "View Field Group"
 msgstr ""
 
 #: ../includes/init.php:67
+msgid "Search Field Groups"
+msgstr ""
+
+#: ../includes/init.php:68
+msgid "No Field Groups found"
+msgstr ""
+
+#: ../includes/init.php:69
 msgid "No Field Groups found in Trash"
 msgstr ""
 
-#: ../includes/init.php:140 ../templates/page_tools.php:73
+#: ../includes/init.php:155 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr ""
 
-#: ../includes/init.php:153
+#: ../includes/init.php:168
 msgid "Fields"
 msgstr ""
 
-#: ../includes/init.php:154
+#: ../includes/init.php:169
 msgid "Placement Rules"
 msgstr ""
 
-#: ../includes/init.php:155
+#: ../includes/init.php:170
 msgid "Extras"
 msgstr ""
 
-#: ../includes/init.php:268
+#: ../includes/init.php:283
 msgid "Title"
 msgstr ""
 
-#: ../includes/init.php:269
+#: ../includes/init.php:284
 msgid "Placement"
 msgstr ""
 
-#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+#: ../includes/init.php:298 ../templates/meta_box_rules.php:216
 msgid "User Roles"
 msgstr ""
 
-#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+#: ../includes/init.php:299 ../templates/meta_box_rules.php:248
 msgid "Posts"
 msgstr ""
 
-#: ../includes/init.php:285
+#: ../includes/init.php:300
 msgid "Term IDs"
 msgstr ""
 
-#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+#: ../includes/init.php:301 ../templates/meta_box_rules.php:304
 msgid "Page Templates"
 msgstr ""
 
-#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+#: ../includes/init.php:302 ../templates/meta_box_rules.php:183
 msgid "Post Formats"
 msgstr ""
 
@@ -328,6 +387,14 @@ msgstr ""
 
 #: ../templates/admin_head.php:24
 msgid "New Field"
+msgstr ""
+
+#: ../templates/admin_head.php:50
+msgid "Drag and drop fields here..."
+msgstr ""
+
+#: ../templates/credits.php:11
+msgid "If you enjoy CFS, also check out"
 msgstr ""
 
 #: ../templates/field_html.php:30
@@ -412,11 +479,23 @@ msgstr ""
 msgid "is not"
 msgstr ""
 
-#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+#: ../templates/meta_box_rules.php:108 ../templates/meta_box_rules.php:116
 msgid "Leave blank to skip this rule"
 msgstr ""
 
-#: ../templates/meta_box_rules.php:258
+#: ../templates/meta_box_rules.php:109
+msgid "No matches found"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:118
+msgid "Please type"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:118
+msgid "or more characters"
+msgstr ""
+
+#: ../templates/meta_box_rules.php:272
 msgid "Taxonomy Terms"
 msgstr ""
 
@@ -430,6 +509,10 @@ msgstr ""
 
 #: ../templates/page_tools.php:78
 msgid "Reset"
+msgstr ""
+
+#: ../templates/page_tools.php:114
+msgid "Paste the import code here"
 msgstr ""
 
 #: ../templates/page_tools.php:122

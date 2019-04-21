@@ -31,7 +31,7 @@
             $(this).siblings('input').val(val);
         });
 
-        var dropHereTxt = 'Drag and drop fields here...',
+        var dropHereTxt = CFS.dict.dropHere, //'Drag and drop fields here...'
             dropHereTag = '<li class="drop-here"><span>' + dropHereTxt + '</span></li>';
 
         var showDropHere = function(){

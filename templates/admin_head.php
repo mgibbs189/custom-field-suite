@@ -41,6 +41,15 @@ var CFS = CFS || {};
 CFS['field_index'] = <?php echo $field_count; ?>;
 CFS['field_clone'] = <?php echo json_encode( $field_clone ); ?>;
 CFS['options_html'] = <?php echo json_encode( $options_html ); ?>;
+
+// Translation Dictionary
+// ======================
+// Defines the translatable strings that will be used in the JS files.
+// Should be replaced by the wp_localize_script() function when possible.
+CFS['dict'] = {
+    "dropHere":"<?php _e('Drag and drop fields here...','cfs'); ?>"
+};
+
 </script>
 <script src="<?php echo CFS_URL; ?>/assets/js/fields.js?ver=<?php echo $cfs_version; ?>"></script>
 <script src="<?php echo CFS_URL; ?>/assets/js/select2/select2.min.js?ver=<?php echo $cfs_version; ?>"></script>

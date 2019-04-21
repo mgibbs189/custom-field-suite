@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
-"POT-Creation-Date: 2016-08-28 11:52-0300\n"
-"PO-Revision-Date: 2016-08-28 12:56-0300\n"
+"POT-Creation-Date: 2019-04-21 16:36-0300\n"
+"PO-Revision-Date: 2019-04-21 16:40-0300\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Felipe Elia <contato@felipeelia.com.br>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_nx:1,2;"
 "_nx_noop:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_attr__;"
@@ -178,7 +178,7 @@ msgstr "Etiqueta das linhas"
 
 # @ cfs
 #: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
-#: ../includes/fields/loop.php:194
+#: ../includes/fields/loop.php:195
 msgid "Loop Row"
 msgstr "Título da Linha"
 
@@ -188,16 +188,20 @@ msgid "Button Label"
 msgstr "Botão para mais linhas"
 
 # @ cfs
-#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
-#: ../includes/fields/loop.php:195
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:139
+#: ../includes/fields/loop.php:196
 msgid "Add Row"
 msgstr "Adicionar Linha"
 
 # @ cfs
 #: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
-#: ../includes/fields/user.php:56
+#: ../includes/fields/term.php:109 ../includes/fields/user.php:56
 msgid "Limits"
 msgstr "Limites"
+
+#: ../includes/fields/loop.php:289
+msgid "Remove this row?"
+msgstr "Remover esta linha?"
 
 # @ cfs
 #: ../includes/fields/relationship.php:8
@@ -209,8 +213,8 @@ msgid "Search posts"
 msgstr "Buscar posts"
 
 # @ cfs
-#: ../includes/fields/relationship.php:88 ../includes/init.php:299
-#: ../templates/meta_box_rules.php:136
+#: ../includes/fields/relationship.php:88 ../includes/init.php:297
+#: ../templates/meta_box_rules.php:150
 msgid "Post Types"
 msgstr "Tipos de Posts"
 
@@ -255,6 +259,33 @@ msgstr "Exibir este campo com Select2"
 #: ../includes/fields/tab.php:8
 msgid "Tab"
 msgstr "Aba"
+
+# @ cfs
+#: ../includes/fields/term.php:8
+#, fuzzy
+#| msgid "Term IDs"
+msgid "Term"
+msgstr "IDs dos Termos"
+
+#: ../includes/fields/term.php:65
+#, fuzzy
+#| msgid "Search users"
+msgid "Search terms"
+msgstr "Buscar usuários"
+
+# @ cfs
+#: ../includes/fields/term.php:93
+#, fuzzy
+#| msgid "Taxonomy Terms"
+msgid "Taxonomies"
+msgstr "Termos de Taxonomia"
+
+# @ cfs
+#: ../includes/fields/term.php:94
+#, fuzzy
+#| msgid "Limit posts to the following types"
+msgid "Limit terms to the following taxonomies"
+msgstr "Limitar posts aos seguintes tipos"
 
 # @ cfs
 #: ../includes/fields/textarea.php:8
@@ -315,116 +346,124 @@ msgstr "Padrão"
 msgid "None (bypass filters)"
 msgstr "Nenhum (ignorar filtros)"
 
+#: ../includes/form.php:193
+msgid ""
+"One (or more) of your fields had validation errors. More information is "
+"available below."
+msgstr ""
+"Um (ou mais) dos seus campos apresentava erros de validação. Mais "
+"informações estão disponíveis abaixo."
+
 # @ cfs
-#: ../includes/form.php:198
+#: ../includes/form.php:217
 msgid "Submit"
 msgstr "Enviar"
 
-#: ../includes/form.php:371
+#: ../includes/form.php:390
 msgid "Toggle row visibility"
 msgstr "Alternar visibilidade da linha"
 
 # @ cfs
-#: ../includes/init.php:63
+#: ../includes/init.php:60
 msgid "Field Groups"
 msgstr "Grupos de Campos"
 
 # @ cfs
-#: ../includes/init.php:64
+#: ../includes/init.php:61
 msgid "Field Group"
 msgstr "Grupo de Campos"
 
-#: ../includes/init.php:65
+#: ../includes/init.php:62
 msgid "All Field Groups"
 msgstr "Todos os Grupos de Campos"
 
 # @ cfs
-#: ../includes/init.php:66
+#: ../includes/init.php:63
 msgid "Add New Field Group"
 msgstr "Adicionar Novo Grupo de Campos"
 
 # @ cfs
-#: ../includes/init.php:67
+#: ../includes/init.php:64
 msgid "Edit Field Group"
 msgstr "Editar Grupo de Campos"
 
 # @ cfs
-#: ../includes/init.php:68
+#: ../includes/init.php:65
 msgid "New Field Group"
 msgstr "Novo Grupo de Campos"
 
 # @ cfs
-#: ../includes/init.php:69
+#: ../includes/init.php:66
 msgid "View Field Group"
 msgstr "Ver Grupo de Campo"
 
 # @ cfs
-#: ../includes/init.php:70
+#: ../includes/init.php:67
 msgid "Search Field Groups"
 msgstr "Buscar Grupos de Campos"
 
 # @ cfs
-#: ../includes/init.php:71
+#: ../includes/init.php:68
 msgid "No Field Groups found"
 msgstr "Nenhum Grupo de Campos encontrado"
 
 # @ cfs
-#: ../includes/init.php:72
+#: ../includes/init.php:69
 msgid "No Field Groups found in Trash"
 msgstr "Nenhum Grupo de Campos encontrado na Lixeira"
 
 # @ cfs
-#: ../includes/init.php:157 ../templates/page_tools.php:73
+#: ../includes/init.php:155 ../templates/page_tools.php:73
 msgid "Tools"
 msgstr "Ferramentas"
 
 # @ cfs
-#: ../includes/init.php:170
+#: ../includes/init.php:168
 msgid "Fields"
 msgstr "Campos"
 
 # @ cfs
-#: ../includes/init.php:171
+#: ../includes/init.php:169
 msgid "Placement Rules"
 msgstr "Regras de Localização"
 
 # @ cfs
-#: ../includes/init.php:172
+#: ../includes/init.php:170
 msgid "Extras"
 msgstr "Extras"
 
 # @ cfs
-#: ../includes/init.php:285
+#: ../includes/init.php:283
 msgid "Title"
 msgstr "Título"
 
 # @ cfs
-#: ../includes/init.php:286
+#: ../includes/init.php:284
 msgid "Placement"
 msgstr "Localização"
 
 # @ cfs
-#: ../includes/init.php:300 ../templates/meta_box_rules.php:202
+#: ../includes/init.php:298 ../templates/meta_box_rules.php:216
 msgid "User Roles"
 msgstr "Papéis de Usuário"
 
 # @ cfs
-#: ../includes/init.php:301 ../templates/meta_box_rules.php:234
+#: ../includes/init.php:299 ../templates/meta_box_rules.php:248
 msgid "Posts"
 msgstr "Posts"
 
 # @ cfs
-#: ../includes/init.php:302
+#: ../includes/init.php:300
 msgid "Term IDs"
 msgstr "IDs dos Termos"
 
 # @ cfs
-#: ../includes/init.php:303 ../templates/meta_box_rules.php:290
+#: ../includes/init.php:301 ../templates/meta_box_rules.php:304
 msgid "Page Templates"
 msgstr "Templates"
 
 # @ cfs
-#: ../includes/init.php:304 ../templates/meta_box_rules.php:169
+#: ../includes/init.php:302 ../templates/meta_box_rules.php:183
 msgid "Post Formats"
 msgstr "Formatos de Post"
 
@@ -437,6 +476,14 @@ msgstr "Post Meta"
 #: ../templates/admin_head.php:24
 msgid "New Field"
 msgstr "Novo Campo"
+
+#: ../templates/admin_head.php:50
+msgid "Drag and drop fields here..."
+msgstr "Arraste e solte os campos aqui ..."
+
+#: ../templates/credits.php:11
+msgid "If you enjoy CFS, also check out"
+msgstr "Se você gosta do CFS, confira também"
 
 # @ cfs
 #: ../templates/field_html.php:30
@@ -543,12 +590,24 @@ msgid "is not"
 msgstr "Não é"
 
 # @ cfs
-#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+#: ../templates/meta_box_rules.php:108 ../templates/meta_box_rules.php:116
 msgid "Leave blank to skip this rule"
 msgstr "Deixe em branco para ignorar esta regra"
 
+#: ../templates/meta_box_rules.php:109
+msgid "No matches found"
+msgstr "Nenhuma correspondência encontrada"
+
+#: ../templates/meta_box_rules.php:118
+msgid "Please type"
+msgstr "Por favor digite"
+
+#: ../templates/meta_box_rules.php:118
+msgid "or more characters"
+msgstr "ou mais caracteres"
+
 # @ cfs
-#: ../templates/meta_box_rules.php:258
+#: ../templates/meta_box_rules.php:272
 msgid "Taxonomy Terms"
 msgstr "Termos de Taxonomia"
 
@@ -566,6 +625,11 @@ msgstr "Importar"
 #: ../templates/page_tools.php:78
 msgid "Reset"
 msgstr "Redefinir"
+
+# @ cfs
+#: ../templates/page_tools.php:114
+msgid "Paste the import code here"
+msgstr "Cole o código de importação aqui"
 
 # @ cfs
 #: ../templates/page_tools.php:122
@@ -615,10 +679,6 @@ msgstr "Excluir tudo"
 # @ cfs
 #~ msgid "Which field groups would you like to export?"
 #~ msgstr "¿Qué grupos de campo le gustaría exportar?"
-
-# @ cfs
-#~ msgid "Paste the import code below."
-#~ msgstr "Pegue el código de importación por debajo."
 
 # @ cfs
 #~ msgid "Please install %s to use this feature."
