@@ -101,7 +101,7 @@
             var val = $(this).val();
 
             // browser autofill support
-            $(this).closest('.field').find('.field_meta .field_label a').html(val);
+            $(this).closest('.field').find('.field_meta .field_label a').text(val);
 
             var name = $(this).closest('tr').find('.field_name input');
             if ('' == name.val()) {
@@ -117,13 +117,13 @@
         $(document).on('keyup paste', '.field_form .field_label input', function() {
             var $this = $(this);
             setTimeout(function() {
-                $this.closest('.field').find('.field_meta .field_label a').html($this.val());
+                $this.closest('.field').find('.field_meta .field_label a').text($this.val());
             }, 1);
         });
 
         $(document).on('keyup', '.field_form .field_name input', function() {
             var val = jQuery(this).val();
-            $(this).closest('.field').find('.field_meta .field_name').html(val);
+            $(this).closest('.field').find('.field_meta .field_name').text(val);
         });
     });
 })(jQuery);

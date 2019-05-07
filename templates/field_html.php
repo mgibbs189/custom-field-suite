@@ -6,13 +6,13 @@
 
                 </td>
                 <td class="field_label">
-                    <a class="cfs_edit_field row-title"><?php echo $field->label; ?></a>
+                    <a class="cfs_edit_field row-title"><?php echo esc_html( $field->label ); ?></a>
                 </td>
                 <td class="field_name">
-                    <?php echo $field->name; ?>
+                    <?php echo esc_html( $field->name ); ?>
                 </td>
                 <td class="field_type">
-                    <a class="cfs_edit_field"><?php echo $field->type; ?></a>
+                    <a class="cfs_edit_field"><?php echo esc_html( $field->type ); ?></a>
                 </td>
             </tr>
         </table>

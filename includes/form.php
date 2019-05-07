@@ -391,11 +391,11 @@ CFS['loop_buffer'] = [];
             <?php endif; ?>
 
             <?php if ( ! empty( $field->label ) ) : ?>
-            <label><?php echo $field->label; ?></label>
+            <label><?php echo esc_html( $field->label ); ?></label>
             <?php endif; ?>
 
             <?php if ( ! empty( $field->notes ) ) : ?>
-            <p class="notes"><?php echo $field->notes; ?></p>
+            <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
             <?php endif; ?>
 
             <div class="cfs_<?php echo $field->type; ?>">
