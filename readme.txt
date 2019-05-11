@@ -46,6 +46,9 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 
 == Changelog ==
 
+= 2.5.16
+* Fix: added nonce check as an added security measure (props wp.org plugins team)
+
 = 2.5.15 =
 * Fix: prevent possible XSS for logged-in editors or admins (props reddy.io)
 
