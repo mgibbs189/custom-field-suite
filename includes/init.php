@@ -244,6 +244,10 @@ class cfs_init
             exit;
         }
 
+        if ( ! check_ajax_referer( 'cfs_admin_nonce', 'nonce', false ) ) {
+            exit;
+        }
+
         $ajax_method = isset( $_POST['action_type'] ) ? $_POST['action_type'] : false;
 
         if ( $ajax_method && is_admin() ) {
@@ -267,9 +271,9 @@ class cfs_init
             elseif ( method_exists( $ajax, $ajax_method ) ) {
                 echo $ajax->$ajax_method( $_POST );
             }
-
-            exit;
         }
+
+        exit;
     }
 
 

@@ -21,6 +21,8 @@ $results = $wpdb->get_results($sql);
 <script>
 (function($) {
     $(function() {
+        var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+
         $('.nav-tab').click(function() {
             $('.tab-content').removeClass('active');
             $('.nav-tab').removeClass('nav-tab-active');
@@ -34,6 +36,7 @@ $results = $wpdb->get_results($sql);
                 $.post(ajaxurl, {
                     action: 'cfs_ajax_handler',
                     action_type: 'export',
+                    nonce: cfs_nonce,
                     field_groups: $('#export-field-groups').val()
                 },
                 function(response) {
@@ -47,6 +50,7 @@ $results = $wpdb->get_results($sql);
             $.post(ajaxurl, {
                 action: 'cfs_ajax_handler',
                 action_type: 'import',
+                nonce: cfs_nonce,
                 import_code: $('#import-code').val()
             },
             function(response) {
@@ -58,7 +62,8 @@ $results = $wpdb->get_results($sql);
             if (confirm('This will delete all CFS data. Are you sure?')) {
                 $.post(ajaxurl, {
                     action: 'cfs_ajax_handler',
-                    action_type: 'reset'
+                    action_type: 'reset',
+                    nonce: cfs_nonce
                 },
                 function(response) {
                     window.location.replace(response);
