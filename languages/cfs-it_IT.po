@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Custom Field Suite\n"
 "Report-Msgid-Bugs-To: http://deckerweb.de/kontakt/\n"
 "POT-Creation-Date: 2015-10-20 22:30-0400\n"
-"PO-Revision-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2019-06-04 11:40+0200\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Textdomain-Support: yes\n"
@@ -157,7 +157,7 @@ msgstr "Riga Loop"
 # @ cfs
 #: ../includes/fields/loop.php:66
 msgid "Button Label"
-msgstr "Etihetta Bottone"
+msgstr "Etichetta Bottone"
 
 # @ cfs
 #: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
@@ -178,13 +178,13 @@ msgstr "Relazioni"
 
 #: ../includes/fields/relationship.php:60
 msgid "Search posts"
-msgstr "Cerca posts:"
+msgstr "Cerca post"
 
 # @ cfs
 #: ../includes/fields/relationship.php:88 ../includes/init.php:282
 #: ../templates/meta_box_rules.php:136
 msgid "Post Types"
-msgstr "Tipo Post"
+msgstr "Tipi di Post"
 
 # @ cfs
 #: ../includes/fields/relationship.php:89
@@ -199,7 +199,7 @@ msgstr "Seleziona"
 # @ cfs
 #: ../includes/fields/select.php:86
 msgid "Choices"
-msgstr "Scegli"
+msgstr "Scelta Multipla"
 
 # @ cfs
 #: ../includes/fields/select.php:87
@@ -243,7 +243,7 @@ msgstr "Nessuno"
 # @ cfs
 #: ../includes/fields/textarea.php:47
 msgid "Convert newlines to <br />"
-msgstr "Converti nuova linea in <br />"
+msgstr "Converti “a capo” in <br />"
 
 # @ cfs
 #: ../includes/fields/true_false.php:8
@@ -371,7 +371,7 @@ msgstr "Posizionamento"
 # @ cfs
 #: ../includes/init.php:283 ../templates/meta_box_rules.php:202
 msgid "User Roles"
-msgstr "Regoe Uente"
+msgstr "Ruoli Utente"
 
 # @ cfs
 #: ../includes/init.php:284 ../templates/meta_box_rules.php:234
@@ -396,7 +396,7 @@ msgstr "Post Formats"
 # @ cfs
 #: ../includes/revision.php:26
 msgid "Post Meta"
-msgstr "Post meta"
+msgstr "Post Meta"
 
 # @ cfs
 #: ../templates/admin_head.php:24
@@ -495,7 +495,7 @@ msgstr "Nascondi l'editor di contenuti"
 # @ cfs
 #: ../templates/meta_box_fields.php:60
 msgid "Add New Field"
-msgstr "ggiungi Nuovo Campo"
+msgstr "Aggiungi Nuovo Campo"
 
 # @ cfs
 #: ../templates/meta_box_rules.php:5
