@@ -29,7 +29,6 @@ class cfs_relationship extends cfs_field
             'post_type'         => $post_types,
             'post_status'       => array( 'publish', 'private' ),
             'posts_per_page'    => -1,
-            'fields'            => 'ids',
             'orderby'           => 'title',
             'order'             => 'ASC'
         );
@@ -37,13 +36,12 @@ class cfs_relationship extends cfs_field
         $args = apply_filters( 'cfs_field_relationship_query_args', $args, array( 'field' => $field ) );
         $query = new WP_Query( $args );
 
-        foreach ( $query->posts as $post_id ) {
-            $post = get_post( $post_id );
-            $post_title = ( 'private' == $post->post_status ) ? '(Private) ' . $post->post_title : $post->post_title;
+        foreach ( $query->posts as $post_obj ) {
+            $post_title = ( 'private' == $post_obj->post_status ) ? '(Private) ' . $post_obj->post_title : $post_obj->post_title;
             $available_posts[] = (object) array(
-                'ID'            => $post->ID,
-                'post_type'     => $post->post_type,
-                'post_status'   => $post->post_status,
+                'ID'            => $post_obj->ID,
+                'post_type'     => $post_obj->post_type,
+                'post_status'   => $post_obj->post_status,
                 'post_title'    => $post_title,
             );
         }
