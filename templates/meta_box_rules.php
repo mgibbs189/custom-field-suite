@@ -108,6 +108,8 @@ foreach ( $templates as $template_name => $filename ) {
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>'
         });
 
+        var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+
         $('.select2-ajax').select2({
             multiple: true,
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>',
@@ -120,7 +122,8 @@ foreach ( $templates as $template_name => $filename ) {
                     return {
                         q: term,
                         action: 'cfs_ajax_handler',
-                        action_type: 'search_posts'
+                        action_type: 'search_posts',
+                        nonce: cfs_nonce
                     }
                 },
                 results: function(data, page) {
