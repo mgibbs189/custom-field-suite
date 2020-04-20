@@ -4,7 +4,7 @@ class cfs_init
 {
 
     function __construct() {
-        add_action( 'init', array( $this, 'init' ) );
+        add_action( 'init', [ $this, 'init' ] );
     }
 
 
@@ -14,15 +14,15 @@ class cfs_init
             $this->load_textdomain();
         }
 
-        add_action( 'admin_head',                       array( $this, 'admin_head' ) );
-        add_action( 'admin_footer',                     array( $this, 'show_credits' ) );
-        add_action( 'admin_menu',                       array( $this, 'admin_menu' ) );
-        add_action( 'save_post',                        array( $this, 'save_post' ) );
-        add_action( 'delete_post',                      array( $this, 'delete_post' ) );
-        add_action( 'add_meta_boxes',                   array( $this, 'add_meta_boxes' ) );
-        add_action( 'wp_ajax_cfs_ajax_handler',         array( $this, 'ajax_handler' ) );
-        add_filter( 'manage_cfs_posts_columns',         array( $this, 'cfs_columns' ) );
-        add_action( 'manage_cfs_posts_custom_column',   array( $this, 'cfs_column_content' ), 10, 2 );
+        add_action( 'admin_head',                       [ $this, 'admin_head' ] );
+        add_action( 'admin_footer',                     [ $this, 'show_credits' ] );
+        add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
+        add_action( 'save_post',                        [ $this, 'save_post' ] );
+        add_action( 'delete_post',                      [ $this, 'delete_post' ] );
+        add_action( 'add_meta_boxes',                   [ $this, 'add_meta_boxes' ] );
+        add_action( 'wp_ajax_cfs_ajax_handler',         [ $this, 'ajax_handler' ] );
+        add_filter( 'manage_cfs_posts_columns',         [ $this, 'cfs_columns' ] );
+        add_action( 'manage_cfs_posts_custom_column',   [ $this, 'cfs_column_content' ], 10, 2 );
 
         include( CFS_DIR . '/includes/api.php' );
         include( CFS_DIR . '/includes/upgrade.php' );
@@ -46,16 +46,16 @@ class cfs_init
      * Register the field group post type
      */
     function register_post_type() {
-        register_post_type( 'cfs', array(
+        register_post_type( 'cfs', [
             'public'            => false,
             'show_ui'           => true,
             'capability_type'   => 'page',
             'hierarchical'      => false,
-            'supports'          => array( 'title' ),
+            'supports'          => [ 'title' ],
             'menu_icon'         => 'dashicons-carrot',
             'query_var'         => false,
             'menu_position'     => 120,
-            'labels'            => array(
+            'labels'            => [
                 'name'                  => __( 'Field Groups', 'cfs' ),
                 'singular_name'         => __( 'Field Group', 'cfs' ),
                 'all_items'             => __( 'All Field Groups', 'cfs' ),
@@ -66,8 +66,8 @@ class cfs_init
                 'search_items'          => __( 'Search Field Groups', 'cfs' ),
                 'not_found'             => __( 'No Field Groups found', 'cfs' ),
                 'not_found_in_trash'    => __( 'No Field Groups found in Trash', 'cfs' ),
-            ),
-        ));
+            ],
+        ] );
     }
 
 
@@ -90,7 +90,7 @@ class cfs_init
     function get_field_types() {
 
         // support custom field types
-        $field_types = apply_filters( 'cfs_field_types', array(
+        $field_types = apply_filters( 'cfs_field_types', [
             'text'          => CFS_DIR . '/includes/fields/text.php',
             'textarea'      => CFS_DIR . '/includes/fields/textarea.php',
             'wysiwyg'       => CFS_DIR . '/includes/fields/wysiwyg.php',
@@ -105,7 +105,7 @@ class cfs_init
             'file'          => CFS_DIR . '/includes/fields/file.php',
             'loop'          => CFS_DIR . '/includes/fields/loop.php',
             'tab'           => CFS_DIR . '/includes/fields/tab.php',
-        ) );
+        ] );
 
         foreach ( $field_types as $type => $path ) {
             $class_name = 'cfs_' . $type;
@@ -151,7 +151,7 @@ class cfs_init
      */
     function admin_menu() {
         if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', array( $this, 'page_tools' ) );
+            add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
         }
 
         // Remove the "Add New" menu link
@@ -164,9 +164,9 @@ class cfs_init
      * add_meta_boxes
      */
     function add_meta_boxes() {
-        add_meta_box( 'cfs_fields', __('Fields', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'fields' ) );
-        add_meta_box( 'cfs_rules', __('Placement Rules', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'rules' ) );
-        add_meta_box( 'cfs_extras', __('Extras', 'cfs'), array( $this, 'meta_box' ), 'cfs', 'normal', 'high', array( 'box' => 'extras' ) );
+        add_meta_box( 'cfs_fields', __('Fields', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'fields' ] );
+        add_meta_box( 'cfs_rules', __('Placement Rules', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'rules' ] );
+        add_meta_box( 'cfs_extras', __('Extras', 'cfs'), [ $this, 'meta_box' ], 'cfs', 'normal', 'high', [ 'box' => 'extras' ] );
     }
 
 
@@ -206,16 +206,16 @@ class cfs_init
         }
 
         if ( wp_verify_nonce( $_POST['cfs']['save'], 'cfs_save_fields' ) ) {
-            $fields = isset( $_POST['cfs']['fields'] ) ? $_POST['cfs']['fields'] : array();
-            $rules = isset( $_POST['cfs']['rules'] ) ? $_POST['cfs']['rules'] : array();
-            $extras = isset( $_POST['cfs']['extras'] ) ? $_POST['cfs']['extras'] : array();
+            $fields = isset( $_POST['cfs']['fields'] ) ? $_POST['cfs']['fields'] : [];
+            $rules = isset( $_POST['cfs']['rules'] ) ? $_POST['cfs']['rules'] : [];
+            $extras = isset( $_POST['cfs']['extras'] ) ? $_POST['cfs']['extras'] : [];
 
-            CFS()->field_group->save( array(
+            CFS()->field_group->save( [
                 'post_id'   => $post_id,
                 'fields'    => $fields,
                 'rules'     => $rules,
                 'extras'    => $extras,
-            ) );
+            ] );
         }
     }
 
@@ -255,9 +255,9 @@ class cfs_init
             $ajax = new cfs_ajax();
 
             if ( 'import' == $ajax_method ) {
-                $options = array(
+                $options = [
                     'import_code' => json_decode( stripslashes( $_POST['import_code'] ), true ),
-                );
+                ];
                 echo CFS()->field_group->import( $options );
             }
             elseif ('export' == $ajax_method) {
@@ -281,11 +281,11 @@ class cfs_init
      * Customize table columns on the Field Group listing
      */
     function cfs_columns() {
-        return array(
+        return [
             'cb'            => '<input type="checkbox" />',
             'title'         => __( 'Title', 'cfs' ),
             'placement'     => __( 'Placement', 'cfs' ),
-        );
+        ];
     }
 
 
@@ -296,19 +296,19 @@ class cfs_init
         if ( 'placement' == $column_name ) {
             global $wpdb;
 
-            $labels = array(
+            $labels = [
                 'post_types'        => __( 'Post Types', 'cfs' ),
                 'user_roles'        => __( 'User Roles', 'cfs' ),
                 'post_ids'          => __( 'Posts', 'cfs' ),
                 'term_ids'          => __( 'Term IDs', 'cfs' ),
                 'page_templates'    => __( 'Page Templates', 'cfs' ),
                 'post_formats'      => __( 'Post Formats', 'cfs' )
-            );
+            ];
 
             $field_groups = CFS()->field_group->load_field_groups();
 
             // Make sure the field group exists
-            $rules = array();
+            $rules = [];
             if ( isset( $field_groups[ $post_id ] ) ) {
                 $rules = $field_groups[ $post_id ]['rules'];
             }
@@ -320,7 +320,7 @@ class cfs_init
 
                 // Get post titles
                 if ( 'post_ids' == $criteria ) {
-                    $temp = array();
+                    $temp = [];
                     foreach ( $values as $val ) {
                         $temp[] = get_the_title( (int) $val );
                     }

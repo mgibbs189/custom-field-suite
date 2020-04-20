@@ -3,7 +3,7 @@
 Plugin Name: Custom Field Suite
 Plugin URI: http://customfieldsuite.com/
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.5.16
+Version: 2.6
 Author: Matt Gibbs
 Text Domain: cfs
 Domain Path: /languages/
@@ -22,7 +22,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.5.16' );
+        define( 'CFS_VERSION', '2.6' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 
@@ -45,7 +45,7 @@ class Custom_Field_Suite
     /**
      * Public API methods
      */
-    function get( $field_name = false, $post_id = false, $options = array() ) {
+    function get( $field_name = false, $post_id = false, $options = [] ) {
         return CFS()->api->get( $field_name, $post_id, $options );
     }
 
@@ -55,22 +55,22 @@ class Custom_Field_Suite
     }
 
 
-    function get_reverse_related( $post_id, $options = array() ) {
+    function get_reverse_related( $post_id, $options = [] ) {
         return CFS()->api->get_reverse_related( $post_id, $options );
     }
 
 
-    function save( $field_data = array(), $post_data = array(), $options = array() ) {
+    function save( $field_data = [], $post_data = [], $options = [] ) {
         return CFS()->api->save_fields( $field_data, $post_data, $options );
     }
 
 
-    function find_fields( $params = array() ) {
+    function find_fields( $params = [] ) {
         return CFS()->api->find_input_fields( $params );
     }
 
 
-    function form( $params = array() ) {
+    function form( $params = [] ) {
         ob_start();
         CFS()->form->render( $params );
         return ob_get_clean();
@@ -89,13 +89,13 @@ class Custom_Field_Suite
      * Trigger the field type "html" method
      */
     function create_field( $field ) {
-        $defaults = array(
+        $defaults = [
             'type'          => 'text',
             'input_name'    => '',
             'input_class'   => '',
-            'options'       => array(),
+            'options'       => [],
             'value'         => '',
-        );
+        ];
 
         $field = (object) array_merge( $defaults, (array) $field );
         CFS()->fields[ $field->type ]->html( $field );

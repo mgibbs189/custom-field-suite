@@ -5,14 +5,14 @@
 
 global $post;
 
-$results = CFS()->api->get_input_fields( array( 'group_id' => $post->ID ) );
+$results = CFS()->api->get_input_fields( [ 'group_id' => $post->ID ] );
 
 /*---------------------------------------------------------------------------------------------
     Create <ul> based on field structure
 ---------------------------------------------------------------------------------------------*/
 
 $level = 0;
-$levels = array();
+$levels = [];
 $last_level = $diff = 0;
 
 foreach ( $results as $field ) {

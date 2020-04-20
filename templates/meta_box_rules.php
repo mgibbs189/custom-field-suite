@@ -7,34 +7,34 @@ $not_equals_text = __( 'is not', 'cfs' );
 $rules = (array) get_post_meta( $post->ID, 'cfs_rules', true );
 
 // Populate rules if empty
-$rule_types = array(
+$rule_types = [
     'post_types',
     'post_formats',
     'user_roles',
     'post_ids',
     'term_ids',
     'page_templates'
-);
+];
 
 foreach ( $rule_types as $type ) {
     if ( ! isset( $rules[ $type ] ) ) {
-        $rules[ $type ] = array( 'operator' => array( '==' ), 'values' => array() );
+        $rules[ $type ] = [ 'operator' => [ '==' ], 'values' => [] ];
     }
 }
 
 // Post types
-$post_types = array();
+$post_types = [];
 $types = get_post_types();
 foreach ( $types as $post_type ) {
-    if ( ! in_array( $post_type, array( 'cfs', 'attachment', 'revision', 'nav_menu_item' ) ) ) {
+    if ( ! in_array( $post_type, [ 'cfs', 'attachment', 'revision', 'nav_menu_item' ] ) ) {
         $post_types[ $post_type ] = $post_type;
     }
 }
 
 // Post formats
-$post_formats = array();
+$post_formats = [];
 if ( current_theme_supports( 'post-formats' ) ) {
-    $post_formats = array( 'standard' => 'Standard' );
+    $post_formats = [ 'standard' => 'Standard' ];
     $post_formats_slugs = get_theme_support( 'post-formats' );
 
     if ( is_array( $post_formats_slugs[0] ) ) {
@@ -50,8 +50,8 @@ foreach ( $wp_roles->roles as $key => $role ) {
 }
 
 // Post IDs
-$post_ids = array();
-$json_posts = array();
+$post_ids = [];
+$json_posts = [];
 
 if ( ! empty( $rules['post_ids']['values'] ) ) {
     $post_in = implode( ',', $rules['post_ids']['values'] );
@@ -74,7 +74,7 @@ if ( ! empty( $rules['post_ids']['values'] ) ) {
             $parent = "$parent->post_title >";
         }
 
-        $json_posts[] = array( 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title (#$result->ID)" );
+        $json_posts[] = [ 'id' => $result->ID, 'text' => "($result->post_type) $parent $result->post_title (#$result->ID)" ];
         $post_ids[] = $result->ID;
     }
 }
@@ -92,7 +92,7 @@ foreach ( $results as $result ) {
 }
 
 // Page templates
-$page_templates = array();
+$page_templates = [];
 $templates = get_page_templates();
 
 foreach ( $templates as $template_name => $filename ) {
@@ -104,6 +104,8 @@ foreach ( $templates as $template_name => $filename ) {
 <script>
 (function($) {
     $(function() {
+        var cfs_nonce = '<?php echo wp_create_nonce( 'cfs_admin_nonce' ); ?>';
+
         $('.select2').select2({
             placeholder: '<?php _e( 'Leave blank to skip this rule', 'cfs' ); ?>'
         });
@@ -120,7 +122,8 @@ foreach ( $templates as $template_name => $filename ) {
                     return {
                         q: term,
                         action: 'cfs_ajax_handler',
-                        action_type: 'search_posts'
+                        action_type: 'search_posts',
+                        nonce: cfs_nonce
                     }
                 },
                 results: function(data, page) {
@@ -147,29 +150,29 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_types]",
-                    'options' => array(
-                        'choices' => array(
+                    'options' => [
+                        'choices' => [
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        ),
+                        ],
                         'force_single' => true,
-                    ),
+                    ],
                     'value' => $rules['post_types']['operator'],
-                ) );
+                ] );
             ?>
         </td>
         <td>
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][post_types]",
-                    'options' => array( 'multiple' => '1', 'choices' => $post_types ),
+                    'options' => [ 'multiple' => '1', 'choices' => $post_types ],
                     'value' => $rules['post_types']['values'],
-                ) );
+                ] );
             ?>
         </td>
     </tr>
@@ -180,29 +183,29 @@ foreach ( $templates as $template_name => $filename ) {
             </td>
             <td style="width:80px; vertical-align:top">
                 <?php
-                CFS()->create_field( array(
-                        'type' => 'select',
-                        'input_name' => "cfs[rules][operator][post_formats]",
-                        'options' => array(
-                            'choices' => array(
-                                '==' => $equals_text,
-                                '!=' => $not_equals_text,
-                            ),
-                            'force_single' => true,
-                        ),
-                        'value' => $rules['post_formats']['operator'],
-                    ) );
+                CFS()->create_field( [
+                    'type' => 'select',
+                    'input_name' => "cfs[rules][operator][post_formats]",
+                    'options' => [
+                        'choices' => [
+                            '==' => $equals_text,
+                            '!=' => $not_equals_text,
+                        ],
+                        'force_single' => true,
+                    ],
+                    'value' => $rules['post_formats']['operator'],
+                ] );
                 ?>
             </td>
             <td>
                 <?php
-                CFS()->create_field( array(
-                        'type' => 'select',
-                        'input_class' => 'select2',
-                        'input_name' => "cfs[rules][post_formats]",
-                        'options' => array( 'multiple' => '1', 'choices' => $post_formats ),
-                        'value' => $rules['post_formats']['values'],
-                    ) );
+                CFS()->create_field( [
+                    'type' => 'select',
+                    'input_class' => 'select2',
+                    'input_name' => "cfs[rules][post_formats]",
+                    'options' => [ 'multiple' => '1', 'choices' => $post_formats ],
+                    'value' => $rules['post_formats']['values'],
+                ] );
                 ?>
             </td>
         </tr>
@@ -213,29 +216,29 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][user_roles]",
-                    'options' => array(
-                        'choices' => array(
+                    'options' => [
+                        'choices' => [
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        ),
+                        ],
                         'force_single' => true,
-                    ),
+                    ],
                     'value' => $rules['user_roles']['operator'],
-                ) );
+                ] );
             ?>
         </td>
         <td>
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][user_roles]",
-                    'options' => array( 'multiple' => '1', 'choices' => $user_roles ),
+                    'options' => [ 'multiple' => '1', 'choices' => $user_roles ],
                     'value' => $rules['user_roles']['values'],
-                ) );
+                ] );
             ?>
         </td>
     </tr>
@@ -245,18 +248,18 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][post_ids]",
-                    'options' => array(
-                        'choices' => array(
+                    'options' => [
+                        'choices' => [
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        ),
+                        ],
                         'force_single' => true,
-                    ),
+                    ],
                     'value' => $rules['post_ids']['operator'],
-                ) );
+                ] );
             ?>
         </td>
         <td>
@@ -269,29 +272,29 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][term_ids]",
-                    'options' => array(
-                        'choices' => array(
+                    'options' => [
+                        'choices' => [
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        ),
+                        ],
                         'force_single' => true,
-                    ),
+                    ],
                     'value' => $rules['term_ids']['operator'],
-                ) );
+                ] );
             ?>
         </td>
         <td>
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][term_ids]",
-                    'options' => array( 'multiple' => '1', 'choices' => $term_ids ),
+                    'options' => [ 'multiple' => '1', 'choices' => $term_ids ],
                     'value' => $rules['term_ids']['values'],
-                ) );
+                ] );
             ?>
         </td>
     </tr>
@@ -301,29 +304,29 @@ foreach ( $templates as $template_name => $filename ) {
         </td>
         <td style="width:80px; vertical-align:top">
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_name' => "cfs[rules][operator][page_templates]",
-                    'options' => array(
-                        'choices' => array(
+                    'options' => [
+                        'choices' => [
                             '==' => $equals_text,
                             '!=' => $not_equals_text,
-                        ),
+                        ],
                         'force_single' => true,
-                    ),
+                    ],
                     'value' => $rules['page_templates']['operator'],
-                ) );
+                ] );
             ?>
         </td>
         <td>
             <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'type' => 'select',
                     'input_class' => 'select2',
                     'input_name' => "cfs[rules][page_templates]",
-                    'options' => array( 'multiple' => '1', 'choices' => $page_templates ),
+                    'options' => [ 'multiple' => '1', 'choices' => $page_templates ],
                     'value' => $rules['page_templates']['values'],
-                ) );
+                ] );
             ?>
         </td>
     </tr>

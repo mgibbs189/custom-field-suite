@@ -28,7 +28,7 @@ class cfs_api
     public function get_field( $field_name, $post_id, $options ) {
         global $post;
 
-        $defaults = array( 'format' => 'api' ); // "api", "input", or "raw"
+        $defaults = [ 'format' => 'api' ]; // "api", "input", or "raw"
         $options = array_merge( $defaults, $options );
 
         if ( empty( $post_id ) && empty( $post ) ) {
@@ -56,7 +56,7 @@ class cfs_api
     public function get_fields( $post_id, $options ) {
         global $post, $wpdb;
 
-        $defaults = array( 'format' => 'api' ); // "api", "input", or "raw"
+        $defaults = [ 'format' => 'api' ]; // "api", "input", or "raw"
         $options = array_merge( $defaults, $options );
         $post_id = empty( $post_id ) ? $post->ID : (int) $post_id;
 
@@ -65,14 +65,14 @@ class cfs_api
             return $this->cache[ $post_id ][ $options['format'] ];
         }
 
-        $fields = array();
-        $field_data = array();
+        $fields = [];
+        $field_data = [];
 
         // Get all field groups for this post
         $group_ids = $this->get_matching_groups( $post_id, true );
 
         if ( ! empty( $group_ids ) ) {
-            $results = $this->find_input_fields( array( 'group_id' => array_keys( $group_ids ) ) );
+            $results = $this->find_input_fields( [ 'group_id' => array_keys( $group_ids ) ] );
             foreach ( $results as $result ) {
                 $result = (object) $result;
                 $fields[ $result->id ] = $result;
@@ -172,10 +172,10 @@ class cfs_api
         $group_ids = $this->get_matching_groups( $post_id, true );
         $group_ids = array_keys( $group_ids );
 
-        $output = array();
+        $output = [];
 
         if ( ! empty( $group_ids ) ) {
-            $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
+            $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
             foreach ( $results as $result ) {
                 if ( $result['name'] == $field_name ) {
                     $output = (array) $result;
@@ -195,7 +195,7 @@ class cfs_api
         Get referenced field values (using relationship fields)
     ================================================================
     */
-    public function get_reverse_related( $post_id, $options = array() ) {
+    public function get_reverse_related( $post_id, $options = [] ) {
         global $wpdb;
 
         $where = "m.meta_value = '$post_id'";
@@ -218,10 +218,10 @@ class cfs_api
 
         // Limit to specific field types
         $field_type = empty( $field_type ) ? 'relationship' : $field_type;
-        $results = $this->find_input_fields( array( 'field_type' => $field_type ) );
+        $results = $this->find_input_fields( [ 'field_type' => $field_type ] );
 
         if ( ! empty( $results ) ) {
-            $field_ids = array();
+            $field_ids = [];
             foreach ( $results as $result ) {
                 $field_ids[] = $result['id'];
             }
@@ -236,7 +236,7 @@ class cfs_api
         WHERE $where";
 
         $results = $wpdb->get_results( $sql );
-        $output = array();
+        $output = [];
 
         foreach ( $results as $result ) {
             $output[] = $result->ID;
@@ -250,28 +250,28 @@ class cfs_api
         Save field value
     ================================================================
     */
-    public function save_fields( $field_data = array(), $post_data = array(), $options = array() ) {
+    public function save_fields( $field_data = [], $post_data = [], $options = [] ) {
         global $wpdb;
 
-        $defaults = array(
+        $defaults = [
             'format'            => 'api', // "api" or "input"
-            'field_groups'      => array(),
-        );
+            'field_groups'      => [],
+        ];
         $options = array_merge( $defaults, $options );
 
         // Log saved fields
-        $this->saved_fields = array();
+        $this->saved_fields = [];
 
         // create post if the ID is missing
         if ( empty( $post_data['ID'] ) ) {
-            $post_defaults = array(
+            $post_defaults = [
                 'post_title'                => 'My CFS post',
                 'post_content'              => '',
                 'post_content_filtered'     => '',
                 'post_excerpt'              => '',
                 'to_ping'                   => '',
                 'pinged'                    => '',
-            );
+            ];
             $post_data = array_merge( $post_defaults, $post_data );
             $post_id = wp_insert_post( $post_data );
         }
@@ -279,7 +279,7 @@ class cfs_api
             $post_id = (int) $post_data['ID'];
 
             if ( 1 < count( $post_data ) ) {
-                $wpdb->update( $wpdb->posts, $post_data, array( 'ID' => $post_id ) );
+                $wpdb->update( $wpdb->posts, $post_data, [ 'ID' => $post_id ] );
                 clean_post_cache( $post_id );
             }
         }
@@ -304,8 +304,8 @@ class cfs_api
         }
 
         if ( ! empty( $group_ids ) ) {
-            $parent_fields = array();
-            $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
+            $parent_fields = [];
+            $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
             foreach ( $results as $result ) {
 
                 // Store all the field objects for the current field group(s)
@@ -323,7 +323,7 @@ class cfs_api
 
         // If this is an API call, flatten the data!
         if ( 'api' == $options['format'] ) {
-            $field_ids = array();
+            $field_ids = [];
 
             foreach ( $field_data as $field_name => $junk ) {
                 if ( isset( $parent_fields[ $field_name ] ) ) {
@@ -346,9 +346,9 @@ class cfs_api
         elseif ( 'input' == $options['format'] ) {
 
             // If saving raw input, delete existing postdata
-            $results = $this->find_input_fields( array( 'group_id' => $group_ids ) );
+            $results = $this->find_input_fields( [ 'group_id' => $group_ids ] );
             if ( ! empty( $results ) ) {
-                $field_ids = array();
+                $field_ids = [];
                 foreach ( $results as $result ) {
                     $field_ids[] = $result['id'];
                 }
@@ -371,18 +371,18 @@ class cfs_api
 
         foreach ( $field_data as $field_id => $field_array ) {
             $this->save_fields_recursive(
-                array(
+                [
                     'field_id'              => $field_id,
                     'field_array'           => $field_array,
                     'post_id'               => $post_id,
                     'parent_id'             => 0,
                     'all_fields'            => $fields,
-                    'hierarchy'             => array(),
+                    'hierarchy'             => [],
                     'format'                => $options['format'],
                     'field_id_lookup'       => $field_id_lookup,
                     'weight'                => 0,
                     'depth'                 => 0,
-                )
+                ]
             );
         }
 
@@ -433,11 +433,11 @@ class cfs_api
 
             foreach ( (array) $values as $value ) {
                 // Insert into postmeta
-                $data = array(
+                $data = [
                     'post_id'       => $params['post_id'],
                     'meta_key'      => $params['all_fields'][ $field_id ]->name,
                     'meta_value'    => $value,
-                );
+                ];
 
                 $wpdb->insert( $wpdb->postmeta, $data );
                 $meta_id = $wpdb->insert_id;
@@ -446,7 +446,7 @@ class cfs_api
                 $base_field_id = empty( $params['hierarchy'] ) ? 0 : $params['hierarchy'][0];
 
                 // Insert into cfs_values
-                $data = array(
+                $data = [
                     'field_id'          => $field_id,
                     'meta_id'           => $meta_id,
                     'post_id'           => $params['post_id'],
@@ -455,7 +455,7 @@ class cfs_api
                     'depth'             => floor( count( $params['hierarchy'] ) / 2 ),
                     'weight'            => $params['weight'],
                     'sub_weight'        => $sub_weight,
-                );
+                ];
 
                 $wpdb->insert( $wpdb->prefix . 'cfs_values', $data );
                 $sub_weight++;
@@ -499,23 +499,23 @@ class cfs_api
         Find input fields
     ================================================================
     */
-    public function find_input_fields( $params = array() ) {
+    public function find_input_fields( $params = [] ) {
         global $wpdb;
 
-        $defaults = array(
+        $defaults = [
             'post_id'       => false, // a single post ID
-            'group_id'      => array(),
-            'field_id'      => array(),
-            'field_type'    => array(),
-            'field_name'    => array(),
-            'parent_id'     => array(),
-        );
+            'group_id'      => [],
+            'field_id'      => [],
+            'field_type'    => [],
+            'field_name'    => [],
+            'parent_id'     => [],
+        ];
 
         $params = array_merge( $defaults, $params );
 
         $field_groups = CFS()->field_group->load_field_groups();
 
-        $output = array();
+        $output = [];
 
         foreach ( $field_groups as $group_id => $group ) {
 
@@ -565,14 +565,14 @@ class cfs_api
         Get input fields / values for a specific post ID
     ================================================================
     */
-    public function get_input_fields( $params = array() ) {
+    public function get_input_fields( $params = [] ) {
         global $post, $wpdb;
 
         $fields = $this->find_input_fields( $params );
 
-        $values = $this->get_fields( $post->ID, array( 'format' => 'input' ) );
+        $values = $this->get_fields( $post->ID, [ 'format' => 'input' ] );
 
-        $output = array();
+        $output = [];
 
         foreach ( $fields as $field ) {
             $field = (object) $field;
@@ -607,9 +607,9 @@ class cfs_api
                 $post_id = wp_is_post_revision( $post_id );
             }
 
-            $rule_types = array(
+            $rule_types = [
                 'post_ids' => $post_id
-            );
+            ];
         }
         else {
             $rule_types = $params;
@@ -620,7 +620,7 @@ class cfs_api
             $rule_types['post_ids'] = array_map( 'absint', (array) $rule_types['post_ids'] );
 
             if ( ! isset( $rule_types['post_types'] ) ) {
-                $rule_types['post_types'] = array();
+                $rule_types['post_types'] = [];
 
                 foreach ( $rule_types['post_ids'] as $pid ) {
                     $post_type = get_post_type( $pid );
@@ -632,7 +632,7 @@ class cfs_api
             }
 
             if ( ! isset( $rule_types['post_formats'] ) ) {
-                $rule_types['post_formats'] = array();
+                $rule_types['post_formats'] = [];
 
                 foreach ( $rule_types['post_ids'] as $pid ) {
                     $post_format = get_post_format( $pid );
@@ -647,7 +647,7 @@ class cfs_api
             }
 
             if ( ! isset( $rule_types['page_templates'] ) ) {
-                $rule_types['page_templates'] = array();
+                $rule_types['page_templates'] = [];
 
                 foreach ( $rule_types['post_ids'] as $pid ) {
                     $page_template = get_post_meta( $pid, '_wp_page_template', true );
@@ -661,14 +661,14 @@ class cfs_api
 
         // Set defaults
         $rule_types = array_merge(
-            array(
-                'post_types'        => array(),
-                'post_formats'      => array(),
+            [
+                'post_types'        => [],
+                'post_formats'      => [],
                 'user_roles'        => $current_user->roles,
-                'term_ids'          => array(),
-                'post_ids'          => array(),
-                'page_templates'    => array()
-            ), $rule_types
+                'term_ids'          => [],
+                'post_ids'          => [],
+                'page_templates'    => []
+            ], $rule_types
         );
 
         // Get all field groups
@@ -707,15 +707,15 @@ class cfs_api
             }
 
             if ( ! $fail ) {
-                $temp[] = array(
+                $temp[] = [
                     'post_id' => $group_id,
                     'post_title' => $result['title'],
                     'order' => empty( $extras['order'] ) ? 0 : (int) $extras['order']
-                );
+                ];
             }
         }
 
-        $matches = array();
+        $matches = [];
 
         // Sort the field groups
         if ( ! empty( $temp ) ) {
@@ -774,13 +774,13 @@ class cfs_api
         $data = array_shift( $args );
 
         if ( ! is_array( $data ) ) {
-            return array();
+            return [];
         }
 
-        $multisort_params = array();
+        $multisort_params = [];
         foreach ( $args as $n => $field ) {
             if ( is_string( $field ) ) {
-                $tmp = array();
+                $tmp = [];
                 foreach ( $data as $row ) {
                     $tmp[] = $row[ $field ];
                 }

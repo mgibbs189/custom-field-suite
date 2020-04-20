@@ -24,11 +24,11 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][default_value]",
                         'value' => $this->get_option( $field, 'default_value' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -38,18 +38,18 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
-                        'options' => array(
-                            'choices' => array(
+                        'options' => [
+                            'choices' => [
                                 'none' => __( 'None', 'cfs' ),
                                 'auto_br' => __( 'Convert newlines to <br />', 'cfs' )
-                            ),
+                            ],
                             'force_single' => true,
-                        ),
+                        ],
                         'value' => $this->get_option( $field, 'formatting', 'auto_br' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -59,13 +59,13 @@ class cfs_textarea extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
-                    ) );
+                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                    ] );
                 ?>
             </td>
         </tr>

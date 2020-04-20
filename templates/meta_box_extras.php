@@ -3,11 +3,11 @@
 global $wpdb;
 
 // Post types
-$post_types = array();
-$types = get_post_types( array( 'public' => true ) );
+$post_types = [];
+$types = get_post_types( [ 'public' => true ] );
 
 foreach ( $types as $post_type ) {
-    if ( ! in_array( $post_type, array( 'cfs', 'attachment' ) ) ) {
+    if ( ! in_array( $post_type, [ 'cfs', 'attachment' ] ) ) {
         $post_types[] = $post_type;
     }
 }
@@ -56,13 +56,13 @@ if ( ! isset( $extras['context'] ) ) {
         <td style="vertical-align:top">
             <div>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( [
                         'type'          => 'true_false',
                         'input_name'    => "cfs[extras][hide_editor]",
                         'input_class'   => 'true_false',
                         'value'         => $extras['hide_editor'],
-                        'options'       => array( 'message' => __( 'Hide the content editor', 'cfs' ) ),
-                    ));
+                        'options'       => [ 'message' => __( 'Hide the content editor', 'cfs' ) ],
+                    ] );
                 ?>
             </div>
         </td>

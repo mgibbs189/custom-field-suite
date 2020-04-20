@@ -11,12 +11,12 @@ class cfs_hyperlink extends cfs_field
 
 
     function html( $field ) {
-        $field->value = array(
+        $field->value = [
             'url'    => isset( $field->value['url'] ) ? $field->value['url'] : '',
             'text'   => isset( $field->value['text'] ) ? $field->value['text'] : '',
             'class'  => isset( $field->value['class'] ) ? $field->value['class'] : '',
             'target' => isset( $field->value['target'] ) ? $field->value['target'] : '',
-        );
+        ];
     ?>
         <div class="cfs-hyperlink" style="overflow:hidden;">
             <div class="cfs-hyperlink-url" style="width:39%;float:left;">
@@ -49,18 +49,18 @@ class cfs_hyperlink extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( [
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][format]",
-                        'options' => array(
-                            'choices' => array(
+                        'options' => [
+                            'choices' => [
                                 'html' => __( 'HTML', 'cfs' ),
                                 'php' => __( 'PHP Array', 'cfs' )
-                            ),
+                            ],
                             'force_single' => true,
-                        ),
+                        ],
                         'value' => $this->get_option( $field, 'format', 'html' ),
-                    ));
+                    ] );
                 ?>
             </td>
         </tr>
@@ -71,11 +71,11 @@ class cfs_hyperlink extends cfs_field
     function pre_save( $value, $field = null ) {
         // convert to a proper associative array when inside a Loop
         if ( isset( $value[0]['url'], $value[1]['text'], $value[2]['target'] ) ) {
-            $value = array(
+            $value = [
                 'url'    => $value[0]['url'],
                 'text'   => $value[1]['text'],
                 'target' => $value[2]['target'],
-            );
+            ];
         }
         return serialize( $value );
     }

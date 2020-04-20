@@ -17,7 +17,7 @@ if ( 'cfs' == $screen->post_type ) {
     $field_count = is_array( $field_count ) ? count( $field_count ) : 0;
 
     // Build clone HTML
-    $field = (object) array(
+    $field = (object) [
         'id'            => 0,
         'parent_id'     => 0,
         'name'          => 'new_field',
@@ -25,7 +25,7 @@ if ( 'cfs' == $screen->post_type ) {
         'type'          => 'text',
         'notes'         => '',
         'weight'        => 'clone',
-    );
+    ];
 
     ob_start();
     CFS()->field_html( $field );
@@ -73,8 +73,8 @@ else {
                 $hide_editor = true;
             }
 
-            $args = array( 'box' => 'input', 'group_id' => $group_id );
-            add_meta_box( "cfs_input_$group_id", $title, array( $this, 'meta_box' ), $post->post_type, $context, $priority, $args );
+            $args = [ 'box' => 'input', 'group_id' => $group_id ];
+            add_meta_box( "cfs_input_$group_id", $title, [ $this, 'meta_box' ], $post->post_type, $context, $priority, $args );
             add_filter( "postbox_classes_{$post->post_type}_cfs_input_{$group_id}", 'cfs_postbox_classes' );
         }
 

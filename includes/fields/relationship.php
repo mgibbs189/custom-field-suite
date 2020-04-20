@@ -12,38 +12,38 @@ class cfs_relationship extends cfs_field
     function html( $field ) {
         global $wpdb;
 
-        $selected_posts = array();
-        $available_posts = array();
+        $selected_posts = [];
+        $available_posts = [];
 
-        $post_types = array();
+        $post_types = [];
         if ( ! empty( $field->options['post_types'] ) ) {
             foreach ( $field->options['post_types'] as $type ) {
                 $post_types[] = $type;
             }
         }
         else {
-            $post_types = get_post_types( array( 'exclude_from_search' => true ) );
+            $post_types = get_post_types( [ 'exclude_from_search' => true ] );
         }
 
-        $args = array(
+        $args = [
             'post_type'         => $post_types,
-            'post_status'       => array( 'publish', 'private' ),
+            'post_status'       => [ 'publish', 'private' ],
             'posts_per_page'    => -1,
             'orderby'           => 'title',
             'order'             => 'ASC'
-        );
+        ];
 
-        $args = apply_filters( 'cfs_field_relationship_query_args', $args, array( 'field' => $field ) );
+        $args = apply_filters( 'cfs_field_relationship_query_args', $args, [ 'field' => $field ] );
         $query = new WP_Query( $args );
 
         foreach ( $query->posts as $post_obj ) {
             $post_title = ( 'private' == $post_obj->post_status ) ? '(Private) ' . $post_obj->post_title : $post_obj->post_title;
-            $available_posts[] = (object) array(
+            $available_posts[] = (object) [
                 'ID'            => $post_obj->ID,
                 'post_type'     => $post_obj->post_type,
                 'post_status'   => $post_obj->post_status,
                 'post_title'    => $post_title,
-            );
+            ];
         }
 
         if ( ! empty( $field->value ) ) {
@@ -77,7 +77,7 @@ class cfs_relationship extends cfs_field
 
 
     function options_html( $key, $field ) {
-        $args = array( 'exclude_from_search' => false );
+        $args = [ 'exclude_from_search' => false ];
         $choices = apply_filters( 'cfs_field_relationship_post_types', get_post_types( $args ) );
 
     ?>
@@ -88,12 +88,12 @@ class cfs_relationship extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type'          => 'select',
                         'input_name'    => "cfs[fields][$key][options][post_types]",
-                        'options'       => array( 'multiple' => '1', 'choices' => $choices ),
+                        'options'       => [ 'multiple' => '1', 'choices' => $choices ],
                         'value'         => $this->get_option( $field, 'post_types' ),
-                    ));
+                    ] );
                 ?>
             </td>
         </tr>
@@ -209,6 +209,6 @@ class cfs_relationship extends cfs_field
             return $value;
         }
 
-        return array();
+        return [];
     }
 }

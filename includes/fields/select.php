@@ -23,7 +23,7 @@ class cfs_select extends cfs_field
         if ( isset( $field->options['select2'] ) && '1' == $field->options['select2'] ) {
             $field->input_class .= ' select2';
 
-            add_action( 'admin_footer', array( $this, 'select2_code' ) );
+            add_action( 'admin_footer', [ $this, 'select2_code' ] );
         }
 
         // Select boxes should return arrays (unless "force_single" is true)
@@ -103,11 +103,11 @@ class cfs_select extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'textarea',
                         'input_name' => "cfs[fields][$key][options][choices]",
                         'value' => $this->get_option( $field, 'choices' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -117,13 +117,13 @@ class cfs_select extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][multiple]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'multiple' ),
-                        'options' => array( 'message' => __( 'This is a multi-select field', 'cfs' ) ),
-                    ) );
+                        'options' => [ 'message' => __( 'This is a multi-select field', 'cfs' ) ],
+                     ] );
                 ?>
             </td>
         </tr>
@@ -133,13 +133,13 @@ class cfs_select extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field(array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][select2]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option($field, 'select2'),
-                        'options' => array('message' => __('Render this field with Select2', 'cfs')),
-                    ));
+                        'options' => [ 'message' => __('Render this field with Select2', 'cfs' ) ],
+                    ] );
                 ?>
             </td>
         </tr>
@@ -149,13 +149,13 @@ class cfs_select extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
-                    ) );
+                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                    ] );
                 ?>
             </td>
         </tr>
@@ -164,7 +164,7 @@ class cfs_select extends cfs_field
 
 
     function format_value_for_api( $value, $field = null ) {
-        $value_array = array();
+        $value_array = [];
         $choices = $field->options['choices'];
 
         // Return an associative array (value, label)
@@ -184,7 +184,7 @@ class cfs_select extends cfs_field
 
 
     function pre_save_field( $field ) {
-        $new_choices = array();
+        $new_choices = [];
         $choices = trim( $field['options']['choices'] );
 
         if ( ! empty( $choices ) ) {

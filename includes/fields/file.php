@@ -26,7 +26,7 @@ class cfs_file extends cfs_field
         }
 
         // CSS logic for "Add" / "Remove" buttons
-        $css = empty( $field->value ) ? array( '', ' hidden' ) : array( ' hidden', '' );
+        $css = empty( $field->value ) ? [ '', ' hidden' ] : [ ' hidden', '' ];
     ?>
         <span class="file_url"><?php echo $file_url; ?></span>
         <input type="button" class="media button add<?php echo $css[0]; ?>" value="<?php _e( 'Add File', 'cfs' ); ?>" />
@@ -44,20 +44,20 @@ class cfs_file extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][file_type]",
-                        'options' => array(
-                            'choices' => array(
+                        'options' => [
+                            'choices' => [
                                 'file'  => __( 'Any', 'cfs' ),
                                 'image' => __( 'Image', 'cfs' ),
                                 'audio' => __( 'Audio', 'cfs' ),
                                 'video' => __( 'Video', 'cfs' )
-                            ),
+                            ],
                             'force_single' => true,
-                        ),
+                        ],
                         'value' => $this->get_option( $field, 'file_type', 'file' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -67,18 +67,18 @@ class cfs_file extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][return_value]",
-                        'options' => array(
-                            'choices' => array(
+                        'options' => [
+                            'choices' => [
                                 'url' => __( 'File URL', 'cfs' ),
                                 'id' => __( 'Attachment ID', 'cfs' )
-                            ),
+                            ],
                             'force_single' => true,
-                        ),
+                        ],
                         'value' => $this->get_option( $field, 'return_value', 'url' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -88,13 +88,13 @@ class cfs_file extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
-                    ) );
+                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                    ] );
                 ?>
             </td>
         </tr>

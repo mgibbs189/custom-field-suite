@@ -9,13 +9,13 @@ class cfs_form
 
 
     public function __construct() {
-        $this->used_types = array();
+        $this->used_types = [];
         $this->assets_loaded = false;
 
-        add_action( 'init', array( $this, 'init' ), 100 );
-        add_action( 'admin_head', array( $this, 'head_scripts' ) );
-        add_action( 'admin_print_footer_scripts', array( $this, 'footer_scripts' ) );
-        add_action( 'admin_notices', array( $this, 'admin_notice' ) );
+        add_action( 'init', [ $this, 'init' ], 100 );
+        add_action( 'admin_head', [ $this, 'head_scripts' ] );
+        add_action( 'admin_print_footer_scripts', [ $this, 'footer_scripts' ] );
+        add_action( 'admin_notices', [ $this, 'admin_notice' ] );
     }
 
 
@@ -47,12 +47,12 @@ class cfs_form
                     die( 'Your session has expired.' );
                 }
 
-                $field_data = isset( $_POST['cfs']['input'] ) ? $_POST['cfs']['input'] : array();
-                $post_data = array();
+                $field_data = isset( $_POST['cfs']['input'] ) ? $_POST['cfs']['input'] : [];
+                $post_data = [];
 
                 // Form settings are session-based for added security
                 $post_id = (int) $session['post_id'];
-                $field_groups = isset( $session['field_groups'] ) ? $session['field_groups'] : array();
+                $field_groups = isset( $session['field_groups'] ) ? $session['field_groups'] : [];
 
                 // Sanitize field groups
                 foreach ( $field_groups as $key => $val ) {
@@ -85,17 +85,17 @@ class cfs_form
                     $post_data['ID'] = $post_id;
                 }
 
-                $options = array(
+                $options = [
                     'format'        => 'input',
                     'field_groups'  => $field_groups
-                );
+                ];
 
                 // Hook parameters
-                $hook_params = array(
+                $hook_params = [
                     'field_data'    => $field_data,
                     'post_data'     => $post_data,
                     'options'       => $options,
-                );
+                ];
 
                 // Pre-save hook
                 do_action( 'cfs_pre_save_input', $hook_params );
@@ -139,15 +139,15 @@ class cfs_form
 
         $this->assets_loaded = true;
 
-        add_action( 'wp_head', array( $this, 'head_scripts' ) );
-        add_action( 'wp_footer', array( $this, 'footer_scripts' ), 25 );
+        add_action( 'wp_head', [ $this, 'head_scripts' ] );
+        add_action( 'wp_footer', [ $this, 'footer_scripts' ], 25 );
 
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-sortable' );
-        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', array( 'jquery' ), CFS_VERSION );
-        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', array( 'jquery' ), CFS_VERSION );
-        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', array(), CFS_VERSION );
-        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', array(), CFS_VERSION );
+        wp_enqueue_script( 'cfs-validation', CFS_URL . '/assets/js/validation.js', [ 'jquery' ], CFS_VERSION );
+        wp_enqueue_script( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.min.js', [ 'jquery' ], CFS_VERSION );
+        wp_enqueue_style( 'jquery-powertip', CFS_URL . '/assets/js/jquery-powertip/jquery.powertip.css', [], CFS_VERSION );
+        wp_enqueue_style( 'cfs-input', CFS_URL . '/assets/css/input.css', [], CFS_VERSION );
     }
 
 
@@ -204,25 +204,25 @@ CFS['loop_buffer'] = [];
     public function render( $params ) {
         global $post;
 
-        $defaults = array(
+        $defaults = [
             'post_id'               => false, // false = new entries
-            'field_groups'          => array(), // group IDs, required for new entries
+            'field_groups'          => [], // group IDs, required for new entries
             'post_title'            => false,
             'post_content'          => false,
             'post_status'           => 'draft',
             'post_type'             => 'post',
-            'excluded_fields'       => array(),
+            'excluded_fields'       => [],
             'confirmation_message'  => '',
             'confirmation_url'      => '',
             'submit_label'          => __( 'Submit', 'cfs' ),
             'front_end'             => true,
-        );
+        ];
 
         $params = array_merge( $defaults, $params );
-        $input_fields = array();
+        $input_fields = [];
 
         // Keep track of field validators
-        CFS()->validators = array();
+        CFS()->validators = [];
 
         $post_id = (int) $params['post_id'];
 
@@ -239,9 +239,9 @@ CFS['loop_buffer'] = [];
         }
 
         if ( ! empty( $field_groups ) ) {
-            $input_fields = CFS()->api->get_input_fields( array(
+            $input_fields = CFS()->api->get_input_fields( [
                 'group_id' => $field_groups
-            ) );
+            ] );
         }
 
         // Hook to allow for overridden field settings
@@ -252,7 +252,7 @@ CFS['loop_buffer'] = [];
         // to store all group IDs needed for the SESSION.
         $all_group_ids = ( false === $params['front_end'] ) ? CFS()->group_ids : $field_groups;
 
-        $session_data = array(
+        $session_data = [
             'post_id'               => $post_id,
             'post_type'             => $params['post_type'],
             'post_status'           => $params['post_status'],
@@ -260,7 +260,7 @@ CFS['loop_buffer'] = [];
             'confirmation_message'  => $params['confirmation_message'],
             'confirmation_url'      => $params['confirmation_url'],
             'front_end'             => $params['front_end'],
-        );
+        ];
 
         // Set the SESSION
         $this->session->set( $session_data );
@@ -297,7 +297,7 @@ CFS['loop_buffer'] = [];
         }
 
         // Detect tabs
-        $tabs = array();
+        $tabs = [];
         $is_first_tab = true;
         foreach ( $input_fields as $key => $field ) {
             if ( 'tab' == $field->type ) {
@@ -305,10 +305,10 @@ CFS['loop_buffer'] = [];
             }
         }
 
-        do_action( 'cfs_form_before_fields', $params, array(
+        do_action( 'cfs_form_before_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
-        ) );
+        ] );
 
         // Add any necessary head scripts
         foreach ( $input_fields as $key => $field ) {
@@ -341,7 +341,7 @@ CFS['loop_buffer'] = [];
 
             $validator = '';
 
-            if ( in_array( $field->type, array( 'relationship', 'user', 'loop' ) ) ) {
+            if ( in_array( $field->type, [ 'relationship', 'user', 'loop' ] ) ) {
                 $min = empty( $field->options['limit_min'] ) ? 0 : (int) $field->options['limit_min'];
                 $max = empty( $field->options['limit_max'] ) ? 0 : (int) $field->options['limit_max'];
                 $validator = "limit|$min,$max";
@@ -360,10 +360,10 @@ CFS['loop_buffer'] = [];
             }
 
             if ( ! empty( $validator ) ) {
-                CFS()->validators[ $field->name ] = array(
+                CFS()->validators[ $field->name ] = [
                     'rule'  => $validator,
                     'type'  => $field->type
-                );
+                ];
             }
 
             // Ignore sub-fields
@@ -401,7 +401,7 @@ CFS['loop_buffer'] = [];
             <div class="cfs_<?php echo $field->type; ?>">
 
     <?php
-                CFS()->create_field( array(
+                CFS()->create_field( [
                     'id'            => $field->id,
                     'group_id'      => $field->group_id,
                     'type'          => $field->type,
@@ -410,7 +410,7 @@ CFS['loop_buffer'] = [];
                     'options'       => $field->options,
                     'value'         => $field->value,
                     'notes'         => $field->notes,
-                ) );
+                ] );
     ?>
 
             </div>
@@ -426,10 +426,10 @@ CFS['loop_buffer'] = [];
             echo '</div>';
         }
 
-        do_action( 'cfs_form_after_fields', $params, array(
+        do_action( 'cfs_form_after_fields', $params, [
             'group_ids'     => $all_group_ids,
             'input_fields'  => $input_fields
-        ) );
+        ] );
     ?>
 
         <script>

@@ -12,8 +12,8 @@ class cfs_user extends cfs_field
     function html( $field ) {
         global $wpdb;
 
-        $selected_users = array();
-        $available_users = array();
+        $selected_users = [];
+        $available_users = [];
 
         $results = $wpdb->get_results( "SELECT ID, user_login FROM $wpdb->users ORDER BY user_login" );
         foreach ( $results as $result ) {
@@ -163,6 +163,6 @@ class cfs_user extends cfs_field
             return $value;
         }
 
-        return array();
+        return [];
     }
 }

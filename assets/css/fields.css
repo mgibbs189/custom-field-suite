@@ -188,10 +188,8 @@
 .field_form select,
 .field_form textarea,
 .field_form input[type="text"] {
-    width: 99%;
-    height: auto;
-    padding: 5px;
-    outline: none;
+    width: 99.95%;
+    margin-top: 10px;
 }
 
 .field_form select.multiple {

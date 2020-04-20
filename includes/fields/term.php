@@ -12,28 +12,28 @@ class cfs_term extends cfs_field
     function html( $field ) {
         global $wpdb;
 
-        $selected_posts = array();
-        $available_posts = array();
+        $selected_posts = [];
+        $available_posts = [];
 
-        $taxonomies = array();
+        $taxonomies = [];
         if ( ! empty( $field->options['taxonomies'] ) ) {
             foreach ( $field->options['taxonomies'] as $taxonomy ) {
                 $taxonomies[] = $taxonomy;
             }
         }
         else {
-            $taxonomies = get_taxonomies( array( 'public' => true ) );
+            $taxonomies = get_taxonomies( [ 'public' => true ] );
         }
 
-        $args = array(
+        $args = [
             'taxonomy'   => $taxonomies,
             'hide_empty' => false,
             'fields'     => 'ids',
             'orderby'    => 'name',
             'order'      => 'ASC'
-        );
+        ];
 
-        $args = apply_filters( 'cfs_field_term_query_args', $args, array( 'field' => $field ) );
+        $args = apply_filters( 'cfs_field_term_query_args', $args, [ 'field' => $field ] );
 
         // Use older `get_terms` function signature for older versions of WP
         if ( version_compare( get_bloginfo('version'), '4.5', '<' ) ) {
@@ -47,11 +47,11 @@ class cfs_term extends cfs_field
 
         foreach ( $query as $term_id ) {
             $term = get_term( $term_id );
-            $available_posts[] = (object) array(
+            $available_posts[] = (object) [
                 'term_id'  => $term->term_id,
                 'taxonomy' => $term->taxonomy,
                 'name'     => $term->name,
-            );
+            ];
         }
 
         if ( ! empty( $field->value ) ) {
@@ -84,7 +84,7 @@ class cfs_term extends cfs_field
 
 
     function options_html( $key, $field ) {
-        $args = array( 'public' => true );
+        $args = [ 'public' => true ];
         $choices = apply_filters( 'cfs_field_term_taxonomies', get_taxonomies( $args ) );
 
     ?>
@@ -95,12 +95,12 @@ class cfs_term extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type'          => 'select',
                         'input_name'    => "cfs[fields][$key][options][taxonomies]",
-                        'options'       => array( 'multiple' => '1', 'choices' => $choices ),
+                        'options'       => [ 'multiple' => '1', 'choices' => $choices ],
                         'value'         => $this->get_option( $field, 'taxonomies' ),
-                    ));
+                    ] );
                 ?>
             </td>
         </tr>
@@ -216,6 +216,6 @@ class cfs_term extends cfs_field
             return $value;
         }
 
-        return array();
+        return [];
     }
 }

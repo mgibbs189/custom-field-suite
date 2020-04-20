@@ -8,13 +8,13 @@ class cfs_revision
 {
 
     function __construct() {
-        add_action( 'save_post', array( $this, 'save_post' ) );
-        add_action( 'wp_restore_post_revision', array( $this, 'wp_restore_post_revision' ), 10, 2 );
-        add_action( 'wp_delete_post_revision', array( $this, 'wp_delete_post_revision' ) );
+        add_action( 'save_post', [ $this, 'save_post' ] );
+        add_action( 'wp_restore_post_revision', [ $this, 'wp_restore_post_revision' ], 10, 2 );
+        add_action( 'wp_delete_post_revision', [ $this, 'wp_delete_post_revision' ] );
 
-        add_filter( '_wp_post_revision_fields', array( $this, '_wp_post_revision_fields' ) );
-        add_filter( '_wp_post_revision_field_cfs_postmeta', array( $this, '_wp_post_revision_field_postmeta' ), 10, 3 );
-        add_filter( 'wp_save_post_revision_check_for_changes', array( $this, 'check_for_changes' ), 10, 3 );
+        add_filter( '_wp_post_revision_fields', [ $this, '_wp_post_revision_fields' ] );
+        add_filter( '_wp_post_revision_field_cfs_postmeta', [ $this, '_wp_post_revision_field_postmeta' ], 10, 3 );
+        add_filter( 'wp_save_post_revision_check_for_changes', [ $this, 'check_for_changes' ], 10, 3 );
     }
 
 
@@ -43,7 +43,7 @@ class cfs_revision
             if ( is_array( $field_data ) ) {
                 $props = $field_info[ $field_name ];
                 if ( 'relationship' == $props['type'] ) {
-                    $values = array();
+                    $values = [];
                     if ( ! empty( $field_data ) ) {
                         foreach ( $field_data as $item_id ) {
                             $values[] = get_post( $item_id )->post_title;
@@ -90,8 +90,8 @@ class cfs_revision
         $original_post_id = wp_is_post_revision( $post_id );
 
         if ( $original_post_id ) {
-            $field_data = CFS()->get( false, $original_post_id, array( 'format' => 'raw' ) );
-            CFS()->save( $field_data, array( 'ID' => $post_id ) );
+            $field_data = CFS()->get( false, $original_post_id, [ 'format' => 'raw' ] );
+            CFS()->save( $field_data, [ 'ID' => $post_id ] );
         }
     }
 
@@ -101,8 +101,8 @@ class cfs_revision
      * @see wp-includes/revision.php -> wp_restore_post_revision()
      */
     function wp_restore_post_revision( $post_id, $revision_id ) {
-        $field_data = CFS()->get( false, $revision_id, array( 'format' => 'raw' ) );
-        CFS()->save( $field_data, array( 'ID' => $post_id ) );
+        $field_data = CFS()->get( false, $revision_id, [ 'format' => 'raw' ] );
+        CFS()->save( $field_data, [ 'ID' => $post_id ] );
     }
 
 

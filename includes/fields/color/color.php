@@ -17,11 +17,11 @@ class cfs_color extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'text',
                         'input_name' => "cfs[fields][$key][options][default_value]",
                         'value' => $this->get_option( $field, 'default_value' ),
-                    ));
+                    ] );
                 ?>
             </td>
         </tr>

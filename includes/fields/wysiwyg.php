@@ -8,7 +8,7 @@ class cfs_wysiwyg extends cfs_field
         $this->label = __( 'Wysiwyg Editor', 'cfs' );
 
         // add the "code" button
-        add_filter( 'mce_external_plugins', array( $this, 'mce_external_plugins' ), 20 );
+        add_filter( 'mce_external_plugins', [ $this, 'mce_external_plugins' ], 20 );
     }
 
 
@@ -34,18 +34,18 @@ class cfs_wysiwyg extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'select',
                         'input_name' => "cfs[fields][$key][options][formatting]",
-                        'options' => array(
-                            'choices' => array(
+                        'options' => [
+                            'choices' => [
                                 'default' => __( 'Default', 'cfs' ),
                                 'none' => __( 'None (bypass filters)', 'cfs' )
-                            ),
+                            ],
                             'force_single' => true,
-                        ),
+                        ],
                         'value' => $this->get_option( $field, 'formatting', 'default' ),
-                    ) );
+                    ] );
                 ?>
             </td>
         </tr>
@@ -55,13 +55,13 @@ class cfs_wysiwyg extends cfs_field
             </td>
             <td>
                 <?php
-                    CFS()->create_field( array(
+                    CFS()->create_field( [
                         'type' => 'true_false',
                         'input_name' => "cfs[fields][$key][options][required]",
                         'input_class' => 'true_false',
                         'value' => $this->get_option( $field, 'required' ),
-                        'options' => array( 'message' => __( 'This is a required field', 'cfs' ) ),
-                    ));
+                        'options' => [ 'message' => __( 'This is a required field', 'cfs' ) ],
+                    ] );
                 ?>
             </td>
         </tr>

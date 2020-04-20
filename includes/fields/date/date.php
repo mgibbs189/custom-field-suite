@@ -41,7 +41,7 @@ class cfs_date extends cfs_field
 
 
     function load_assets() {
-        wp_register_script( 'bootstrap-datepicker', CFS_URL . '/includes/fields/date/bootstrap-datepicker.js', array( 'jquery' ) );
+        wp_register_script( 'bootstrap-datepicker', CFS_URL . '/includes/fields/date/bootstrap-datepicker.js', [ 'jquery' ] );
         wp_enqueue_script( 'bootstrap-datepicker' );
     }
 }
