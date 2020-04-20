@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.9
-Tested up to: 5.2
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2
 
@@ -45,6 +45,11 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6 =
+Fix: "Posts" field group rule ajax wasn't loading
+Improved: relationship fields now only run 1 query to retrieve related posts
+Improved: code modernization
 
 = 2.5.16
 * Fix: added nonce check as an added security measure (props wp.org plugins team)
