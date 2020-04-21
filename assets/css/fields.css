@@ -308,6 +308,10 @@ span.checkbox.active {
     display: none;
 }
 
+#submitdiv #major-publishing-actions {
+    border-top: none;
+}
+
 
 /*---------------------------------------------------------------------------------------------
     Icons

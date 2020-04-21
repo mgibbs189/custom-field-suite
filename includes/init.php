@@ -16,7 +16,6 @@ class cfs_init
 
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
         add_action( 'admin_footer',                     [ $this, 'show_credits' ] );
-        add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
         add_action( 'save_post',                        [ $this, 'save_post' ] );
         add_action( 'delete_post',                      [ $this, 'delete_post' ] );
         add_action( 'add_meta_boxes',                   [ $this, 'add_meta_boxes' ] );
@@ -49,16 +48,15 @@ class cfs_init
         register_post_type( 'cfs', [
             'public'            => false,
             'show_ui'           => true,
+            'show_in_menu'      => 'options-general.php',
             'capability_type'   => 'page',
             'hierarchical'      => false,
             'supports'          => [ 'title' ],
-            'menu_icon'         => 'dashicons-carrot',
             'query_var'         => false,
-            'menu_position'     => 120,
             'labels'            => [
                 'name'                  => __( 'Field Groups', 'cfs' ),
                 'singular_name'         => __( 'Field Group', 'cfs' ),
-                'all_items'             => __( 'All Field Groups', 'cfs' ),
+                'all_items'             => __( 'Custom Field Suite', 'cfs' ),
                 'add_new_item'          => __( 'Add New Field Group', 'cfs' ),
                 'edit_item'             => __( 'Edit Field Group', 'cfs' ),
                 'new_item'              => __( 'New Field Group', 'cfs' ),
@@ -143,20 +141,6 @@ class cfs_init
         if ( 'edit' == $screen->base && 'cfs' == $screen->post_type ) {
             include( CFS_DIR . '/templates/credits.php' );
         }
-    }
-
-
-    /**
-     * admin_menu
-     */
-    function admin_menu() {
-        if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
-            add_submenu_page( 'edit.php?post_type=cfs', __( 'Tools', 'cfs' ), __( 'Tools', 'cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
-        }
-
-        // Remove the "Add New" menu link
-        global $submenu;
-        unset( $submenu['edit.php?post_type=cfs'][10] );
     }
 
 
