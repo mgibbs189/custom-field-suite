@@ -47,9 +47,11 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 == Changelog ==
 
 = 2.6 =
-Fix: "Posts" field group rule ajax wasn't loading
+New: moved CFS into "Settings" menu
 Improved: relationship fields now only run 1 query to retrieve related posts
 Improved: code modernization
+Improved: styling tweaks
+Fix: "Posts" field group rule ajax wasn't loading
 
 = 2.5.16
 * Fix: added nonce check as an added security measure (props wp.org plugins team)
