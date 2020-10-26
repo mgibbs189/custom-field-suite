@@ -356,6 +356,12 @@
     cursor: move;
 }
 
+.cfs_loop .cfs_loop_head:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .cfs_loop .notes {
     font-size: 11px;
     font-style: italic;
