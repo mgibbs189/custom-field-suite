@@ -15,6 +15,7 @@ class cfs_init
         }
 
         add_action( 'admin_head',                       [ $this, 'admin_head' ] );
+        add_action( 'admin_menu',                       [ $this, 'admin_menu' ] );
         add_action( 'admin_footer',                     [ $this, 'show_credits' ] );
         add_action( 'save_post',                        [ $this, 'save_post' ] );
         add_action( 'delete_post',                      [ $this, 'delete_post' ] );
@@ -143,6 +144,14 @@ class cfs_init
         }
     }
 
+    /**
+    * admin_menu
+    */
+    function admin_menu() {
+        if ( false === apply_filters( 'cfs_disable_admin', false ) ) {
+            add_submenu_page( 'tools.php', __( 'CFS Tools', 'cfs' ), __( 'CFS Tools', 'cfs' ), 'manage_options', 'cfs-tools', [ $this, 'page_tools' ] );
+        }
+    }
 
     /**
      * add_meta_boxes
