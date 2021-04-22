@@ -65,7 +65,13 @@ class cfs_third_party
         
         if ( is_array( $field_data ) ) {
             foreach ( $field_data as $key => $value ) {
-                delete_post_meta( $new_post_id, $key, $value );
+                if( !is_array($value) ){
+                    delete_post_meta( $new_post_id, $key, $value );
+                }else{
+                    foreach ( $value as $k => $v) {
+                        delete_post_meta( $new_post_id, $key, $v );
+                    }
+                }
             }
         }
         
