@@ -32,10 +32,11 @@ class cfs_revision
      * Generate the data for the "cfs_postmeta" variable
      * @see wp-admin/includes/ajax-actions - wp_ajax_revisions_data()
      */
-    function _wp_post_revision_field_postmeta( $value = '', $column = 'cfs_postmeta', $post ) {
+    function _wp_post_revision_field_postmeta( $value = '', $column = 'cfs_postmeta', $post = null ) {
         $output = '';
-        $fields = CFS()->get( false, $post->ID );
-        $field_info = CFS()->get_field_info( false, $post->ID );
+        $id = !empty($post) ? $post->ID : get_the_ID();
+        $fields = CFS()->get( false, $id );
+        $field_info = CFS()->get_field_info( false, $id );
 
         foreach ( $fields as $field_name => $field_data ) {
             $output .= '[' . $field_name . "]\n";
@@ -67,7 +68,7 @@ class cfs_revision
      * Determine whether the data changed
      * @see wp-includes/revision.php -> wp_save_post_revision()
      */
-    function check_for_changes( $default = true, $last_revision, $post ) {
+    function check_for_changes( $default, $last_revision, $post ) {
         $revision_data = CFS()->get( false, $last_revision->ID );
         $post_data = CFS()->get( false, $post->ID );
 
