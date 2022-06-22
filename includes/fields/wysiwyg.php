@@ -138,6 +138,8 @@ class cfs_wysiwyg extends cfs_field
                     // create wysiwyg
                     wpautop = tinyMCE.settings.wpautop;
                     resize = tinyMCE.settings.resize;
+                    
+                    tinyMCE.settings.plugins = 'code,link';
 
                     tinyMCE.settings.wpautop = false;
                     tinyMCE.settings.resize = 'vertical';
