@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
-Requires at least: 4.9
-Tested up to: 5.9
+Requires at least: 5.0
+Tested up to: 6.0.1
 Stable tag: trunk
 License: GPLv2
 
@@ -45,6 +45,9 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.2.1 =
+* Confirmed 6.0.1 compatibility
 
 = 2.6.2 =
 * Removed broken links, confirmed 5.9 compatibility
