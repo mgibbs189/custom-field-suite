@@ -320,7 +320,7 @@ class cfs_init
                     $values = $temp;
                 }
 
-                echo "<div><strong>$label</strong> " . $operator . ' ' . implode( ', ', $values ) . '</div>';
+                echo "<div><strong>$label</strong> " . $operator . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
             }
         }
     }
