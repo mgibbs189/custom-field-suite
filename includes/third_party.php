@@ -19,13 +19,13 @@ class cfs_third_party
 
     /**
      * WPML support
-     * 
+     *
      * Properly copy CFS fields on WPML post duplication (requires WPML 2.6+)
-     * 
-     * @param int $master_id 
-     * @param string $lang 
-     * @param array $post_data 
-     * @param int $duplicate_id 
+     *
+     * @param int $master_id
+     * @param string $lang
+     * @param array $post_data
+     * @param int $duplicate_id
      * @since 1.6.8
      */
     function wpml_handler( $master_id, $lang, $post_data, $duplicate_id ) {
@@ -39,15 +39,17 @@ class cfs_third_party
 
     /**
      * Post Type Switcher support
-     * @param array $args 
+     * @param array $args
      * @return array
      * @since 1.8.1
      */
     function pts_post_type_filter( $args ) {
-        global $current_screen;
+        if ( function_exists( 'get_current_screen' ) ) {
+            $screen = get_current_screen();
 
-        if ( 'cfs' == $current_screen->id ) {
-            $args = [ 'public' => false, 'show_ui' => true ];
+            if ( isset( $current_screen->id ) && 'cfs' == $current_screen->id ) {
+                $args = [ 'public' => false, 'show_ui' => true ];
+            }
         }
 
         return $args;
@@ -62,7 +64,7 @@ class cfs_third_party
      */
     function duplicate_post($new_post_id, $post) {
         $field_data = CFS()->get( false, $post->ID, [ 'format' => 'raw' ] );
-        
+
         if ( is_array( $field_data ) ) {
             foreach ( $field_data as $key => $value ) {
                 foreach ( (array) $value as $val ) {
@@ -70,7 +72,7 @@ class cfs_third_party
                 }
             }
         }
-        
+
         $post_data = [ 'ID' => $new_post_id ];
         CFS()->save( $field_data, $post_data );
     }
