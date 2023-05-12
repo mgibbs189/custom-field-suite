@@ -341,7 +341,7 @@ CFS['loop_buffer'] = [];
 
             $validator = '';
 
-            if ( in_array( $field->type, [ 'relationship', 'user', 'loop' ] ) ) {
+            if ( in_array( $field->type, [ 'relationship', 'term', 'user', 'loop' ] ) ) {
                 $min = empty( $field->options['limit_min'] ) ? 0 : (int) $field->options['limit_min'];
                 $max = empty( $field->options['limit_max'] ) ? 0 : (int) $field->options['limit_max'];
                 $validator = "limit|$min,$max";
