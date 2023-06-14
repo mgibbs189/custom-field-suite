@@ -1,0 +1,447 @@
+# This file is distributed under the same license as the Custom Field Suite package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Field Suite\n"
+"POT-Creation-Date: 2015-10-20 22:30-0400\n"
+"PO-Revision-Date: 2023-06-14 15:06+0300\n"
+"Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
+"Language-Team: \n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/field.php:16 ../includes/fields/text.php:8
+msgid "Text"
+msgstr "Teks"
+
+#: ../includes/field.php:42 ../includes/fields/file.php:64
+#: ../includes/fields/select.php:117 ../includes/fields/text.php:30
+#: ../includes/fields/textarea.php:58 ../includes/fields/true_false.php:45
+#: ../includes/fields/wysiwyg.php:54
+msgid "Validation"
+msgstr "Validasi"
+
+#: ../includes/field.php:51 ../includes/fields/file.php:73
+#: ../includes/fields/select.php:126 ../includes/fields/text.php:39
+#: ../includes/fields/textarea.php:67 ../includes/fields/true_false.php:54
+#: ../includes/fields/wysiwyg.php:63
+msgid "This is a required field"
+msgstr "Ini adalah kolom wajib"
+
+#: ../includes/field_group.php:112
+msgid "Imported"
+msgstr "Terimpor"
+
+#: ../includes/field_group.php:115
+msgid "Skipped"
+msgstr "Dilewati"
+
+#: ../includes/field_group.php:120
+msgid "Nothing to import"
+msgstr "Tidak ada yang perlu diimpor"
+
+#: ../includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Warna"
+
+#: ../includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Tanggal"
+
+#: ../includes/fields/file.php:8
+msgid "File Upload"
+msgstr "Unggah Berkas"
+
+#: ../includes/fields/file.php:32
+msgid "Add File"
+msgstr "Tambah Berkas"
+
+#: ../includes/fields/file.php:33
+msgid "Remove"
+msgstr "Remove"
+
+#: ../includes/fields/file.php:43
+msgid "Return Value"
+msgstr "Nilai Kembalian"
+
+#: ../includes/fields/file.php:52
+msgid "File URL"
+msgstr "URL Berkas"
+
+#: ../includes/fields/file.php:53
+msgid "Attachment ID"
+msgstr "ID Lampiran"
+
+#: ../includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr "Tautan"
+
+#: ../includes/fields/hyperlink.php:23
+msgid "URL"
+msgstr "URL"
+
+#: ../includes/fields/hyperlink.php:27
+msgid "Link Text"
+msgstr "Tautan Teks"
+
+#: ../includes/fields/hyperlink.php:31
+msgid "Link Target"
+msgstr "Tautan target"
+
+#: ../includes/fields/hyperlink.php:48
+msgid "Output format"
+msgstr "Format keluaran"
+
+#: ../includes/fields/hyperlink.php:57
+msgid "HTML"
+msgstr "HTML"
+
+#: ../includes/fields/hyperlink.php:58
+msgid "PHP Array"
+msgstr "PHP Array"
+
+#: ../includes/fields/loop.php:8
+msgid "Loop"
+msgstr "Perulangan"
+
+#: ../includes/fields/loop.php:36
+msgid "Row Display"
+msgstr "Tampilan Baris"
+
+#: ../includes/fields/loop.php:45
+msgid "Show the values by default"
+msgstr "Tampilkan nilai secara default"
+
+#: ../includes/fields/loop.php:52
+msgid "Row Label"
+msgstr "Label Baris"
+
+#: ../includes/fields/loop.php:59 ../includes/fields/loop.php:113
+#: ../includes/fields/loop.php:194
+msgid "Loop Row"
+msgstr "Baris Perulangan"
+
+#: ../includes/fields/loop.php:66
+msgid "Button Label"
+msgstr "Label Tombol"
+
+#: ../includes/fields/loop.php:73 ../includes/fields/loop.php:138
+#: ../includes/fields/loop.php:195
+msgid "Add Row"
+msgstr "Tambah Baris"
+
+#: ../includes/fields/loop.php:81 ../includes/fields/relationship.php:104
+#: ../includes/fields/user.php:56
+msgid "Limits"
+msgstr "Batas"
+
+#: ../includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Hubungan"
+
+#: ../includes/fields/relationship.php:60
+msgid "Search posts"
+msgstr "Cari pos"
+
+#: ../includes/fields/relationship.php:88 ../includes/init.php:282
+#: ../templates/meta_box_rules.php:136
+msgid "Post Types"
+msgstr "Tipe Pos"
+
+#: ../includes/fields/relationship.php:89
+msgid "Limit posts to the following types"
+msgstr "Batasi posting ke jenis berikut"
+
+#: ../includes/fields/select.php:8
+msgid "Select"
+msgstr "Pilihan"
+
+#: ../includes/fields/select.php:86
+msgid "Choices"
+msgstr "Pilihan"
+
+#: ../includes/fields/select.php:87
+msgid "Enter one choice per line"
+msgstr "Masukkan satu pilihan per baris"
+
+#: ../includes/fields/select.php:101
+msgid "Multi-select?"
+msgstr "Multi-pilih?"
+
+#: ../includes/fields/select.php:110
+msgid "This is a multi-select field"
+msgstr "Ini adalah bidang multi-pilihan"
+
+#: ../includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Tab"
+
+#: ../includes/fields/text.php:16 ../includes/fields/textarea.php:23
+msgid "Default Value"
+msgstr "Nilai Default"
+
+#: ../includes/fields/textarea.php:8
+msgid "Textarea"
+msgstr "Textarea"
+
+#: ../includes/fields/textarea.php:37 ../includes/fields/wysiwyg.php:33
+msgid "Formatting"
+msgstr "Pemformatan"
+
+#: ../includes/fields/textarea.php:46
+msgid "None"
+msgstr "Tidak ada"
+
+#: ../includes/fields/textarea.php:47
+msgid "Convert newlines to <br />"
+msgstr "Ubah baris baru menjadi <br />"
+
+#: ../includes/fields/true_false.php:8
+msgid "True / False"
+msgstr "Benar / Salah"
+
+#: ../includes/fields/true_false.php:30
+msgid "Message"
+msgstr "Pesan"
+
+#: ../includes/fields/true_false.php:31
+msgid "The text beside the checkbox"
+msgstr "Teks di samping kotak centang"
+
+#: ../includes/fields/user.php:8
+msgid "User"
+msgstr "Pengguna"
+
+#: ../includes/fields/user.php:31
+msgid "Search users"
+msgstr "Cari pengguna"
+
+#: ../includes/fields/wysiwyg.php:8
+msgid "Wysiwyg Editor"
+msgstr "Editor Wysiwyg"
+
+#: ../includes/fields/wysiwyg.php:42
+msgid "Default"
+msgstr "Bawaan"
+
+#: ../includes/fields/wysiwyg.php:43
+msgid "None (bypass filters)"
+msgstr "Tidak ada (melewati filter)"
+
+#: ../includes/form.php:194
+msgid "Submit"
+msgstr "Kirim"
+
+#: ../includes/init.php:58
+msgid "Field Groups"
+msgstr "Grup Bidang"
+
+#: ../includes/init.php:59
+msgid "Field Group"
+msgstr "Grup Bidang"
+
+#: ../includes/init.php:60
+msgid "All Field Groups"
+msgstr "Semua Grup Bidang"
+
+#: ../includes/init.php:61
+msgid "Add New Field Group"
+msgstr "Tambah Grup Bidang"
+
+#: ../includes/init.php:62
+msgid "Edit Field Group"
+msgstr "Ubah Grup Bidang"
+
+#: ../includes/init.php:63
+msgid "New Field Group"
+msgstr "Grup Bidang Baru"
+
+#: ../includes/init.php:64
+msgid "View Field Group"
+msgstr "Lihat Grup Bidang"
+
+#: ../includes/init.php:65
+msgid "Search Field Groups"
+msgstr "Car Grup Bidang"
+
+#: ../includes/init.php:66
+msgid "No Field Groups found"
+msgstr "Grup Bidang tidak ada"
+
+#: ../includes/init.php:67
+msgid "No Field Groups found in Trash"
+msgstr "Grup Bidang tidak ada di tempat sampah"
+
+#: ../includes/init.php:140 ../templates/page_tools.php:73
+msgid "Tools"
+msgstr "Perangkat"
+
+#: ../includes/init.php:153
+msgid "Fields"
+msgstr "Bidang"
+
+#: ../includes/init.php:154
+msgid "Placement Rules"
+msgstr "Aturan Peletakan"
+
+#: ../includes/init.php:155
+msgid "Extras"
+msgstr "Ekstra"
+
+#: ../includes/init.php:268
+msgid "Title"
+msgstr "Judul"
+
+#: ../includes/init.php:269
+msgid "Placement"
+msgstr "Peletakan"
+
+#: ../includes/init.php:283 ../templates/meta_box_rules.php:202
+msgid "User Roles"
+msgstr "Aturan Pengguna"
+
+#: ../includes/init.php:284 ../templates/meta_box_rules.php:234
+msgid "Posts"
+msgstr "Pos"
+
+#: ../includes/init.php:285
+msgid "Term IDs"
+msgstr "Istilah ID"
+
+#: ../includes/init.php:286 ../templates/meta_box_rules.php:290
+msgid "Page Templates"
+msgstr "Templet Halaman"
+
+#: ../includes/init.php:287 ../templates/meta_box_rules.php:169
+msgid "Post Formats"
+msgstr "Format Pos"
+
+#: ../includes/revision.php:26
+msgid "Post Meta"
+msgstr "Meta Pos"
+
+#: ../templates/admin_head.php:24
+msgid "New Field"
+msgstr "Bidang Baru"
+
+#: ../templates/field_html.php:30
+msgid "Label"
+msgstr "Label"
+
+#: ../templates/field_html.php:32
+msgid "The field label that editors will see."
+msgstr "Label bidang yang akan dilihat oleh editor."
+
+#: ../templates/field_html.php:39
+msgid "Name"
+msgstr "Nama"
+
+#: ../templates/field_html.php:42
+msgid ""
+"The field name is passed into get() to retrieve values. Use only lowercase "
+"letters, numbers, and underscores."
+msgstr ""
+"Nama bidang akan diteruskan ke get() untuk menerima nilainya. Hanya "
+"gunakan huruf kecil, angka, dan garis bawah."
+
+#: ../templates/field_html.php:49
+msgid "Field Type"
+msgstr "Tipe Bidang"
+
+#: ../templates/field_html.php:67
+msgid "Notes"
+msgstr "Catatan"
+
+#: ../templates/field_html.php:69
+msgid "Notes for editors during data entry"
+msgstr "Catatan untuk editor saat memasukkan data"
+
+#: ../templates/field_html.php:82
+msgid "Close"
+msgstr "Tutup"
+
+#: ../templates/field_html.php:83
+msgid "or"
+msgstr "atau"
+
+#: ../templates/field_html.php:83
+msgid "delete"
+msgstr "hapus"
+
+#: ../templates/meta_box_extras.php:33
+msgid "Order"
+msgstr "Urutan"
+
+#: ../templates/meta_box_extras.php:35
+msgid "The field group with the lowest order will appear first."
+msgstr "Grup bidang dengan urutan rendah akan tampil terlebih dahulu."
+
+#: ../templates/meta_box_extras.php:45
+msgid "Position"
+msgstr "Posisi"
+
+#: ../templates/meta_box_extras.php:48
+msgid "Normal"
+msgstr "Normal"
+
+#: ../templates/meta_box_extras.php:49
+msgid "Side"
+msgstr "Sisi"
+
+#: ../templates/meta_box_extras.php:54
+msgid "Display Settings"
+msgstr "Pangaturan Tampilan"
+
+#: ../templates/meta_box_extras.php:64
+msgid "Hide the content editor"
+msgstr "Sembunyikan editor konten"
+
+#: ../templates/meta_box_fields.php:60
+msgid "Add New Field"
+msgstr "Tambah Kolom Baru"
+
+#: ../templates/meta_box_rules.php:5
+msgid "equals"
+msgstr "sama"
+
+#: ../templates/meta_box_rules.php:6
+msgid "is not"
+msgstr "bukan"
+
+#: ../templates/meta_box_rules.php:98 ../templates/meta_box_rules.php:103
+msgid "Leave blank to skip this rule"
+msgstr "Biarkan kosong untuk melewatkan aturan ini"
+
+#: ../templates/meta_box_rules.php:258
+msgid "Taxonomy Terms"
+msgstr "Istilah Taksonomi"
+
+#: ../templates/page_tools.php:76 ../templates/page_tools.php:97
+msgid "Export"
+msgstr "Ekspor"
+
+#: ../templates/page_tools.php:77 ../templates/page_tools.php:115
+msgid "Import"
+msgstr "Impor"
+
+#: ../templates/page_tools.php:78
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: ../templates/page_tools.php:122
+msgid "Reset and deactivate."
+msgstr "Setel ulang dan nonaktifkan."
+
+#: ../templates/page_tools.php:123
+msgid "This will delete all CFS data and deactivate the plugin."
+msgstr "Ini akan menghapus semua data CFS dan menonaktifkan plugin."
+
+#: ../templates/page_tools.php:124
+msgid "Delete everything"
+msgstr "Hapus semuanya"
