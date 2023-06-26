@@ -2,6 +2,7 @@
 
 class cfs_select extends cfs_field
 {
+    public $select2_inserted;
 
     function __construct() {
         $this->name = 'select';

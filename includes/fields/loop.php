@@ -2,6 +2,7 @@
 
 class cfs_loop extends cfs_field
 {
+    public $values;
 
     function __construct() {
         $this->name = 'loop';
