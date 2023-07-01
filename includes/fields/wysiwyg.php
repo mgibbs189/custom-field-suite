@@ -139,7 +139,13 @@ class cfs_wysiwyg extends cfs_field
                     wpautop = tinyMCE.settings.wpautop;
                     resize = tinyMCE.settings.resize;
                     
-                    tinyMCE.settings.plugins = 'code,link';
+                    if (tinyMCE.settings.plugins){
+                        if ( tinyMCE.settings.plugins.indexOf('code,link') === -1 ){
+                            tinyMCE.settings.plugins = tinyMCE.settings.plugins + ',code,link';
+                        }
+                    } else {
+                        tinyMCE.settings.plugins = 'code,link';
+                    }
 
                     tinyMCE.settings.wpautop = false;
                     tinyMCE.settings.resize = 'vertical';
