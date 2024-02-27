@@ -31,7 +31,7 @@ class cfs_file extends cfs_field
         <span class="file_url"><?php echo $file_url; ?></span>
         <input type="button" class="media button add<?php echo $css[0]; ?>" value="<?php _e( 'Add File', 'cfs' ); ?>" />
         <input type="button" class="media button remove<?php echo $css[1]; ?>" value="<?php _e( 'Remove', 'cfs' ); ?>" />
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="file_value" value="<?php echo $field->value; ?>" />
+        <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="file_value" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
 
@@ -109,7 +109,7 @@ class cfs_file extends cfs_field
         .cfs_frame .media-frame-menu {
             display: none;
         }
-        
+
         .cfs_frame .media-frame-title,
         .cfs_frame .media-frame-router,
         .cfs_frame .media-frame-content,

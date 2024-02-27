@@ -125,13 +125,13 @@ class cfs_loop extends cfs_field
             </div>
             <div class="cfs_loop_body open">
             <?php foreach ( $results as $field ) : ?>
-                <label><?php echo $field->label; ?></label>
+                <label><?php echo esc_html( $field->label ); ?></label>
 
                 <?php if ( ! empty( $field->notes ) ) : ?>
-                <p class="notes"><?php echo $field->notes; ?></p>
+                <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
                 <?php endif; ?>
 
-                <div class="field field-<?php echo $field->name; ?> cfs_<?php echo $field->type; ?>">
+                <div class="field field-<?php echo esc_attr( $field->name ); ?> cfs_<?php echo esc_attr( $field->type ); ?>">
                 <?php
                 if ( 'loop' == $field->type ) :
                     $loop_field_ids[] = $field->id;
@@ -213,13 +213,13 @@ class cfs_loop extends cfs_field
             </div>
             <div class="cfs_loop_body<?php echo $css_class; ?>">
             <?php foreach ( $results as $field ) : ?>
-                <label><?php echo $field->label; ?></label>
+                <label><?php echo esc_html( $field->label ); ?></label>
 
                 <?php if ( ! empty( $field->notes ) ) : ?>
-                <p class="notes"><?php echo $field->notes; ?></p>
+                <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
                 <?php endif; ?>
 
-                <div class="field field-<?php echo $field->name; ?> cfs_<?php echo $field->type; ?>">
+                <div class="field field-<?php echo esc_attr( $field->name ); ?> cfs_<?php echo esc_attr( $field->type ); ?>">
                 <?php if ( 'loop' == $field->type ) : ?>
                     <?php $this->recursive_html( $group_id, $field->id, "{$parent_tag}[$i][$field->id]", $i ); ?>
                 <?php else : ?>
@@ -249,7 +249,7 @@ class cfs_loop extends cfs_field
         <?php endforeach; endif; ?>
 
         <div class="table_footer">
-            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $button_label ); ?>" data-loop-tag="<?php echo $parent_tag; ?>" data-rows="<?php echo ( $row_offset + 1 ); ?>" />
+            <input type="button" class="button-primary cfs_add_field" value="<?php echo esc_attr( $button_label ); ?>" data-loop-tag="<?php echo esc_attr( $parent_tag ); ?>" data-rows="<?php echo ( $row_offset + 1 ); ?>" />
         </div>
     <?php
     }

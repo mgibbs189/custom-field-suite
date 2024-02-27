@@ -2,7 +2,7 @@
 Contributors: mgibbs189
 Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 5.0
-Tested up to: 6.2.2
+Tested up to: 6.4.3
 Stable tag: trunk
 License: GPLv2
 
@@ -45,6 +45,9 @@ Custom Field Suite (CFS) lets you add custom fields to your posts. It's lightwei
 * [Github →](https://github.com/mgibbs189/custom-field-suite)
 
 == Changelog ==
+
+= 2.6.5 =
+* Extra sanitization to prevent XSS via admin-imported field groups (props WordFence)
 
 = 2.6.4 =
 * Fixed: cleared PHP8 deprecation notices

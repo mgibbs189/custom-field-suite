@@ -8,7 +8,7 @@ class cfs_field
 
     /**
      * Constructor
-     * @param object $parent 
+     * @param object $parent
      * @since 1.0.5
      */
     function __construct() {
@@ -19,12 +19,12 @@ class cfs_field
 
     /**
      * Generate the field HTML
-     * @param object $field 
+     * @param object $field
      * @since 1.0.5
      */
     function html( $field ) {
     ?>
-        <input type="text" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+        <input type="text" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
 
@@ -32,7 +32,7 @@ class cfs_field
     /**
      * Generate settings HTML for the field group edit screen
      * @param int $key The unique field identifier
-     * @param object $field 
+     * @param object $field
      * @since 1.0.5
      */
     function options_html( $key, $field ) {
@@ -69,12 +69,12 @@ class cfs_field
 
     /**
      * Format the value directly after database load
-     * 
+     *
      * Values are retrieved from the database as an array, even for field types that
      * don't expect arrays. For field types that should return array values, make
      * sure to override this method and return $value.
-     * 
-     * @param mixed $value 
+     *
+     * @param mixed $value
      * @param mixed $field The field object (optional)
      * @return mixed The field value
      * @since 1.6.9
@@ -86,7 +86,7 @@ class cfs_field
 
     /**
      * Format the value for use with $cfs->get
-     * @param mixed $value 
+     * @param mixed $value
      * @param mixed $field The field object (optional)
      * @return mixed
      * @since 1.0.5
@@ -98,7 +98,7 @@ class cfs_field
 
     /**
      * Format the value for use with HTML input elements
-     * @param mixed $value 
+     * @param mixed $value
      * @param mixed $field The field object (optional)
      * @return mixed
      * @since 1.0.5
@@ -110,7 +110,7 @@ class cfs_field
 
     /**
      * Format the value before saving to DB
-     * @param mixed $value 
+     * @param mixed $value
      * @param mixed $field The field object (optional)
      * @return mixed
      * @since 1.4.2
@@ -133,9 +133,9 @@ class cfs_field
 
     /**
      * Helper method to retrieve a field setting
-     * @param object $field 
-     * @param string $option_name 
-     * @param mixed $default_value 
+     * @param object $field
+     * @param string $option_name
+     * @param mixed $default_value
      * @return mixed
      * @since 1.4.3
      */

@@ -61,7 +61,7 @@ class cfs_relationship extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $post ) : ?>
             <?php $class = ( isset( $selected_posts[ $post->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?> title="<?php echo $post->post_type; ?>"><?php echo apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID, $field ); ?></div>
+            <div rel="<?php echo $post->ID; ?>"<?php echo $class; ?> title="<?php echo esc_attr( $post->post_type ); ?>"><?php echo apply_filters( 'cfs_relationship_display', $post->post_title, $post->ID, $field ); ?></div>
         <?php endforeach; ?>
         </div>
 
@@ -71,7 +71,7 @@ class cfs_relationship extends cfs_field
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+        <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
 

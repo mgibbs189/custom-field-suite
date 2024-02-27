@@ -32,7 +32,7 @@ class cfs_select extends cfs_field
             $field->input_name .= '[]';
         }
     ?>
-        <select name="<?php echo $field->input_name; ?>" class="<?php echo trim( $field->input_class ); ?>"<?php echo $multiple; ?>>
+        <select name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>"<?php echo $multiple; ?>>
         <?php foreach ( $field->options['choices'] as $val => $label ) : ?>
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
             <?php $selected = in_array( $val, (array) $field->value ) ? ' selected' : ''; ?>

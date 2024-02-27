@@ -11,7 +11,7 @@ class cfs_textarea extends cfs_field
 
     function html( $field ) {
     ?>
-        <textarea name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" rows="4"><?php echo $field->value; ?></textarea>
+        <textarea name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" rows="4"><?php echo $field->value; ?></textarea>
     <?php
     }
 

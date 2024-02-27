@@ -17,7 +17,7 @@ class cfs_true_false extends cfs_field
 		<label>
 			<input type="checkbox" <?php echo $field->value ? ' checked' : ''; ?>>
 			<span><?php echo $field->options['message']; ?></span>
-			<input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+			<input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
 		</label>
     <?php
     }

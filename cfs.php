@@ -2,7 +2,7 @@
 /*
 Plugin Name: Custom Field Suite
 Description: Visually add custom fields to your WordPress edit pages.
-Version: 2.6.4
+Version: 2.6.5
 Author: Matt Gibbs
 Text Domain: cfs
 Domain Path: /languages/
@@ -21,7 +21,7 @@ class Custom_Field_Suite
     function __construct() {
 
         // setup variables
-        define( 'CFS_VERSION', '2.6.4' );
+        define( 'CFS_VERSION', '2.6.5' );
         define( 'CFS_DIR', dirname( __FILE__ ) );
         define( 'CFS_URL', plugins_url( '', __FILE__ ) );
 

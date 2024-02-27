@@ -19,7 +19,7 @@ class cfs_wysiwyg extends cfs_field
                 <?php do_action( 'media_buttons' ); ?>
             </div>
             <div class="wp-editor-container">
-                <textarea name="<?php echo $field->input_name; ?>" class="wp-editor-area <?php echo $field->input_class; ?>" style="height:300px"><?php echo $field->value; ?></textarea>
+                <textarea name="<?php echo esc_attr( $field->input_name ); ?>" class="wp-editor-area <?php echo esc_attr( $field->input_class ); ?>" style="height:300px"><?php echo $field->value; ?></textarea>
             </div>
         </div>
     <?php
@@ -110,10 +110,10 @@ class cfs_wysiwyg extends cfs_field
                     // set the wysiwyg css id
                     $(this).find('.wysiwyg').attr('id', input_id);
                     $(this).find('a.add_media').attr('data-editor', input_id);
-                    
+
                     // if all editors on page are in 'text' tab, tinyMCE.settings will not be set
                     if ('undefined' === typeof tinyMCE.settings || Object.keys(tinyMCE.settings).length === 0) {
-                        
+
                         // let's pull from tinyMCEPreInit for main content area (if it's set)
                         if ('undefined' !== typeof tinyMCEPreInit && 'undefined' !== typeof tinyMCEPreInit.mceInit.content) {
                             tinyMCE.settings = tinyMCEPreInit.mceInit.content;
@@ -124,10 +124,10 @@ class cfs_wysiwyg extends cfs_field
                                 wpautop : true,
                                 resize : 'vertical',
                                 toolbar2 : 'code'
-                            };  
+                            };
                         }
                     }
-                    
+
                     // add the "code" button
                     if ('undefined' !== typeof tinyMCE.settings.toolbar2) {
                         if (tinyMCE.settings.toolbar2.indexOf('code') < 0) {
@@ -138,7 +138,7 @@ class cfs_wysiwyg extends cfs_field
                     // create wysiwyg
                     wpautop = tinyMCE.settings.wpautop;
                     resize = tinyMCE.settings.resize;
-                    
+
                     if (tinyMCE.settings.plugins){
                         if ( tinyMCE.settings.plugins.indexOf('code,link') === -1 ){
                             tinyMCE.settings.plugins = tinyMCE.settings.plugins + ',code,link';
