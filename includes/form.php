@@ -376,7 +376,7 @@ CFS['loop_buffer'] = [];
                     if ( $field->name != $tabs[0]->name ) {
                         echo '</div>';
                     }
-                    echo '<div class="cfs-tab-content cfs-tab-content-' . $field->name . '">';
+                    echo '<div class="cfs-tab-content cfs-tab-content-' . esc_attr( $field->name ) . '">';
 
 					if ( ! empty( $field->notes ) ) {
 						echo '<div class="cfs-tab-notes">' . esc_html( $field->notes ) . '</div>';
@@ -385,7 +385,7 @@ CFS['loop_buffer'] = [];
                 else {
     ?>
 
-        <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>"">
+        <div class="field field-<?php echo esc_attr( $field->name ); ?>" data-type="<?php echo esc_attr( $field->type ); ?>" data-name="<?php echo esc_attr( $field->name ); ?>"">
             <?php if ( 'loop' == $field->type ) : ?>
             <a href="javascript:;" class="cfs_loop_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'cfs' ); ?>"></a>
             <?php endif; ?>
@@ -398,7 +398,7 @@ CFS['loop_buffer'] = [];
             <p class="notes"><?php echo esc_html( $field->notes ); ?></p>
             <?php endif; ?>
 
-            <div class="cfs_<?php echo $field->type; ?>">
+            <div class="cfs_<?php echo esc_attr( $field->type ); ?>">
 
     <?php
                 CFS()->create_field( [

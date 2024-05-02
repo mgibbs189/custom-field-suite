@@ -32,7 +32,7 @@
                                             <div class="tooltip_inner"><?php _e( 'The field label that editors will see.', 'cfs' ); ?></div>
                                         </div>
                                     </label>
-                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
+                                    <input type="text" name="cfs[fields][<?php echo (int) $field->weight; ?>][label]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->label ); ?>" />
                                 </td>
                                 <td class="field_name">
                                     <label>
@@ -43,14 +43,14 @@
                                             </div>
                                         </div>
                                     </label>
-                                    <input type="text" name="cfs[fields][<?php echo $field->weight; ?>][name]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->name ); ?>" />
+                                    <input type="text" name="cfs[fields][<?php echo (int) $field->weight; ?>][name]" value="<?php echo empty( $field->id ) ? '' : esc_attr( $field->name ); ?>" />
                                 </td>
                                 <td class="field_type">
                                     <label><?php _e( 'Field Type', 'cfs' ); ?></label>
-                                    <select name="cfs[fields][<?php echo $field->weight; ?>][type]">
+                                    <select name="cfs[fields][<?php echo (int) $field->weight; ?>][type]">
                                         <?php foreach ( CFS()->fields as $type ) : ?>
                                         <?php $selected = ($type->name == $field->type) ? ' selected' : ''; ?>
-                                        <option value="<?php echo $type->name; ?>"<?php echo $selected; ?>><?php echo $type->label; ?></option>
+                                        <option value="<?php echo esc_attr( $type->name ); ?>"<?php echo $selected; ?>><?php echo esc_html( $type->label ); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </td>
@@ -59,7 +59,7 @@
                     </td>
                 </tr>
 
-                <?php CFS()->fields[ $field->type ]->options_html( $field->weight, $field ); ?>
+                <?php CFS()->fields[ $field->type ]->options_html( (int) $field->weight, $field ); ?>
 
                 <tr class="field_notes">
                     <td class="label">
@@ -71,7 +71,7 @@
                         </label>
                     </td>
                     <td>
-                        <textarea name="cfs[fields][<?php echo $field->weight; ?>][notes]"><?php echo esc_textarea( $field->notes ); ?></textarea>
+                        <textarea name="cfs[fields][<?php echo (int) $field->weight; ?>][notes]"><?php echo esc_textarea( $field->notes ); ?></textarea>
                     </td>
                 </tr>
                 <tr class="field_actions">
