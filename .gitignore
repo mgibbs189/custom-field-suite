@@ -1,1 +1,19 @@
-.svn/
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Jest
+coverage/
+
+# エディタ設定
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+
+# OS固有
+.DS_Store
+Thumbs.db

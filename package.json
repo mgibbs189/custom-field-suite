@@ -1,0 +1,24 @@
+{
+  "name": "custom-field-suite",
+  "version": "3.0.0-dev",
+  "description": "Custom Field Suite - WordPressフィールド管理プラグイン",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint assets/js/fields/",
+    "lint:fix": "eslint assets/js/fields/ --fix"
+  },
+  "author": "",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-jest": "^29.6.1",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.6.1",
+    "prettier": "^3.0.0"
+  }
+}
