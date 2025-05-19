@@ -440,7 +440,7 @@ msgid "Reset and deactivate."
 msgstr "Сбросить и деактивировать."
 
 #: ../templates/page_tools.php:123
-msgid "This will delete all CFS data and deactivate the plugin."
+msgid "This will delete all KDCF data and deactivate the plugin."
 msgstr "Это действие удалит все данные форм и деактивирует плагин."
 
 #: ../templates/page_tools.php:124
@@ -462,8 +462,8 @@ msgstr "Удалить все"
 #~ msgid "Gravity Forms"
 #~ msgstr "Gravity Forms"
 
-#~ msgid "Your Gravity Form and CFS field labels must match exactly"
-#~ msgstr "Ваши формы тяжести и CFS меток полей должны точно совпадать"
+#~ msgid "Your Gravity Form and KDCF field labels must match exactly"
+#~ msgstr "Ваши формы тяжести и KDCF меток полей должны точно совпадать"
 
 #~ msgid "Learn more"
 #~ msgstr "Узнать больше"
