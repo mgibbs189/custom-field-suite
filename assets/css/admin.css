@@ -1,0 +1,310 @@
+/**
+ * Custom Field Suite Extension - Admin CSS
+ *
+ * 管理画面用のスタイルシート
+ */
+
+/* 共通スタイル */
+.cfse-fields-container {
+    margin: 0 -12px;
+}
+
+.cfse-field-wrapper {
+    margin-bottom: 16px;
+    padding: 0 12px;
+}
+
+.cfse-field-label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.cfse-field-description {
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.cfse-required {
+    color: #dc3232;
+    margin-left: 3px;
+}
+
+.cfse-field-input {
+    position: relative;
+}
+
+/* テキストフィールド */
+.cfse-text-field {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* テキストエリアフィールド */
+.cfse-textarea-field {
+    width: 100%;
+    min-height: 100px;
+}
+
+/* セレクトフィールド */
+.cfse-select-field {
+    min-width: 200px;
+}
+
+/* チェックボックスフィールド */
+.cfse-checkbox-field {
+    margin-right: 8px;
+}
+
+/* ラジオボタンフィールド */
+.cfse-radio-wrapper {
+    margin-bottom: 5px;
+}
+
+.cfse-radio-field {
+    margin-right: 5px;
+}
+
+/* ループフィールド */
+.cfse-loop-field {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+}
+
+.cfse-loop-header {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cfse-loop-body {
+    padding: 10px;
+}
+
+.cfse-loop-info {
+    font-weight: 600;
+}
+
+.cfse-loop-limits {
+    font-weight: normal;
+    color: #666;
+    font-size: 12px;
+}
+
+.cfse-loop-rows {
+    margin-bottom: 10px;
+}
+
+.cfse-loop-row {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.cfse-loop-row-header {
+    padding: 8px 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cfse-loop-row-label {
+    font-weight: 600;
+}
+
+.cfse-loop-row-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.cfse-loop-row-content {
+    padding: 15px;
+}
+
+.cfse-loop-row-content-collapsed {
+    display: none;
+}
+
+.cfse-loop-sub-field {
+    margin-bottom: 12px;
+}
+
+.cfse-loop-template {
+    display: none;
+}
+
+/* ドラッグ中のスタイル */
+.cfse-dragging {
+    opacity: 0.5;
+}
+
+/* ファイルフィールド */
+.cfse-file-field {
+    margin-bottom: 15px;
+}
+
+.cfse-file-buttons {
+    margin-bottom: 10px;
+}
+
+.cfse-file-preview {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.cfse-file-preview img {
+    margin-right: 10px;
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.cfse-file-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #666;
+}
+
+.cfse-file-name {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.cfse-file-remove-button {
+    display: none;
+}
+
+/* リレーションシップフィールド */
+.cfse-relationship-field {
+    margin-bottom: 15px;
+}
+
+.cfse-relationship-search {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+.cfse-relationship-container {
+    display: flex;
+    max-width: 800px;
+}
+
+.cfse-relationship-results,
+.cfse-relationship-selected {
+    flex: 1;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.cfse-relationship-results {
+    margin-right: 10px;
+}
+
+.cfse-relationship-item {
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.cfse-relationship-item:hover {
+    background-color: #f1f1f1;
+}
+
+.cfse-relationship-handle {
+    cursor: move;
+    margin-right: 5px;
+    color: #999;
+}
+
+.cfse-relationship-remove {
+    margin-right: 5px;
+    cursor: pointer;
+    color: #999;
+}
+
+.cfse-relationship-remove:hover {
+    color: #dc3232;
+}
+
+.cfse-relationship-title {
+    flex: 1;
+}
+
+.cfse-relationship-type {
+    margin-left: 5px;
+    color: #999;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.cfse-no-results {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
+.cfse-loading {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
+.cfse-error {
+    padding: 10px;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    color: #b71c1c;
+    border-radius: 3px;
+}
+
+/* 日付フィールド */
+.cfse-date-field {
+    width: 200px;
+}
+
+/* カラーフィールド */
+.cfse-color-field {
+    width: 80px;
+}
+
+/* WYSIWYG フィールド */
+.cfse-wysiwyg-field {
+    width: 100%;
+    min-height: 200px;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 782px) {
+    .cfse-relationship-container {
+        flex-direction: column;
+    }
+
+    .cfse-relationship-results {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
