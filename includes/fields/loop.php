@@ -171,6 +171,28 @@ class cfs_loop extends cfs_field
 
     /*
     ================================================================
+        get_values_by_tag
+    ================================================================
+    */
+    function get_values_by_tag( $tag ) {
+        if (!preg_match_all('/\[([^\]]+)\]/', $tag, $matches)) {
+            return FALSE;
+        }
+        $keys = $matches[1];
+
+        $current = $this->values;
+        foreach ($keys as $key) {
+            if (!is_array($current) || !array_key_exists($key, $current)) {
+                return FALSE;
+            }
+            $current = $current[$key];
+        }
+
+        return $current;
+    }
+
+    /*
+    ================================================================
         recursive_html
     ================================================================
     */
@@ -189,7 +211,7 @@ class cfs_loop extends cfs_field
 
         // Dynamically build the $values array
         $parent_tag = empty( $parent_tag ) ? "[$field_id]" : $parent_tag;
-        eval( "\$values = isset(\$this->values{$parent_tag} ) ? \$this->values{$parent_tag} : false;" );
+        $values = $this->get_values_by_tag( $parent_tag );
 
         // Row options
         $row_display = $this->get_option( $loop_field[ $field_id ], 'row_display', 0 );
