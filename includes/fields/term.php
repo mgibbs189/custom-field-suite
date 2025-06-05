@@ -55,7 +55,10 @@ class cfs_term extends cfs_field
         }
 
         if ( ! empty( $field->value ) ) {
-            $results = $wpdb->get_results( "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($field->value) ORDER BY FIELD(term_id,$field->value)" );
+            $term_ids = explode(',', $field->value);
+            $placeholders = implode(',', array_fill(0, count($term_ids), '%d'));
+            $sql = $wpdb->prepare( "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($placeholders) ORDER BY FIELD(term_id,$placeholders)", ...$term_ids, ...$term_ids );
+            $results = $wpdb->get_results( $sql );
             foreach ( $results as $result ) {
                 $selected_posts[ $result->term_id ] = $result;
             }

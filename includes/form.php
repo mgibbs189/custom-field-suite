@@ -61,12 +61,12 @@ class cfs_form
 
                 // Title
                 if ( isset( $_POST['cfs']['post_title'] ) ) {
-                    $post_data['post_title'] = stripslashes( $_POST['cfs']['post_title'] );
+                    $post_data['post_title'] = sanitize_textarea_field( $_POST['cfs']['post_title'] );
                 }
 
                 // Content
                 if ( isset( $_POST['cfs']['post_content'] ) ) {
-                    $post_data['post_content'] = stripslashes( $_POST['cfs']['post_content'] );
+                    $post_data['post_content'] = sanitize_textarea_field( $_POST['cfs']['post_content'] );
                 }
 
                 // New posts
