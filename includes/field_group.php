@@ -278,7 +278,7 @@ class cfs_field_group
 
                 // Break apart the autocomplete string
                 if ( 'post_ids' == $type ) {
-                    $params['rules'][ $type ] = explode( ',', $params['rules'][ $type ] );
+                    $params['rules'][ $type ] = array_map( 'absint', explode( ',', $params['rules'][ $type ] ) );
                 }
 
                 $data[ $type ] = [

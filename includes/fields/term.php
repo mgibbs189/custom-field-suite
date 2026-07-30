@@ -71,17 +71,17 @@ class cfs_term extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_posts as $term ) : ?>
             <?php $class = ( isset( $selected_posts[ $term->term_id ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $term->term_id; ?>"<?php echo $class; ?> title="<?php echo $term->name; ?>"><?php echo apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ); ?></div>
+            <div rel="<?php echo esc_attr( $term->term_id ); ?>"<?php echo $class; ?> title="<?php echo esc_attr( $term->name ); ?>"><?php echo esc_html( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_posts as $term ) : ?>
-            <div rel="<?php echo $term->term_id; ?>"><span class="remove"></span><?php echo apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ); ?></div>
+            <div rel="<?php echo esc_attr( $term->term_id ); ?>"><span class="remove"></span><?php echo esc_html( apply_filters( 'cfs_term_display', $term->name, $term->term_id, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+        <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
 

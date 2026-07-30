@@ -34,17 +34,17 @@ class cfs_user extends cfs_field
         <div class="available_posts post_list">
         <?php foreach ( $available_users as $user ) : ?>
             <?php $class = ( isset( $selected_users[ $user->ID ] ) ) ? ' class="used"' : ''; ?>
-            <div rel="<?php echo $user->ID; ?>"<?php echo $class; ?>><?php echo apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ); ?></div>
+            <div rel="<?php echo esc_attr( $user->ID ); ?>"<?php echo $class; ?>><?php echo esc_html( apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
 
         <div class="selected_posts post_list">
         <?php foreach ( $selected_users as $user ) : ?>
-            <div rel="<?php echo $user->ID; ?>"><span class="remove"></span><?php echo apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ); ?></div>
+            <div rel="<?php echo esc_attr( $user->ID ); ?>"><span class="remove"></span><?php echo esc_html( apply_filters( 'cfs_user_display', $user->user_login, $user->ID, $field ) ); ?></div>
         <?php endforeach; ?>
         </div>
         <div class="clear"></div>
-        <input type="hidden" name="<?php echo $field->input_name; ?>" class="<?php echo $field->input_class; ?>" value="<?php echo $field->value; ?>" />
+        <input type="hidden" name="<?php echo esc_attr( $field->input_name ); ?>" class="<?php echo esc_attr( $field->input_class ); ?>" value="<?php echo esc_attr( $field->value ); ?>" />
     <?php
     }
 
