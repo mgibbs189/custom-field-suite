@@ -54,13 +54,14 @@ $post_ids = [];
 $json_posts = [];
 
 if ( ! empty( $rules['post_ids']['values'] ) ) {
-    $post_in = implode( ',', $rules['post_ids']['values'] );
+    $rule_post_ids = array_map( 'absint', $rules['post_ids']['values'] );
+    $placeholders = implode( ',', array_fill( 0, count( $rule_post_ids ), '%d' ) );
 
-    $sql = "
+    $sql = $wpdb->prepare( "
     SELECT ID, post_type, post_title, post_parent
     FROM $wpdb->posts
-    WHERE ID IN ($post_in)
-    ORDER BY post_type, post_title";
+    WHERE ID IN ($placeholders)
+    ORDER BY post_type, post_title", ...$rule_post_ids );
     $results = $wpdb->get_results( $sql );
 
     foreach ( $results as $result ) {
