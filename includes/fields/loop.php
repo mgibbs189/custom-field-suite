@@ -169,11 +169,15 @@ class cfs_loop extends cfs_field
     }
 
 
-    /*
-    ================================================================
-        get_values_by_tag
-    ================================================================
-    */
+    /**
+     * Recursively retrieves loop values using key tags.
+     * 
+     * Security fix: Safely traverses nested arrays without resorting to eval(),
+     * preventing potential Arbitrary Code Execution vulnerabilities.
+     * 
+     * @param string $tag Tag format like "[field_id][row_index]".
+     * @return mixed Array value or false if not found.
+     */
     function get_values_by_tag( $tag ) {
         if (!preg_match_all('/\[([^\]]+)\]/', $tag, $matches)) {
             return FALSE;

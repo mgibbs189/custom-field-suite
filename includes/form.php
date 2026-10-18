@@ -59,14 +59,14 @@ class cfs_form
                     $field_groups[$key] = (int) $val;
                 }
 
-                // Title
+                // Title (Security fix: Sanitize inputs to prevent Stored XSS)
                 if ( isset( $_POST['cfs']['post_title'] ) ) {
-                    $post_data['post_title'] = sanitize_textarea_field( $_POST['cfs']['post_title'] );
+                    $post_data['post_title'] = sanitize_textarea_field( wp_unslash( $_POST['cfs']['post_title'] ) );
                 }
 
-                // Content
+                // Content (Security fix: Sanitize inputs to prevent Stored XSS)
                 if ( isset( $_POST['cfs']['post_content'] ) ) {
-                    $post_data['post_content'] = sanitize_textarea_field( $_POST['cfs']['post_content'] );
+                    $post_data['post_content'] = sanitize_textarea_field( wp_unslash( $_POST['cfs']['post_content'] ) );
                 }
 
                 // New posts

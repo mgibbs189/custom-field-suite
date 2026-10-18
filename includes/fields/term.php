@@ -55,8 +55,10 @@ class cfs_term extends cfs_field
         }
 
         if ( ! empty( $field->value ) ) {
-            $term_ids = explode(',', $field->value);
-            $placeholders = implode(',', array_fill(0, count($term_ids), '%d'));
+            // Security fix: Sanitize and prepare SQL query to prevent SQL Injection.
+            // Dynamically constructs parameterized placeholders based on term ID array count.
+            $term_ids = array_map( 'intval', explode( ',', $field->value ) );
+            $placeholders = implode( ',', array_fill( 0, count( $term_ids ), '%d' ) );
             $sql = $wpdb->prepare( "SELECT term_id, name FROM $wpdb->terms WHERE term_id IN ($placeholders) ORDER BY FIELD(term_id,$placeholders)", ...$term_ids, ...$term_ids );
             $results = $wpdb->get_results( $sql );
             foreach ( $results as $result ) {
